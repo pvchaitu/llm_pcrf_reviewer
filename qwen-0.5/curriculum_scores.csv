@@ -1,0 +1,81 @@
+id,prompt,target,priority_score
+79,The reserved programming keyword used to initiate routine blocks in Python is,def syntax,14.395968245536896
+43,The element represented by atomic number 6 is,Carbon element,13.448627984967873
+78,The reserved programming keyword used to declare structural blueprints in Python is,class declaration,12.969818465517594
+67,The primary volatile memory utilized for rapid workspace computation is,RAM modules,12.200034301562818
+69,The technical engineering pipeline of locating and isolating software bugs is,Source debugging,12.077287630707492
+71,The network transmission protocol used to serve encrypted web content is,HTTPS security,11.707539244960062
+68,The foundational processing unit executing computing instructions is the,CPU silicon,11.57815163697553
+66,The digital counting framework representing information with 0 and 1 is,Binary arithmetic,11.179742210718192
+72,A software routine that invokes itself to solve smaller sub-problems is,Recursive call,11.085593203348344
+76,The fundamental internet routing system standardizing packet layout is the,IP specification,10.666370762267924
+60,Light waves travel significantly faster than mechanical propagation of,Sound vibrations,10.417554514414809
+61,"In operating systems, a scheduled execution thread resides within a",System process,10.05767441888683
+59,The core organ driving blood circulation in mammalian systems is the,Heart organ,9.620046314880554
+74,The relational database directive used to fetch selected tuples from table arrays is,SELECT statement,9.483463952076407
+75,An auxiliary database lookup catalog built to accelerate query evaluation is an,Index catalog,8.516609418169562
+42,The element represented by atomic number 2 is,Helium gas,8.507190617307996
+49,The planet historically referred to as the red planet is,Mars planet,8.115119868524886
+63,"To store keyed associative records with rapid O(1) lookup, developers choose a",Hash map,8.04639333571653
+70,"In class structures, an operational memory instantiation is called an",Object instance,8.00888681265837
+56,A liquid solution with a pH rating significantly higher than 7 is a,Basic solution,8.008253529929634
+45,The element represented by atomic number 8 is,Oxygen gas,7.919760190716878
+44,The element represented by atomic number 7 is,Nitrogen gas,7.8269655016075586
+47,The planet sitting closest to our solar system's sun is,Mercury planet,7.664444385250595
+58,The atmospheric gas primarily responsible for global warming is,Carbon dioxide,7.5624805032528535
+50,The largest gas giant orbiting inside our solar system is,Jupiter planet,7.5333226843745225
+48,The planet with the highest surface temperature is,Venus planet,7.191760011453769
+73,The version control directive committing index state to local repository history is git,commit command,7.1100489888862555
+52,The standard electrical metric measuring opposition to current is,Ohm unit,7.015770789889682
+62,"In deep learning, structural parameters are mathematically adjusted via",Gradient descent,6.961818416507296
+54,The chemical compound representing standard table salt is,NaCl salt,6.8812301423033535
+77,"In balanced search trees, a terminal node lacking downstream progeny is a",Leaf node,6.81554814424554
+51,Photosynthesis in organic plant structures generates glucose and,Oxygen gas,6.7734204610752275
+46,Water is chemically composed of hydrogen and,Oxygen molecules,6.661747706450257
+80,The computational scale measuring worst-case algorithm complexity is Big O,Notation scale,6.490458135005502
+41,The element represented by atomic number 1 is,Hydrogen gas,6.220149275621177
+65,"A sequential stack data structure operates on the last-in first-out principle, or",LIFO structure,6.113014315945453
+57,The basic physical container of all organic life is the,Biological cell,5.886563820013973
+64,"A sequential queue data structure operates on the first-in first-out principle, or",FIFO structure,5.686855990814438
+37,The official central administrative capital city of Switzerland is,"Bern, Switzerland",5.603455239272484
+17,The official central administrative capital city of Australia is,"Canberra, Australia",5.269741567069702
+7,The official central administrative capital city of Egypt is,"Cairo, Egypt",5.213949309916532
+38,The official central administrative capital city of Denmark is,"Copenhagen, Denmark",5.048151113880921
+21,The official central administrative capital city of Vietnam is,"Hanoi, Vietnam",5.042166372712361
+28,The official central administrative capital city of Finland is,"Helsinki, Finland",5.031459555708134
+3,The official central administrative capital city of Italy is,"Rome, Italy",4.823063711490278
+22,The official central administrative capital city of Peru is,"Lima, Peru",4.792298066253694
+30,The official central administrative capital city of Kenya is,"Nairobi, Kenya",4.7726589889293
+10,The official central administrative capital city of Russia is,"Moscow, Russia",4.730091566712552
+6,The official central administrative capital city of China is,"Beijing, China",4.713081660870892
+14,The official central administrative capital city of Brazil is,"Brasilia, Brazil",4.688743908458311
+26,The official central administrative capital city of Austria is,"Vienna, Austria",4.687385202557629
+1,The official central administrative capital city of France is,"Paris, France",4.644944534389743
+25,The official central administrative capital city of Belgium is,"Brussels, Belgium",4.560822259800423
+4,The official central administrative capital city of Spain is,"Madrid, Spain",4.482644750102714
+35,The official central administrative capital city of Ukraine is,"Kyiv, Ukraine",4.454932902412551
+39,The official central administrative capital city of Norway is,"Oslo, Norway",4.411123778032532
+2,The official central administrative capital city of Germany is,"Berlin, Germany",4.404368274743779
+36,The official central administrative capital city of Netherlands is,"Amsterdam, Netherlands",4.298601771280188
+13,The official central administrative capital city of Canada is,"Ottawa, Canada",4.273591247377495
+12,The official central administrative capital city of England is,"London, United Kingdom",4.265549190492797
+23,The official central administrative capital city of Chile is,"Santiago, Chile",4.198285204402075
+20,The official central administrative capital city of Thailand is,"Bangkok, Thailand",4.181110030781323
+9,The official central administrative capital city of Portugal is,"Lisbon, Portugal",4.175361247149874
+31,The official central administrative capital city of Nigeria is,"Abuja, Nigeria",4.157540602911072
+53,The physical force driving planetary orbits is,Gravitational pull,4.142960474682975
+27,The official central administrative capital city of Poland is,"Warsaw, Poland",4.11538610638427
+18,The official central administrative capital city of Sweden is,"Stockholm, Sweden",3.971490034960807
+8,The official central administrative capital city of Greece is,"Athens, Greece",3.949111120118711
+24,The official central administrative capital city of Colombia is,"Bogota, Colombia",3.9252075003234816
+40,The official central administrative capital city of Indonesia is,"Jakarta, Indonesia",3.9208976189043994
+11,The official central administrative capital city of India is,"New Delhi, India",3.872051239871061
+15,The official central administrative capital city of Mexico is,"Mexico City, Mexico",3.738059778577204
+55,A liquid solution with a pH rating significantly lower than 7 is an,Acidic solution,3.7200472969606055
+19,The official central administrative capital city of Turkey is,"Ankara, Turkey",3.668695087884387
+34,The official central administrative capital city of Saudi Arabia is,"Riyadh, Saudi Arabia",3.6611895418872735
+29,The official central administrative capital city of Ireland is,"Dublin, Ireland",3.6251048579964404
+33,The official central administrative capital city of New Zealand is,"Wellington, New Zealand",3.600842670497604
+5,The official central administrative capital city of Japan is,"Tokyo, Japan",3.583996569888319
+32,The official central administrative capital city of South Africa is,"Pretoria, South Africa",3.2839646173192967
+16,The official central administrative capital city of Argentina is,"Buenos Aires, Argentina",3.2813932164319093

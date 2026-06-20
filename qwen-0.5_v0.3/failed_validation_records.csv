@@ -1,0 +1,42 @@
+split,id,prompt,expected,actual,nll
+seen_val,86,The noble element designated by atomic number 10 is,Neon,"____
+A. Sodium",10.9375
+seen_val,87,The volatile element designated by atomic number 16 is,Sulfur,"____
+A. Fluor",3.4583
+seen_val,89,The yellow dwarf star supporting life at the center of our solar system is the,Sun,most distant star in the Milky,3.2344
+seen_val,90,Mechanical acoustics are completely incapable of moving across a spatial,Vacuum,domain. The only way to,13.5625
+seen_val,96,"To enforce unique constraints with no duplicated items, algorithms utilize a",Set,"technique called ""hashing.""",7.0625
+seen_val,98,An execution failure originating from incorrect program logic is called a,Bug,"____ failure.
+A. Logical",11.1875
+seen_val,99,A standardized text notation representing complex structural records is,JSON,used in the field of structural,9.5625
+seen_val,100,The active keyword used to bind external packages into Python script scopes is,import,"____
+A. from",7.3438
+unseen_val,106,Mammalian red blood cells are chemically responsible for transporting vital,Oxygen,substances in the body. Which,10.0000
+unseen_val,111,"An unexpected, completely unpredictable event is idiomatic described as out of the",blue,ordinary. It is a situation,1.7422
+unseen_val,115,"An extremely dynamic, energetic, and unpredictable person is referred to as a live",wire,action star. A. Correct,4.5625
+unseen_val,117,A networking layout topology organizing nodes around a central server hub is a,Star,typical example of a ____.,9.9375
+unseen_val,118,The routing index directory that translates domain strings to IP coordinates is,DNS,"____.
+A. /etc",8.3125
+unseen_val,119,A formal logical interface allowing separate software modules to interact is an,API,example of a(n) ____,6.5000
+unseen_val,120,The physical block boundary used to serialize hard drive data tracks is a,Sector,"(n) ____.
+A.",9.8750
+seen_val,86,The noble element designated by atomic number 10 is,Neon,"____
+A. Sodium",9.5000
+seen_val,87,The volatile element designated by atomic number 16 is,Sulfur,"____
+A. Fluor",3.1042
+seen_val,90,Mechanical acoustics are completely incapable of moving across a spatial,Vacuum,domain. The only way to,13.4375
+seen_val,96,"To enforce unique constraints with no duplicated items, algorithms utilize a",Set,"technique called ""hashing.""",6.8125
+seen_val,98,An execution failure originating from incorrect program logic is called a,Bug,program error. A. Correct,10.8750
+seen_val,99,A standardized text notation representing complex structural records is,JSON,used in the field of structural,9.3125
+seen_val,100,The active keyword used to bind external packages into Python script scopes is,import,"____
+A. from",5.3750
+unseen_val,106,Mammalian red blood cells are chemically responsible for transporting vital,Oxygen,substances in the body. The,9.8750
+unseen_val,107,The organic cellular process separating chromosome pairs into twin cells is,Mitosis,"called ____
+A. Mit",5.0625
+unseen_val,111,"An unexpected, completely unpredictable event is idiomatic described as out of the",blue,ordinary. It is a situation,1.5469
+unseen_val,115,"An extremely dynamic, energetic, and unpredictable person is referred to as a live",wire,action star. A. Correct,4.4375
+unseen_val,117,A networking layout topology organizing nodes around a central server hub is a,Star,common approach to network design.,9.0625
+unseen_val,118,The routing index directory that translates domain strings to IP coordinates is,DNS,"called ____.
+A. Routing",7.1875
+unseen_val,119,A formal logical interface allowing separate software modules to interact is an,API,important requirement for software development.,6.2500
+unseen_val,120,The physical block boundary used to serialize hard drive data tracks is a,Sector,128-byte block,9.1875

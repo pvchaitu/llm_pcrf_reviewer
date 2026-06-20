@@ -1,0 +1,126 @@
+{
+    "R_sys_chain": 0.3510964186348227,
+    "triggered_flaws": [],
+    "layers": [
+        {
+            "layer_idx": 0,
+            "reliability_r_l": 0.888687813140945,
+            "analytical_derivative": 0.39507284047692814
+        },
+        {
+            "layer_idx": 1,
+            "reliability_r_l": 0.9144213798126598,
+            "analytical_derivative": 0.38395473507711825
+        },
+        {
+            "layer_idx": 2,
+            "reliability_r_l": 0.9785453072771327,
+            "analytical_derivative": 0.3587942387785516
+        },
+        {
+            "layer_idx": 3,
+            "reliability_r_l": 0.9917417448934592,
+            "analytical_derivative": 0.3540200061584987
+        },
+        {
+            "layer_idx": 4,
+            "reliability_r_l": 0.9903193706145772,
+            "analytical_derivative": 0.35452847743141447
+        },
+        {
+            "layer_idx": 5,
+            "reliability_r_l": 0.9901614550072251,
+            "analytical_derivative": 0.35458501930097935
+        },
+        {
+            "layer_idx": 6,
+            "reliability_r_l": 0.9892144900258653,
+            "analytical_derivative": 0.35492445993754346
+        },
+        {
+            "layer_idx": 7,
+            "reliability_r_l": 0.9873232761559531,
+            "analytical_derivative": 0.35560431635095485
+        },
+        {
+            "layer_idx": 8,
+            "reliability_r_l": 0.9873232761559531,
+            "analytical_derivative": 0.35560431635095485
+        },
+        {
+            "layer_idx": 9,
+            "reliability_r_l": 0.988110842131526,
+            "analytical_derivative": 0.35532088472731155
+        },
+        {
+            "layer_idx": 10,
+            "reliability_r_l": 0.9876382271913587,
+            "analytical_derivative": 0.35549091658113435
+        },
+        {
+            "layer_idx": 11,
+            "reliability_r_l": 0.9884260443964179,
+            "analytical_derivative": 0.35520757534188574
+        },
+        {
+            "layer_idx": 12,
+            "reliability_r_l": 0.9884260443964179,
+            "analytical_derivative": 0.35520757534188574
+        },
+        {
+            "layer_idx": 13,
+            "reliability_r_l": 0.988268430697489,
+            "analytical_derivative": 0.3552642255171804
+        },
+        {
+            "layer_idx": 14,
+            "reliability_r_l": 0.9863790255359426,
+            "analytical_derivative": 0.3559447327502293
+        },
+        {
+            "layer_idx": 15,
+            "reliability_r_l": 0.9863790255359426,
+            "analytical_derivative": 0.3559447327502293
+        },
+        {
+            "layer_idx": 16,
+            "reliability_r_l": 0.9846502442159505,
+            "analytical_derivative": 0.35656967608268963
+        },
+        {
+            "layer_idx": 17,
+            "reliability_r_l": 0.9821410606150931,
+            "analytical_derivative": 0.3574806437834285
+        },
+        {
+            "layer_idx": 18,
+            "reliability_r_l": 0.9791697086688317,
+            "analytical_derivative": 0.35856544123708
+        },
+        {
+            "layer_idx": 19,
+            "reliability_r_l": 0.9741856321190583,
+            "analytical_derivative": 0.3603999146149531
+        },
+        {
+            "layer_idx": 20,
+            "reliability_r_l": 0.9661405586478925,
+            "analytical_derivative": 0.3634009725522546
+        },
+        {
+            "layer_idx": 21,
+            "reliability_r_l": 0.8646431042124149,
+            "analytical_derivative": 0.4060593520312974
+        },
+        {
+            "layer_idx": 22,
+            "reliability_r_l": 0.8508281375644029,
+            "analytical_derivative": 0.4126525712229947
+        },
+        {
+            "layer_idx": 23,
+            "reliability_r_l": 0.7833063951056172,
+            "analytical_derivative": 0.44822360806524836
+        }
+    ]
+}

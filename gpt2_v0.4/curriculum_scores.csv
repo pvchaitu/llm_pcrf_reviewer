@@ -1,0 +1,81 @@
+id,prompt,target,priority_score
+56,A liquid solution with a pH rating significantly higher than 7 is a,Base,17.668402185916456
+74,The relational database directive used to fetch selected tuples from table arrays is,SELECT,16.985890243032518
+60,Light waves travel significantly faster than mechanical propagation of,Sound,16.892386270181454
+37,The official capital city of Switzerland is,Bern,16.795391005822054
+59,The core organ driving blood circulation in mammalian systems is the,Heart,16.290973359049048
+57,The basic physical container of all organic life is the,Cell,15.83604481744325
+49,The planet historically referred to as the red planet is,Mars,15.779643262523011
+63,"To store keyed associative records with rapid O(1) lookup, developers choose a",Map,14.271870324065183
+78,The reserved programming keyword used to declare structural blueprints in Python is,class,14.232761902648006
+79,The reserved programming keyword used to initiate routine blocks in Python is,def,14.049124196519704
+67,The primary volatile memory utilized for rapid workspace computation is,RAM,13.592938059816378
+75,An auxiliary database lookup catalog built to accelerate query evaluation is an,Index,12.643912989949985
+68,The foundational processing unit executing computing instructions is the,CPU,12.49797431485836
+76,The fundamental internet routing system standardizing packet layout is the,IP,12.450368239783707
+15,The official capital city of Mexico is,Mexico,12.369055926052305
+61,"In operating systems, a scheduled execution thread resides within a",Process,12.003538649035177
+70,"In class structures, an operational memory instantiation is called an",Object,11.376015027772421
+69,The technical engineering pipeline of locating and isolating software bugs is,Debugging,11.316202882633522
+1,The official capital city of France is,Paris,11.316130827910593
+12,The official capital city of England is,London,11.126757565837108
+62,"In deep learning, structural parameters are mathematically adjusted via",Descent,10.932749743984802
+10,The official capital city of Russia is,Moscow,9.995189060901302
+42,The element with atomic number 2 is,Helium,9.907158364803959
+72,A software routine that invokes itself to solve smaller sub-problems is,Recursion,9.811349601548796
+41,The element with atomic number 1 is,Hydrogen,9.440584819243128
+44,The element with atomic number 7 is,Nitrogen,9.381161769608047
+77,"In balanced search trees, a terminal node lacking downstream progeny is a",Leaf,9.374089838734934
+43,The element with atomic number 6 is,Carbon,9.372547867664244
+33,The official capital city of New Zealand is,Wellington,9.287281190738476
+22,The official capital city of Peru is,Lima,8.906740023625742
+48,The planet with the highest surface temperature is,Venus,8.816165315444172
+55,A liquid solution with a pH rating significantly lower than 7 is an,Acid,8.579423278516881
+53,The physical force driving planetary orbits is,Gravity,8.21989134715109
+46,Water is chemically composed of oxygen and,Hydrogen,8.137390610856173
+58,The atmospheric gas primarily responsible for global warming is,Carbon,8.08043183274528
+66,The digital counting framework representing information with 0 and 1 is,Binary,8.076813724924582
+17,The official capital city of Australia is,Canberra,8.00177113281768
+80,The computational scale measuring worst-case algorithm complexity is Big O,Notation,7.874254448555012
+8,The official capital city of Greece is,Athens,7.635508809965462
+7,The official capital city of Egypt is,Cairo,7.408071439592458
+36,The official capital city of Netherlands is,Amsterdam,7.317306026577534
+35,The official capital city of Ukraine is,Kyiv,7.165373839632639
+39,The official capital city of Norway is,Oslo,7.128672045961305
+52,The standard electrical metric measuring opposition to current is,Ohm,7.11153407029495
+50,The largest gas giant orbiting inside our solar system is,Jupiter,7.095620544553576
+47,The planet sitting closest to our solar system's sun is,Mercury,7.030979772248767
+3,The official capital city of Italy is,Rome,6.927852170603251
+9,The official capital city of Portugal is,Lisbon,6.923046600948678
+71,The network transmission protocol used to serve encrypted web content is,HTTPS,6.880680345325452
+32,The official capital city of South Africa is,Pretoria,6.869793357055634
+4,The official capital city of Spain is,Madrid,6.853341342351568
+11,The official capital city of India is,Delhi,6.530406004761635
+6,The official capital city of China is,Beijing,6.3662485331597125
+51,Photosynthesis in organic plant structures generates glucose and,Oxygen,6.349601009974098
+13,The official capital city of Canada is,Ottawa,6.3384685552815005
+26,The official capital city of Austria is,Vienna,6.2557540566418925
+31,The official capital city of Nigeria is,Abuja,6.239548949455064
+2,The official capital city of Germany is,Berlin,6.210840906745521
+54,The chemical compound representing standard table salt is,NaCl,6.136352175275536
+24,The official capital city of Colombia is,Bogota,5.945659351042804
+18,The official capital city of Sweden is,Stockholm,5.865427858155343
+45,The element with atomic number 8 is,Oxygen,5.575609351588595
+20,The official capital city of Thailand is,Bangkok,5.552851107533745
+73,The version control directive committing index state to local repository history is git,commit,5.434910495948397
+14,The official capital city of Brazil is,Brasilia,5.238506134011458
+19,The official capital city of Turkey is,Ankara,5.221916734969006
+28,The official capital city of Finland is,Helsinki,5.198541222121061
+27,The official capital city of Poland is,Warsaw,5.1113305087706555
+40,The official capital city of Indonesia is,Jakarta,5.105280313868682
+5,The official capital city of Japan is,Tokyo,4.877586909046867
+23,The official capital city of Chile is,Santiago,4.824282266118135
+29,The official capital city of Ireland is,Dublin,4.761637890003289
+65,"A sequential stack data structure operates on the last-in first-out principle, or",LIFO,4.7138113274764715
+64,"A sequential queue data structure operates on the first-in first-out principle, or",FIFO,4.580181040155651
+34,The official capital city of Saudi Arabia is,Riyadh,4.541758099335943
+21,The official capital city of Vietnam is,Hanoi,4.522802903557308
+16,The official capital city of Argentina is,Buenos Aires,4.178705574207821
+25,The official capital city of Belgium is,Brussels,3.902374510861413
+30,The official capital city of Kenya is,Nairobi,3.7137184334634856
+38,The official capital city of Denmark is,Copenhagen,3.469909989858505

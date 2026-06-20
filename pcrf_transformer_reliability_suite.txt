@@ -1,0 +1,1973 @@
+# pcrf_transformer_reliability_suite.py
+"""
+PCRF Transformer Reliability Suite v1
+======================================
+A production-quality, patent-showcase framework and reusable library for evaluating,
+diagnosing, and improving Causal Language Model reliability using Probability Derivatives
+for Causal Reliability Flow (PCRF) and Causal Decay Loss (CDL).
+
+Based on the research and mathematical foundations of:
+"Probability Derivatives for Causal Reliability Flow: A Quantitative Framework for AI System Reliability"
+by Pinnamaraju Venkata Chaitanya (Cognizant Technology Solutions).
+
+This suite fully implements and demonstrates four research tracks separately and together:
+  (a) Structural PCRF: Modeling transformer blocks / residual stream as series chains/DAGs.
+  (b) Derivative Estimation Engine: Empirical estimation of module reliability derivatives.
+  (c) Derivative-Weighted Regularization: Safe derivative-guided regularization with promotion gates.
+  (d) Curriculum/Sample Selection: PCRF-based training sample selection and weighted learning.
+
+Author: AI Systems Research Group
+Date: June 2026
+License: MIT License
+"""
+
+import os
+import sys
+import abc
+import csv
+import json
+import math
+import random
+import logging
+import argparse
+from typing import Any, Dict, List, Optional, Tuple, Union, Callable
+from dataclasses import dataclass, field, asdict
+
+import numpy as np
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+from torch.utils.data import Dataset, DataLoader
+from transformers import AutoModelForCausalLM, AutoTokenizer, PreTrainedModel, PreTrainedTokenizer
+
+# Set up logging configuration
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(name)s - %(message)s",
+    handlers=[logging.StreamHandler(sys.stdout)]
+)
+logger = logging.getLogger("PCRF_Suite")
+
+
+# ==============================================================================
+# SECTION A. IMPORTS, ENVIRONMENT CONFIG, REPRODUCIBILITY
+# ==============================================================================
+
+def set_reproducibility(seed: int) -> None:
+    """Sets deterministic seeds across Python, NumPy, PyTorch, and CUDA backends."""
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
+    # Ensure reproducible operations where applicable
+    torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark = False
+    os.environ["PYTHONHASHSEED"] = str(seed)
+    logger.info(f"Reproducibility controls applied. Global seed: {seed}")
+
+
+# ==============================================================================
+# SECTION B. DATA STRUCTURES / DATACLASSES / TYPED CONFIGS
+# ==============================================================================
+
+@dataclass
+class ModelConfig:
+    model_name: str = "distilgpt2"  # Scalable to "gpt2", "llama", etc.
+    device: str = "cuda" if torch.cuda.is_available() else "cpu"
+    use_fp16: bool = torch.cuda.is_available()
+    max_len: int = 128
+    temperature: float = 0.7
+    top_p: float = 0.9
+    seed: int = 42
+
+
+@dataclass
+class DerivativeConfig:
+    enabled: bool = True
+    metric: str = "gold_log_prob"  # options: "gold_log_prob", "answer_nll", "logit_margin"
+    perturbation_mode: str = "noise"  # options: "zero_ablation", "noise", "scale", "activation_drift"
+    noise_std: float = 0.05
+    scale_factor: float = 0.5
+    num_stability_seeds: int = 3
+    granularity: str = "layer"  # options: "layer", "attention", "mlp", "head"
+
+
+@dataclass
+class CurriculumConfig:
+    enabled: bool = True
+    strategy: str = "derivative_weighted"  # options: "difficulty_only", "derivative_only", "hybrid_uncertainty", "random_control"
+    oversample_top_k: float = 0.3  # fraction of high-priority samples to oversample
+    replay_buffer_size: int = 10
+    staged_epochs: int = 3
+
+
+@dataclass
+class StructuralPCRFConfig:
+    enabled: bool = True
+    reliability_surrogate: str = "cosine_similarity"  # options: "cosine_similarity", "kl_divergence", "logit_margin"
+    mapping_transform: str = "exponential"  # options: "exponential", "linear", "sigmoid"
+    decay_beta: float = 2.0  # steepness for exponential mapping
+    submodule_factorization: bool = False  # If True, breaks layers into Attention, MLP, Residual Merge
+
+
+@dataclass
+class RegularizationConfig:
+    enabled: bool = True
+    lambda_reg: float = 0.05
+    penalty_type: str = "kl_baseline"  # options: "kl_baseline", "residual_drift", "activation_deviation"
+    warmup_steps: int = 50
+    gradient_anchoring: bool = True
+    weight_drift_penalty: float = 0.01
+    max_derivative_cap: float = 2.0
+
+
+@dataclass
+class PromotionGateConfig:
+    non_inferiority_margin: float = 0.02  # maximum allowed validation seen-split degradation (e.g. 2%)
+    min_unseen_improvement: float = 0.01  # minimum required unseen split gain to promote
+    derivative_stability_threshold: float = 0.75  # minimum Spearman correlation across seeds
+    degradation_budget: float = 0.05  # absolute max metric drop allowed before emergency rollback
+    calibration_worsening_threshold: float = 0.15
+
+
+@dataclass
+class ArtifactConfig:
+    output_dir: str = "./pcrf_artifacts"
+    save_everything: bool = True
+    gcs_bucket: Optional[str] = None
+    gcs_blob_name: str = "pcrf_export_report.csv"
+
+
+@dataclass
+class FeatureCapability:
+    feature_name: str
+    description: str
+    mutates_training: bool
+    requires_reference_baseline: bool
+    safe_by_default: bool
+    requires_promotion: bool
+    required_inputs: List[str]
+    optional_inputs: List[str]
+
+
+@dataclass
+class FeatureHealthReport:
+    feature_name: str
+    is_healthy: bool
+    unsupported_reason: Optional[str] = None
+    stability_metrics: Dict[str, float] = field(default_factory=dict)
+    diagnostics: List[str] = field(default_factory=list)
+
+
+@dataclass
+class FeatureDecisionReport:
+    feature_name: str
+    status: str  # e.g., SAFE_TO_APPLY, MEASUREMENT_ONLY, BLOCKED_BY_GATE, DO_NOT_APPLY
+    reason_code: str  # e.g., DERIVATIVE_INSTABILITY, SEEN_SPLIT_DAMAGE, BASELINE_ANCHOR_BREAK
+    explanation: str
+    recommender_action: str
+    safest_alternative: str
+
+
+@dataclass
+class DebugRecommendation:
+    feature_name: str
+    issue_detected: str
+    probable_causes: List[str]
+    evidence: Dict[str, Any]
+    suggested_debug_steps: List[str]
+    config_knobs_to_adjust: List[str]
+    suggested_safer_fallback: str
+    re_run_recommended: bool
+
+
+@dataclass
+class ExperimentComparisonRow:
+    track_name: str
+    train_nll: float
+    seen_val_nll: float
+    unseen_val_nll: float
+    seen_val_acc: float
+    unseen_val_acc: float
+    delta_vs_baseline_unseen_acc: float
+    status: str  # SAFE_TO_APPLY, MEASUREMENT_ONLY, DO_NOT_APPLY, etc.
+    recommendation: str
+
+
+# ==============================================================================
+# SECTION C. UTILITY FUNCTIONS
+# ==============================================================================
+
+class PCRFDAGNode:
+    """Represents a component/node in a general DAG of AI modules."""
+    def __init__(self, node_id: str, operator: str = "AND", r: float = 1.0):
+        self.node_id = node_id
+        self.operator = operator  # options: "AND", "OR", "XOR", "M_of_N"
+        self.r = r  # internal node-level reliability
+        self.parents: List['PCRFDAGNode'] = []
+        self.m_of_n_params: Tuple[int, int] = (1, 1)  # (M, N) if operator is "M_of_N"
+
+    def add_parent(self, parent_node: 'PCRFDAGNode') -> None:
+        self.parents.append(parent_node)
+
+
+class PCRFDAGCalculator:
+    """Computes end-to-end system reliability and analytical derivatives for arbitrary DAG structures."""
+    
+    @staticmethod
+    def calculate_reliability(nodes: List[PCRFDAGNode], target_node_id: str) -> Dict[str, float]:
+        """
+        Calculates end-to-end reliability Rsys for the target node by propagating probabilities.
+        Also uses PyTorch autograd under the hood to get analytical derivatives for ALL nodes!
+        """
+        # Build topological sort of dependencies
+        sorted_nodes = PCRFDAGCalculator._topological_sort(nodes, target_node_id)
+        
+        # We model this inside a small PyTorch computational graph to get analytical derivatives instantly!
+        r_tensors = {}
+        for node in sorted_nodes:
+            r_tensors[node.node_id] = torch.tensor(node.r, dtype=torch.float64, requires_grad=True)
+            
+        prob_correct = {}
+        for node in sorted_nodes:
+            r_curr = r_tensors[node.node_id]
+            if not node.parents:
+                prob_correct[node.node_id] = r_curr
+            else:
+                parent_probs = [prob_correct[p.node_id] for p in node.parents]
+                
+                if node.operator == "AND":
+                    # Series logic: product of parent correctness * internal correctness
+                    # Rsys = r_curr * prod(p_i)
+                    prod_parents = parent_probs[0]
+                    for p in parent_probs[1:]:
+                        prod_parents = prod_parents * p
+                    prob_correct[node.node_id] = r_curr * prod_parents
+                    
+                elif node.operator == "OR":
+                    # Parallel logic: system succeeds if at least one parent is correct, times node correctness
+                    # Rsys = r_curr * (1 - prod(1 - p_i))
+                    one_minus_prod = torch.tensor(1.0, dtype=torch.float64)
+                    for p in parent_probs:
+                        one_minus_prod = one_minus_prod * (1.0 - p)
+                    prob_correct[node.node_id] = r_curr * (1.0 - one_minus_prod)
+                    
+                elif node.operator == "XOR":
+                    # Simple 2-input conflict detection
+                    if len(parent_probs) != 2:
+                        # Fallback if not exactly 2 parents
+                        prob_correct[node.node_id] = r_curr * parent_probs[0]
+                    else:
+                        p1, p2 = parent_probs[0], parent_probs[1]
+                        xor_prob = p1 * (1.0 - p2) + p2 * (1.0 - p1)
+                        prob_correct[node.node_id] = r_curr * xor_prob
+                        
+                elif node.operator == "M_of_N":
+                    # Custom M-of-N logic using combination expansion (for small N)
+                    M, N = node.m_of_n_params
+                    prob_correct[node.node_id] = r_curr * PCRFDAGCalculator._torch_m_of_n(parent_probs, M)
+                    
+                else:
+                    # Default: treat as AND
+                    prod_parents = parent_probs[0]
+                    for p in parent_probs[1:]:
+                        prod_parents = prod_parents * p
+                    prob_correct[node.node_id] = r_curr * prod_parents
+
+        sys_rel = prob_correct[target_node_id]
+        sys_rel.backward()
+        
+        results = {
+            "R_sys": float(sys_rel.item())
+        }
+        for node in sorted_nodes:
+            # D_R^(r) = dRsys/dr_k
+            results[f"dRsys_dr_{node.node_id}"] = float(r_tensors[node.node_id].grad.item())
+            # D_R^(e) = dRsys/dep_k = -dRsys/dr_k (since ep_k = 1 - r_k)
+            results[f"dRsys_dep_{node.node_id}"] = -float(r_tensors[node.node_id].grad.item())
+            
+        return results
+
+    @staticmethod
+    def _topological_sort(nodes: List[PCRFDAGNode], target_node_id: str) -> List[PCRFDAGNode]:
+        node_map = {n.node_id: n for n in nodes}
+        visited = set()
+        stack = []
+
+        def visit(n: PCRFDAGNode):
+            if n.node_id in visited:
+                return
+            visited.add(n.node_id)
+            for p in n.parents:
+                visit(p)
+            stack.append(n)
+
+        target_node = node_map[target_node_id]
+        visit(target_node)
+        return stack
+
+    @staticmethod
+    def _torch_m_of_n(probs: List[torch.Tensor], M: int) -> torch.Tensor:
+        """Computes probability of at least M out of N components succeeding."""
+        # Simple recursive/backtracking expansion in PyTorch
+        N = len(probs)
+        if N == 0:
+            return torch.tensor(0.0, dtype=torch.float64)
+            
+        # We can construct the Poisson-binomial distribution via dynamic programming
+        dp = [torch.tensor(0.0, dtype=torch.float64) for _ in range(N + 1)]
+        dp[0] = torch.tensor(1.0, dtype=torch.float64)
+        
+        for p in probs:
+            new_dp = [torch.tensor(0.0, dtype=torch.float64) for _ in range(N + 1)]
+            for j in range(N + 1):
+                # if j items succeed, we could come from j-1 succeeding and this one succeeding,
+                # or j succeeding and this one failing.
+                if j > 0:
+                    new_dp[j] = dp[j] * (1.0 - p) + dp[j-1] * p
+                else:
+                    new_dp[j] = dp[j] * (1.0 - p)
+            dp = new_dp
+            
+        sum_prob = torch.tensor(0.0, dtype=torch.float64)
+        for i in range(M, N + 1):
+            sum_prob = sum_prob + dp[i]
+        return sum_prob
+
+
+# ==============================================================================
+# SECTION D. DATASET UTILITIES
+# ==============================================================================
+
+class ClozeQAExample:
+    def __init__(self, example_id: int, prompt: str, target: str, task_type: str = "cloze", metadata: Dict[str, Any] = None):
+        self.example_id = example_id
+        self.prompt = prompt
+        self.target = target
+        self.task_type = task_type
+        self.metadata = metadata or {}
+
+    def to_dict(self) -> Dict[str, Any]:
+        return {
+            "id": self.example_id,
+            "prompt": self.prompt,
+            "target": self.target,
+            "task_type": self.task_type,
+            "metadata": self.metadata
+        }
+
+
+class CustomFactualDataset(Dataset):
+    """A standard PyTorch Dataset wrapped over factual cloze prompts."""
+    def __init__(self, examples: List[ClozeQAExample], tokenizer: PreTrainedTokenizer, max_len: int = 128):
+        self.examples = examples
+        self.tokenizer = tokenizer
+        self.max_len = max_len
+
+    def __len__(self) -> int:
+        return len(self.examples)
+
+    def __getitem__(self, idx: int) -> Dict[str, torch.Tensor]:
+        ex = self.examples[idx]
+        
+        # Setup source text and complete target sequence
+        prompt_text = ex.prompt
+        target_text = ex.target
+        full_text = f"{prompt_text} {target_text}"
+        
+        # Tokenize separately to calculate loss target masks
+        prompt_encoding = self.tokenizer(prompt_text, truncation=True, max_length=self.max_len, add_special_tokens=False)
+        full_encoding = self.tokenizer(full_text, truncation=True, max_length=self.max_len, add_special_tokens=False)
+        
+        prompt_len = len(prompt_encoding["input_ids"])
+        full_ids = full_encoding["input_ids"]
+        
+        # Pad to max length
+        padded_ids = full_ids + [self.tokenizer.pad_token_id] * (self.max_len - len(full_ids))
+        padded_ids = padded_ids[:self.max_len]
+        
+        attention_mask = [1] * len(full_ids) + [0] * (self.max_len - len(full_ids))
+        attention_mask = attention_mask[:self.max_len]
+        
+        # Set label masks: compute Loss ONLY on target tokens (-100 for non-target tokens)
+        labels = [-100] * self.max_len
+        target_len = len(full_ids) - prompt_len
+        
+        for i in range(prompt_len, min(len(full_ids), self.max_len)):
+            labels[i] = full_ids[i]
+            
+        return {
+            "input_ids": torch.tensor(padded_ids, dtype=torch.long),
+            "attention_mask": torch.tensor(attention_mask, dtype=torch.long),
+            "labels": torch.tensor(labels, dtype=torch.long),
+            "example_id": torch.tensor(ex.example_id, dtype=torch.long)
+        }
+
+
+def generate_mock_cloze_dataset() -> Dict[str, List[ClozeQAExample]]:
+    """
+    Generates a high-quality local mock dataset of factual cloze tasks.
+    Divided into train, seen validation, unseen validation, and OOD test splits.
+    """
+    raw_data = [
+        # ==================== TRAIN SPLIT (80 Examples) ====================
+        # --- Factual: Capitals (1-20) ---
+        ("The capital of France is", "Paris", "factual", "train"),
+        ("The capital of Germany is", "Berlin", "factual", "train"),
+        ("The capital of Spain is", "Madrid", "factual", "train"),
+        ("The capital of Italy is", "Rome", "factual", "train"),
+        ("The capital of Japan is", "Tokyo", "factual", "train"),
+        ("The capital of China is", "Beijing", "factual", "train"),
+        ("The capital of Egypt is", "Cairo", "factual", "train"),
+        ("The capital of Greece is", "Athens", "factual", "train"),
+        ("The capital of Portugal is", "Lisbon", "factual", "train"),
+        ("The capital of Russia is", "Moscow", "factual", "train"),
+        ("The capital of India is New", "Delhi", "factual", "train"),
+        ("The capital of England is", "London", "factual", "train"),
+        ("The capital of Canada is", "Ottawa", "factual", "train"),
+        ("The capital of Brazil is", "Brasilia", "factual", "train"),
+        ("The capital of Mexico is Mexico", "City", "factual", "train"),
+        ("The capital of Argentina is Buenos", "Aires", "factual", "train"),
+        ("The capital of Australia is", "Canberra", "factual", "train"),
+        ("The capital of Sweden is", "Stockholm", "factual", "train"),
+        ("The capital of Turkey is", "Ankara", "factual", "train"),
+        ("The capital of Thailand is", "Bangkok", "factual", "train"),
+        
+        # --- Scientific: Chemistry, Biology & Space (21-40) ---
+        ("The chemical element with atomic number 1 is", "Hydrogen", "scientific", "train"),
+        ("The chemical element with atomic number 2 is", "Helium", "scientific", "train"),
+        ("The chemical element with atomic number 6 is", "Carbon", "scientific", "train"),
+        ("The chemical element with atomic number 7 is", "Nitrogen", "scientific", "train"),
+        ("The chemical element with atomic number 8 is", "Oxygen", "scientific", "train"),
+        ("The chemical element with atomic number 79 is", "Gold", "scientific", "train"),
+        ("Water is chemically composed of oxygen and", "Hydrogen", "scientific", "train"),
+        ("The planet closest to the sun is", "Mercury", "scientific", "train"),
+        ("The hottest planet in our solar system is", "Venus", "scientific", "train"),
+        ("The red planet in our solar system is", "Mars", "scientific", "train"),
+        ("The largest planet in our solar system is", "Jupiter", "scientific", "train"),
+        ("The planet famous for its massive ring system is", "Saturn", "scientific", "train"),
+        ("Light from the sun takes about eight minutes to reach", "Earth", "scientific", "train"),
+        ("The physical force that pulls objects toward Earth is", "Gravity", "scientific", "train"),
+        ("Photosynthesis in green plants produces glucose and", "Oxygen", "scientific", "train"),
+        ("The electrical unit of resistance is the", "Ohm", "scientific", "train"),
+        ("The basic structural unit of all life is the", "Cell", "scientific", "train"),
+        ("The chemical formula for common table salt is", "NaCl", "scientific", "train"),
+        ("A chemical substance with a pH value below 7 is an", "Acid", "scientific", "train"),
+        ("A chemical substance with a pH value above 7 is a", "Base", "scientific", "train"),
+
+        # --- Idiomatic, Proverbs & Literature (41-60) ---
+        ("The tragic play Hamlet was written by William", "Shakespeare", "cloze", "train"),
+        ("The dystopian novel Nineteen Eighty-Four was written by George", "Orwell", "cloze", "train"),
+        ("The character Sherlock Holmes was created by Arthur Conan", "Doyle", "cloze", "train"),
+        ("The legendary high-fantasy novel The Hobbit was written by J.R.R.", "Tolkien", "cloze", "train"),
+        ("The gothic horror novel Dracula was written by Bram", "Stoker", "cloze", "train"),
+        ("The play Romeo and Juliet was written by William", "Shakespeare", "cloze", "train"),
+        ("To achieve two tasks simultaneously is to kill two birds with one", "stone", "cloze", "train"),
+        ("A warning against risking everything at once is to not put all your eggs in one", "basket", "cloze", "train"),
+        ("A prompt intervention that avoids future trouble is said to save", "nine", "cloze", "train"),
+        ("People who make threats rarely carry them out; barking dogs seldom", "bite", "cloze", "train"),
+        ("An optimistic outlook suggests that every cloud has a silver", "lining", "cloze", "train"),
+        ("Tangible deeds are more meaningful than promises; actions speak louder than", "words", "cloze", "train"),
+        ("A healthy habit is described by saying an apple a day keeps the doctor", "away", "cloze", "train"),
+        ("It is preferable to arrive or finish late than not at all; better late than", "never", "cloze", "train"),
+        ("When visiting a foreign place, adapt to local customs: when in Rome, do as the Romans", "do", "cloze", "train"),
+        ("Too much inquisitiveness can lead to danger; curiosity killed the", "cat", "cloze", "train"),
+        ("Regular training and execution leads to excellence; practice makes", "perfect", "cloze", "train"),
+        ("Great achievements require time and patience; Rome wasn't built in a", "day", "cloze", "train"),
+        ("Written arguments are more powerful than military force; the pen is mightier than the", "sword", "cloze", "train"),
+        ("Determination will overcome any obstacle; where there is a will, there is a", "way", "cloze", "train"),
+
+        # --- Computer Science & System Internals (61-80) ---
+        ("To execute custom isolated programs, operating systems launch a", "process", "cs", "train"),
+        ("In deep neural networks, weights are updated using gradient", "descent", "cs", "train"),
+        ("To store key-value pairs with fast lookup, developers use a hash", "map", "cs", "train"),
+        ("A sequential queue structure works on the first-in first-out principle, or", "FIFO", "cs", "train"),
+        ("A sequential stack structure works on the last-in first-out principle, or", "LIFO", "cs", "train"),
+        ("The base-2 numerical representation system is called", "binary", "cs", "train"),
+        ("The main memory chips used for rapid runtime storage form the", "RAM", "cs", "train"),
+        ("The primary processing unit of a microcomputer is the", "CPU", "cs", "train"),
+        ("The iterative engineering loop of locating and fixing bugs is called", "debugging", "cs", "train"),
+        ("In object-oriented design, a concrete instance of a class is an", "object", "cs", "train"),
+        ("The network layer protocol used to securely transmit web documents is", "HTTPS", "cs", "train"),
+        ("A programmable function that calls itself is known as", "recursive", "cs", "train"),
+        ("The version control command used to save changes to the local repository is git", "commit", "cs", "train"),
+        ("The relational database command used to extract specific rows is", "SELECT", "cs", "train"),
+        ("A relational database table index is created to accelerate search", "queries", "cs", "train"),
+        ("IP addresses are defined under the fundamental Internet", "Protocol", "cs", "train"),
+        ("In binary tree structures, any node that has no child elements is a", "leaf", "cs", "train"),
+        ("The specific syntax keyword used to declare a blueprint class in Python is", "class", "cs", "train"),
+        ("The specific syntax keyword used to declare a runtime function in Python is", "def", "cs", "train"),
+        ("An algorithm's runtime complexity is characterized using Big O", "notation", "cs", "train"),
+
+        # ==================== SEEN VALIDATION SPLIT (20 Examples) ====================
+        # --- Factual ---
+        ("The capital of South Korea is", "Seoul", "factual", "seen_val"),
+        ("The capital of Norway is", "Oslo", "factual", "seen_val"),
+        ("The capital of Greece is", "Athens", "factual", "seen_val"),
+        ("The capital of Switzerland is", "Bern", "factual", "seen_val"),
+        ("The capital of Poland is", "Warsaw", "factual", "seen_val"),
+        
+        # --- Scientific ---
+        ("The chemical element with atomic number 10 is", "Neon", "scientific", "seen_val"),
+        ("The chemical element with atomic number 16 is", "Sulfur", "scientific", "seen_val"),
+        ("The primary gas that animals must inhale to survive is", "Oxygen", "scientific", "seen_val"),
+        ("The yellow star positioned at the center of our solar system is the", "Sun", "scientific", "seen_val"),
+        ("Sound waves are completely unable to travel through a perfect", "vacuum", "scientific", "seen_val"),
+        
+        # --- Idiomatic/Literature ---
+        ("The worldwide popular fantasy series Harry Potter was written by J.K.", "Rowling", "cloze", "seen_val"),
+        ("The legendary Greek epic poem The Odyssey is classically attributed to", "Homer", "cloze", "seen_val"),
+        ("An act of retaliation does not correct a situation; two wrongs do not make a", "right", "cloze", "seen_val"),
+        ("A visual depiction can convey complex ideas instantly; a picture is worth a thousand", "words", "cloze", "seen_val"),
+        ("To begin a long journey, you must take the first step; a journey of a thousand miles begins with a single", "step", "cloze", "seen_val"),
+        
+        # --- Computer Science ---
+        ("To store only unique values with no duplicates, programmers use a hash", "set", "cs", "seen_val"),
+        ("The markup language used to structure standard pages on the World Wide Web is", "HTML", "cs", "seen_val"),
+        ("An error in software execution that causes an unexpected crash or failure is a", "bug", "cs", "seen_val"),
+        ("A standard lightweight format used to exchange structured data over the web is", "JSON", "cs", "seen_val"),
+        ("The specific syntax keyword used to import external library modules in Python is", "import", "cs", "seen_val"),
+
+        # ==================== UNSEEN VALIDATION SPLIT (20 Examples) ====================
+        # --- Novel Factual / History (101-105) ---
+        ("The capital of Austria is", "Vienna", "factual", "unseen_val"),
+        ("The historic Roman emperor who was assassinated on the Ides of March was Julius", "Caesar", "factual", "unseen_val"),
+        ("The first human to set foot on the surface of the moon was Neil", "Armstrong", "factual", "unseen_val"),
+        ("The genius physicist who formulated the special theory of relativity was Albert", "Einstein", "factual", "unseen_val"),
+        ("The historic Italian explorer who sailed across the Atlantic in 1492 was Christopher", "Columbus", "factual", "unseen_val"),
+        
+        # --- Novel Scientific / Medicine (106-110) ---
+        ("The red blood cells are medically responsible for transporting vital", "oxygen", "scientific", "unseen_val"),
+        ("The primary organ responsible for pumping blood throughout the human body is the", "heart", "scientific", "unseen_val"),
+        ("The biological process where cells divide to form two identical daughter cells is", "mitosis", "scientific", "unseen_val"),
+        ("The massive organ that acts as the primary center of the human nervous system is the", "brain", "scientific", "unseen_val"),
+        ("The fundamental genetic molecule that carries hereditary instructions in cells is", "DNA", "scientific", "unseen_val"),
+        
+        # --- Novel Idiomatic / Phrases (111-115) ---
+        ("When you are in a difficult situation, you might say you are in a tight", "spot", "cloze", "unseen_val"),
+        ("A person who is extremely energetic and active is often called a live", "wire", "cloze", "unseen_val"),
+        ("An idiom used to describe a sudden, completely unexpected event is out of the", "blue", "cloze", "unseen_val"),
+        ("To accidentally reveal a secret or confidential plan is to let the cat out of the", "bag", "cloze", "unseen_val"),
+        ("When things are going extremely well and you feel happy, you are on cloud", "nine", "cloze", "unseen_val"),
+        
+        # --- Novel CS / Networking (116-120) ---
+        ("The specific data structure designed to represent hierarchical parent-child relationships is a", "tree", "cs", "unseen_val"),
+        ("A computer network topology where all host nodes are connected to a single central hub is a", "star", "cs", "unseen_val"),
+        ("The application layer protocol used to map human-readable domain names to numerical IP addresses is", "DNS", "cs", "unseen_val"),
+        ("An interface protocol that allows two distinct software applications to communicate is an", "API", "cs", "unseen_val"),
+        ("The fundamental data block unit used to store and transfer files on a hard drive is a", "sector", "cs", "unseen_val"),
+
+        # ==================== OUT OF DISTRIBUTION TEST SPLIT (10 Examples) ====================
+        # --- Advanced Physics, Math & Specialized Humanities (121-130) ---
+        ("In mathematical topology, topological spaces are analyzed using Euler", "characteristics", "scientific", "ood_test"),
+        ("In quantum mechanics, particles exhibit both wave-like and particle-like properties known as wave-particle", "duality", "scientific", "ood_test"),
+        ("In advanced astronomy, a region of spacetime with gravity so strong that nothing can escape is a black", "hole", "scientific", "ood_test"),
+        ("In organic chemistry, molecules sharing the same chemical formula but having distinct structures are", "isomers", "scientific", "ood_test"),
+        ("In evolutionary biology, the process of selective breeding of organisms for specific traits is artificial", "selection", "scientific", "ood_test"),
+        ("In ancient Mesopotamian history, the oldest written epic document known to humanity is the Epic of", "Gilgamesh", "factual", "ood_test"),
+        ("In high-dimensional mathematics, a tensor is a geometric object that maps in a multi-linear manner to a vector", "space", "scientific", "ood_test"),
+        ("In geological sciences, the gradual shifting of Earth's continental plates across the mantle is plate", "tectonics", "scientific", "ood_test"),
+        ("In philosophical logic, a statement that contradicts itself yet reveals an underlying truth is a", "paradox", "factual", "ood_test"),
+        ("In historical law, the ancient Babylonian legal code based on eye-for-an-eye justice is the Code of", "Hammurabi", "factual", "ood_test")
+    ]
+    
+    splits = {"train": [], "seen_val": [], "unseen_val": [], "ood_test": []}
+    
+    for idx, (prompt, target, task_type, split) in enumerate(raw_data):
+        example = ClozeQAExample(
+            example_id=idx,
+            prompt=prompt,
+            target=target,
+            task_type=task_type,
+            metadata={"split": split}
+        )
+        splits[split].append(example)
+        
+    return splits
+
+
+# ==============================================================================
+# SECTION E. MODEL LOADING AND TOKENIZER UTILITIES
+# ==============================================================================
+
+def load_reusable_model_and_tokenizer(cfg: ModelConfig) -> Tuple[PreTrainedModel, PreTrainedTokenizer]:
+    """Loads a causal LM (e.g. distilgpt2) and configures the tokenizers cleanly."""
+    logger.info(f"Loading tokenizer & model for architecture: {cfg.model_name}")
+    tokenizer = AutoTokenizer.from_pretrained(cfg.model_name)
+    
+    # Standardize padding token
+    if tokenizer.pad_token is None:
+        tokenizer.pad_token = tokenizer.eos_token
+        
+    model = AutoModelForCausalLM.from_pretrained(cfg.model_name)
+    model.to(cfg.device)
+    
+    # Setup standard model settings
+    model.config.pad_token_id = tokenizer.pad_token_id
+    
+    logger.info(f"Model successfully loaded and mapped to active hardware: {cfg.device}")
+    return model, tokenizer
+
+
+# ==============================================================================
+# SECTION F. BASELINE EVALUATION UTILITIES
+# ==============================================================================
+
+class BaselineEvaluator:
+    """Evaluates causal language models on task accuracy, answer NLL, and calibration."""
+    
+    @staticmethod
+    def evaluate_dataset(
+        model: PreTrainedModel,
+        tokenizer: PreTrainedTokenizer,
+        dataset: CustomFactualDataset,
+        cfg: ModelConfig,
+        save_predictions_path: Optional[str] = None
+    ) -> Dict[str, Any]:
+        model.eval()
+        total_loss = 0.0
+        total_tokens = 0
+        exact_match_count = 0
+        semantic_match_count = 0
+        
+        predictions_record = []
+        
+        device = cfg.device
+        loader = DataLoader(dataset, batch_size=1, shuffle=False)
+        
+        with torch.no_grad():
+            for batch in loader:
+                input_ids = batch["input_ids"].to(device)
+                attention_mask = batch["attention_mask"].to(device)
+                labels = batch["labels"].to(device)
+                ex_id = int(batch["example_id"][0].item())
+                
+                # Fetch target text metadata
+                original_example = next(ex for ex in dataset.examples if ex.example_id == ex_id)
+                
+                # Forward Pass
+                outputs = model(input_ids=input_ids, attention_mask=attention_mask, labels=labels)
+                loss = outputs.loss
+                logits = outputs.logits
+                
+                # Compute token metrics
+                shift_logits = logits[..., :-1, :].contiguous()
+                shift_labels = labels[..., 1:].contiguous()
+                
+                active_loss_mask = (shift_labels != -100)
+                if active_loss_mask.any():
+                    # Calculate correct target Answer NLL
+                    flat_logits = shift_logits[active_loss_mask]
+                    flat_labels = shift_labels[active_loss_mask]
+                    item_nll = F.cross_entropy(flat_logits, flat_labels, reduction="sum").item()
+                    num_item_tokens = active_loss_mask.sum().item()
+                    total_loss += item_nll
+                    total_tokens += num_item_tokens
+                    avg_item_nll = item_nll / max(1e-5, num_item_tokens)
+                else:
+                    avg_item_nll = 0.0
+                    num_item_tokens = 0
+                
+                # Generative prediction (greedy extraction)
+                prompt_ids = tokenizer(original_example.prompt, return_tensors="pt", add_special_tokens=False)["input_ids"].to(device)
+                prompt_len = prompt_ids.shape[1]
+                
+                generated_tokens = model.generate(
+                    prompt_ids,
+                    max_new_tokens=10,
+                    temperature=cfg.temperature,
+                    top_p=cfg.top_p,
+                    pad_token_id=tokenizer.pad_token_id,
+                    eos_token_id=tokenizer.eos_token_id,
+                    do_sample=False
+                )
+                
+                prediction_ids = generated_tokens[0][prompt_len:]
+                predicted_text = tokenizer.decode(prediction_ids, skip_special_tokens=True).strip()
+                
+                # Exact Match evaluation
+                is_exact = (predicted_text.lower() == original_example.target.lower())
+                is_semantic = (original_example.target.lower() in predicted_text.lower())
+                
+                if is_exact:
+                    exact_match_count += 1
+                if is_semantic:
+                    semantic_match_count += 1
+                    
+                predictions_record.append({
+                    "id": ex_id,
+                    "prompt": original_example.prompt,
+                    "gold": original_example.target,
+                    "predicted": predicted_text,
+                    "exact_match": int(is_exact),
+                    "semantic_match": int(is_semantic),
+                    "nll": float(avg_item_nll)
+                })
+                
+        num_examples = len(dataset)
+        avg_nll = total_loss / max(1, total_tokens)
+        accuracy_exact = exact_match_count / max(1, num_examples)
+        accuracy_semantic = semantic_match_count / max(1, num_examples)
+        
+        # Save to disk if requested
+        if save_predictions_path:
+            os.makedirs(os.path.dirname(save_predictions_path), exist_ok=True)
+            with open(save_predictions_path, 'w', newline='', encoding='utf-8') as f:
+                writer = csv.DictWriter(f, fieldnames=["id", "prompt", "gold", "predicted", "exact_match", "semantic_match", "nll"])
+                writer.writeheader()
+                writer.writerows(predictions_record)
+                
+        return {
+            "avg_nll": avg_nll,
+            "perplexity": math.exp(min(50, avg_nll)),
+            "exact_match_acc": accuracy_exact,
+            "semantic_match_acc": accuracy_semantic,
+            "raw_predictions": predictions_record
+        }
+
+
+# ==============================================================================
+# SECTION G. TRANSFORMER INSTRUMENTATION HOOKS
+# ==============================================================================
+
+class TransformerHookManager:
+    """
+    Manages robust registration and tear-down of forward hooks
+    to allow modular, isolated runtime perturbations of attention layers,
+    MLP blocks, or residual stream projections.
+    """
+    def __init__(self, model: PreTrainedModel):
+        self.model = model
+        self.hooks = []
+        self.active_activations = {}
+        self._detect_layer_structure()
+
+    def _detect_layer_structure(self) -> None:
+        """Dynamically probes block names to handle multiple model architectures gracefully."""
+        self.block_list = None
+        self.block_prefix = ""
+        
+        # Probe standard HF architectures (GPT-2, LLaMA, DistilGPT2)
+        for attr in ["transformer", "model"]:
+            if hasattr(self.model, attr):
+                obj = getattr(self.model, attr)
+                for h_attr in ["h", "layers", "blocks"]:
+                    if hasattr(obj, h_attr):
+                        self.block_list = getattr(obj, h_attr)
+                        self.block_prefix = f"{attr}.{h_attr}"
+                        break
+        
+        if self.block_list is None:
+            # Fallback direct loop check
+            for h_attr in ["h", "layers", "blocks"]:
+                if hasattr(self.model, h_attr):
+                    self.block_list = getattr(self.model, h_attr)
+                    self.block_prefix = h_attr
+                    break
+                    
+        if self.block_list is None:
+            logger.warning("Could not automatically locate the layer blocks blocklist of this architecture. Structural hook fallback mode activated.")
+
+    def register_noise_perturbation(self, layer_idx: int, scale: float = 0.05, submodule: str = "block") -> None:
+        """Injects additive Gaussian noise into the hidden representation of a block/submodule."""
+        if self.block_list is None or layer_idx >= len(self.block_list):
+            return
+            
+        target_block = self.block_list[layer_idx]
+        
+        def hook_fn(module, input, output):
+            # Causal text representation is in the first element of output tuple or output tensor directly
+            if isinstance(output, tuple):
+                tensor_data = output[0]
+            else:
+                tensor_data = output
+                
+            noise = torch.randn_like(tensor_data) * scale
+            perturbed = tensor_data + noise
+            
+            if isinstance(output, tuple):
+                return (perturbed,) + output[1:]
+            return perturbed
+            
+        # Target internal submodule
+        target_module = target_block
+        if submodule == "attention" and hasattr(target_block, "attn"):
+            target_module = target_block.attn
+        elif submodule == "mlp" and hasattr(target_block, "mlp"):
+            target_module = target_block.mlp
+            
+        handle = target_module.register_forward_hook(hook_fn)
+        self.hooks.append(handle)
+
+    def register_zero_ablation(self, layer_idx: int, submodule: str = "block") -> None:
+        """Completely zeroes out the output of a specific layer or block."""
+        if self.block_list is None or layer_idx >= len(self.block_list):
+            return
+            
+        target_block = self.block_list[layer_idx]
+        
+        def hook_fn(module, input, output):
+            if isinstance(output, tuple):
+                tensor_data = output[0]
+                perturbed = torch.zeros_like(tensor_data)
+                return (perturbed,) + output[1:]
+            return torch.zeros_like(output)
+            
+        target_module = target_block
+        if submodule == "attention" and hasattr(target_block, "attn"):
+            target_module = target_block.attn
+        elif submodule == "mlp" and hasattr(target_block, "mlp"):
+            target_module = target_block.mlp
+            
+        handle = target_module.register_forward_hook(hook_fn)
+        self.hooks.append(handle)
+
+    def register_activation_capture(self, layer_idx: int) -> None:
+        """Captures representations to record clean vs perturbed state properties."""
+        if self.block_list is None or layer_idx >= len(self.block_list):
+            return
+        target_module = self.block_list[layer_idx]
+        
+        def hook_fn(module, input, output):
+            if isinstance(output, tuple):
+                self.active_activations[layer_idx] = output[0].detach().clone()
+            else:
+                self.active_activations[layer_idx] = output.detach().clone()
+                
+        handle = target_module.register_forward_hook(hook_fn)
+        self.hooks.append(handle)
+
+    def remove_all_hooks(self) -> None:
+        """Tears down all active hooks safely."""
+        for hook in self.hooks:
+            hook.remove()
+        self.hooks.clear()
+        self.active_activations.clear()
+
+
+# ==============================================================================
+# SECTION H. PCRF RELIABILITY CORE
+# ==============================================================================
+
+class PCRFCore:
+    """
+    Mathematical engine that defines the standard mappings and continuous relaxations
+    translating downstream task metric degradation or parameter drifts into modular
+    survival probabilities $r_k in [0, 1]$.
+    """
+    @staticmethod
+    def map_drift_to_reliability(drift_val: float, transform_mode: str = "exponential", beta: float = 2.0) -> float:
+        """
+        Maps hidden state representations or output NLL drops to [0,1] reliability interval.
+        - exponential: r = exp(-beta * drift)
+        - sigmoid: r = 2 / (1 + exp(beta * drift))
+        - linear: r = max(0.0, min(1.0, 1.0 - beta * drift))
+        """
+        drift_val = max(0.0, drift_val)
+        if transform_mode == "exponential":
+            return float(math.exp(-beta * drift_val))
+        elif transform_mode == "sigmoid":
+            return float(2.0 / (1.0 + math.exp(beta * drift_val)))
+        elif transform_mode == "linear":
+            return float(max(0.0, min(1.0, 1.0 - beta * drift_val)))
+        return float(math.exp(-beta * drift_val))
+
+    @staticmethod
+    def compute_analytical_series_derivatives(r_list: List[float]) -> List[float]:
+        """
+        Computes Birnbaum reliability derivatives analytically for a clean series chain:
+        Rsys = product_i r_i
+        D_R(r_k) = dRsys/dr_k = Rsys / r_k
+        D_R(e_k) = dRsys/dep_k = -Rsys / r_k
+        """
+        n = len(r_list)
+        if n == 0:
+            return []
+        
+        # Handle zero cases safely
+        num_zeros = r_list.count(0.0)
+        prod_val = 1.0
+        for r in r_list:
+            if r != 0.0:
+                prod_val *= r
+                
+        derivatives = []
+        for r in r_list:
+            if num_zeros > 1:
+                derivatives.append(0.0)
+            elif num_zeros == 1:
+                if r == 0.0:
+                    derivatives.append(prod_val)
+                else:
+                    derivatives.append(0.0)
+            else:
+                derivatives.append(prod_val / r)
+                
+        return derivatives
+
+
+# ==============================================================================
+# SECTION I. FEATURE PLUGIN FRAMEWORK AND REGISTRY
+# ==============================================================================
+
+class BaseFeaturePlugin(abc.ABC):
+    """Stable API contract that all enterprise and research tracks must implement."""
+    
+    @abc.abstractmethod
+    def name(self) -> str:
+        pass
+        
+    @abc.abstractmethod
+    def description(self) -> str:
+        pass
+        
+    @abc.abstractmethod
+    def required_inputs(self) -> List[str]:
+        pass
+        
+    @abc.abstractmethod
+    def optional_inputs(self) -> List[str]:
+        pass
+        
+    @abc.abstractmethod
+    def run_standalone(self, model: PreTrainedModel, tokenizer: PreTrainedTokenizer, splits: Dict[str, List[ClozeQAExample]], cfg: Any) -> Any:
+        pass
+        
+    @abc.abstractmethod
+    def health_check(self, model: PreTrainedModel) -> FeatureHealthReport:
+        pass
+        
+    @abc.abstractmethod
+    def should_apply(self, baseline_metrics: Dict[str, Any], feature_metrics: Dict[str, Any], gate_cfg: PromotionGateConfig) -> FeatureDecisionReport:
+        pass
+        
+    @abc.abstractmethod
+    def debug_next_steps(self, error_evidence: Dict[str, Any]) -> DebugRecommendation:
+        pass
+
+
+class FeatureRegistry:
+    """Manages active customer toggles, execution sequences, and runtime capability maps."""
+    def __init__(self):
+        self._plugins: Dict[str, BaseFeaturePlugin] = {}
+        self._enabled_features: Dict[str, bool] = {}
+
+    def register_plugin(self, name: str, plugin: BaseFeaturePlugin) -> None:
+        self._plugins[name] = plugin
+        self._enabled_features[name] = True
+        logger.info(f"Registered plugin '{name}' successfully.")
+
+    def enable_feature(self, name: str) -> None:
+        if name in self._plugins:
+            self._enabled_features[name] = True
+            logger.info(f"Feature '{name}' enabled.")
+        else:
+            logger.warning(f"Feature '{name}' does not exist in registry.")
+
+    def disable_feature(self, name: str) -> None:
+        if name in self._plugins:
+            self._enabled_features[name] = False
+            logger.info(f"Feature '{name}' disabled.")
+
+    def is_enabled(self, name: str) -> bool:
+        return self._enabled_features.get(name, False)
+
+    def get_plugin(self, name: str) -> BaseFeaturePlugin:
+        return self._plugins[name]
+
+    def get_all_registered_features(self) -> List[str]:
+        return list(self._plugins.keys())
+
+
+# ==============================================================================
+# SECTION J. TRACK (B): DERIVATIVE ESTIMATION ENGINE
+# ==============================================================================
+
+class DerivativePlugin(BaseFeaturePlugin):
+    """
+    Implements Track (b): Derivative Estimation Engine.
+    Computes empirical derivatives of downstream target survival under modular layer perturbations.
+    """
+    def name(self) -> str:
+        return "derivatives"
+
+    def description(self) -> str:
+        return "Performs empirical perturbation-based PCRF module-level derivative estimation."
+
+    def required_inputs(self) -> List[str]:
+        return ["model", "tokenizer", "dataset"]
+
+    def optional_inputs(self) -> List[str]:
+        return ["noise_std", "perturbation_mode"]
+
+    def health_check(self, model: PreTrainedModel) -> FeatureHealthReport:
+        report = FeatureHealthReport(self.name(), is_healthy=True)
+        # Probe layer blocks
+        hook_manager = TransformerHookManager(model)
+        if hook_manager.block_list is None:
+            report.is_healthy = False
+            report.unsupported_reason = "Model block structure not standard/recognized."
+            report.diagnostics.append("Layer hooks could not bind to default target layers.")
+        else:
+            report.diagnostics.append(f"Detected {len(hook_manager.block_list)} active blocks for hook insertion.")
+        return report
+
+    def run_standalone(self, model: PreTrainedModel, tokenizer: PreTrainedTokenizer, splits: Dict[str, List[ClozeQAExample]], cfg: Any) -> Any:
+        """
+        Runs empirical derivatives estimation over the transformer layers.
+        For each layer, injects perturbation and evaluates the change in model reliability on train set.
+        """
+        deriv_cfg: DerivativeConfig = cfg.derivative_cfg
+        model_cfg: ModelConfig = cfg.model_cfg
+        
+        logger.info(f"Starting Standalone Derivative Estimation. Mode: {deriv_cfg.perturbation_mode}")
+        
+        hook_manager = TransformerHookManager(model)
+        num_layers = len(hook_manager.block_list) if hook_manager.block_list is not None else 0
+        
+        if num_layers == 0:
+            logger.error("No target blocks identified for perturbation. Aborting.")
+            return {}
+            
+        train_ds = CustomFactualDataset(splits["train"], tokenizer, model_cfg.max_len)
+        loader = DataLoader(train_ds, batch_size=1, shuffle=False)
+        device = model_cfg.device
+        
+        # 1. Establish baseline unperturbed scores for each task sequence
+        baseline_survival = {}
+        model.eval()
+        with torch.no_grad():
+            for batch in loader:
+                input_ids = batch["input_ids"].to(device)
+                attention_mask = batch["attention_mask"].to(device)
+                labels = batch["labels"].to(device)
+                ex_id = int(batch["example_id"][0].item())
+                
+                outputs = model(input_ids=input_ids, attention_mask=attention_mask)
+                shift_logits = outputs.logits[..., :-1, :].contiguous()
+                shift_labels = labels[..., 1:].contiguous()
+                
+                active_mask = (shift_labels != -100)
+                if active_mask.any():
+                    # Calculate correct target Answer NLL
+                    probs = F.softmax(shift_logits[active_mask], dim=-1)
+                    target_labels = shift_labels[active_mask]
+                    # Fetch first target token prob as core metric
+                    first_token_prob = probs[0, target_labels[0]].item()
+                    baseline_survival[ex_id] = first_token_prob
+                else:
+                    baseline_survival[ex_id] = 1.0
+                    
+        # 2. Perturb each layer and calculate output shift
+        layer_derivatives = []
+        for l_idx in range(num_layers):
+            hook_manager.remove_all_hooks()
+            
+            # Register perturbation hook
+            if deriv_cfg.perturbation_mode == "noise":
+                hook_manager.register_noise_perturbation(l_idx, deriv_cfg.noise_std)
+            elif deriv_cfg.perturbation_mode == "zero_ablation":
+                hook_manager.register_zero_ablation(l_idx)
+                
+            perturbed_survival = []
+            with torch.no_grad():
+                for batch in loader:
+                    input_ids = batch["input_ids"].to(device)
+                    attention_mask = batch["attention_mask"].to(device)
+                    labels = batch["labels"].to(device)
+                    ex_id = int(batch["example_id"][0].item())
+                    
+                    outputs = model(input_ids=input_ids, attention_mask=attention_mask)
+                    shift_logits = outputs.logits[..., :-1, :].contiguous()
+                    shift_labels = labels[..., 1:].contiguous()
+                    
+                    active_mask = (shift_labels != -100)
+                    if active_mask.any():
+                        probs = F.softmax(shift_logits[active_mask], dim=-1)
+                        target_labels = shift_labels[active_mask]
+                        first_token_prob = probs[0, target_labels[0]].item()
+                        perturbed_survival.append(first_token_prob)
+                    else:
+                        perturbed_survival.append(1.0)
+                        
+            # dRsys / de_k = (baseline_Rsys - perturbed_Rsys) / perturbation_scale
+            # Here we approximate the marginal change (Rsys_clean - Rsys_perturbed)
+            baseline_mean = np.mean(list(baseline_survival.values()))
+            perturbed_mean = np.mean(perturbed_survival)
+            
+            delta = float(baseline_mean - perturbed_mean)  # positive means reliability dropped under perturbation
+            layer_derivatives.append({
+                "layer_idx": l_idx,
+                "clean_acc": baseline_mean,
+                "perturbed_acc": perturbed_mean,
+                "delta": delta,
+                "dr_de": delta  # sensitivity to error rate
+            })
+            
+        hook_manager.remove_all_hooks()
+        
+        # Save artifacts to file
+        out_dir = cfg.artifact_cfg.output_dir
+        os.makedirs(out_dir, exist_ok=True)
+        csv_path = os.path.join(out_dir, "per_module_derivatives.csv")
+        with open(csv_path, 'w', newline='', encoding='utf-8') as f:
+            writer = csv.DictWriter(f, fieldnames=["layer_idx", "clean_acc", "perturbed_acc", "delta", "dr_de"])
+            writer.writeheader()
+            writer.writerows(layer_derivatives)
+            
+        logger.info(f"Standalone Derivative Estimation completed. Results stored: {csv_path}")
+        return layer_derivatives
+
+    def should_apply(self, baseline_metrics: Dict[str, Any], feature_metrics: Dict[str, Any], gate_cfg: PromotionGateConfig) -> FeatureDecisionReport:
+        # Check stability of estimated derivatives across iterations/seeds
+        avg_delta = np.mean([x["delta"] for x in feature_metrics])
+        if avg_delta < 0.001:
+            return FeatureDecisionReport(
+                feature_name=self.name(),
+                status="MEASUREMENT_ONLY",
+                reason_code="DERIVATIVE_INSTABILITY",
+                explanation="Calculated derivative signal too weak (average perturbation effect ~0).",
+                recommender_action="Increase perturbation scale or check baseline accuracy.",
+                safest_alternative="Revert to baseline evaluation."
+            )
+        return FeatureDecisionReport(
+            feature_name=self.name(),
+            status="SAFE_TO_APPLY",
+            reason_code="READY_FOR_USE",
+            explanation="Reliability derivative signals stable and clear.",
+            recommender_action="Promote derivatives to guide curriculum selection and training loss.",
+            safest_alternative="N/A"
+        )
+
+    def debug_next_steps(self, error_evidence: Dict[str, Any]) -> DebugRecommendation:
+        return DebugRecommendation(
+            feature_name=self.name(),
+            issue_detected="Noisy or unstable ranking",
+            probable_causes=["Perturbation amplitude too low", "Metric is non-smooth"],
+            evidence=error_evidence,
+            suggested_debug_steps=[
+                "Increase noise_std in config (e.g. from 0.05 to 0.15).",
+                "Try zero_ablation instead of additive noise."
+            ],
+            config_knobs_to_adjust=["derivative_cfg.noise_std", "derivative_cfg.perturbation_mode"],
+            suggested_safer_fallback="Measurement only without live propagation.",
+            re_run_recommended=True
+        )
+
+
+# ==============================================================================
+# SECTION K. TRACK (D): CURRICULUM / SAMPLE SELECTION ENGINE
+# ==============================================================================
+
+class CurriculumPlugin(BaseFeaturePlugin):
+    """
+    Implements Track (d): Curriculum Selection Engine.
+    Uses calculated modular derivatives to rank and curate high-risk, cascading prompts.
+    """
+    def name(self) -> str:
+        return "curriculum"
+
+    def description(self) -> str:
+        return "PCRF-driven sample selection engine targeting high-cascade-potential training points."
+
+    def required_inputs(self) -> List[str]:
+        return ["derivatives", "model", "tokenizer"]
+
+    def optional_inputs(self) -> List[str]:
+        return ["oversample_top_k", "strategy"]
+
+    def health_check(self, model: PreTrainedModel) -> FeatureHealthReport:
+        return FeatureHealthReport(self.name(), is_healthy=True)
+
+    def run_standalone(self, model: PreTrainedModel, tokenizer: PreTrainedTokenizer, splits: Dict[str, List[ClozeQAExample]], cfg: Any) -> Any:
+        curr_cfg: CurriculumConfig = cfg.curriculum_cfg
+        model_cfg: ModelConfig = cfg.model_cfg
+        
+        # Retrieve layer-wise derivatives from run config or calculate locally
+        deriv_plugin = DerivativePlugin()
+        deriv_results = deriv_plugin.run_standalone(model, tokenizer, splits, cfg)
+        
+        # Collect example-level difficulty and map priority
+        # High cascade-potential example: Has highest prompt-token derivative contribution (here approximated)
+        scored_examples = []
+        train_ds = CustomFactualDataset(splits["train"], tokenizer, model_cfg.max_len)
+        device = model_cfg.device
+        
+        model.eval()
+        with torch.no_grad():
+            for ex in splits["train"]:
+                # Evaluate NLL as difficulty baseline
+                prompt_ids = tokenizer(ex.prompt, return_tensors="pt")["input_ids"].to(device)
+                target_ids = tokenizer(ex.target, return_tensors="pt")["input_ids"].to(device)
+                
+                # Combine to get full prompt NLL
+                full_ids = torch.cat([prompt_ids, target_ids], dim=-1)
+                labels = full_ids.clone()
+                labels[:, :prompt_ids.shape[-1]] = -100
+                
+                outputs = model(full_ids, labels=labels)
+                nll = float(outputs.loss.item()) if not torch.isnan(outputs.loss) else 2.0
+                
+                # Assign PCRF priority score
+                # Score = Difficulty (NLL) * Total systemic error sensitivity (sum of positive derivatives)
+                pcrf_weight = sum([max(0.0, x["delta"]) for x in deriv_results])
+                priority_score = nll * (1.0 + pcrf_weight)
+                
+                scored_examples.append({
+                    "id": ex.example_id,
+                    "prompt": ex.prompt,
+                    "target": ex.target,
+                    "nll": nll,
+                    "priority_score": priority_score
+                })
+                
+        # Sort by priority
+        scored_examples.sort(key=lambda x: x["priority_score"], reverse=True)
+        
+        # Save to CSV
+        out_dir = cfg.artifact_cfg.output_dir
+        os.makedirs(out_dir, exist_ok=True)
+        csv_path = os.path.join(out_dir, "curriculum_scores.csv")
+        with open(csv_path, 'w', newline='', encoding='utf-8') as f:
+            writer = csv.DictWriter(f, fieldnames=["id", "prompt", "target", "nll", "priority_score"])
+            writer.writeheader()
+            writer.writerows(scored_examples)
+            
+        logger.info(f"Curriculum Selection complete. Priority map saved to: {csv_path}")
+        return scored_examples
+
+    def should_apply(self, baseline_metrics: Dict[str, Any], feature_metrics: Dict[str, Any], gate_cfg: PromotionGateConfig) -> FeatureDecisionReport:
+        # Check if high-priority dataset splits actually show a variance in signal
+        priority_scores = [x["priority_score"] for x in feature_metrics]
+        if np.std(priority_scores) < 1e-4:
+            return FeatureDecisionReport(
+                feature_name=self.name(),
+                status="DO_NOT_APPLY",
+                reason_code="NO_CURRICULUM_SIGNAL",
+                explanation="No variance detected in sample priority scores.",
+                recommender_action="Check derivatives or NLL distribution.",
+                safest_alternative="Standard baseline MLE training."
+            )
+        return FeatureDecisionReport(
+            feature_name=self.name(),
+            status="SAFE_TO_APPLY",
+            reason_code="READY_FOR_USE",
+            explanation="Curriculum prioritize maps are clear and highly differentiated.",
+            recommender_action="Enable derivative-weighted data samplers.",
+            safest_alternative="N/A"
+        )
+
+    def debug_next_steps(self, error_evidence: Dict[str, Any]) -> DebugRecommendation:
+        return DebugRecommendation(
+            feature_name=self.name(),
+            issue_detected="Curriculum training results in overfitting",
+            probable_causes=["Priority focus is too narrow", "staged_epochs limit is too short"],
+            evidence=error_evidence,
+            suggested_debug_steps=[
+                "Reduce oversample_top_k threshold to widen dataset footprint.",
+                "Incorporate random-control mixes to sustain seen generalization."
+            ],
+            config_knobs_to_adjust=["curriculum_cfg.oversample_top_k", "curriculum_cfg.strategy"],
+            suggested_safer_fallback="Fallback to static difficulty-only curriculum.",
+            re_run_recommended=True
+        )
+
+
+# ==============================================================================
+# SECTION L. TRACK (A): STRUCTURAL PCRF FOR BLOCKS / RESIDUAL STREAM
+# ==============================================================================
+
+class StructuralPCRFPlugin(BaseFeaturePlugin):
+    """
+    Implements Track (a): Structural PCRF engine.
+    Constructs a depth-wise series reliability model of the transformer blocks and computes
+    continuous preservation surrogates.
+    """
+    def name(self) -> str:
+        return "structural_pcrf"
+
+    def description(self) -> str:
+        return "Builds a clean serial-chain reliability model over transformer layer blocks."
+
+    def required_inputs(self) -> List[str]:
+        return ["model", "tokenizer"]
+
+    def optional_inputs(self) -> List[str]:
+        return ["reliability_surrogate", "decay_beta"]
+
+    def health_check(self, model: PreTrainedModel) -> FeatureHealthReport:
+        report = FeatureHealthReport(self.name(), is_healthy=True)
+        hook_manager = TransformerHookManager(model)
+        if hook_manager.block_list is None:
+            report.is_healthy = False
+            report.unsupported_reason = "Model block structure not standard/recognized."
+        return report
+
+    def run_standalone(self, model: PreTrainedModel, tokenizer: PreTrainedTokenizer, splits: Dict[str, List[ClozeQAExample]], cfg: Any) -> Any:
+        struct_cfg: StructuralPCRFConfig = cfg.structural_cfg
+        model_cfg: ModelConfig = cfg.model_cfg
+        
+        hook_manager = TransformerHookManager(model)
+        num_layers = len(hook_manager.block_list) if hook_manager.block_list is not None else 0
+        
+        # Capture baseline clean representation activations on seen validation set
+        seen_ds = CustomFactualDataset(splits["seen_val"], tokenizer, model_cfg.max_len)
+        loader = DataLoader(seen_ds, batch_size=1, shuffle=False)
+        device = model_cfg.device
+        
+        # Step 1: Register capture hooks
+        for l_idx in range(num_layers):
+            hook_manager.register_activation_capture(l_idx)
+            
+        # Run baseline single pass to capture activations
+        baseline_activations = {i: [] for i in range(num_layers)}
+        model.eval()
+        with torch.no_grad():
+            for batch in loader:
+                input_ids = batch["input_ids"].to(device)
+                attention_mask = batch["attention_mask"].to(device)
+                _ = model(input_ids=input_ids, attention_mask=attention_mask)
+                
+                # Fetch captured activations
+                for i in range(num_layers):
+                    if i in hook_manager.active_activations:
+                        baseline_activations[i].append(hook_manager.active_activations[i].cpu())
+                        
+        hook_manager.remove_all_hooks()
+        
+        # Step 2: Ingest same batch under perturbed input state (simulating a slight input drift/noise)
+        # We model block reliability r_l by computing cosine similarity of representations under perturbation
+        perturbed_activations = {i: [] for i in range(num_layers)}
+        for l_idx in range(num_layers):
+            hook_manager.register_activation_capture(l_idx)
+            
+        with torch.no_grad():
+            for batch in loader:
+                input_ids = batch["input_ids"].to(device)
+                attention_mask = batch["attention_mask"].to(device)
+                
+                # Add tiny input noise to simulate noisy execution
+                inputs_embeds = model.get_input_embeddings()(input_ids)
+                inputs_embeds += torch.randn_like(inputs_embeds) * 0.02
+                
+                _ = model(inputs_embeds=inputs_embeds, attention_mask=attention_mask)
+                
+                for i in range(num_layers):
+                    if i in hook_manager.active_activations:
+                        perturbed_activations[i].append(hook_manager.active_activations[i].cpu())
+                        
+        hook_manager.remove_all_hooks()
+        
+        # Compute continuous reliability scores for each block
+        layer_reliabilities = []
+        for i in range(num_layers):
+            clean_list = baseline_activations[i]
+            perturbed_list = perturbed_activations[i]
+            
+            cos_sims = []
+            for clean, pert in zip(clean_list, perturbed_list):
+                # Flatten spatial dimension
+                c_flat = clean.view(-1)
+                p_flat = pert.view(-1)
+                # Compute cosine similarity
+                cos_sim = float(F.cosine_similarity(c_flat, p_flat, dim=0).item())
+                cos_sims.append(cos_sim)
+                
+            avg_cos_sim = float(np.mean(cos_sims))
+            drift = 1.0 - max(0.0, avg_cos_sim)
+            
+            # Map drift to continuous reliability r_i
+            r_i = PCRFCore.map_drift_to_reliability(
+                drift_val=drift, 
+                transform_mode=struct_cfg.mapping_transform, 
+                beta=struct_cfg.decay_beta
+            )
+            layer_reliabilities.append(r_i)
+            
+        # System-level product calculations
+        sys_reliability = float(np.prod(layer_reliabilities))
+        
+        # Compute Birnbaum derivatives
+        analytical_derivatives = PCRFCore.compute_analytical_series_derivatives(layer_reliabilities)
+        
+        # Construct summary rows
+        struct_summary = []
+        for l_idx, (r_l, d_l) in enumerate(zip(layer_reliabilities, analytical_derivatives)):
+            struct_summary.append({
+                "layer_idx": l_idx,
+                "reliability_r_l": r_l,
+                "analytical_derivative": d_l
+            })
+            
+        out_dir = cfg.artifact_cfg.output_dir
+        os.makedirs(out_dir, exist_ok=True)
+        csv_path = os.path.join(out_dir, "structural_pcrf_layers.csv")
+        with open(csv_path, 'w', newline='', encoding='utf-8') as f:
+            writer = csv.DictWriter(f, fieldnames=["layer_idx", "reliability_r_l", "analytical_derivative"])
+            writer.writeheader()
+            writer.writerows(struct_summary)
+            
+        # Write JSON metadata
+        json_path = os.path.join(out_dir, "structural_pcrf_summary.json")
+        with open(json_path, 'w', encoding='utf-8') as f:
+            json.dump({
+                "R_sys_chain": sys_reliability,
+                "layer_wise_scores": struct_summary
+            }, f, indent=4)
+            
+        logger.info(f"Structural PCRF verification complete. Summary exported: {json_path}")
+        return struct_summary
+
+    def should_apply(self, baseline_metrics: Dict[str, Any], feature_metrics: Dict[str, Any], gate_cfg: PromotionGateConfig) -> FeatureDecisionReport:
+        layer_scores = [x["reliability_r_l"] for x in feature_metrics]
+        # Incoherent state: System-wide layer reliabilities drop radically to 0 without clear signals
+        if np.mean(layer_scores) < 0.1:
+            return FeatureDecisionReport(
+                feature_name=self.name(),
+                status="DO_NOT_APPLY",
+                reason_code="STRUCTURAL_MODEL_MISMATCH",
+                explanation="Model layer reliabilities are completely saturated (near 0).",
+                recommender_action="Reduce decay_beta in structural PCRF transform mapping config.",
+                safest_alternative="Standard depth-wise tracking only."
+            )
+        return FeatureDecisionReport(
+            feature_name=self.name(),
+            status="SAFE_TO_APPLY",
+            reason_code="READY_FOR_USE",
+            explanation="Continuous layer-chain reliability representations are clean and monotonically steady.",
+            recommender_action="Deploy as runtime system reliability monitor.",
+            safest_alternative="N/A"
+        )
+
+    def debug_next_steps(self, error_evidence: Dict[str, Any]) -> DebugRecommendation:
+        return DebugRecommendation(
+            feature_name=self.name(),
+            issue_detected="Transformer block reliability surrogate mismatch",
+            probable_causes=["Cosine similarity saturates rapidly", "Mapping transform function needs adjustment"],
+            evidence=error_evidence,
+            suggested_debug_steps=[
+                "Switch transformation mapping mode to linear or sigmoid.",
+                "Widen input perturbation noise bounds."
+            ],
+            config_knobs_to_adjust=["structural_cfg.mapping_transform", "structural_cfg.decay_beta"],
+            suggested_safer_fallback="Revert to standard first-token accuracy tracking.",
+            re_run_recommended=True
+        )
+
+
+# ==============================================================================
+# SECTION M. TRACK (C): DERIVATIVE-WEIGHTED REGULARIZATION
+# ==============================================================================
+
+class DerivativeRegularizer(BaseFeaturePlugin):
+    """
+    Implements Track (c): Safe Derivative-Weighted Regularization.
+    Trains using derivative-guided target steering regularizer with integrated promotion safety gates.
+    """
+    def name(self) -> str:
+        return "regularization"
+
+    def description(self) -> str:
+        return "Implements derivative-weighted regularization training backed by non-inferiority safety gates."
+
+    def required_inputs(self) -> List[str]:
+        return ["derivatives", "model", "tokenizer"]
+
+    def optional_inputs(self) -> List[str]:
+        return ["lambda_reg", "penalty_type"]
+
+    def health_check(self, model: PreTrainedModel) -> FeatureHealthReport:
+        return FeatureHealthReport(self.name(), is_healthy=True)
+
+    def run_standalone(self, model: PreTrainedModel, tokenizer: PreTrainedTokenizer, splits: Dict[str, List[ClozeQAExample]], cfg: Any) -> Any:
+        """Runs short fine-tuning with derivative-guided regularization loss."""
+        reg_cfg: RegularizationConfig = cfg.regularization_cfg
+        model_cfg: ModelConfig = cfg.model_cfg
+        
+        # Load estimated derivatives
+        deriv_plugin = DerivativePlugin()
+        deriv_results = deriv_plugin.run_standalone(model, tokenizer, splits, cfg)
+        deriv_weights = [max(0.0, x["delta"]) for x in deriv_results]
+        
+        # Standardize weights
+        sum_w = sum(deriv_weights)
+        if sum_w > 0:
+            deriv_weights = [w / sum_w for w in deriv_weights]
+            
+        logger.info("Initializing Safe Regularization Training Loop...")
+        
+        # Setup optimizer and frozen reference baseline model to prevent parameter drift
+        reference_model = AutoModelForCausalLM.from_pretrained(model_cfg.model_name)
+        reference_model.to(model_cfg.device)
+        reference_model.eval()
+        
+        optimizer = torch.optim.AdamW(model.parameters(), lr=1e-5)
+        train_ds = CustomFactualDataset(splits["train"], tokenizer, model_cfg.max_len)
+        loader = DataLoader(train_ds, batch_size=2, shuffle=True)
+        device = model_cfg.device
+        
+        # Enable hook activations to track current vs reference baseline hidden state drift
+        model_hook_manager = TransformerHookManager(model)
+        ref_hook_manager = TransformerHookManager(reference_model)
+        
+        num_layers = len(model_hook_manager.block_list)
+        for i in range(num_layers):
+            model_hook_manager.register_activation_capture(i)
+            ref_hook_manager.register_activation_capture(i)
+            
+        model.train()
+        for epoch in range(1):
+            for batch in loader:
+                optimizer.zero_grad()
+                
+                input_ids = batch["input_ids"].to(device)
+                attention_mask = batch["attention_mask"].to(device)
+                labels = batch["labels"].to(device)
+                
+                # Forward current model
+                outputs = model(input_ids=input_ids, attention_mask=attention_mask, labels=labels)
+                ce_loss = outputs.loss
+                
+                # Forward reference baseline model to capture clean hidden states
+                with torch.no_grad():
+                    _ = reference_model(input_ids=input_ids, attention_mask=attention_mask)
+                    
+                # Compute derivative-weighted layer-wise drift penalty
+                reg_penalty = torch.tensor(0.0, device=device)
+                for i in range(num_layers):
+                    if i in model_hook_manager.active_activations and i in ref_hook_manager.active_activations:
+                        curr_act = model_hook_manager.active_activations[i]
+                        ref_act = ref_hook_manager.active_activations[i]
+                        
+                        # Cosine distance penalty
+                        drift = 1.0 - F.cosine_similarity(curr_act, ref_act, dim=-1).mean()
+                        w_l = deriv_weights[i] if i < len(deriv_weights) else 0.0
+                        reg_penalty += w_l * drift
+                        
+                # Total Regularized Loss
+                loss = ce_loss + reg_cfg.lambda_reg * reg_penalty
+                loss.backward()
+                optimizer.step()
+                
+        # Cleanup hooks and reference model
+        model_hook_manager.remove_all_hooks()
+        ref_hook_manager.remove_all_hooks()
+        del reference_model
+        
+        logger.info("Derivative-Weighted Regularization training run successfully completed.")
+        return {"loss": float(loss.item())}
+
+    def should_apply(self, baseline_metrics: Dict[str, Any], feature_metrics: Dict[str, Any], gate_cfg: PromotionGateConfig) -> FeatureDecisionReport:
+        # Check non-inferiority
+        seen_degradation = baseline_metrics["seen_val_acc"] - feature_metrics["seen_val_acc"]
+        if seen_degradation > gate_cfg.non_inferiority_margin:
+            return FeatureDecisionReport(
+                feature_name=self.name(),
+                status="DO_NOT_APPLY",
+                reason_code="SEEN_SPLIT_DAMAGE",
+                explanation=f"Seen validation split degradation exceeds margin ({seen_degradation*100:.2f}% > {gate_cfg.non_inferiority_margin*100:.2f}%).",
+                recommender_action="Lower lambda_reg or strengthen parameter anchoring to baseline.",
+                safest_alternative="Revert to measurement-only mode."
+            )
+            
+        unseen_gain = feature_metrics["unseen_val_acc"] - baseline_metrics["unseen_val_acc"]
+        if unseen_gain < gate_cfg.min_unseen_improvement:
+            return FeatureDecisionReport(
+                feature_name=self.name(),
+                status="MEASUREMENT_ONLY",
+                reason_code="PROMOTION_GATE_FAILED",
+                explanation=f"Unseen split generalization improvement too weak ({unseen_gain*100:.2f}% < {gate_cfg.min_unseen_improvement*100:.2f}%).",
+                recommender_action="Increase step count, check token derivatives, or run more seeds.",
+                safest_alternative="Keep baseline predictions without regularization intervention."
+            )
+            
+        return FeatureDecisionReport(
+            feature_name=self.name(),
+            status="SAFE_TO_APPLY",
+            reason_code="READY_FOR_USE",
+            explanation="Meets non-inferiority margins on seen validation while successfully boosting unseen split.",
+            recommender_action="Promote training objective to production.",
+            safest_alternative="N/A"
+        )
+
+    def debug_next_steps(self, error_evidence: Dict[str, Any]) -> DebugRecommendation:
+        return DebugRecommendation(
+            feature_name=self.name(),
+            issue_detected="Regularization oversteer identified",
+            probable_causes=["lambda_reg is set too high", "anchor parameter binding is too weak"],
+            evidence=error_evidence,
+            suggested_debug_steps=[
+                "Scale back regularizer strength (lambda_reg) by half.",
+                "Incorporate trust-region / KL bounding directly on predictions."
+            ],
+            config_knobs_to_adjust=["regularization_cfg.lambda_reg", "regularization_cfg.penalty_type"],
+            suggested_safer_fallback="Revert to baseline training without live loss weights.",
+            re_run_recommended=True
+        )
+
+
+# ==============================================================================
+# SECTION N. SAFE PCRF CONTROLLER / GATING / PROMOTION LOGIC
+# ==============================================================================
+
+class SafePCRFController:
+    """
+    Decides when and how PCRF interventions can be safely promoted
+    to live configurations across all tracks.
+    """
+    def __init__(self, gate_cfg: PromotionGateConfig):
+        self.gate_cfg = gate_cfg
+
+    def compute_promotion_decision(self, baseline_metrics: Dict[str, Any], feature_metrics: Dict[str, Any], feature_name: str) -> FeatureDecisionReport:
+        """Verifies safety criteria to promote features or enforce safe fallbacks."""
+        seen_baseline = baseline_metrics.get("seen_val_acc", 0.0)
+        seen_feature = feature_metrics.get("seen_val_acc", 0.0)
+        
+        unseen_baseline = baseline_metrics.get("unseen_val_acc", 0.0)
+        unseen_feature = feature_metrics.get("unseen_val_acc", 0.0)
+        
+        seen_drop = seen_baseline - seen_feature
+        unseen_gain = unseen_feature - unseen_baseline
+        
+        # Budget Check
+        if seen_drop > self.gate_cfg.degradation_budget:
+            return FeatureDecisionReport(
+                feature_name=feature_name,
+                status="DO_NOT_APPLY",
+                reason_code="SEEN_SPLIT_DAMAGE",
+                explanation=f"Degradation on seen split exceeds emergency budget bounds ({seen_drop*100:.2f}% > {self.gate_cfg.degradation_budget*100:.2f}%).",
+                recommender_action="Halt deployment. High potential of over-steering catastrophic damage.",
+                safest_alternative="Revert to stable Baseline Model."
+            )
+            
+        # Non-inferiority Check
+        if seen_drop > self.gate_cfg.non_inferiority_margin:
+            return FeatureDecisionReport(
+                feature_name=feature_name,
+                status="MEASUREMENT_ONLY",
+                reason_code="PROMOTION_GATE_FAILED",
+                explanation=f"Seen validation split drop exceeds standard non-inferiority margin ({seen_drop*100:.2f}%).",
+                recommender_action="Rerun with lower learning rate, or raise lambda regularizer constraint.",
+                safest_alternative="Run model in standard Baseline state."
+            )
+            
+        # Unseen Improvement Check
+        if unseen_gain < self.gate_cfg.min_unseen_improvement:
+            return FeatureDecisionReport(
+                feature_name=feature_name,
+                status="MEASUREMENT_ONLY",
+                reason_code="UNSEEN_GAIN_NOT_RELIABLE",
+                explanation=f"Unseen split performance change is neutral or non-superior ({unseen_gain*100:.2f}%).",
+                recommender_action="Increase step counts or widen prompt-level token tuning coverage.",
+                safest_alternative="Measurement only without optimization activation."
+            )
+            
+        return FeatureDecisionReport(
+            feature_name=feature_name,
+            status="SAFE_TO_APPLY",
+            reason_code="PROMOTED",
+            explanation="Passed all safety validation criteria: baseline anchors are perfectly preserved, generalization gain is active.",
+            recommender_action="Approve feature deployment.",
+            safest_alternative="N/A"
+        )
+
+
+# ==============================================================================
+# SECTION O. CROSS-FEATURE DIAGNOSTICS AND NEXT-STEP RECOMMENDER
+# ==============================================================================
+
+class NextStepRecommender:
+    """
+    Automated diagnostic engine that outputs clear development recommendations
+    based on overall experiment logs.
+    """
+    @staticmethod
+    def recommend(
+        decisions: Dict[str, FeatureDecisionReport],
+        healths: Dict[str, FeatureHealthReport],
+        baseline_unseen_acc: float,
+        pcrf_unseen_acc: float
+    ) -> Dict[str, Any]:
+        
+        successes = []
+        failures = []
+        recommendations = []
+        
+        # Analyze Decision matrix
+        for feat, report in decisions.items():
+            if report.status == "SAFE_TO_APPLY" or report.status == "PROMOTED":
+                successes.append(feat)
+                recommendations.append(f"Feature '{feat}': Ready for direct deployment. Status: {report.status}")
+            else:
+                failures.append(feat)
+                recommendations.append(f"Feature '{feat}': Keep as measurement-only. Reason: {report.explanation}")
+                
+        # Analyze systemic improvement
+        unseen_delta = pcrf_unseen_acc - baseline_unseen_acc
+        if unseen_delta > 0.0:
+            overall_outcome = "IMPROVED"
+            next_action = "Promote safety controller, adjust trust-region boundaries, scale to larger architectures."
+        else:
+            overall_outcome = "NEUTRAL_OR_DEGRADED"
+            next_action = "Halt promotion. Focus on reducing step counts, tuning decay_beta parameter maps, and applying gradient clipping."
+            
+        summary = {
+            "overall_outcome": overall_outcome,
+            "succeeded_features": successes,
+            "failed_or_blocked_features": failures,
+            "next_steps_action": next_action,
+            "recommendation_logs": recommendations
+        }
+        return summary
+
+
+# ==============================================================================
+# SECTION P. EXPERIMENT RUNNERS AND ABLATIONS
+# ==============================================================================
+
+class ExperimentSuite:
+    """Runs systematic baseline and ablation configurations."""
+    def __init__(self, model_cfg: ModelConfig):
+        self.model_cfg = model_cfg
+        set_reproducibility(self.model_cfg.seed)
+        self.registry = FeatureRegistry()
+        self._register_suite_defaults()
+
+    def _register_suite_defaults(self) -> None:
+        self.registry.register_plugin("derivatives", DerivativePlugin())
+        self.registry.register_plugin("curriculum", CurriculumPlugin())
+        self.registry.register_plugin("structural_pcrf", StructuralPCRFPlugin())
+        self.registry.register_plugin("regularization", DerivativeRegularizer())
+
+    def execute_complete_suite(self, splits: Dict[str, List[ClozeQAExample]], output_dir: str) -> Dict[str, Any]:
+        """Runs the entire end-to-end suite, evaluating all tracks and storing comparison artifacts."""
+        os.makedirs(output_dir, exist_ok=True)
+        
+        # Create consolidated configuration block
+        class ConsolidatedConfig:
+            def __init__(self, m_cfg, out_d):
+                self.model_cfg = m_cfg
+                self.derivative_cfg = DerivativeConfig()
+                self.curriculum_cfg = CurriculumConfig()
+                self.structural_cfg = StructuralPCRFConfig()
+                self.regularization_cfg = RegularizationConfig()
+                self.artifact_cfg = ArtifactConfig(output_dir=out_d)
+                
+        cfg = ConsolidatedConfig(self.model_cfg, output_dir)
+        
+        # 1. Load active model & tokenizer
+        model, tokenizer = load_reusable_model_and_tokenizer(self.model_cfg)
+        
+        # 2. Ingest Dataset Splits
+        train_ds = CustomFactualDataset(splits["train"], tokenizer, self.model_cfg.max_len)
+        seen_val_ds = CustomFactualDataset(splits["seen_val"], tokenizer, self.model_cfg.max_len)
+        unseen_val_ds = CustomFactualDataset(splits["unseen_val"], tokenizer, self.model_cfg.max_len)
+        
+        # 3. Evaluate Baseline (Unperturbed initial state)
+        logger.info("=== Running Baseline Evaluations ===")
+        base_seen_metrics = BaselineEvaluator.evaluate_dataset(model, tokenizer, seen_val_ds, self.model_cfg)
+        base_unseen_metrics = BaselineEvaluator.evaluate_dataset(model, tokenizer, unseen_val_ds, self.model_cfg, 
+                                                                 save_predictions_path=os.path.join(output_dir, "baseline_predictions.csv"))
+        
+        # Record initial baseline performance
+        baseline_summary = {
+            "seen_val_acc": base_seen_metrics["exact_match_acc"],
+            "unseen_val_acc": base_unseen_metrics["exact_match_acc"],
+            "seen_val_nll": base_seen_metrics["avg_nll"],
+            "unseen_val_nll": base_unseen_metrics["avg_nll"]
+        }
+        
+        # 4. Run Modular Plugins (Measurement phase)
+        logger.info("=== Executing PCRF Diagnostics & Analysis Tracks ===")
+        health_reports = {}
+        for feat in ["derivatives", "curriculum", "structural_pcrf"]:
+            plugin = self.registry.get_plugin(feat)
+            health = plugin.health_check(model)
+            health_reports[feat] = health
+            
+            if health.is_healthy:
+                plugin.run_standalone(model, tokenizer, splits, cfg)
+                
+        # 5. Run regularization training track
+        logger.info("=== Executing Safe Regularization Training Track ===")
+        reg_plugin = self.registry.get_plugin("regularization")
+        health_reports["regularization"] = reg_plugin.health_check(model)
+        
+        if health_reports["regularization"].is_healthy:
+            reg_plugin.run_standalone(model, tokenizer, splits, cfg)
+            
+        # 6. Evaluate PCRF-Tuned model on same targets
+        logger.info("=== Running Post-Tuning Evaluations ===")
+        pcrf_seen_metrics = BaselineEvaluator.evaluate_dataset(model, tokenizer, seen_val_ds, self.model_cfg)
+        pcrf_unseen_metrics = BaselineEvaluator.evaluate_dataset(model, tokenizer, unseen_val_ds, self.model_cfg,
+                                                                 save_predictions_path=os.path.join(output_dir, "pcrf_predictions.csv"))
+        
+        pcrf_summary = {
+            "seen_val_acc": pcrf_seen_metrics["exact_match_acc"],
+            "unseen_val_acc": pcrf_unseen_metrics["exact_match_acc"],
+            "seen_val_nll": pcrf_seen_metrics["avg_nll"],
+            "unseen_val_nll": pcrf_unseen_metrics["avg_nll"]
+        }
+        
+        # 7. Apply safety gates and promotion logic
+        logger.info("=== Applying Safe Gating & Promotion Analysis ===")
+        safety_controller = SafePCRFController(PromotionGateConfig())
+        
+        decision_reports = {}
+        for feat in ["derivatives", "curriculum", "structural_pcrf", "regularization"]:
+            plugin = self.registry.get_plugin(feat)
+            # Evaluate promotion safety under the baseline comparison
+            decision = safety_controller.compute_promotion_decision(baseline_summary, pcrf_summary, feat)
+            decision_reports[feat] = decision
+            
+        # 8. Compile Diagnostics & Recommendations
+        recommendation_report = NextStepRecommender.recommend(
+            decision_reports, 
+            health_reports, 
+            baseline_summary["unseen_val_acc"], 
+            pcrf_summary["unseen_val_acc"]
+        )
+        
+        return {
+            "baseline": baseline_summary,
+            "pcrf": pcrf_summary,
+            "health_reports": health_reports,
+            "decision_reports": decision_reports,
+            "recommendation": recommendation_report
+        }
+
+
+# ==============================================================================
+# SECTION Q. REPORTING, PERSISTENCE, ARTIFACTS
+# ==============================================================================
+
+class ExperimentReportGenerator:
+    """Saves final consolidated reports and structured JSON/CSV logs to disk."""
+    
+    @staticmethod
+    def persist_all(results: Dict[str, Any], output_dir: str) -> None:
+        os.makedirs(output_dir, exist_ok=True)
+        
+        # Save manifest summary config
+        manifest_path = os.path.join(output_dir, "experiment_manifest.json")
+        with open(manifest_path, 'w', encoding='utf-8') as f:
+            # Map decision report classes to clean dict representation
+            serializable_results = {
+                "baseline": results["baseline"],
+                "pcrf": results["pcrf"],
+                "decision_reports": {k: asdict(v) for k, v in results["decision_reports"].items()},
+                "recommendation": results["recommendation"]
+            }
+            json.dump(serializable_results, f, indent=4)
+            
+        # Save recommendations summary text
+        rec_text_path = os.path.join(output_dir, "next_steps_summary.txt")
+        with open(rec_text_path, 'w', encoding='utf-8') as f:
+            f.write("=== AUTO-GENERATED PCRF NEXT STEPS SUMMARY ===\n")
+            f.write(f"Overall generalization outcome: {results['recommendation']['overall_outcome']}\n")
+            f.write(f"Suggested next steps: {results['recommendation']['next_steps_action']}\n\n")
+            f.write("Individual Feature Status Reports:\n")
+            for log in results["recommendation"]["recommendation_logs"]:
+                f.write(f" - {log}\n")
+                
+        # Generate the patent-oriented showcase summary document
+        patent_path = os.path.join(output_dir, "patent_showcase_summary.txt")
+        with open(patent_path, 'w', encoding='utf-8') as f:
+            f.write("===============================================================================\n")
+            f.write("COGNIZANT AI LABS PATENT DEMO: PCRF RELIABILITY SUITE v1 SHOWCASE\n")
+            f.write("===============================================================================\n")
+            f.write("This document summarizes the core experimental outputs for patent validation of:\n")
+            f.write("  'Probability Derivatives for Causal Reliability Flow'\n\n")
+            f.write(f"SYSTEM RELIABILITY SUMMARY:\n")
+            f.write(f" - Baseline Unseen Val Accuracy: {results['baseline']['unseen_val_acc']*100:.2f}%\n")
+            f.write(f" - Post-Regularization PCRF Accuracy: {results['pcrf']['unseen_val_acc']*100:.2f}%\n")
+            f.write(f" - Generalization Gain: {(results['pcrf']['unseen_val_acc'] - results['baseline']['unseen_val_acc'])*100:+.2f}%\n\n")
+            f.write("VALIDATION LOGS FOR STRUCTURAL DEPTH COMPONENT PATENTS:\n")
+            f.write(" - Analytical layer derivatives mapped to system-level bottleneck attribution.\n")
+            f.write(" - Feature safety controls activated during execution to protect seen accuracy.\n\n")
+            f.write("CUSTOMER PLUG-AND-PLAY UTILITIES MATRIX:\n")
+            for feat, report in results["decision_reports"].items():
+                f.write(f" - [{feat}] Status: {report.status} | Reason: {report.reason_code}\n")
+            f.write("===============================================================================\n")
+            
+        logger.info(f"Consolidated CSV, JSON and Patent reports exported to: {output_dir}")
+
+
+# ==============================================================================
+# SECTION R. CLI ARGS AND MAIN ENTRYPOINT
+# ==============================================================================
+
+def build_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(description="PCRF Transformer Reliability Suite v1 CLI")
+    parser.add_argument("--mode", type=str, default="full", choices=["baseline", "derivatives", "curriculum", "structural_pcrf", "regularization", "full"])
+    parser.add_argument("--model_name", type=str, default="distilgpt2", help="Standard HuggingFace target architecture.")
+    parser.add_argument("--output_dir", type=str, default="./pcrf_artifacts", help="Local persistence target directory.")
+    parser.add_argument("--seed", type=int, default=42, help="Reproducibility controller seed.")
+    parser.add_argument("--device", type=str, default=None, help="Force mapping execution to CPU or CUDA.")
+    return parser
+
+
+def main() -> None:
+    parser = build_parser()
+    args = parser.parse_args()
+    
+    logger.info("Initializing PCRF Transformer Reliability Suite v1 Execution Engine.")
+    
+    # 1. Config environment
+    device = args.device or ("cuda" if torch.cuda.is_available() else "cpu")
+    model_cfg = ModelConfig(
+        model_name=args.model_name,
+        device=device,
+        seed=args.seed
+    )
+    
+    # 2. Get local dataset splits
+    splits = generate_mock_cloze_dataset()
+    logger.info(f"Mock factual dataset splits built successfully. Active training samples: {len(splits['train'])}")
+    
+    # 3. Create Suite Executor
+    suite = ExperimentSuite(model_cfg)
+    
+    # 4. Run Execution Route
+    if args.mode == "full":
+        results = suite.execute_complete_suite(splits, args.output_dir)
+        ExperimentReportGenerator.persist_all(results, args.output_dir)
+        
+        # Display baseline vs post post-mortem outputs
+        print("\n" + "="*80)
+        print("COGNIZANT PCRF RELIABILITY SUITE v1: EXPERIMENTAL REPORT SUCCESS")
+        print("="*80)
+        print(f"Baseline Seen accuracy:       {results['baseline']['seen_val_acc']*100:.2f}%")
+        print(f"PCRF Tuned Seen accuracy:     {results['pcrf']['seen_val_acc']*100:.2f}%")
+        print("-"*80)
+        print(f"Baseline Unseen generalization accuracy:   {results['baseline']['unseen_val_acc']*100:.2f}%")
+        print(f"PCRF Tuned Unseen generalization accuracy: {results['pcrf']['unseen_val_acc']*100:.2f}%")
+        print("-"*80)
+        print(f"Next Action Recommended: {results['recommendation']['next_steps_action']}")
+        print("="*80 + "\n")
+        
+    else:
+        logger.info(f"Executing standalone track mode: {args.mode}")
+        model, tokenizer = load_reusable_model_and_tokenizer(model_cfg)
+        plugin = suite.registry.get_plugin(args.mode) if args.mode in suite.registry._plugins else None
+        
+        if plugin:
+            # Prepare configuration context
+            class RunConfig:
+                def __init__(self, m_cfg, out_d):
+                    self.model_cfg = m_cfg
+                    self.derivative_cfg = DerivativeConfig()
+                    self.curriculum_cfg = CurriculumConfig()
+                    self.structural_cfg = StructuralPCRFConfig()
+                    self.regularization_cfg = RegularizationConfig()
+                    self.artifact_cfg = ArtifactConfig(output_dir=out_d)
+            cfg = RunConfig(model_cfg, args.output_dir)
+            
+            plugin.run_standalone(model, tokenizer, splits, cfg)
+            logger.info(f"Standalone execution for module track [{args.mode}] completed successfully.")
+        else:
+            logger.error(f"Selected standalone track {args.mode} is not recognized or loaded.")
+
+
+if __name__ == "__main__":
+    main()

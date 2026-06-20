@@ -1,0 +1,81 @@
+id,prompt,target,priority_score
+69,The technical engineering pipeline of locating and isolating software bugs is,Source debugging,14.261313399282345
+68,The foundational processing unit executing computing instructions is the,CPU silicon,12.221820485459137
+49,The planet historically referred to as the red planet is,Mars planet,12.175667078973472
+67,The primary volatile memory utilized for rapid workspace computation is,RAM modules,12.000635773848645
+59,The core organ driving blood circulation in mammalian systems is the,Heart organ,11.936419836500049
+78,The reserved programming keyword used to declare structural blueprints in Python is,class declaration,11.760758342708822
+60,Light waves travel significantly faster than mechanical propagation of,Sound vibrations,11.723147493701
+56,A liquid solution with a pH rating significantly higher than 7 is a,Basic solution,11.311668825428802
+74,The relational database directive used to fetch selected tuples from table arrays is,SELECT statement,10.888255899337233
+79,The reserved programming keyword used to initiate routine blocks in Python is,def syntax,10.491037527721568
+75,An auxiliary database lookup catalog built to accelerate query evaluation is an,Index catalog,10.183014352587438
+76,The fundamental internet routing system standardizing packet layout is the,IP specification,10.002653780749508
+63,"To store keyed associative records with rapid O(1) lookup, developers choose a",Hash map,9.972317438356546
+61,"In operating systems, a scheduled execution thread resides within a",System process,9.762010914973787
+42,The element represented by atomic number 2 is,Helium gas,9.607131259304607
+43,The element represented by atomic number 6 is,Carbon element,9.49943038559199
+48,The planet with the highest surface temperature is,Venus planet,9.261385968974981
+72,A software routine that invokes itself to solve smaller sub-problems is,Recursive call,8.89497873943244
+70,"In class structures, an operational memory instantiation is called an",Object instance,8.698017444231718
+57,The basic physical container of all organic life is the,Biological cell,8.553739729703633
+41,The element represented by atomic number 1 is,Hydrogen gas,8.416459315512496
+50,The largest gas giant orbiting inside our solar system is,Jupiter planet,8.381023912311964
+44,The element represented by atomic number 7 is,Nitrogen gas,8.305598865746429
+47,The planet sitting closest to our solar system's sun is,Mercury planet,8.013828707138607
+66,The digital counting framework representing information with 0 and 1 is,Binary arithmetic,7.6850615819377195
+71,The network transmission protocol used to serve encrypted web content is,HTTPS security,7.523912172512204
+52,The standard electrical metric measuring opposition to current is,Ohm unit,7.518052473025101
+80,The computational scale measuring worst-case algorithm complexity is Big O,Notation scale,7.50184405889299
+62,"In deep learning, structural parameters are mathematically adjusted via",Gradient descent,7.428173373165876
+37,The official central administrative capital city of Switzerland is,"Bern, Switzerland",7.207470175574457
+77,"In balanced search trees, a terminal node lacking downstream progeny is a",Leaf node,7.19783270125842
+54,The chemical compound representing standard table salt is,NaCl salt,6.69135477011142
+51,Photosynthesis in organic plant structures generates glucose and,Oxygen gas,6.437515350800988
+73,The version control directive committing index state to local repository history is git,commit command,6.328753611540369
+46,Water is chemically composed of hydrogen and,Oxygen molecules,6.141990917550423
+22,The official central administrative capital city of Peru is,"Lima, Peru",6.0969736731276925
+55,A liquid solution with a pH rating significantly lower than 7 is an,Acidic solution,5.833726985406757
+53,The physical force driving planetary orbits is,Gravitational pull,5.74028113279867
+45,The element represented by atomic number 8 is,Oxygen gas,5.723242538619728
+1,The official central administrative capital city of France is,"Paris, France",5.472391479720503
+58,The atmospheric gas primarily responsible for global warming is,Carbon dioxide,5.424909593321654
+65,"A sequential stack data structure operates on the last-in first-out principle, or",LIFO structure,5.398819590694513
+9,The official central administrative capital city of Portugal is,"Lisbon, Portugal",5.36852209554811
+64,"A sequential queue data structure operates on the first-in first-out principle, or",FIFO structure,5.357795939137154
+31,The official central administrative capital city of Nigeria is,"Abuja, Nigeria",5.2645558330571385
+36,The official central administrative capital city of Netherlands is,"Amsterdam, Netherlands",5.252091142463768
+10,The official central administrative capital city of Russia is,"Moscow, Russia",5.209764429561962
+35,The official central administrative capital city of Ukraine is,"Kyiv, Ukraine",5.004143075952449
+39,The official central administrative capital city of Norway is,"Oslo, Norway",4.987990774509812
+17,The official central administrative capital city of Australia is,"Canberra, Australia",4.913374326187463
+8,The official central administrative capital city of Greece is,"Athens, Greece",4.883129586561078
+4,The official central administrative capital city of Spain is,"Madrid, Spain",4.816133433307528
+11,The official central administrative capital city of India is,"New Delhi, India",4.706371737144749
+7,The official central administrative capital city of Egypt is,"Cairo, Egypt",4.695798571741845
+3,The official central administrative capital city of Italy is,"Rome, Italy",4.5994017671822
+24,The official central administrative capital city of Colombia is,"Bogota, Colombia",4.510493848486945
+12,The official central administrative capital city of England is,"London, United Kingdom",4.4707468805140245
+33,The official central administrative capital city of New Zealand is,"Wellington, New Zealand",4.443742768603661
+6,The official central administrative capital city of China is,"Beijing, China",4.380774739101312
+15,The official central administrative capital city of Mexico is,"Mexico City, Mexico",4.344452083973204
+26,The official central administrative capital city of Austria is,"Vienna, Austria",4.330801353370698
+19,The official central administrative capital city of Turkey is,"Ankara, Turkey",4.291724860097644
+2,The official central administrative capital city of Germany is,"Berlin, Germany",4.2304814565042514
+14,The official central administrative capital city of Brazil is,"Brasilia, Brazil",4.129779801511129
+23,The official central administrative capital city of Chile is,"Santiago, Chile",4.125223163368473
+32,The official central administrative capital city of South Africa is,"Pretoria, South Africa",4.103347367599507
+18,The official central administrative capital city of Sweden is,"Stockholm, Sweden",4.07744200929243
+20,The official central administrative capital city of Thailand is,"Bangkok, Thailand",3.9431559504579567
+40,The official central administrative capital city of Indonesia is,"Jakarta, Indonesia",3.8970068603330197
+28,The official central administrative capital city of Finland is,"Helsinki, Finland",3.8468147789921487
+13,The official central administrative capital city of Canada is,"Ottawa, Canada",3.7990520893481126
+27,The official central administrative capital city of Poland is,"Warsaw, Poland",3.7581349080220625
+21,The official central administrative capital city of Vietnam is,"Hanoi, Vietnam",3.7546743857066924
+5,The official central administrative capital city of Japan is,"Tokyo, Japan",3.6113124590465575
+29,The official central administrative capital city of Ireland is,"Dublin, Ireland",3.549690654495944
+16,The official central administrative capital city of Argentina is,"Buenos Aires, Argentina",3.2913375208523243
+25,The official central administrative capital city of Belgium is,"Brussels, Belgium",3.2043448673315447
+30,The official central administrative capital city of Kenya is,"Nairobi, Kenya",3.1695082392832195
+38,The official central administrative capital city of Denmark is,"Copenhagen, Denmark",3.0254130108948325
+34,The official central administrative capital city of Saudi Arabia is,"Riyadh, Saudi Arabia",3.006827480990269

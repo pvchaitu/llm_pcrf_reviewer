@@ -1,0 +1,17 @@
+{
+    "target_model": "Qwen/Qwen2.5-0.5B",
+    "selected_layers": [
+        0,
+        1,
+        22,
+        23
+    ],
+    "thresholds": {
+        "non_inferiority_margin": 0.01,
+        "degradation_budget": 0.03
+    },
+    "applied_constraints": {
+        "kl_limit": 0.5,
+        "margin_minimum": 0.1
+    }
+}

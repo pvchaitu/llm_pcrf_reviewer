@@ -1,0 +1,35 @@
+{
+    "R_sys_chain": 0.9961810799294359,
+    "layer_wise_scores": [
+        {
+            "layer_idx": 0,
+            "reliability_r_l": 0.9977664477309626,
+            "analytical_derivative": 0.9984110832699056
+        },
+        {
+            "layer_idx": 1,
+            "reliability_r_l": 0.999689329254939,
+            "analytical_derivative": 0.9964906604253566
+        },
+        {
+            "layer_idx": 2,
+            "reliability_r_l": 0.9997643569632054,
+            "analytical_derivative": 0.9964158783929308
+        },
+        {
+            "layer_idx": 3,
+            "reliability_r_l": 0.9995708790517152,
+            "analytical_derivative": 0.9966087456194251
+        },
+        {
+            "layer_idx": 4,
+            "reliability_r_l": 0.9997631413157175,
+            "analytical_derivative": 0.9964170899703629
+        },
+        {
+            "layer_idx": 5,
+            "reliability_r_l": 0.9996223805241046,
+            "analytical_derivative": 0.9965573994123017
+        }
+    ]
+}

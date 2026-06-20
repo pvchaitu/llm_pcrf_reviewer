@@ -1,0 +1,96 @@
+2026-06-17 06:23:15,552 [INFO] PCRF_Customer_App - Initializing PCRF Customer Integration Demo...
+2026-06-17 06:23:15,562 [INFO] PCRF_Customer_App - Reproducibility controls applied. Global seed: 42
+2026-06-17 06:23:15,562 [INFO] PCRF_Customer_App - Loading tokenizer & model for architecture: distilgpt2
+2026-06-17 06:23:15,709 [INFO] httpx - HTTP Request: HEAD https://huggingface.co/distilgpt2/resolve/main/config.json "HTTP/1.1 200 OK"
+2026-06-17 06:23:15,782 [INFO] httpx - HTTP Request: HEAD https://huggingface.co/distilgpt2/resolve/main/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-06-17 06:23:15,837 [INFO] httpx - HTTP Request: GET https://huggingface.co/api/models/distilgpt2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 307 Temporary Redirect"
+2026-06-17 06:23:15,894 [INFO] httpx - HTTP Request: GET https://huggingface.co/api/models/distilbert/distilgpt2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-06-17 06:23:15,945 [INFO] httpx - HTTP Request: GET https://huggingface.co/api/models/distilgpt2/tree/main?recursive=true&expand=false "HTTP/1.1 307 Temporary Redirect"
+2026-06-17 06:23:16,010 [INFO] httpx - HTTP Request: GET https://huggingface.co/api/models/distilbert/distilgpt2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-06-17 06:23:16,322 [INFO] httpx - HTTP Request: HEAD https://huggingface.co/distilgpt2/resolve/main/config.json "HTTP/1.1 200 OK"
+Loading weights: 100%
+ 76/76 [00:00<00:00, 961.33it/s]
+2026-06-17 06:23:16,670 [INFO] httpx - HTTP Request: HEAD https://huggingface.co/distilgpt2/resolve/main/generation_config.json "HTTP/1.1 200 OK"
+2026-06-17 06:23:18,420 [INFO] PCRF_Customer_App - Model successfully loaded and mapped to active hardware: cuda
+2026-06-17 06:23:18,421 [INFO] PCRF_Customer_App - --- Phase 1: Running Baseline Profile Evaluation ---
+[transformers] `loss_type=None` was set in the config but it is unrecognized. Using the default loss: `ForCausalLMLoss`.
+[transformers] The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[transformers] The attention mask is not set and cannot be inferred from input because pad token is same as eos token. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
+2026-06-17 06:23:21,619 [INFO] PCRF_Customer_App - Baseline Seen accuracy: 0.0%
+2026-06-17 06:23:21,620 [INFO] PCRF_Customer_App - Baseline Unseen accuracy: 0.0%
+2026-06-17 06:23:21,620 [INFO] PCRF_Customer_App - 
+--- Scenario A: Run Standalone Layer Derivative Estimation ---
+2026-06-17 06:23:21,621 [INFO] PCRF_Customer_App - Feature 'derivatives' Health Check: True
+2026-06-17 06:23:21,621 [INFO] PCRF_Customer_App - Starting Standalone Derivative Estimation. Mode: noise
+2026-06-17 06:23:26,051 [INFO] PCRF_Customer_App - Standalone Derivative Estimation completed. Results stored: ./customer_pcrf_artifacts/per_module_derivatives.csv
+2026-06-17 06:23:26,052 [INFO] PCRF_Customer_App - Safety Gate Decision Status: MEASUREMENT_ONLY (Reason Code: DERIVATIVE_INSTABILITY)
+2026-06-17 06:23:26,052 [INFO] PCRF_Customer_App - Suggested Next Action: Increase perturbation scale or check baseline accuracy.
+2026-06-17 06:23:26,053 [WARNING] PCRF_Customer_App - Derivatives unstable. Ingesting debug recovery plan...
+2026-06-17 06:23:26,054 [INFO] PCRF_Customer_App - Debugging Next Steps: ['Increase noise_std in config (e.g. from 0.05 to 0.15).', 'Try zero_ablation instead of additive noise.']
+2026-06-17 06:23:26,054 [INFO] PCRF_Customer_App - Config Knobs to Adjust: ['derivative_cfg.noise_std', 'derivative_cfg.perturbation_mode']
+2026-06-17 06:23:26,055 [INFO] PCRF_Customer_App - 
+--- Scenario B: Independent Curriculum Selection ---
+2026-06-17 06:23:26,055 [INFO] PCRF_Customer_App - Starting Standalone Derivative Estimation. Mode: noise
+2026-06-17 06:23:30,460 [INFO] PCRF_Customer_App - Standalone Derivative Estimation completed. Results stored: ./customer_pcrf_artifacts/per_module_derivatives.csv
+2026-06-17 06:23:30,955 [INFO] PCRF_Customer_App - Curriculum Selection complete. Priority map saved to: ./customer_pcrf_artifacts/curriculum_scores.csv
+2026-06-17 06:23:30,956 [INFO] PCRF_Customer_App - Data curation complete. Captured 20 high cascade-risk training samples.
+2026-06-17 06:23:30,958 [INFO] PCRF_Customer_App - Curriculum Promotion Status: SAFE_TO_APPLY (Curriculum prioritize maps are clear and highly differentiated.)
+2026-06-17 06:23:30,959 [INFO] PCRF_Customer_App - 
+--- Scenario C: Standalone Structural Residual-Depth Monitoring ---
+2026-06-17 06:23:31,401 [INFO] PCRF_Customer_App - Structural PCRF verification complete. Summary exported: ./customer_pcrf_artifacts/structural_pcrf_summary.json
+2026-06-17 06:23:31,402 [INFO] PCRF_Customer_App - Retrieved Continuous Representational Reliability of Transformer Depth Chain:
+2026-06-17 06:23:31,403 [INFO] PCRF_Customer_App -   - Block 00: Survival Prob r_l = 0.9978 | Marginal Birnbaum Sensitivity D_R = 0.9984
+2026-06-17 06:23:31,404 [INFO] PCRF_Customer_App -   - Block 01: Survival Prob r_l = 0.9997 | Marginal Birnbaum Sensitivity D_R = 0.9965
+2026-06-17 06:23:31,404 [INFO] PCRF_Customer_App -   - Block 02: Survival Prob r_l = 0.9998 | Marginal Birnbaum Sensitivity D_R = 0.9964
+2026-06-17 06:23:31,405 [INFO] PCRF_Customer_App -   - Block 03: Survival Prob r_l = 0.9996 | Marginal Birnbaum Sensitivity D_R = 0.9966
+2026-06-17 06:23:31,406 [INFO] PCRF_Customer_App -   - Block 04: Survival Prob r_l = 0.9998 | Marginal Birnbaum Sensitivity D_R = 0.9964
+2026-06-17 06:23:31,406 [INFO] PCRF_Customer_App -   - Block 05: Survival Prob r_l = 0.9996 | Marginal Birnbaum Sensitivity D_R = 0.9966
+2026-06-17 06:23:31,407 [INFO] PCRF_Customer_App - 
+--- Scenario D: Derivative-Weighted Regularization & Safety Gating ---
+2026-06-17 06:23:31,409 [INFO] PCRF_Customer_App - Executing derivative-guided SFT regularization training pass...
+2026-06-17 06:23:31,409 [INFO] PCRF_Customer_App - Starting Standalone Derivative Estimation. Mode: noise
+2026-06-17 06:23:35,879 [INFO] PCRF_Customer_App - Standalone Derivative Estimation completed. Results stored: ./customer_pcrf_artifacts/per_module_derivatives.csv
+2026-06-17 06:23:35,881 [INFO] PCRF_Customer_App - Initializing Safe Regularization Training Loop...
+2026-06-17 06:23:35,968 [INFO] httpx - HTTP Request: HEAD https://huggingface.co/distilgpt2/resolve/main/config.json "HTTP/1.1 200 OK"
+Loading weights: 100%
+ 76/76 [00:00<00:00, 2634.87it/s]
+2026-06-17 06:23:36,098 [INFO] httpx - HTTP Request: HEAD https://huggingface.co/distilgpt2/resolve/main/generation_config.json "HTTP/1.1 200 OK"
+2026-06-17 06:23:39,630 [INFO] PCRF_Customer_App - Derivative-Weighted Regularization training run successfully completed.
+2026-06-17 06:23:39,676 [INFO] PCRF_Customer_App - Evaluating post-regularization metrics for promotion verification...
+2026-06-17 06:23:42,094 [INFO] PCRF_Customer_App - =====================================================================
+2026-06-17 06:23:42,095 [INFO] PCRF_Customer_App - PCRF SYSTEM CONTROLLER PROMOTION DECISION REPORT:
+2026-06-17 06:23:42,095 [INFO] PCRF_Customer_App -  - Promotion Status:  MEASUREMENT_ONLY
+2026-06-17 06:23:42,096 [INFO] PCRF_Customer_App -  - Reason Code:       UNSEEN_GAIN_NOT_RELIABLE
+2026-06-17 06:23:42,096 [INFO] PCRF_Customer_App -  - System Explanation: Unseen split performance change is neutral or non-superior (0.00%).
+2026-06-17 06:23:42,097 [INFO] PCRF_Customer_App - =====================================================================
+2026-06-17 06:23:42,097 [WARNING] PCRF_Customer_App - [FALLBACK TRIGGERED] Regularization failed safety metrics or degraded seen accuracy.
+2026-06-17 06:23:42,098 [WARNING] PCRF_Customer_App - Fallback Action: Measurement only without optimization activation.
+2026-06-17 06:23:42,098 [INFO] PCRF_Customer_App - Restoring pre-training baseline model weights...
+2026-06-17 06:23:42,099 [INFO] PCRF_Customer_App - Developer Troubleshooting: Adjust ['regularization_cfg.lambda_reg', 'regularization_cfg.penalty_type'] and try fallback: Revert to baseline training without live loss weights.
+
+==========================================================================================
+                      PCRF TRANSFORMER RELIABILITY REPORT CARD                      
+==========================================================================================
+Target Model Evaluated  : DISTILGPT2
+Device Map Context      : CUDA
+Baseline Seen Accuracy  : 0.0%
+Baseline Unseen Accuracy: 0.0%
+------------------------------------------------------------------------------------------
+Feature Track / Module         | Baseline           | PCRF Value         | Score    | Gating Status  
+------------------------------------------------------------------------------------------
+Derivatives                    | 0.00 (Unmeasured)  | 0.00045 (Avg Sensitivity) |    0.5/100 | MEASUREMENT_ONLY
+Curriculum Curation            | Uniform Selection (Std=0.0) | PCRF Prioritized (Std=3.67) |   73.4/100 | SAFE_TO_APPLY  
+Structural Depth Monitor       | Unmonitored Depth  | Chain Reliability: 99.62% |   99.6/100 | SAFE_TO_APPLY  
+Safe SFT Regularization        | Unseen Acc: 0.0%   | Unseen Acc: 0.0%   |   60.0/100 | MEASUREMENT_ONLY
+------------------------------------------------------------------------------------------
+COMPOSITE PCRF ADOPTION INDEX: 62.66 / 100
+DECISION DIRECTIVE            : RECOMMENDED WITH GATES: MONITORING & DATA CURATION ONLY (FALLBACK TUNING ACTIVE)
+DEPLOYMENT SECURITY RISK      : 🟡 [SAFE TO MEASURE & CURATE | DELAY INTERVENTION]
+==========================================================================================
+
+------------------------------ ACTIONABLE TROUBLESHOOTING PLAN ------------------------------
+• [Fix Derivatives]: Increase perturbation scale or check baseline accuracy.
+    └─ Suggested steps: ['Increase noise_std in config (e.g. from 0.05 to 0.15).', 'Try zero_ablation instead of additive noise.']
+• [Fix Safe SFT Regularization]: Increase step counts or widen prompt-level token tuning coverage.
+    └─ Suggested steps: ['Scale back regularizer strength (lambda_reg) by half.', 'Incorporate trust-region / KL bounding directly on predictions.']
+------------------------------------------------------------------------------------------

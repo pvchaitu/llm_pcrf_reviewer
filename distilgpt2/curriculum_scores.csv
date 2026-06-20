@@ -1,0 +1,81 @@
+id,prompt,target,nll,priority_score
+48,A prompt intervention that avoids future trouble is said to save,nine,18.94000244140625,18.95236426638631
+25,The chemical element with atomic number 79 is,Gold,18.409250259399414,18.421265671246633
+39,A chemical substance with a pH value above 7 is a,Base,18.138038635253906,18.149877031779155
+76,"In binary tree structures, any node that has no child elements is a",leaf,16.842981338500977,16.853974472640907
+46,To achieve two tasks simultaneously is to kill two birds with one,stone,16.837169647216797,16.848158988162364
+73,The relational database command used to extract specific rows is,SELECT,16.154457092285156,16.165000838086694
+57,Great achievements require time and patience; Rome wasn't built in a,day,16.10610008239746,16.116612266381907
+50,An optimistic outlook suggests that every cloud has a silver,lining,16.00193214416504,16.01237633946654
+56,Regular training and execution leads to excellence; practice makes,perfect,15.686471939086914,15.696710238752688
+36,The basic structural unit of all life is the,Cell,15.559303283691406,15.56945858248821
+55,Too much inquisitiveness can lead to danger; curiosity killed the,cat,15.422713279724121,15.43277942849424
+29,The red planet in our solar system is,Mars,15.415287017822266,15.4253483195946
+42,The character Sherlock Holmes was created by Arthur Conan,Doyle,14.965019226074219,14.974786645538302
+49,People who make threats rarely carry them out; barking dogs seldom,bite,14.405304908752441,14.414707011979054
+77,The specific syntax keyword used to declare a blueprint class in Python is,class,14.37883472442627,14.38821955100327
+66,The main memory chips used for rapid runtime storage form the,RAM,14.266569137573242,14.275880690266554
+78,The specific syntax keyword used to declare a runtime function in Python is,def,14.216655731201172,14.225934706243258
+15,The capital of Argentina is Buenos,Aires,14.007006645202637,14.016148785768785
+54,"When visiting a foreign place, adapt to local customs: when in Rome, do as the Romans",do,13.724211692810059,13.733169257808303
+52,A healthy habit is described by saying an apple a day keeps the doctor,away,13.580354690551758,13.589218362474245
+60,"To execute custom isolated programs, operating systems launch a",process,13.513623237609863,13.522443355021496
+65,The base-2 numerical representation system is called,binary,13.362264633178711,13.370985961343457
+53,It is preferable to arrive or finish late than not at all; better late than,never,13.183685302734375,13.192290075136532
+67,The primary processing unit of a microcomputer is the,CPU,13.158697128295898,13.167285591331678
+0,The capital of France is,Paris,12.991776466369629,13.000255983062099
+9,The capital of Russia is,Moscow,12.6841459274292,12.69242465877897
+32,Light from the sun takes about eight minutes to reach,Earth,12.519242286682129,12.527413388164808
+11,The capital of England is,London,12.451942443847656,12.460069619840839
+59,"Determination will overcome any obstacle; where there is a will, there is a",way,12.253912925720215,12.261910851136395
+79,An algorithm's runtime complexity is characterized using Big O,notation,11.835572242736816,11.843297124138294
+58,Written arguments are more powerful than military force; the pen is mightier than the,sword,11.229799270629883,11.237128774074996
+51,Tangible deeds are more meaningful than promises; actions speak louder than,words,11.180538177490234,11.187835529038134
+41,The dystopian novel Nineteen Eighty-Four was written by George,Orwell,11.095826148986816,11.103068210400869
+43,The legendary high-fantasy novel The Hobbit was written by J.R.R.,Tolkien,10.357050895690918,10.36381077076898
+61,"In deep neural networks, weights are updated using gradient",descent,10.181493759155273,10.188139051006509
+72,The version control command used to save changes to the local repository is git,commit,10.080493927001953,10.087073297940456
+14,The capital of Mexico is Mexico,City,9.897137641906738,9.903597339243701
+6,The capital of Egypt is,Cairo,9.272564888000488,9.278616937075789
+47,A warning against risking everything at once is to not put all your eggs in one,basket,9.153839111328125,9.159813670061153
+16,The capital of Australia is,Canberra,9.112632751464844,9.11858041549127
+8,The capital of Portugal is,Lisbon,9.094218254089355,9.10015389927923
+69,"In object-oriented design, a concrete instance of a class is an",object,9.013999938964844,9.019883226992945
+21,The chemical element with atomic number 2 is,Helium,8.97197437286377,8.977830231502967
+71,A programmable function that calls itself is known as,recursive,8.927582740783691,8.933409625742021
+40,The tragic play Hamlet was written by William,Shakespeare,8.80289363861084,8.8086391410634
+45,The play Romeo and Juliet was written by William,Shakespeare,8.695918083190918,8.701593764475433
+23,The chemical element with atomic number 7 is,Nitrogen,8.628080368041992,8.633711772776685
+10,The capital of India is New,Delhi,8.527557373046875,8.533123168092528
+13,The capital of Brazil is,Brasilia,8.4991455078125,8.504692758905666
+22,The chemical element with atomic number 6 is,Carbon,8.341137886047363,8.346582008190476
+35,The electrical unit of resistance is the,Ohm,8.34106159210205,8.346505664449372
+7,The capital of Greece is,Athens,8.189484596252441,8.194829736812427
+17,The capital of Sweden is,Stockholm,7.987398624420166,7.992611866823197
+1,The capital of Germany is,Berlin,7.808027744293213,7.8131239143023254
+31,The planet famous for its massive ring system is,Saturn,7.764371871948242,7.769439548494645
+33,The physical force that pulls objects toward Earth is,Gravity,7.734349727630615,7.739397809222122
+2,The capital of Spain is,Madrid,7.677327632904053,7.6823384971215285
+37,The chemical formula for common table salt is,NaCl,7.591735363006592,7.596690362571283
+20,The chemical element with atomic number 1 is,Hydrogen,7.5795464515686035,7.58449349563327
+64,"A sequential stack structure works on the last-in first-out principle, or",LIFO,7.526358127593994,7.531270456523116
+26,Water is chemically composed of oxygen and,Hydrogen,7.463374614715576,7.468245835352065
+38,A chemical substance with a pH value below 7 is an,Acid,7.4603681564331055,7.465237414804214
+3,The capital of Italy is,Rome,7.458734512329102,7.46360270444784
+68,The iterative engineering loop of locating and fixing bugs is called,debugging,7.436071395874023,7.44092479615311
+12,The capital of Canada is,Ottawa,7.4029951095581055,7.407826921494546
+74,A relational database table index is created to accelerate search,queries,7.354762554168701,7.359562885517432
+28,The hottest planet in our solar system is,Venus,7.352441310882568,7.357240127194365
+70,The network layer protocol used to securely transmit web documents is,HTTPS,7.34535026550293,7.350144453607197
+30,The largest planet in our solar system is,Jupiter,7.066493988037109,7.071106171281172
+5,The capital of China is,Beijing,6.940237998962402,6.944767777019641
+27,The planet closest to the sun is,Mercury,6.740946292877197,6.74534599654832
+19,The capital of Thailand is,Bangkok,6.656912803649902,6.661257660058491
+63,"A sequential queue structure works on the first-in first-out principle, or",FIFO,6.288422107696533,6.292526456348893
+34,Photosynthesis in green plants produces glucose and,Oxygen,6.259855270385742,6.263940973937915
+4,The capital of Japan is,Tokyo,5.775357246398926,5.779126726138866
+18,The capital of Turkey is,Ankara,5.6165924072265625,5.620258263793227
+24,The chemical element with atomic number 8 is,Oxygen,5.559034824371338,5.562663114059765
+75,IP addresses are defined under the fundamental Internet,Protocol,5.193997383117676,5.197387418931854
+44,The gothic horror novel Dracula was written by Bram,Stoker,5.126413345336914,5.129759270172275
+62,"To store key-value pairs with fast lookup, developers use a hash",map,4.217286586761475,4.220039139663069

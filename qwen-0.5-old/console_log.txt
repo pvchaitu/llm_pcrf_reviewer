@@ -1,0 +1,112 @@
+[PCRF-Suite] 2026-06-18 09:26:05,218 - INFO - Initializing PCRF Customer Integration Demo...
+[PCRF-Suite] 2026-06-18 09:26:05,220 - INFO - Reproducibility controls applied. Global seed: 42
+[PCRF-Suite] 2026-06-18 09:26:05,221 - INFO - Loading tokenizer & model for architecture: Qwen/Qwen2.5-0.5B
+[PCRF-Suite] 2026-06-18 09:26:05,329 - INFO - HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-0.5B/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+[PCRF-Suite] 2026-06-18 09:26:05,346 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-0.5B/060db6499f32faf8b98477b0a26969ef7d8b9987/config.json "HTTP/1.1 200 OK"
+[PCRF-Suite] 2026-06-18 09:26:05,405 - INFO - HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-0.5B/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+[PCRF-Suite] 2026-06-18 09:26:05,431 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-0.5B/060db6499f32faf8b98477b0a26969ef7d8b9987/tokenizer_config.json "HTTP/1.1 200 OK"
+[PCRF-Suite] 2026-06-18 09:26:05,491 - INFO - HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2.5-0.5B/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+[PCRF-Suite] 2026-06-18 09:26:05,554 - INFO - HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2.5-0.5B/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+[PCRF-Suite] 2026-06-18 09:26:06,002 - INFO - HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2.5-0.5B "HTTP/1.1 200 OK"
+[PCRF-Suite] 2026-06-18 09:26:06,056 - INFO - HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-0.5B/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+[PCRF-Suite] 2026-06-18 09:26:06,074 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-0.5B/060db6499f32faf8b98477b0a26969ef7d8b9987/config.json "HTTP/1.1 200 OK"
+Loading weights: 100%
+ 290/290 [00:00<00:00, 3326.35it/s]
+[PCRF-Suite] 2026-06-18 09:26:06,281 - INFO - HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-0.5B/resolve/main/generation_config.json "HTTP/1.1 307 Temporary Redirect"
+[PCRF-Suite] 2026-06-18 09:26:06,298 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-0.5B/060db6499f32faf8b98477b0a26969ef7d8b9987/generation_config.json "HTTP/1.1 200 OK"
+[PCRF-Suite] 2026-06-18 09:26:06,612 - INFO - Model successfully loaded and mapped to active hardware: cuda
+[PCRF-Suite] 2026-06-18 09:26:06,612 - INFO - --- Phase 1: Running Baseline Profile Evaluation ---
+[transformers] The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[PCRF-Suite] 2026-06-18 09:26:21,182 - INFO - Baseline Seen accuracy: 0.0%
+[PCRF-Suite] 2026-06-18 09:26:21,183 - INFO - Baseline Unseen accuracy: 0.0%
+[PCRF-Suite] 2026-06-18 09:26:21,183 - INFO - 
+--- Scenario A: Run Standalone Layer Derivative Estimation ---
+[PCRF-Suite] 2026-06-18 09:26:21,184 - INFO - Feature 'derivatives' Health Check: True
+[PCRF-Suite] 2026-06-18 09:26:21,184 - INFO - Starting Standalone Derivative Estimation. Mode: noise
+[PCRF-Suite] 2026-06-18 09:28:36,539 - INFO - Standalone Derivative Estimation completed. Results stored: ./customer_pcrf_artifacts/per_module_derivatives.csv
+[PCRF-Suite] 2026-06-18 09:28:36,540 - INFO - Safety Gate Decision Status: SAFE_TO_APPLY (Reason Code: READY_FOR_USE)
+[PCRF-Suite] 2026-06-18 09:28:36,541 - INFO - Suggested Next Action: Promote derivatives to guide curriculum selection and training loss.
+[PCRF-Suite] 2026-06-18 09:28:36,541 - INFO - 
+--- Scenario B: Independent Curriculum Selection ---
+[PCRF-Suite] 2026-06-18 09:28:36,542 - INFO - Starting Standalone Derivative Estimation. Mode: noise
+[PCRF-Suite] 2026-06-18 09:30:51,382 - INFO - Standalone Derivative Estimation completed. Results stored: ./customer_pcrf_artifacts/per_module_derivatives.csv
+[PCRF-Suite] 2026-06-18 09:30:54,294 - INFO - Curriculum Selection complete. Priority map saved to: ./customer_pcrf_artifacts/curriculum_scores.csv
+[PCRF-Suite] 2026-06-18 09:30:54,295 - INFO - Data curation complete. Captured 20 high cascade-risk training samples.
+[PCRF-Suite] 2026-06-18 09:30:54,296 - INFO - Curriculum Promotion Status: SAFE_TO_APPLY (Curriculum prioritize maps are clear and highly differentiated.)
+[PCRF-Suite] 2026-06-18 09:30:54,297 - INFO - 
+--- Scenario C: Standalone Structural Residual-Depth Monitoring ---
+[PCRF-Suite] 2026-06-18 09:30:57,204 - INFO - Structural PCRF verification complete. Summary exported: ./customer_pcrf_artifacts/structural_pcrf_summary.json
+[PCRF-Suite] 2026-06-18 09:30:57,206 - INFO - Retrieved Continuous Representational Reliability of Transformer Depth Chain:
+[PCRF-Suite] 2026-06-18 09:30:57,207 - INFO -   - Block 00: Survival Prob r_l = 0.5601 | Marginal Birnbaum Sensitivity D_R = 0.0237
+[PCRF-Suite] 2026-06-18 09:30:57,207 - INFO -   - Block 01: Survival Prob r_l = 0.6424 | Marginal Birnbaum Sensitivity D_R = 0.0206
+[PCRF-Suite] 2026-06-18 09:30:57,208 - INFO -   - Block 02: Survival Prob r_l = 0.9757 | Marginal Birnbaum Sensitivity D_R = 0.0136
+[PCRF-Suite] 2026-06-18 09:30:57,208 - INFO -   - Block 03: Survival Prob r_l = 0.9957 | Marginal Birnbaum Sensitivity D_R = 0.0133
+[PCRF-Suite] 2026-06-18 09:30:57,209 - INFO -   - Block 04: Survival Prob r_l = 0.9911 | Marginal Birnbaum Sensitivity D_R = 0.0134
+[PCRF-Suite] 2026-06-18 09:30:57,209 - INFO -   - Block 05: Survival Prob r_l = 0.9899 | Marginal Birnbaum Sensitivity D_R = 0.0134
+[PCRF-Suite] 2026-06-18 09:30:57,210 - INFO -   - Block 06: Survival Prob r_l = 0.9822 | Marginal Birnbaum Sensitivity D_R = 0.0135
+[PCRF-Suite] 2026-06-18 09:30:57,210 - INFO -   - Block 07: Survival Prob r_l = 0.9784 | Marginal Birnbaum Sensitivity D_R = 0.0135
+[PCRF-Suite] 2026-06-18 09:30:57,211 - INFO -   - Block 08: Survival Prob r_l = 0.9765 | Marginal Birnbaum Sensitivity D_R = 0.0136
+[PCRF-Suite] 2026-06-18 09:30:57,211 - INFO -   - Block 09: Survival Prob r_l = 0.9814 | Marginal Birnbaum Sensitivity D_R = 0.0135
+[PCRF-Suite] 2026-06-18 09:30:57,212 - INFO -   - Block 10: Survival Prob r_l = 0.9768 | Marginal Birnbaum Sensitivity D_R = 0.0136
+[PCRF-Suite] 2026-06-18 09:30:57,212 - INFO -   - Block 11: Survival Prob r_l = 0.9772 | Marginal Birnbaum Sensitivity D_R = 0.0136
+[PCRF-Suite] 2026-06-18 09:30:57,213 - INFO -   - Block 12: Survival Prob r_l = 0.9780 | Marginal Birnbaum Sensitivity D_R = 0.0135
+[PCRF-Suite] 2026-06-18 09:30:57,213 - INFO -   - Block 13: Survival Prob r_l = 0.9765 | Marginal Birnbaum Sensitivity D_R = 0.0136
+[PCRF-Suite] 2026-06-18 09:30:57,214 - INFO -   - Block 14: Survival Prob r_l = 0.9742 | Marginal Birnbaum Sensitivity D_R = 0.0136
+[PCRF-Suite] 2026-06-18 09:30:57,214 - INFO -   - Block 15: Survival Prob r_l = 0.9742 | Marginal Birnbaum Sensitivity D_R = 0.0136
+[PCRF-Suite] 2026-06-18 09:30:57,214 - INFO -   - Block 16: Survival Prob r_l = 0.9643 | Marginal Birnbaum Sensitivity D_R = 0.0137
+[PCRF-Suite] 2026-06-18 09:30:57,215 - INFO -   - Block 17: Survival Prob r_l = 0.9376 | Marginal Birnbaum Sensitivity D_R = 0.0141
+[PCRF-Suite] 2026-06-18 09:30:57,215 - INFO -   - Block 18: Survival Prob r_l = 0.9321 | Marginal Birnbaum Sensitivity D_R = 0.0142
+[PCRF-Suite] 2026-06-18 09:30:57,216 - INFO -   - Block 19: Survival Prob r_l = 0.9134 | Marginal Birnbaum Sensitivity D_R = 0.0145
+[PCRF-Suite] 2026-06-18 09:30:57,216 - INFO -   - Block 20: Survival Prob r_l = 0.8712 | Marginal Birnbaum Sensitivity D_R = 0.0152
+[PCRF-Suite] 2026-06-18 09:30:57,217 - INFO -   - Block 21: Survival Prob r_l = 0.4999 | Marginal Birnbaum Sensitivity D_R = 0.0265
+[PCRF-Suite] 2026-06-18 09:30:57,217 - INFO -   - Block 22: Survival Prob r_l = 0.4669 | Marginal Birnbaum Sensitivity D_R = 0.0284
+[PCRF-Suite] 2026-06-18 09:30:57,218 - INFO -   - Block 23: Survival Prob r_l = 0.3099 | Marginal Birnbaum Sensitivity D_R = 0.0428
+[PCRF-Suite] 2026-06-18 09:30:57,218 - INFO - 
+--- Scenario D: Derivative-Weighted Regularization & Safety Gating ---
+[PCRF-Suite] 2026-06-18 09:30:57,219 - INFO - Executing derivative-guided SFT regularization training pass...
+[PCRF-Suite] 2026-06-18 09:30:57,219 - INFO - Starting Standalone Derivative Estimation. Mode: noise
+[PCRF-Suite] 2026-06-18 09:33:11,922 - INFO - Standalone Derivative Estimation completed. Results stored: ./customer_pcrf_artifacts/per_module_derivatives.csv
+[PCRF-Suite] 2026-06-18 09:33:11,923 - INFO - Initializing Safe Regularization Training Loop...
+[PCRF-Suite] 2026-06-18 09:33:12,049 - INFO - HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-0.5B/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+[PCRF-Suite] 2026-06-18 09:33:12,065 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-0.5B/060db6499f32faf8b98477b0a26969ef7d8b9987/config.json "HTTP/1.1 200 OK"
+Loading weights: 100%
+ 290/290 [00:00<00:00, 3448.48it/s]
+[PCRF-Suite] 2026-06-18 09:33:12,270 - INFO - HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-0.5B/resolve/main/generation_config.json "HTTP/1.1 307 Temporary Redirect"
+[PCRF-Suite] 2026-06-18 09:33:12,287 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-0.5B/060db6499f32faf8b98477b0a26969ef7d8b9987/generation_config.json "HTTP/1.1 200 OK"
+[PCRF-Suite] 2026-06-18 09:33:34,763 - INFO - Derivative-Weighted Regularization training run successfully completed.
+[PCRF-Suite] 2026-06-18 09:33:34,916 - INFO - Evaluating post-regularization metrics for promotion verification...
+[PCRF-Suite] 2026-06-18 09:33:49,374 - INFO - =====================================================================
+[PCRF-Suite] 2026-06-18 09:33:49,375 - INFO - PCRF SYSTEM CONTROLLER PROMOTION DECISION REPORT:
+[PCRF-Suite] 2026-06-18 09:33:49,375 - INFO -  - Promotion Status:  MEASUREMENT_ONLY
+[PCRF-Suite] 2026-06-18 09:33:49,376 - INFO -  - Reason Code:       UNSEEN_GAIN_NOT_RELIABLE
+[PCRF-Suite] 2026-06-18 09:33:49,376 - INFO -  - System Explanation: Unseen split performance change is neutral or non-superior (0.00%).
+[PCRF-Suite] 2026-06-18 09:33:49,377 - INFO - =====================================================================
+[PCRF-Suite] 2026-06-18 09:33:49,378 - WARNING - [FALLBACK TRIGGERED] Regularization failed safety metrics or degraded seen accuracy.
+[PCRF-Suite] 2026-06-18 09:33:49,378 - WARNING - Fallback Action: Measurement only without optimization activation.
+[PCRF-Suite] 2026-06-18 09:33:49,379 - INFO - Restoring pre-training baseline model weights...
+[PCRF-Suite] 2026-06-18 09:33:49,379 - INFO - Developer Troubleshooting: Adjust ['regularization_cfg.lambda_reg', 'regularization_cfg.penalty_type'] and try fallback: Revert to baseline training without live loss weights.
+
+==========================================================================================
+                      PCRF TRANSFORMER RELIABILITY REPORT CARD                      
+==========================================================================================
+Target Model Evaluated  : QWEN/QWEN2.5-0.5B
+Device Map Context      : CUDA
+Baseline Seen Accuracy  : 0.0%
+Baseline Unseen Accuracy: 0.0%
+------------------------------------------------------------------------------------------
+Feature Track / Module         | Baseline           | PCRF Value         | Score    | Gating Status  
+------------------------------------------------------------------------------------------
+Derivatives                    | 0.00 (Unmeasured)  | 0.00336 (Avg Sensitivity) |    3.4/100 | SAFE_TO_APPLY  
+Curriculum Curation            | Uniform Selection (Std=0.0) | PCRF Prioritized (Std=3.87) |   77.4/100 | SAFE_TO_APPLY  
+Structural Depth Monitor       | Unmonitored Depth  | Chain Reliability: 1.33% |    1.3/100 | SAFE_TO_APPLY  
+Safe SFT Regularization        | Unseen Acc: 0.0%   | Unseen Acc: 0.0%   |   60.0/100 | MEASUREMENT_ONLY
+------------------------------------------------------------------------------------------
+COMPOSITE PCRF ADOPTION INDEX: 34.56 / 100
+DECISION DIRECTIVE            : REJECT ADOPTION: RESTORE BASELINE CONFIGURATIONS
+DEPLOYMENT SECURITY RISK      : 🔴 [HIGH OVER-STEERING RISK | BLOCK PARAMETER MUTATIONS]
+==========================================================================================
+
+------------------------------ ACTIONABLE TROUBLESHOOTING PLAN ------------------------------
+• [Fix Safe SFT Regularization]: Increase step counts or widen prompt-level token tuning coverage.
+    └─ Suggested steps: ['Scale back regularizer strength (lambda_reg) by half.', 'Incorporate trust-region / KL bounding directly on predictions.']
+------------------------------------------------------------------------------------------

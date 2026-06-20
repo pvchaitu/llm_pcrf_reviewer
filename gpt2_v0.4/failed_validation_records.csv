@@ -1,0 +1,58 @@
+split,id,prompt,expected,actual,nll
+seen_val,84,The official capital city of Switzerland is,Bern,"Zurich, and the capital city",4.8933
+seen_val,86,The noble element designated by atomic number 10 is,Neon,the number of atoms in the,14.3128
+seen_val,87,The volatile element designated by atomic number 16 is,Sulfur,the element that is the most,4.5279
+seen_val,88,The chemical molecule animals must extract from air to survive is,Oxygen,"called the ""air-to",4.7610
+seen_val,89,The yellow dwarf star supporting life at the center of our solar system is the,Sun,closest thing to a star that,3.6569
+seen_val,90,Mechanical acoustics are completely incapable of moving across a spatial,Vacuum,"space.
+
+The problem",7.1089
+seen_val,97,The hypermedia syntax used to format layout documents across the World Wide Web is,HTML,a bit different from the standard,8.8140
+seen_val,98,An execution failure originating from incorrect program logic is called a,Bug,"""failure to execute""",10.2855
+seen_val,99,A standardized text notation representing complex structural records is,JSON,used to represent the structure of,11.3401
+seen_val,100,The active keyword used to bind external packages into Python script scopes is,import,the name of the package.,7.3649
+unseen_val,106,Mammalian red blood cells are chemically responsible for transporting vital,Oxygen,nutrients to the brain.,5.9678
+unseen_val,107,The organic cellular process separating chromosome pairs into twin cells is,Mitosis,"called the ""cell cycle"".",8.8867
+unseen_val,108,The primary command center of the central nervous system in vertebrates is the,Brain,"hypothalamus, which is located",9.3480
+unseen_val,109,The dual-helix macromolecule housing core genetic blueprints is,DNA,a key step in the development,10.9403
+unseen_val,110,The dense celestial body whose localized gravitational path traps light is a,Black Hole,very rare phenomenon.,5.4078
+unseen_val,111,"An unexpected, completely unpredictable event is idiomatic described as out of the",blue,"ordinary.
+
+The following",1.5404
+unseen_val,115,"An extremely dynamic, energetic, and unpredictable person is referred to as a live",wire,-action character.,6.8924
+unseen_val,116,The specialized data structure used to model recursive parent-child linkages is a,Tree,very powerful tool for understanding the,9.7960
+unseen_val,117,A networking layout topology organizing nodes around a central server hub is a,Star,common design pattern for a network,12.3260
+unseen_val,118,The routing index directory that translates domain strings to IP coordinates is,DNS,":
+
+$ iproute",9.5965
+unseen_val,119,A formal logical interface allowing separate software modules to interact is an,API,important step in the development of,7.9578
+unseen_val,120,The physical block boundary used to serialize hard drive data tracks is a,Sector,bit different. The physical block,11.4695
+seen_val,84,The official capital city of Switzerland is,Bern,"Zurich.
+
+The Swiss",3.7287
+seen_val,86,The noble element designated by atomic number 10 is,Neon,the atomic number 10.,14.3010
+seen_val,87,The volatile element designated by atomic number 16 is,Sulfur,the atomic number of the element,4.3211
+seen_val,88,The chemical molecule animals must extract from air to survive is,Oxygen,"called the ""chemical bond.""",3.8788
+seen_val,89,The yellow dwarf star supporting life at the center of our solar system is the,Sun,dwarf star HIP 81414,3.4005
+seen_val,90,Mechanical acoustics are completely incapable of moving across a spatial,Vacuum,"space.
+
+The most",7.2009
+seen_val,97,The hypermedia syntax used to format layout documents across the World Wide Web is,HTML,"called ""hypermedia markup"".",5.7614
+seen_val,98,An execution failure originating from incorrect program logic is called a,Bug,"""failure to execute""",10.3289
+seen_val,99,A standardized text notation representing complex structural records is,JSON,"available.
+
+The following",9.6057
+seen_val,100,The active keyword used to bind external packages into Python script scopes is,import,'python-scopes',6.7542
+unseen_val,106,Mammalian red blood cells are chemically responsible for transporting vital,Oxygen,nutrients to the brain. They,6.0421
+unseen_val,107,The organic cellular process separating chromosome pairs into twin cells is,Mitosis,"called the ""cell cycle"".",8.3694
+unseen_val,108,The primary command center of the central nervous system in vertebrates is the,Brain,"hypothalamus, which is located",9.7155
+unseen_val,109,The dual-helix macromolecule housing core genetic blueprints is,DNA,a key step in the development,10.5720
+unseen_val,110,The dense celestial body whose localized gravitational path traps light is a,Black Hole,very faint object.,5.2280
+unseen_val,115,"An extremely dynamic, energetic, and unpredictable person is referred to as a live",wire,-action character.,6.9991
+unseen_val,116,The specialized data structure used to model recursive parent-child linkages is a,Tree,"simple one, but it is",7.7466
+unseen_val,117,A networking layout topology organizing nodes around a central server hub is a,Star,common design pattern for networking.,12.3311
+unseen_val,118,The routing index directory that translates domain strings to IP coordinates is,DNS,":
+
+/etc/",7.6265
+unseen_val,119,A formal logical interface allowing separate software modules to interact is an,API,important step in the development of,7.4174
+unseen_val,120,The physical block boundary used to serialize hard drive data tracks is a,Sector,bit different. The physical block,10.6033

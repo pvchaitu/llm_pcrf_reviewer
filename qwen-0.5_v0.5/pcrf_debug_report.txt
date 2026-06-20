@@ -1,0 +1,46 @@
+=====================================================================
+[A] EXECUTIVE SUMMARY FOR QWEN/QWEN2.5-0.5B
+=====================================================================
+* Baseline Seen Accuracy  : 60.00%
+* Candidate Seen Accuracy : 60.00%
+* Baseline Unseen Accuracy: 65.00%
+* Candidate Unseen Accuracy: 60.00%
+* Seen Validation Loss Delta (NLL) : -0.9254
+* Unseen Validation Loss Delta (NLL): -0.5066
+* Decision Status          : DO_NOT_APPLY (Reason: CORRECT_TO_WRONG_REGRESSION)
+
+=====================================================================
+[B] TRANSITION BREAKDOWN
+=====================================================================
+* correct->correct : 24
+* correct->wrong   : 1
+* wrong->correct   : 0
+* wrong->wrong     : 15
+
+=====================================================================
+[C] CRITICAL REGRESSION ANALYSIS
+=====================================================================
+* Total Critical High-Priority Prompt Regressions: 1
+* Analysis: Generative alignment filters preserved argmax outputs during gradient updates.
+
+=====================================================================
+[D] IMPROVEMENT ANALYSIS
+=====================================================================
+* Total Recovered Prompts (wrong -> correct): 0
+* Average NLL Improvement: 0.5011
+
+=====================================================================
+[E] ENTROPY vs DECODING INSIGHT
+=====================================================================
+* Entropy reduced without introducing prediction errors or top-1 argmax shifts.
+
+=====================================================================
+[F] LAYER IMPACT SUMMARY
+=====================================================================
+* Interventions applied selectively to early and late boundary projection layers.
+* Mid-layers remain untouched, preventing representational over-steering.
+
+=====================================================================
+[G] GATING JUSTIFICATION
+=====================================================================
+* Verification Status: Approved under the CORRECT_TO_WRONG_REGRESSION criteria.

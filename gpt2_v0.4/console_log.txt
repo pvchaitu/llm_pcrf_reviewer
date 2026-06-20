@@ -1,0 +1,107 @@
+[PCRF-Suite] 2026-06-18 13:28:57,000 - INFO - Initializing PCRF Customer Integration Demo...
+[PCRF-Suite] 2026-06-18 13:28:57,002 - INFO - System-wide reproducibility seeds fixed at baseline value: 42
+
+==========================================================================================
+                  PCRF RESOURCE AUDIT & COMPUTE PROFILING SYSTEM                  
+==========================================================================================
+Host OS Platform          : Linux 6.1.0-49-cloud-amd64
+Active CPU Cores Detected : 8
+Host System RAM           : 29.38 GB
+GPU Hardware Accelerator  : Tesla T4
+Dedicated VRAM Capacity   : 14.56 GB
+Target Model Size (Params): 490.0 Million Parameters
+------------------------------------------------------------------------------------------
+RECOMMENDED GCP COMPUTE INFRASTRUCTURE SETUP:
+  - Recommended GCP Tier  : n1-standard-8 (8 vCPUs, 30 GB RAM)
+  - Accelerator Context   : 1x NVIDIA T4 (16 GB VRAM)
+  - Technical Reason      : Light parameter profiles run perfectly inside standard T4 envelopes.
+                            At least 30 GB Host RAM prevents OS swap stalls during model download.
+------------------------------------------------------------------------------------------
+GCP COMPUTE ENGINE SAFETY GUIDELINES (OOME PREVENTION):
+ 1. Always purge dangling activations using 'torch.cuda.empty_cache()' during hooks teardown.
+ 2. Enable half-precision (FP16/BF16) modes across all forward passes.
+ 3. Anchor maximum sequence length limits (`max_len`) tightly to block quadratic expansion.
+==========================================================================================
+
+[PCRF-Suite] 2026-06-18 13:28:57,003 - INFO - Retrieving tokenizer and architecture weights for: gpt2
+[PCRF-Suite] 2026-06-18 13:28:57,137 - INFO - HTTP Request: HEAD https://huggingface.co/gpt2/resolve/main/config.json "HTTP/1.1 200 OK"
+[PCRF-Suite] 2026-06-18 13:28:57,209 - INFO - HTTP Request: HEAD https://huggingface.co/gpt2/resolve/main/tokenizer_config.json "HTTP/1.1 200 OK"
+[PCRF-Suite] 2026-06-18 13:28:57,268 - INFO - HTTP Request: GET https://huggingface.co/api/models/gpt2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 307 Temporary Redirect"
+[PCRF-Suite] 2026-06-18 13:28:57,321 - INFO - HTTP Request: GET https://huggingface.co/api/models/openai-community/gpt2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+[PCRF-Suite] 2026-06-18 13:28:57,377 - INFO - HTTP Request: GET https://huggingface.co/api/models/gpt2/tree/main?recursive=true&expand=false "HTTP/1.1 307 Temporary Redirect"
+[PCRF-Suite] 2026-06-18 13:28:57,445 - INFO - HTTP Request: GET https://huggingface.co/api/models/openai-community/gpt2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+[PCRF-Suite] 2026-06-18 13:28:57,725 - INFO - HTTP Request: HEAD https://huggingface.co/gpt2/resolve/main/config.json "HTTP/1.1 200 OK"
+Loading weights: 100%
+ 148/148 [00:00<00:00, 847.98it/s]
+[PCRF-Suite] 2026-06-18 13:28:58,012 - INFO - HTTP Request: HEAD https://huggingface.co/gpt2/resolve/main/generation_config.json "HTTP/1.1 200 OK"
+[PCRF-Suite] 2026-06-18 13:29:00,160 - INFO - Model parameter arrays successfully allocated.
+[PCRF-Suite] 2026-06-18 13:29:00,161 - INFO - --- Phase 1: Running Baseline Profile Evaluation ---
+[transformers] `loss_type=None` was set in the config but it is unrecognized. Using the default loss: `ForCausalLMLoss`.
+[PCRF-Suite] 2026-06-18 13:29:02,753 - INFO - Baseline Seen accuracy: 50.0%
+[PCRF-Suite] 2026-06-18 13:29:02,754 - INFO - Baseline Unseen accuracy: 40.0%
+[PCRF-Suite] 2026-06-18 13:29:02,754 - INFO - 
+--- Scenario A: Run Standalone Layer Derivative Estimation ---
+[PCRF-Suite] 2026-06-18 13:29:02,755 - INFO - Feature 'derivatives' Health Check: True
+[PCRF-Suite] 2026-06-18 13:29:15,949 - INFO - Safety Gate Decision Status: SAFE_TO_APPLY (Reason Code: READY_FOR_USE)
+[PCRF-Suite] 2026-06-18 13:29:15,950 - INFO - Suggested Next Action: Deploy priority replay buffer and scale regularization.
+[PCRF-Suite] 2026-06-18 13:29:15,951 - INFO - 
+--- Scenario B: Independent Curriculum Selection ---
+[PCRF-Suite] 2026-06-18 13:29:29,974 - INFO - Data curation complete. Captured 20 high cascade-risk training samples.
+[PCRF-Suite] 2026-06-18 13:29:29,975 - INFO - Curriculum Promotion Status: SAFE_TO_APPLY (Curriculum prioritize maps are clear and highly differentiated.)
+[PCRF-Suite] 2026-06-18 13:29:29,976 - INFO - 
+--- Scenario C: Standalone Structural Residual-Depth Monitoring ---
+[PCRF-Suite] 2026-06-18 13:29:30,620 - INFO - Retrieved Continuous Representational Reliability of Transformer Depth Chain:
+[PCRF-Suite] 2026-06-18 13:29:30,621 - INFO -   - Block 00: Survival Prob r_l = 0.9990 | Marginal Birnbaum Sensitivity D_R = 0.9150
+[PCRF-Suite] 2026-06-18 13:29:30,622 - INFO -   - Block 01: Survival Prob r_l = 0.9983 | Marginal Birnbaum Sensitivity D_R = 0.9157
+[PCRF-Suite] 2026-06-18 13:29:30,622 - INFO -   - Block 02: Survival Prob r_l = 0.9889 | Marginal Birnbaum Sensitivity D_R = 0.9244
+[PCRF-Suite] 2026-06-18 13:29:30,623 - INFO -   - Block 03: Survival Prob r_l = 0.9886 | Marginal Birnbaum Sensitivity D_R = 0.9247
+[PCRF-Suite] 2026-06-18 13:29:30,623 - INFO -   - Block 04: Survival Prob r_l = 0.9901 | Marginal Birnbaum Sensitivity D_R = 0.9233
+[PCRF-Suite] 2026-06-18 13:29:30,624 - INFO -   ... [and 7 more blocks representing full architecture depth] ...
+[PCRF-Suite] 2026-06-18 13:29:30,624 - INFO - Structural PCRF Gating Status: SAFE_TO_APPLY | Reason: READY_FOR_USE
+[PCRF-Suite] 2026-06-18 13:29:30,625 - INFO - 
+--- Scenario D: Derivative-Weighted Regularization & Safety Gating ---
+[PCRF-Suite] 2026-06-18 13:29:30,625 - INFO - Executing derivative-guided SFT regularization training pass...
+[PCRF-Suite] 2026-06-18 13:29:43,230 - INFO - Initializing Derivative-Weighted SFT Regularization training pass...
+[PCRF-Suite] 2026-06-18 13:29:43,359 - INFO - HTTP Request: HEAD https://huggingface.co/gpt2/resolve/main/config.json "HTTP/1.1 200 OK"
+Loading weights: 100%
+ 148/148 [00:00<00:00, 3272.29it/s]
+[PCRF-Suite] 2026-06-18 13:29:43,506 - INFO - HTTP Request: HEAD https://huggingface.co/gpt2/resolve/main/generation_config.json "HTTP/1.1 200 OK"
+[PCRF-Suite] 2026-06-18 13:29:44,698 - INFO - Regularization training pass completed.
+[PCRF-Suite] 2026-06-18 13:29:44,750 - INFO - Evaluating post-regularization metrics for promotion verification...
+[PCRF-Suite] 2026-06-18 13:29:47,248 - INFO - =====================================================================
+[PCRF-Suite] 2026-06-18 13:29:47,249 - INFO - PCRF SYSTEM CONTROLLER PROMOTION DECISION REPORT:
+[PCRF-Suite] 2026-06-18 13:29:47,250 - INFO -  - Promotion Status:  SAFE_TO_APPLY
+[PCRF-Suite] 2026-06-18 13:29:47,250 - INFO -  - Reason Code:       PROMOTED
+[PCRF-Suite] 2026-06-18 13:29:47,251 - INFO -  - System Explanation: Passed discrete accuracy performance and safety checks.
+[PCRF-Suite] 2026-06-18 13:29:47,252 - INFO - =====================================================================
+[PCRF-Suite] 2026-06-18 13:29:47,252 - INFO - [DEPLOY SUCCESS] New regularized model parameters promoted to production!
+
+==========================================================================================
+                      PCRF TRANSFORMER RELIABILITY REPORT CARD                      
+==========================================================================================
+Target Model Evaluated  : GPT2
+Device Map Context      : CUDA
+Baseline Seen Accuracy  : 50.0%
+Baseline Unseen Accuracy: 40.0%
+------------------------------------------------------------------------------------------
+Feature Track / Module         | Baseline           | PCRF Value         | Score    | Gating Status  
+------------------------------------------------------------------------------------------
+Derivatives                    | 0.00 (Unmeasured)  | 0.00052 (Avg Sensitivity) |    0.5/100 | SAFE_TO_APPLY  
+Curriculum Curation            | Uniform Selection (Std=0.0) | PCRF Prioritized (Std=3.64) |   72.8/100 | SAFE_TO_APPLY  
+Structural Depth Monitor       | Unmonitored Depth  | Chain Reliability: 91.42% |   91.4/100 | SAFE_TO_APPLY  
+Safe SFT Regularization        | Unseen Acc: 40.0%  | Unseen Acc: 45.0%  |  100.0/100 | SAFE_TO_APPLY  
+------------------------------------------------------------------------------------------
+COMPOSITE PCRF ADOPTION INDEX: 72.08 / 100
+DECISION DIRECTIVE            : RECOMMENDED WITH GATES: MONITORING & DATA CURATION ONLY (FALLBACK TUNING ACTIVE)
+DEPLOYMENT SECURITY RISK      : 🟡 [SAFE TO MEASURE & CURATE | DELAY INTERVENTION]
+==========================================================================================
+
+------------------------------ ACTIONABLE TROUBLESHOOTING PLAN ------------------------------
+------------------------------------------------------------------------------------------
+
+[PCRF-Suite] 2026-06-18 13:29:47,255 - INFO - Generating Derivative Optimization hand-off blueprint at: ./customer_pcrf_artifacts/PCRF_Implementation_Blueprint_Derivatives.md
+[PCRF-Suite] 2026-06-18 13:29:47,255 - INFO - Generating Dataset Curriculum hand-off blueprint at: ./customer_pcrf_artifacts/PCRF_Implementation_Blueprint_Curriculum.md
+[PCRF-Suite] 2026-06-18 13:29:47,256 - INFO - Generating Structural Reliability Canary Monitor hand-off blueprint at: ./customer_pcrf_artifacts/PCRF_Implementation_Blueprint_Structural_PCRF.md
+[PCRF-Suite] 2026-06-18 13:29:47,257 - INFO - Generating Regularization Fine-tuning hand-off blueprint at: ./customer_pcrf_artifacts/PCRF_Implementation_Blueprint_Regularization.md
+[PCRF-Suite] 2026-06-18 13:29:47,258 - INFO - Failed validation trace exported successfully to: ./customer_pcrf_artifacts/failed_validation_records.csv
+[PCRF-Suite] 2026-06-18 13:29:47,258 - INFO - Consolidated Executive Markdown Report programmatically generated at: ./customer_pcrf_artifacts/PCRF_Executive_Reliability_Report.md
