@@ -1,0 +1,1715 @@
+=====================================================================
+[A] PCRF SYSTEM v1.0 EXECUTIVE RUN SUMMARY
+=====================================================================
+* Target Model evaluated  : GPT2
+* Device context map      : CUDA
+* Dataset Train partition : 80 examples
+* Dataset Seen Validation : 20 examples
+* Dataset Unseen Val      : 20 examples
+* Baseline Seen EM        : 45.00%
+* Candidate Seen EM       : 45.00%
+* Baseline Unseen EM      : 40.00%
+* Candidate Unseen EM     : 45.00%
+* Seen Validation Loss Delta (NLL) : -0.23686
+* Unseen Validation Loss Delta (NLL): -0.11481
+* System Structural Reliability ($R_sys$): 99.5495%
+* Protected Router Unseen Accuracy: 45.00%
+* Final Gating Decision   : DO_NOT_PROMOTE_WEIGHTS (Reason Code: UNIVERSAL_INSTRUCTION_CONTRACT_VIOLATION_GATE)
+* Verification Status     : Candidate model evaluation processed for DO_NOT_PROMOTE_WEIGHTS route.
+
+=====================================================================
+[B] ROUTER CONSISTENCY AUDIT SUMMARY
+=====================================================================
+* Total Router Rows Audited      : 40
+* Rows Passed Consistency Checks: 40
+* Consistency Warnings Detected : 0
+
+=====================================================================
+[C] TRANSITION ANALYSIS TABLE
+=====================================================================
+transition_type  | count | percentage | avg_delta_nll | avg_delta_entropy | avg_delta_margin | avg_delta_hallucination_risk
+-----------------|-------|------------|---------------|-------------------|------------------|-----------------------------
+correct_to_correct| 17    | 42.5%       | -0.13486     | -0.18484         | +0.26991        | +0.02407
+correct_to_wrong  | 0     | 0.0%       | +0.00000     | +0.00000         | +0.00000        | +0.00000
+wrong_to_correct  | 1     | 2.5%       | -0.21380     | +0.23044         | -0.15468        | +0.03714
+wrong_to_wrong    | 22    | 55.0%       | -0.23799     | +0.00487         | +0.12645        | +0.02816
+
+* Note: Total Critical High-Priority Regressions: 0 (Hard-gated and blocked by the Safety Router).
+
+=====================================================================
+[D] ROW-LEVEL DEBUGGING SAMPLES
+=====================================================================
+We display the localized evaluation matrix trace of top transition samples below:
+- ID: 081 | Split: seen_val | Prompt: *Complete with one word only: The offi...* | Target: `Seoul` | Correct: correct_to_correct
+- ID: 082 | Split: seen_val | Prompt: *Complete with one word only: The offi...* | Target: `Oslo` | Correct: correct_to_correct
+- ID: 083 | Split: seen_val | Prompt: *Complete with one word only: The offi...* | Target: `Stockholm` | Correct: correct_to_correct
+- ID: 084 | Split: seen_val | Prompt: *Complete with one word only: The offi...* | Target: `Bern` | Correct: wrong_to_wrong
+- ID: 085 | Split: seen_val | Prompt: *Complete with one word only: The offi...* | Target: `Warsaw` | Correct: correct_to_correct
+
+=====================================================================
+[E] STRUCTURAL INTERVENTION ATMAP
+=====================================================================
+layer_id | r_l     | S_l     | D_R     | empirical_delta_prob | combined_layer_risk_score | intervention_flag | observed_effect
+---------|---------|---------|---------|----------------------|---------------------------|-------------------|------------------
+Layer 00 | 1.0000  | 0.0000  | 0.9969  | -0.0003     | 0.0000                    | 1                 | Selected by union_empirical_and_birnbaum policy: bypass-dominated caution (Attention/MLP paths are masked), high bottleneck sensitivity D_R (0.9969)
+Layer 01 | 1.0000  | 0.0000  | 0.9960  | 0.0012     | 0.0001                    | 1                 | Selected by union_empirical_and_birnbaum policy: bypass-dominated caution (Attention/MLP paths are masked), high bottleneck sensitivity D_R (0.9960)
+Layer 02 | 0.9999  | 0.0001  | 0.9971  | -0.0014     | 0.0001                    | 1                 | Selected by union_empirical_and_birnbaum policy: bypass-dominated caution (Attention/MLP paths are masked), high bottleneck sensitivity D_R (0.9971)
+Layer 03 | 0.9999  | 0.0001  | 0.9968  | 0.0011     | 0.0001                    | 1                 | Selected by union_empirical_and_birnbaum policy: bypass-dominated caution (Attention/MLP paths are masked), high bottleneck sensitivity D_R (0.9968)
+Layer 04 | 0.9999  | 0.0001  | 0.9962  | -0.0005     | 0.0002                    | 1                 | Selected by union_empirical_and_birnbaum policy: bypass-dominated caution (Attention/MLP paths are masked), high bottleneck sensitivity D_R (0.9962)
+Layer 05 | 0.9999  | 0.0001  | 0.9960  | 0.0002     | 0.0002                    | 0                 | Stable representational highway block; frozen to prevent activation drift
+Layer 06 | 0.9999  | 0.0001  | 0.9960  | -0.0001     | 0.0002                    | 0                 | Stable representational highway block; frozen to prevent activation drift
+Layer 07 | 0.9999  | 0.0001  | 0.9959  | -0.0003     | 0.0002                    | 0                 | Stable representational highway block; frozen to prevent activation drift
+Layer 08 | 0.9999  | 0.0001  | 0.9958  | -0.0000     | 0.0002                    | 0                 | Stable representational highway block; frozen to prevent activation drift
+Layer 09 | 0.9999  | 0.0001  | 0.9957  | 0.0004     | 0.0002                    | 0                 | Stable representational highway block; frozen to prevent activation drift
+Layer 10 | 0.9999  | 0.0001  | 0.9958  | 0.0002     | 0.0002                    | 0                 | Stable representational highway block; frozen to prevent activation drift
+Layer 11 | 0.9999  | 0.0001  | 0.9960  | 0.0002     | 0.0002                    | 0                 | Stable representational highway block; frozen to prevent activation drift
+
+=====================================================================
+[F] ROW-BY-ROW VALIDATION PROMPT EXECUTION TRACE
+=====================================================================
+### ID: 081
+Split: seen_val
+Prompt Text: Complete with one word only: The official capital city of South Korea is
+Semantic Target: Seoul
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: Seoul.
+
+The city is home to the country's
+Candidate Output: Seoul.
+
+The city is home to the country's
+Baseline NLL: 1.65432
+Candidate NLL: 1.22732
+Delta NLL: -0.42700
+Baseline Entropy: 5.32970
+Candidate Entropy: 4.99627
+Delta Entropy: -0.33343
+Baseline Margin: 0.91139
+Candidate Margin: 1.83624
+Delta Margin: 0.92484
+Baseline Target Probability: 0.19122
+Candidate Target Probability: 0.29308
+Delta Confidence: 0.10185
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: No
+Baseline Risk Score: 0.27356
+Candidate Risk Score: 0.27820
+Router Decision: use_baseline
+Final Served Output: Seoul.
+
+The city is home to the country's
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 082
+Split: seen_val
+Prompt Text: Complete with one word only: The official capital city of Norway is
+Semantic Target: Oslo
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: Oslo.
+
+The city is located in the heart of
+Candidate Output: Oslo.
+
+The city is located in the heart of
+Baseline NLL: 1.89656
+Candidate NLL: 1.21656
+Delta NLL: -0.68001
+Baseline Entropy: 5.69660
+Candidate Entropy: 5.00254
+Delta Entropy: -0.69406
+Baseline Margin: 0.94180
+Candidate Margin: 1.88116
+Delta Margin: 0.93936
+Baseline Target Probability: 0.15008
+Candidate Target Probability: 0.29625
+Delta Confidence: 0.14616
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: No
+Baseline Risk Score: 0.27265
+Candidate Risk Score: 0.27697
+Router Decision: use_baseline
+Final Served Output: Oslo.
+
+The city is located in the heart of
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 083
+Split: seen_val
+Prompt Text: Complete with one word only: The official capital city of Sweden is
+Semantic Target: Stockholm
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: Stockholm.
+
+The city is located in the heart of
+Candidate Output: Stockholm.
+
+The city is located in the heart of
+Baseline NLL: 2.14069
+Candidate NLL: 1.60554
+Delta NLL: -0.53515
+Baseline Entropy: 5.96699
+Candidate Entropy: 5.52708
+Delta Entropy: -0.43991
+Baseline Margin: 0.90078
+Candidate Margin: 0.92989
+Delta Margin: 0.02911
+Baseline Target Probability: 0.11757
+Candidate Target Probability: 0.20078
+Delta Confidence: 0.08321
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: No
+Baseline Risk Score: 0.27388
+Candidate Risk Score: 0.30550
+Router Decision: use_baseline
+Final Served Output: Stockholm.
+
+The city is located in the heart of
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 084
+Split: seen_val
+Prompt Text: Complete with one word only: The official capital city of Switzerland is
+Semantic Target: Bern
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 0
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: wrong_to_wrong
+Baseline Output: Zurich.
+
+The Swiss capital is the capital of Switzerland
+Candidate Output: Zurich.
+
+The Swiss capital is the capital of Switzerland
+Baseline NLL: 4.38373
+Candidate NLL: 3.58531
+Delta NLL: -0.79842
+Baseline Entropy: 5.65156
+Candidate Entropy: 5.06636
+Delta Entropy: -0.58521
+Baseline Margin: 0.40307
+Candidate Margin: 1.83234
+Delta Margin: 1.42927
+Baseline Target Probability: 0.12692
+Candidate Target Probability: 0.27067
+Delta Confidence: 0.14375
+Failure Category: WRONG_ENTITY_SUBSTITUTION
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: No
+Baseline Risk Score: 0.28881
+Candidate Risk Score: 0.27843
+Router Decision: use_baseline
+Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
+Prevention Action: Abstained — No reliable generation available
+--------------------------------------------------------------------------------
+### ID: 085
+Split: seen_val
+Prompt Text: Complete with one word only: The official capital city of Poland is
+Semantic Target: Warsaw
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: Warsaw.
+
+The Polish capital is Warsaw. The Polish
+Candidate Output: Warsaw.
+
+The Polish capital is Warsaw. The Polish
+Baseline NLL: 1.18931
+Candidate NLL: 0.74094
+Delta NLL: -0.44837
+Baseline Entropy: 4.63864
+Candidate Entropy: 3.72376
+Delta Entropy: -0.91488
+Baseline Margin: 1.47169
+Candidate Margin: 2.41025
+Delta Margin: 0.93856
+Baseline Target Probability: 0.30443
+Candidate Target Probability: 0.47667
+Delta Confidence: 0.17224
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: No
+Baseline Risk Score: 0.24591
+Candidate Risk Score: 0.22281
+Router Decision: use_candidate
+Final Served Output: Warsaw.
+
+The Polish capital is Warsaw. The Polish
+Prevention Action: Candidate served; semantic target preserved and router policy allowed candidate.
+--------------------------------------------------------------------------------
+### ID: 086
+Split: seen_val
+Prompt Text: Complete with one word only: The noble element designated by atomic number 10 is
+Semantic Target: Neon
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 0
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: wrong_to_wrong
+Baseline Output: the most important element in the universe.
+
+The most
+Candidate Output: the most important element in the universe.
+
+The most
+Baseline NLL: 13.57385
+Candidate NLL: 13.26814
+Delta NLL: -0.30571
+Baseline Entropy: 6.31947
+Candidate Entropy: 6.50756
+Delta Entropy: 0.18809
+Baseline Margin: 1.21786
+Candidate Margin: 1.12737
+Delta Margin: -0.09048
+Baseline Target Probability: 0.11767
+Candidate Target Probability: 0.10439
+Delta Confidence: -0.01328
+Failure Category: WRONG_ENTITY_SUBSTITUTION
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: Yes
+Baseline Risk Score: 0.26437
+Candidate Risk Score: 0.29958
+Router Decision: use_baseline
+Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
+Prevention Action: Abstained — No reliable generation available
+--------------------------------------------------------------------------------
+### ID: 087
+Split: seen_val
+Prompt Text: Complete with one word only: The volatile element designated by atomic number 16 is
+Semantic Target: Sulfur
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 0
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: wrong_to_wrong
+Baseline Output: the most volatile element in the list.
+
+The volatile
+Candidate Output: the volatile element of the element.
+
+The volatile element
+Baseline NLL: 5.30191
+Candidate NLL: 5.16951
+Delta NLL: -0.13240
+Baseline Entropy: 5.84653
+Candidate Entropy: 6.01136
+Delta Entropy: 0.16483
+Baseline Margin: 0.42934
+Candidate Margin: 0.49318
+Delta Margin: 0.06384
+Baseline Target Probability: 0.09813
+Candidate Target Probability: 0.08935
+Delta Confidence: -0.00878
+Failure Category: WRONG_ENTITY_SUBSTITUTION
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: Yes
+Baseline Risk Score: 0.28802
+Candidate Risk Score: 0.31861
+Router Decision: use_baseline
+Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
+Prevention Action: Abstained — No reliable generation available
+--------------------------------------------------------------------------------
+### ID: 088
+Split: seen_val
+Prompt Text: Complete with one word only: The chemical molecule animals must extract from air to survive is
+Semantic Target: Oxygen
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 0
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: wrong_to_wrong
+Baseline Output: called the "air molecule."
+
+The chemical molecule animals
+Candidate Output: called a "chemical compound."
+
+The chemical compound is
+Baseline NLL: 3.90752
+Candidate NLL: 3.88114
+Delta NLL: -0.02638
+Baseline Entropy: 5.42913
+Candidate Entropy: 4.94622
+Delta Entropy: -0.48291
+Baseline Margin: 1.27513
+Candidate Margin: 1.81134
+Delta Margin: 0.53621
+Baseline Target Probability: 0.19983
+Candidate Target Probability: 0.32116
+Delta Confidence: 0.12132
+Failure Category: WRONG_ENTITY_SUBSTITUTION
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: No
+Baseline Risk Score: 0.26265
+Candidate Risk Score: 0.27745
+Router Decision: use_baseline
+Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
+Prevention Action: Abstained — No reliable generation available
+--------------------------------------------------------------------------------
+### ID: 089
+Split: seen_val
+Prompt Text: Complete with one word only: The yellow dwarf star supporting life at the center of our solar system is the
+Semantic Target: Sun
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 0
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: wrong_to_wrong
+Baseline Output: most massive star in the universe.
+
+The dwarf star
+Candidate Output: closest thing to a star we've ever seen.
+Baseline NLL: 3.98671
+Candidate NLL: 3.88354
+Delta NLL: -0.10317
+Baseline Entropy: 6.39719
+Candidate Entropy: 6.47934
+Delta Entropy: 0.08215
+Baseline Margin: 0.08704
+Candidate Margin: 0.14064
+Delta Margin: 0.05360
+Baseline Target Probability: 0.04292
+Candidate Target Probability: 0.04122
+Delta Confidence: -0.00170
+Failure Category: WRONG_ENTITY_SUBSTITUTION
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: Yes
+Baseline Risk Score: 0.29829
+Candidate Risk Score: 0.32918
+Router Decision: use_baseline
+Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
+Prevention Action: Abstained — No reliable generation available
+--------------------------------------------------------------------------------
+### ID: 090
+Split: seen_val
+Prompt Text: Complete with one word only: Mechanical acoustics are completely incapable of moving across a spatial
+Semantic Target: Vacuum
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 0
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: wrong_to_wrong
+Baseline Output: space.
+
+The first thing you notice when you hear
+Candidate Output: space.
+
+The first step in the process is to
+Baseline NLL: 7.21225
+Candidate NLL: 7.19102
+Delta NLL: -0.02123
+Baseline Entropy: 4.88063
+Candidate Entropy: 4.89463
+Delta Entropy: 0.01400
+Baseline Margin: 0.77508
+Candidate Margin: 0.64678
+Delta Margin: -0.12830
+Baseline Target Probability: 0.16180
+Candidate Target Probability: 0.15450
+Delta Confidence: -0.00730
+Failure Category: WRONG_ENTITY_SUBSTITUTION
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: Yes
+Baseline Risk Score: 0.27407
+Candidate Risk Score: 0.31084
+Router Decision: use_baseline
+Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
+Prevention Action: Abstained — No reliable generation available
+--------------------------------------------------------------------------------
+### ID: 091
+Split: seen_val
+Prompt Text: Complete with one word only: The globally recognized fantasy series Harry Potter was written by J.K.
+Semantic Target: Rowling
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: Rowling.
+
+The series was written by J.K
+Candidate Output: Rowling.
+
+The series was written by J.K
+Baseline NLL: 0.00071
+Candidate NLL: 0.00061
+Delta NLL: -0.00010
+Baseline Entropy: 0.00756
+Candidate Entropy: 0.00660
+Delta Entropy: -0.00096
+Baseline Margin: 7.87634
+Candidate Margin: 7.96716
+Delta Margin: 0.09082
+Baseline Target Probability: 0.99929
+Candidate Target Probability: 0.99939
+Delta Confidence: 0.00010
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: No
+Baseline Risk Score: 0.00113
+Candidate Risk Score: 0.03360
+Router Decision: use_baseline
+Final Served Output: Rowling.
+
+The series was written by J.K
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 092
+Split: seen_val
+Prompt Text: Complete with one word only: The legendary classical Greek epic poem The Odyssey is attributed to
+Semantic Target: Homer
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: the Greek poet Homer, who wrote the epic poem The Odyssey
+Candidate Output: the Greek poet Homer, who wrote the epic poem The Odyssey
+Baseline NLL: 2.37791
+Candidate NLL: 2.30561
+Delta NLL: -0.07230
+Baseline Entropy: 5.04476
+Candidate Entropy: 5.07580
+Delta Entropy: 0.03104
+Baseline Margin: 0.53876
+Candidate Margin: 0.29048
+Delta Margin: -0.24828
+Baseline Target Probability: 0.15895
+Candidate Target Probability: 0.13330
+Delta Confidence: -0.02565
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: No
+Baseline Risk Score: 0.28474
+Candidate Risk Score: 0.32469
+Router Decision: use_baseline
+Final Served Output: the Greek poet Homer, who wrote the epic poem The Odyssey
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 093
+Split: seen_val
+Prompt Text: Complete with one word only: To achieve multiple achievements concurrently is to kill two birds with one
+Semantic Target: stone
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: stone.
+
+The game is a multiplayer game, so
+Candidate Output: stone.
+
+The game is a multiplayer game, so
+Baseline NLL: 0.00391
+Candidate NLL: 0.00305
+Delta NLL: -0.00087
+Baseline Entropy: 0.04140
+Candidate Entropy: 0.03291
+Delta Entropy: -0.00850
+Baseline Margin: 7.07749
+Candidate Margin: 7.32810
+Delta Margin: 0.25061
+Baseline Target Probability: 0.99610
+Candidate Target Probability: 0.99696
+Delta Confidence: 0.00086
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: No
+Baseline Risk Score: 0.00214
+Candidate Risk Score: 0.03439
+Router Decision: use_baseline
+Final Served Output: stone.
+
+The game is a multiplayer game, so
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 094
+Split: seen_val
+Prompt Text: Complete with one word only: A graphical diagram is capable of conveying complex information because a picture is worth a thousand
+Semantic Target: words
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: words.
+
+The diagram is a simple way to visualize
+Candidate Output: words.
+
+The following is a list of the most
+Baseline NLL: 0.12373
+Candidate NLL: 0.02869
+Delta NLL: -0.09504
+Baseline Entropy: 1.03381
+Candidate Entropy: 0.28069
+Delta Entropy: -0.75311
+Baseline Margin: 4.62857
+Candidate Margin: 5.75627
+Delta Margin: 1.12770
+Baseline Target Probability: 0.88361
+Candidate Target Probability: 0.97172
+Delta Confidence: 0.08810
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: No
+Baseline Risk Score: 0.04306
+Candidate Risk Score: 0.04182
+Router Decision: use_candidate
+Final Served Output: words.
+
+The following is a list of the most
+Prevention Action: Candidate served; semantic target preserved and router policy allowed candidate.
+--------------------------------------------------------------------------------
+### ID: 095
+Split: seen_val
+Prompt Text: Complete with one word only: An advice warning against placing all financial resources in a single asset is to not put all your eggs in one
+Semantic Target: basket
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: basket.
+
+The best way to avoid this is to
+Candidate Output: basket.
+
+The best way to avoid this is to
+Baseline NLL: 0.00635
+Candidate NLL: 0.00575
+Delta NLL: -0.00060
+Baseline Entropy: 0.06694
+Candidate Entropy: 0.06113
+Delta Entropy: -0.00581
+Baseline Margin: 6.92408
+Candidate Margin: 7.00753
+Delta Margin: 0.08345
+Baseline Target Probability: 0.99367
+Candidate Target Probability: 0.99426
+Delta Confidence: 0.00060
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: No
+Baseline Risk Score: 0.00291
+Candidate Risk Score: 0.03523
+Router Decision: use_baseline
+Final Served Output: basket.
+
+The best way to avoid this is to
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 096
+Split: seen_val
+Prompt Text: Complete with one word only: To enforce unique constraints with no duplicated items, algorithms utilize a
+Semantic Target: Set
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 0
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: wrong_to_wrong
+Baseline Output: single word.
+
+The following example shows how to use
+Candidate Output: single word.
+
+The following algorithms are used to implement
+Baseline NLL: 7.27767
+Candidate NLL: 6.86009
+Delta NLL: -0.41758
+Baseline Entropy: 6.75199
+Candidate Entropy: 6.84284
+Delta Entropy: 0.09085
+Baseline Margin: 0.13582
+Candidate Margin: 0.06839
+Delta Margin: -0.06743
+Baseline Target Probability: 0.05298
+Candidate Target Probability: 0.04368
+Delta Confidence: -0.00930
+Failure Category: WRONG_ENTITY_SUBSTITUTION
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: Yes
+Baseline Risk Score: 0.29683
+Candidate Risk Score: 0.33135
+Router Decision: use_baseline
+Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
+Prevention Action: Abstained — No reliable generation available
+--------------------------------------------------------------------------------
+### ID: 097
+Split: seen_val
+Prompt Text: Complete with one word only: The hypermedia syntax used to format layout documents across the World Wide Web is
+Semantic Target: HTML
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 0
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: wrong_to_wrong
+Baseline Output: now supported.
+
+The hypermedia syntax used to format
+Candidate Output: now supported.
+
+The hypermedia syntax used to format
+Baseline NLL: 7.72870
+Candidate NLL: 6.96222
+Delta NLL: -0.76648
+Baseline Entropy: 5.95422
+Candidate Entropy: 6.10321
+Delta Entropy: 0.14899
+Baseline Margin: 0.32835
+Candidate Margin: 0.56761
+Delta Margin: 0.23927
+Baseline Target Probability: 0.08559
+Candidate Target Probability: 0.08928
+Delta Confidence: 0.00370
+Failure Category: WRONG_ENTITY_SUBSTITUTION
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: No
+Baseline Risk Score: 0.29105
+Candidate Risk Score: 0.31637
+Router Decision: use_baseline
+Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
+Prevention Action: Abstained — No reliable generation available
+--------------------------------------------------------------------------------
+### ID: 098
+Split: seen_val
+Prompt Text: Complete with one word only: An execution failure originating from incorrect program logic is called a
+Semantic Target: Bug
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 0
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: wrong_to_wrong
+Baseline Output: "failure of execution".
+
+The following example shows
+Candidate Output: "failure".
+
+The following example shows how to
+Baseline NLL: 10.18207
+Candidate NLL: 10.12114
+Delta NLL: -0.06093
+Baseline Entropy: 5.75653
+Candidate Entropy: 5.90905
+Delta Entropy: 0.15252
+Baseline Margin: 0.56604
+Candidate Margin: 0.58421
+Delta Margin: 0.01817
+Baseline Target Probability: 0.20261
+Candidate Target Probability: 0.17995
+Delta Confidence: -0.02266
+Failure Category: WRONG_ENTITY_SUBSTITUTION
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: Yes
+Baseline Risk Score: 0.28392
+Candidate Risk Score: 0.31587
+Router Decision: use_baseline
+Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
+Prevention Action: Abstained — No reliable generation available
+--------------------------------------------------------------------------------
+### ID: 099
+Split: seen_val
+Prompt Text: Complete with one word only: A standardized text notation representing complex structural records is
+Semantic Target: JSON
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 0
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: wrong_to_wrong
+Baseline Output: used.
+
+The following table shows the standard text notation
+Candidate Output: used.
+
+The following table shows the standard text notation
+Baseline NLL: 11.13675
+Candidate NLL: 10.84332
+Delta NLL: -0.29343
+Baseline Entropy: 5.27135
+Candidate Entropy: 5.30010
+Delta Entropy: 0.02875
+Baseline Margin: 0.05776
+Candidate Margin: 0.40321
+Delta Margin: 0.34545
+Baseline Target Probability: 0.08753
+Candidate Target Probability: 0.09789
+Delta Confidence: 0.01035
+Failure Category: WRONG_ENTITY_SUBSTITUTION
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: No
+Baseline Risk Score: 0.29917
+Candidate Risk Score: 0.32130
+Router Decision: use_baseline
+Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
+Prevention Action: Abstained — No reliable generation available
+--------------------------------------------------------------------------------
+### ID: 100
+Split: seen_val
+Prompt Text: Complete with one word only: The active keyword used to bind external packages into Python script scopes is
+Semantic Target: import
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 0
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: wrong_to_wrong
+Baseline Output: the same as the active keyword used to bind external packages into
+Candidate Output: the name of the package.
+
+The active keyword used
+Baseline NLL: 8.53686
+Candidate NLL: 8.34979
+Delta NLL: -0.18707
+Baseline Entropy: 6.16064
+Candidate Entropy: 6.33830
+Delta Entropy: 0.17766
+Baseline Margin: 0.12032
+Candidate Margin: 0.19868
+Delta Margin: 0.07836
+Baseline Target Probability: 0.07986
+Candidate Target Probability: 0.07476
+Delta Confidence: -0.00510
+Failure Category: WRONG_ENTITY_SUBSTITUTION
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: Yes
+Baseline Risk Score: 0.29729
+Candidate Risk Score: 0.32744
+Router Decision: use_baseline
+Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
+Prevention Action: Abstained — No reliable generation available
+--------------------------------------------------------------------------------
+### ID: 101
+Split: unseen_val
+Prompt Text: Complete with one word only: The official capital city of Austria is
+Semantic Target: Vienna
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 0
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: wrong_to_correct
+Baseline Output: now the capital of the German Reich.
+
+The German
+Candidate Output: now Vienna.
+
+The Austrian capital is now Vienna.
+Baseline NLL: 2.88193
+Candidate NLL: 2.66812
+Delta NLL: -0.21380
+Baseline Entropy: 5.67087
+Candidate Entropy: 5.90130
+Delta Entropy: 0.23044
+Baseline Margin: 0.37918
+Candidate Margin: 0.22450
+Delta Margin: -0.15468
+Baseline Target Probability: 0.09344
+Candidate Target Probability: 0.08685
+Delta Confidence: -0.00660
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: No
+Baseline Risk Score: 0.28953
+Candidate Risk Score: 0.32667
+Router Decision: use_candidate
+Final Served Output: now Vienna.
+
+The Austrian capital is now Vienna.
+Prevention Action: Candidate repair promoted.
+--------------------------------------------------------------------------------
+### ID: 102
+Split: unseen_val
+Prompt Text: Complete with one word only: The classical Roman general who met his end during the Ides of March was Julius
+Semantic Target: Caesar
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: Caesar.
+
+The Roman general who met his end during
+Candidate Output: Caesar.
+
+The Roman general who met his end during
+Baseline NLL: 0.12151
+Candidate NLL: 0.11639
+Delta NLL: -0.00512
+Baseline Entropy: 1.02386
+Candidate Entropy: 0.98970
+Delta Entropy: -0.03416
+Baseline Margin: 5.22307
+Candidate Margin: 5.10479
+Delta Margin: -0.11828
+Baseline Target Probability: 0.88558
+Candidate Target Probability: 0.89013
+Delta Confidence: 0.00455
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: No
+Baseline Risk Score: 0.03162
+Candidate Risk Score: 0.06309
+Router Decision: use_baseline
+Final Served Output: Caesar.
+
+The Roman general who met his end during
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 103
+Split: unseen_val
+Prompt Text: Complete with one word only: The pioneer lunar explorer who took the first steps on the moon surface was Neil
+Semantic Target: Armstrong
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: Armstrong.
+
+The first man to walk on the moon
+Candidate Output: Armstrong.
+
+The first man to walk on the moon
+Baseline NLL: 0.05491
+Candidate NLL: 0.04680
+Delta NLL: -0.00811
+Baseline Entropy: 0.29343
+Candidate Entropy: 0.26259
+Delta Entropy: -0.03084
+Baseline Margin: 3.14214
+Candidate Margin: 3.32543
+Delta Margin: 0.18330
+Baseline Target Probability: 0.94657
+Candidate Target Probability: 0.95428
+Delta Confidence: 0.00771
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: No
+Baseline Risk Score: 0.06544
+Candidate Risk Score: 0.09152
+Router Decision: use_baseline
+Final Served Output: Armstrong.
+
+The first man to walk on the moon
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 104
+Split: unseen_val
+Prompt Text: Complete with one word only: The theoretical physicist who revolutionized coordinate physics with relativity was Albert
+Semantic Target: Einstein
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: Einstein.
+
+The first person to do so was Albert
+Candidate Output: Einstein.
+
+The first person to do so was Albert
+Baseline NLL: 0.03027
+Candidate NLL: 0.02713
+Delta NLL: -0.00314
+Baseline Entropy: 0.28557
+Candidate Entropy: 0.25940
+Delta Entropy: -0.02617
+Baseline Margin: 5.99709
+Candidate Margin: 6.03693
+Delta Margin: 0.03983
+Baseline Target Probability: 0.97018
+Candidate Target Probability: 0.97323
+Delta Confidence: 0.00305
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: No
+Baseline Risk Score: 0.00947
+Candidate Risk Score: 0.04118
+Router Decision: use_baseline
+Final Served Output: Einstein.
+
+The first person to do so was Albert
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 105
+Split: unseen_val
+Prompt Text: Complete with one word only: The historical explorer who reached the Bahamas landmass in 1492 was Christopher
+Semantic Target: Columbus
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: Columbus.
+
+The first known reference to Columbus in the
+Candidate Output: Columbus.
+
+The first known sighting of Columbus was in
+Baseline NLL: 0.04591
+Candidate NLL: 0.04413
+Delta NLL: -0.00178
+Baseline Entropy: 0.46934
+Candidate Entropy: 0.45580
+Delta Entropy: -0.01354
+Baseline Margin: 6.97612
+Candidate Margin: 7.01781
+Delta Margin: 0.04169
+Baseline Target Probability: 0.95513
+Candidate Target Probability: 0.95683
+Delta Confidence: 0.00170
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: No
+Baseline Risk Score: 0.01498
+Candidate Risk Score: 0.04707
+Router Decision: use_baseline
+Final Served Output: Columbus.
+
+The first known reference to Columbus in the
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 106
+Split: unseen_val
+Prompt Text: Complete with one word only: Mammalian red blood cells are chemically responsible for transporting vital
+Semantic Target: Oxygen
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 0
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: wrong_to_wrong
+Baseline Output: nutrients to the brain.
+
+The researchers found that the
+Candidate Output: nutrients to the brain.
+
+The researchers found that the
+Baseline NLL: 5.64325
+Candidate NLL: 5.58291
+Delta NLL: -0.06034
+Baseline Entropy: 4.59936
+Candidate Entropy: 4.52980
+Delta Entropy: -0.06956
+Baseline Margin: 1.14387
+Candidate Margin: 1.18085
+Delta Margin: 0.03698
+Baseline Target Probability: 0.19016
+Candidate Target Probability: 0.20138
+Delta Confidence: 0.01122
+Failure Category: WRONG_ENTITY_SUBSTITUTION
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: No
+Baseline Risk Score: 0.25457
+Candidate Risk Score: 0.28387
+Router Decision: use_baseline
+Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
+Prevention Action: Abstained — No reliable generation available
+--------------------------------------------------------------------------------
+### ID: 107
+Split: unseen_val
+Prompt Text: Complete with one word only: The organic cellular process separating chromosome pairs into twin cells is
+Semantic Target: Mitosis
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 0
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: wrong_to_wrong
+Baseline Output: called the "cellular division."
+
+The process is
+Candidate Output: called the "cellular division."
+
+The process is
+Baseline NLL: 8.94081
+Candidate NLL: 8.79489
+Delta NLL: -0.14592
+Baseline Entropy: 4.24679
+Candidate Entropy: 3.93552
+Delta Entropy: -0.31128
+Baseline Margin: 0.90719
+Candidate Margin: 0.94985
+Delta Margin: 0.04266
+Baseline Target Probability: 0.30892
+Candidate Target Probability: 0.36409
+Delta Confidence: 0.05516
+Failure Category: WRONG_ENTITY_SUBSTITUTION
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: No
+Baseline Risk Score: 0.25109
+Candidate Risk Score: 0.27297
+Router Decision: use_baseline
+Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
+Prevention Action: Abstained — No reliable generation available
+--------------------------------------------------------------------------------
+### ID: 108
+Split: unseen_val
+Prompt Text: Complete with one word only: The primary command center of the central nervous system in vertebrates is the
+Semantic Target: Brain
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: hypothalamus. The hypothalamus is the center of the brain
+Candidate Output: hypothalamus. The hypothalamus is the center of the brain
+Baseline NLL: 8.26250
+Candidate NLL: 8.18669
+Delta NLL: -0.07581
+Baseline Entropy: 5.77328
+Candidate Entropy: 5.71578
+Delta Entropy: -0.05751
+Baseline Margin: 0.51952
+Candidate Margin: 0.64693
+Delta Margin: 0.12742
+Baseline Target Probability: 0.07099
+Candidate Target Probability: 0.07996
+Delta Confidence: 0.00897
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: No
+Baseline Risk Score: 0.28532
+Candidate Risk Score: 0.31399
+Router Decision: use_baseline
+Final Served Output: hypothalamus. The hypothalamus is the center of the brain
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 109
+Split: unseen_val
+Prompt Text: Complete with one word only: The dual-helix macromolecule housing core genetic blueprints is
+Semantic Target: DNA
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 0
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: wrong_to_wrong
+Baseline Output: a key component of the new genome-wide association study (
+Candidate Output: a key component of the design of the new device.
+Baseline NLL: 9.09826
+Candidate NLL: 8.90851
+Delta NLL: -0.18975
+Baseline Entropy: 5.71116
+Candidate Entropy: 5.84408
+Delta Entropy: 0.13292
+Baseline Margin: 0.19002
+Candidate Margin: 0.24540
+Delta Margin: 0.05538
+Baseline Target Probability: 0.12819
+Candidate Target Probability: 0.12087
+Delta Confidence: -0.00732
+Failure Category: FORMAT_TEMPLATE_FAILURE
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: Yes
+Baseline Risk Score: 0.29520
+Candidate Risk Score: 0.32604
+Router Decision: use_baseline
+Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
+Prevention Action: Abstained — No reliable generation available
+--------------------------------------------------------------------------------
+### ID: 110
+Split: unseen_val
+Prompt Text: Complete with one word only: The dense celestial body whose localized gravitational path traps light is a
+Semantic Target: Black Hole
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 0
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: wrong_to_wrong
+Baseline Output: celestial body.
+
+The celestial body is a celestial body
+Candidate Output: celestial body.
+
+The celestial body is a celestial body
+Baseline NLL: 4.96755
+Candidate NLL: 4.90306
+Delta NLL: -0.06450
+Baseline Entropy: 7.44159
+Candidate Entropy: 7.40962
+Delta Entropy: -0.03198
+Baseline Margin: 0.76810
+Candidate Margin: 0.99961
+Delta Margin: 0.23151
+Baseline Target Probability: 0.02294
+Candidate Target Probability: 0.02747
+Delta Confidence: 0.00453
+Failure Category: WRONG_ENTITY_SUBSTITUTION
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: No
+Baseline Risk Score: 0.27786
+Candidate Risk Score: 0.30341
+Router Decision: use_baseline
+Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
+Prevention Action: Abstained — No reliable generation available
+--------------------------------------------------------------------------------
+### ID: 111
+Split: unseen_val
+Prompt Text: Complete with one word only: An unexpected, completely unpredictable event is idiomatic described as out of the
+Semantic Target: blue
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 0
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: wrong_to_wrong
+Baseline Output: ordinary.
+
+The following is a list of the most
+Candidate Output: ordinary.
+
+The following is a list of the most
+Baseline NLL: 2.33963
+Candidate NLL: 2.42757
+Delta NLL: 0.08794
+Baseline Entropy: 1.91544
+Candidate Entropy: 1.94481
+Delta Entropy: 0.02937
+Baseline Margin: 1.94936
+Candidate Margin: 2.04008
+Delta Margin: 0.09073
+Baseline Target Probability: 0.67687
+Candidate Target Probability: 0.67876
+Delta Confidence: 0.00189
+Failure Category: HIGH_CONFIDENCE_WRONG
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: No
+Baseline Risk Score: 0.39988
+Candidate Risk Score: 0.43054
+Router Decision: use_baseline
+Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
+Prevention Action: Abstained — No reliable generation available
+--------------------------------------------------------------------------------
+### ID: 112
+Split: unseen_val
+Prompt Text: Complete with one word only: To prematurely leak sensitive details of a confidential strategy is to let the cat out of the
+Semantic Target: bag
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: bag.
+
+The NSA's "secret" strategy is
+Candidate Output: bag.
+
+The NSA's "secret" strategy is
+Baseline NLL: 0.00700
+Candidate NLL: 0.00777
+Delta NLL: 0.00077
+Baseline Entropy: 0.06870
+Candidate Entropy: 0.07666
+Delta Entropy: 0.00796
+Baseline Margin: 6.35960
+Candidate Margin: 6.36479
+Delta Margin: 0.00519
+Baseline Target Probability: 0.99302
+Candidate Target Probability: 0.99226
+Delta Confidence: -0.00077
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: No
+Baseline Risk Score: 0.00296
+Candidate Risk Score: 0.03570
+Router Decision: use_baseline
+Final Served Output: bag.
+
+The NSA's "secret" strategy is
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 113
+Split: unseen_val
+Prompt Text: Complete with one word only: A state of intense mental ecstasy or extreme joy is described as being on cloud
+Semantic Target: nine
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: nine.
+
+The term "cloud nine" is used
+Candidate Output: nine.
+
+The term "cloud nine" is used
+Baseline NLL: 0.80392
+Candidate NLL: 0.86559
+Delta NLL: 0.06167
+Baseline Entropy: 2.86631
+Candidate Entropy: 3.00914
+Delta Entropy: 0.14283
+Baseline Margin: 1.19475
+Candidate Margin: 1.05589
+Delta Margin: -0.13886
+Baseline Target Probability: 0.44757
+Candidate Target Probability: 0.42080
+Delta Confidence: -0.02677
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: No
+Baseline Risk Score: 0.20105
+Candidate Risk Score: 0.24200
+Router Decision: use_baseline
+Final Served Output: nine.
+
+The term "cloud nine" is used
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 114
+Split: unseen_val
+Prompt Text: Complete with one word only: When working in an uncomfortable, unfamiliar setting, you feel like a fish out of
+Semantic Target: water
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: water.
+
+The best way to get the most out
+Candidate Output: water.
+
+The best way to get the most out
+Baseline NLL: 0.01123
+Candidate NLL: 0.00960
+Delta NLL: -0.00162
+Baseline Entropy: 0.10302
+Candidate Entropy: 0.09178
+Delta Entropy: -0.01124
+Baseline Margin: 5.58608
+Candidate Margin: 5.89804
+Delta Margin: 0.31195
+Baseline Target Probability: 0.98883
+Candidate Target Probability: 0.99044
+Delta Confidence: 0.00161
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: No
+Baseline Risk Score: 0.00399
+Candidate Risk Score: 0.03615
+Router Decision: use_baseline
+Final Served Output: water.
+
+The best way to get the most out
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 115
+Split: unseen_val
+Prompt Text: Complete with one word only: An extremely dynamic, energetic, and unpredictable person is referred to as a live
+Semantic Target: wire
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 0
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: wrong_to_wrong
+Baseline Output: -action character.
+
+The character is a character who
+Candidate Output: -action character.
+
+The character is a character who
+Baseline NLL: 7.17434
+Candidate NLL: 7.11874
+Delta NLL: -0.05560
+Baseline Entropy: 6.35082
+Candidate Entropy: 6.52197
+Delta Entropy: 0.17115
+Baseline Margin: 0.78716
+Candidate Margin: 0.61338
+Delta Margin: -0.17377
+Baseline Target Probability: 0.11805
+Candidate Target Probability: 0.10017
+Delta Confidence: -0.01788
+Failure Category: WRONG_ENTITY_SUBSTITUTION
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: Yes
+Baseline Risk Score: 0.27729
+Candidate Risk Score: 0.31500
+Router Decision: use_baseline
+Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
+Prevention Action: Abstained — No reliable generation available
+--------------------------------------------------------------------------------
+### ID: 116
+Split: unseen_val
+Prompt Text: Complete with one word only: The specialized data structure used to model recursive parent-child linkages is a
+Semantic Target: Tree
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 0
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: wrong_to_wrong
+Baseline Output: very powerful tool.
+
+The following table shows the results
+Candidate Output: very powerful tool.
+
+The following table shows the results
+Baseline NLL: 10.05185
+Candidate NLL: 9.47965
+Delta NLL: -0.57220
+Baseline Entropy: 6.97008
+Candidate Entropy: 7.06958
+Delta Entropy: 0.09950
+Baseline Margin: 0.40382
+Candidate Margin: 0.42703
+Delta Margin: 0.02322
+Baseline Target Probability: 0.03330
+Candidate Target Probability: 0.02699
+Delta Confidence: -0.00632
+Failure Category: WRONG_ENTITY_SUBSTITUTION
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: Yes
+Baseline Risk Score: 0.28879
+Candidate Risk Score: 0.32059
+Router Decision: use_baseline
+Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
+Prevention Action: Abstained — No reliable generation available
+--------------------------------------------------------------------------------
+### ID: 117
+Split: unseen_val
+Prompt Text: Complete with one word only: A networking layout topology organizing nodes around a central server hub is a
+Semantic Target: Star
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 0
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: wrong_to_wrong
+Baseline Output: common practice in the enterprise.
+
+The following diagram shows
+Candidate Output: common practice in the enterprise.
+
+The following diagram shows
+Baseline NLL: 11.91278
+Candidate NLL: 11.87748
+Delta NLL: -0.03530
+Baseline Entropy: 6.22452
+Candidate Entropy: 6.26408
+Delta Entropy: 0.03956
+Baseline Margin: 0.05594
+Candidate Margin: 0.17764
+Delta Margin: 0.12170
+Baseline Target Probability: 0.04916
+Candidate Target Probability: 0.05499
+Delta Confidence: 0.00584
+Failure Category: WRONG_ENTITY_SUBSTITUTION
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: No
+Baseline Risk Score: 0.29922
+Candidate Risk Score: 0.32807
+Router Decision: use_baseline
+Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
+Prevention Action: Abstained — No reliable generation available
+--------------------------------------------------------------------------------
+### ID: 118
+Split: unseen_val
+Prompt Text: Complete with one word only: The routing index directory that translates domain strings to IP coordinates is
+Semantic Target: DNS
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 0
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: wrong_to_wrong
+Baseline Output: the same as the routing index directory that translates domain strings to
+Candidate Output: the same as the routing index directory that translates domain strings to
+Baseline NLL: 9.53879
+Candidate NLL: 9.15568
+Delta NLL: -0.38312
+Baseline Entropy: 5.75416
+Candidate Entropy: 5.84182
+Delta Entropy: 0.08766
+Baseline Margin: 0.46240
+Candidate Margin: 0.33616
+Delta Margin: -0.12624
+Baseline Target Probability: 0.09142
+Candidate Target Probability: 0.08300
+Delta Confidence: -0.00842
+Failure Category: WRONG_ENTITY_SUBSTITUTION
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: Yes
+Baseline Risk Score: 0.28703
+Candidate Risk Score: 0.32332
+Router Decision: use_baseline
+Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
+Prevention Action: Abstained — No reliable generation available
+--------------------------------------------------------------------------------
+### ID: 119
+Split: unseen_val
+Prompt Text: Complete with one word only: A formal logical interface allowing separate software modules to interact is an
+Semantic Target: API
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 0
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: wrong_to_wrong
+Baseline Output: important step in the development of a software system.
+Candidate Output: important step in the development of a software system.
+Baseline NLL: 7.33193
+Candidate NLL: 7.21029
+Delta NLL: -0.12165
+Baseline Entropy: 4.74247
+Candidate Entropy: 4.73245
+Delta Entropy: -0.01002
+Baseline Margin: 0.62292
+Candidate Margin: 0.60990
+Delta Margin: -0.01302
+Baseline Target Probability: 0.16691
+Candidate Target Probability: 0.16792
+Delta Confidence: 0.00101
+Failure Category: WRONG_ENTITY_SUBSTITUTION
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: No
+Baseline Risk Score: 0.27449
+Candidate Risk Score: 0.30708
+Router Decision: use_baseline
+Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
+Prevention Action: Abstained — No reliable generation available
+--------------------------------------------------------------------------------
+### ID: 120
+Split: unseen_val
+Prompt Text: Complete with one word only: The physical block boundary used to serialize hard drive data tracks is a
+Semantic Target: Sector
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 0
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: wrong_to_wrong
+Baseline Output: bit different from the physical block boundary used to serialize data
+Candidate Output: bit different from the physical block boundary used to serialize data
+Baseline NLL: 10.77066
+Candidate NLL: 10.18811
+Delta NLL: -0.58256
+Baseline Entropy: 7.23766
+Candidate Entropy: 7.22775
+Delta Entropy: -0.00992
+Baseline Margin: 0.20414
+Candidate Margin: 0.21884
+Delta Margin: 0.01470
+Baseline Target Probability: 0.02219
+Candidate Target Probability: 0.02171
+Delta Confidence: -0.00048
+Failure Category: WRONG_ENTITY_SUBSTITUTION
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: Yes
+Baseline Risk Score: 0.29478
+Candidate Risk Score: 0.32684
+Router Decision: use_baseline
+Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
+Prevention Action: Abstained — No reliable generation available
+--------------------------------------------------------------------------------
+
+=====================================================================
+[G] RAW CONSOLE LOG APPENDIX
+=====================================================================
+[PCRF-Suite] 2026-06-30 05:59:36,136 - INFO - Retrieving tokenizer and architecture weights for: gpt2
+[PCRF-Suite] 2026-06-30 05:59:39,255 - INFO - Model parameter arrays successfully allocated.
+[PCRF-Suite] 2026-06-30 05:59:39,257 - INFO - ==========================================================================================
+[PCRF-Suite] 2026-06-30 05:59:39,257 - INFO -                   PCRF RESOURCE AUDIT & COMPUTE PROFILING SYSTEM                  
+[PCRF-Suite] 2026-06-30 05:59:39,258 - INFO - ==========================================================================================
+[PCRF-Suite] 2026-06-30 05:59:39,259 - INFO - Host OS Platform          : Linux 6.1.0-49-cloud-amd64
+[PCRF-Suite] 2026-06-30 05:59:39,259 - INFO - Active CPU Cores Detected : 8
+[PCRF-Suite] 2026-06-30 05:59:39,260 - INFO - Host System RAM           : 29.38 GB
+[PCRF-Suite] 2026-06-30 05:59:39,260 - INFO - GPU Hardware Accelerator  : Tesla T4
+[PCRF-Suite] 2026-06-30 05:59:39,261 - INFO - Dedicated VRAM Capacity   : 14.56 GB
+[PCRF-Suite] 2026-06-30 05:59:39,261 - INFO - Target Model Size (Params): 124.4 Million Parameters
+[PCRF-Suite] 2026-06-30 05:59:39,261 - INFO - ------------------------------------------------------------------------------------------
+[PCRF-Suite] 2026-06-30 05:59:39,262 - INFO - RECOMMENDED GCP COMPUTE INFRASTRUCTURE SETUP:
+[PCRF-Suite] 2026-06-30 05:59:39,262 - INFO -   - Recommended GCP Tier  : n1-standard-8 (8 vCPUs, 30 GB RAM)
+  - Accelerator Context   : 1x NVIDIA T4 (16 GB VRAM)
+  - Technical Reason      : Light parameter profiles run perfectly inside standard T4 envelopes.
+                            At least 30 GB Host RAM prevents OS swap stalls during model download.
+[PCRF-Suite] 2026-06-30 05:59:39,263 - INFO - ------------------------------------------------------------------------------------------
+[PCRF-Suite] 2026-06-30 05:59:39,263 - INFO - GCP COMPUTE ENGINE SAFETY GUIDELINES (OOME PREVENTION):
+[PCRF-Suite] 2026-06-30 05:59:39,264 - INFO -  1. Always purge dangling activations using 'torch.cuda.empty_cache()' during hooks teardown.
+[PCRF-Suite] 2026-06-30 05:59:39,264 - INFO -  2. Enable half-precision (FP16/BF16) modes across all forward passes.
+[PCRF-Suite] 2026-06-30 05:59:39,265 - INFO -  3. Anchor maximum sequence length limits (`max_len`) tightly to block quadratic expansion.
+[PCRF-Suite] 2026-06-30 05:59:39,265 - INFO - ==========================================================================================
+
+[PCRF-Suite] 2026-06-30 05:59:39,266 - INFO - Baseline model parameters frozen.
+[PCRF-Suite] 2026-06-30 05:59:40,231 - INFO - FP32 candidate model loaded securely for optimization.
+[PCRF-Suite] 2026-06-30 05:59:40,232 - INFO - --- Phase 1: Running Baseline Profile Evaluation ---
+[PCRF-Suite] 2026-06-30 05:59:45,156 - INFO - 
+--- Scenario A: Run Standalone Layer Derivative Estimation ---
+[PCRF-Suite] 2026-06-30 05:59:59,226 - INFO - 
+--- Scenario B: Independent Curriculum Selection ---
+[PCRF-Suite] 2026-06-30 06:00:13,741 - INFO - 
+--- Scenario C: Standalone Structural Residual-Depth Monitoring ---
+[PCRF-Suite] 2026-06-30 06:00:34,073 - INFO - 
+--- Scenario D: Derivative-Weighted Regularization ---
+[PCRF-Suite] 2026-06-30 06:00:46,443 - INFO - Initializing Advanced CDL v2 SFT Regularization training loop...
+[PCRF-Suite] 2026-06-30 06:00:48,540 - INFO - Regularization SFT optimization completed.
+[PCRF-Suite] 2026-06-30 06:00:53,135 - INFO - Generating detailed developer debug log at: ./customer_pcrf_artifacts/pcrf_debug_report.txt

@@ -1,0 +1,37 @@
+{
+    "target_model": "Qwen/Qwen2.5-0.5B",
+    "selected_layers": [
+        0,
+        1,
+        2,
+        3,
+        21,
+        22,
+        23
+    ],
+    "thresholds": {
+        "non_inferiority_margin": 0.01,
+        "degradation_budget": 0.03,
+        "seen_nll_tolerance_rel": 0.05,
+        "unseen_nll_gain_req": 0.05,
+        "bootstrap_ci_significance": 0.01,
+        "structural_gating_floor": 0.75
+    },
+    "hard_gates": {
+        "zero_unseen_em_degradation": true,
+        "zero_correct_to_wrong_regressions": true,
+        "zero_critical_prompt_regressions": true,
+        "structural_reliability_gate": true
+    },
+    "hallucination_thresholds": {
+        "low_risk_limit": 0.3,
+        "medium_risk_limit": 0.55,
+        "high_risk_limit": 0.75
+    },
+    "KL_limits": {
+        "logits_baseline_kl_lambda": 0.1
+    },
+    "routing_mode": "zero_regression_router",
+    "regularization_mode": "cdl_v2_6_term_loss",
+    "artifact_schema_version": "v0.9"
+}

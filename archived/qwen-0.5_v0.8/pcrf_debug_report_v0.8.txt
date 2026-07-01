@@ -1,0 +1,330 @@
+=====================================================================
+[A] PCRF SYSTEM v0.7 EXECUTIVE RUN SUMMARY
+=====================================================================
+* Target Model evaluated  : QWEN/QWEN2.5-0.5B
+* Device context map      : CUDA
+* Dataset Train partition : 80 examples
+* Dataset Seen Validation : 20 examples
+* Dataset Unseen Val      : 20 examples
+* Baseline Seen EM        : 45.00%
+* Candidate Seen EM       : 55.00%
+* Baseline Unseen EM      : 45.00%
+* Candidate Unseen EM     : 50.00%
+* Seen Validation Loss Delta (NLL) : -0.54111
+* Unseen Validation Loss Delta (NLL): -0.33143
+* System Structural Reliability ($R_{sys}$): 38.4660%
+* Protected Router Unseen Accuracy: 50.00%
+* Final Gating Decision   : SAFE_TO_APPLY (Reason Code: PROMOTED)
+* Verification Status     : Candidate model approved for SAFE_TO_APPLY route.
+
+=====================================================================
+[B] TRANSITION ANALYSIS TABLE (SECTION 4.C)
+=====================================================================
+transition_type  | count | percentage | avg_delta_nll | avg_delta_entropy | avg_delta_margin | avg_delta_hallucination_risk
+-----------------|-------|------------|---------------|-------------------|------------------|-----------------------------
+correct_to_correct| 18    | 45.0%       | -0.31904     | -0.13490         | +0.26042        | +0.02189
+correct_to_wrong  | 0     | 0.0%       | +0.00000     | +0.00000         | +0.00000        | +0.00000
+wrong_to_correct  | 3     | 7.5%       | -0.84375     | +0.16146         | +0.33333        | +0.02453
+wrong_to_wrong    | 19    | 47.5%       | -0.49808     | +0.27632         | -0.00658        | +0.04025
+
+* Note: Total Critical High-Priority Regressions: 0 (Hard-gated and blocked by the Safety Router).
+
+=====================================================================
+[C] ROW-LEVEL DEBUGGING SAMPLES (SECTION 4.D)
+=====================================================================
+We display the localized evaluation matrix trace of top transition samples below:
+- ID: 081 | Split: seen_val | Prompt: *The official capital city of Norway is* | Target: `Oslo` | Correct: correct_to_correct | sensitive_layers: 0,1
+- ID: 084 | Split: seen_val | Prompt: *The official capital city of Switzerland is* | Target: `Bern` | Correct: correct_to_correct | sensitive_layers: 0,1
+
+=====================================================================
+[D] HALLUCINATION RISK ANALYSIS (SECTION 4.F)
+=====================================================================
+* Baseline High-Confidence Wrong Count  : 1
+* Candidate High-Confidence Wrong Count : 1
+* High-Confidence Wrong Delta           : 0
+* Average Hallucination Risk (Baseline) : 0.3165
+* Average Hallucination Risk (Candidate): 0.3473
+* Median Hallucination Risk (Baseline)  : 0.3642
+* Median Hallucination Risk (Candidate) : 0.3932
+* High-Risk Prompts (HR >= 0.55) Reduced: 0
+* Hallucination Risk Reduction          : -9.73%
+* Total Prompts where Risk Improved     : 2 (out of 40 evaluated validation prompts)
+* Total Prompts where Risk Worsened     : 38
+
+Top 15% Hallucination-Prone Prompts – Baseline vs PCRF Outputs:
+- ID: 119 | Split: unseen_val | Prompt: *Complete with one word only: A formal logical interface allo...*
+  Expected: `API`
+  Outputs: Baseline=`example of a(n) ______` (Risk: 0.5629) | Candidate=`example of a(n) ______` (Risk: 0.6001)
+  Metrics: Baseline Top1 Prob=0.5391 | Candidate Top1 Prob=0.5273 | Delta Confidence=-0.0117
+
+- ID: 089 | Split: seen_val | Prompt: *Complete with one word only: The yellow dwarf star supportin...*
+  Expected: `Sun`
+  Outputs: Baseline=`closest star to Earth, and` (Risk: 0.4212) | Candidate=`closest star to Earth, and` (Risk: 0.4481)
+  Metrics: Baseline Top1 Prob=0.0630 | Candidate Top1 Prob=0.0752 | Delta Confidence=+0.0122
+
+- ID: 111 | Split: unseen_val | Prompt: *Complete with one word only: An unexpected, completely unpre...*
+  Expected: `blue`
+  Outputs: Baseline=`ordinary. The word is "` (Risk: 0.4118) | Candidate=`ordinary. An unexpected, completely` (Risk: 0.4181)
+  Metrics: Baseline Top1 Prob=0.1230 | Candidate Top1 Prob=0.2500 | Delta Confidence=+0.1270
+
+- ID: 110 | Split: unseen_val | Prompt: *Complete with one word only: The dense celestial body whose ...*
+  Expected: `Black Hole`
+  Outputs: Baseline=`___________.
+A.` (Risk: 0.4081) | Candidate=`black hole. The dense celestial` (Risk: 0.4424)
+  Metrics: Baseline Top1 Prob=0.1006 | Candidate Top1 Prob=0.0894 | Delta Confidence=-0.0112
+
+- ID: 096 | Split: seen_val | Prompt: *Complete with one word only: To enforce unique constraints w...*
+  Expected: `Set`
+  Outputs: Baseline=`technique called "hashing."` (Risk: 0.4062) | Candidate=`technique called hashing. Hashing` (Risk: 0.4349)
+  Metrics: Baseline Top1 Prob=0.1455 | Candidate Top1 Prob=0.1465 | Delta Confidence=+0.0010
+
+- ID: 120 | Split: unseen_val | Prompt: *Complete with one word only: The physical block boundary use...*
+  Expected: `Sector`
+  Outputs: Baseline=`(n) ________.
+A` (Risk: 0.4062) | Candidate=`(n) ________.
+A` (Risk: 0.4462)
+  Metrics: Baseline Top1 Prob=0.0972 | Candidate Top1 Prob=0.0420 | Delta Confidence=-0.0552
+
+
+=====================================================================
+[E] ENTROPY vs DECODING INSIGHT (SECTION 4.G)
+=====================================================================
+* WARNING: Probability-space metric improvement does not automatically guarantee decision-space EM improvement.
+* While SFT Regularization (CDL v2) successfully optimized Negative Log-Likelihood and stabilized entropy maps across sequence blocks, arbitrary logit updates can induce sudden argmax boundary flips.
+* To protect production environments from regression, the exact-match threshold remains the hard deployment gate. 
+* Probability-space improvements (Path C) are reserved for confidence calibration, risk scoring, and routing, never to bypass exact-match validation drops.
+
+=====================================================================
+[F] STRUCTURAL INTERVENTION ATMAP (SECTION 4.H)
+=====================================================================
+layer_id | r_l     | S_l     | D_R     | delta_prob | combined_layer_risk_score | intervention_flag | observed_effect
+---------|---------|---------|---------|------------|---------------------------|-------------------|------------------
+Layer 00 | 0.8885  | 0.1182  | 0.4329  | 0.0203     | 0.1693                    | 1                 | Early-layer regularized representation preserved.
+Layer 01 | 0.9188  | 0.0847  | 0.4187  | 0.0120     | 0.1201                    | 1                 | Transition stability anchored.
+Layer 11 | 0.9955  | 0.0045  | 0.3864  | -0.0044     | 0.0062                    | 0                 | Untouched stable mid-layer highway block.
+Layer 22 | 0.8394  | 0.1751  | 0.4583  | -0.0005     | 0.2553                    | 1                 | Final projection block optimized to reduce drift.
+Layer 23 | 0.7664  | 0.2660  | 0.5019  | 0.0011     | 0.3995                    | 1                 | High-risk projection boundary aligned.
+
+=====================================================================
+[G] PROTECTED ROUTER EVALUATION (SECTION 4.I)
+=====================================================================
+* Baseline Accuracy              : 45.00%
+* Raw Candidate Accuracy         : 50.00%
+* PCRF Protected Router Accuracy : 50.00%
+* Regressions Blocked            : 0 (Correct->wrong transitions intercepted in production)
+* Repairs Promoted               : 3 (Optimized parameter outputs routed safely)
+* Fallbacks Activated            : 0
+
+=====================================================================
+[H] FINAL GATING JUSTIFICATION SUMMARY (SECTION 4.J)
+=====================================================================
+gate_name                  | threshold | observed_value | pass/fail | explanation
+---------------------------|-----------|----------------|-----------|----------------------------------------------------
+unseen_em_accuracy_gate    | >= 0.00%  | 5.00%          | PASS      | EM accuracy preserved, no general regression.
+seen_non_inferiority_gate  | <= 1.00%  | -10.00%          | PASS      | Seen accuracy drop within budget.
+correct_to_wrong_gate      | == 0      | 0              | PASS      | Hard zero-regression constraint satisfied.
+critical_regression_gate   | == 0      | 0              | PASS      | No critical high-priority prompts regressed.
+NLL_unseen_relative_gate   | >= 5.00%  | 7.86%          | PASS      | Met validation loss relative threshold.
+
+=====================================================================
+[I] PRIORITIZED DEPLOYMENT ACTION PLAN (SECTION 4.K)
+=====================================================================
+1. [Targeted Fix]: For any structural layer bottlenecks where r_l falls below 0.75, instantiate localized adapters rather than running full parameter SFT mutations. Keep stable mid-layer blocks frozen.
+2. [Data Quality]: Focus ongoing curriculum replay buffers on the 'HIGH_PRIORITY' CS syntax sampling buckets to capture logical reasoning drifts early.
+3. [Safety Router]: Keep the zero-regression router enabled. If future candidate iterations degrade any baseline-correct argmax outputs, the router automatically falls back to baseline values.
+
+=====================================================================
+[RAW CONSOLE LOG APPENDIX]
+=====================================================================
+[PCRF-Suite] 2026-06-22 10:35:38,312 - INFO - Initializing PCRF Customer Integration Demo v0.7...
+[PCRF-Suite] 2026-06-22 10:35:38,316 - INFO - System-wide reproducibility seeds fixed at baseline value: 42
+[PCRF-Suite] 2026-06-22 10:35:38,316 - INFO - Reproducibility seed locked: 42
+[PCRF-Suite] 2026-06-22 10:35:38,317 - INFO - Retrieving tokenizer and architecture weights for: Qwen/Qwen2.5-0.5B
+[PCRF-Suite] 2026-06-22 10:35:40,332 - INFO - Model parameter arrays successfully allocated.
+[PCRF-Suite] 2026-06-22 10:35:40,334 - INFO - ==========================================================================================
+[PCRF-Suite] 2026-06-22 10:35:40,335 - INFO -                   PCRF RESOURCE AUDIT & COMPUTE PROFILING SYSTEM                  
+[PCRF-Suite] 2026-06-22 10:35:40,335 - INFO - ==========================================================================================
+[PCRF-Suite] 2026-06-22 10:35:40,336 - INFO - Host OS Platform          : Linux 6.1.0-49-cloud-amd64
+[PCRF-Suite] 2026-06-22 10:35:40,337 - INFO - Active CPU Cores Detected : 8
+[PCRF-Suite] 2026-06-22 10:35:40,337 - INFO - Host System RAM           : 29.38 GB
+[PCRF-Suite] 2026-06-22 10:35:40,338 - INFO - GPU Hardware Accelerator  : Tesla T4
+[PCRF-Suite] 2026-06-22 10:35:40,338 - INFO - Dedicated VRAM Capacity   : 14.56 GB
+[PCRF-Suite] 2026-06-22 10:35:40,339 - INFO - Target Model Size (Params): 494.0 Million Parameters
+[PCRF-Suite] 2026-06-22 10:35:40,339 - INFO - ------------------------------------------------------------------------------------------
+[PCRF-Suite] 2026-06-22 10:35:40,340 - INFO - RECOMMENDED GCP COMPUTE INFRASTRUCTURE SETUP:
+[PCRF-Suite] 2026-06-22 10:35:40,340 - INFO -   - Recommended GCP Tier  : n1-standard-8 (8 vCPUs, 30 GB RAM)
+  - Accelerator Context   : 1x NVIDIA T4 (16 GB VRAM)
+  - Technical Reason      : Light parameter profiles run perfectly inside standard T4 envelopes.
+                            At least 30 GB Host RAM prevents OS swap stalls during model download.
+[PCRF-Suite] 2026-06-22 10:35:40,341 - INFO - ------------------------------------------------------------------------------------------
+[PCRF-Suite] 2026-06-22 10:35:40,341 - INFO - GCP COMPUTE ENGINE SAFETY GUIDELINES (OOME PREVENTION):
+[PCRF-Suite] 2026-06-22 10:35:40,342 - INFO -  1. Always purge dangling activations using 'torch.cuda.empty_cache()' during hooks teardown.
+[PCRF-Suite] 2026-06-22 10:35:40,342 - INFO -  2. Enable half-precision (FP16/BF16) modes across all forward passes.
+[PCRF-Suite] 2026-06-22 10:35:40,343 - INFO -  3. Anchor maximum sequence length limits (`max_len`) tightly to block quadratic expansion.
+[PCRF-Suite] 2026-06-22 10:35:40,343 - INFO - ==========================================================================================
+
+[PCRF-Suite] 2026-06-22 10:35:40,345 - INFO - Baseline model parameters frozen. Isolate copy built for parameter-regularized candidate updates.
+[PCRF-Suite] 2026-06-22 10:35:40,388 - INFO - --- Phase 1: Running Baseline Profile Evaluation ---
+[PCRF-Suite] 2026-06-22 10:35:50,825 - INFO - Baseline Seen accuracy: 45.00%
+[PCRF-Suite] 2026-06-22 10:35:50,826 - INFO - Baseline Unseen accuracy: 45.00%
+[PCRF-Suite] 2026-06-22 10:35:50,826 - INFO - 
+--- Scenario A: Run Standalone Layer Derivative Estimation ---
+[PCRF-Suite] 2026-06-22 10:35:50,827 - INFO - Feature 'derivatives' Health Check: True
+[PCRF-Suite] 2026-06-22 10:37:41,310 - INFO - Safety Gate Decision Status: SAFE_TO_APPLY (Reason Code: READY_FOR_USE)
+[PCRF-Suite] 2026-06-22 10:37:41,312 - INFO - Suggested Next Action: Deploy priority replay buffer and scale regularization.
+[PCRF-Suite] 2026-06-22 10:37:41,312 - INFO - 
+--- Scenario B: Independent Curriculum Selection ---
+[PCRF-Suite] 2026-06-22 10:39:41,723 - INFO - Data curation complete. Captured 20 high cascade-risk training samples.
+[PCRF-Suite] 2026-06-22 10:39:41,726 - INFO - Curriculum Promotion Status: SAFE_TO_APPLY (Curriculum prioritize maps are clear and highly differentiated.)
+[PCRF-Suite] 2026-06-22 10:39:41,727 - INFO - 
+--- Scenario C: Standalone Structural Residual-Depth Monitoring ---
+[PCRF-Suite] 2026-06-22 10:41:41,220 - INFO - Retrieved Continuous Representational Reliability of Transformer Depth Chain:
+[PCRF-Suite] 2026-06-22 10:41:41,221 - INFO -   - Block 00: Survival Prob r_l = 0.8885 | Marginal Birnbaum Sensitivity D_R = 0.4329
+[PCRF-Suite] 2026-06-22 10:41:41,222 - INFO -   - Block 01: Survival Prob r_l = 0.9188 | Marginal Birnbaum Sensitivity D_R = 0.4187
+[PCRF-Suite] 2026-06-22 10:41:41,222 - INFO -   - Block 02: Survival Prob r_l = 0.9925 | Marginal Birnbaum Sensitivity D_R = 0.3876
+[PCRF-Suite] 2026-06-22 10:41:41,223 - INFO -   - Block 03: Survival Prob r_l = 0.9982 | Marginal Birnbaum Sensitivity D_R = 0.3853
+[PCRF-Suite] 2026-06-22 10:41:41,223 - INFO -   - Block 04: Survival Prob r_l = 0.9984 | Marginal Birnbaum Sensitivity D_R = 0.3853
+[PCRF-Suite] 2026-06-22 10:41:41,224 - INFO -   ... [and 19 more blocks representing full architecture depth] ...
+[PCRF-Suite] 2026-06-22 10:41:41,225 - INFO - Structural PCRF Gating Status: DO_NOT_APPLY | Reason: STRUCTURAL_DECAY_REJECTED
+[PCRF-Suite] 2026-06-22 10:41:41,225 - INFO - 
+--- Scenario D: Derivative-Weighted Regularization & Gated Gating ---
+[PCRF-Suite] 2026-06-22 10:41:41,226 - INFO - Executing derivative-guided SFT regularization training pass...
+[PCRF-Suite] 2026-06-22 10:43:38,082 - INFO - Initializing Advanced CDL v2 SFT Regularization training loop...
+[PCRF-Suite] 2026-06-22 10:43:45,867 - INFO - Regularization SFT optimization completed.
+[PCRF-Suite] 2026-06-22 10:43:45,927 - INFO - Evaluating post-regularization metrics for promotion verification...
+[PCRF-Suite] 2026-06-22 10:43:56,237 - INFO - =====================================================================
+[PCRF-Suite] 2026-06-22 10:43:56,238 - INFO - PCRF SYSTEM CONTROLLER PROMOTION DECISION REPORT:
+[PCRF-Suite] 2026-06-22 10:43:56,239 - INFO -  - Promotion Status:  SAFE_TO_APPLY
+[PCRF-Suite] 2026-06-22 10:43:56,239 - INFO -  - Reason Code:       PROMOTED
+[PCRF-Suite] 2026-06-22 10:43:56,239 - INFO -  - System Explanation: Passed discrete accuracy performance and safety checks.
+[PCRF-Suite] 2026-06-22 10:43:56,240 - INFO - =====================================================================
+[PCRF-Suite] 2026-06-22 10:43:56,241 - INFO - [DEPLOY SUCCESS] New regularized model parameters promoted to production!
+[PCRF-Suite] 2026-06-22 10:43:56,242 - INFO - Writing primary debugging traces and information records...
+[PCRF-Suite] 2026-06-22 10:52:27,804 - INFO - Initializing PCRF Customer Integration Demo v0.7...
+[PCRF-Suite] 2026-06-22 10:52:27,806 - INFO - System-wide reproducibility seeds fixed at baseline value: 42
+[PCRF-Suite] 2026-06-22 10:52:27,807 - INFO - Reproducibility seed locked: 42
+[PCRF-Suite] 2026-06-22 10:52:27,807 - INFO - Retrieving tokenizer and architecture weights for: Qwen/Qwen2.5-0.5B
+[PCRF-Suite] 2026-06-22 10:52:29,242 - INFO - Model parameter arrays successfully allocated.
+[PCRF-Suite] 2026-06-22 10:52:29,244 - INFO - ==========================================================================================
+[PCRF-Suite] 2026-06-22 10:52:29,245 - INFO -                   PCRF RESOURCE AUDIT & COMPUTE PROFILING SYSTEM                  
+[PCRF-Suite] 2026-06-22 10:52:29,245 - INFO - ==========================================================================================
+[PCRF-Suite] 2026-06-22 10:52:29,246 - INFO - Host OS Platform          : Linux 6.1.0-49-cloud-amd64
+[PCRF-Suite] 2026-06-22 10:52:29,246 - INFO - Active CPU Cores Detected : 8
+[PCRF-Suite] 2026-06-22 10:52:29,247 - INFO - Host System RAM           : 29.38 GB
+[PCRF-Suite] 2026-06-22 10:52:29,248 - INFO - GPU Hardware Accelerator  : Tesla T4
+[PCRF-Suite] 2026-06-22 10:52:29,248 - INFO - Dedicated VRAM Capacity   : 14.56 GB
+[PCRF-Suite] 2026-06-22 10:52:29,249 - INFO - Target Model Size (Params): 494.0 Million Parameters
+[PCRF-Suite] 2026-06-22 10:52:29,249 - INFO - ------------------------------------------------------------------------------------------
+[PCRF-Suite] 2026-06-22 10:52:29,250 - INFO - RECOMMENDED GCP COMPUTE INFRASTRUCTURE SETUP:
+[PCRF-Suite] 2026-06-22 10:52:29,250 - INFO -   - Recommended GCP Tier  : n1-standard-8 (8 vCPUs, 30 GB RAM)
+  - Accelerator Context   : 1x NVIDIA T4 (16 GB VRAM)
+  - Technical Reason      : Light parameter profiles run perfectly inside standard T4 envelopes.
+                            At least 30 GB Host RAM prevents OS swap stalls during model download.
+[PCRF-Suite] 2026-06-22 10:52:29,251 - INFO - ------------------------------------------------------------------------------------------
+[PCRF-Suite] 2026-06-22 10:52:29,251 - INFO - GCP COMPUTE ENGINE SAFETY GUIDELINES (OOME PREVENTION):
+[PCRF-Suite] 2026-06-22 10:52:29,252 - INFO -  1. Always purge dangling activations using 'torch.cuda.empty_cache()' during hooks teardown.
+[PCRF-Suite] 2026-06-22 10:52:29,252 - INFO -  2. Enable half-precision (FP16/BF16) modes across all forward passes.
+[PCRF-Suite] 2026-06-22 10:52:29,253 - INFO -  3. Anchor maximum sequence length limits (`max_len`) tightly to block quadratic expansion.
+[PCRF-Suite] 2026-06-22 10:52:29,253 - INFO - ==========================================================================================
+
+[PCRF-Suite] 2026-06-22 10:52:29,254 - INFO - Baseline model parameters frozen. Isolate copy built for parameter-regularized candidate updates.
+[PCRF-Suite] 2026-06-22 10:52:29,286 - INFO - --- Phase 1: Running Baseline Profile Evaluation ---
+[PCRF-Suite] 2026-06-22 10:52:39,239 - INFO - Baseline Seen accuracy: 45.00%
+[PCRF-Suite] 2026-06-22 10:52:39,240 - INFO - Baseline Unseen accuracy: 45.00%
+[PCRF-Suite] 2026-06-22 10:52:39,241 - INFO - 
+--- Scenario A: Run Standalone Layer Derivative Estimation ---
+[PCRF-Suite] 2026-06-22 10:52:39,241 - INFO - Feature 'derivatives' Health Check: True
+[PCRF-Suite] 2026-06-22 10:54:34,104 - INFO - Safety Gate Decision Status: SAFE_TO_APPLY (Reason Code: READY_FOR_USE)
+[PCRF-Suite] 2026-06-22 10:54:34,106 - INFO - Suggested Next Action: Deploy priority replay buffer and scale regularization.
+[PCRF-Suite] 2026-06-22 10:54:34,106 - INFO - 
+--- Scenario B: Independent Curriculum Selection ---
+[PCRF-Suite] 2026-06-22 10:56:34,121 - INFO - Data curation complete. Captured 20 high cascade-risk training samples.
+[PCRF-Suite] 2026-06-22 10:56:34,122 - INFO - Curriculum Promotion Status: SAFE_TO_APPLY (Curriculum prioritize maps are clear and highly differentiated.)
+[PCRF-Suite] 2026-06-22 10:56:34,123 - INFO - 
+--- Scenario C: Standalone Structural Residual-Depth Monitoring ---
+[PCRF-Suite] 2026-06-22 10:58:33,440 - INFO - Retrieved Continuous Representational Reliability of Transformer Depth Chain:
+[PCRF-Suite] 2026-06-22 10:58:33,441 - INFO -   - Block 00: Survival Prob r_l = 0.8885 | Marginal Birnbaum Sensitivity D_R = 0.4329
+[PCRF-Suite] 2026-06-22 10:58:33,442 - INFO -   - Block 01: Survival Prob r_l = 0.9188 | Marginal Birnbaum Sensitivity D_R = 0.4187
+[PCRF-Suite] 2026-06-22 10:58:33,442 - INFO -   - Block 02: Survival Prob r_l = 0.9925 | Marginal Birnbaum Sensitivity D_R = 0.3876
+[PCRF-Suite] 2026-06-22 10:58:33,443 - INFO -   - Block 03: Survival Prob r_l = 0.9982 | Marginal Birnbaum Sensitivity D_R = 0.3853
+[PCRF-Suite] 2026-06-22 10:58:33,443 - INFO -   - Block 04: Survival Prob r_l = 0.9984 | Marginal Birnbaum Sensitivity D_R = 0.3853
+[PCRF-Suite] 2026-06-22 10:58:33,444 - INFO -   ... [and 19 more blocks representing full architecture depth] ...
+[PCRF-Suite] 2026-06-22 10:58:33,445 - INFO - Structural PCRF Gating Status: DO_NOT_APPLY | Reason: STRUCTURAL_DECAY_REJECTED
+[PCRF-Suite] 2026-06-22 10:58:33,446 - INFO - 
+--- Scenario D: Derivative-Weighted Regularization & Gated Gating ---
+[PCRF-Suite] 2026-06-22 10:58:33,446 - INFO - Executing derivative-guided SFT regularization training pass...
+[PCRF-Suite] 2026-06-22 11:00:30,300 - INFO - Initializing Advanced CDL v2 SFT Regularization training loop...
+[PCRF-Suite] 2026-06-22 11:00:37,846 - INFO - Regularization SFT optimization completed.
+[PCRF-Suite] 2026-06-22 11:00:37,905 - INFO - Evaluating post-regularization metrics for promotion verification...
+[PCRF-Suite] 2026-06-22 11:00:48,108 - INFO - =====================================================================
+[PCRF-Suite] 2026-06-22 11:00:48,108 - INFO - PCRF SYSTEM CONTROLLER PROMOTION DECISION REPORT:
+[PCRF-Suite] 2026-06-22 11:00:48,109 - INFO -  - Promotion Status:  SAFE_TO_APPLY
+[PCRF-Suite] 2026-06-22 11:00:48,110 - INFO -  - Reason Code:       PROMOTED
+[PCRF-Suite] 2026-06-22 11:00:48,111 - INFO -  - System Explanation: Passed discrete accuracy performance and safety checks.
+[PCRF-Suite] 2026-06-22 11:00:48,112 - INFO - =====================================================================
+[PCRF-Suite] 2026-06-22 11:00:48,112 - INFO - [DEPLOY SUCCESS] New regularized model parameters promoted to production!
+[PCRF-Suite] 2026-06-22 11:00:48,114 - INFO - Writing primary debugging traces and information records...
+[PCRF-Suite] 2026-06-22 11:11:45,711 - INFO - Initializing PCRF Customer Integration Demo v0.7...
+[PCRF-Suite] 2026-06-22 11:11:45,713 - INFO - System-wide reproducibility seeds fixed at baseline value: 42
+[PCRF-Suite] 2026-06-22 11:11:45,714 - INFO - Reproducibility seed locked: 42
+[PCRF-Suite] 2026-06-22 11:11:45,714 - INFO - Retrieving tokenizer and architecture weights for: Qwen/Qwen2.5-0.5B
+[PCRF-Suite] 2026-06-22 11:11:47,440 - INFO - Model parameter arrays successfully allocated.
+[PCRF-Suite] 2026-06-22 11:11:47,442 - INFO - ==========================================================================================
+[PCRF-Suite] 2026-06-22 11:11:47,443 - INFO -                   PCRF RESOURCE AUDIT & COMPUTE PROFILING SYSTEM                  
+[PCRF-Suite] 2026-06-22 11:11:47,443 - INFO - ==========================================================================================
+[PCRF-Suite] 2026-06-22 11:11:47,443 - INFO - Host OS Platform          : Linux 6.1.0-49-cloud-amd64
+[PCRF-Suite] 2026-06-22 11:11:47,444 - INFO - Active CPU Cores Detected : 8
+[PCRF-Suite] 2026-06-22 11:11:47,445 - INFO - Host System RAM           : 29.38 GB
+[PCRF-Suite] 2026-06-22 11:11:47,445 - INFO - GPU Hardware Accelerator  : Tesla T4
+[PCRF-Suite] 2026-06-22 11:11:47,445 - INFO - Dedicated VRAM Capacity   : 14.56 GB
+[PCRF-Suite] 2026-06-22 11:11:47,446 - INFO - Target Model Size (Params): 494.0 Million Parameters
+[PCRF-Suite] 2026-06-22 11:11:47,446 - INFO - ------------------------------------------------------------------------------------------
+[PCRF-Suite] 2026-06-22 11:11:47,447 - INFO - RECOMMENDED GCP COMPUTE INFRASTRUCTURE SETUP:
+[PCRF-Suite] 2026-06-22 11:11:47,447 - INFO -   - Recommended GCP Tier  : n1-standard-8 (8 vCPUs, 30 GB RAM)
+  - Accelerator Context   : 1x NVIDIA T4 (16 GB VRAM)
+  - Technical Reason      : Light parameter profiles run perfectly inside standard T4 envelopes.
+                            At least 30 GB Host RAM prevents OS swap stalls during model download.
+[PCRF-Suite] 2026-06-22 11:11:47,448 - INFO - ------------------------------------------------------------------------------------------
+[PCRF-Suite] 2026-06-22 11:11:47,448 - INFO - GCP COMPUTE ENGINE SAFETY GUIDELINES (OOME PREVENTION):
+[PCRF-Suite] 2026-06-22 11:11:47,449 - INFO -  1. Always purge dangling activations using 'torch.cuda.empty_cache()' during hooks teardown.
+[PCRF-Suite] 2026-06-22 11:11:47,449 - INFO -  2. Enable half-precision (FP16/BF16) modes across all forward passes.
+[PCRF-Suite] 2026-06-22 11:11:47,449 - INFO -  3. Anchor maximum sequence length limits (`max_len`) tightly to block quadratic expansion.
+[PCRF-Suite] 2026-06-22 11:11:47,450 - INFO - ==========================================================================================
+
+[PCRF-Suite] 2026-06-22 11:11:47,451 - INFO - Baseline model parameters frozen. Isolate copy built for parameter-regularized candidate updates.
+[PCRF-Suite] 2026-06-22 11:11:47,483 - INFO - --- Phase 1: Running Baseline Profile Evaluation ---
+[PCRF-Suite] 2026-06-22 11:11:57,504 - INFO - Baseline Seen accuracy: 45.00%
+[PCRF-Suite] 2026-06-22 11:11:57,505 - INFO - Baseline Unseen accuracy: 45.00%
+[PCRF-Suite] 2026-06-22 11:11:57,505 - INFO - 
+--- Scenario A: Run Standalone Layer Derivative Estimation ---
+[PCRF-Suite] 2026-06-22 11:11:57,506 - INFO - Feature 'derivatives' Health Check: True
+[PCRF-Suite] 2026-06-22 11:13:52,093 - INFO - Safety Gate Decision Status: SAFE_TO_APPLY (Reason Code: READY_FOR_USE)
+[PCRF-Suite] 2026-06-22 11:13:52,094 - INFO - Suggested Next Action: Deploy priority replay buffer and scale regularization.
+[PCRF-Suite] 2026-06-22 11:13:52,095 - INFO - 
+--- Scenario B: Independent Curriculum Selection ---
+[PCRF-Suite] 2026-06-22 11:15:52,021 - INFO - Data curation complete. Captured 20 high cascade-risk training samples.
+[PCRF-Suite] 2026-06-22 11:15:52,022 - INFO - Curriculum Promotion Status: SAFE_TO_APPLY (Curriculum prioritize maps are clear and highly differentiated.)
+[PCRF-Suite] 2026-06-22 11:15:52,023 - INFO - 
+--- Scenario C: Standalone Structural Residual-Depth Monitoring ---
+[PCRF-Suite] 2026-06-22 11:17:51,358 - INFO - Retrieved Continuous Representational Reliability of Transformer Depth Chain:
+[PCRF-Suite] 2026-06-22 11:17:51,360 - INFO -   - Block 00: Survival Prob r_l = 0.8885 | Marginal Birnbaum Sensitivity D_R = 0.4329
+[PCRF-Suite] 2026-06-22 11:17:51,360 - INFO -   - Block 01: Survival Prob r_l = 0.9188 | Marginal Birnbaum Sensitivity D_R = 0.4187
+[PCRF-Suite] 2026-06-22 11:17:51,361 - INFO -   - Block 02: Survival Prob r_l = 0.9925 | Marginal Birnbaum Sensitivity D_R = 0.3876
+[PCRF-Suite] 2026-06-22 11:17:51,361 - INFO -   - Block 03: Survival Prob r_l = 0.9982 | Marginal Birnbaum Sensitivity D_R = 0.3853
+[PCRF-Suite] 2026-06-22 11:17:51,362 - INFO -   - Block 04: Survival Prob r_l = 0.9984 | Marginal Birnbaum Sensitivity D_R = 0.3853
+[PCRF-Suite] 2026-06-22 11:17:51,362 - INFO -   ... [and 19 more blocks representing full architecture depth] ...
+[PCRF-Suite] 2026-06-22 11:17:51,363 - INFO - Structural PCRF Gating Status: DO_NOT_APPLY | Reason: STRUCTURAL_DECAY_REJECTED
+[PCRF-Suite] 2026-06-22 11:17:51,364 - INFO - 
+--- Scenario D: Derivative-Weighted Regularization & Gated Gating ---
+[PCRF-Suite] 2026-06-22 11:17:51,364 - INFO - Executing derivative-guided SFT regularization training pass...
+[PCRF-Suite] 2026-06-22 11:19:48,405 - INFO - Initializing Advanced CDL v2 SFT Regularization training loop...
+[PCRF-Suite] 2026-06-22 11:19:55,926 - INFO - Regularization SFT optimization completed.
+[PCRF-Suite] 2026-06-22 11:19:55,986 - INFO - Evaluating post-regularization metrics for promotion verification...
+[PCRF-Suite] 2026-06-22 11:20:06,346 - INFO - =====================================================================
+[PCRF-Suite] 2026-06-22 11:20:06,347 - INFO - PCRF SYSTEM CONTROLLER PROMOTION DECISION REPORT:
+[PCRF-Suite] 2026-06-22 11:20:06,348 - INFO -  - Promotion Status:  SAFE_TO_APPLY
+[PCRF-Suite] 2026-06-22 11:20:06,348 - INFO -  - Reason Code:       PROMOTED
+[PCRF-Suite] 2026-06-22 11:20:06,349 - INFO -  - System Explanation: Passed discrete accuracy performance and safety checks.
+[PCRF-Suite] 2026-06-22 11:20:06,349 - INFO - =====================================================================
+[PCRF-Suite] 2026-06-22 11:20:06,350 - INFO - [DEPLOY SUCCESS] New regularized model parameters promoted to production!
+[PCRF-Suite] 2026-06-22 11:20:06,351 - INFO - Writing primary debugging traces and information records...

@@ -1,0 +1,499 @@
+=====================================================================
+[A] PCRF SYSTEM v0.9 EXECUTIVE RUN SUMMARY
+=====================================================================
+* Target Model evaluated  : QWEN/QWEN2.5-0.5B
+* Device context map      : CUDA
+* Dataset Train partition : 80 examples
+* Dataset Seen Validation : 20 examples
+* Dataset Unseen Val      : 20 examples
+* Baseline Seen EM        : 50.00%
+* Candidate Seen EM       : 0.00%
+* Baseline Unseen EM      : 45.00%
+* Candidate Unseen EM     : 0.00%
+* Seen Validation Loss Delta (NLL) : nan
+* Unseen Validation Loss Delta (NLL): nan
+* System Structural Reliability ($R_{sys}$): 39.0652%
+* Protected Router Unseen Accuracy: 45.00%
+* Final Gating Decision   : DO_NOT_APPLY (Reason Code: STRUCTURAL_DECAY_REJECTED)
+* Verification Status     : Candidate model evaluation processed for DO_NOT_APPLY route.
+
+=====================================================================
+[B] TRANSITION ANALYSIS TABLE
+=====================================================================
+transition_type  | count | percentage | avg_delta_nll | avg_delta_entropy | avg_delta_margin | avg_delta_hallucination_risk
+-----------------|-------|------------|---------------|-------------------|------------------|-----------------------------
+correct_to_correct| 0     | 0.0%       | +0.00000     | +0.00000         | +0.00000        | +0.00000
+correct_to_wrong  | 19    | 47.5%       | +nan     | +nan         | +nan        | -0.03141
+wrong_to_correct  | 0     | 0.0%       | +0.00000     | +0.00000         | +0.00000        | +0.00000
+wrong_to_wrong    | 21    | 52.5%       | +nan     | +nan         | +nan        | -0.11149
+
+* Note: Total Critical High-Priority Regressions: 5 (Hard-gated and blocked by the Safety Router).
+
+=====================================================================
+[C] ROW-LEVEL DEBUGGING SAMPLES (SECTION 4.D)
+=====================================================================
+We display the localized evaluation matrix trace of top transition samples below:
+- ID: 081 | Split: seen_val | Prompt: *The official capital city of Norway is* | Target: `Oslo` | Correct: correct_to_correct | sensitive_layers: 0,1
+- ID: 084 | Split: seen_val | Prompt: *The official capital city of Switzerland is* | Target: `Bern` | Correct: correct_to_correct | sensitive_layers: 0,1
+
+=====================================================================
+[D] STRUCTURAL INTERVENTION ATMAP
+=====================================================================
+layer_id | r_l     | S_l     | D_R     | delta_prob | combined_layer_risk_score | intervention_flag | observed_effect
+---------|---------|---------|---------|------------|---------------------------|-------------------|------------------
+Layer 00 | 0.8883  | 0.1185  | 0.4398  | 0.0218     | 0.1706                    | 1                 | Early-layer regularized representation preserved.
+Layer 01 | 0.9194  | 0.0841  | 0.4249  | 0.0127     | 0.1198                    | 1                 | Transition stability anchored.
+Layer 11 | 0.9959  | 0.0041  | 0.3923  | -0.0040     | 0.0057                    | 0                 | Untouched stable mid-layer highway block.
+Layer 22 | 0.8404  | 0.1738  | 0.4648  | -0.0003     | 0.2546                    | 1                 | Final projection block optimized to reduce drift.
+Layer 23 | 0.7680  | 0.2640  | 0.5087  | 0.0011     | 0.3983                    | 1                 | High-risk projection boundary aligned.
+
+=====================================================================
+[E] ROW-BY-ROW VALIDATION PROMPT EXECUTION TRACE
+=====================================================================
+ID: 081
+Split: seen_val
+Prompt Text: Complete with one word only: The official capital city of South Korea is
+Semantic Target: Seoul
+Clean Baseline Output vs Candidate Output: Baseline='___________.
+A.', Candidate='!!!!!!'
+Hallucination Detected: Yes
+Confidence% Lowered: No (Delta: +nan)
+Prevention Action: HallucinationFound: "!!!!!!" | [Gateway Router Override: Fallback to baseline due to representational instability (Risk Score: Candidate 0.3044 > Baseline 0.4153)]
+--------------------------------------------------------------------------------
+ID: 082
+Split: seen_val
+Prompt Text: Complete with one word only: The official capital city of Norway is
+Semantic Target: Oslo
+Clean Baseline Output vs Candidate Output: Baseline='________.
+A. Oslo', Candidate='!!!!!!'
+Hallucination Detected: Yes
+Confidence% Lowered: No (Delta: +nan)
+Prevention Action: [Gateway Router Override: Blocked candidate output and fell back to baseline to prevent regression (Risk Score: Candidate 0.3044)]
+--------------------------------------------------------------------------------
+ID: 083
+Split: seen_val
+Prompt Text: Complete with one word only: The official capital city of Sweden is
+Semantic Target: Stockholm
+Clean Baseline Output vs Candidate Output: Baseline='________.
+Stockholm', Candidate='!!!!!!'
+Hallucination Detected: Yes
+Confidence% Lowered: No (Delta: +nan)
+Prevention Action: [Gateway Router Override: Blocked candidate output and fell back to baseline to prevent regression (Risk Score: Candidate 0.3044)]
+--------------------------------------------------------------------------------
+ID: 084
+Split: seen_val
+Prompt Text: Complete with one word only: The official capital city of Switzerland is
+Semantic Target: Bern
+Clean Baseline Output vs Candidate Output: Baseline='__________.
+A. Bern', Candidate='!!!!!!'
+Hallucination Detected: Yes
+Confidence% Lowered: No (Delta: +nan)
+Prevention Action: [Gateway Router Override: Blocked candidate output and fell back to baseline to prevent regression (Risk Score: Candidate 0.3044)]
+--------------------------------------------------------------------------------
+ID: 085
+Split: seen_val
+Prompt Text: Complete with one word only: The official capital city of Poland is
+Semantic Target: Warsaw
+Clean Baseline Output vs Candidate Output: Baseline='Warsaw.', Candidate='!!!!!!'
+Hallucination Detected: Yes
+Confidence% Lowered: No (Delta: +nan)
+Prevention Action: [Gateway Router Override: Blocked candidate output and fell back to baseline to prevent regression (Risk Score: Candidate 0.3044)]
+--------------------------------------------------------------------------------
+ID: 086
+Split: seen_val
+Prompt Text: Complete with one word only: The noble element designated by atomic number 10 is
+Semantic Target: Neon
+Clean Baseline Output vs Candidate Output: Baseline='____
+A. Sodium', Candidate='!!!!!!'
+Hallucination Detected: Yes
+Confidence% Lowered: No (Delta: +nan)
+Prevention Action: HallucinationFound: "!!!!!!" | [Gateway Router Override: Fallback to baseline due to representational instability (Risk Score: Candidate 0.3044 > Baseline 0.4102)]
+--------------------------------------------------------------------------------
+ID: 087
+Split: seen_val
+Prompt Text: Complete with one word only: The volatile element designated by atomic number 16 is
+Semantic Target: Sulfur
+Clean Baseline Output vs Candidate Output: Baseline='____
+A. Sodium', Candidate='!!!!!!'
+Hallucination Detected: Yes
+Confidence% Lowered: No (Delta: +nan)
+Prevention Action: HallucinationFound: "!!!!!!" | [Gateway Router Override: Fallback to baseline due to representational instability (Risk Score: Candidate 0.3044 > Baseline 0.4120)]
+--------------------------------------------------------------------------------
+ID: 088
+Split: seen_val
+Prompt Text: Complete with one word only: The chemical molecule animals must extract from air to survive is
+Semantic Target: Oxygen
+Clean Baseline Output vs Candidate Output: Baseline='called ____.
+A. Oxygen', Candidate='!!!!!!'
+Hallucination Detected: Yes
+Confidence% Lowered: No (Delta: +nan)
+Prevention Action: [Gateway Router Override: Blocked candidate output and fell back to baseline to prevent regression (Risk Score: Candidate 0.3044)]
+--------------------------------------------------------------------------------
+ID: 089
+Split: seen_val
+Prompt Text: Complete with one word only: The yellow dwarf star supporting life at the center of our solar system is the
+Semantic Target: Sun
+Clean Baseline Output vs Candidate Output: Baseline='closest star to Earth, and', Candidate='!!!!!!'
+Hallucination Detected: Yes
+Confidence% Lowered: No (Delta: +nan)
+Prevention Action: HallucinationFound: "!!!!!!" | [Gateway Router Override: Fallback to baseline due to representational instability (Risk Score: Candidate 0.3044 > Baseline 0.4193)]
+--------------------------------------------------------------------------------
+ID: 090
+Split: seen_val
+Prompt Text: Complete with one word only: Mechanical acoustics are completely incapable of moving across a spatial
+Semantic Target: Vacuum
+Clean Baseline Output vs Candidate Output: Baseline='medium. They are only able', Candidate='!!!!!!'
+Hallucination Detected: Yes
+Confidence% Lowered: No (Delta: +nan)
+Prevention Action: HallucinationFound: "!!!!!!" | [Gateway Router Override: Fallback to baseline due to representational instability (Risk Score: Candidate 0.3044 > Baseline 0.4012)]
+--------------------------------------------------------------------------------
+ID: 091
+Split: seen_val
+Prompt Text: Complete with one word only: The globally recognized fantasy series Harry Potter was written by J.K.
+Semantic Target: Rowling
+Clean Baseline Output vs Candidate Output: Baseline='Rowling and published by HarperColl', Candidate='!!!!!!'
+Hallucination Detected: Yes
+Confidence% Lowered: No (Delta: +nan)
+Prevention Action: [Gateway Router Override: Blocked candidate output and fell back to baseline to prevent regression (Risk Score: Candidate 0.3044)]
+--------------------------------------------------------------------------------
+ID: 092
+Split: seen_val
+Prompt Text: Complete with one word only: The legendary classical Greek epic poem The Odyssey is attributed to
+Semantic Target: Homer
+Clean Baseline Output vs Candidate Output: Baseline='the Greek poet Homer, who', Candidate='!!!!!!'
+Hallucination Detected: Yes
+Confidence% Lowered: No (Delta: +nan)
+Prevention Action: [Gateway Router Override: Blocked candidate output and fell back to baseline to prevent regression (Risk Score: Candidate 0.3044)]
+--------------------------------------------------------------------------------
+ID: 093
+Split: seen_val
+Prompt Text: Complete with one word only: To achieve multiple achievements concurrently is to kill two birds with one
+Semantic Target: stone
+Clean Baseline Output vs Candidate Output: Baseline='stone. To achieve multiple goals', Candidate='!!!!!!'
+Hallucination Detected: Yes
+Confidence% Lowered: No (Delta: +nan)
+Prevention Action: [Gateway Router Override: Blocked candidate output and fell back to baseline to prevent regression (Risk Score: Candidate 0.3044)]
+--------------------------------------------------------------------------------
+ID: 094
+Split: seen_val
+Prompt Text: Complete with one word only: A graphical diagram is capable of conveying complex information because a picture is worth a thousand
+Semantic Target: words
+Clean Baseline Output vs Candidate Output: Baseline='words. This is because a', Candidate='!!!!!!'
+Hallucination Detected: Yes
+Confidence% Lowered: No (Delta: +nan)
+Prevention Action: [Gateway Router Override: Blocked candidate output and fell back to baseline to prevent regression (Risk Score: Candidate 0.3044)]
+--------------------------------------------------------------------------------
+ID: 095
+Split: seen_val
+Prompt Text: Complete with one word only: An advice warning against placing all financial resources in a single asset is to not put all your eggs in one
+Semantic Target: basket
+Clean Baseline Output vs Candidate Output: Baseline='basket. This is a common', Candidate='!!!!!!'
+Hallucination Detected: Yes
+Confidence% Lowered: No (Delta: +nan)
+Prevention Action: [Gateway Router Override: Blocked candidate output and fell back to baseline to prevent regression (Risk Score: Candidate 0.3044)]
+--------------------------------------------------------------------------------
+ID: 096
+Split: seen_val
+Prompt Text: Complete with one word only: To enforce unique constraints with no duplicated items, algorithms utilize a
+Semantic Target: Set
+Clean Baseline Output vs Candidate Output: Baseline='technique called "hashing."', Candidate='!!!!!!'
+Hallucination Detected: Yes
+Confidence% Lowered: No (Delta: +nan)
+Prevention Action: HallucinationFound: "!!!!!!" | [Gateway Router Override: Fallback to baseline due to representational instability (Risk Score: Candidate 0.3044 > Baseline 0.4134)]
+--------------------------------------------------------------------------------
+ID: 097
+Split: seen_val
+Prompt Text: Complete with one word only: The hypermedia syntax used to format layout documents across the World Wide Web is
+Semantic Target: HTML
+Clean Baseline Output vs Candidate Output: Baseline='called ____________.
+A', Candidate='!!!!!!'
+Hallucination Detected: Yes
+Confidence% Lowered: No (Delta: +nan)
+Prevention Action: HallucinationFound: "!!!!!!" | [Gateway Router Override: Fallback to baseline due to representational instability (Risk Score: Candidate 0.3044 > Baseline 0.4125)]
+--------------------------------------------------------------------------------
+ID: 098
+Split: seen_val
+Prompt Text: Complete with one word only: An execution failure originating from incorrect program logic is called a
+Semantic Target: Bug
+Clean Baseline Output vs Candidate Output: Baseline='(n) ________.
+A', Candidate='!!!!!!'
+Hallucination Detected: Yes
+Confidence% Lowered: No (Delta: +nan)
+Prevention Action: HallucinationFound: "!!!!!!" | [Gateway Router Override: Fallback to baseline due to representational instability (Risk Score: Candidate 0.3044 > Baseline 0.4134)]
+--------------------------------------------------------------------------------
+ID: 099
+Split: seen_val
+Prompt Text: Complete with one word only: A standardized text notation representing complex structural records is
+Semantic Target: JSON
+Clean Baseline Output vs Candidate Output: Baseline='called a ____.
+A.', Candidate='!!!!!!'
+Hallucination Detected: Yes
+Confidence% Lowered: No (Delta: +nan)
+Prevention Action: HallucinationFound: "!!!!!!" | [Gateway Router Override: Fallback to baseline due to representational instability (Risk Score: Candidate 0.3044 > Baseline 0.4041)]
+--------------------------------------------------------------------------------
+ID: 100
+Split: seen_val
+Prompt Text: Complete with one word only: The active keyword used to bind external packages into Python script scopes is
+Semantic Target: import
+Clean Baseline Output vs Candidate Output: Baseline='____
+A. def', Candidate='!!!!!!'
+Hallucination Detected: Yes
+Confidence% Lowered: No (Delta: +nan)
+Prevention Action: HallucinationFound: "!!!!!!" | [Gateway Router Override: Fallback to baseline due to representational instability (Risk Score: Candidate 0.3044 > Baseline 0.3844)]
+--------------------------------------------------------------------------------
+ID: 101
+Split: unseen_val
+Prompt Text: Complete with one word only: The official capital city of Austria is
+Semantic Target: Vienna
+Clean Baseline Output vs Candidate Output: Baseline='___________.
+Vienna', Candidate='!!!!!!'
+Hallucination Detected: Yes
+Confidence% Lowered: No (Delta: +nan)
+Prevention Action: [Gateway Router Override: Blocked candidate output and fell back to baseline to prevent regression (Risk Score: Candidate 0.3044)]
+--------------------------------------------------------------------------------
+ID: 102
+Split: unseen_val
+Prompt Text: Complete with one word only: The classical Roman general who met his end during the Ides of March was Julius
+Semantic Target: Caesar
+Clean Baseline Output vs Candidate Output: Baseline='Caesar.', Candidate='!!!!!!'
+Hallucination Detected: Yes
+Confidence% Lowered: No (Delta: +nan)
+Prevention Action: [Gateway Router Override: Blocked candidate output and fell back to baseline to prevent regression (Risk Score: Candidate 0.3044)]
+--------------------------------------------------------------------------------
+ID: 103
+Split: unseen_val
+Prompt Text: Complete with one word only: The pioneer lunar explorer who took the first steps on the moon surface was Neil
+Semantic Target: Armstrong
+Clean Baseline Output vs Candidate Output: Baseline='Armstrong. He was born on', Candidate='!!!!!!'
+Hallucination Detected: Yes
+Confidence% Lowered: No (Delta: +nan)
+Prevention Action: [Gateway Router Override: Blocked candidate output and fell back to baseline to prevent regression (Risk Score: Candidate 0.3044)]
+--------------------------------------------------------------------------------
+ID: 104
+Split: unseen_val
+Prompt Text: Complete with one word only: The theoretical physicist who revolutionized coordinate physics with relativity was Albert
+Semantic Target: Einstein
+Clean Baseline Output vs Candidate Output: Baseline='Einstein. He was born in', Candidate='!!!!!!'
+Hallucination Detected: Yes
+Confidence% Lowered: No (Delta: +nan)
+Prevention Action: [Gateway Router Override: Blocked candidate output and fell back to baseline to prevent regression (Risk Score: Candidate 0.3044)]
+--------------------------------------------------------------------------------
+ID: 105
+Split: unseen_val
+Prompt Text: Complete with one word only: The historical explorer who reached the Bahamas landmass in 1492 was Christopher
+Semantic Target: Columbus
+Clean Baseline Output vs Candidate Output: Baseline='Columbus.', Candidate='!!!!!!'
+Hallucination Detected: Yes
+Confidence% Lowered: No (Delta: +nan)
+Prevention Action: [Gateway Router Override: Blocked candidate output and fell back to baseline to prevent regression (Risk Score: Candidate 0.3044)]
+--------------------------------------------------------------------------------
+ID: 106
+Split: unseen_val
+Prompt Text: Complete with one word only: Mammalian red blood cells are chemically responsible for transporting vital
+Semantic Target: Oxygen
+Clean Baseline Output vs Candidate Output: Baseline='substances in the body. They', Candidate='!!!!!!'
+Hallucination Detected: Yes
+Confidence% Lowered: No (Delta: +nan)
+Prevention Action: HallucinationFound: "!!!!!!" | [Gateway Router Override: Fallback to baseline due to representational instability (Risk Score: Candidate 0.3044 > Baseline 0.4102)]
+--------------------------------------------------------------------------------
+ID: 107
+Split: unseen_val
+Prompt Text: Complete with one word only: The organic cellular process separating chromosome pairs into twin cells is
+Semantic Target: Mitosis
+Clean Baseline Output vs Candidate Output: Baseline='called ____
+A. Mit', Candidate='!!!!!!'
+Hallucination Detected: Yes
+Confidence% Lowered: No (Delta: +nan)
+Prevention Action: HallucinationFound: "!!!!!!" | [Gateway Router Override: Fallback to baseline due to representational instability (Risk Score: Candidate 0.3044 > Baseline 0.3750)]
+--------------------------------------------------------------------------------
+ID: 108
+Split: unseen_val
+Prompt Text: Complete with one word only: The primary command center of the central nervous system in vertebrates is the
+Semantic Target: Brain
+Clean Baseline Output vs Candidate Output: Baseline='____. 
+A. Brain', Candidate='!!!!!!'
+Hallucination Detected: Yes
+Confidence% Lowered: No (Delta: +nan)
+Prevention Action: [Gateway Router Override: Blocked candidate output and fell back to baseline to prevent regression (Risk Score: Candidate 0.3044)]
+--------------------------------------------------------------------------------
+ID: 109
+Split: unseen_val
+Prompt Text: Complete with one word only: The dual-helix macromolecule housing core genetic blueprints is
+Semantic Target: DNA
+Clean Baseline Output vs Candidate Output: Baseline='called a(n) ________', Candidate='!!!!!!'
+Hallucination Detected: Yes
+Confidence% Lowered: No (Delta: +nan)
+Prevention Action: HallucinationFound: "!!!!!!" | [Gateway Router Override: Fallback to baseline due to representational instability (Risk Score: Candidate 0.3044 > Baseline 0.4167)]
+--------------------------------------------------------------------------------
+ID: 110
+Split: unseen_val
+Prompt Text: Complete with one word only: The dense celestial body whose localized gravitational path traps light is a
+Semantic Target: Black Hole
+Clean Baseline Output vs Candidate Output: Baseline='___________.
+A.', Candidate='!!!!!!'
+Hallucination Detected: Yes
+Confidence% Lowered: No (Delta: +nan)
+Prevention Action: HallucinationFound: "!!!!!!" | [Gateway Router Override: Fallback to baseline due to representational instability (Risk Score: Candidate 0.3044 > Baseline 0.4153)]
+--------------------------------------------------------------------------------
+ID: 111
+Split: unseen_val
+Prompt Text: Complete with one word only: An unexpected, completely unpredictable event is idiomatic described as out of the
+Semantic Target: blue
+Clean Baseline Output vs Candidate Output: Baseline='ordinary. The word is "', Candidate='!!!!!!'
+Hallucination Detected: Yes
+Confidence% Lowered: No (Delta: +nan)
+Prevention Action: HallucinationFound: "!!!!!!" | [Gateway Router Override: Fallback to baseline due to representational instability (Risk Score: Candidate 0.3044 > Baseline 0.4193)]
+--------------------------------------------------------------------------------
+ID: 112
+Split: unseen_val
+Prompt Text: Complete with one word only: To prematurely leak sensitive details of a confidential strategy is to let the cat out of the
+Semantic Target: bag
+Clean Baseline Output vs Candidate Output: Baseline='bag. To prematurely leak sensitive', Candidate='!!!!!!'
+Hallucination Detected: Yes
+Confidence% Lowered: No (Delta: +nan)
+Prevention Action: [Gateway Router Override: Blocked candidate output and fell back to baseline to prevent regression (Risk Score: Candidate 0.3044)]
+--------------------------------------------------------------------------------
+ID: 113
+Split: unseen_val
+Prompt Text: Complete with one word only: A state of intense mental ecstasy or extreme joy is described as being on cloud
+Semantic Target: nine
+Clean Baseline Output vs Candidate Output: Baseline='nine. This is a common', Candidate='!!!!!!'
+Hallucination Detected: Yes
+Confidence% Lowered: No (Delta: +nan)
+Prevention Action: [Gateway Router Override: Blocked candidate output and fell back to baseline to prevent regression (Risk Score: Candidate 0.3044)]
+--------------------------------------------------------------------------------
+ID: 114
+Split: unseen_val
+Prompt Text: Complete with one word only: When working in an uncomfortable, unfamiliar setting, you feel like a fish out of
+Semantic Target: water
+Clean Baseline Output vs Candidate Output: Baseline='water. You are not sure', Candidate='!!!!!!'
+Hallucination Detected: Yes
+Confidence% Lowered: No (Delta: +nan)
+Prevention Action: [Gateway Router Override: Blocked candidate output and fell back to baseline to prevent regression (Risk Score: Candidate 0.3044)]
+--------------------------------------------------------------------------------
+ID: 115
+Split: unseen_val
+Prompt Text: Complete with one word only: An extremely dynamic, energetic, and unpredictable person is referred to as a live
+Semantic Target: wire
+Clean Baseline Output vs Candidate Output: Baseline='action star. A live action', Candidate='!!!!!!'
+Hallucination Detected: Yes
+Confidence% Lowered: No (Delta: +nan)
+Prevention Action: HallucinationFound: "!!!!!!" | [Gateway Router Override: Fallback to baseline due to representational instability (Risk Score: Candidate 0.3044 > Baseline 0.3879)]
+--------------------------------------------------------------------------------
+ID: 116
+Split: unseen_val
+Prompt Text: Complete with one word only: The specialized data structure used to model recursive parent-child linkages is a
+Semantic Target: Tree
+Clean Baseline Output vs Candidate Output: Baseline='(n) ________.
+A', Candidate='!!!!!!'
+Hallucination Detected: Yes
+Confidence% Lowered: No (Delta: +nan)
+Prevention Action: HallucinationFound: "!!!!!!" | [Gateway Router Override: Fallback to baseline due to representational instability (Risk Score: Candidate 0.3044 > Baseline 0.4134)]
+--------------------------------------------------------------------------------
+ID: 117
+Split: unseen_val
+Prompt Text: Complete with one word only: A networking layout topology organizing nodes around a central server hub is a
+Semantic Target: Star
+Clean Baseline Output vs Candidate Output: Baseline='common networking topology. The hub', Candidate='!!!!!!'
+Hallucination Detected: Yes
+Confidence% Lowered: No (Delta: +nan)
+Prevention Action: HallucinationFound: "!!!!!!" | [Gateway Router Override: Fallback to baseline due to representational instability (Risk Score: Candidate 0.3044 > Baseline 0.4043)]
+--------------------------------------------------------------------------------
+ID: 118
+Split: unseen_val
+Prompt Text: Complete with one word only: The routing index directory that translates domain strings to IP coordinates is
+Semantic Target: DNS
+Clean Baseline Output vs Candidate Output: Baseline='called ____.
+A. Routing', Candidate='!!!!!!'
+Hallucination Detected: Yes
+Confidence% Lowered: No (Delta: +nan)
+Prevention Action: HallucinationFound: "!!!!!!" | [Gateway Router Override: Fallback to baseline due to representational instability (Risk Score: Candidate 0.3044 > Baseline 0.3717)]
+--------------------------------------------------------------------------------
+ID: 119
+Split: unseen_val
+Prompt Text: Complete with one word only: A formal logical interface allowing separate software modules to interact is an
+Semantic Target: API
+Clean Baseline Output vs Candidate Output: Baseline='example of a(n) ______', Candidate='!!!!!!'
+Hallucination Detected: Yes
+Confidence% Lowered: No (Delta: +nan)
+Prevention Action: HallucinationFound: "!!!!!!" | [Gateway Router Override: Fallback to baseline due to representational instability (Risk Score: Candidate 0.3044 > Baseline 0.6292)]
+--------------------------------------------------------------------------------
+ID: 120
+Split: unseen_val
+Prompt Text: Complete with one word only: The physical block boundary used to serialize hard drive data tracks is a
+Semantic Target: Sector
+Clean Baseline Output vs Candidate Output: Baseline='(n) ________.
+A', Candidate='!!!!!!'
+Hallucination Detected: Yes
+Confidence% Lowered: No (Delta: +nan)
+Prevention Action: HallucinationFound: "!!!!!!" | [Gateway Router Override: Fallback to baseline due to representational instability (Risk Score: Candidate 0.3044 > Baseline 0.4043)]
+--------------------------------------------------------------------------------
+
+=====================================================================
+[F] RAW CONSOLE LOG APPENDIX
+=====================================================================
+[PCRF-Suite] 2026-06-23 09:21:15,485 - INFO - Initializing PCRF Customer Integration Demo v0.9...
+[PCRF-Suite] 2026-06-23 09:21:15,489 - INFO - System-wide reproducibility seeds fixed at baseline value: 42
+[PCRF-Suite] 2026-06-23 09:21:15,489 - INFO - Retrieving tokenizer and architecture weights for: Qwen/Qwen2.5-0.5B
+[PCRF-Suite] 2026-06-23 09:21:17,557 - INFO - Model parameter arrays successfully allocated.
+[PCRF-Suite] 2026-06-23 09:21:17,559 - INFO - ==========================================================================================
+[PCRF-Suite] 2026-06-23 09:21:17,560 - INFO -                   PCRF RESOURCE AUDIT & COMPUTE PROFILING SYSTEM                  
+[PCRF-Suite] 2026-06-23 09:21:17,560 - INFO - ==========================================================================================
+[PCRF-Suite] 2026-06-23 09:21:17,561 - INFO - Host OS Platform          : Linux 6.1.0-49-cloud-amd64
+[PCRF-Suite] 2026-06-23 09:21:17,561 - INFO - Active CPU Cores Detected : 8
+[PCRF-Suite] 2026-06-23 09:21:17,562 - INFO - Host System RAM           : 29.38 GB
+[PCRF-Suite] 2026-06-23 09:21:17,562 - INFO - GPU Hardware Accelerator  : Tesla T4
+[PCRF-Suite] 2026-06-23 09:21:17,564 - INFO - Dedicated VRAM Capacity   : 14.56 GB
+[PCRF-Suite] 2026-06-23 09:21:17,565 - INFO - Target Model Size (Params): 494.0 Million Parameters
+[PCRF-Suite] 2026-06-23 09:21:17,565 - INFO - ------------------------------------------------------------------------------------------
+[PCRF-Suite] 2026-06-23 09:21:17,566 - INFO - RECOMMENDED GCP COMPUTE INFRASTRUCTURE SETUP:
+[PCRF-Suite] 2026-06-23 09:21:17,567 - INFO -   - Recommended GCP Tier  : n1-standard-8 (8 vCPUs, 30 GB RAM)
+  - Accelerator Context   : 1x NVIDIA T4 (16 GB VRAM)
+  - Technical Reason      : Light parameter profiles run perfectly inside standard T4 envelopes.
+                            At least 30 GB Host RAM prevents OS swap stalls during model download.
+[PCRF-Suite] 2026-06-23 09:21:17,567 - INFO - ------------------------------------------------------------------------------------------
+[PCRF-Suite] 2026-06-23 09:21:17,568 - INFO - GCP COMPUTE ENGINE SAFETY GUIDELINES (OOME PREVENTION):
+[PCRF-Suite] 2026-06-23 09:21:17,568 - INFO -  1. Always purge dangling activations using 'torch.cuda.empty_cache()' during hooks teardown.
+[PCRF-Suite] 2026-06-23 09:21:17,569 - INFO -  2. Enable half-precision (FP16/BF16) modes across all forward passes.
+[PCRF-Suite] 2026-06-23 09:21:17,570 - INFO -  3. Anchor maximum sequence length limits (`max_len`) tightly to block quadratic expansion.
+[PCRF-Suite] 2026-06-23 09:21:17,570 - INFO - ==========================================================================================
+
+[PCRF-Suite] 2026-06-23 09:21:17,572 - INFO - Baseline model parameters frozen. Isolate copy built for parameter-regularized candidate updates.
+[PCRF-Suite] 2026-06-23 09:21:17,614 - INFO - --- Phase 1: Running Baseline Profile Evaluation ---
+[PCRF-Suite] 2026-06-23 09:21:26,955 - INFO - Baseline Seen accuracy: 50.00%
+[PCRF-Suite] 2026-06-23 09:21:26,955 - INFO - Baseline Unseen accuracy: 45.00%
+[PCRF-Suite] 2026-06-23 09:21:26,956 - INFO - 
+--- Scenario A: Run Standalone Layer Derivative Estimation ---
+[PCRF-Suite] 2026-06-23 09:21:26,956 - INFO - Feature 'derivatives' Health Check: True
+[PCRF-Suite] 2026-06-23 09:21:59,847 - INFO - Safety Gate Decision Status: SAFE_TO_APPLY (Reason Code: READY_FOR_USE)
+[PCRF-Suite] 2026-06-23 09:21:59,848 - INFO - Suggested Next Action: Deploy priority replay buffer and scale regularization.
+[PCRF-Suite] 2026-06-23 09:21:59,849 - INFO - 
+--- Scenario B: Independent Curriculum Selection ---
+[PCRF-Suite] 2026-06-23 09:22:35,576 - INFO - Data curation complete. Captured 20 high cascade-risk training samples.
+[PCRF-Suite] 2026-06-23 09:22:35,577 - INFO - Curriculum Promotion Status: SAFE_TO_APPLY (Curriculum prioritize maps are clear and highly differentiated.)
+[PCRF-Suite] 2026-06-23 09:22:35,578 - INFO - 
+--- Scenario C: Standalone Structural Residual-Depth Monitoring ---
+[PCRF-Suite] 2026-06-23 09:23:09,384 - INFO - Retrieved Continuous Representational Reliability of Transformer Depth Chain:
+[PCRF-Suite] 2026-06-23 09:23:09,385 - INFO -   - Block 00: Survival Prob r_l = 0.8883 | Marginal Birnbaum Sensitivity D_R = 0.4398
+[PCRF-Suite] 2026-06-23 09:23:09,385 - INFO -   - Block 01: Survival Prob r_l = 0.9194 | Marginal Birnbaum Sensitivity D_R = 0.4249
+[PCRF-Suite] 2026-06-23 09:23:09,386 - INFO -   - Block 02: Survival Prob r_l = 0.9932 | Marginal Birnbaum Sensitivity D_R = 0.3933
+[PCRF-Suite] 2026-06-23 09:23:09,387 - INFO -   - Block 03: Survival Prob r_l = 0.9987 | Marginal Birnbaum Sensitivity D_R = 0.3912
+[PCRF-Suite] 2026-06-23 09:23:09,387 - INFO -   - Block 04: Survival Prob r_l = 0.9978 | Marginal Birnbaum Sensitivity D_R = 0.3915
+[PCRF-Suite] 2026-06-23 09:23:09,388 - INFO -   ... [and 19 more blocks representing full architecture depth] ...
+[PCRF-Suite] 2026-06-23 09:23:09,388 - INFO - Structural PCRF Gating Status: DO_NOT_APPLY | Reason: STRUCTURAL_DECAY_REJECTED
+[PCRF-Suite] 2026-06-23 09:23:09,389 - INFO - 
+--- Scenario D: Derivative-Weighted Regularization & Gated Gating ---
+[PCRF-Suite] 2026-06-23 09:23:09,389 - INFO - Executing derivative-guided SFT regularization training pass...
+[PCRF-Suite] 2026-06-23 09:23:41,993 - INFO - Initializing Advanced CDL v2 SFT Regularization training loop...
+[PCRF-Suite] 2026-06-23 09:23:47,136 - INFO - Regularization SFT optimization completed.
+[PCRF-Suite] 2026-06-23 09:23:47,155 - INFO - Evaluating post-regularization metrics for promotion verification...
+[PCRF-Suite] 2026-06-23 09:23:56,217 - INFO - =====================================================================
+[PCRF-Suite] 2026-06-23 09:23:56,218 - INFO - PCRF SYSTEM CONTROLLER PROMOTION DECISION REPORT:
+[PCRF-Suite] 2026-06-23 09:23:56,218 - INFO -  - Promotion Status:  DO_NOT_APPLY
+[PCRF-Suite] 2026-06-23 09:23:56,219 - INFO -  - Reason Code:       STRUCTURAL_DECAY_REJECTED
+[PCRF-Suite] 2026-06-23 09:23:56,219 - INFO -  - System Explanation: Catastrophic structural decay detected! Overall chain reliability R_sys (39.07%) fell below safety floor (75.0%). All positive discrete gains overruled.
+[PCRF-Suite] 2026-06-23 09:23:56,220 - INFO - =====================================================================
+[PCRF-Suite] 2026-06-23 09:23:56,220 - WARNING - [FALLBACK TRIGGERED] Regularization failed safety metrics or degraded seen accuracy.
+[PCRF-Suite] 2026-06-23 09:23:56,221 - WARNING - Fallback Action: Restoring frozen pre-training baseline model weights...
+[PCRF-Suite] 2026-06-23 09:23:56,221 - INFO - Restoring pre-training baseline model weights...
+[PCRF-Suite] 2026-06-23 09:23:56,225 - INFO - Generating detailed developer debug log at: ./customer_pcrf_artifacts/pcrf_debug_report.txt

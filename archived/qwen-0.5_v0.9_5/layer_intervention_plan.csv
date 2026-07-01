@@ -1,0 +1,25 @@
+layer_id,reliability_r_l,structural_entropy_S_l,D_R,empirical_delta_prob,structural_atmap_delta_prob,combined_layer_risk_score,crew_birnbaum_sensitivity,monitoring_candidate_flag,selected_for_intervention_flag,selected_by_empirical_policy,selected_by_birnbaum_policy,selected_by_combined_risk_policy,intervention_flag,intervention_type,intervention_reason
+0,1.000000,-0.000000,0.487210,0.020284,0.045501,-0.000000,0.000000,1,1,1,1,0,1,regularization,"Selected by union_empirical_and_birnbaum policy: structural entropy is near zero (stable latent stream), high bottleneck sensitivity D_R (0.4872), high empirical sensitivity (0.0203)"
+1,1.000000,-0.000000,0.455647,0.011993,0.033147,-0.000000,0.000000,1,1,1,0,0,1,regularization,"Selected by union_empirical_and_birnbaum policy: structural entropy is near zero (stable latent stream), high bottleneck sensitivity D_R (0.4556), high empirical sensitivity (0.0120)"
+2,1.000000,-0.000000,0.390469,0.007202,0.003048,-0.000000,0.000000,1,0,0,0,0,0,freeze,Stable representational highway block; frozen to prevent activation drift
+3,1.000000,-0.000000,0.386011,0.010901,0.000716,-0.000000,0.000000,1,1,1,0,0,1,regularization,"Selected by union_empirical_and_birnbaum policy: structural entropy is near zero (stable latent stream), high empirical sensitivity (0.0109)"
+4,1.000000,-0.000000,0.385888,0.003698,0.000651,-0.000000,0.000000,1,0,0,0,0,0,freeze,Stable representational highway block; frozen to prevent activation drift
+5,1.000000,-0.000000,0.387739,0.002475,0.001624,-0.000000,0.000000,1,0,0,0,0,0,freeze,Stable representational highway block; frozen to prevent activation drift
+6,1.000000,-0.000000,0.387615,0.003585,0.001560,-0.000000,0.000000,1,0,0,0,0,0,freeze,Stable representational highway block; frozen to prevent activation drift
+7,1.000000,-0.000000,0.389102,-0.004858,0.002337,-0.000000,0.000000,1,0,0,0,0,0,freeze,Stable representational highway block; frozen to prevent activation drift
+8,1.000000,-0.000000,0.389598,0.005269,0.002596,-0.000000,0.000000,1,0,0,0,0,0,freeze,Stable representational highway block; frozen to prevent activation drift
+9,1.000000,-0.000000,0.389474,0.008733,0.002531,-0.000000,0.000000,1,1,1,0,0,1,regularization,Selected by union_empirical_and_birnbaum policy: structural entropy is near zero (stable latent stream)
+10,1.000000,-0.000000,0.388358,-0.003374,0.001948,-0.000000,0.000000,1,0,0,0,0,0,freeze,Stable representational highway block; frozen to prevent activation drift
+11,1.000000,-0.000000,0.388110,-0.000578,0.001819,-0.000000,0.000000,1,0,0,0,0,0,freeze,Stable representational highway block; frozen to prevent activation drift
+12,1.000000,-0.000000,0.388110,-0.004406,0.001819,-0.000000,0.000000,1,0,0,0,0,0,freeze,Stable representational highway block; frozen to prevent activation drift
+13,1.000000,-0.000000,0.388358,-0.005775,0.001948,-0.000000,0.000000,1,0,0,0,0,0,freeze,Stable representational highway block; frozen to prevent activation drift
+14,1.000000,-0.000000,0.389847,-0.000884,0.002725,-0.000000,0.000000,1,0,0,0,0,0,freeze,Stable representational highway block; frozen to prevent activation drift
+15,1.000000,-0.000000,0.390096,0.001792,0.002855,-0.000000,0.000000,1,0,0,0,0,0,freeze,Stable representational highway block; frozen to prevent activation drift
+16,1.000000,-0.000000,0.390843,-0.000025,0.003242,-0.000000,0.000000,1,0,0,0,0,0,freeze,Stable representational highway block; frozen to prevent activation drift
+17,1.000000,-0.000000,0.394475,0.001020,0.005111,-0.000000,0.000000,1,0,0,0,0,0,freeze,Stable representational highway block; frozen to prevent activation drift
+18,1.000000,-0.000000,0.396240,-0.000202,0.006010,-0.000000,0.000000,1,0,0,0,0,0,freeze,Stable representational highway block; frozen to prevent activation drift
+19,1.000000,-0.000000,0.400560,0.003844,0.008185,-0.000000,0.000000,1,0,0,0,0,0,freeze,Stable representational highway block; frozen to prevent activation drift
+20,1.000000,-0.000000,0.407519,0.002280,0.011615,-0.000000,0.000000,1,0,0,0,1,0,freeze,Stable representational highway block; frozen to prevent activation drift
+21,1.000000,-0.000000,0.527313,0.000099,0.059567,-0.000000,0.000000,1,1,0,1,1,1,regularization,"Selected by union_empirical_and_birnbaum policy: structural entropy is near zero (stable latent stream), high bottleneck sensitivity D_R (0.5273)"
+22,1.000000,-0.000000,0.545967,-0.000529,0.065576,-0.000000,0.000000,1,1,0,1,1,1,regularization,"Selected by union_empirical_and_birnbaum policy: structural entropy is near zero (stable latent stream), high bottleneck sensitivity D_R (0.5460)"
+23,1.000000,-0.000000,0.654818,0.001058,0.095351,-0.000000,0.000000,1,1,0,1,1,1,regularization,"Selected by union_empirical_and_birnbaum policy: structural entropy is near zero (stable latent stream), high bottleneck sensitivity D_R (0.6548)"

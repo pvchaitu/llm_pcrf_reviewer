@@ -1,0 +1,275 @@
+{
+    "R_sys_chain": 0.3846595264362872,
+    "R_sys_crew_prod": 1.0,
+    "R_sys_crew_geo": 1.0,
+    "worst_k_risk": 0.0,
+    "triggered_flaws": [
+        "RESIDUAL_STREAM_BYPASS_DETECTED"
+    ],
+    "layers": [
+        {
+            "layer_idx": 0,
+            "reliability_r_l": 1.0,
+            "r_series_local": 0.8885461036279103,
+            "structural_entropy_S_l": -0.0,
+            "analytical_derivative": 0.4872104099232526,
+            "crew_birnbaum_sensitivity": 0.0,
+            "w_bypass": 1.0,
+            "w_attn": 0.0,
+            "w_mlp": 0.0
+        },
+        {
+            "layer_idx": 1,
+            "reliability_r_l": 1.0,
+            "r_series_local": 0.91880659911509,
+            "structural_entropy_S_l": -0.0,
+            "analytical_derivative": 0.45564675437496416,
+            "crew_birnbaum_sensitivity": 0.0,
+            "w_bypass": 1.0,
+            "w_attn": 0.0,
+            "w_mlp": 0.0
+        },
+        {
+            "layer_idx": 2,
+            "reliability_r_l": 1.0,
+            "r_series_local": 0.9925328353839766,
+            "structural_entropy_S_l": -0.0,
+            "analytical_derivative": 0.39046914927393217,
+            "crew_birnbaum_sensitivity": 0.0,
+            "w_bypass": 1.0,
+            "w_attn": 0.0,
+            "w_mlp": 0.0
+        },
+        {
+            "layer_idx": 3,
+            "reliability_r_l": 1.0,
+            "r_series_local": 0.998247345822208,
+            "structural_entropy_S_l": -0.0,
+            "analytical_derivative": 0.386011429777815,
+            "crew_birnbaum_sensitivity": 0.0,
+            "w_bypass": 1.0,
+            "w_attn": 0.0,
+            "w_mlp": 0.0
+        },
+        {
+            "layer_idx": 4,
+            "reliability_r_l": 1.0,
+            "r_series_local": 0.9984065510054697,
+            "structural_entropy_S_l": -0.0,
+            "analytical_derivative": 0.38588833338873263,
+            "crew_birnbaum_sensitivity": 0.0,
+            "w_bypass": 1.0,
+            "w_attn": 0.0,
+            "w_mlp": 0.0
+        },
+        {
+            "layer_idx": 5,
+            "reliability_r_l": 1.0,
+            "r_series_local": 0.9960211370235146,
+            "structural_entropy_S_l": -0.0,
+            "analytical_derivative": 0.387738907976682,
+            "crew_birnbaum_sensitivity": 0.0,
+            "w_bypass": 1.0,
+            "w_attn": 0.0,
+            "w_mlp": 0.0
+        },
+        {
+            "layer_idx": 6,
+            "reliability_r_l": 1.0,
+            "r_series_local": 0.9961799871605234,
+            "structural_entropy_S_l": -0.0,
+            "analytical_derivative": 0.3876152607066875,
+            "crew_birnbaum_sensitivity": 0.0,
+            "w_bypass": 1.0,
+            "w_attn": 0.0,
+            "w_mlp": 0.0
+        },
+        {
+            "layer_idx": 7,
+            "reliability_r_l": 1.0,
+            "r_series_local": 0.9942754564165411,
+            "structural_entropy_S_l": -0.0,
+            "analytical_derivative": 0.38910163394421576,
+            "crew_birnbaum_sensitivity": 0.0,
+            "w_bypass": 1.0,
+            "w_attn": 0.0,
+            "w_mlp": 0.0
+        },
+        {
+            "layer_idx": 8,
+            "reliability_r_l": 1.0,
+            "r_series_local": 0.993641422322939,
+            "structural_entropy_S_l": -0.0,
+            "analytical_derivative": 0.38959835722087044,
+            "crew_birnbaum_sensitivity": 0.0,
+            "w_bypass": 1.0,
+            "w_attn": 0.0,
+            "w_mlp": 0.0
+        },
+        {
+            "layer_idx": 9,
+            "reliability_r_l": 1.0,
+            "r_series_local": 0.9937998929318511,
+            "structural_entropy_S_l": -0.0,
+            "analytical_derivative": 0.3894741169853057,
+            "crew_birnbaum_sensitivity": 0.0,
+            "w_bypass": 1.0,
+            "w_attn": 0.0,
+            "w_mlp": 0.0
+        },
+        {
+            "layer_idx": 10,
+            "reliability_r_l": 1.0,
+            "r_series_local": 0.9952272662096098,
+            "structural_entropy_S_l": -0.0,
+            "analytical_derivative": 0.3883577362209813,
+            "crew_birnbaum_sensitivity": 0.0,
+            "w_bypass": 1.0,
+            "w_attn": 0.0,
+            "w_mlp": 0.0
+        },
+        {
+            "layer_idx": 11,
+            "reliability_r_l": 1.0,
+            "r_series_local": 0.9955447385770971,
+            "structural_entropy_S_l": -0.0,
+            "analytical_derivative": 0.38811008649404777,
+            "crew_birnbaum_sensitivity": 0.0,
+            "w_bypass": 1.0,
+            "w_attn": 0.0,
+            "w_mlp": 0.0
+        },
+        {
+            "layer_idx": 12,
+            "reliability_r_l": 1.0,
+            "r_series_local": 0.9955447385770971,
+            "structural_entropy_S_l": -0.0,
+            "analytical_derivative": 0.38811008649404777,
+            "crew_birnbaum_sensitivity": 0.0,
+            "w_bypass": 1.0,
+            "w_attn": 0.0,
+            "w_mlp": 0.0
+        },
+        {
+            "layer_idx": 13,
+            "reliability_r_l": 1.0,
+            "r_series_local": 0.9952272662096098,
+            "structural_entropy_S_l": -0.0,
+            "analytical_derivative": 0.3883577362209813,
+            "crew_birnbaum_sensitivity": 0.0,
+            "w_bypass": 1.0,
+            "w_attn": 0.0,
+            "w_mlp": 0.0
+        },
+        {
+            "layer_idx": 14,
+            "reliability_r_l": 1.0,
+            "r_series_local": 0.9933245569099095,
+            "structural_entropy_S_l": -0.0,
+            "analytical_derivative": 0.3898469566006267,
+            "crew_birnbaum_sensitivity": 0.0,
+            "w_bypass": 1.0,
+            "w_attn": 0.0,
+            "w_mlp": 0.0
+        },
+        {
+            "layer_idx": 15,
+            "reliability_r_l": 1.0,
+            "r_series_local": 0.9930077925430802,
+            "structural_entropy_S_l": -0.0,
+            "analytical_derivative": 0.39009571460952075,
+            "crew_birnbaum_sensitivity": 0.0,
+            "w_bypass": 1.0,
+            "w_attn": 0.0,
+            "w_mlp": 0.0
+        },
+        {
+            "layer_idx": 16,
+            "reliability_r_l": 1.0,
+            "r_series_local": 0.9920581053976149,
+            "structural_entropy_S_l": -0.0,
+            "analytical_derivative": 0.39084294142355397,
+            "crew_birnbaum_sensitivity": 0.0,
+            "w_bypass": 1.0,
+            "w_attn": 0.0,
+            "w_mlp": 0.0
+        },
+        {
+            "layer_idx": 17,
+            "reliability_r_l": 1.0,
+            "r_series_local": 0.987480739117189,
+            "structural_entropy_S_l": -0.0,
+            "analytical_derivative": 0.39447476464009357,
+            "crew_birnbaum_sensitivity": 0.0,
+            "w_bypass": 1.0,
+            "w_attn": 0.0,
+            "w_mlp": 0.0
+        },
+        {
+            "layer_idx": 18,
+            "reliability_r_l": 1.0,
+            "r_series_local": 0.9852785411156985,
+            "structural_entropy_S_l": -0.0,
+            "analytical_derivative": 0.39624011795181074,
+            "crew_birnbaum_sensitivity": 0.0,
+            "w_bypass": 1.0,
+            "w_attn": 0.0,
+            "w_mlp": 0.0
+        },
+        {
+            "layer_idx": 19,
+            "reliability_r_l": 1.0,
+            "r_series_local": 0.979950770723665,
+            "structural_entropy_S_l": -0.0,
+            "analytical_derivative": 0.40056036577208864,
+            "crew_birnbaum_sensitivity": 0.0,
+            "w_bypass": 1.0,
+            "w_attn": 0.0,
+            "w_mlp": 0.0
+        },
+        {
+            "layer_idx": 20,
+            "reliability_r_l": 1.0,
+            "r_series_local": 0.9715481684098218,
+            "structural_entropy_S_l": -0.0,
+            "analytical_derivative": 0.407518958663795,
+            "crew_birnbaum_sensitivity": 0.0,
+            "w_bypass": 1.0,
+            "w_attn": 0.0,
+            "w_mlp": 0.0
+        },
+        {
+            "layer_idx": 21,
+            "reliability_r_l": 1.0,
+            "r_series_local": 0.8540907752920973,
+            "structural_entropy_S_l": -0.0,
+            "analytical_derivative": 0.5273129415487311,
+            "crew_birnbaum_sensitivity": 0.0,
+            "w_bypass": 1.0,
+            "w_attn": 0.0,
+            "w_mlp": 0.0
+        },
+        {
+            "layer_idx": 22,
+            "reliability_r_l": 1.0,
+            "r_series_local": 0.8393728750181665,
+            "structural_entropy_S_l": -0.0,
+            "analytical_derivative": 0.5459672994134248,
+            "crew_birnbaum_sensitivity": 0.0,
+            "w_bypass": 1.0,
+            "w_attn": 0.0,
+            "w_mlp": 0.0
+        },
+        {
+            "layer_idx": 23,
+            "reliability_r_l": 1.0,
+            "r_series_local": 0.7664396818242099,
+            "structural_entropy_S_l": -0.0,
+            "analytical_derivative": 0.6548178789801322,
+            "crew_birnbaum_sensitivity": 0.0,
+            "w_bypass": 1.0,
+            "w_attn": 0.0,
+            "w_mlp": 0.0
+        }
+    ]
+}

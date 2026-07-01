@@ -1,0 +1,13 @@
+layer_id,reliability_r_l,structural_entropy_S_l,D_R,empirical_delta_prob,structural_atmap_delta_prob,combined_layer_risk_score,crew_birnbaum_sensitivity,intervention_flag,intervention_type,intervention_reason
+0,1.000000,-0.000000,0.996895,-0.000285,0.000406,-0.000000,0.000000,1,regularization,High structural entropy (-0.0000) and high bottleneck sensitivity (0.9969)
+1,1.000000,-0.000000,0.995990,0.001244,0.000144,-0.000000,0.000000,1,regularization,High structural entropy (-0.0000) and high bottleneck sensitivity (0.9960)
+2,1.000000,-0.000000,0.997126,-0.001424,0.000472,-0.000000,0.000000,1,regularization,High structural entropy (-0.0000) and high bottleneck sensitivity (0.9971)
+3,1.000000,-0.000000,0.996844,0.001080,0.000391,-0.000000,0.000000,1,regularization,High structural entropy (-0.0000) and high bottleneck sensitivity (0.9968)
+4,1.000000,-0.000000,0.996305,-0.000450,0.000235,-0.000000,0.000000,1,regularization,High structural entropy (-0.0000) and high bottleneck sensitivity (0.9963)
+5,1.000000,-0.000000,0.996124,0.000167,0.000183,-0.000000,0.000000,1,regularization,High structural entropy (-0.0000) and high bottleneck sensitivity (0.9961)
+6,1.000000,-0.000000,0.996048,-0.000097,0.000160,-0.000000,0.000000,1,regularization,High structural entropy (-0.0000) and high bottleneck sensitivity (0.9960)
+7,1.000000,-0.000000,0.995948,-0.000324,0.000132,-0.000000,0.000000,1,regularization,High structural entropy (-0.0000) and high bottleneck sensitivity (0.9959)
+8,1.000000,-0.000000,0.995895,-0.000032,0.000116,-0.000000,0.000000,1,regularization,High structural entropy (-0.0000) and high bottleneck sensitivity (0.9959)
+9,1.000000,-0.000000,0.995839,0.000405,0.000100,-0.000000,0.000000,1,regularization,High structural entropy (-0.0000) and high bottleneck sensitivity (0.9958)
+10,1.000000,-0.000000,0.995845,0.000167,0.000101,-0.000000,0.000000,1,regularization,High structural entropy (-0.0000) and high bottleneck sensitivity (0.9958)
+11,1.000000,-0.000000,0.996070,0.000196,0.000167,-0.000000,0.000000,1,regularization,High structural entropy (-0.0000) and high bottleneck sensitivity (0.9961)

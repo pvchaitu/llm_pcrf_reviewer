@@ -1,0 +1,539 @@
+You are an expert AI reliability engineer, patent-review technical editor, and enterprise customer-facing report architect.
+
+I am providing the current PCRF Transformer Reliability Suite experiment code and generated artifacts:
+
+PCRF_Executive_Reliability_Report.md
+pcrf_debug_report.txt
+For all the code related to the experiment that generated above files, please check the most recent full code you gave me in previous responses.
+pcrf_debug_report.txt
+PCRF_Executive_Reliability_Report.pdf
+Your task is to update and improve the experiment implementation and generated artifacts so that the final output is clear, mathematically consistent, customer-ready, patent-team-ready, and reviewer-grade.
+
+CRITICAL PRESERVATION REQUIREMENT:
+
+Do NOT remove any existing methods, classes, modules, plugins, dataclasses, report sections, debug sections, experiment tracks, or functional components.
+Preserve the existing PCRF architecture, including:
+ - derivative estimation
+ - curriculum curation
+ - structural PCRF monitoring
+ - CREW / residual-bypass roadmap logic
+ - derivative-weighted SFT regularization
+ - safe promotion controller
+ - protected router
+ - hallucination-risk scoring
+ - executive report generator
+ - debug report generator
+ - hardware audit
+ - dataset generation
+ - evaluator logic
+ - row-level tracing
+ - artifact generation
+You may refactor, add helper functions, improve formatting, add new metrics, add new report sections, add reconciliation tables, and improve naming/clarity.
+Any existing method/class/module that is currently unused should still be retained unless it is clearly dead duplicate code; if retained but unused, document its purpose or future use.
+PRIMARY GOAL:
+Improve the overall readability, intuitiveness, and auditability of the experiment, especially through:
+
+A customer/patent-ready Executive Report.
+A detailed developer Debug Report that explains every important experiment decision.
+Clear consistency between the debug log, executive summary, and controller decision.
+Stronger structural reliability reporting using both strict-series and CREW/residual-aware interpretations.
+Clear separation of strict exact match, semantic capture, instruction compliance, hallucination risk, and router behavior.
+============================================================
+PART A — EXECUTIVE REPORT IMPROVEMENTS
+Update PCRF_Executive_Reliability_Report.md generation so it becomes the primary customer and patent-team deliverable.
+
+The report must clearly answer dynamically based on the experiment results:
+
+What happened?
+  - Candidate improved visible metrics such as validation accuracy, NLL, and perplexity.
+  - But the safety controller rejected adoption because structural or gateway safety criteria were not satisfied.
+
+What is the PCRF benefit?
+  - PCRF is not just an optimizer.
+  - PCRF is a governed reliability controller that can reject unsafe or structurally suspicious candidate changes even when surface metrics improve.
+  - PCRF provides traceable, row-level, metric-level, and module-level evidence.
+
+What should customers understand?
+  - Which modules are safe to apply.
+  - Which modules are diagnostic-only.
+  - Which model changes are blocked.
+  - Why fallback or baseline restoration occurred.
+
+What should patent reviewers understand?
+  - The novelty is in multi-signal reliability governance:
+    - perturbation derivatives
+    - curriculum risk scoring
+    - structural reliability
+    - residual-bypass / CREW-aware interpretation
+    - protected routing
+    - confidence suppression
+    - non-regression gates
+    - row-level traceability
+
+Add a prominent “Customer Executive Summary Box” near the top:
+
+What happened?
+What improved?
+Why was adoption rejected or allowed?
+What did PCRF prove?
+What is the recommended next step?
+Suggested wording style:
+“This run demonstrates PCRF as a governed reliability harness. The candidate showed directional improvement in accuracy, NLL, and perplexity, but the safety controller rejected adoption because production safety gates detected structural over-steering or unresolved reliability risk. The value demonstrated here is controlled intervention, explainable diagnostics, and safe rollback — not blind promotion.”
+
+============================================================
+PART B — STRUCTURAL RELIABILITY CONSISTENCY FIX
+The report currently has a confusing structural reliability issue: it can show layer survival probabilities as 100.00% while also reporting System Chain Reliability around 38.4660%. This must be fixed.
+
+Add an explicit “Structural Reliability Model Reconciliation” section.
+
+This section must distinguish:
+
+Strict Series Reliability:
+  - R_series = product of strict per-layer reliability values.
+  - Treat this as a strict adversarial diagnostic envelope.
+  - This is useful for detecting worst-case depth sensitivity but may over-penalize residual transformer architectures.
+
+CREW Product Reliability:
+  - R_CREW_prod = product of residual-aware CREW block reliabilities.
+  - This models the transformer block as a residual-bypass plus active sublayer path.
+
+CREW Geometric Reliability:
+  - R_CREW_geo = exp(mean(log(r_CREW_l)))
+  - This provides depth-normalized structural health and is more stable for cross-model comparison.
+
+Worst-k CREW Bottleneck Risk:
+  - Identify the top-k riskiest layers by CREW-adjusted risk.
+  - This shows where targeted tuning/adapters should be applied.
+
+Final Gate Metric Used:
+  - Explicitly identify which reliability metric actually drove the final promotion decision.
+  - If the controller still uses strict-series R_sys, say so.
+  - If CREW is only measurement-only, say so.
+  - If CREW is active in gating, explain threshold and pass/fail result.
+
+Add a table like:
+
+Structural Metric	Value	Gate Role	Interpretation
+Strict Series R_sys	...	Diagnostic / Gate / Legacy Gate	Conservative adversarial envelope
+CREW Product R_sys	...	Diagnostic / Gate	Residual-aware product reliability
+CREW Geometric Reliability	...	Primary CREW health metric	Depth-normalized reliability
+Worst-k CREW Bottleneck Risk	...	Bottleneck gate	Identifies true intervention targets
+Final Promotion Reliability Metric	...	Final gate	Metric used by controller
+The report must never show “all blocks = 100.00%” while implying the same table produced R_sys = 38.4660% unless it explicitly explains rounding, metric separation, or strict-vs-CREW distinction.
+
+If values round to 100.00%, include more precision:
+
+show 6 decimal places in debug logs
+show 4 decimal places or basis-point deltas in executive report
+include hidden/unrounded product inputs in debug artifacts
+============================================================
+PART C — CREW-BYPASS PRESENTATION
+Add a clear CREW-Bypass explanation to the Executive Report.
+
+Use the following refined framing:
+
+The strict series model is the “Strict Adversarial Envelope.”
+CREW-Bypass is the “Architectural Fidelity Flow.”
+CREW recognizes that transformer residual blocks are not pure sequential links.
+The residual stream acts as a representation-preserving continuity path.
+The active attention/MLP sublayer contributes a weighted amount of representational modification.
+Reliability should therefore be weighted by sublayer energy contribution instead of assuming every layer is equally fragile.
+Do NOT claim the residual bypass is universally 100% reliable.
+Use safer language:
+“The residual bypass path provides a high-fidelity representational continuity channel whose local reliability may be modeled as unity under isolated sublayer perturbation or estimated empirically under cumulative perturbation.”
+
+Add formulas:
+
+w_sub,l = ||F_l(x_{l-1})||_2 / (||x_{l-1}||_2 + ||F_l(x_{l-1})||_2 + epsilon)
+
+w_bypass,l = 1 - w_sub,l
+
+r_sub,l = exp(-beta_s * drift_sub,l)
+
+r_bypass,l = exp(-beta_b * drift_bypass,l)
+
+r_CREW,l = w_bypass,l * r_bypass,l + w_sub,l * r_sub,l
+
+If attention and MLP are separately available, also support:
+
+r_CREW,l =
+w_bypass,l * r_bypass,l
+
+w_attn,l * r_attn,l
+w_mlp,l * r_mlp,l
+Add CREW derivative / sensitivity:
+
+B_CREW,l = (w_l * beta * exp(-beta * d_l)) / r_CREW,l
+
+Explain:
+
+Low w_l means the layer mostly behaves like a highway and should usually be ignored for tuning.
+High w_l plus high drift means the layer is a true bottleneck.
+This supports targeted parameter-group SFT/adapters only on high-energy, high-risk layers.
+Do NOT claim CREW will always produce 85–95% system reliability unless empirically measured.
+Instead say:
+“CREW is expected to reduce artificial depth-induced reliability collapse relative to the strict series envelope. The calibrated range must be measured per model family, perturbation policy, and threshold configuration.”
+
+============================================================
+PART D — METRIC NAMING AND EXACT MATCH FIX
+The report currently uses “Discrete Exact Match” or “EM” language, but the evaluator uses semantic target capture behavior. Fix this.
+
+Add separate metrics:
+
+Strict Target-Only EM:
+  - true only when normalized generated output equals normalized target exactly.
+  - Example:
+    target = “Seoul”
+    output = “Seoul”
+    pass
+    output = “Seoul. Seoul is the official”
+    fail
+
+First-Token Target Match:
+  - true when first generated lexical token matches the first target token.
+
+Semantic Target Capture:
+  - true when target appears anywhere in normalized generated text.
+
+Instruction Contract Violation Rate:
+  - true when model captures the target but violates “one word only” or “target answer only” by generating extra text.
+
+Current Legacy EM:
+  - if retained for backward compatibility, clearly rename as “Legacy Semantic Capture Accuracy” or similar.
+
+Update Executive Report to show all relevant metrics:
+
+Metric	Baseline	Candidate	Router	Delta	Interpretation
+Include:
+
+Strict Target-Only EM
+Semantic Target Capture
+First-Token Target Match
+Instruction Contract Violation Rate
+Seen NLL
+Unseen NLL
+PPL
+Correct-to-wrong regressions
+Critical regressions
+Router interventions
+Do not call the current semantic matcher strict exact match.
+
+============================================================
+PART E — HALLUCINATION AND FAILURE TAXONOMY FIX
+The report currently labels many failures as hallucinations. Improve this by adding a failure taxonomy.
+
+Add categories:
+
+Target Miss:
+  - Expected answer absent.
+
+Format / Template Failure:
+  - Outputs blanks, option headers, placeholder text, or artifacts like “_____. A”.
+
+Wrong Entity Substitution:
+  - Example: output “Sodium” when target is Neon or Sulfur.
+
+Over-Generation:
+  - Target appears but model continues beyond required answer.
+
+Instruction Contract Violation:
+  - Correct semantic answer but violates “one word only” / “answer only”.
+
+High-Confidence Wrong:
+  - Wrong output with elevated confidence or low uncertainty.
+
+Semantic Repair:
+  - Baseline wrong, candidate captures target.
+
+Regressed Output:
+  - Baseline correct, candidate wrong.
+
+In the debug log, add failure_category per row.
+
+In the executive report, summarize:
+
+Failure Category	Count	Example ID(s)	Interpretation	Recommended Fix
+Keep the hallucination scorecard, but rename or clarify:
+
+“Total Baseline Hallucinations Found” can become “Total Baseline Target Failures / Hallucination-like Failures”
+Explain that not all target failures are factual hallucinations; many are formatting or instruction-following failures.
+============================================================
+PART F — HALLUCINATION COUNT AND TRANSITION RECONCILIATION
+Add a reconciliation section connecting transition table counts to hallucination/gateway counts.
+
+The current logic should reconcile:
+
+Baseline wrong count
+Candidate wrong count
+wrong_to_correct count
+wrong_to_wrong count
+correct_to_wrong count
+over-steers prevented
+regressions blocked
+net gateway interventions
+Add table:
+
+Reconciliation Item	Count	Derived From	Explanation
+Baseline wrong	...	wrong_to_correct + wrong_to_wrong	Baseline target failures
+Candidate repairs	...	wrong_to_correct	Candidate repaired baseline misses
+Both wrong	...	wrong_to_wrong	Neither model captured target
+Candidate over-steers prevented	...	router risk comparison	Both wrong but candidate risk higher
+Both wrong without over-steer flag	...	difference	Explain explicitly
+Catastrophic regressions blocked	...	correct_to_wrong	Baseline correct but candidate wrong
+Net Gateway Interventions	...	repairs + oversteers + regressions	Total protected actions
+If there is a difference such as 20 wrong_to_wrong but 19 over-steers prevented, identify and explain the remaining case.
+
+============================================================
+PART G — ROUTER BENEFIT ACCOUNTING
+Add a “Protected Router Benefit Accounting” section.
+
+The report should not imply the router improved accuracy unless router accuracy exceeds candidate accuracy.
+
+Add:
+
+Metric	Baseline	Candidate	Protected Router	Interpretation
+Include:
+
+seen accuracy
+unseen accuracy
+strict EM if available
+semantic capture if available
+regressions blocked
+over-steers prevented
+repairs accepted
+final served output accuracy
+Add wording:
+“In this run, the router’s primary value may be risk containment, non-regression protection, and fallback governance, rather than additional accuracy lift.”
+
+If router accuracy equals candidate accuracy, say so directly.
+
+============================================================
+PART H — STATISTICAL CONFIDENCE AND SAMPLE SIZE FRAMING
+The validation split is small. The report should state that directional improvements are promising but should not be overclaimed.
+
+Add a “Metric Confidence and Validation Size” section.
+
+Include:
+
+train examples count
+seen validation count
+unseen validation count
+combined validation count
+number of additional correct examples represented by the accuracy delta
+bootstrap confidence interval for NLL delta
+McNemar or paired transition test for correctness changes, if possible
+seed-repeat recommendation
+Suggested wording:
+“The observed +5 percentage point improvement corresponds to one additional correct example per 20-example validation split. This is directionally positive but should be validated with larger datasets, seed repeats, and paired significance testing before making production-level generalization claims.”
+
+Do not overclaim statistical proof.
+
+============================================================
+PART I — DEBUG REPORT IMPROVEMENTS
+Improve pcrf_debug_report.txt so it becomes clean, consistent, and useful for experiment debugging.
+
+Every row-level validation entry must use the same structure:
+
+ID: xxx
+Split:
+Prompt Text:
+Semantic Target:
+Strict Target-Only Correct — Baseline:
+Strict Target-Only Correct — Candidate:
+First-Token Match — Baseline:
+First-Token Match — Candidate:
+Semantic Capture — Baseline:
+Semantic Capture — Candidate:
+Instruction Contract Violation — Baseline:
+Instruction Contract Violation — Candidate:
+Transition Type:
+Baseline Output:
+Candidate Output:
+Baseline NLL:
+Candidate NLL:
+Delta NLL:
+Baseline Entropy:
+Candidate Entropy:
+Delta Entropy:
+Baseline Margin:
+Candidate Margin:
+Delta Margin:
+Baseline Target Probability:
+Candidate Target Probability:
+Delta Confidence:
+Failure Category:
+Hallucination / Target Failure Detected:
+Confidence Lowered:
+Baseline Risk Score:
+Candidate Risk Score:
+Router Decision:
+Final Served Output:
+Prevention Action:
+
+Fix formatting issues where rows are compressed together, such as:
+ID: 082Split: ...
+ID: 100Split: ...
+ID: 108Split: ...
+ID: 117...
+ID: 118...
+
+Ensure every row has line breaks and section headers.
+
+============================================================
+PART J — EXECUTIVE REPORT TABLE RENDERING FIX
+Fix all markdown/HTML rendering issues in the executive report.
+
+Specifically:
+
+Section 7 failed-generation table must not break after a few rows.
+Escape pipes, newlines, underscores, backticks, and multiline outputs.
+Do not allow fragments such as “Sodium|____” to spill outside the table.
+If model outputs contain newlines, replace them with “<br>” or escaped text.
+If outputs are long, truncate safely and preserve full details in debug log.
+Add a “Full details available in debug report” note.
+Add robust table-safe formatting helper functions:
+
+sanitize_table_cell()
+truncate_for_report()
+format_bool()
+format_percent()
+format_float()
+format_delta()
+format_risk_band()
+============================================================
+PART K — MODULE STATUS EXPLANATION
+The report should clearly explain module-level versus final-controller decisions.
+
+Example:
+
+Derivatives may be SAFE_TO_APPLY as diagnostics.
+Curriculum may be SAFE_TO_APPLY for dataset prioritization.
+Structural monitor may be MEASUREMENT_ONLY due to residual-bypass detection.
+Regularization may be DO_NOT_APPLY because final promotion safety gates reject parameter adoption.
+Add a clear “Decision Hierarchy” section:
+
+Level	Decision	Meaning
+Feature health check	SAFE_TO_APPLY / MEASUREMENT_ONLY / DO_NOT_APPLY	Whether module output is usable
+Module diagnostic result	...	Whether module indicates useful signal
+Candidate promotion controller	...	Whether candidate model parameters may be adopted
+Protected router decision	...	Which output is served or blocked
+Make it clear that SAFE_TO_APPLY for a diagnostic feature does not mean the candidate model is promoted.
+
+============================================================
+PART L — CUSTOMER NEXT STEPS SECTION
+Update the “Actionable 4-Phase Enterprise Upgrade Strategy” so it is specific to what the run found.
+
+Use these phases:
+
+Phase 1 — Metric Clarification and Report Hardening
+
+Add strict-vs-semantic metrics.
+Add failure taxonomy.
+Add structural reliability reconciliation.
+Phase 2 — CREW-Bypass Reliability Calibration
+
+Report strict-series, CREW product, CREW geometric, and worst-k bottleneck reliability.
+Calibrate thresholds per model and perturbation policy.
+Phase 3 — Targeted Boundary-Layer / Bottleneck Intervention
+
+Use derivative sensitivity and CREW risk to tune only high-energy, high-risk layers.
+Avoid unnecessary tuning of highway layers.
+Phase 4 — Router and CI/CD Governance
+
+Keep protected router.
+Add non-regression gates.
+Add confidence-lowering checks.
+Add report CI assertions so generated reports cannot contain contradictory metrics or broken tables.
+============================================================
+PART M — REPORT QUALITY GATES
+Add automated assertions before writing final artifacts.
+
+Fail report generation or add warnings if:
+
+Layer table shows all 100.00% but R_sys is far below 100% without reconciliation.
+Final controller uses a metric not shown in the executive report.
+“Exact Match” label is used for semantic capture.
+Hallucination counts do not reconcile with transition counts.
+Failed-generation table contains broken markdown rows.
+Any row-level trace is missing ID, split, prompt, target, outputs, transition type, or router decision.
+Router accuracy is claimed to improve when it equals candidate accuracy.
+CREW threshold exists in config but CREW metrics are not reported.
+Structural monitor is MEASUREMENT_ONLY but final controller rejects adoption without explaining hierarchy.
+============================================================
+PART N — OUTPUT REQUIREMENTS
+After applying fixes, generate or update:
+
+PCRF_Executive_Reliability_Report.md
+  Must be customer/patent-team ready.
+
+pcrf_debug_report.txt
+  Must be detailed, row-level, consistent, and debugger-friendly.
+
+Optional CSV artifacts:
+  - evaluation_trace.csv
+  - failure_taxonomy_summary.csv
+  - structural_reliability_comparison.csv
+  - crew_layer_reliability.csv
+  - router_decision_trace.csv
+
+Optional JSON artifacts:
+  - structural_reliability_summary.json
+  - report_quality_gate_results.json
+
+Keep generated artifacts minimal if possible:
+  - Prefer one executive report, one debug report, and one combined CSV/JSON if artifact count must be limited.
+  - If multiple artifacts are needed, explain why.
+
+============================================================
+PART O — ACCEPTANCE CRITERIA
+The fix is successful only if:
+
+No existing method/class/module is removed.
+Executive Report clearly explains:
+  - visible metric improvements
+  - final adoption directive
+  - why adoption was blocked or allowed
+  - PCRF benefits
+  - key takeaways
+  - next steps
+Structural reliability is internally consistent.
+Strict-series and CREW/residual-aware metrics are clearly separated.
+Exact Match terminology is corrected or split into strict and semantic metrics.
+Hallucination/gateway counts reconcile with transition counts.
+Debug log has clean row-level formatting.
+Failure taxonomy is included.
+Router benefits are accurately described.
+Statistical confidence limitations are stated.
+Section 7 failed-generation table renders correctly.
+The final report is intuitive enough for customers and rigorous enough for patent reviewers.
+The final debug log is detailed enough for engineers to reproduce, audit, and fix issues.
+The controller decision, module statuses, and report conclusions do not contradict each other.
+============================================================
+FINAL STYLE REQUIREMENT
+Use a professional but clear enterprise tone.
+
+Do not overclaim production readiness.
+
+Use the safest framing:
+“PCRF demonstrated governed reliability control and safe non-adoption under hidden structural risk.”
+
+Where metrics are directional but not statistically proven, say so.
+
+Where CREW is introduced but not yet fully calibrated, present it as a residual-aware architectural fidelity metric requiring empirical calibration.
+
+Where the router prevents risk but does not improve accuracy, say that clearly.
+
+The final output should help customers understand:
+
+what PCRF does,
+why it matters,
+what improved,
+what was blocked,
+what needs to happen next.
+The final output should help patent reviewers understand:
+
+what is technically novel,
+what signals are combined,
+how decisions are gated,
+how residual-bypass-aware reliability improves on pure series reliability,
+how row-level explainability supports deployment governance.

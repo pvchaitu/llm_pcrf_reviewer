@@ -1,0 +1,81 @@
+sample_id,prompt,target,curriculum_score,pcrf_weight,criticality_weight,combined_weight,sampling_bucket
+56,A liquid solution with a pH rating significantly higher than 7 is a,Base,0.025726,0.007398,1.0,0.000190,HIGH_PRIORITY
+74,The relational database directive used to fetch selected tuples from table arrays is,SELECT,0.024732,0.007398,5.0,0.000915,HIGH_PRIORITY
+60,Light waves travel significantly faster than mechanical propagation of,Sound,0.024596,0.007398,1.0,0.000182,HIGH_PRIORITY
+37,The official capital city of Switzerland is,Bern,0.024454,0.007398,5.0,0.000905,HIGH_PRIORITY
+59,The core organ driving blood circulation in mammalian systems is the,Heart,0.023720,0.007398,3.0,0.000526,HIGH_PRIORITY
+57,The basic physical container of all organic life is the,Cell,0.023058,0.007398,1.0,0.000171,HIGH_PRIORITY
+49,The planet historically referred to as the red planet is,Mars,0.022976,0.007398,1.0,0.000170,HIGH_PRIORITY
+63,"To store keyed associative records with rapid O(1) lookup, developers choose a",Map,0.020780,0.007398,1.0,0.000154,HIGH_PRIORITY
+78,The reserved programming keyword used to declare structural blueprints in Python is,class,0.020723,0.007398,5.0,0.000767,HIGH_PRIORITY
+79,The reserved programming keyword used to initiate routine blocks in Python is,def,0.020456,0.007398,5.0,0.000757,HIGH_PRIORITY
+67,The primary volatile memory utilized for rapid workspace computation is,RAM,0.019792,0.007398,5.0,0.000732,HIGH_PRIORITY
+75,An auxiliary database lookup catalog built to accelerate query evaluation is an,Index,0.018410,0.007398,1.0,0.000136,HIGH_PRIORITY
+68,The foundational processing unit executing computing instructions is the,CPU,0.018197,0.007398,5.0,0.000673,HIGH_PRIORITY
+76,The fundamental internet routing system standardizing packet layout is the,IP,0.018128,0.007398,5.0,0.000671,HIGH_PRIORITY
+15,The official capital city of Mexico is,Mexico,0.018010,0.007398,1.0,0.000133,HIGH_PRIORITY
+61,"In operating systems, a scheduled execution thread resides within a",Process,0.017477,0.007398,5.0,0.000646,HIGH_PRIORITY
+70,"In class structures, an operational memory instantiation is called an",Object,0.016564,0.007398,5.0,0.000613,HIGH_PRIORITY
+69,The technical engineering pipeline of locating and isolating software bugs is,Debugging,0.016477,0.007398,1.0,0.000122,HIGH_PRIORITY
+1,The official capital city of France is,Paris,0.016477,0.007398,1.0,0.000122,HIGH_PRIORITY
+12,The official capital city of England is,London,0.016201,0.007398,4.0,0.000479,HIGH_PRIORITY
+62,"In deep learning, structural parameters are mathematically adjusted via",Descent,0.015918,0.007398,1.0,0.000118,MID_PRIORITY
+10,The official capital city of Russia is,Moscow,0.014553,0.007398,1.0,0.000108,MID_PRIORITY
+42,The element with atomic number 2 is,Helium,0.014425,0.007398,1.0,0.000107,MID_PRIORITY
+72,A software routine that invokes itself to solve smaller sub-problems is,Recursion,0.014286,0.007398,1.0,0.000106,MID_PRIORITY
+41,The element with atomic number 1 is,Hydrogen,0.013746,0.007398,1.0,0.000102,MID_PRIORITY
+44,The element with atomic number 7 is,Nitrogen,0.013659,0.007398,1.0,0.000101,MID_PRIORITY
+77,"In balanced search trees, a terminal node lacking downstream progeny is a",Leaf,0.013649,0.007398,1.0,0.000101,MID_PRIORITY
+43,The element with atomic number 6 is,Carbon,0.013647,0.007398,1.0,0.000101,MID_PRIORITY
+33,The official capital city of New Zealand is,Wellington,0.013522,0.007398,1.0,0.000100,MID_PRIORITY
+22,The official capital city of Peru is,Lima,0.012968,0.007398,1.0,0.000096,MID_PRIORITY
+48,The planet with the highest surface temperature is,Venus,0.012837,0.007398,1.0,0.000095,MID_PRIORITY
+55,A liquid solution with a pH rating significantly lower than 7 is an,Acid,0.012492,0.007398,1.0,0.000092,MID_PRIORITY
+53,The physical force driving planetary orbits is,Gravity,0.011968,0.007398,1.0,0.000089,MID_PRIORITY
+46,Water is chemically composed of oxygen and,Hydrogen,0.011848,0.007398,1.0,0.000088,MID_PRIORITY
+58,The atmospheric gas primarily responsible for global warming is,Carbon,0.011765,0.007398,1.0,0.000087,MID_PRIORITY
+66,The digital counting framework representing information with 0 and 1 is,Binary,0.011760,0.007398,5.0,0.000435,MID_PRIORITY
+17,The official capital city of Australia is,Canberra,0.011651,0.007398,1.0,0.000086,MID_PRIORITY
+80,The computational scale measuring worst-case algorithm complexity is Big O,Notation,0.011465,0.007398,1.0,0.000085,MID_PRIORITY
+8,The official capital city of Greece is,Athens,0.011117,0.007398,1.0,0.000082,MID_PRIORITY
+7,The official capital city of Egypt is,Cairo,0.010786,0.007398,1.0,0.000080,MID_PRIORITY
+36,The official capital city of Netherlands is,Amsterdam,0.010654,0.007398,1.0,0.000079,MID_PRIORITY
+35,The official capital city of Ukraine is,Kyiv,0.010433,0.007398,1.0,0.000077,MID_PRIORITY
+39,The official capital city of Norway is,Oslo,0.010380,0.007398,1.0,0.000077,MID_PRIORITY
+52,The standard electrical metric measuring opposition to current is,Ohm,0.010355,0.007398,1.0,0.000077,MID_PRIORITY
+50,The largest gas giant orbiting inside our solar system is,Jupiter,0.010331,0.007398,1.0,0.000076,MID_PRIORITY
+47,The planet sitting closest to our solar system's sun is,Mercury,0.010237,0.007398,1.0,0.000076,MID_PRIORITY
+3,The official capital city of Italy is,Rome,0.010087,0.007398,1.0,0.000075,MID_PRIORITY
+9,The official capital city of Portugal is,Lisbon,0.010080,0.007398,1.0,0.000075,MID_PRIORITY
+71,The network transmission protocol used to serve encrypted web content is,HTTPS,0.010018,0.007398,1.0,0.000074,MID_PRIORITY
+32,The official capital city of South Africa is,Pretoria,0.010003,0.007398,1.0,0.000074,MID_PRIORITY
+4,The official capital city of Spain is,Madrid,0.009979,0.007398,1.0,0.000074,MID_PRIORITY
+11,The official capital city of India is,Delhi,0.009508,0.007398,4.0,0.000281,MID_PRIORITY
+6,The official capital city of China is,Beijing,0.009269,0.007398,4.0,0.000274,MID_PRIORITY
+51,Photosynthesis in organic plant structures generates glucose and,Oxygen,0.009245,0.007398,3.0,0.000205,MID_PRIORITY
+13,The official capital city of Canada is,Ottawa,0.009229,0.007398,1.0,0.000068,MID_PRIORITY
+26,The official capital city of Austria is,Vienna,0.009109,0.007398,1.0,0.000067,MID_PRIORITY
+31,The official capital city of Nigeria is,Abuja,0.009085,0.007398,1.0,0.000067,MID_PRIORITY
+2,The official capital city of Germany is,Berlin,0.009043,0.007398,1.0,0.000067,MID_PRIORITY
+54,The chemical compound representing standard table salt is,NaCl,0.008935,0.007398,1.0,0.000066,MID_PRIORITY
+24,The official capital city of Colombia is,Bogota,0.008657,0.007398,1.0,0.000064,MID_PRIORITY
+18,The official capital city of Sweden is,Stockholm,0.008540,0.007398,1.0,0.000063,LOW_PRIORITY
+45,The element with atomic number 8 is,Oxygen,0.008118,0.007398,3.0,0.000180,LOW_PRIORITY
+20,The official capital city of Thailand is,Bangkok,0.008085,0.007398,1.0,0.000060,LOW_PRIORITY
+73,The version control directive committing index state to local repository history is git,commit,0.007913,0.007398,1.0,0.000059,LOW_PRIORITY
+14,The official capital city of Brazil is,Brasilia,0.007627,0.007398,1.0,0.000056,LOW_PRIORITY
+19,The official capital city of Turkey is,Ankara,0.007603,0.007398,1.0,0.000056,LOW_PRIORITY
+28,The official capital city of Finland is,Helsinki,0.007569,0.007398,1.0,0.000056,LOW_PRIORITY
+27,The official capital city of Poland is,Warsaw,0.007442,0.007398,1.0,0.000055,LOW_PRIORITY
+40,The official capital city of Indonesia is,Jakarta,0.007433,0.007398,1.0,0.000055,LOW_PRIORITY
+5,The official capital city of Japan is,Tokyo,0.007102,0.007398,4.0,0.000210,LOW_PRIORITY
+23,The official capital city of Chile is,Santiago,0.007024,0.007398,1.0,0.000052,LOW_PRIORITY
+29,The official capital city of Ireland is,Dublin,0.006933,0.007398,1.0,0.000051,LOW_PRIORITY
+65,"A sequential stack data structure operates on the last-in first-out principle, or",LIFO,0.006863,0.007398,1.0,0.000051,LOW_PRIORITY
+64,"A sequential queue data structure operates on the first-in first-out principle, or",FIFO,0.006669,0.007398,1.0,0.000049,LOW_PRIORITY
+34,The official capital city of Saudi Arabia is,Riyadh,0.006613,0.007398,1.0,0.000049,LOW_PRIORITY
+21,The official capital city of Vietnam is,Hanoi,0.006585,0.007398,1.0,0.000049,LOW_PRIORITY
+16,The official capital city of Argentina is,Buenos Aires,0.006084,0.007398,1.0,0.000045,LOW_PRIORITY
+25,The official capital city of Belgium is,Brussels,0.005682,0.007398,1.0,0.000042,LOW_PRIORITY
+30,The official capital city of Kenya is,Nairobi,0.005407,0.007398,1.0,0.000040,LOW_PRIORITY
+38,The official capital city of Denmark is,Copenhagen,0.005052,0.007398,1.0,0.000037,LOW_PRIORITY

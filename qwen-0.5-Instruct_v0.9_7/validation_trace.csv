@@ -1,0 +1,228 @@
+identityrun_id,model_name,split,id,task_type,prompt,target,is_critical,criticality_weight,baseline_output,baseline_correct,baseline_nll,baseline_ppl,baseline_target_prob,baseline_entropy,baseline_top1_token,baseline_top1_prob,baseline_top2_token,baseline_top2_prob,baseline_margin,candidate_output,candidate_correct,candidate_nll,candidate_ppl,candidate_target_prob,candidate_entropy,candidate_top1_token,candidate_top1_prob,candidate_top2_token,candidate_top2_prob,candidate_margin,delta_nll,delta_ppl,delta_target_prob,delta_entropy,delta_margin,transition_type,top1_changed_flag,argmax_flip_flag,margin_collapse_flag,baseline_high_confidence_wrong_flag,candidate_high_confidence_wrong_flag,baseline_hallucination_risk_score,candidate_hallucination_risk_score,delta_hallucination_risk_score,hallucination_risk_band,R_sys_base,R_sys_candidate,delta_R_sys,S_total_base,S_total_candidate,delta_S_total,top_sensitive_layers,top_derivative_layers,top_layer_risk_contributors,KL_candidate_vs_baseline,representation_drift_score,confidence_calibration_delta,router_decision,served_output,served_status,served_reason,decision_reason,strict_em_baseline,strict_em_candidate,first_token_baseline,first_token_candidate,instruction_violation_baseline,instruction_violation_candidate,failure_category
+run-42,Qwen/Qwen2.5-0.5B-Instruct,seen_val,81,factual,Complete with one word only: The official capital city of South Korea is,Seoul,1,4.0,"__________. Seoul
+
+What is the answer? To determine",1,1.5859375,4.883867859070157,0.337890625,2.59375,__,0.337890625,Seoul,0.205078125,0.5,"Seoul. 
+
+The official capital city of South Korea is Seoul",1,0.65625,1.9275504501675447,0.51953125,2.515625,Seoul,0.51953125,__,0.130859375,1.375,-0.9296875,-2.956317408902612,0.181640625,-0.078125,0.875,correct_to_correct,1,0,0,0,0,0.34167462201663235,0.3455808720166323,0.0039062499999999445,MEDIUM,0.35568938991683857,0.35568938991683857,0.0,1.0336974292135788,1.0336974292135788,0.0,"0,1","22,23",23,0.0125,0.02,0.181640625,use_baseline,"__________. Seoul
+
+What is the answer? To determine",ANSWERED,NORMAL_ROUTER_SELECTION,Baseline served to preserve stricter output contract or lower risk.,0,0,1,1,1,1,INSTRUCTION_CONTRACT_VIOLATION
+run-42,Qwen/Qwen2.5-0.5B-Instruct,seen_val,82,factual,Complete with one word only: The official capital city of Norway is,Oslo,0,1.0,"________.
+Stockholm
+
+The official capital city of Norway",0,2.8125,16.651494963610144,0.4140625,2.390625,______,0.4140625,____,0.126953125,1.1875,"Oslo. 
+
+The official capital city of Norway is Oslo.",1,0.77734375,2.175685418851178,0.458984375,2.359375,Oslo,0.458984375,______,0.2041015625,0.8125,-2.03515625,-14.475809544758967,0.044921875,-0.03125,-0.375,wrong_to_correct,1,1,0,0,0,0.31495587201663233,0.35776837201663225,0.04281249999999992,MEDIUM,0.35568938991683857,0.35568938991683857,0.0,1.0336974292135788,1.0336974292135788,0.0,"0,1","22,23",23,0.0125,0.02,0.044921875,use_candidate,"Oslo. 
+
+The official capital city of Norway is Oslo.",ANSWERED,NORMAL_ROUTER_SELECTION,Candidate repair promoted.,0,0,0,1,1,1,INSTRUCTION_CONTRACT_VIOLATION
+run-42,Qwen/Qwen2.5-0.5B-Instruct,seen_val,83,factual,Complete with one word only: The official capital city of Sweden is,Stockholm,0,1.0,"________.
+Stockholm
+
+The official capital city of Sweden",1,1.8515625,6.369764508102507,0.29296875,2.59375,______,0.29296875,Stockholm,0.1572265625,0.625,"Stockholm. 
+
+The official capital city of Sweden is Stockholm.",1,0.53125,1.7010573018484008,0.5859375,2.234375,Stockholm,0.5859375,______,0.10888671875,1.6875,-1.3203125,-4.668707206254106,0.29296875,-0.359375,1.0625,correct_to_correct,1,0,0,0,0,0.3379246220166323,0.3277683720166323,-0.010156250000000033,MEDIUM,0.35568938991683857,0.35568938991683857,0.0,1.0336974292135788,1.0336974292135788,0.0,"0,1","22,23",23,0.0125,0.02,0.29296875,use_candidate,"Stockholm. 
+
+The official capital city of Sweden is Stockholm.",ANSWERED,NORMAL_ROUTER_SELECTION,Candidate served; semantic target preserved and router policy allowed candidate.,0,0,1,1,1,1,INSTRUCTION_CONTRACT_VIOLATION
+run-42,Qwen/Qwen2.5-0.5B-Instruct,seen_val,84,factual,Complete with one word only: The official capital city of Switzerland is,Bern,1,5.0,"__________. Zurich
+
+What does the sentence ""The official",0,3.734375,41.861853726676614,0.353515625,2.53125,__,0.353515625,____,0.1474609375,0.875,"__________. Zurich
+
+The official capital city of Switzerland is",0,2.75,15.642631884188171,0.28515625,3.21875,__,0.28515625,Ber,0.0869140625,1.1875,-0.984375,-26.219221842488444,-0.068359375,0.6875,0.3125,wrong_to_wrong,0,0,0,0,0,0.3285496220166323,0.3722996220166323,0.04375000000000001,MEDIUM,0.35568938991683857,0.35568938991683857,0.0,1.0336974292135788,1.0336974292135788,0.0,"0,1","22,23",23,0.0125,0.02,-0.068359375,use_baseline,⚠️ Hallucination Risk Detected — Response Withheld for Safety,ABSTAINED,HALLUCINATION_RISK_UNRESOLVED,"Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3723).",0,0,0,0,1,1,WRONG_ENTITY_SUBSTITUTION
+run-42,Qwen/Qwen2.5-0.5B-Instruct,seen_val,85,factual,Complete with one word only: The official capital city of Poland is,Warsaw,0,1.0,"Warsaw. 
+
+A) Capital
+B) City
+C",1,1.5078125,4.516839393365801,0.220703125,2.953125,Warsaw,0.220703125,__,0.171875,0.25,"Warsaw. 
+
+The official capital city of Poland is Warsaw,",1,0.734375,2.0841789734955687,0.48046875,2.40625,Warsaw,0.48046875,Krak,0.212890625,0.8125,-0.7734375,-2.4326604198702326,0.259765625,-0.546875,0.5625,correct_to_correct,0,0,0,0,0,0.35995587201663226,0.35917462201663225,-0.0007812500000000111,MEDIUM,0.35568938991683857,0.35568938991683857,0.0,1.0336974292135788,1.0336974292135788,0.0,"0,1","22,23",23,0.0125,0.02,0.259765625,use_candidate,"Warsaw. 
+
+The official capital city of Poland is Warsaw,",ANSWERED,NORMAL_ROUTER_SELECTION,Candidate served; semantic target preserved and router policy allowed candidate.,0,0,1,1,1,1,INSTRUCTION_CONTRACT_VIOLATION
+run-42,Qwen/Qwen2.5-0.5B-Instruct,seen_val,86,scientific,Complete with one word only: The noble element designated by atomic number 10 is,Neon,0,1.0,"____. 
+A. Gold
+B. Silver
+C",0,10.0625,23447.050788115514,0.365234375,2.84375,__,0.365234375,____,0.15234375,0.875,"____
+A. Iron
+B. Gold
+C.",0,7.4375,1698.4986622608421,0.1728515625,4.46875,__,0.1728515625,____,0.0634765625,1.0,-2.625,-21748.552125854672,-0.1923828125,1.625,0.125,wrong_to_wrong,0,0,0,0,0,0.3379246220166323,0.4154246220166323,0.07749999999999996,MEDIUM,0.35568938991683857,0.35568938991683857,0.0,1.0336974292135788,1.0336974292135788,0.0,"0,1","22,23",23,0.0125,0.02,-0.1923828125,use_baseline,⚠️ Hallucination Risk Detected — Response Withheld for Safety,ABSTAINED,HALLUCINATION_RISK_UNRESOLVED,"Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4154).",0,0,0,0,1,1,WRONG_ENTITY_SUBSTITUTION
+run-42,Qwen/Qwen2.5-0.5B-Instruct,seen_val,87,scientific,Complete with one word only: The volatile element designated by atomic number 16 is,Sulfur,0,1.0,"__________. 
+A. Sodium
+B. Magnesium",0,3.6666666666666665,39.12128399815321,0.330078125,3.015625,__,0.330078125,____,0.1552734375,0.75,"____
+A. Sodium
+B. Magnesium
+C",0,2.9583333333333335,19.265835257097933,0.140625,4.6875,__,0.140625,____,0.062255859375,0.8125,-0.708333333333333,-19.855448741055277,-0.189453125,1.671875,0.0625,wrong_to_wrong,0,0,0,0,0,0.3468308720166323,0.4276121220166323,0.08078124999999997,MEDIUM,0.35568938991683857,0.35568938991683857,0.0,1.0336974292135788,1.0336974292135788,0.0,"0,1","22,23",23,0.0125,0.02,-0.189453125,use_baseline,⚠️ Hallucination Risk Detected — Response Withheld for Safety,ABSTAINED,HALLUCINATION_RISK_UNRESOLVED,"Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4276).",0,0,0,0,1,1,WRONG_ENTITY_SUBSTITUTION
+run-42,Qwen/Qwen2.5-0.5B-Instruct,seen_val,88,scientific,Complete with one word only: The chemical molecule animals must extract from air to survive is,Oxygen,1,3.0,"called _____. oxygen
+
+The chemical molecule that animals must extract",1,8.125,3377.8679316735347,0.21484375,3.75,called,0.21484375,__,0.1484375,0.375,"called oxygen. Oxygen is essential for life on Earth.
+
+The",1,6.46875,644.6773763804644,0.2021484375,4.4375,called,0.2021484375,carbon,0.08984375,0.8125,-1.65625,-2733.1905552930702,-0.0126953125,0.6875,0.4375,correct_to_correct,0,0,0,0,0,0.38011212201663225,0.42011212201663223,0.03999999999999998,MEDIUM,0.35568938991683857,0.35568938991683857,0.0,1.0336974292135788,1.0336974292135788,0.0,"0,1","22,23",23,0.0125,0.02,-0.0126953125,use_baseline,"called _____. oxygen
+
+The chemical molecule that animals must extract",ANSWERED,NORMAL_ROUTER_SELECTION,Baseline served to preserve stricter output contract or lower risk.,0,0,0,0,1,1,INSTRUCTION_CONTRACT_VIOLATION
+run-42,Qwen/Qwen2.5-0.5B-Instruct,seen_val,89,scientific,Complete with one word only: The yellow dwarf star supporting life at the center of our solar system is the,Sun,0,1.0,"___.
+A. Sun
+B. Earth
+C.",1,2.984375,19.774139536218833,0.12158203125,4.3125,___,0.12158203125,__,0.08349609375,0.375,"Sun. 
+
+The sun is a star, and it supports",1,1.890625,6.623507079583559,0.1513671875,4.78125,Sun,0.1513671875,sun,0.09765625,0.4375,-1.09375,-13.150632456635273,0.02978515625,0.46875,0.0625,correct_to_correct,1,0,0,0,0,0.39698712201663233,0.44167462201663227,0.044687499999999936,MEDIUM,0.35568938991683857,0.35568938991683857,0.0,1.0336974292135788,1.0336974292135788,0.0,"0,1","22,23",23,0.0125,0.02,0.02978515625,use_baseline,"___.
+A. Sun
+B. Earth
+C.",ANSWERED,NORMAL_ROUTER_SELECTION,Baseline served to preserve stricter output contract or lower risk.,0,0,0,1,1,1,INSTRUCTION_CONTRACT_VIOLATION
+run-42,Qwen/Qwen2.5-0.5B-Instruct,seen_val,90,scientific,Complete with one word only: Mechanical acoustics are completely incapable of moving across a spatial,Vacuum,0,1.0,"medium. 
+
+A) Inertial
+B) Elastic",0,12.3125,222459.42401932197,0.2109375,3.15625,medium,0.2109375,ly,0.1865234375,0.125,"medium. The sound waves that travel through the air, for",0,12.0625,173251.57362786165,0.1953125,3.359375,medium,0.1953125,domain,0.1728515625,0.125,-0.25,-49207.85039146032,-0.015625,0.203125,0.0,wrong_to_wrong,0,0,0,0,0,0.3697996220166323,0.40839337201663223,0.03859374999999993,MEDIUM,0.35568938991683857,0.35568938991683857,0.0,1.0336974292135788,1.0336974292135788,0.0,"0,1","22,23",23,0.0125,0.02,-0.015625,use_baseline,⚠️ Hallucination Risk Detected — Response Withheld for Safety,ABSTAINED,HALLUCINATION_RISK_UNRESOLVED,"Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4084).",0,0,0,0,1,1,WRONG_ENTITY_SUBSTITUTION
+run-42,Qwen/Qwen2.5-0.5B-Instruct,seen_val,91,cloze,Complete with one word only: The globally recognized fantasy series Harry Potter was written by J.K.,Rowling,0,1.0,"Rowling, and it has been adapted into a popular film franchise",1,0.006195068359375,1.0062142974834347,0.9921875,0.06640625,Rowling,0.9921875,,0.00109100341796875,6.8125,"Rowling and published in the United Kingdom.
+J.K. Rowling",1,0.005096435546875,1.0051094444648316,0.99609375,0.0546875,Rowling,0.99609375,Smith,0.00080108642578125,7.125,-0.0010986328125,-0.0011048530186030803,0.00390625,-0.01171875,0.3125,correct_to_correct,0,0,0,0,0,0.1308543095166323,0.1630027470166323,0.032148437500000016,LOW,0.35568938991683857,0.35568938991683857,0.0,1.0336974292135788,1.0336974292135788,0.0,"0,1","22,23",23,0.0125,0.02,0.00390625,use_baseline,"Rowling, and it has been adapted into a popular film franchise",ANSWERED,NORMAL_ROUTER_SELECTION,Baseline served to preserve stricter output contract or lower risk.,0,0,1,1,1,1,INSTRUCTION_CONTRACT_VIOLATION
+run-42,Qwen/Qwen2.5-0.5B-Instruct,seen_val,92,cloze,Complete with one word only: The legendary classical Greek epic poem The Odyssey is attributed to,Homer,0,1.0,"which ancient Greek poet? Homer. 
+
+The Odyssey is a",1,3.328125,27.886006392229614,0.169921875,3.171875,which,0.169921875,whom,0.1318359375,0.25,"Homer, who lived in the 8th century BC.",1,1.765625,5.84522448197963,0.1708984375,3.53125,Homer,0.1708984375,the,0.1416015625,0.1875,-1.5625,-22.040781910249983,0.0009765625,0.359375,-0.0625,correct_to_correct,1,0,0,0,0,0.3665183720166323,0.41167462201663224,0.04515624999999995,MEDIUM,0.35568938991683857,0.35568938991683857,0.0,1.0336974292135788,1.0336974292135788,0.0,"0,1","22,23",23,0.0125,0.02,0.0009765625,use_baseline,"which ancient Greek poet? Homer. 
+
+The Odyssey is a",ANSWERED,NORMAL_ROUTER_SELECTION,Baseline served to preserve stricter output contract or lower risk.,0,0,0,1,1,1,INSTRUCTION_CONTRACT_VIOLATION
+run-42,Qwen/Qwen2.5-0.5B-Instruct,seen_val,93,cloze,Complete with one word only: To achieve multiple achievements concurrently is to kill two birds with one,stone,0,1.0,"stone. 
+
+A) Achieve
+B) Conquer",1,0.007110595703125,1.0071359360147156,0.9921875,0.0771484375,stone,0.9921875,egg,0.0004558563232421875,7.6875,"stone. 
+
+To achieve multiple goals simultaneously is to accomplish more",1,0.00445556640625,1.0044655072007234,0.99609375,0.049072265625,stone,0.99609375,pe,0.000518798828125,7.5625,-0.002655029296875,-0.002670428813992265,0.00390625,-0.028076171875,-0.125,correct_to_correct,0,0,0,0,0,0.1311765751416323,0.1628342899853823,0.03165771484374999,LOW,0.35568938991683857,0.35568938991683857,0.0,1.0336974292135788,1.0336974292135788,0.0,"0,1","22,23",23,0.0125,0.02,0.00390625,use_baseline,"stone. 
+
+A) Achieve
+B) Conquer",ANSWERED,NORMAL_ROUTER_SELECTION,Baseline served to preserve stricter output contract or lower risk.,0,0,1,1,1,1,INSTRUCTION_CONTRACT_VIOLATION
+run-42,Qwen/Qwen2.5-0.5B-Instruct,seen_val,94,cloze,Complete with one word only: A graphical diagram is capable of conveying complex information because a picture is worth a thousand,words,0,1.0,"words. 
+
+A) Visual
+B) Digital
+C",1,0.0308837890625,1.0313656409539251,0.96875,0.2392578125,words,0.96875,____,0.0107421875,4.5,"words. 
+
+A) Visual
+B) Graphic
+C",1,0.019775390625,1.0199722189737297,0.98046875,0.193359375,words,0.98046875,____,0.002288818359375,6.0625,-0.0111083984375,-0.01139342198019544,0.01171875,-0.0458984375,1.5625,correct_to_correct,0,0,0,0,0,0.1510398563916323,0.1671629032666323,0.01612304687499999,LOW,0.35568938991683857,0.35568938991683857,0.0,1.0336974292135788,1.0336974292135788,0.0,"0,1","22,23",23,0.0125,0.02,0.01171875,use_baseline,"words. 
+
+A) Visual
+B) Digital
+C",ANSWERED,NORMAL_ROUTER_SELECTION,Baseline served to preserve stricter output contract or lower risk.,0,0,1,1,1,1,INSTRUCTION_CONTRACT_VIOLATION
+run-42,Qwen/Qwen2.5-0.5B-Instruct,seen_val,95,cloze,Complete with one word only: An advice warning against placing all financial resources in a single asset is to not put all your eggs in one,basket,0,1.0,basket. This means that you should diversify your investments across,1,0.041748046875,1.0426317513266843,0.9609375,0.36328125,basket,0.9609375,box,0.005706787109375,5.125,basket. This means that you should diversify your investments across,1,0.046630859375,1.0477351760684301,0.953125,0.40625,basket,0.953125,box,0.007293701171875,4.875,0.0048828125,0.0051034247417458545,-0.0078125,0.04296875,-0.25,correct_to_correct,0,0,0,0,0,0.1397605595166323,0.1772996220166323,0.0375390625,LOW,0.35568938991683857,0.35568938991683857,0.0,1.0336974292135788,1.0336974292135788,0.0,"0,1","22,23",23,0.0125,0.02,-0.0078125,use_baseline,basket. This means that you should diversify your investments across,ANSWERED,NORMAL_ROUTER_SELECTION,Baseline served to preserve stricter output contract or lower risk.,0,0,1,1,1,1,INSTRUCTION_CONTRACT_VIOLATION
+run-42,Qwen/Qwen2.5-0.5B-Instruct,seen_val,96,cs,"Complete with one word only: To enforce unique constraints with no duplicated items, algorithms utilize a",Set,1,5.0,"technique known as __________. 
+
+A) Hashing",0,7.75,2321.572414611057,0.2255859375,3.984375,technique,0.2255859375,data,0.0732421875,1.125,technique known as hashing. This method involves converting the data into,0,6.875,967.7753655846766,0.1982421875,4.4375,technique,0.1982421875,data,0.08251953125,0.875,-0.875,-1353.7970490263804,-0.02734375,0.453125,-0.25,wrong_to_wrong,0,0,0,0,0,0.36464337201663233,0.41823712201663227,0.05359374999999994,MEDIUM,0.35568938991683857,0.35568938991683857,0.0,1.0336974292135788,1.0336974292135788,0.0,"0,1","22,23",23,0.0125,0.02,-0.02734375,use_baseline,⚠️ Hallucination Risk Detected — Response Withheld for Safety,ABSTAINED,HALLUCINATION_RISK_UNRESOLVED,"Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4182).",0,0,0,0,1,1,WRONG_ENTITY_SUBSTITUTION
+run-42,Qwen/Qwen2.5-0.5B-Instruct,seen_val,97,cs,Complete with one word only: The hypermedia syntax used to format layout documents across the World Wide Web is,HTML,0,1.0,"called __________. HTML
+
+The hypermedia syntax used to",1,4.125,61.867809250367884,0.1875,3.96875,called,0.1875,known,0.1455078125,0.25,"called __________. HTML
+
+The hypermedia syntax used to",1,3.453125,31.598985005566618,0.111328125,4.96875,called,0.111328125,known,0.08642578125,0.25,-0.671875,-30.268824244801266,-0.076171875,1.0,0.0,correct_to_correct,0,0,0,0,0,0.3904246220166323,0.45292462201663225,0.062499999999999944,MEDIUM,0.35568938991683857,0.35568938991683857,0.0,1.0336974292135788,1.0336974292135788,0.0,"0,1","22,23",23,0.0125,0.02,-0.076171875,use_baseline,"called __________. HTML
+
+The hypermedia syntax used to",ANSWERED,NORMAL_ROUTER_SELECTION,Baseline served to preserve stricter output contract or lower risk.,0,0,0,0,1,1,INSTRUCTION_CONTRACT_VIOLATION
+run-42,Qwen/Qwen2.5-0.5B-Instruct,seen_val,98,cs,Complete with one word only: An execution failure originating from incorrect program logic is called a,Bug,1,5.0,"(n) ________.
+A. Error
+B. Fault",0,11.8125,134928.46120973182,0.59765625,1.984375,(n,0.59765625,____,0.091796875,1.875,"(n) ________.
+A. Error
+B. Fault",0,9.25,10404.565716560723,0.28515625,3.984375,(n,0.28515625,____,0.07666015625,1.3125,-2.5625,-124523.89549317109,-0.3125,2.0,-0.5625,wrong_to_wrong,0,0,0,1,0,0.5321433720166323,0.39151837201663225,-0.14062500000000006,MEDIUM,0.35568938991683857,0.35568938991683857,0.0,1.0336974292135788,1.0336974292135788,0.0,"0,1","22,23",23,0.0125,0.02,-0.3125,use_baseline,⚠️ Hallucination Risk Detected — Response Withheld for Safety,ABSTAINED,HALLUCINATION_RISK_UNRESOLVED,"Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3915).",0,0,0,0,1,1,WRONG_ENTITY_SUBSTITUTION
+run-42,Qwen/Qwen2.5-0.5B-Instruct,seen_val,99,cs,Complete with one word only: A standardized text notation representing complex structural records is,JSON,0,1.0,"called a(n) ________.
+A. CAD
+B",0,10.9375,56246.55085200208,0.2021484375,4.1875,called,0.2021484375,known,0.095703125,0.75,"called a(n) ________.
+A. Standardization",0,10.625,41150.85567766677,0.12890625,4.875,called,0.12890625,known,0.06884765625,0.625,-0.3125,-15095.695174335313,-0.0732421875,0.6875,-0.125,wrong_to_wrong,0,0,0,0,0,0.3819871220166323,0.4388621220166323,0.05687499999999995,MEDIUM,0.35568938991683857,0.35568938991683857,0.0,1.0336974292135788,1.0336974292135788,0.0,"0,1","22,23",23,0.0125,0.02,-0.0732421875,use_baseline,⚠️ Hallucination Risk Detected — Response Withheld for Safety,ABSTAINED,HALLUCINATION_RISK_UNRESOLVED,"Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4389).",0,0,0,0,1,1,WRONG_ENTITY_SUBSTITUTION
+run-42,Qwen/Qwen2.5-0.5B-Instruct,seen_val,100,cs,Complete with one word only: The active keyword used to bind external packages into Python script scopes is,import,1,5.0,"____________.
+module
+
+The active keyword used to bind",0,7.53125,1865.4358415938036,0.40625,2.796875,__,0.40625,____,0.0908203125,1.5,"____________.
+The active keyword used to bind external packages",0,5.625,277.272284523134,0.2119140625,4.03125,__,0.2119140625,called,0.0732421875,1.0625,-1.90625,-1588.1635570706696,-0.1943359375,1.234375,-0.4375,wrong_to_wrong,0,0,0,0,0,0.31776837201663233,0.40042462201663226,0.08265624999999993,MEDIUM,0.35568938991683857,0.35568938991683857,0.0,1.0336974292135788,1.0336974292135788,0.0,"0,1","22,23",23,0.0125,0.02,-0.1943359375,use_baseline,⚠️ Hallucination Risk Detected — Response Withheld for Safety,ABSTAINED,HALLUCINATION_RISK_UNRESOLVED,"Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4004).",0,0,0,0,1,1,WRONG_ENTITY_SUBSTITUTION
+run-42,Qwen/Qwen2.5-0.5B-Instruct,unseen_val,101,factual,Complete with one word only: The official capital city of Austria is,Vienna,0,1.0,"__________. Vienna
+
+What does the sentence ""The official",1,2.703125,14.926303617194517,0.384765625,2.3125,__,0.384765625,____,0.1416015625,1.0,"Vienna. 
+
+Vienna, the capital city of Austria,",1,0.59765625,1.8178532101432967,0.55078125,2.09375,Vienna,0.55078125,__,0.1572265625,1.25,-2.10546875,-13.10845040705122,0.166015625,-0.21875,0.25,correct_to_correct,1,0,0,0,0,0.31823712201663235,0.3366746220166323,0.01843749999999994,MEDIUM,0.35568938991683857,0.35568938991683857,0.0,1.0336974292135788,1.0336974292135788,0.0,"0,1","22,23",23,0.0125,0.02,0.166015625,use_baseline,"__________. Vienna
+
+What does the sentence ""The official",ANSWERED,NORMAL_ROUTER_SELECTION,Baseline served to preserve stricter output contract or lower risk.,0,0,1,1,1,1,INSTRUCTION_CONTRACT_VIOLATION
+run-42,Qwen/Qwen2.5-0.5B-Instruct,unseen_val,102,factual,Complete with one word only: The classical Roman general who met his end during the Ides of March was Julius,Caesar,1,4.0,"Caesar. 
+
+A) Lucius Cornelius Sulla",1,0.06298828125,1.0650143585211624,0.9375,0.46875,Caesar,0.9375,C,0.018310546875,3.9375,"Caesar. 
+
+A) Caesar
+B) Cesar",1,0.045166015625,1.04620153129333,0.95703125,0.3515625,Caesar,0.95703125,C,0.0128173828125,4.3125,-0.017822265625,-0.018812827227832507,0.01953125,-0.1171875,0.375,correct_to_correct,0,0,0,0,0,0.1747996220166323,0.1925339970166323,0.017734374999999997,LOW,0.35568938991683857,0.35568938991683857,0.0,1.0336974292135788,1.0336974292135788,0.0,"0,1","22,23",23,0.0125,0.02,0.01953125,use_baseline,"Caesar. 
+
+A) Lucius Cornelius Sulla",ANSWERED,NORMAL_ROUTER_SELECTION,Baseline served to preserve stricter output contract or lower risk.,0,0,1,1,1,1,INSTRUCTION_CONTRACT_VIOLATION
+run-42,Qwen/Qwen2.5-0.5B-Instruct,unseen_val,103,factual,Complete with one word only: The pioneer lunar explorer who took the first steps on the moon surface was Neil,Armstrong,0,1.0,"Armstrong. 
+
+A) John B
+B) Robert C",1,0.05029296875,1.0515791310751077,0.94921875,0.384765625,Armstrong,0.94921875,Ald,0.0174560546875,4.0,"Armstrong. 
+
+The pioneer lunar explorer who took the first steps",1,0.058349609375,1.0600855467779053,0.94140625,0.419921875,Armstrong,0.94140625,Ald,0.025146484375,3.625,0.008056640625,0.008506415702797643,-0.0078125,0.03515625,-0.375,correct_to_correct,0,0,0,0,0,0.1704050907666323,0.21520977826663232,0.04480468750000002,LOW,0.35568938991683857,0.35568938991683857,0.0,1.0336974292135788,1.0336974292135788,0.0,"0,1","22,23",23,0.0125,0.02,-0.0078125,use_baseline,"Armstrong. 
+
+A) John B
+B) Robert C",ANSWERED,NORMAL_ROUTER_SELECTION,Baseline served to preserve stricter output contract or lower risk.,0,0,1,1,1,1,INSTRUCTION_CONTRACT_VIOLATION
+run-42,Qwen/Qwen2.5-0.5B-Instruct,unseen_val,104,factual,Complete with one word only: The theoretical physicist who revolutionized coordinate physics with relativity was Albert,Einstein,1,5.0,"Einstein. 
+
+A) Correct  
+B) Incorrect
+To",1,0.099609375,1.104739294992646,0.90625,0.68359375,Einstein,0.90625,.,0.0177001953125,3.9375,Einstein. He is known for his contributions to the field of,1,0.0458984375,1.046968072862147,0.95703125,0.37109375,Einstein,0.95703125,Ein,0.0087890625,4.6875,-0.0537109375,-0.0577712221304989,0.05078125,-0.3125,0.75,correct_to_correct,0,0,0,0,0,0.18124493451663232,0.1818699345166323,0.0006249999999999867,LOW,0.35568938991683857,0.35568938991683857,0.0,1.0336974292135788,1.0336974292135788,0.0,"0,1","22,23",23,0.0125,0.02,0.05078125,use_baseline,"Einstein. 
+
+A) Correct  
+B) Incorrect
+To",ANSWERED,NORMAL_ROUTER_SELECTION,Baseline served to preserve stricter output contract or lower risk.,0,0,1,1,1,1,INSTRUCTION_CONTRACT_VIOLATION
+run-42,Qwen/Qwen2.5-0.5B-Instruct,unseen_val,105,factual,Complete with one word only: The historical explorer who reached the Bahamas landmass in 1492 was Christopher,Columbus,0,1.0,"Columbus. 
+
+A) Invented B) Discovered C",1,0.0208740234375,1.021093409697019,0.98046875,0.197265625,Columbus,0.98046875,__,0.00189208984375,6.25,"Columbus. 
+
+The historical explorer who reached the Bahamas landmass",1,0.012451171875,1.0125290104404983,0.98828125,0.1357421875,Columbus,0.98828125,Colomb,0.00139617919921875,6.5625,-0.0084228515625,-0.00856439925652075,0.0078125,-0.0615234375,0.3125,correct_to_correct,0,0,0,0,0,0.1347800907666323,0.1654343876416323,0.030654296874999987,LOW,0.35568938991683857,0.35568938991683857,0.0,1.0336974292135788,1.0336974292135788,0.0,"0,1","22,23",23,0.0125,0.02,0.0078125,use_baseline,"Columbus. 
+
+A) Invented B) Discovered C",ANSWERED,NORMAL_ROUTER_SELECTION,Baseline served to preserve stricter output contract or lower risk.,0,0,1,1,1,1,INSTRUCTION_CONTRACT_VIOLATION
+run-42,Qwen/Qwen2.5-0.5B-Instruct,unseen_val,106,scientific,Complete with one word only: Mammalian red blood cells are chemically responsible for transporting vital,Oxygen,1,3.0,substances in the body. They have a unique structure that allows,0,9.4375,12550.301899404027,0.5234375,2.5,substances,0.5234375,oxygen,0.103515625,1.625,"substances in the body. They have a thick, flexible cell",0,9.125,9181.99701760271,0.51953125,2.71875,substances,0.51953125,oxygen,0.080078125,1.875,-0.3125,-3368.3048818013176,-0.00390625,0.21875,0.25,wrong_to_wrong,0,0,0,1,1,0.5551121220166323,0.5866746220166323,0.03156250000000005,HIGH,0.35568938991683857,0.35568938991683857,0.0,1.0336974292135788,1.0336974292135788,0.0,"0,1","22,23",23,0.0125,0.02,-0.00390625,use_baseline,⚠️ Hallucination Risk Detected — Response Withheld for Safety,ABSTAINED,HALLUCINATION_RISK_UNRESOLVED,"Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5867).",0,0,0,0,1,1,WRONG_ENTITY_SUBSTITUTION
+run-42,Qwen/Qwen2.5-0.5B-Instruct,unseen_val,107,scientific,Complete with one word only: The organic cellular process separating chromosome pairs into twin cells is,Mitosis,0,1.0,"called __________. meiosis
+
+The organic cellular process separating",0,6.625,753.7042125545613,0.50390625,2.46875,called,0.50390625,known,0.1435546875,1.25,"called meiosis. 
+
+The term ""meiosis"" in",0,5.3125,202.8567368308649,0.435546875,3.40625,called,0.435546875,known,0.1171875,1.3125,-1.3125,-550.8474757236964,-0.068359375,0.9375,0.0625,wrong_to_wrong,0,0,0,1,0,0.5654246220166323,0.37417462201663226,-0.1912500000000001,MEDIUM,0.35568938991683857,0.35568938991683857,0.0,1.0336974292135788,1.0336974292135788,0.0,"0,1","22,23",23,0.0125,0.02,-0.068359375,use_baseline,⚠️ Hallucination Risk Detected — Response Withheld for Safety,ABSTAINED,HALLUCINATION_RISK_UNRESOLVED,"Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3742).",0,0,0,0,1,1,WRONG_ENTITY_SUBSTITUTION
+run-42,Qwen/Qwen2.5-0.5B-Instruct,unseen_val,108,scientific,Complete with one word only: The primary command center of the central nervous system in vertebrates is the,Brain,1,3.0,"__________. spinal cord
+
+The primary command center of the",0,9.4375,12550.301899404027,0.326171875,2.609375,__,0.326171875,____,0.154296875,0.75,"__________. spinal cord
+
+The primary command center of the",0,7.34375,1546.5006307786239,0.216796875,3.40625,__,0.216796875,____,0.09033203125,0.875,-2.09375,-11003.801268625402,-0.109375,0.796875,0.125,wrong_to_wrong,0,0,0,0,0,0.3346433720166323,0.38729962201663226,0.05265624999999996,MEDIUM,0.35568938991683857,0.35568938991683857,0.0,1.0336974292135788,1.0336974292135788,0.0,"0,1","22,23",23,0.0125,0.02,-0.109375,use_baseline,⚠️ Hallucination Risk Detected — Response Withheld for Safety,ABSTAINED,HALLUCINATION_RISK_UNRESOLVED,"Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3873).",0,0,0,0,1,1,WRONG_ENTITY_SUBSTITUTION
+run-42,Qwen/Qwen2.5-0.5B-Instruct,unseen_val,109,scientific,Complete with one word only: The dual-helix macromolecule housing core genetic blueprints is,DNA,1,4.0,"called a(n) ________.
+A. Chromosome",0,7.25,1408.1048482046956,0.2119140625,3.4375,called,0.2119140625,the,0.1865234375,0.125,"the ________ of life.
+A. Cell
+B.",0,5.6875,295.1548104863723,0.18359375,4.1875,called,0.18359375,the,0.18359375,0.0,-1.5625,-1112.9500377183233,-0.0283203125,0.75,-0.125,wrong_to_wrong,0,0,1,0,0,0.3782371220166323,0.4369871220166323,0.058750000000000024,MEDIUM,0.35568938991683857,0.35568938991683857,0.0,1.0336974292135788,1.0336974292135788,0.0,"0,1","22,23",23,0.0125,0.02,-0.0283203125,use_baseline,⚠️ Hallucination Risk Detected — Response Withheld for Safety,ABSTAINED,HALLUCINATION_RISK_UNRESOLVED,"Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4370).",0,0,0,0,1,1,WRONG_ENTITY_SUBSTITUTION
+run-42,Qwen/Qwen2.5-0.5B-Instruct,unseen_val,110,scientific,Complete with one word only: The dense celestial body whose localized gravitational path traps light is a,Black Hole,1,4.0,"(n) ________.
+
+A. black hole B. white",1,5.1875,179.02044192165667,0.1845703125,3.25,(n,0.1845703125,___,0.162109375,0.125,"black hole. 
+
+The dense celestial body whose localized gravitational path",1,3.5,33.11545195869231,0.10791015625,4.3125,black,0.10791015625,___,0.0791015625,0.3125,-1.6875,-145.90498996296435,-0.07666015625,1.0625,0.1875,correct_to_correct,1,0,0,0,0,0.3726121220166323,0.4313621220166323,0.058750000000000024,MEDIUM,0.35568938991683857,0.35568938991683857,0.0,1.0336974292135788,1.0336974292135788,0.0,"0,1","22,23",23,0.0125,0.02,-0.07666015625,use_baseline,"(n) ________.
+
+A. black hole B. white",ANSWERED,NORMAL_ROUTER_SELECTION,Baseline served to preserve stricter output contract or lower risk.,0,0,0,1,1,1,INSTRUCTION_CONTRACT_VIOLATION
+run-42,Qwen/Qwen2.5-0.5B-Instruct,unseen_val,111,cloze,"Complete with one word only: An unexpected, completely unpredictable event is idiomatic described as out of the",blue,0,1.0,"________.
+boundaries. boundaries
+
+An unexpected, completely",0,6.40625,605.6183486721279,0.201171875,3.671875,______,0.201171875,__,0.1220703125,0.5,"ordinary. The phrase ""out of the ordinary"" means something",0,4.5,90.01713130052181,0.322265625,4.0,ordinary,0.322265625,______,0.1044921875,1.125,-1.90625,-515.6012173716061,0.12109375,0.328125,0.625,wrong_to_wrong,1,0,0,0,0,0.37401837201663235,0.39761212201663226,0.023593749999999913,MEDIUM,0.35568938991683857,0.35568938991683857,0.0,1.0336974292135788,1.0336974292135788,0.0,"0,1","22,23",23,0.0125,0.02,0.12109375,use_baseline,⚠️ Hallucination Risk Detected — Response Withheld for Safety,ABSTAINED,HALLUCINATION_RISK_UNRESOLVED,"Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3976).",0,0,0,0,1,1,WRONG_ENTITY_SUBSTITUTION
+run-42,Qwen/Qwen2.5-0.5B-Instruct,unseen_val,112,cloze,Complete with one word only: To prematurely leak sensitive details of a confidential strategy is to let the cat out of the,bag,0,1.0,"bag. This can lead to significant risks, including legal consequences",1,0.06396484375,1.0660549196094284,0.9375,0.50390625,bag,0.9375,house,0.0111083984375,4.4375,"bag. This can lead to serious consequences, including legal action",1,0.060302734375,1.0621580496311926,0.94140625,0.474609375,bag,0.94140625,house,0.0142822265625,4.1875,-0.003662109375,-0.003896869978235795,0.00390625,-0.029296875,-0.25,correct_to_correct,0,0,0,0,0,0.16085430951663232,0.1999754032666323,0.039121093749999974,LOW,0.35568938991683857,0.35568938991683857,0.0,1.0336974292135788,1.0336974292135788,0.0,"0,1","22,23",23,0.0125,0.02,0.00390625,use_baseline,"bag. This can lead to significant risks, including legal consequences",ANSWERED,NORMAL_ROUTER_SELECTION,Baseline served to preserve stricter output contract or lower risk.,0,0,1,1,1,1,INSTRUCTION_CONTRACT_VIOLATION
+run-42,Qwen/Qwen2.5-0.5B-Instruct,unseen_val,113,cloze,Complete with one word only: A state of intense mental ecstasy or extreme joy is described as being on cloud,nine,0,1.0,nine. The person feels a sense of euphoria and el,1,0.07373046875,1.0765166115218552,0.9296875,0.5234375,nine,0.9296875,Nine,0.019287109375,3.875,nine. The person feels like they are floating in the sky,1,0.072265625,1.0749408373049731,0.9296875,0.53515625,nine,0.9296875,Nine,0.01409912109375,4.1875,-0.00146484375,-0.0015757742168820421,0.0,0.01171875,0.3125,correct_to_correct,0,0,0,0,0,0.1783152470166323,0.2017918095166323,0.02347656250000002,LOW,0.35568938991683857,0.35568938991683857,0.0,1.0336974292135788,1.0336974292135788,0.0,"0,1","22,23",23,0.0125,0.02,0.0,use_baseline,nine. The person feels a sense of euphoria and el,ANSWERED,NORMAL_ROUTER_SELECTION,Baseline served to preserve stricter output contract or lower risk.,0,0,1,1,1,1,INSTRUCTION_CONTRACT_VIOLATION
+run-42,Qwen/Qwen2.5-0.5B-Instruct,unseen_val,114,cloze,"Complete with one word only: When working in an uncomfortable, unfamiliar setting, you feel like a fish out of",water,0,1.0,water. You may be overwhelmed by the noise and movement around,1,0.00799560546875,1.0080276556855061,0.9921875,0.07421875,water,0.9921875,fish,0.00191497802734375,6.25,water. You are not sure what to do and don't,1,0.01092529296875,1.010985191921098,0.98828125,0.0966796875,water,0.98828125,fish,0.003143310546875,5.75,0.0029296875,0.0029575362355918067,-0.00390625,0.0224609375,-0.5,correct_to_correct,0,0,0,0,0,0.1310886845166323,0.1642625126416323,0.033173828125,LOW,0.35568938991683857,0.35568938991683857,0.0,1.0336974292135788,1.0336974292135788,0.0,"0,1","22,23",23,0.0125,0.02,-0.00390625,use_baseline,water. You may be overwhelmed by the noise and movement around,ANSWERED,NORMAL_ROUTER_SELECTION,Baseline served to preserve stricter output contract or lower risk.,0,0,1,1,1,1,INSTRUCTION_CONTRACT_VIOLATION
+run-42,Qwen/Qwen2.5-0.5B-Instruct,unseen_val,115,cloze,"Complete with one word only: An extremely dynamic, energetic, and unpredictable person is referred to as a live",wire,0,1.0,-action character. A live-action character can be portrayed in various,0,4.4375,84.563269020706,0.22265625,4.40625,-action,0.22265625,action,0.126953125,0.5625,-action star. A live-action star can be an actor or,0,4.4375,84.563269020706,0.2001953125,4.875,-action,0.2001953125,action,0.146484375,0.3125,0.0,0.0,-0.0224609375,0.46875,-0.25,wrong_to_wrong,0,0,0,0,0,0.3941746220166322,0.4482371220166323,0.05406250000000007,MEDIUM,0.35568938991683857,0.35568938991683857,0.0,1.0336974292135788,1.0336974292135788,0.0,"0,1","22,23",23,0.0125,0.02,-0.0224609375,use_baseline,⚠️ Hallucination Risk Detected — Response Withheld for Safety,ABSTAINED,HALLUCINATION_RISK_UNRESOLVED,"Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4482).",0,0,0,0,1,1,WRONG_ENTITY_SUBSTITUTION
+run-42,Qwen/Qwen2.5-0.5B-Instruct,unseen_val,116,cs,Complete with one word only: The specialized data structure used to model recursive parent-child linkages is a,Tree,1,5.0,"(n) ________.
+tree
+graph
+array
+list",1,9.5,13359.726829661873,0.404296875,2.421875,(n,0.404296875,____,0.130859375,1.125,"(n) ________.
+tree
+binary tree
+graph",1,6.03125,416.23499808144635,0.1572265625,3.46875,______,0.1572265625,(n,0.1572265625,0.0,-3.46875,-12943.491831580426,-0.2470703125,1.046875,-1.125,correct_to_correct,1,0,1,0,0,0.31776837201663233,0.4154246220166323,0.09765624999999994,MEDIUM,0.35568938991683857,0.35568938991683857,0.0,1.0336974292135788,1.0336974292135788,0.0,"0,1","22,23",23,0.0125,0.02,-0.2470703125,use_baseline,"(n) ________.
+tree
+graph
+array
+list",ANSWERED,NORMAL_ROUTER_SELECTION,Baseline served to preserve stricter output contract or lower risk.,0,0,0,0,1,1,INSTRUCTION_CONTRACT_VIOLATION
+run-42,Qwen/Qwen2.5-0.5B-Instruct,unseen_val,117,cs,Complete with one word only: A networking layout topology organizing nodes around a central server hub is a,Star,0,1.0,"(n) ________.
+cluster
+mesh
+tree
+ring",0,14.5,1982759.2635375687,0.26171875,3.78125,(n,0.26171875,common,0.10888671875,0.875,common approach to network design. This type of topology can be,0,13.375,643707.6870850961,0.1748046875,4.65625,common,0.1748046875,popular,0.060546875,1.0625,-1.125,-1339051.5764524727,-0.0869140625,0.875,0.1875,wrong_to_wrong,1,0,0,0,0,0.36604962201663227,0.4191746220166323,0.05312500000000003,MEDIUM,0.35568938991683857,0.35568938991683857,0.0,1.0336974292135788,1.0336974292135788,0.0,"0,1","22,23",23,0.0125,0.02,-0.0869140625,use_baseline,⚠️ Hallucination Risk Detected — Response Withheld for Safety,ABSTAINED,HALLUCINATION_RISK_UNRESOLVED,"Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4192).",0,0,0,0,1,1,WRONG_ENTITY_SUBSTITUTION
+run-42,Qwen/Qwen2.5-0.5B-Instruct,unseen_val,118,cs,Complete with one word only: The routing index directory that translates domain strings to IP coordinates is,DNS,1,5.0,"called ____.
+A. Domain Name System
+B. Routing",0,9.1875,9774.184947038395,0.2890625,4.03125,called,0.2890625,known,0.0732421875,1.375,"called the ____.
+A. Domain Name System
+B.",0,8.625,5569.162708566004,0.2001953125,5.0,called,0.2001953125,a,0.06884765625,1.0625,-0.5625,-4205.022238472391,-0.0888671875,0.96875,-0.3125,wrong_to_wrong,0,0,0,0,0,0.3585496220166323,0.42948712201663225,0.07093749999999993,MEDIUM,0.35568938991683857,0.35568938991683857,0.0,1.0336974292135788,1.0336974292135788,0.0,"0,1","22,23",23,0.0125,0.02,-0.0888671875,use_baseline,⚠️ Hallucination Risk Detected — Response Withheld for Safety,ABSTAINED,HALLUCINATION_RISK_UNRESOLVED,"Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4295).",0,0,0,0,1,1,WRONG_ENTITY_SUBSTITUTION
+run-42,Qwen/Qwen2.5-0.5B-Instruct,unseen_val,119,cs,Complete with one word only: A formal logical interface allowing separate software modules to interact is an,API,0,1.0,"example of a(n) ________.
+A. Protocol",0,8.3125,4074.4864777337,0.859375,0.95703125,example,0.859375,instance,0.020263671875,3.75,"example of a(n) ________.
+A. protocol",0,7.40625,1646.2413521768196,0.66796875,2.015625,example,0.66796875,interface,0.062255859375,2.375,-0.90625,-2428.2451255568803,-0.19140625,1.05859375,-1.375,wrong_to_wrong,0,0,0,1,1,0.4450730595166323,0.5505808720166323,0.10550781250000002,HIGH,0.35568938991683857,0.35568938991683857,0.0,1.0336974292135788,1.0336974292135788,0.0,"0,1","22,23",23,0.0125,0.02,-0.19140625,use_baseline,⚠️ Hallucination Risk Detected — Response Withheld for Safety,ABSTAINED,HALLUCINATION_RISK_UNRESOLVED,"Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5506).",0,0,0,0,1,1,HIGH_CONFIDENCE_WRONG
+run-42,Qwen/Qwen2.5-0.5B-Instruct,unseen_val,120,cs,Complete with one word only: The physical block boundary used to serialize hard drive data tracks is a,Sector,0,1.0,"(n) ________.
+disk surface
+
+The physical block boundary",0,10.375,32048.31862582525,0.306640625,4.3125,(n,0.306640625,____,0.060302734375,1.625,"(n) ________.
+A. Sector
+B. Track",1,8.5,4914.768840299134,0.05859375,6.09375,(n,0.05859375,____,0.027587890625,0.75,-1.875,-27133.549785526116,-0.248046875,1.78125,-0.875,wrong_to_correct,0,1,1,0,0,0.3594871220166323,0.4388621220166323,0.07937499999999997,MEDIUM,0.35568938991683857,0.35568938991683857,0.0,1.0336974292135788,1.0336974292135788,0.0,"0,1","22,23",23,0.0125,0.02,-0.248046875,use_candidate,"(n) ________.
+A. Sector
+B. Track",ANSWERED,NORMAL_ROUTER_SELECTION,Candidate repair promoted.,0,0,0,0,1,1,INSTRUCTION_CONTRACT_VIOLATION

@@ -1,0 +1,81 @@
+sample_id,prompt,target,curriculum_score,pcrf_weight,criticality_weight,combined_weight,sampling_bucket
+79,Complete with one word only: The reserved programming keyword used to initiate routine blocks in Python is,def,0.026393,0.084249,5.0,0.011118,HIGH_PRIORITY
+66,Complete with one word only: The digital counting framework representing information with 0 and 1 is,Binary,0.026298,0.084249,5.0,0.011078,HIGH_PRIORITY
+78,Complete with one word only: The reserved programming keyword used to declare structural blueprints in Python is,class,0.026238,0.084249,5.0,0.011053,HIGH_PRIORITY
+56,Complete with one word only: A liquid solution with a pH rating significantly higher than 7 is a,Base,0.025212,0.084249,1.0,0.002124,HIGH_PRIORITY
+74,Complete with one word only: The relational database directive used to fetch selected tuples from table arrays is,SELECT,0.024739,0.084249,5.0,0.010421,HIGH_PRIORITY
+63,"Complete with one word only: To store keyed associative records with rapid O(1) lookup, developers choose a",Map,0.024410,0.084249,1.0,0.002057,HIGH_PRIORITY
+43,Complete with one word only: The element with atomic number 6 is,Carbon,0.024198,0.084249,1.0,0.002039,HIGH_PRIORITY
+67,Complete with one word only: The primary volatile memory utilized for rapid workspace computation is,RAM,0.022075,0.084249,5.0,0.009299,HIGH_PRIORITY
+71,Complete with one word only: The network transmission protocol used to serve encrypted web content is,HTTPS,0.021347,0.084249,1.0,0.001798,HIGH_PRIORITY
+60,Complete with one word only: Light waves travel significantly faster than mechanical propagation of,Sound,0.021062,0.084249,1.0,0.001774,HIGH_PRIORITY
+77,"Complete with one word only: In balanced search trees, a terminal node lacking downstream progeny is a",Leaf,0.021059,0.084249,1.0,0.001774,HIGH_PRIORITY
+53,Complete with one word only: The physical force driving planetary orbits is,Gravity,0.020856,0.084249,1.0,0.001757,HIGH_PRIORITY
+76,Complete with one word only: The fundamental internet routing system standardizing packet layout is the,IP,0.020788,0.084249,5.0,0.008757,HIGH_PRIORITY
+75,Complete with one word only: An auxiliary database lookup catalog built to accelerate query evaluation is an,Index,0.019595,0.084249,1.0,0.001651,HIGH_PRIORITY
+59,Complete with one word only: The core organ driving blood circulation in mammalian systems is the,Heart,0.019370,0.084249,3.0,0.004896,HIGH_PRIORITY
+70,"Complete with one word only: In class structures, an operational memory instantiation is called an",Object,0.018801,0.084249,5.0,0.007920,HIGH_PRIORITY
+68,Complete with one word only: The foundational processing unit executing computing instructions is the,CPU,0.017730,0.084249,5.0,0.007469,HIGH_PRIORITY
+58,Complete with one word only: The atmospheric gas primarily responsible for global warming is,Carbon,0.017569,0.084249,1.0,0.001480,HIGH_PRIORITY
+57,Complete with one word only: The basic physical container of all organic life is the,Cell,0.017331,0.084249,1.0,0.001460,HIGH_PRIORITY
+37,Complete with one word only: The official capital city of Switzerland is,Bern,0.016965,0.084249,5.0,0.007146,HIGH_PRIORITY
+61,"Complete with one word only: In operating systems, a scheduled execution thread resides within a",Process,0.016436,0.084249,5.0,0.006923,MID_PRIORITY
+72,Complete with one word only: A software routine that invokes itself to solve smaller sub-problems is,Recursion,0.015895,0.084249,1.0,0.001339,MID_PRIORITY
+15,Complete with one word only: The official capital city of Mexico is,Mexico,0.015530,0.084249,1.0,0.001308,MID_PRIORITY
+1,Complete with one word only: The official capital city of France is,Paris,0.014811,0.084249,1.0,0.001248,MID_PRIORITY
+12,Complete with one word only: The official capital city of England is,London,0.014167,0.084249,4.0,0.004774,MID_PRIORITY
+62,"Complete with one word only: In deep learning, structural parameters are mathematically adjusted via",Descent,0.014074,0.084249,1.0,0.001186,MID_PRIORITY
+69,Complete with one word only: The technical engineering pipeline of locating and isolating software bugs is,Debugging,0.013401,0.084249,1.0,0.001129,MID_PRIORITY
+2,Complete with one word only: The official capital city of Germany is,Berlin,0.012908,0.084249,1.0,0.001087,MID_PRIORITY
+42,Complete with one word only: The element with atomic number 2 is,Helium,0.012271,0.084249,1.0,0.001034,MID_PRIORITY
+73,Complete with one word only: The version control directive committing index state to local repository history is git,commit,0.012148,0.084249,1.0,0.001023,MID_PRIORITY
+48,Complete with one word only: The planet with the highest surface temperature is,Venus,0.011775,0.084249,1.0,0.000992,MID_PRIORITY
+44,Complete with one word only: The element with atomic number 7 is,Nitrogen,0.011544,0.084249,1.0,0.000973,MID_PRIORITY
+49,Complete with one word only: The planet historically referred to as the red planet is,Mars,0.011437,0.084249,1.0,0.000964,MID_PRIORITY
+45,Complete with one word only: The element with atomic number 8 is,Oxygen,0.011340,0.084249,3.0,0.002866,MID_PRIORITY
+47,Complete with one word only: The planet sitting closest to our solar system's sun is,Mercury,0.011081,0.084249,1.0,0.000934,MID_PRIORITY
+3,Complete with one word only: The official capital city of Italy is,Rome,0.011048,0.084249,1.0,0.000931,MID_PRIORITY
+55,Complete with one word only: A liquid solution with a pH rating significantly lower than 7 is an,Acid,0.010947,0.084249,1.0,0.000922,MID_PRIORITY
+30,Complete with one word only: The official capital city of Kenya is,Nairobi,0.010861,0.084249,1.0,0.000915,MID_PRIORITY
+17,Complete with one word only: The official capital city of Australia is,Canberra,0.010842,0.084249,1.0,0.000913,MID_PRIORITY
+52,Complete with one word only: The standard electrical metric measuring opposition to current is,Ohm,0.010812,0.084249,1.0,0.000911,MID_PRIORITY
+50,Complete with one word only: The largest gas giant orbiting inside our solar system is,Jupiter,0.010779,0.084249,1.0,0.000908,MID_PRIORITY
+7,Complete with one word only: The official capital city of Egypt is,Cairo,0.010461,0.084249,1.0,0.000881,MID_PRIORITY
+28,Complete with one word only: The official capital city of Finland is,Helsinki,0.010348,0.084249,1.0,0.000872,MID_PRIORITY
+38,Complete with one word only: The official capital city of Denmark is,Copenhagen,0.010341,0.084249,1.0,0.000871,MID_PRIORITY
+51,Complete with one word only: Photosynthesis in organic plant structures generates glucose and,Oxygen,0.009979,0.084249,3.0,0.002522,MID_PRIORITY
+33,Complete with one word only: The official capital city of New Zealand is,Wellington,0.009534,0.084249,1.0,0.000803,MID_PRIORITY
+22,Complete with one word only: The official capital city of Peru is,Lima,0.009146,0.084249,1.0,0.000771,MID_PRIORITY
+39,Complete with one word only: The official capital city of Norway is,Oslo,0.008860,0.084249,1.0,0.000746,MID_PRIORITY
+54,Complete with one word only: The chemical compound representing standard table salt is,NaCl,0.008560,0.084249,1.0,0.000721,MID_PRIORITY
+23,Complete with one word only: The official capital city of Chile is,Santiago,0.008550,0.084249,1.0,0.000720,MID_PRIORITY
+31,Complete with one word only: The official capital city of Nigeria is,Abuja,0.008483,0.084249,1.0,0.000715,MID_PRIORITY
+25,Complete with one word only: The official capital city of Belgium is,Brussels,0.008345,0.084249,1.0,0.000703,MID_PRIORITY
+26,Complete with one word only: The official capital city of Austria is,Vienna,0.008343,0.084249,1.0,0.000703,MID_PRIORITY
+21,Complete with one word only: The official capital city of Vietnam is,Hanoi,0.008248,0.084249,1.0,0.000695,MID_PRIORITY
+64,"Complete with one word only: A sequential queue data structure operates on the first-in first-out principle, or",FIFO,0.008194,0.084249,1.0,0.000690,MID_PRIORITY
+11,Complete with one word only: The official capital city of India is,Delhi,0.008053,0.084249,4.0,0.002714,MID_PRIORITY
+14,Complete with one word only: The official capital city of Brazil is,Brasilia,0.008011,0.084249,1.0,0.000675,MID_PRIORITY
+10,Complete with one word only: The official capital city of Russia is,Moscow,0.007881,0.084249,1.0,0.000664,MID_PRIORITY
+80,Complete with one word only: The computational scale measuring worst-case algorithm complexity is Big O,Notation,0.007869,0.084249,1.0,0.000663,MID_PRIORITY
+34,Complete with one word only: The official capital city of Saudi Arabia is,Riyadh,0.007711,0.084249,1.0,0.000650,MID_PRIORITY
+36,Complete with one word only: The official capital city of Netherlands is,Amsterdam,0.007623,0.084249,1.0,0.000642,LOW_PRIORITY
+65,"Complete with one word only: A sequential stack data structure operates on the last-in first-out principle, or",LIFO,0.007517,0.084249,1.0,0.000633,LOW_PRIORITY
+41,Complete with one word only: The element with atomic number 1 is,Hydrogen,0.007424,0.084249,1.0,0.000625,LOW_PRIORITY
+9,Complete with one word only: The official capital city of Portugal is,Lisbon,0.007419,0.084249,1.0,0.000625,LOW_PRIORITY
+4,Complete with one word only: The official capital city of Spain is,Madrid,0.007381,0.084249,1.0,0.000622,LOW_PRIORITY
+8,Complete with one word only: The official capital city of Greece is,Athens,0.007326,0.084249,1.0,0.000617,LOW_PRIORITY
+35,Complete with one word only: The official capital city of Ukraine is,Kyiv,0.007250,0.084249,1.0,0.000611,LOW_PRIORITY
+18,Complete with one word only: The official capital city of Sweden is,Stockholm,0.007170,0.084249,1.0,0.000604,LOW_PRIORITY
+27,Complete with one word only: The official capital city of Poland is,Warsaw,0.007084,0.084249,1.0,0.000597,LOW_PRIORITY
+32,Complete with one word only: The official capital city of South Africa is,Pretoria,0.007036,0.084249,1.0,0.000593,LOW_PRIORITY
+24,Complete with one word only: The official capital city of Colombia is,Bogota,0.006976,0.084249,1.0,0.000588,LOW_PRIORITY
+6,Complete with one word only: The official capital city of China is,Beijing,0.006962,0.084249,4.0,0.002346,LOW_PRIORITY
+13,Complete with one word only: The official capital city of Canada is,Ottawa,0.006945,0.084249,1.0,0.000585,LOW_PRIORITY
+19,Complete with one word only: The official capital city of Turkey is,Ankara,0.006838,0.084249,1.0,0.000576,LOW_PRIORITY
+46,Complete with one word only: Water is chemically composed of oxygen and,Hydrogen,0.006362,0.084249,1.0,0.000536,LOW_PRIORITY
+40,Complete with one word only: The official capital city of Indonesia is,Jakarta,0.006248,0.084249,1.0,0.000526,LOW_PRIORITY
+20,Complete with one word only: The official capital city of Thailand is,Bangkok,0.006245,0.084249,1.0,0.000526,LOW_PRIORITY
+5,Complete with one word only: The official capital city of Japan is,Tokyo,0.005857,0.084249,4.0,0.001974,LOW_PRIORITY
+29,Complete with one word only: The official capital city of Ireland is,Dublin,0.005821,0.084249,1.0,0.000490,LOW_PRIORITY
+16,Complete with one word only: The official capital city of Argentina is,Buenos Aires,0.005457,0.084249,1.0,0.000460,LOW_PRIORITY

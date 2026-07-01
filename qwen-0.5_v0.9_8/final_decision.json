@@ -1,0 +1,26 @@
+{
+    "raw_candidate_status": "DO_NOT_PROMOTE_WEIGHTS",
+    "protected_router_status": "ROUTER_DIAGNOSTIC_ONLY",
+    "direct_weight_promotion_status": "DO_NOT_PROMOTE_WEIGHTS",
+    "deployment_recommendation": "MEASUREMENT_ONLY",
+    "evidence_strength": "WEAK_DIRECTIONAL",
+    "metric_provenance_status": "VERIFIED_CONSISTENT",
+    "layer_selection_consistency_status": "VERIFIED_CONSISTENT",
+    "sample_size_status": "DIRECTIONAL_ONLY",
+    "promotion_blockers": [
+        "STRUCTURAL_RELIABILITY_FLOOR",
+        "STRUCTURAL_BYPASS_DOMINATED",
+        "INSUFFICIENT_VALIDATION_SAMPLE_SIZE"
+    ],
+    "exact_match_gate": "FAIL",
+    "hallucination_gate": "FAIL",
+    "critical_regression_gate": "PASS",
+    "structural_gate": "FAIL",
+    "NLL_gate": "PASS",
+    "correct_to_wrong_count": 1,
+    "blocked_regression_count": 1,
+    "accepted_repair_count": 0,
+    "avg_hallucination_risk_baseline": 0.3165337319197738,
+    "avg_hallucination_risk_candidate": 0.3412187294783675,
+    "recommended_next_action": "Enable the Canary Protected Router fallback pipeline; direct weights SFT promotion blocked."
+}

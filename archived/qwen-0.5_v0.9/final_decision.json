@@ -1,0 +1,16 @@
+{
+    "raw_candidate_status": "DO_NOT_APPLY",
+    "protected_router_status": "ROUTER_ONLY",
+    "deployment_recommendation": "MEASUREMENT_ONLY",
+    "exact_match_gate": "FAIL",
+    "hallucination_gate": "FAIL",
+    "critical_regression_gate": "FAIL",
+    "structural_gate": "FAIL",
+    "NLL_gate": "FAIL",
+    "correct_to_wrong_count": 19,
+    "blocked_regression_count": 19,
+    "accepted_repair_count": 0,
+    "avg_hallucination_risk_baseline": 0.37782270360139236,
+    "avg_hallucination_risk_candidate": 0.3043695786013923,
+    "recommended_next_action": "Promote parameter regularizations to the production canary router pipeline."
+}

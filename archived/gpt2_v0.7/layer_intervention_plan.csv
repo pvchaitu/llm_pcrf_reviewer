@@ -1,0 +1,13 @@
+layer_id,reliability_r_l,structural_entropy_S_l,D_R,delta_prob,combined_layer_risk_score,intervention_flag,intervention_type,intervention_reason
+0,0.999298,0.000703,0.996194,-0.000285,0.001403,1,regularization,High structural entropy (0.0007) and high bottleneck sensitivity (0.9962)
+1,0.999751,0.000249,0.995742,0.001244,0.000497,1,regularization,High structural entropy (0.0002) and high bottleneck sensitivity (0.9957)
+2,0.999182,0.000819,0.996310,-0.001424,0.001634,1,regularization,High structural entropy (0.0008) and high bottleneck sensitivity (0.9963)
+3,0.999323,0.000677,0.996169,0.001080,0.001352,1,regularization,High structural entropy (0.0007) and high bottleneck sensitivity (0.9962)
+4,0.999593,0.000407,0.995900,-0.000450,0.000813,1,regularization,High structural entropy (0.0004) and high bottleneck sensitivity (0.9959)
+5,0.999684,0.000316,0.995809,0.000167,0.000631,1,regularization,High structural entropy (0.0003) and high bottleneck sensitivity (0.9958)
+6,0.999722,0.000278,0.995771,-0.000097,0.000555,1,regularization,High structural entropy (0.0003) and high bottleneck sensitivity (0.9958)
+7,0.999772,0.000228,0.995721,-0.000324,0.000455,1,regularization,High structural entropy (0.0002) and high bottleneck sensitivity (0.9957)
+8,0.999799,0.000201,0.995695,-0.000032,0.000401,1,regularization,High structural entropy (0.0002) and high bottleneck sensitivity (0.9957)
+9,0.999827,0.000173,0.995667,0.000405,0.000345,1,regularization,High structural entropy (0.0002) and high bottleneck sensitivity (0.9957)
+10,0.999824,0.000176,0.995670,0.000167,0.000351,1,regularization,High structural entropy (0.0002) and high bottleneck sensitivity (0.9957)
+11,0.999711,0.000289,0.995782,0.000196,0.000576,1,regularization,High structural entropy (0.0003) and high bottleneck sensitivity (0.9958)
