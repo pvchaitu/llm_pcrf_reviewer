@@ -1,0 +1,201 @@
+sample_id,prompt,target,curriculum_score,pcrf_weight,criticality_weight,combined_weight,sampling_bucket
+101,Train Fact 101: The capital of France is,Paris,0.007616,0.186146,1.0,0.001418,HIGH_PRIORITY
+111,Train Fact 111: The capital of France is,Paris,0.007564,0.186146,1.0,0.001408,HIGH_PRIORITY
+126,Train Fact 126: The capital of France is,Paris,0.007547,0.186146,1.5,0.002107,HIGH_PRIORITY
+121,Train Fact 121: The capital of France is,Paris,0.007519,0.186146,1.0,0.001400,HIGH_PRIORITY
+186,Train Fact 186: The capital of France is,Paris,0.007492,0.186146,1.0,0.001395,HIGH_PRIORITY
+151,Train Fact 151: The capital of France is,Paris,0.007476,0.186146,1.0,0.001392,HIGH_PRIORITY
+181,Train Fact 181: The capital of France is,Paris,0.007455,0.186146,1.0,0.001388,HIGH_PRIORITY
+141,Train Fact 141: The capital of France is,Paris,0.007454,0.186146,1.0,0.001388,HIGH_PRIORITY
+116,Train Fact 116: The capital of France is,Paris,0.007435,0.186146,1.0,0.001384,HIGH_PRIORITY
+166,Train Fact 166: The capital of France is,Paris,0.007433,0.186146,1.0,0.001384,HIGH_PRIORITY
+176,Train Fact 176: The capital of France is,Paris,0.007428,0.186146,1.0,0.001383,HIGH_PRIORITY
+131,Train Fact 131: The capital of France is,Paris,0.007424,0.186146,1.0,0.001382,HIGH_PRIORITY
+146,Train Fact 146: The capital of France is,Paris,0.007413,0.186146,1.0,0.001380,HIGH_PRIORITY
+171,Train Fact 171: The capital of France is,Paris,0.007412,0.186146,1.0,0.001380,HIGH_PRIORITY
+156,Train Fact 156: The capital of France is,Paris,0.007409,0.186146,1.0,0.001379,HIGH_PRIORITY
+191,Train Fact 191: The capital of France is,Paris,0.007406,0.186146,1.0,0.001379,HIGH_PRIORITY
+136,Train Fact 136: The capital of France is,Paris,0.007405,0.186146,1.0,0.001378,HIGH_PRIORITY
+106,Train Fact 106: The capital of France is,Paris,0.007385,0.186146,1.0,0.001375,HIGH_PRIORITY
+91,Train Fact 91: The capital of France is,Paris,0.007367,0.186146,1.5,0.002057,HIGH_PRIORITY
+196,Train Fact 196: The capital of France is,Paris,0.007365,0.186146,1.5,0.002056,HIGH_PRIORITY
+51,Train Fact 51: The capital of France is,Paris,0.007354,0.186146,1.0,0.001369,HIGH_PRIORITY
+96,Train Fact 96: The capital of France is,Paris,0.007336,0.186146,1.0,0.001366,HIGH_PRIORITY
+161,Train Fact 161: The capital of France is,Paris,0.007321,0.186146,1.5,0.002044,HIGH_PRIORITY
+36,Train Fact 36: The capital of France is,Paris,0.007320,0.186146,1.0,0.001363,HIGH_PRIORITY
+56,Train Fact 56: The capital of France is,Paris,0.007247,0.186146,1.5,0.002023,HIGH_PRIORITY
+81,Train Fact 81: The capital of France is,Paris,0.007243,0.186146,1.0,0.001348,HIGH_PRIORITY
+46,Train Fact 46: The capital of France is,Paris,0.007238,0.186146,1.0,0.001347,HIGH_PRIORITY
+41,Train Fact 41: The capital of France is,Paris,0.007238,0.186146,1.0,0.001347,HIGH_PRIORITY
+21,Train Fact 21: The capital of France is,Paris,0.007233,0.186146,1.5,0.002020,HIGH_PRIORITY
+31,Train Fact 31: The capital of France is,Paris,0.007233,0.186146,1.0,0.001346,HIGH_PRIORITY
+26,Train Fact 26: The capital of France is,Paris,0.007232,0.186146,1.0,0.001346,HIGH_PRIORITY
+11,Train Fact 11: The capital of France is,Paris,0.007216,0.186146,1.0,0.001343,HIGH_PRIORITY
+71,Train Fact 71: The capital of France is,Paris,0.007214,0.186146,1.0,0.001343,HIGH_PRIORITY
+16,Train Fact 16: The capital of France is,Paris,0.007200,0.186146,1.0,0.001340,HIGH_PRIORITY
+76,Train Fact 76: The capital of France is,Paris,0.007194,0.186146,1.0,0.001339,HIGH_PRIORITY
+61,Train Fact 61: The capital of France is,Paris,0.007176,0.186146,1.0,0.001336,HIGH_PRIORITY
+66,Train Fact 66: The capital of France is,Paris,0.007174,0.186146,1.0,0.001335,HIGH_PRIORITY
+86,Train Fact 86: The capital of France is,Paris,0.007162,0.186146,1.0,0.001333,HIGH_PRIORITY
+6,Train Fact 6: The capital of France is,Paris,0.007073,0.186146,1.0,0.001317,HIGH_PRIORITY
+1,Train Fact 1: The capital of France is,Paris,0.006766,0.186146,1.0,0.001259,HIGH_PRIORITY
+90,Train Fact 90: The currency of Japan is,Yen,0.005779,0.186146,1.0,0.001076,HIGH_PRIORITY
+70,Train Fact 70: The currency of Japan is,Yen,0.005774,0.186146,1.5,0.001612,HIGH_PRIORITY
+95,Train Fact 95: The currency of Japan is,Yen,0.005753,0.186146,1.0,0.001071,HIGH_PRIORITY
+35,Train Fact 35: The currency of Japan is,Yen,0.005751,0.186146,1.5,0.001606,HIGH_PRIORITY
+135,Train Fact 135: The currency of Japan is,Yen,0.005745,0.186146,1.0,0.001069,HIGH_PRIORITY
+60,Train Fact 60: The currency of Japan is,Yen,0.005745,0.186146,1.0,0.001069,HIGH_PRIORITY
+100,Train Fact 100: The currency of Japan is,Yen,0.005743,0.186146,1.0,0.001069,HIGH_PRIORITY
+65,Train Fact 65: The currency of Japan is,Yen,0.005743,0.186146,1.0,0.001069,HIGH_PRIORITY
+20,Train Fact 20: The currency of Japan is,Yen,0.005742,0.186146,1.0,0.001069,HIGH_PRIORITY
+10,Train Fact 10: The currency of Japan is,Yen,0.005738,0.186146,1.0,0.001068,HIGH_PRIORITY
+30,Train Fact 30: The currency of Japan is,Yen,0.005737,0.186146,1.0,0.001068,MID_PRIORITY
+80,Train Fact 80: The currency of Japan is,Yen,0.005735,0.186146,1.0,0.001068,MID_PRIORITY
+75,Train Fact 75: The currency of Japan is,Yen,0.005730,0.186146,1.0,0.001067,MID_PRIORITY
+190,Train Fact 190: The currency of Japan is,Yen,0.005727,0.186146,1.0,0.001066,MID_PRIORITY
+110,Train Fact 110: The currency of Japan is,Yen,0.005720,0.186146,1.0,0.001065,MID_PRIORITY
+185,Train Fact 185: The currency of Japan is,Yen,0.005719,0.186146,1.0,0.001064,MID_PRIORITY
+40,Train Fact 40: The currency of Japan is,Yen,0.005713,0.186146,1.0,0.001063,MID_PRIORITY
+145,Train Fact 145: The currency of Japan is,Yen,0.005713,0.186146,1.0,0.001063,MID_PRIORITY
+15,Train Fact 15: The currency of Japan is,Yen,0.005713,0.186146,1.0,0.001063,MID_PRIORITY
+85,Train Fact 85: The currency of Japan is,Yen,0.005710,0.186146,1.0,0.001063,MID_PRIORITY
+25,Train Fact 25: The currency of Japan is,Yen,0.005709,0.186146,1.0,0.001063,MID_PRIORITY
+130,Train Fact 130: The currency of Japan is,Yen,0.005704,0.186146,1.0,0.001062,MID_PRIORITY
+45,Train Fact 45: The currency of Japan is,Yen,0.005701,0.186146,1.0,0.001061,MID_PRIORITY
+125,Train Fact 125: The currency of Japan is,Yen,0.005701,0.186146,1.0,0.001061,MID_PRIORITY
+115,Train Fact 115: The currency of Japan is,Yen,0.005698,0.186146,1.0,0.001061,MID_PRIORITY
+200,Train Fact 200: The currency of Japan is,Yen,0.005697,0.186146,1.0,0.001061,MID_PRIORITY
+195,Train Fact 195: The currency of Japan is,Yen,0.005692,0.186146,1.0,0.001059,MID_PRIORITY
+170,Train Fact 170: The currency of Japan is,Yen,0.005689,0.186146,1.0,0.001059,MID_PRIORITY
+120,Train Fact 120: The currency of Japan is,Yen,0.005681,0.186146,1.0,0.001058,MID_PRIORITY
+165,Train Fact 165: The currency of Japan is,Yen,0.005679,0.186146,1.0,0.001057,MID_PRIORITY
+150,Train Fact 150: The currency of Japan is,Yen,0.005676,0.186146,1.0,0.001057,MID_PRIORITY
+175,Train Fact 175: The currency of Japan is,Yen,0.005675,0.186146,1.5,0.001585,MID_PRIORITY
+50,Train Fact 50: The currency of Japan is,Yen,0.005674,0.186146,1.0,0.001056,MID_PRIORITY
+55,Train Fact 55: The currency of Japan is,Yen,0.005670,0.186146,1.0,0.001055,MID_PRIORITY
+155,Train Fact 155: The currency of Japan is,Yen,0.005665,0.186146,1.0,0.001055,MID_PRIORITY
+105,Train Fact 105: The currency of Japan is,Yen,0.005658,0.186146,1.5,0.001580,MID_PRIORITY
+180,Train Fact 180: The currency of Japan is,Yen,0.005656,0.186146,1.0,0.001053,MID_PRIORITY
+5,Train Fact 5: The currency of Japan is,Yen,0.005654,0.186146,1.0,0.001053,MID_PRIORITY
+140,Train Fact 140: The currency of Japan is,Yen,0.005652,0.186146,1.5,0.001578,MID_PRIORITY
+160,Train Fact 160: The currency of Japan is,Yen,0.005618,0.186146,1.0,0.001046,MID_PRIORITY
+102,Train Fact 102: The largest planet is,Jupiter,0.005176,0.186146,1.0,0.000963,MID_PRIORITY
+107,Train Fact 107: The largest planet is,Jupiter,0.005170,0.186146,1.0,0.000962,MID_PRIORITY
+152,Train Fact 152: The largest planet is,Jupiter,0.005146,0.186146,1.0,0.000958,MID_PRIORITY
+177,Train Fact 177: The largest planet is,Jupiter,0.005126,0.186146,1.0,0.000954,MID_PRIORITY
+12,Train Fact 12: The largest planet is,Jupiter,0.005111,0.186146,1.0,0.000951,MID_PRIORITY
+112,Train Fact 112: The largest planet is,Jupiter,0.005111,0.186146,1.5,0.001427,MID_PRIORITY
+167,Train Fact 167: The largest planet is,Jupiter,0.005110,0.186146,1.0,0.000951,MID_PRIORITY
+87,Train Fact 87: The largest planet is,Jupiter,0.005108,0.186146,1.0,0.000951,MID_PRIORITY
+127,Train Fact 127: The largest planet is,Jupiter,0.005104,0.186146,1.0,0.000950,MID_PRIORITY
+162,Train Fact 162: The largest planet is,Jupiter,0.005103,0.186146,1.0,0.000950,MID_PRIORITY
+142,Train Fact 142: The largest planet is,Jupiter,0.005094,0.186146,1.0,0.000948,MID_PRIORITY
+42,Train Fact 42: The largest planet is,Jupiter,0.005093,0.186146,1.5,0.001422,MID_PRIORITY
+117,Train Fact 117: The largest planet is,Jupiter,0.005093,0.186146,1.0,0.000948,MID_PRIORITY
+147,Train Fact 147: The largest planet is,Jupiter,0.005091,0.186146,1.5,0.001421,MID_PRIORITY
+137,Train Fact 137: The largest planet is,Jupiter,0.005088,0.186146,1.0,0.000947,MID_PRIORITY
+122,Train Fact 122: The largest planet is,Jupiter,0.005086,0.186146,1.0,0.000947,MID_PRIORITY
+192,Train Fact 192: The largest planet is,Jupiter,0.005085,0.186146,1.0,0.000947,MID_PRIORITY
+157,Train Fact 157: The largest planet is,Jupiter,0.005085,0.186146,1.0,0.000947,MID_PRIORITY
+187,Train Fact 187: The largest planet is,Jupiter,0.005084,0.186146,1.0,0.000946,MID_PRIORITY
+182,Train Fact 182: The largest planet is,Jupiter,0.005081,0.186146,1.5,0.001419,MID_PRIORITY
+17,Train Fact 17: The largest planet is,Jupiter,0.005081,0.186146,1.0,0.000946,MID_PRIORITY
+132,Train Fact 132: The largest planet is,Jupiter,0.005078,0.186146,1.0,0.000945,MID_PRIORITY
+172,Train Fact 172: The largest planet is,Jupiter,0.005077,0.186146,1.0,0.000945,MID_PRIORITY
+47,Train Fact 47: The largest planet is,Jupiter,0.005077,0.186146,1.0,0.000945,MID_PRIORITY
+52,Train Fact 52: The largest planet is,Jupiter,0.005074,0.186146,1.0,0.000945,MID_PRIORITY
+82,Train Fact 82: The largest planet is,Jupiter,0.005066,0.186146,1.0,0.000943,MID_PRIORITY
+97,Train Fact 97: The largest planet is,Jupiter,0.005038,0.186146,1.0,0.000938,MID_PRIORITY
+197,Train Fact 197: The largest planet is,Jupiter,0.005034,0.186146,1.0,0.000937,MID_PRIORITY
+77,Train Fact 77: The largest planet is,Jupiter,0.005031,0.186146,1.5,0.001405,MID_PRIORITY
+72,Train Fact 72: The largest planet is,Jupiter,0.005020,0.186146,1.0,0.000935,MID_PRIORITY
+22,Train Fact 22: The largest planet is,Jupiter,0.005018,0.186146,1.0,0.000934,MID_PRIORITY
+57,Train Fact 57: The largest planet is,Jupiter,0.005011,0.186146,1.0,0.000933,MID_PRIORITY
+27,Train Fact 27: The largest planet is,Jupiter,0.004992,0.186146,1.0,0.000929,MID_PRIORITY
+7,Train Fact 7: The largest planet is,Jupiter,0.004983,0.186146,1.5,0.001391,MID_PRIORITY
+62,Train Fact 62: The largest planet is,Jupiter,0.004983,0.186146,1.0,0.000928,MID_PRIORITY
+67,Train Fact 67: The largest planet is,Jupiter,0.004976,0.186146,1.0,0.000926,MID_PRIORITY
+92,Train Fact 92: The largest planet is,Jupiter,0.004975,0.186146,1.0,0.000926,MID_PRIORITY
+37,Train Fact 37: The largest planet is,Jupiter,0.004973,0.186146,1.0,0.000926,MID_PRIORITY
+32,Train Fact 32: The largest planet is,Jupiter,0.004957,0.186146,1.0,0.000923,MID_PRIORITY
+2,Train Fact 2: The largest planet is,Jupiter,0.004943,0.186146,1.0,0.000920,MID_PRIORITY
+159,Train Fact 159: The author of Hamlet is,Shakespeare,0.004861,0.186146,1.0,0.000905,MID_PRIORITY
+154,Train Fact 154: The author of Hamlet is,Shakespeare,0.004850,0.186146,1.5,0.001354,MID_PRIORITY
+189,Train Fact 189: The author of Hamlet is,Shakespeare,0.004845,0.186146,1.5,0.001353,MID_PRIORITY
+144,Train Fact 144: The author of Hamlet is,Shakespeare,0.004826,0.186146,1.0,0.000898,MID_PRIORITY
+184,Train Fact 184: The author of Hamlet is,Shakespeare,0.004825,0.186146,1.0,0.000898,MID_PRIORITY
+139,Train Fact 139: The author of Hamlet is,Shakespeare,0.004799,0.186146,1.0,0.000893,MID_PRIORITY
+149,Train Fact 149: The author of Hamlet is,Shakespeare,0.004797,0.186146,1.0,0.000893,MID_PRIORITY
+104,Train Fact 104: The author of Hamlet is,Shakespeare,0.004796,0.186146,1.0,0.000893,MID_PRIORITY
+164,Train Fact 164: The author of Hamlet is,Shakespeare,0.004792,0.186146,1.0,0.000892,MID_PRIORITY
+194,Train Fact 194: The author of Hamlet is,Shakespeare,0.004791,0.186146,1.0,0.000892,MID_PRIORITY
+179,Train Fact 179: The author of Hamlet is,Shakespeare,0.004788,0.186146,1.0,0.000891,MID_PRIORITY
+169,Train Fact 169: The author of Hamlet is,Shakespeare,0.004787,0.186146,1.0,0.000891,MID_PRIORITY
+134,Train Fact 134: The author of Hamlet is,Shakespeare,0.004786,0.186146,1.0,0.000891,MID_PRIORITY
+199,Train Fact 199: The author of Hamlet is,Shakespeare,0.004785,0.186146,1.0,0.000891,MID_PRIORITY
+174,Train Fact 174: The author of Hamlet is,Shakespeare,0.004780,0.186146,1.0,0.000890,MID_PRIORITY
+124,Train Fact 124: The author of Hamlet is,Shakespeare,0.004779,0.186146,1.0,0.000890,MID_PRIORITY
+109,Train Fact 109: The author of Hamlet is,Shakespeare,0.004776,0.186146,1.0,0.000889,MID_PRIORITY
+114,Train Fact 114: The author of Hamlet is,Shakespeare,0.004767,0.186146,1.0,0.000887,MID_PRIORITY
+119,Train Fact 119: The author of Hamlet is,Shakespeare,0.004763,0.186146,1.5,0.001330,MID_PRIORITY
+54,Train Fact 54: The author of Hamlet is,Shakespeare,0.004754,0.186146,1.0,0.000885,MID_PRIORITY
+129,Train Fact 129: The author of Hamlet is,Shakespeare,0.004742,0.186146,1.0,0.000883,MID_PRIORITY
+44,Train Fact 44: The author of Hamlet is,Shakespeare,0.004739,0.186146,1.0,0.000882,MID_PRIORITY
+24,Train Fact 24: The author of Hamlet is,Shakespeare,0.004731,0.186146,1.0,0.000881,MID_PRIORITY
+84,Train Fact 84: The author of Hamlet is,Shakespeare,0.004730,0.186146,1.5,0.001321,MID_PRIORITY
+14,Train Fact 14: The author of Hamlet is,Shakespeare,0.004706,0.186146,1.5,0.001314,MID_PRIORITY
+19,Train Fact 19: The author of Hamlet is,Shakespeare,0.004694,0.186146,1.0,0.000874,MID_PRIORITY
+34,Train Fact 34: The author of Hamlet is,Shakespeare,0.004692,0.186146,1.0,0.000873,MID_PRIORITY
+49,Train Fact 49: The author of Hamlet is,Shakespeare,0.004692,0.186146,1.5,0.001310,MID_PRIORITY
+59,Train Fact 59: The author of Hamlet is,Shakespeare,0.004677,0.186146,1.0,0.000871,MID_PRIORITY
+29,Train Fact 29: The author of Hamlet is,Shakespeare,0.004676,0.186146,1.0,0.000870,MID_PRIORITY
+89,Train Fact 89: The author of Hamlet is,Shakespeare,0.004671,0.186146,1.0,0.000870,LOW_PRIORITY
+74,Train Fact 74: The author of Hamlet is,Shakespeare,0.004668,0.186146,1.0,0.000869,LOW_PRIORITY
+39,Train Fact 39: The author of Hamlet is,Shakespeare,0.004655,0.186146,1.0,0.000867,LOW_PRIORITY
+79,Train Fact 79: The author of Hamlet is,Shakespeare,0.004647,0.186146,1.0,0.000865,LOW_PRIORITY
+99,Train Fact 99: The author of Hamlet is,Shakespeare,0.004644,0.186146,1.0,0.000865,LOW_PRIORITY
+94,Train Fact 94: The author of Hamlet is,Shakespeare,0.004644,0.186146,1.0,0.000864,LOW_PRIORITY
+69,Train Fact 69: The author of Hamlet is,Shakespeare,0.004639,0.186146,1.0,0.000864,LOW_PRIORITY
+64,Train Fact 64: The author of Hamlet is,Shakespeare,0.004636,0.186146,1.0,0.000863,LOW_PRIORITY
+9,Train Fact 9: The author of Hamlet is,Shakespeare,0.004622,0.186146,1.0,0.000860,LOW_PRIORITY
+4,Train Fact 4: The author of Hamlet is,Shakespeare,0.004597,0.186146,1.0,0.000856,LOW_PRIORITY
+98,Train Fact 98: The chemical symbol for water is,H2O,0.002258,0.186146,1.5,0.000631,LOW_PRIORITY
+113,Train Fact 113: The chemical symbol for water is,H2O,0.002249,0.186146,1.0,0.000419,LOW_PRIORITY
+128,Train Fact 128: The chemical symbol for water is,H2O,0.002233,0.186146,1.0,0.000416,LOW_PRIORITY
+68,Train Fact 68: The chemical symbol for water is,H2O,0.002229,0.186146,1.0,0.000415,LOW_PRIORITY
+93,Train Fact 93: The chemical symbol for water is,H2O,0.002223,0.186146,1.0,0.000414,LOW_PRIORITY
+123,Train Fact 123: The chemical symbol for water is,H2O,0.002223,0.186146,1.0,0.000414,LOW_PRIORITY
+58,Train Fact 58: The chemical symbol for water is,H2O,0.002209,0.186146,1.0,0.000411,LOW_PRIORITY
+53,Train Fact 53: The chemical symbol for water is,H2O,0.002204,0.186146,1.0,0.000410,LOW_PRIORITY
+118,Train Fact 118: The chemical symbol for water is,H2O,0.002198,0.186146,1.0,0.000409,LOW_PRIORITY
+103,Train Fact 103: The chemical symbol for water is,H2O,0.002193,0.186146,1.0,0.000408,LOW_PRIORITY
+108,Train Fact 108: The chemical symbol for water is,H2O,0.002191,0.186146,1.0,0.000408,LOW_PRIORITY
+48,Train Fact 48: The chemical symbol for water is,H2O,0.002189,0.186146,1.0,0.000407,LOW_PRIORITY
+88,Train Fact 88: The chemical symbol for water is,H2O,0.002188,0.186146,1.0,0.000407,LOW_PRIORITY
+63,Train Fact 63: The chemical symbol for water is,H2O,0.002180,0.186146,1.5,0.000609,LOW_PRIORITY
+38,Train Fact 38: The chemical symbol for water is,H2O,0.002178,0.186146,1.0,0.000405,LOW_PRIORITY
+83,Train Fact 83: The chemical symbol for water is,H2O,0.002170,0.186146,1.0,0.000404,LOW_PRIORITY
+73,Train Fact 73: The chemical symbol for water is,H2O,0.002169,0.186146,1.0,0.000404,LOW_PRIORITY
+153,Train Fact 153: The chemical symbol for water is,H2O,0.002163,0.186146,1.0,0.000403,LOW_PRIORITY
+138,Train Fact 138: The chemical symbol for water is,H2O,0.002163,0.186146,1.0,0.000403,LOW_PRIORITY
+188,Train Fact 188: The chemical symbol for water is,H2O,0.002161,0.186146,1.0,0.000402,LOW_PRIORITY
+183,Train Fact 183: The chemical symbol for water is,H2O,0.002159,0.186146,1.0,0.000402,LOW_PRIORITY
+158,Train Fact 158: The chemical symbol for water is,H2O,0.002159,0.186146,1.0,0.000402,LOW_PRIORITY
+148,Train Fact 148: The chemical symbol for water is,H2O,0.002157,0.186146,1.0,0.000401,LOW_PRIORITY
+193,Train Fact 193: The chemical symbol for water is,H2O,0.002156,0.186146,1.0,0.000401,LOW_PRIORITY
+168,Train Fact 168: The chemical symbol for water is,H2O,0.002154,0.186146,1.5,0.000601,LOW_PRIORITY
+173,Train Fact 173: The chemical symbol for water is,H2O,0.002152,0.186146,1.0,0.000401,LOW_PRIORITY
+163,Train Fact 163: The chemical symbol for water is,H2O,0.002149,0.186146,1.0,0.000400,LOW_PRIORITY
+78,Train Fact 78: The chemical symbol for water is,H2O,0.002149,0.186146,1.0,0.000400,LOW_PRIORITY
+133,Train Fact 133: The chemical symbol for water is,H2O,0.002146,0.186146,1.5,0.000599,LOW_PRIORITY
+178,Train Fact 178: The chemical symbol for water is,H2O,0.002146,0.186146,1.0,0.000399,LOW_PRIORITY
+143,Train Fact 143: The chemical symbol for water is,H2O,0.002141,0.186146,1.0,0.000399,LOW_PRIORITY
+8,Train Fact 8: The chemical symbol for water is,H2O,0.002140,0.186146,1.0,0.000398,LOW_PRIORITY
+28,Train Fact 28: The chemical symbol for water is,H2O,0.002132,0.186146,1.5,0.000595,LOW_PRIORITY
+43,Train Fact 43: The chemical symbol for water is,H2O,0.002124,0.186146,1.0,0.000395,LOW_PRIORITY
+198,Train Fact 198: The chemical symbol for water is,H2O,0.002115,0.186146,1.0,0.000394,LOW_PRIORITY
+33,Train Fact 33: The chemical symbol for water is,H2O,0.002115,0.186146,1.0,0.000394,LOW_PRIORITY
+23,Train Fact 23: The chemical symbol for water is,H2O,0.002092,0.186146,1.0,0.000389,LOW_PRIORITY
+13,Train Fact 13: The chemical symbol for water is,H2O,0.002082,0.186146,1.0,0.000388,LOW_PRIORITY
+3,Train Fact 3: The chemical symbol for water is,H2O,0.002064,0.186146,1.0,0.000384,LOW_PRIORITY
+18,Train Fact 18: The chemical symbol for water is,H2O,0.002062,0.186146,1.0,0.000384,LOW_PRIORITY

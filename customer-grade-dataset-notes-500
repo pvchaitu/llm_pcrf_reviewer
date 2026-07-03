@@ -1,0 +1,6 @@
+~200 factual cloze prompts
+~100 entity-substitution traps
+~75 instruction-contract traps
+~50 format leakage prompts
+~50 security/compliance prompts
+~25 difficult OOD technical prompts

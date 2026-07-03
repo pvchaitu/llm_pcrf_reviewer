@@ -1,0 +1,25 @@
+layer_id,reliability_r_l,structural_entropy_S_l,D_R,empirical_delta_prob,structural_atmap_delta_prob,combined_layer_risk_score,crew_birnbaum_sensitivity,monitoring_candidate_flag,selected_for_intervention_flag,selected_by_empirical_policy,selected_by_birnbaum_policy,selected_by_combined_risk_policy,intervention_flag,intervention_type,intervention_reason
+0,0.997526,0.002477,0.481965,0.039654,0.048834,0.003671,0.019488,1,1,1,1,0,1,regularization,"Selected by union_empirical_and_birnbaum policy: bypass-dominated caution (Attention/MLP paths are masked), high bottleneck sensitivity D_R (0.4820), high empirical sensitivity (0.0397)"
+1,0.995776,0.004233,0.450338,0.030452,0.036754,0.006139,0.019759,1,1,1,0,1,1,regularization,"Selected by union_empirical_and_birnbaum policy: bypass-dominated caution (Attention/MLP paths are masked), high bottleneck sensitivity D_R (0.4503), high empirical sensitivity (0.0305)"
+2,0.995707,0.004303,0.382958,0.016485,0.005410,0.005950,0.020390,1,1,1,0,0,1,regularization,"Selected by union_empirical_and_birnbaum policy: bypass-dominated caution (Attention/MLP paths are masked), high empirical sensitivity (0.0165)"
+3,0.995855,0.004153,0.375261,0.017257,0.001269,0.005712,0.020471,1,1,1,0,0,1,regularization,"Selected by union_empirical_and_birnbaum policy: bypass-dominated caution (Attention/MLP paths are masked), high empirical sensitivity (0.0173)"
+4,0.995997,0.004011,0.375295,0.011711,0.001259,0.005516,0.020469,1,0,0,0,0,0,freeze,Stable representational highway block; frozen to prevent activation drift
+5,0.996128,0.003879,0.375477,0.009256,0.001331,0.005336,0.020464,1,0,0,0,0,0,freeze,Stable representational highway block; frozen to prevent activation drift
+6,0.996251,0.003757,0.375600,0.007823,0.001372,0.005167,0.020461,1,0,0,0,0,0,freeze,Stable representational highway block; frozen to prevent activation drift
+7,0.996305,0.003702,0.377832,0.009352,0.002565,0.005101,0.020436,1,0,0,0,0,0,freeze,Stable representational highway block; frozen to prevent activation drift
+8,0.996360,0.003647,0.377738,0.011367,0.002503,0.005025,0.020436,1,0,0,0,0,0,freeze,Stable representational highway block; frozen to prevent activation drift
+9,0.996416,0.003590,0.377588,0.010712,0.002411,0.004946,0.020436,1,0,0,0,0,0,freeze,Stable representational highway block; frozen to prevent activation drift
+10,0.996466,0.003540,0.377760,0.003761,0.002493,0.004878,0.020434,1,0,0,0,0,0,freeze,Stable representational highway block; frozen to prevent activation drift
+11,0.996546,0.003460,0.376625,0.008116,0.001866,0.004763,0.020445,1,0,0,0,0,0,freeze,Stable representational highway block; frozen to prevent activation drift
+12,0.996625,0.003381,0.376541,0.004608,0.001804,0.004654,0.020445,1,0,0,0,0,0,freeze,Stable representational highway block; frozen to prevent activation drift
+13,0.996653,0.003353,0.378232,0.000768,0.002709,0.004621,0.020426,1,0,0,0,0,0,freeze,Stable representational highway block; frozen to prevent activation drift
+14,0.996675,0.003331,0.378413,-0.003459,0.002801,0.004591,0.020423,1,0,0,0,0,0,freeze,Stable representational highway block; frozen to prevent activation drift
+15,0.996684,0.003321,0.378819,0.005094,0.003017,0.004579,0.020419,1,0,0,0,0,0,freeze,Stable representational highway block; frozen to prevent activation drift
+16,0.996678,0.003328,0.379393,0.003901,0.003324,0.004590,0.020412,1,0,0,0,0,0,freeze,Stable representational highway block; frozen to prevent activation drift
+17,0.996545,0.003461,0.383941,0.002411,0.005756,0.004789,0.020366,1,0,0,0,0,0,freeze,Stable representational highway block; frozen to prevent activation drift
+18,0.996396,0.003611,0.384778,0.000578,0.006225,0.005000,0.020359,1,0,0,0,0,0,freeze,Stable representational highway block; frozen to prevent activation drift
+19,0.996165,0.003842,0.387975,0.003249,0.007931,0.005333,0.020329,1,0,0,0,0,0,freeze,Stable representational highway block; frozen to prevent activation drift
+20,0.995795,0.004214,0.393586,0.002478,0.010869,0.005872,0.020277,1,0,0,0,0,0,freeze,Stable representational highway block; frozen to prevent activation drift
+21,0.993189,0.006835,0.499046,0.000754,0.055807,0.010245,0.019437,1,1,0,1,1,1,regularization,"Selected by union_empirical_and_birnbaum policy: bypass-dominated caution (Attention/MLP paths are masked), high bottleneck sensitivity D_R (0.4990)"
+22,0.990492,0.009553,0.510682,0.000591,0.060319,0.014432,0.019402,1,1,0,1,1,1,regularization,"Selected by union_empirical_and_birnbaum policy: bypass-dominated caution (Attention/MLP paths are masked), high bottleneck sensitivity D_R (0.5107)"
+23,0.985928,0.014172,0.657594,0.001314,0.102345,0.023491,0.018690,1,1,0,1,1,1,regularization,"Selected by union_empirical_and_birnbaum policy: bypass-dominated caution (Attention/MLP paths are masked), high bottleneck sensitivity D_R (0.6576)"

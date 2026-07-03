@@ -1,0 +1,201 @@
+id,prompt,target,priority_score
+101,Train Fact 101: The capital of France is,Paris,10.503159495186122
+111,Train Fact 111: The capital of France is,Paris,10.43145970539161
+126,Train Fact 126: The capital of France is,Paris,10.407808638797144
+121,Train Fact 121: The capital of France is,Paris,10.368873969717608
+186,Train Fact 186: The capital of France is,Paris,10.332569333631765
+151,Train Fact 151: The capital of France is,Paris,10.309874128490922
+181,Train Fact 181: The capital of France is,Paris,10.2808679753622
+141,Train Fact 141: The capital of France is,Paris,10.279641757828797
+116,Train Fact 116: The capital of France is,Paris,10.253998653341043
+166,Train Fact 166: The capital of France is,Paris,10.250331312710697
+176,Train Fact 176: The capital of France is,Paris,10.244093892526946
+131,Train Fact 131: The capital of France is,Paris,10.23856912644471
+146,Train Fact 146: The capital of France is,Paris,10.223950667787724
+171,Train Fact 171: The capital of France is,Paris,10.22246993093235
+156,Train Fact 156: The capital of France is,Paris,10.218053737896918
+191,Train Fact 191: The capital of France is,Paris,10.213017648912865
+136,Train Fact 136: The capital of France is,Paris,10.212368341842595
+106,Train Fact 106: The capital of France is,Paris,10.184573700686453
+91,Train Fact 91: The capital of France is,Paris,10.159241675369996
+196,Train Fact 196: The capital of France is,Paris,10.157314115704942
+51,Train Fact 51: The capital of France is,Paris,10.142411726604333
+96,Train Fact 96: The capital of France is,Paris,10.11739869883808
+161,Train Fact 161: The capital of France is,Paris,10.096023600580521
+36,Train Fact 36: The capital of France is,Paris,10.094486303875822
+56,Train Fact 56: The capital of France is,Paris,9.994121982442522
+81,Train Fact 81: The capital of France is,Paris,9.988331385068452
+46,Train Fact 46: The capital of France is,Paris,9.981660716438856
+41,Train Fact 41: The capital of France is,Paris,9.981487643299918
+21,Train Fact 21: The capital of France is,Paris,9.975383704360576
+31,Train Fact 31: The capital of France is,Paris,9.974852041776906
+26,Train Fact 26: The capital of France is,Paris,9.972992353931042
+11,Train Fact 11: The capital of France is,Paris,9.950995097330889
+71,Train Fact 71: The capital of France is,Paris,9.949203281304218
+16,Train Fact 16: The capital of France is,Paris,9.929115485217336
+76,Train Fact 76: The capital of France is,Paris,9.921285339676544
+61,Train Fact 61: The capital of France is,Paris,9.896404661957714
+66,Train Fact 66: The capital of France is,Paris,9.894296110774814
+86,Train Fact 86: The capital of France is,Paris,9.877308925628023
+6,Train Fact 6: The capital of France is,Paris,9.754346681994722
+1,Train Fact 1: The capital of France is,Paris,9.331186816476368
+90,Train Fact 90: The currency of Japan is,Yen,7.969645318770674
+70,Train Fact 70: The currency of Japan is,Yen,7.96247296427755
+95,Train Fact 95: The currency of Japan is,Yen,7.933383668170319
+35,Train Fact 35: The currency of Japan is,Yen,7.931471945263076
+135,Train Fact 135: The currency of Japan is,Yen,7.922934801605699
+60,Train Fact 60: The currency of Japan is,Yen,7.922349407165167
+100,Train Fact 100: The currency of Japan is,Yen,7.920568337509868
+65,Train Fact 65: The currency of Japan is,Yen,7.920138482654985
+20,Train Fact 20: The currency of Japan is,Yen,7.91887380442404
+10,Train Fact 10: The currency of Japan is,Yen,7.913709324582015
+30,Train Fact 30: The currency of Japan is,Yen,7.912399964070102
+80,Train Fact 80: The currency of Japan is,Yen,7.90947921345087
+75,Train Fact 75: The currency of Japan is,Yen,7.901677913433233
+190,Train Fact 190: The currency of Japan is,Yen,7.89845569881709
+110,Train Fact 110: The currency of Japan is,Yen,7.888123345542082
+185,Train Fact 185: The currency of Japan is,Yen,7.886421459675841
+40,Train Fact 40: The currency of Japan is,Yen,7.878675588310545
+145,Train Fact 145: The currency of Japan is,Yen,7.878414847405149
+15,Train Fact 15: The currency of Japan is,Yen,7.8783073836914275
+85,Train Fact 85: The currency of Japan is,Yen,7.874390614125551
+25,Train Fact 25: The currency of Japan is,Yen,7.873020734574858
+130,Train Fact 130: The currency of Japan is,Yen,7.86655368140284
+45,Train Fact 45: The currency of Japan is,Yen,7.861730257452256
+125,Train Fact 125: The currency of Japan is,Yen,7.8616776567923825
+115,Train Fact 115: The currency of Japan is,Yen,7.857590076481539
+200,Train Fact 200: The currency of Japan is,Yen,7.857271078931337
+195,Train Fact 195: The currency of Japan is,Yen,7.849294443380788
+170,Train Fact 170: The currency of Japan is,Yen,7.8455252950216545
+120,Train Fact 120: The currency of Japan is,Yen,7.835118282745536
+165,Train Fact 165: The currency of Japan is,Yen,7.832038033351202
+150,Train Fact 150: The currency of Japan is,Yen,7.828068097526958
+175,Train Fact 175: The currency of Japan is,Yen,7.826500258503621
+50,Train Fact 50: The currency of Japan is,Yen,7.824699392901058
+55,Train Fact 55: The currency of Japan is,Yen,7.819477222012721
+155,Train Fact 155: The currency of Japan is,Yen,7.812980192120559
+105,Train Fact 105: The currency of Japan is,Yen,7.803200994171967
+180,Train Fact 180: The currency of Japan is,Yen,7.800203887756144
+5,Train Fact 5: The currency of Japan is,Yen,7.797963552124312
+140,Train Fact 140: The currency of Japan is,Yen,7.795193816302782
+160,Train Fact 160: The currency of Japan is,Yen,7.747636598193386
+102,Train Fact 102: The largest planet is,Jupiter,7.138223452046624
+107,Train Fact 107: The largest planet is,Jupiter,7.130128606410982
+152,Train Fact 152: The largest planet is,Jupiter,7.0971004823966375
+177,Train Fact 177: The largest planet is,Jupiter,7.069172359996084
+12,Train Fact 12: The largest planet is,Jupiter,7.048472586339487
+112,Train Fact 112: The largest planet is,Jupiter,7.047969769278971
+167,Train Fact 167: The largest planet is,Jupiter,7.047420007543516
+87,Train Fact 87: The largest planet is,Jupiter,7.044549029591691
+127,Train Fact 127: The largest planet is,Jupiter,7.039110234480432
+162,Train Fact 162: The largest planet is,Jupiter,7.038067836457341
+142,Train Fact 142: The largest planet is,Jupiter,7.025280785721553
+42,Train Fact 42: The largest planet is,Jupiter,7.023707290713284
+117,Train Fact 117: The largest planet is,Jupiter,7.023268386282508
+147,Train Fact 147: The largest planet is,Jupiter,7.020789933685011
+137,Train Fact 137: The largest planet is,Jupiter,7.016365256672181
+122,Train Fact 122: The largest planet is,Jupiter,7.0141713001167965
+192,Train Fact 192: The largest planet is,Jupiter,7.012941688992433
+157,Train Fact 157: The largest planet is,Jupiter,7.012356294551902
+187,Train Fact 187: The largest planet is,Jupiter,7.011787302467675
+182,Train Fact 182: The largest planet is,Jupiter,7.007700287755325
+17,Train Fact 17: The largest planet is,Jupiter,7.00683039727268
+132,Train Fact 132: The largest planet is,Jupiter,7.0032586427876975
+172,Train Fact 172: The largest planet is,Jupiter,7.001905165593309
+47,Train Fact 47: The largest planet is,Jupiter,7.001775077939857
+52,Train Fact 52: The largest planet is,Jupiter,6.997912040230841
+82,Train Fact 82: The largest planet is,Jupiter,6.986080850948675
+97,Train Fact 97: The largest planet is,Jupiter,6.947922183001903
+197,Train Fact 197: The largest planet is,Jupiter,6.942969236996361
+77,Train Fact 77: The largest planet is,Jupiter,6.9379597311414924
+72,Train Fact 72: The largest planet is,Jupiter,6.923643867678403
+22,Train Fact 22: The largest planet is,Jupiter,6.920410341092394
+57,Train Fact 57: The largest planet is,Jupiter,6.910499924293364
+27,Train Fact 27: The largest planet is,Jupiter,6.884970505102757
+7,Train Fact 7: The largest planet is,Jupiter,6.872470212803056
+62,Train Fact 62: The largest planet is,Jupiter,6.871799978588534
+67,Train Fact 67: The largest planet is,Jupiter,6.862418961979203
+92,Train Fact 92: The largest planet is,Jupiter,6.860496492700587
+37,Train Fact 37: The largest planet is,Jupiter,6.858472781291677
+32,Train Fact 32: The largest planet is,Jupiter,6.8357108355286265
+2,Train Fact 2: The largest planet is,Jupiter,6.8169606798783215
+159,Train Fact 159: The author of Hamlet is,Shakespeare,6.704006135984892
+154,Train Fact 154: The author of Hamlet is,Shakespeare,6.688479326147719
+189,Train Fact 189: The author of Hamlet is,Shakespeare,6.682075054408452
+144,Train Fact 144: The author of Hamlet is,Shakespeare,6.655073382339871
+184,Train Fact 184: The author of Hamlet is,Shakespeare,6.6545824428477145
+139,Train Fact 139: The author of Hamlet is,Shakespeare,6.617619450115709
+149,Train Fact 149: The author of Hamlet is,Shakespeare,6.615861569998634
+104,Train Fact 104: The author of Hamlet is,Shakespeare,6.614317486112014
+164,Train Fact 164: The author of Hamlet is,Shakespeare,6.608146806550468
+194,Train Fact 194: The author of Hamlet is,Shakespeare,6.607563108905416
+179,Train Fact 179: The author of Hamlet is,Shakespeare,6.603723826333118
+169,Train Fact 169: The author of Hamlet is,Shakespeare,6.6018918528134245
+134,Train Fact 134: The author of Hamlet is,Shakespeare,6.5999337508297335
+199,Train Fact 199: The author of Hamlet is,Shakespeare,6.598854023306086
+174,Train Fact 174: The author of Hamlet is,Shakespeare,6.591825896428746
+124,Train Fact 124: The author of Hamlet is,Shakespeare,6.5913705896416666
+109,Train Fact 109: The author of Hamlet is,Shakespeare,6.5863571245973445
+114,Train Fact 114: The author of Hamlet is,Shakespeare,6.574861335221686
+119,Train Fact 119: The author of Hamlet is,Shakespeare,6.568536812869971
+54,Train Fact 54: The author of Hamlet is,Shakespeare,6.556724288338083
+129,Train Fact 129: The author of Hamlet is,Shakespeare,6.539493330240695
+44,Train Fact 44: The author of Hamlet is,Shakespeare,6.536105960864517
+24,Train Fact 24: The author of Hamlet is,Shakespeare,6.524088689678066
+84,Train Fact 84: The author of Hamlet is,Shakespeare,6.523033282889629
+14,Train Fact 14: The author of Hamlet is,Shakespeare,6.489593968770679
+19,Train Fact 19: The author of Hamlet is,Shakespeare,6.472834154218182
+34,Train Fact 34: The author of Hamlet is,Shakespeare,6.471266315194844
+49,Train Fact 49: The author of Hamlet is,Shakespeare,6.470105141488167
+59,Train Fact 59: The author of Hamlet is,Shakespeare,6.450133858690898
+29,Train Fact 29: The author of Hamlet is,Shakespeare,6.4489896529390185
+89,Train Fact 89: The author of Hamlet is,Shakespeare,6.441959829266199
+74,Train Fact 74: The author of Hamlet is,Shakespeare,6.437787974779859
+39,Train Fact 39: The author of Hamlet is,Shakespeare,6.420379984354078
+79,Train Fact 79: The author of Hamlet is,Shakespeare,6.408064642761675
+99,Train Fact 99: The author of Hamlet is,Shakespeare,6.405189705620398
+94,Train Fact 94: The author of Hamlet is,Shakespeare,6.404623541528637
+69,Train Fact 69: The author of Hamlet is,Shakespeare,6.3975535603627955
+64,Train Fact 64: The author of Hamlet is,Shakespeare,6.3934280849529035
+9,Train Fact 9: The author of Hamlet is,Shakespeare,6.374696594052876
+4,Train Fact 4: The author of Hamlet is,Shakespeare,6.339133457591707
+98,Train Fact 98: The chemical symbol for water is,H2O,3.1146654970506287
+113,Train Fact 113: The chemical symbol for water is,H2O,3.101676244853498
+128,Train Fact 128: The chemical symbol for water is,H2O,3.079957262712033
+68,Train Fact 68: The chemical symbol for water is,H2O,3.0743493536512876
+93,Train Fact 93: The chemical symbol for water is,H2O,3.066044388175397
+123,Train Fact 123: The chemical symbol for water is,H2O,3.0655627810583796
+58,Train Fact 58: The chemical symbol for water is,H2O,3.046760307547448
+53,Train Fact 53: The chemical symbol for water is,H2O,3.039282247068714
+118,Train Fact 118: The chemical symbol for water is,H2O,3.0311229232048396
+103,Train Fact 103: The chemical symbol for water is,H2O,3.0239675366665146
+108,Train Fact 108: The chemical symbol for water is,H2O,3.0219206357193804
+48,Train Fact 48: The chemical symbol for water is,H2O,3.0183743331665944
+88,Train Fact 88: The chemical symbol for water is,H2O,3.018087291931261
+63,Train Fact 63: The chemical symbol for water is,H2O,3.0063740299349417
+38,Train Fact 38: The chemical symbol for water is,H2O,3.0041407642842755
+83,Train Fact 83: The chemical symbol for water is,H2O,2.9927530042208312
+73,Train Fact 73: The chemical symbol for water is,H2O,2.9913737922949992
+153,Train Fact 153: The chemical symbol for water is,H2O,2.983246141946748
+138,Train Fact 138: The chemical symbol for water is,H2O,2.982487674367276
+188,Train Fact 188: The chemical symbol for water is,H2O,2.9808055844482992
+183,Train Fact 183: The chemical symbol for water is,H2O,2.9780887320858898
+158,Train Fact 158: The chemical symbol for water is,H2O,2.9769080452311942
+148,Train Fact 148: The chemical symbol for water is,H2O,2.9742870618133934
+193,Train Fact 193: The chemical symbol for water is,H2O,2.972837715674396
+168,Train Fact 168: The chemical symbol for water is,H2O,2.9706912693924465
+173,Train Fact 173: The chemical symbol for water is,H2O,2.9676511774911347
+163,Train Fact 163: The chemical symbol for water is,H2O,2.9633956144277915
+78,Train Fact 78: The chemical symbol for water is,H2O,2.9630271270094277
+133,Train Fact 133: The chemical symbol for water is,H2O,2.960079510461765
+178,Train Fact 178: The chemical symbol for water is,H2O,2.959549261874327
+143,Train Fact 143: The chemical symbol for water is,H2O,2.9528689780703465
+8,Train Fact 8: The chemical symbol for water is,H2O,2.951453002242452
+28,Train Fact 28: The chemical symbol for water is,H2O,2.9407470711626416
+43,Train Fact 43: The chemical symbol for water is,H2O,2.9285793507769817
+198,Train Fact 198: The chemical symbol for water is,H2O,2.9172637045214294
+33,Train Fact 33: The chemical symbol for water is,H2O,2.9171491708265425
+23,Train Fact 23: The chemical symbol for water is,H2O,2.885606025656271
+13,Train Fact 13: The chemical symbol for water is,H2O,2.8711889200628873
+3,Train Fact 3: The chemical symbol for water is,H2O,2.8469623570015217
+18,Train Fact 18: The chemical symbol for water is,H2O,2.8438399705194395

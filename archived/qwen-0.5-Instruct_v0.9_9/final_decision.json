@@ -1,0 +1,77 @@
+{
+    "raw_candidate_status": "DO_NOT_PROMOTE_WEIGHTS",
+    "protected_router_status": "NOT_PRODUCTION_ENFORCED",
+    "validation_router_status": "VALIDATION_ROUTER_ENFORCED",
+    "router_governance_explanation": "Validation-time protected routing was exercised for measurement and safety analysis. Production enforcement is not enabled for this run.",
+    "direct_weight_promotion_status": "DO_NOT_PROMOTE_WEIGHTS",
+    "deployment_recommendation": "MEASUREMENT_ONLY",
+    "evidence_strength": "WEAK_DIRECTIONAL",
+    "metric_provenance_status": "VERIFIED_CONSISTENT",
+    "selected_layers": [
+        0,
+        3,
+        10,
+        12,
+        13,
+        21,
+        22,
+        23
+    ],
+    "layer_selection_consistency_status": "VERIFIED_CONSISTENT",
+    "layer_selection_consistency_details": {
+        "is_consistent": true,
+        "config_layers": [
+            0,
+            3,
+            10,
+            12,
+            13,
+            21,
+            22,
+            23
+        ],
+        "plan_layers": [
+            0,
+            3,
+            10,
+            12,
+            13,
+            21,
+            22,
+            23
+        ],
+        "report_layers": [
+            0,
+            3,
+            10,
+            12,
+            13,
+            21,
+            22,
+            23
+        ],
+        "missing_from_config": [],
+        "missing_from_plan": [],
+        "missing_from_report": []
+    },
+    "sample_size_status": "DIRECTIONAL_ONLY",
+    "promotion_blockers": [
+        "STRUCTURAL_RELIABILITY_FLOOR",
+        "STRUCTURAL_BYPASS_DOMINATED",
+        "INSUFFICIENT_VALIDATION_SAMPLE_SIZE"
+    ],
+    "exact_match_gate": "FAIL",
+    "hallucination_gate": "FAIL",
+    "critical_regression_gate": "PASS",
+    "structural_gate": "FAIL",
+    "NLL_gate": "PASS",
+    "correct_to_wrong_count": 0,
+    "blocked_regression_count": 0,
+    "semantic_repairs_observed": 2,
+    "contract_clean_repairs_promoted": 0,
+    "semantic_repairs_withheld_for_contract": 2,
+    "accepted_repair_count": 0,
+    "avg_hallucination_risk_baseline": 0.31729766889163236,
+    "avg_hallucination_risk_candidate": 0.3508344730908511,
+    "recommended_next_action": "Enable the Canary Protected Router fallback pipeline; direct weights SFT promotion blocked."
+}
