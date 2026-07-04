@@ -1,0 +1,60 @@
+=====================================================================
+PCRF SYSTEM v1.0 EXECUTIVE RUN SUMMARY - DEVELOPER DEBUG REPORT
+=====================================================================
+* Target Model evaluated  : QWEN/QWEN2.5-0.5B-INSTRUCT
+* Device context map      : CUDA
+* Dataset Train partition : 100 examples
+* Dataset Seen Validation : 40 examples
+* Dataset Unseen Val      : 40 examples
+* System Structural Reliability (R_sys): 33.9378%
+* Final Gating Decision   : DO_NOT_APPLY (Reason Code: STRUCTURAL_RELIABILITY_FLOOR)
+
+=====================================================================
+[A] PCRF GOVERNANCE SUCCESS SUMMARY (FIX GROUP L)
+=====================================================================
+* Governance Success Interventions Count: 80
+* Governance Success Percentage          : 100.00%
+* Promoted Repairs                       : 2
+* Contained Regressions                  : 9
+* Safe Abstains Executed                 : 24
+
+=====================================================================
+[B] PCRF GOVERNANCE FAILURE SUMMARY (FIX GROUP L)
+=====================================================================
+* Governance Failure Incidents Count    : 0
+* Governance Failure Percentage         : 0.00%
+
+=====================================================================
+[C] SFT CANDIDATE QUALITY SUMMARY (FIX GROUP L)
+=====================================================================
+* Raw Candidate Accuracy (EM)           : 60.00%
+* Unseen Candidate Accuracy             : 57.50%
+* Observed SFT Candidate Regressions    : 9
+* Observed SFT Candidate Repairs        : 2
+* Net SFT Candidate Parameter Delta     : -7
+
+=====================================================================
+[D] GOVERNED ACCURACY SUMMARY (FIX GROUP L)
+=====================================================================
+* Primary Governed Served Accuracy       : 70.00%
+* Baseline Accuracy control boundary    : 67.50%
+
+=====================================================================
+[E] HALLUCINATION EXPOSURE CONTROL SUMMARY (FIX GROUP L)
+=====================================================================
+* Exposure Control Rate                 : 100.00%
+* Handled Risk Events                   : 35 of 35
+
+=====================================================================
+[F] REGRESSION ROOT CAUSE SUMMARY (FIX GROUP L)
+=====================================================================
+* Total Blocked Regressions             : 9
+* Leaked Served Regressions             : 0
+* Main Root Cause                       : Multi-layer activation drift within mid-layer SFT parameters.
+
+=====================================================================
+[G] REPAIR PROMOTION SUMMARY (FIX GROUP L)
+=====================================================================
+* SFT Repair Promotion Effectiveness    : 100.00%
+* Repairs Promoted                      : 2
+* Repairs Withheld for format / EM      : 0

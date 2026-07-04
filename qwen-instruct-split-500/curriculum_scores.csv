@@ -1,0 +1,201 @@
+id,prompt,target,priority_score
+193,Train 193: The capital of France is,Paris,9.91021472494496
+185,Train 185: The capital of France is,Paris,9.864135097923135
+169,Train 169: The capital of France is,Paris,9.834398303929628
+25,Train 25: The capital of France is,Paris,9.814082295923434
+129,Train 129: The capital of France is,Paris,9.797608424143327
+145,Train 145: The capital of France is,Paris,9.786086016648332
+49,Train 49: The capital of France is,Paris,9.767773601159933
+33,Train 33: The capital of France is,Paris,9.724165705097402
+41,Train 41: The capital of France is,Paris,9.71977340617297
+113,Train 113: The capital of France is,Paris,9.695720293001285
+81,Train 81: The capital of France is,Paris,9.695714291226395
+161,Train 161: The capital of France is,Paris,9.693228556125685
+9,Train 9: The capital of France is,Paris,9.671658177167263
+177,Train 177: The capital of France is,Paris,9.651162115914339
+65,Train 65: The capital of France is,Paris,9.6249893759103
+121,Train 121: The capital of France is,Paris,9.620891163955529
+153,Train 153: The capital of France is,Paris,9.609140689014675
+105,Train 105: The capital of France is,Paris,9.606903027276129
+17,Train 17: The capital of France is,Paris,9.588962721830976
+97,Train 97: The capital of France is,Paris,9.537059372573202
+137,Train 137: The capital of France is,Paris,9.53506778360519
+57,Train 57: The capital of France is,Paris,9.534326564406145
+89,Train 89: The capital of France is,Paris,9.498235891394652
+73,Train 73: The capital of France is,Paris,9.473624613158098
+1,Train 1: The capital of France is,Paris,9.281674848296824
+150,Train 150: The DNS protocol primarily uses,UDP,8.95817117930288
+110,Train 110: The DNS protocol primarily uses,UDP,8.846196065160619
+14,Train 14: The DNS protocol primarily uses,UDP,8.804047600692428
+166,Train 166: The DNS protocol primarily uses,UDP,8.793572502915922
+182,Train 182: The DNS protocol primarily uses,UDP,8.771886089642939
+22,Train 22: The DNS protocol primarily uses,UDP,8.765394169802457
+126,Train 126: The DNS protocol primarily uses,UDP,8.757071708620204
+118,Train 118: The DNS protocol primarily uses,UDP,8.745392254682228
+190,Train 190: The DNS protocol primarily uses,UDP,8.744254918340374
+142,Train 142: The DNS protocol primarily uses,UDP,8.725776453746656
+102,Train 102: The DNS protocol primarily uses,UDP,8.722416460103485
+198,Train 198: The DNS protocol primarily uses,UDP,8.698861494247756
+6,Train 6: The DNS protocol primarily uses,UDP,8.69025194816655
+134,Train 134: The DNS protocol primarily uses,UDP,8.686938968426693
+158,Train 158: The DNS protocol primarily uses,UDP,8.682067527806794
+70,Train 70: The DNS protocol primarily uses,UDP,8.676734950816098
+174,Train 174: The DNS protocol primarily uses,UDP,8.654151272196904
+30,Train 30: The DNS protocol primarily uses,UDP,8.65341605477275
+62,Train 62: The DNS protocol primarily uses,UDP,8.596509225847475
+46,Train 46: The DNS protocol primarily uses,UDP,8.586909386909246
+94,Train 94: The DNS protocol primarily uses,UDP,8.583314323749509
+38,Train 38: The DNS protocol primarily uses,UDP,8.561893989163362
+54,Train 54: The DNS protocol primarily uses,UDP,8.549282259525643
+78,Train 78: The DNS protocol primarily uses,UDP,8.541817051856995
+86,Train 86: The DNS protocol primarily uses,UDP,8.500137726126122
+88,Train 88: The largest planet in the solar system is,Jupiter,8.389122895966429
+192,Train 192: The largest planet in the solar system is,Jupiter,8.340433497162811
+56,Train 56: The largest planet in the solar system is,Jupiter,8.317448199773825
+136,Train 136: The largest planet in the solar system is,Jupiter,8.274078874263212
+160,Train 160: The largest planet in the solar system is,Jupiter,8.16042126255983
+144,Train 144: The largest planet in the solar system is,Jupiter,8.08830593606064
+168,Train 168: The largest planet in the solar system is,Jupiter,8.034006378177619
+104,Train 104: The largest planet in the solar system is,Jupiter,8.007496538483865
+64,Train 64: The largest planet in the solar system is,Jupiter,8.006846346204002
+128,Train 128: The largest planet in the solar system is,Jupiter,8.004360611103293
+152,Train 152: The largest planet in the solar system is,Jupiter,7.991337759885536
+176,Train 176: The largest planet in the solar system is,Jupiter,7.958763626812287
+72,Train 72: The largest planet in the solar system is,Jupiter,7.925723856037075
+96,Train 96: The largest planet in the solar system is,Jupiter,7.8996781536015614
+184,Train 184: The largest planet in the solar system is,Jupiter,7.8623981288658245
+48,Train 48: The largest planet in the solar system is,Jupiter,7.852374664649869
+32,Train 32: The largest planet in the solar system is,Jupiter,7.851375369130509
+112,Train 112: The largest planet in the solar system is,Jupiter,7.7723009846451525
+16,Train 16: The largest planet in the solar system is,Jupiter,7.68335017942867
+24,Train 24: The largest planet in the solar system is,Jupiter,7.665716964798775
+80,Train 80: The largest planet in the solar system is,Jupiter,7.6360331864834725
+40,Train 40: The largest planet in the solar system is,Jupiter,7.621792475110741
+120,Train 120: The largest planet in the solar system is,Jupiter,7.618023360479164
+200,Train 200: The largest planet in the solar system is,Jupiter,7.3520206961247085
+8,Train 8: The largest planet in the solar system is,Jupiter,7.14841998575619
+163,Train 163: The chemical symbol for gold is,Au,7.108997327384349
+122,Train 122: The currency of Japan is,Yen,7.0770253723918355
+59,Train 59: The chemical symbol for gold is,Au,7.072519039744474
+138,Train 138: The currency of Japan is,Yen,7.059758766178201
+114,Train 114: The currency of Japan is,Yen,7.0534073878997505
+130,Train 130: The currency of Japan is,Yen,7.029214233313941
+170,Train 170: The currency of Japan is,Yen,6.999172849244714
+58,Train 58: The currency of Japan is,Yen,6.995583787859868
+34,Train 34: The currency of Japan is,Yen,6.986197512078178
+146,Train 146: The currency of Japan is,Yen,6.971061535950866
+106,Train 106: The currency of Japan is,Yen,6.9657524659118275
+162,Train 162: The currency of Japan is,Yen,6.956453716013965
+74,Train 74: The currency of Japan is,Yen,6.955317880115835
+50,Train 50: The currency of Japan is,Yen,6.950414930177757
+18,Train 18: The currency of Japan is,Yen,6.941438275532382
+178,Train 178: The currency of Japan is,Yen,6.9388104984259185
+154,Train 154: The currency of Japan is,Yen,6.937264541243566
+186,Train 186: The currency of Japan is,Yen,6.933321375140149
+2,Train 2: The currency of Japan is,Yen,6.921852483471265
+10,Train 10: The currency of Japan is,Yen,6.919390755470121
+194,Train 194: The currency of Japan is,Yen,6.912590744518565
+66,Train 66: The currency of Japan is,Yen,6.892776384863682
+42,Train 42: The currency of Japan is,Yen,6.884405909482302
+82,Train 82: The currency of Japan is,Yen,6.872755964270873
+90,Train 90: The currency of Japan is,Yen,6.872543401410148
+98,Train 98: The currency of Japan is,Yen,6.869264931875914
+26,Train 26: The currency of Japan is,Yen,6.842996163473616
+123,Train 123: The chemical symbol for gold is,Au,6.735743445874795
+51,Train 51: The chemical symbol for gold is,Au,6.735007728302734
+147,Train 147: The chemical symbol for gold is,Au,6.692902776702503
+155,Train 155: The chemical symbol for gold is,Au,6.685384053207744
+99,Train 99: The chemical symbol for gold is,Au,6.639614017740714
+131,Train 131: The chemical symbol for gold is,Au,6.625945475574262
+187,Train 187: The chemical symbol for gold is,Au,6.586649854770948
+195,Train 195: The chemical symbol for gold is,Au,6.572389137481913
+139,Train 139: The chemical symbol for gold is,Au,6.510915458012459
+107,Train 107: The chemical symbol for gold is,Au,6.502606500823712
+67,Train 67: The chemical symbol for gold is,Au,6.481116645678411
+171,Train 171: The chemical symbol for gold is,Au,6.480280398376926
+91,Train 91: The chemical symbol for gold is,Au,6.479586193081195
+83,Train 83: The chemical symbol for gold is,Au,6.46986931953259
+115,Train 115: The chemical symbol for gold is,Au,6.382553997973918
+180,Train 180: The author of Hamlet is,Shakespeare,6.299721502110951
+179,Train 179: The chemical symbol for gold is,Au,6.272020810249232
+12,Train 12: The author of Hamlet is,Shakespeare,6.248835953845118
+100,Train 100: The author of Hamlet is,Shakespeare,6.234674265841785
+84,Train 84: The author of Hamlet is,Shakespeare,6.222527673758122
+28,Train 28: The author of Hamlet is,Shakespeare,6.218366943314904
+60,Train 60: The author of Hamlet is,Shakespeare,6.215856200818815
+27,Train 27: The chemical symbol for gold is,Au,6.192011149176687
+44,Train 44: The author of Hamlet is,Shakespeare,6.187233736363414
+20,Train 20: The author of Hamlet is,Shakespeare,6.1846759799640125
+52,Train 52: The author of Hamlet is,Shakespeare,6.1798280462957695
+68,Train 68: The author of Hamlet is,Shakespeare,6.177904977591097
+140,Train 140: The author of Hamlet is,Shakespeare,6.172220796621367
+108,Train 108: The author of Hamlet is,Shakespeare,6.166197015222387
+36,Train 36: The author of Hamlet is,Shakespeare,6.164649057448404
+148,Train 148: The author of Hamlet is,Shakespeare,6.15554986656567
+76,Train 76: The author of Hamlet is,Shakespeare,6.150844975198996
+188,Train 188: The author of Hamlet is,Shakespeare,6.1486813353507745
+75,Train 75: The chemical symbol for gold is,Au,6.138584849540311
+116,Train 116: The author of Hamlet is,Shakespeare,6.137015885554209
+43,Train 43: The chemical symbol for gold is,Au,6.136511736463362
+196,Train 196: The author of Hamlet is,Shakespeare,6.128549381774573
+172,Train 172: The author of Hamlet is,Shakespeare,6.12486229139984
+156,Train 156: The author of Hamlet is,Shakespeare,6.120120389088005
+124,Train 124: The author of Hamlet is,Shakespeare,6.117508116566677
+92,Train 92: The author of Hamlet is,Shakespeare,6.109607780218429
+132,Train 132: The author of Hamlet is,Shakespeare,6.099186198268034
+164,Train 164: The author of Hamlet is,Shakespeare,6.085458638648487
+4,Train 4: The author of Hamlet is,Shakespeare,6.071200422098991
+35,Train 35: The chemical symbol for gold is,Au,6.065756812272811
+19,Train 19: The chemical symbol for gold is,Au,6.048934337401114
+11,Train 11: The chemical symbol for gold is,Au,5.875620583724448
+3,Train 3: The chemical symbol for gold is,Au,5.771064663643337
+119,Train 119: The headquarters of Microsoft is in,Redmond,4.957787655109241
+71,Train 71: The headquarters of Microsoft is in,Redmond,4.9417589149668855
+127,Train 127: The headquarters of Microsoft is in,Redmond,4.926313347284776
+63,Train 63: The headquarters of Microsoft is in,Redmond,4.912927888834019
+111,Train 111: The headquarters of Microsoft is in,Redmond,4.860152281625414
+55,Train 55: The headquarters of Microsoft is in,Redmond,4.841949398528777
+167,Train 167: The headquarters of Microsoft is in,Redmond,4.837500582890788
+143,Train 143: The headquarters of Microsoft is in,Redmond,4.820939185226853
+95,Train 95: The headquarters of Microsoft is in,Redmond,4.814739351764401
+47,Train 47: The headquarters of Microsoft is in,Redmond,4.750082230863153
+87,Train 87: The headquarters of Microsoft is in,Redmond,4.738156704154644
+103,Train 103: The headquarters of Microsoft is in,Redmond,4.719612220037124
+159,Train 159: The headquarters of Microsoft is in,Redmond,4.687200635033841
+183,Train 183: The headquarters of Microsoft is in,Redmond,4.673951716961855
+79,Train 79: The headquarters of Microsoft is in,Redmond,4.666941143741205
+191,Train 191: The headquarters of Microsoft is in,Redmond,4.665148613640413
+23,Train 23: The headquarters of Microsoft is in,Redmond,4.655114646318397
+135,Train 135: The headquarters of Microsoft is in,Redmond,4.636085518878426
+31,Train 31: The headquarters of Microsoft is in,Redmond,4.6035503973419685
+39,Train 39: The headquarters of Microsoft is in,Redmond,4.527378871312248
+199,Train 199: The headquarters of Microsoft is in,Redmond,4.4863097260286295
+175,Train 175: The headquarters of Microsoft is in,Redmond,4.480705068576207
+151,Train 151: The headquarters of Microsoft is in,Redmond,4.4805255154773835
+7,Train 7: The headquarters of Microsoft is in,Redmond,4.331299385178026
+15,Train 15: The headquarters of Microsoft is in,Redmond,4.320312636092058
+5,Train 5: The default HTTPS port is,443,4.054176932394184
+125,Train 125: The default HTTPS port is,443,4.037927126876674
+13,Train 13: The default HTTPS port is,443,4.036211869627604
+21,Train 21: The default HTTPS port is,443,4.022643857190578
+61,Train 61: The default HTTPS port is,443,4.013690209348951
+189,Train 189: The default HTTPS port is,443,4.0099716096560405
+181,Train 181: The default HTTPS port is,443,4.004356199023604
+165,Train 165: The default HTTPS port is,443,4.002283336020609
+117,Train 117: The default HTTPS port is,443,3.9993489682467946
+29,Train 29: The default HTTPS port is,443,3.9977444937592552
+45,Train 45: The default HTTPS port is,443,3.995040194022931
+53,Train 53: The default HTTPS port is,443,3.9891249447198964
+157,Train 157: The default HTTPS port is,443,3.9849737170869224
+141,Train 141: The default HTTPS port is,443,3.9810710629640194
+109,Train 109: The default HTTPS port is,443,3.976989105816246
+37,Train 37: The default HTTPS port is,443,3.9757404865649546
+149,Train 149: The default HTTPS port is,443,3.954682259063902
+77,Train 77: The default HTTPS port is,443,3.954217621657753
+197,Train 197: The default HTTPS port is,443,3.9536892153933874
+69,Train 69: The default HTTPS port is,443,3.948406403119497
+133,Train 133: The default HTTPS port is,443,3.9452304639063183
+173,Train 173: The default HTTPS port is,443,3.9350066904533736
+85,Train 85: The default HTTPS port is,443,3.9117388094966006
+93,Train 93: The default HTTPS port is,443,3.9099295244409036
+101,Train 101: The default HTTPS port is,443,3.7954101578927473

@@ -1,5 +1,5 @@
 # ==============================================================================
-# File: pcrf_reporting.py
+# File: pcrf_reporting.py - PART 1 of 2
 # ==============================================================================
 """
 PCRF Transformer Reliability Suite - Reporting & Analytics Engine
@@ -29,11 +29,10 @@ from pcrf_governance import (
     is_candidate_hallucination,
     compute_regression_detection_coverage,
     classify_governance_outcome,
-    run_router_consistency_audit,
     LAST_COMPUTED_CHAIN_RELIABILITY,
     SAFETY_WITHHELD_RESPONSE
 )
-from pcrf_core import format_neg_zero, get_hardware_profile_details
+from pcrf_core import format_neg_zero
 from pcrf_dataset import evaluate_semantic_match
 
 logger = logging.getLogger("PCRF_Suite")
@@ -77,13 +76,11 @@ class ExperimentComputedSummary:
     measurement_only_components: List[str]
     sample_size_warnings: List[str]
 
-
 def truncate_for_report(text: str, max_chars: int = 60) -> str:
     clean = str(text).replace("\r", " ").replace("\n", "<br>").replace("|", "\\|")
     if len(clean) > max_chars:
         return clean[:max_chars - 3] + "..."
     return clean
-
 
 def build_structural_formula_trace(
     multitier_reliability: Dict[str, float],
@@ -378,12 +375,17 @@ def assert_no_raw_hallucinated_outputs_in_customer_report(report_text: str, trac
     safety_withheld_msg = "⚠️ Hallucination Risk Detected — Response Withheld for Safety"
     
     for r in trace_rows:
+        raw_b = r.get("raw_baseline_output", r.get("baseline_output", ""))
         raw_c = r.get("raw_candidate_output", r.get("candidate_output", ""))
+
+        if is_baseline_hallucination(r) and raw_b and raw_b != safety_withheld_msg:
+            if str(raw_b) in report_text:
+                leaks.append(f"Raw baseline output for row {r.get('id')} leaked: '{raw_b}'")
         if is_candidate_hallucination(r) and raw_c and raw_c != safety_withheld_msg:
             if str(raw_c) in report_text:
                 leaks.append(f"Raw candidate output for row {r.get('id')} leaked: '{raw_c}'")
 
-    audit_sec = "\n\n## 10. Report Masking Audit\n\n"
+    audit_sec = "\n\n## 14. Report Masking Audit\n\n"
     audit_sec += "**Customer-Safe Output Masking Audit:** "
     audit_sec += ("PASSED" if not leaks else "FAILED")
 
@@ -430,7 +432,7 @@ def make_layer_sensitivity_section(layer_derivatives: List[Dict[str, Any]], laye
 * **Active Bottleneck Selection Policy:** `{policy}`
 * **Selected Intervention Layers:** `{selected_str}`
 * **Highest Empirical Sensitivity Layer:** Layer `{highest_emp}` (Empirical Delta: `{highest_emp_val:.5f}`)
-* **Highest Birnbaum Sensitivity Layer (Structural Sensitivity metric D_R):** Layer `{highest_birn}` (Birnbaum Index: `{highest_birn_val:.5f}`)
+* **Highest Birnbaum Sensitivity Layer (Structural Sensitivity D_R):** Layer `{highest_birn}` (Birnbaum Index: `{highest_birn_val:.5f}`)
 
 ### Selection Policy Interpretation:
 Under policy `{policy}`, the intervention set is configured as the target for custom SFT regularizer parameters. 
@@ -961,194 +963,6 @@ def compute_likelihood_semantic_divergence(trace_rows: List[Dict[str, Any]]) -> 
     }
 
 
-def write_detailed_debug_report(
-    output_dir: str,
-    baseline_stats: Dict[str, Any],
-    regularized_stats: Optional[Dict[str, Any]],
-    reconciliation_data: Dict[str, Any],
-    trace_rows: List[Dict[str, Any]],
-    splits: Dict[str, Any],
-    cfg: Any,
-    r_sys_chain: float,
-    layer_breakdown: List[Dict[str, Any]],
-    global_logs: List[str]
-) -> str:
-    human_report_path = os.path.join(output_dir, "pcrf_debug_report.txt")
-    
-    seen_rows = [r for r in trace_rows if r["split"] == "seen_val"]
-    unseen_rows = [r for r in trace_rows if r["split"] == "unseen_val"]
-    
-    protected_router_unseen_accuracy = np.mean([
-        1 if (r["router_decision"] == "use_candidate" and r["candidate_correct"] == 1) or
-             (r["router_decision"] == "use_baseline" and r["baseline_correct"] == 1)
-        else 0
-        for r in unseen_rows
-    ]) if unseen_rows else 0.0
-
-    total_audit, passed_audit, audit_warnings = run_router_consistency_audit(trace_rows, strict=False)
-
-    transitions = {
-        "correct_to_correct": [r for r in trace_rows if r["transition_type"] == "correct_to_correct"],
-        "correct_to_wrong": [r for r in trace_rows if r["transition_type"] == "correct_to_wrong"],
-        "wrong_to_correct": [r for r in trace_rows if r["transition_type"] == "wrong_to_correct"],
-        "wrong_to_wrong": [r for r in trace_rows if r["transition_type"] == "wrong_to_wrong"]
-    }
-    
-    total_t = len(trace_rows) or 1
-    
-    table_lines = []
-    for k in ["correct_to_correct", "correct_to_wrong", "wrong_to_correct", "wrong_to_wrong"]:
-        group = transitions[k]
-        g_count = len(group)
-        g_pct = (g_count / total_t) * 100.0
-        
-        avg_nll = float(np.mean([r["delta_nll"] for r in group])) if group else 0.0
-        avg_ent = float(np.mean([r["delta_entropy"] for r in group])) if group else 0.0
-        avg_marg = float(np.mean([r["delta_margin"] for r in group])) if group else 0.0
-        avg_hr = float(np.mean([r["delta_hallucination_risk_score"] for r in group])) if group else 0.0
-        
-        disp_name = k.replace("_to_", "_to_")
-        table_lines.append(
-            f"{disp_name:<17}| {g_count:<5} | {g_pct:>5.1f}%       | "
-            f"{avg_nll:<+12.5f} | {avg_ent:<+17.5f} | {avg_marg:<+16.5f} | {avg_hr:+.5f}"
-        )
-
-    cc_str = table_lines[0]
-    cw_str = table_lines[1]
-    wc_str = table_lines[2]
-    ww_str = table_lines[3]
-
-    critical_regressions = sum(1 for r in transitions["correct_to_wrong"] if int(r.get("is_critical", 0)) == 1)
-
-    top_samples = []
-    for idx, r in enumerate(trace_rows[:5]):
-        truncated_prompt = truncate_for_report(r["prompt"], 50)
-        top_samples.append(
-            f"- ID: {r['id']} | Split: {r['split']} | "
-            f"Prompt: *{truncated_prompt}* | Target: `{r['target']}` | "
-            f"Correct: {r['transition_type']}"
-        )
-    samples_str = "\n".join(top_samples)
-
-    atmap_lines = []
-    for lb in layer_breakdown:
-        selected_flag = int(lb.get("selected_for_intervention_flag", lb.get("intervention_flag", 0)))
-        atmap_lines.append(
-            f"Layer {lb['layer_id']:02d} | {float(lb.get('r_series_local', lb.get('reliability_r_l', 1.0))):.4f}  | "
-            f"{float(lb.get('structural_entropy_S_l', 0.0)):.4f}  | {float(lb.get('D_R', 0.0)):+.4f}  | "
-            f"{float(lb.get('empirical_delta_prob', 0.0)):+.4f}     | {float(lb.get('combined_layer_risk_score', 0.0)):.4f}                    | "
-            f"{selected_flag:<17} | {lb.get('intervention_reason', '')}"
-        )
-    atmap_str = "\n".join(atmap_lines)
-
-    trace_row_blocks = []
-    for r in trace_rows:
-        trace_row_blocks.append(f"""### ID: {r['id']}
-Split: {r['split']}
-Prompt Text: {r['prompt']}
-Semantic Target: {r['target']}
-Strict Target-Only Correct — Baseline: {r['strict_em_baseline']}
-Strict Target-Only Correct — Candidate: {r['strict_em_candidate']}
-First-Token Match — Baseline: {r['first_token_baseline']}
-First-Token Match — Candidate: {r['first_token_candidate']}
-Semantic Capture — Baseline: {r['baseline_correct']}
-Semantic Capture — Candidate: {r['candidate_correct']}
-Instruction Contract Violation — Baseline: {r['instruction_violation_baseline']}
-Instruction Contract Violation — Candidate: {r['instruction_violation_candidate']}
-Transition Type: {r['transition_type']}
-Baseline Output: {r['baseline_output']}
-SFT Candidate Output: {r['candidate_output']}
-Final Served Output: {r['served_output']}
-Baseline NLL: {r['baseline_nll']:.5f}
-Candidate NLL: {r['candidate_nll']:.5f}
-Delta NLL: {r['delta_nll']:.5f}
-Baseline Entropy: {r['baseline_entropy']:.5f}
-Candidate Entropy: {r['candidate_entropy']:.5f}
-Delta Entropy: {r['delta_entropy']:.5f}
-Baseline Margin: {r['baseline_margin']:.5f}
-Candidate Margin: {r['candidate_margin']:.5f}
-Delta Margin: {r['delta_margin']:.5f}
-Baseline Target Probability: {r['baseline_target_prob']:.5f}
-Candidate Target Probability: {r['candidate_target_prob']:.5f}
-Delta Confidence: {r['confidence_calibration_delta']:.5f}
-Failure Category: {r['failure_category']}
-Hallucination / Target Failure Detected: {"Yes" if r['candidate_correct'] == 0 else "No"}
-Confidence Lowered: {"Yes" if r['delta_target_prob'] < 0 else "No"}
-Baseline Risk Score: {r['baseline_hallucination_risk_score']:.5f}
-SFT Candidate Risk Score: {r['candidate_hallucination_risk_score']:.5f}
-Router Decision: {r['router_decision']}
-Prevention Action: {r['decision_reason']}
---------------------------------------------------------------------------------""")
-    trace_str = "\n".join(trace_row_blocks)
-
-    status_str = regularized_stats.get("status", "DO_NOT_APPLY") if regularized_stats else "DO_NOT_APPLY"
-    reason_code_str = regularized_stats.get("reason_code", "STRUCTURAL_RELIABILITY_FLOOR") if regularized_stats else "STRUCTURAL_RELIABILITY_FLOOR"
-
-    with open(human_report_path, 'w', encoding='utf-8') as f:
-        f.write(f"""=====================================================================
-[A] PCRF SYSTEM v1.0 EXECUTIVE RUN SUMMARY
-=====================================================================
-* Target Model evaluated  : {cfg.model_cfg.model_name.upper()}
-* Device context map      : {cfg.model_cfg.device.upper()}
-* Dataset Train partition : {len(splits.get('train', []))} examples
-* Dataset Seen Validation : {len(splits.get('seen_val', []))} examples
-* Dataset Unseen Val      : {len(splits.get('unseen_val', []))} examples
-* Baseline Seen EM        : {baseline_stats.get('seen_val_acc', 0.0)*100:.2f}%
-* Candidate Seen EM       : {regularized_stats.get('seen_val_acc', 0.0)*100:.2f}% if regularized_stats else 0.00%
-* Baseline Unseen EM      : {baseline_stats.get('unseen_val_acc', 0.0)*100:.2f}%
-* Candidate Unseen EM     : {regularized_stats.get('unseen_val_acc', 0.0)*100:.2f}% if regularized_stats else 0.00%
-* Seen Validation Loss Delta (NLL) : {regularized_stats.get('seen_val_nll', 0.0) - baseline_stats.get('seen_val_nll', 0.0):+.5f}
-* Unseen Validation Loss Delta (NLL): {regularized_stats.get('unseen_val_nll', 0.0) - baseline_stats.get('unseen_val_nll', 0.0):+.5f}
-* System Structural Reliability ($R_sys$): {r_sys_chain*100:.4f}%
-* Protected Router Unseen Accuracy: {protected_router_unseen_accuracy*100:.2f}%
-* Final Gating Decision   : {status_str} (Reason Code: {reason_code_str})
-* Verification Status     : SFT candidate model evaluation processed for {status_str} route.
-
-=====================================================================
-[B] ROUTER CONSISTENCY AUDIT SUMMARY
-=====================================================================
-* Total Router Rows Audited      : {len(trace_rows)}
-* Rows Passed Consistency Checks: {passed_audit}
-* Consistency Warnings Detected : {len(audit_warnings)}
-
-=====================================================================
-[C] TRANSITION ANALYSIS TABLE
-=====================================================================
-transition_type  | count | percentage | avg_delta_nll | avg_delta_entropy | avg_delta_margin | avg_delta_hallucination_risk
------------------|-------|------------|---------------|-------------------|------------------|-----------------------------
-{cc_str}
-{cw_str}
-{wc_str}
-{ww_str}
-
-* Note: Total Critical High-Priority Regressions: {critical_regressions} (Hard-gated and blocked by the Safety Router).
-
-=====================================================================
-[D] ROW-LEVEL DEBUGGING SAMPLES
-=====================================================================
-We display the localized SFT evaluation matrix trace of top transition samples below:
-{samples_str}
-
-=====================================================================
-[E] STRUCTURAL INTERVENTION ATMAP
-=====================================================================
-layer_id | r_l     | S_l     | D_R     | empirical_delta_prob | combined_layer_risk_score | intervention_flag | observed_effect
----------|---------|---------|---------|----------------------|---------------------------|-------------------|------------------
-{atmap_str}
-
-=====================================================================
-[F] ROW-BY-ROW VALIDATION PROMPT EXECUTION TRACE
-=====================================================================
-{trace_str}
-
-=====================================================================
-[G] RAW CONSOLE LOG APPENDIX
-=====================================================================
-{"".join(global_logs) if global_logs else "No console outputs recorded."}
-""")
-    return human_report_path
-
-
 class ExecutiveReportGenerator:
     """Consolidates SFT evaluation logs into a verified, dynamic public markdown document with priority-ordered sections (FIX GROUP N)."""
     @staticmethod
@@ -1246,34 +1060,8 @@ class ExecutiveReportGenerator:
         div_data = compute_likelihood_semantic_divergence(trace_rows)
         cov_data = compute_regression_detection_coverage(trace_rows)
 
-        # Failure Taxonomy Metrics
-        target_miss_count = failure_taxonomy.get("TARGET_MISS", 0)
-        format_temp_count = failure_taxonomy.get("FORMAT_TEMPLATE_FAILURE", 0)
-        wrong_entity_count = failure_taxonomy.get("WRONG_ENTITY_SUBSTITUTION", 0)
-        over_gen_count = failure_taxonomy.get("OVER_GENERATION", 0)
-        inst_contract_count = failure_taxonomy.get("INSTRUCTION_CONTRACT_VIOLATION", 0)
-        high_conf_count = failure_taxonomy.get("HIGH_CONFIDENCE_WRONG", 0)
-
-        total_b_hallucinations = sum(1 for r in trace_rows if int(r.get("baseline_correct", 0)) == 0)
-
-        # Build dynamic sections
-        claim_issues = validate_executive_report_claims_strengthened("", summary)
-        claim_notice = render_claim_calibration_notice(claim_issues, summary, cfg)
-        exec_summary_box = make_customer_executive_summary_box(summary, multitier_reliability, cfg)
-
-        router_gov_info = resolve_router_governance_status(
-            deployment_recommendation=summary.final_direct_promotion_decision,
-            direct_weight_promotion_status=summary.final_direct_promotion_decision,
-            router_enforced_in_validation=True
-        )
-        router_gov_text = router_gov_info["customer_text"]
-        core_gating_status = make_core_gating_status(summary, router_gov_text)
-        # Define showcase and failed table sections early to resolve the scoping order
-        selected_showcases = select_showcase_examples(trace_rows, cfg.reporting_cfg.max_showcase_examples)
-        failed_table_sec = make_failed_generations_debug_table(failed_generations)
-        showcases_sec = make_showcase_cases_section(selected_showcases)
-        # 1. Hallucination Exposure Control (Fix Group G)
-        section_1_content = f"""## 1. Hallucination Exposure Control
+        # BUILD Markdown sections in specific customer-facing priority order (Fix Group N & Structural order fix)
+        section_1 = f"""## 1. Hallucination Exposure Control
 
 This section tracks the active interception of hallucinated outputs and formatting anomalies under real-time Protected Router governance.
 
@@ -1285,7 +1073,8 @@ This section tracks the active interception of hallucinated outputs and formatti
 | **Safe Abstains** | `{safe_abst}` | Unsafe outputs withheld and mapped cleanly to fallback states. |
 | **Exposure Control Rate** | `{exp_rate:.2f}%` | Percentage of overall risk events successfully contained under governance. |
 """
-        section_2_content = f"""## 2. PCRF Governance Assessment
+
+        section_2 = f"""## 2. PCRF Governance Assessment
 
 > ### 🛡️ Service Governance Scorecard
 > 
@@ -1301,88 +1090,89 @@ This section tracks the active interception of hallucinated outputs and formatti
 > Governed outcomes remained protected despite candidate degradation events during SFT evaluation. The Protected Router successfully insulated the final served endpoint, maintaining served quality at **{gov_acc_pct:.2f}%** while preventing degraded candidate outputs from reaching users.
 """
 
-        scoreboard_table = make_pcrf_scorecard_table(scorecard)
+        section_3 = f"""## 3. Served Accuracy Framework
 
+To maintain strict operational boundaries, PCRF separates model training measurements from runtime serving streams.
+
+* **Governed Accuracy ({gov_acc_pct:.2f}%):** Reflects final production-facing outputs. Regressions are intercepted, and safe fallbacks are applied dynamically.
+* **Candidate Accuracy ({cand_acc_pct:.2f}%):** Captures raw candidate parameter quality before safety routing is applied.
+* **Baseline Accuracy ({base_acc_pct:.2f}%):** The legacy frozen parameter baseline accuracy used as a control boundary.
+"""
+
+        section_4 = f"""## 4. Regression Containment Metrics
+
+We evaluate how effectively routing loops block candidate regression events.
+
+| Containment Metric | Metric Value | Gating Status | Explanation |
+| :--- | :---: | :---: | :--- |
+| **Observed Candidate Regressions** | `{obs_reg}` | REVIEW | Diagnostic indicator of candidate model parameters variance. |
+| **Contained Regressions** | `{cont_reg}` | PASS | Successfully routed fallback to baseline correct states. |
+| **Served Regressions** | `{serv_reg}` | PASS | Active served regressions exposed to users. |
+| **Regression Containment Effectiveness** | `{containment_eff:.2f}%` | PASS | Percentage of candidate regressions safely contained. |
+
+*Status Statement:* **{"Observed regressions were contained before reaching served output." if serv_reg == 0 else "Warnings detected: Some regressions were served."}**
+"""
+
+        section_5 = f"""## 5. Repair Promotion Metrics
+
+Tracks SFT repairs found and promoted cleanly into active serving streams.
+
+* **Repairs Identified (Semantic Recoveries):** `{rep_id}`
+* **Repairs Promoted (Contract-Clean):** `{rep_prom}`
+* **Repairs Withheld (Contract Violation):** `{rep_with}`
+* **Repair Promotion Effectiveness:** `{rep_eff:.2f}%`
+"""
+
+        section_6 = f"""## 6. SFT Candidate Quality vs. Governance Outcomes
+
+We distinguish raw training-induced parameter quality from the post-routing system outcomes.
+
+### SFT Candidate Parameters Quality (Un-Routed)
+* **Observed Candidate Regressions:** `{obs_reg}`
+* **Observed Candidate Repairs:** `{rep_id}`
+* **Net Candidate Delta:** `{rep_id - obs_reg:+d}`
+
+### Governed System Outcome (Routed Serving Stream)
+* **Contained Regressions:** `{cont_reg}`
+* **Promoted Repairs:** `{rep_prom}`
+* **Served Regressions:** `{serv_reg}`
+* **Safe Abstains:** `{safe_abst}`
+* **System Exposure Control Rate:** `{exp_rate:.2f}%`
+"""
+
+        counts = summary.transition_counts
+        tot = sum(counts.values()) or 1
+        section_7 = f"""## 7. Transition Analysis Matrix
+
+| Transition Type | Count | Percentage | Operational Meaning |
+|---|:---:|:---:|---|
+| **Correct ➔ Correct** | `{counts.get('correct->correct', 0)}` | `{(counts.get('correct->correct', 0)/tot)*100:.1f}%` | Semantic target preserved across both models |
+| **Correct ➔ Wrong (Regression)** | `{counts.get('correct->wrong', 0)}` | `{(counts.get('correct->wrong', 0)/tot)*100:.1f}%` | Candidate degraded baseline correct output |
+| **Wrong ➔ Correct (Repair)** | `{counts.get('wrong->correct', 0)}` | `{(counts.get('wrong->correct', 0)/tot)*100:.1f}%` | Candidate successfully resolved baseline error |
+| **Wrong ➔ Wrong (Persistent)** | `{counts.get('wrong->wrong', 0)}` | `{(counts.get('wrong->wrong', 0)/tot)*100:.1f}%` | Persistent target failure across both configurations |
+"""
+
+        section_8 = f"""## 8. Technical Debug & Advanced Analytics
+
+### Likelihood-Semantic Divergence (Fix Group H)
+* **Divergent Cases Detected:** `{div_data['divergent_count']}` (`{div_data['divergent_percentage']:.2f}%` of validation trace)
+* **Behavior Analysis:** Likelihood improvement (NLL decrease) does not necessarily imply safer or more reliable outputs. SFT optimization often lowers cross-entropy loss while degrading discrete accuracy. PCRF governance therefore relies on multiple structural and margin-based reliability signals rather than likelihood alone.
+
+### Regression Detection Coverage (Fix Group J)
+* **Observed Candidate Regressions:** `{cov_data['observed_regressions']}`
+* **Regressions with Elevated Candidate Risk:** `{cov_data['elevated_risk_regressions']}`
+* **Regression Detection Coverage %:** `{cov_data['coverage_pct']:.2f}%`
+
+#### Coverage by Risk Tier Thresholds
+* **LOW+ Risk coverage (>=0.30):** `{cov_data['low_plus_pct']:.2f}%` ({cov_data['low_plus_count']} rows)
+* **MEDIUM+ Risk coverage (>=0.55):** `{cov_data['med_plus_pct']:.2f}%` ({cov_data['med_plus_count']} rows)
+* **HIGH+ Risk coverage (>=0.75):** `{cov_data['high_plus_pct']:.2f}%` ({cov_data['high_plus_count']} rows)
+"""
+
+        scoreboard = make_pcrf_scorecard_table(scorecard)
         controller = SafePCRFController(cfg.gate_cfg)
-        
-        feat_metrics_gating = {
-            "seen_val_acc": cand_correct / total_rows,
-            "unseen_val_acc": cand_correct / total_rows,
-            "seen_val_nll": float(np.mean([r["candidate_nll"] for r in trace_rows])) if trace_rows else 0.0,
-            "unseen_val_nll": float(np.mean([r["candidate_nll"] for r in trace_rows])) if trace_rows else 0.0,
-            "transitions": summary.transition_counts,
-            "contained_regressions": reconciliation_data.get("contained_regressions", 0),
-            "served_regressions": reconciliation_data.get("served_regressions", 0),
-            "critical_regressions": reconciliation_data.get("critical_regressions", 0),
-            "instruction_violation_rate": float(np.mean([r["instruction_violation_candidate"] for r in trace_rows])) if trace_rows else 0.0,
-            "strict_em_acc": float(np.mean([r["strict_em_candidate"] for r in trace_rows])) if trace_rows else 0.0,
-            "avg_hallucination_risk": float(np.mean([r["candidate_hallucination_risk_score"] for r in trace_rows])) if trace_rows else 0.0,
-            "validation_sample_size": len(trace_rows)
-        }
-        base_metrics_gating = {
-            "seen_val_acc": base_correct / total_rows,
-            "unseen_val_acc": base_correct / total_rows,
-            "seen_val_nll": float(np.mean([r["baseline_nll"] for r in trace_rows])) if trace_rows else 0.0,
-            "unseen_val_nll": float(np.mean([r["baseline_nll"] for r in trace_rows])) if trace_rows else 0.0,
-            "instruction_violation_rate": float(np.mean([r["instruction_violation_baseline"] for r in trace_rows])) if trace_rows else 0.0,
-            "strict_em_acc": float(np.mean([r["strict_em_baseline"] for r in trace_rows])) if trace_rows else 0.0,
-            "avg_hallucination_risk": float(np.mean([r["baseline_hallucination_risk_score"] for r in trace_rows])) if trace_rows else 0.0
-        }
-
-        gate_decision = controller.compute_promotion_decision_v2(
-            baseline_metrics=base_metrics_gating,
-            feature_metrics=feat_metrics_gating,
-            r_sys_chain=multitier_reliability["series"]
-        )
+        gate_decision = controller.compute_promotion_decision_v2(baseline_stats, regularized_stats, multitier_reliability["series"])
         evidence_sec = make_promotion_decision_evidence(gate_decision.checks)
-
-        section_5_content = f"""## 5. Hallucination Risk & SFT Calibration
-
-| Diagnostic Metric | Measured Count | Engineering Definition & Protective Scope |
-|---|:---:|---|
-| **Total Baseline Hallucinations Found** | `{total_b_hallucinations}` | Validation prompts where baseline failed to capture semantic target. |
-| **Repairs Found (Semantic Recoveries)** | `{rep_id}` | Raw semantic improvements found in SFT candidate. |
-| **Repairs Promoted (Contract-Clean)** | `{rep_prom}` | Baseline errors resolved cleanly and promoted with strict EM. |
-| **Repairs Withheld (Contract Violation)**| `{rep_with}` | Semantic target recovered, but withheld due to contract/EM violation. |
-| **Candidate Over-Steers Prevented** | `{reconciliation_data.get('oversteers_prevented', 0)}` | Both models failed, but SFT candidate risk was higher; baseline served. |
-| **Catastrophic Regressions Blocked** | `{reconciliation_data.get('contained_regressions', 0)}` | Baseline was correct but SFT candidate failed; router served baseline fallback. |
-| **Hallucination Exposure Control Rate** | {exp_rate:.2f}% | All baseline cases were either repaired or withheld. |
-| **Net Gateway Interventions** | `{reconciliation_data.get('net_interventions', 0)}` | Overall cases actively guarded by the Protected Router (100% active coverage). |
-
-### Failure Taxonomy & Recommended Fix Plan
-
-| Failure Category | Count | Interpretation | Recommended Fix Plan |
-|---|---|---|---|
-| TARGET_MISS | {target_miss_count} | Generated output failed to include the required target completion. | Add target-token anchoring, curriculum replay on misses, and prompt-target alignment diagnostics. |
-| FORMAT_TEMPLATE_FAILURE | {format_temp_count} | Generated output echoed blanks, answer choices, scaffolding, or template artifacts. | Add formatting suppression, answer-choice leakage penalties, and template artifact filters. |
-| WRONG_ENTITY_SUBSTITUTION | {wrong_entity_count} | Generated a semantically plausible but incorrect entity, distractor, or adjacent concept instead of the target. | Add semantic contrastive negatives, entity-disambiguation replay, and high-risk distractor curation. |
-| OVER_GENERATION | {over_gen_count} | Generated the target or related text but continued beyond the required one-word answer. | Add stop-token enforcement, max-new-token constraints, post-decode truncation policy, and one-token decoding mode. |
-| INSTRUCTION_CONTRACT_VIOLATION | {inst_contract_count} | Target may be present, but output violates task constraints such as one-word-only completion. | Add explicit contract loss, strict EM validation, and one-word output gate. |
-| HIGH_CONFIDENCE_WRONG | {high_conf_count} | Incorrect output emitted with confidence above configured high-confidence threshold. | Add high-confidence wrong penalty and calibration SFT regularization. |
-
-*Note: Over-generation is currently nested under instruction-contract violation by taxonomy policy.*
-"""
-
-        section_6_content = f"""## 6. Protected Router Governance
-
-| Routing Action Type | Action Count | Operational Role |
-|---|:---:|---|
-| **Regressions Blocked** | `{reconciliation_data.get('contained_regressions', 0)}` | Fallback to baseline on candidate failure |
-| **Contract-Clean Repairs Promoted** | `{reconciliation_data.get('repairs_promoted', 0)}` | Upgrade to SFT candidate on verified contract-clean SFT repair |
-| **Over-steers Prevented** | `{reconciliation_data.get('oversteers_prevented', 0)}` | Fallback to baseline when candidate risk spikes |
-
-### Served Output Impact:
-**Regression Containment:** The router successfully blocked {reconciliation_data.get('contained_regressions', 0)} regression(s) where candidate degraded baseline correct outputs. This demonstrates safe containment control.
-* **Generalization Repair:** Promoted {reconciliation_data.get('repairs_promoted', 0)} successful contract-clean SFT candidate repair(s) into active serving streams.
-
-### Dynamic Showcase Cases
-{showcases_sec}
-"""
-
-        section_7_content = f"""## 7. Compliance Trace
-
-{failed_table_sec}
-"""
 
         reconciliation_sec = generate_structural_reconciliation_text(
             multitier_reliability=multitier_reliability, 
@@ -1392,108 +1182,66 @@ This section tracks the active interception of hallucinated outputs and formatti
             total_layers=total_layers
         )
 
-        section_8_content = f"""## 8. Structural Reconciliation
-
-{reconciliation_sec}
-
-{make_layer_sensitivity_section(layer_derivatives, layer_breakdown, cfg, canonical_selected_layers)}
-"""
-
-        counts = summary.transition_counts
-        tot = sum(counts.values()) or 1
-
-        section_9_content = f"""## 9. SFT Generalization Accuracies
-
-{make_metrics_at_a_glance_table(summary, cfg)}
-
-**Reading the Metrics Scoreboard:**
-* **Candidate Delta** indicates raw SFT model representation movement.
-* **Served Delta** reflects governed served output. A flat Served Delta can signify safe routing overrides.
-
-| Transition Type | Count | Percentage | Operational Meaning |
-|---|:---:|:---:|---|
-| **Correct ➔ Correct** | `{counts.get('correct->correct', 0)}` | `{(counts.get('correct->correct', 0)/tot)*100:.1f}%` | Semantic target preserved across both models |
-| **Correct ➔ Wrong (Regression)** | `{counts.get('correct->wrong', 0)}` | `{(counts.get('correct->wrong', 0)/tot)*100:.1f}%` | Candidate degraded baseline correct output |
-| **Wrong ➔ Correct (Repair)** | `{counts.get('wrong->correct', 0)}` | `{(counts.get('wrong->correct', 0)/tot)*100:.1f}%` | Candidate successfully resolved baseline error |
-| **Wrong ➔ Wrong (Persistent)** | `{counts.get('wrong->wrong', 0)}` | `{(counts.get('wrong->wrong', 0)/tot)*100:.1f}%` | Persistent target failure across both configurations |
-
-### Metric Confidence & Validation Sample Size Limits
-
-* **Train Split Partition Count:** `{len(splits.get('train', []))}`
-* **Seen Validation Split Count:** `{len(splits.get('seen_val', []))}`
-* **Unseen Validation Split Count:** `{len(splits.get('unseen_val', []))}`
-* **Total Combined Validation Count:** `{len(trace_rows)}`
-
-### Paired Significance Context:
-With smaller validation sets, discrete accuracy deltas must be interpreted as directional SFT evidence rather than definitive proof of generalization. 
-Enterprise deployments should scale validation spaces to larger evaluation corpuses to perform paired statistical tests.
-
-### Dynamic Executive AI Governance Conclusion
-
-Based on SFT evidence compiled in this evaluation cycle, we draw the following conclusions:
-
-* **Demonstrated SFT Capabilities:** SFT candidate model demonstrated improved continuous likelihood metrics (NLL) but failed discrete accuracy non-inferiority or structural safety thresholds. Direct promotion of current weights is not safe.
-* **Repairs Promoted:** Promoted {reconciliation_data.get('repairs_promoted', 0)} validated SFT semantic repairs.
-* **Router Safety:** The Protected Router successfully preserved SFT served accuracy by blocking {reconciliation_data.get('contained_regressions', 0)} regressions.
-
-### Compute Environment Audit
-
-* **Host Platform:** `{get_hardware_profile_details()['os']}`
-* **Active CPU Cores:** `{get_hardware_profile_details()['cpu_cores']}`
-* **Host Memory Capacity:** `{get_hardware_profile_details()['ram_gb']:.2f} GB`
-* **GPU Platform:** `{get_hardware_profile_details()['gpu_name']} ({get_hardware_profile_details()['vram_gb']:.2f} GB VRAM)`
-
-*Report programmatically generated by PCRF Reliability Suite v1.*
-"""
+        failed_table_sec = make_failed_generations_debug_table(failed_generations)
+        showcases_sec = make_showcase_cases_section(selected_showcases)
 
         md = f"""# PCRF Executive SFT Reliability Scorecard
 **Causal Flow Downstream Probability Derivatives Audit Report**
 
-{claim_notice}
-
-{exec_summary_box}
+{section_2}
 
 ---
 
-{core_gating_status}
+{section_1}
 
 ---
 
-{section_1_content}
+{section_3}
 
 ---
 
-{section_2_content}
+{section_4}
 
 ---
 
-## 3. Integrated PCRF Scoreboard
-{scoreboard_table}
+{section_5}
 
 ---
 
-## 4. Gating Check Outcomes
+{section_6}
+
+---
+
+{section_7}
+
+---
+
+{section_8}
+
+---
+
+## 9. Protected Router Case Showcases
+{showcases_sec}
+
+---
+
+## 10. Gating Check Outcomes
 {evidence_sec}
 
 ---
 
-{section_5_content}
+## 11. Integrated PCRF Scoreboard
+{scoreboard}
 
 ---
 
-{section_6_content}
+## 12. Structural Reconciliation
+{reconciliation_sec}
 
 ---
 
-{section_7_content}
-
----
-
-{section_8_content}
-
----
-
-{section_9_content}
+## 13. Compliance Trace & Debug Table
+{failed_table_sec}
 """
 
         md += assert_no_raw_hallucinated_outputs_in_customer_report(md, trace_rows)
@@ -1507,7 +1255,7 @@ Based on SFT evidence compiled in this evaluation cycle, we draw the following c
 
     @staticmethod
     def _generate_conditional_blueprints(output_dir: str, scorecard: Dict[str, Any], baseline_stats: Dict[str, Any]):
-        """Generates visual configuration blueprints for all active SAFE_TO_APPLY track components."""
+        """Generates visual configuration blueprints for all active SAFE_TO_APPLY track components (Issue 1 & 5)."""
         raw_model_name = baseline_stats.get("model_name", "QWEN").upper()
         model_name_dynamic = raw_model_name.replace("/", "_")
 

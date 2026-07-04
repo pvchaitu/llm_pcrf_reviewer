@@ -1,0 +1,81 @@
+id,prompt,target,priority_score
+66,Complete with one word only: The digital counting framework representing information with 0 and 1 is,Binary,16.363521033119323
+43,Complete with one word only: The element with atomic number 6 is,Carbon,16.107310570896693
+56,Complete with one word only: A liquid solution with a pH rating significantly higher than 7 is a,Base,15.788352315623833
+78,Complete with one word only: The reserved programming keyword used to declare structural blueprints in Python is,class,15.69545388174573
+79,Complete with one word only: The reserved programming keyword used to initiate routine blocks in Python is,def,15.621158594341551
+63,"Complete with one word only: To store keyed associative records with rapid O(1) lookup, developers choose a",Map,15.338407130584622
+74,Complete with one word only: The relational database directive used to fetch selected tuples from table arrays is,SELECT,14.884780350034356
+67,Complete with one word only: The primary volatile memory utilized for rapid workspace computation is,RAM,14.531438851222926
+75,Complete with one word only: An auxiliary database lookup catalog built to accelerate query evaluation is an,Index,14.24038285140693
+59,Complete with one word only: The core organ driving blood circulation in mammalian systems is the,Heart,13.54634541973087
+76,Complete with one word only: The fundamental internet routing system standardizing packet layout is the,IP,13.319199355162569
+77,"Complete with one word only: In balanced search trees, a terminal node lacking downstream progeny is a",Leaf,12.73952893841702
+60,Complete with one word only: Light waves travel significantly faster than mechanical propagation of,Sound,12.72863102142366
+53,Complete with one word only: The physical force driving planetary orbits is,Gravity,12.438493695507608
+58,Complete with one word only: The atmospheric gas primarily responsible for global warming is,Carbon,11.896133070378891
+71,Complete with one word only: The network transmission protocol used to serve encrypted web content is,HTTPS,11.657839706310057
+57,Complete with one word only: The basic physical container of all organic life is the,Cell,11.22635178390658
+70,"Complete with one word only: In class structures, an operational memory instantiation is called an",Object,11.130453860031118
+12,Complete with one word only: The official capital city of England is,London,10.80985441157863
+68,Complete with one word only: The foundational processing unit executing computing instructions is the,CPU,10.730915483892637
+72,Complete with one word only: A software routine that invokes itself to solve smaller sub-problems is,Recursion,10.573337281809907
+15,Complete with one word only: The official capital city of Mexico is,Mexico,10.174274013847151
+1,Complete with one word only: The official capital city of France is,Paris,9.871644891435363
+37,Complete with one word only: The official capital city of Switzerland is,Bern,9.796926738040758
+61,"Complete with one word only: In operating systems, a scheduled execution thread resides within a",Process,9.397278949023637
+69,Complete with one word only: The technical engineering pipeline of locating and isolating software bugs is,Debugging,8.454711642065279
+62,"Complete with one word only: In deep learning, structural parameters are mathematically adjusted via",Descent,8.39697417029555
+2,Complete with one word only: The official capital city of Germany is,Berlin,8.250746322244888
+45,Complete with one word only: The element with atomic number 8 is,Oxygen,7.990969591599505
+28,Complete with one word only: The official capital city of Finland is,Helsinki,7.7168528739407884
+3,Complete with one word only: The official capital city of Italy is,Rome,7.609320713969755
+49,Complete with one word only: The planet historically referred to as the red planet is,Mars,7.593809713444472
+7,Complete with one word only: The official capital city of Egypt is,Cairo,7.494871885805667
+42,Complete with one word only: The element with atomic number 2 is,Helium,7.417937382342359
+48,Complete with one word only: The planet with the highest surface temperature is,Venus,7.321875831999739
+50,Complete with one word only: The largest gas giant orbiting inside our solar system is,Jupiter,7.219397364180023
+30,Complete with one word only: The official capital city of Kenya is,Nairobi,7.18262231568628
+55,Complete with one word only: A liquid solution with a pH rating significantly lower than 7 is an,Acid,7.093058017501922
+51,Complete with one word only: Photosynthesis in organic plant structures generates glucose and,Oxygen,7.024400943303426
+17,Complete with one word only: The official capital city of Australia is,Canberra,6.982487925170764
+38,Complete with one word only: The official capital city of Denmark is,Copenhagen,6.979412536149482
+44,Complete with one word only: The element with atomic number 7 is,Nitrogen,6.945436387375589
+52,Complete with one word only: The standard electrical metric measuring opposition to current is,Ohm,6.943799629853205
+47,Complete with one word only: The planet sitting closest to our solar system's sun is,Mercury,6.783129281821833
+73,Complete with one word only: The version control directive committing index state to local repository history is git,commit,6.693721710193367
+22,Complete with one word only: The official capital city of Peru is,Lima,6.4298902959777795
+23,Complete with one word only: The official capital city of Chile is,Santiago,6.077467471066296
+21,Complete with one word only: The official capital city of Vietnam is,Hanoi,6.071874600134645
+33,Complete with one word only: The official capital city of New Zealand is,Wellington,5.90780308870009
+10,Complete with one word only: The official capital city of Russia is,Moscow,5.831438320767007
+39,Complete with one word only: The official capital city of Norway is,Oslo,5.738413717082902
+26,Complete with one word only: The official capital city of Austria is,Vienna,5.579385547932765
+11,Complete with one word only: The official capital city of India is,Delhi,5.548895332900463
+6,Complete with one word only: The official capital city of China is,Beijing,5.496692082816626
+54,Complete with one word only: The chemical compound representing standard table salt is,NaCl,5.449238928788415
+31,Complete with one word only: The official capital city of Nigeria is,Abuja,5.411649690765321
+25,Complete with one word only: The official capital city of Belgium is,Brussels,5.345601768726866
+14,Complete with one word only: The official capital city of Brazil is,Brasilia,5.332355417649146
+34,Complete with one word only: The official capital city of Saudi Arabia is,Riyadh,5.300581819121423
+13,Complete with one word only: The official capital city of Canada is,Ottawa,5.253024673573423
+9,Complete with one word only: The official capital city of Portugal is,Lisbon,5.231440765432719
+18,Complete with one word only: The official capital city of Sweden is,Stockholm,5.200155582052447
+41,Complete with one word only: The element with atomic number 1 is,Hydrogen,5.1884084831226005
+36,Complete with one word only: The official capital city of Netherlands is,Amsterdam,5.170898479733484
+80,Complete with one word only: The computational scale measuring worst-case algorithm complexity is Big O,Notation,5.139019903984362
+35,Complete with one word only: The official capital city of Ukraine is,Kyiv,5.09631388890695
+27,Complete with one word only: The official capital city of Poland is,Warsaw,4.960806531559959
+19,Complete with one word only: The official capital city of Turkey is,Ankara,4.905634348228655
+8,Complete with one word only: The official capital city of Greece is,Athens,4.8636217742334455
+32,Complete with one word only: The official capital city of South Africa is,Pretoria,4.838220243759593
+24,Complete with one word only: The official capital city of Colombia is,Bogota,4.831516487114166
+4,Complete with one word only: The official capital city of Spain is,Madrid,4.7133032645038355
+46,Complete with one word only: Water is chemically composed of oxygen and,Hydrogen,4.66110543577885
+64,"Complete with one word only: A sequential queue data structure operates on the first-in first-out principle, or",FIFO,4.481524402371425
+29,Complete with one word only: The official capital city of Ireland is,Dublin,4.250095957161153
+65,"Complete with one word only: A sequential stack data structure operates on the last-in first-out principle, or",LIFO,4.233053176334885
+20,Complete with one word only: The official capital city of Thailand is,Bangkok,4.1577835228898286
+5,Complete with one word only: The official capital city of Japan is,Tokyo,4.1156307328406845
+40,Complete with one word only: The official capital city of Indonesia is,Jakarta,3.9751616000174517
+16,Complete with one word only: The official capital city of Argentina is,Buenos Aires,3.7463294928462987

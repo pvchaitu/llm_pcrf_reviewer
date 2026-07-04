@@ -1,0 +1,501 @@
+id,prompt,target,task_type,split,is_critical,criticality_weight
+1,"JSON payload: { 'event': 'FailedLogin', 'username': 'root', 'ip': '198.51.100.4', 'attempts': 15 }. Risk triage (low/medium/high):",high,security_triage,train,1,1.5
+2,"JSON payload: { 'event': 'FailedLogin', 'username': 'johndoe', 'ip': '192.168.1.45', 'attempts': 1 }. Risk triage (low/medium/high):",low,security_triage,train,0,1.0
+3,"JSON payload: { 'event': 'S3BucketCreated', 'owner': 'dev_user_99', 'public_access': true }. Risk triage (low/medium/high):",high,security_triage,train,1,1.5
+4,"JSON payload: { 'event': 'S3BucketCreated', 'owner': 'ops_manager_22', 'public_access': false }. Risk triage (low/medium/high):",low,security_triage,train,0,1.0
+5,"JSON payload: { 'event': 'IAMPolicyModified', 'policy': 'AdministratorAccess', 'mfa_verified': false }. Risk triage (low/medium/high):",high,security_triage,train,1,1.5
+6,"JSON payload: { 'event': 'IAMPolicyModified', 'policy': 'ReadOnlyAccess', 'mfa_verified': true }. Risk triage (low/medium/high):",low,security_triage,train,0,1.0
+7,"JSON payload: { 'event': 'PortScanDetected', 'source_ip': '45.33.102.55', 'ports_scanned': 2500 }. Risk triage (low/medium/high):",high,security_triage,train,1,1.5
+8,"JSON payload: { 'event': 'PortScanDetected', 'source_ip': '10.0.2.14', 'ports_scanned': 3 }. Risk triage (low/medium/high):",low,security_triage,train,0,1.0
+9,"JSON payload: { 'event': 'SSHKeyAdded', 'user': 'jenkins_agent_01', 'key_strength': 1024 }. Risk triage (low/medium/high):",medium,security_triage,train,0,1.0
+10,"JSON payload: { 'event': 'SSHKeyAdded', 'user': 'master_backup_bot', 'key_strength': 4096 }. Risk triage (low/medium/high):",low,security_triage,train,0,1.0
+11,"JSON payload: { 'event': 'FailedLogin', 'username': 'admin_crm', 'ip': '185.220.101.5', 'attempts': 8 }. Risk triage (low/medium/high):",medium,security_triage,train,0,1.0
+12,"JSON payload: { 'event': 'FailedLogin', 'username': 'staff_dev', 'ip': '192.168.2.10', 'attempts': 2 }. Risk triage (low/medium/high):",low,security_triage,train,0,1.0
+13,"JSON payload: { 'event': 'S3BucketCreated', 'owner': 'marketing_external', 'public_access': true }. Risk triage (low/medium/high):",high,security_triage,train,1,1.5
+14,"JSON payload: { 'event': 'S3BucketCreated', 'owner': 'finance_lead', 'public_access': false }. Risk triage (low/medium/high):",low,security_triage,train,0,1.0
+15,"JSON payload: { 'event': 'IAMPolicyModified', 'policy': 'BillingAccess', 'mfa_verified': false }. Risk triage (low/medium/high):",medium,security_triage,train,0,1.0
+16,"JSON payload: { 'event': 'IAMPolicyModified', 'policy': 'SecurityAuditOnly', 'mfa_verified': true }. Risk triage (low/medium/high):",low,security_triage,train,0,1.0
+17,"JSON payload: { 'event': 'PortScanDetected', 'source_ip': '185.190.140.22', 'ports_scanned': 5000 }. Risk triage (low/medium/high):",high,security_triage,train,1,1.5
+18,"JSON payload: { 'event': 'PortScanDetected', 'source_ip': '192.168.10.150', 'ports_scanned': 5 }. Risk triage (low/medium/high):",low,security_triage,train,0,1.0
+19,"JSON payload: { 'event': 'SSHKeyAdded', 'user': 'temporary_contractor', 'key_strength': 2048 }. Risk triage (low/medium/high):",medium,security_triage,train,0,1.0
+20,"JSON payload: { 'event': 'SSHKeyAdded', 'user': 'ceo_laptop_device', 'key_strength': 4096 }. Risk triage (low/medium/high):",low,security_triage,train,0,1.0
+21,"Extract the API action (get/post/delete) from this routing rule: 'Fetch client profile metadata from PostgreSQL' as JSON: { 'action':",get,api_routing,train,0,1.0
+22,"Extract the API action (get/post/delete) from this routing rule: 'Delete inactive user session records from Redis cache' as JSON: { 'action':",delete,api_routing,train,1,1.5
+23,"Extract the API action (get/post/delete) from this routing rule: 'Create a new client verification token' as JSON: { 'action':",post,api_routing,train,0,1.0
+24,"Extract the API action (get/post/delete) from this routing rule: 'Retrieve transaction ledger history array' as JSON: { 'action':",get,api_routing,train,0,1.0
+25,"Extract the API action (get/post/delete) from this routing rule: 'Register new mobile gateway configuration' as JSON: { 'action':",post,api_routing,train,0,1.0
+26,"Extract the API action (get/post/delete) from this routing rule: 'Erase configuration baseline revision logs' as JSON: { 'action':",delete,api_routing,train,1,1.5
+27,"Extract the API action (get/post/delete) from this routing rule: 'List active container workspace segments' as JSON: { 'action':",get,api_routing,train,0,1.0
+28,"Extract the API action (get/post/delete) from this routing rule: 'Provision a new security credential record' as JSON: { 'action':",post,api_routing,train,0,1.0
+29,"Extract the API action (get/post/delete) from this routing rule: 'Erase temporary local billing directory' as JSON: { 'action':",delete,api_routing,train,0,1.0
+30,"Extract the API action (get/post/delete) from this routing rule: 'Fetch compliance standard checklist' as JSON: { 'action':",get,api_routing,train,0,1.0
+31,"Extract the API action (get/post/delete) from this routing rule: 'Retrieve active cluster heartbeat telemetry' as JSON: { 'action':",get,api_routing,train,0,1.0
+32,"Extract the API action (get/post/delete) from this routing rule: 'Delete orphaned docker volumes from host server' as JSON: { 'action':",delete,api_routing,train,1,1.5
+33,"Extract the API action (get/post/delete) from this routing rule: 'Submit client access registration block' as JSON: { 'action':",post,api_routing,train,0,1.0
+34,"Extract the API action (get/post/delete) from this routing rule: 'Load active transaction audit logs' as JSON: { 'action':",get,api_routing,train,0,1.0
+35,"Extract the API action (get/post/delete) from this routing rule: 'Push latest system baseline profile configuration' as JSON: { 'action':",post,api_routing,train,0,1.0
+36,"Extract the API action (get/post/delete) from this routing rule: 'Purge deprecated session metadata blocks' as JSON: { 'action':",delete,api_routing,train,1,1.5
+37,"Extract the API action (get/post/delete) from this routing rule: 'Request latest network interface statuses' as JSON: { 'action':",get,api_routing,train,0,1.0
+38,"Extract the API action (get/post/delete) from this routing rule: 'Publish new API gateway endpoint route' as JSON: { 'action':",post,api_routing,train,0,1.0
+39,"Extract the API action (get/post/delete) from this routing rule: 'Erase staging database cluster indexes' as JSON: { 'action':",delete,api_routing,train,0,1.0
+40,"Extract the API action (get/post/delete) from this routing rule: 'Load balance incoming connection metrics list' as JSON: { 'action':",get,api_routing,train,0,1.0
+41,"Extract the user role (admin/editor/viewer) from this permission string: 'Can assign groups, modify profiles, and manage system administrators' as JSON: { 'role':",admin,iam_audit,train,1,1.5
+42,"Extract the user role (admin/editor/viewer) from this permission string: 'Can modify files and edit existing document drafts' as JSON: { 'role':",editor,iam_audit,train,0,1.0
+43,"Extract the user role (admin/editor/viewer) from this permission string: 'Can read audit logs and browse directory indices but cannot write changes' as JSON: { 'role':",viewer,iam_audit,train,0,1.0
+44,"Extract the user role (admin/editor/viewer) from this permission string: 'Has root level execution privileges and can delete files globally' as JSON: { 'role':",admin,iam_audit,train,1,2.0
+45,"Extract the user role (admin/editor/viewer) from this permission string: 'Authorized to save draft adjustments but lacks user admin panel rights' as JSON: { 'role':",editor,iam_audit,train,0,1.0
+46,"Extract the user role (admin/editor/viewer) from this permission string: 'Can browse metric dashboard views but lacks edit rights' as JSON: { 'role':",viewer,iam_audit,train,0,1.0
+47,"Extract the user role (admin/editor/viewer) from this permission string: 'Can create billing credentials and modify system configurations' as JSON: { 'role':",admin,iam_audit,train,1,1.5
+48,"Extract the user role (admin/editor/viewer) from this permission string: 'Can submit content reviews and update documentation files' as JSON: { 'role':",editor,iam_audit,train,0,1.0
+49,"Extract the user role (admin/editor/viewer) from this permission string: 'Can observe network throughput metrics but cannot change port bindings' as JSON: { 'role':",viewer,iam_audit,train,0,1.0
+50,"Extract the user role (admin/editor/viewer) from this permission string: 'Authorized to adjust user access directories and assign privileges' as JSON: { 'role':",admin,iam_audit,train,1,1.5
+51,"Extract the user role (admin/editor/viewer) from this permission string: 'Allowed to edit configuration templates and update baseline files' as JSON: { 'role':",editor,iam_audit,train,0,1.0
+52,"Extract the user role (admin/editor/viewer) from this permission string: 'Can view transaction history records but cannot trigger refunds' as JSON: { 'role':",viewer,iam_audit,train,0,1.0
+53,"Extract the user role (admin/editor/viewer) from this permission string: 'Has complete system owner role across all domain cabinets' as JSON: { 'role':",admin,iam_audit,train,1,1.5
+54,"Extract the user role (admin/editor/viewer) from this permission string: 'Can write new blog articles and modify published copy' as JSON: { 'role':",editor,iam_audit,train,0,1.0
+55,"Extract the user role (admin/editor/viewer) from this permission string: 'Can inspect user profile details but cannot alter names' as JSON: { 'role':",viewer,iam_audit,train,0,1.0
+56,"Extract the user role (admin/editor/viewer) from this permission string: 'Can establish database clusters and adjust primary host configs' as JSON: { 'role':",admin,iam_audit,train,1,1.5
+57,"Extract the user role (admin/editor/viewer) from this permission string: 'Allowed to adjust metadata keywords on uploaded videos' as JSON: { 'role':",editor,iam_audit,train,0,1.0
+58,"Extract the user role (admin/editor/viewer) from this permission string: 'Can download static file attachment assets' as JSON: { 'role':",viewer,iam_audit,train,0,1.0
+59,"Extract the user role (admin/editor/viewer) from this permission string: 'Has absolute root credentials on target cloud containers' as JSON: { 'role':",admin,iam_audit,train,1,1.5
+60,"Extract the user role (admin/editor/viewer) from this permission string: 'Can write updates to wiki documentation articles' as JSON: { 'role':",editor,iam_audit,train,0,1.0
+61,"Extract the transaction status (approved/declined) from this gateway log: 'Stripe gateway logs: payment processed successfully for client 1012' as JSON: { 'status':",approved,fintech_audit,train,0,1.0
+62,"Extract the transaction status (approved/declined) from this gateway log: 'Adyen gateway logs: transaction rejected due to insufficient credit' as JSON: { 'status':",declined,fintech_audit,train,0,1.0
+63,"Extract the transaction status (approved/declined) from this gateway log: 'PayPal gateway logs: credit card verification failure' as JSON: { 'status':",declined,fintech_audit,train,0,1.0
+64,"Extract the transaction status (approved/declined) from this gateway log: 'Braintree gateway logs: auth success, funds capture complete' as JSON: { 'status':",approved,fintech_audit,train,1,1.5
+65,"Extract the transaction status (approved/declined) from this gateway log: 'Authorize.Net gateway logs: fraud filter triggered' as JSON: { 'status':",declined,fintech_audit,train,1,1.5
+66,"Extract the transaction status (approved/declined) from this gateway log: 'Stripe gateway logs: verification code checked, order complete' as JSON: { 'status':",approved,fintech_audit,train,0,1.0
+67,"Extract the transaction status (approved/declined) from this gateway log: 'Adyen gateway logs: card has expired' as JSON: { 'status':",declined,fintech_audit,train,0,1.0
+68,"Extract the transaction status (approved/declined) from this gateway log: 'PayPal gateway logs: payment authorized, pending capture' as JSON: { 'status':",approved,fintech_audit,train,0,1.0
+69,"Extract the transaction status (approved/declined) from this gateway log: 'Braintree gateway logs: account billing block verified' as JSON: { 'status':",declined,fintech_audit,train,0,1.0
+70,"Extract the transaction status (approved/declined) from this gateway log: 'Authorize.Net gateway logs: digital wallet authenticated' as JSON: { 'status':",approved,fintech_audit,train,0,1.0
+71,"Extract the transaction status (approved/declined) from this gateway log: 'Stripe gateway logs: charge limit reached on customer plan' as JSON: { 'status':",declined,fintech_audit,train,0,1.0
+72,"Extract the transaction status (approved/declined) from this gateway log: 'Adyen gateway logs: address postcode verify mismatch' as JSON: { 'status':",declined,fintech_audit,train,0,1.0
+73,"Extract the transaction status (approved/declined) from this gateway log: 'PayPal gateway logs: payment completed successfully' as JSON: { 'status':",approved,fintech_audit,train,0,1.0
+74,"Extract the transaction status (approved/declined) from this gateway log: 'Braintree gateway logs: account flagged for prior chargeback' as JSON: { 'status':",declined,fintech_audit,train,1,1.5
+75,"Extract the transaction status (approved/declined) from this gateway log: 'Authorize.Net gateway logs: token validated, clearance complete' as JSON: { 'status':",approved,fintech_audit,train,1,1.5
+76,"Extract the transaction status (approved/declined) from this gateway log: 'Stripe gateway logs: user cancelled checkout session' as JSON: { 'status':",declined,fintech_audit,train,0,1.0
+77,"Extract the transaction status (approved/declined) from this gateway log: 'Adyen gateway logs: funds captured, invoice archived' as JSON: { 'status':",approved,fintech_audit,train,0,1.0
+78,"Extract the transaction status (approved/declined) from this gateway log: 'PayPal gateway logs: suspicious billing ip location flagged' as JSON: { 'status':",declined,fintech_audit,train,1,1.5
+79,"Extract the transaction status (approved/declined) from this gateway log: 'Braintree gateway logs: merchant manual override applied' as JSON: { 'status':",approved,fintech_audit,train,0,1.0
+80,"Extract the transaction status (approved/declined) from this gateway log: 'Authorize.Net gateway logs: network connection drop during verify' as JSON: { 'status':",declined,fintech_audit,train,0,1.0
+81,"To accomplish multiple milestones at the exact same moment is to kill two birds with one",stone,cloze_seen,train,0,1.0
+82,"To avoid placing all your financial capital in a single volatile asset, don't put all your eggs in one",basket,cloze_seen,train,0,1.0
+83,"To accidentally reveal highly confidential organization blueprints is to let the cat out of the",bag,cloze_seen,train,0,1.0
+84,"Being in a state of supreme, ecstatic joy or extreme mental happiness is to be on cloud",nine,cloze_seen,train,0,1.0
+85,"Feeling entirely awkward, uncomfortable, and physically out of place is like a fish out of",water,cloze_seen,train,0,1.0
+86,"An unpredictable, incredibly dynamic, and highly energetic person is described as a live",wire,cloze_seen,train,0,1.0
+87,"An entirely random, highly surprising, and completely unexpected event is out of the",blue,cloze_seen,train,0,1.0
+88,"Pursuing a completely incorrect strategy or line of logic is barking up the wrong",tree,cloze_seen,train,0,1.0
+89,"Facing a very difficult, painful, or awkward situation with brave composure is to bite the",bullet,cloze_seen,train,0,1.0
+90,"Wishing a theater actor excellent performance fortune right before a show is telling them to break a",leg,cloze_seen,train,0,1.0
+91,"To accidentally expose a highly guarded organizational secret is to spill the",beans,cloze_seen,train,0,1.0
+92,"Executing an operational workflow that is incredibly straightforward is a piece of",cake,cloze_seen,train,0,1.0
+93,"Resolving an architectural software bottleneck with absolute precision is hitting the nail on the",head,cloze_seen,train,0,1.0
+94,"To accept the negative consequences of your previous incorrect actions is to face the",music,cloze_seen,train,0,1.0
+95,"Feeling mildly sick, fatigued, or physically under the weather is to be under the",weather,cloze_seen,train,0,1.0
+96,"To completely cease working on a development pipeline for the evening is to call it a",day,cloze_seen,train,0,1.0
+97,"Complaining about unfixable, past execution errors is crying over spilled",milk,cloze_seen,train,0,1.0
+98,"Avoiding speaking about the central, most critical problem in a meeting is beating around the",bush,cloze_seen,train,0,1.0
+99,"To initiate a highly difficult, tense, or awkward discussion with colleagues is to break the",ice,cloze_seen,train,0,1.0
+100,"Adding angry, volatile statements to an ongoing administrative dispute is adding fuel to the",fire,cloze_seen,train,0,1.0
+101,"JSON payload: { 'event': 'PortScanDetected', 'source_ip': '185.190.140.44', 'ports_scanned': 1500 }. Risk triage (low/medium/high):",medium,security_triage,train,0,1.0
+102,"JSON payload: { 'event': 'SSHKeyAdded', 'user': 'ops_agent_12', 'key_strength': 2048 }. Risk triage (low/medium/high):",low,security_triage,train,0,1.0
+103,"JSON payload: { 'event': 'FailedLogin', 'username': 'root', 'ip': '198.51.100.18', 'attempts': 25 }. Risk triage (low/medium/high):",high,security_triage,train,1,1.5
+104,"JSON payload: { 'event': 'FailedLogin', 'username': 'sam', 'ip': '192.168.1.12', 'attempts': 3 }. Risk triage (low/medium/high):",low,security_triage,train,0,1.0
+105,"JSON payload: { 'event': 'S3BucketCreated', 'owner': 'dev_test_user', 'public_access': true }. Risk triage (low/medium/high):",high,security_triage,train,1,1.5
+106,"JSON payload: { 'event': 'S3BucketCreated', 'owner': 'ops_admin_4', 'public_access': false }. Risk triage (low/medium/high):",low,security_triage,train,0,1.0
+107,"JSON payload: { 'event': 'IAMPolicyModified', 'policy': 'AdministratorAccess', 'mfa_verified': true }. Risk triage (low/medium/high):",medium,security_triage,train,0,1.0
+108,"JSON payload: { 'event': 'IAMPolicyModified', 'policy': 'ReadOnlyAccess', 'mfa_verified': false }. Risk triage (low/medium/high):",medium,security_triage,train,0,1.0
+109,"JSON payload: { 'event': 'PortScanDetected', 'source_ip': '45.33.102.12', 'ports_scanned': 800 }. Risk triage (low/medium/high):",medium,security_triage,train,0,1.0
+110,"JSON payload: { 'event': 'PortScanDetected', 'source_ip': '10.0.2.19', 'ports_scanned': 1 }. Risk triage (low/medium/high):",low,security_triage,train,0,1.0
+111,"Extract the API action (get/post/delete) from this routing rule: 'Delete inactive transaction profiles database records' as JSON: { 'action':",delete,api_routing,train,1,1.5
+112,"Extract the API action (get/post/delete) from this routing rule: 'Create a new server webhook registry token' as JSON: { 'action':",post,api_routing,train,0,1.0
+113,"Extract the API action (get/post/delete) from this routing rule: 'Retrieve client system balance profiles array' as JSON: { 'action':",get,api_routing,train,0,1.0
+114,"Extract the API action (get/post/delete) from this routing rule: 'Register new web hook gateways list' as JSON: { 'action':",post,api_routing,train,0,1.0
+115,"Extract the API action (get/post/delete) from this routing rule: 'Erase expired backup storage directories list' as JSON: { 'action':",delete,api_routing,train,1,1.5
+116,"Extract the API action (get/post/delete) from this routing rule: 'List active system deployments array metadata' as JSON: { 'action':",get,api_routing,train,0,1.0
+117,"Extract the API action (get/post/delete) from this routing rule: 'Provision a new security credential set block' as JSON: { 'action':",post,api_routing,train,0,1.0
+118,"Extract the API action (get/post/delete) from this routing rule: 'Erase unverified user registration files list' as JSON: { 'action':",delete,api_routing,train,0,1.0
+119,"Extract the API action (get/post/delete) from this routing rule: 'Fetch system baseline metrics parameters payload' as JSON: { 'action':",get,api_routing,train,0,1.0
+120,"Extract the API action (get/post/delete) from this routing rule: 'Submit transaction payload verification block' as JSON: { 'action':",post,api_routing,train,0,1.0
+121,"Extract the user role (admin/editor/viewer) from this permission string: 'Can assign groups, modify profiles, and manage directory servers' as JSON: { 'role':",admin,iam_audit,train,1,1.5
+122,"Extract the user role (admin/editor/viewer) from this permission string: 'Can modify configuration files and edit draft stylesheets' as JSON: { 'role':",editor,iam_audit,train,0,1.0
+123,"Extract the user role (admin/editor/viewer) from this permission string: 'Can read application logs and browse metric dashboards' as JSON: { 'role':",viewer,iam_audit,train,0,1.0
+124,"Extract the user role (admin/editor/viewer) from this permission string: 'Has root level execution privileges and can drop databases globally' as JSON: { 'role':",admin,iam_audit,train,1,2.0
+125,"Extract the user role (admin/editor/viewer) from this permission string: 'Authorized to save update parameters but lacks security group rights' as JSON: { 'role':",editor,iam_audit,train,0,1.0
+126,"Extract the user role (admin/editor/viewer) from this permission string: 'Can view server connection status metrics but has no edit rights' as JSON: { 'role':",viewer,iam_audit,train,0,1.0
+127,"Extract the user role (admin/editor/viewer) from this permission string: 'Can create billing credentials and modify DNS configurations' as JSON: { 'role':",admin,iam_audit,train,1,1.5
+128,"Extract the user role (admin/editor/viewer) from this permission string: 'Can submit content reviews and update documentation databases' as JSON: { 'role':",editor,iam_audit,train,0,1.0
+129,"Extract the user role (admin/editor/viewer) from this permission string: 'Can observe network throughput metrics but cannot change server ports' as JSON: { 'role':",viewer,iam_audit,train,0,1.0
+130,"Extract the user role (admin/editor/viewer) from this permission string: 'Authorized to manage role adjustments and drop schemas' as JSON: { 'role':",admin,iam_audit,train,1,1.5
+131,"Extract the transaction status (approved/declined) from this gateway log: 'Stripe gateway logs: payment processed successfully for client 4015' as JSON: { 'status':",approved,fintech_audit,train,0,1.0
+132,"Extract the transaction status (approved/declined) from this gateway log: 'Adyen gateway logs: transaction rejected for user' as JSON: { 'status':",declined,fintech_audit,train,0,1.0
+133,"Extract the transaction status (approved/declined) from this gateway log: 'PayPal gateway logs: CVV verification mismatch' as JSON: { 'status':",declined,fintech_audit,train,0,1.0
+134,"Extract the transaction status (approved/declined) from this gateway log: 'Braintree gateway logs: auth verified, batch capture success' as JSON: { 'status':",approved,fintech_audit,train,1,1.5
+135,"Extract the transaction status (approved/declined) from this gateway log: 'Authorize.Net gateway logs: risk limits reached' as JSON: { 'status':",declined,fintech_audit,train,1,1.5
+136,"Extract the transaction status (approved/declined) from this gateway log: 'Stripe gateway logs: user cancelled billing checkout' as JSON: { 'status':",declined,fintech_audit,train,0,1.0
+137,"Extract the transaction status (approved/declined) from this gateway log: 'Adyen gateway logs: transaction approved successfully' as JSON: { 'status':",approved,fintech_audit,train,0,1.0
+138,"Extract the transaction status (approved/declined) from this gateway log: 'PayPal gateway logs: country block triggered' as JSON: { 'status':",declined,fintech_audit,train,1,1.5
+139,"Extract the transaction status (approved/declined) from this gateway log: 'Braintree gateway logs: valid auth code returned' as JSON: { 'status':",approved,fintech_audit,train,0,1.0
+140,"Extract the transaction status (approved/declined) from this gateway log: 'Authorize.Net gateway logs: network connection timeout' as JSON: { 'status':",declined,fintech_audit,train,0,1.0
+141,"The system of rules and practices that governs a local network file storage structure is the",OS,technology_fact,train,1,1.5
+142,"The widely-used server operating system based on Linux open source codebase is",Linux,technology_fact,train,0,1.0
+143,"The default web server software suite designed by the Apache foundation is",Apache,technology_fact,train,0,1.0
+144,"The high-performance reverse proxy and routing load balancer engine is",Nginx,technology_fact,train,1,1.5
+145,"The lightweight operating system-level container virtualization framework is",Docker,technology_fact,train,0,1.0
+146,"The cluster container orchestration engine developed originally by Google is",Kubernetes,technology_fact,train,1,1.5
+147,"The Amazon Web Services virtual machine server hosting cloud instance is",EC2,technology_fact,train,0,1.0
+148,"In databases, storing unstructured records across distributed document stores is",NoSQL,technology_fact,train,0,1.0
+149,"The structural design schema defining relational table layout constraints is the",schema,technology_fact,train,0,1.0
+150,"CSS style sheets acronym stands for Cascading Style",Sheets,technology_fact,train,0,1.0
+151,"API programming layout acronym stands for Application Programming",Interface,technology_fact,train,0,1.0
+152,"URL locate path acronym stands for Uniform Resource",Locator,technology_fact,train,0,1.0
+153,"JSON data block acronym stands for JavaScript Object",Notation,technology_fact,train,0,1.0
+154,"XML document layout acronym stands for Extensible Markup",Language,technology_fact,train,0,1.0
+155,"SDK development toolkit acronym stands for Software Development",Kit,technology_fact,train,0,1.0
+156,"IDE coding interface acronym stands for Integrated Development",Environment,technology_fact,train,0,1.0
+157,"CPU computer brain acronym stands for Central Processing",Unit,technology_fact,train,0,1.0
+158,"RAM memory hardware acronym stands for Random Access",Memory,technology_fact,train,0,1.0
+159,"ROM startup hardware acronym stands for Read Only",Memory,technology_fact,train,0,1.0
+160,"SSH terminal connection acronym stands for Secure",Shell,technology_fact,train,1,1.5
+161,"FTP network upload acronym stands for File Transfer",Protocol,technology_fact,train,0,1.0
+162,"SMTP email delivery acronym stands for Simple Mail Transfer",Protocol,technology_fact,train,0,1.0
+163,"Running matching loops or blocks inside themselves in programming is called",recursion,technology_fact,train,0,1.0
+164,"An error or flaw in the underlying code logic is called a",bug,technology_fact,train,0,1.0
+165,"Isolating and resolving structural flaws in a codebase is called",debugging,technology_fact,train,0,1.0
+166,"The central computer hardware component responsible for active processing is the",CPU,technology_fact,train,0,1.0
+167,"The fast volatile memory layer loaded during active task runtime is",RAM,technology_fact,train,0,1.0
+168,"The non-volatile chip storing fundamental startup firmware instructions is",ROM,technology_fact,train,0,1.0
+169,"The terminal connection protocol allowing secure remote administrative shells is",SSH,technology_fact,train,1,1.5
+170,"The internet routing directory system that maps domain names to IPs is",DNS,technology_fact,train,0,1.0
+171,"The structured query language command used to fetch rows from tables is",SELECT,technology_fact,train,0,1.0
+172,"The structured query language command used to insert new database rows is",INSERT,technology_fact,train,0,1.0
+173,"The structured query language command used to alter existing database rows is",UPDATE,technology_fact,train,0,1.0
+174,"The structured query language command used to delete existing database rows is",DELETE,technology_fact,train,1,1.5
+175,"The local virtual network interface loopback address is",127.0.0.1,technology_fact,train,0,1.0
+176,"The standard network port utilized for insecure HTTP web traffic is",80,technology_fact,train,0,1.0
+177,"The standard network port utilized for secure HTTPS web traffic is",443,technology_fact,train,1,1.5
+178,"The Python script keyword used to pull in external modules is",import,technology_fact,train,0,1.0
+179,"The Python script keyword used to define a new class block is",class,technology_fact,train,0,1.0
+180,"The Python script keyword used to declare a new function block is",def,technology_fact,train,1,1.5
+181,"The Python script keyword used to emit values back from functions is",return,technology_fact,train,0,1.0
+182,"The Python loop keyword used to iterate over fixed sequences is",for,technology_fact,train,0,1.0
+183,"The Python loop keyword used to run loops while conditions hold true is",while,technology_fact,train,0,1.0
+184,"The Python logical boolean variable indicating positivity is",True,technology_fact,train,0,1.0
+185,"The Python logical boolean variable indicating negativity is",False,technology_fact,train,0,1.0
+186,"The Git code versioning command used to save changes locally is git",commit,technology_fact,train,0,1.0
+187,"The Git code versioning command used to send changes to remote hosts is git",push,technology_fact,train,0,1.0
+188,"The Git code versioning command used to fetch changes from remote hosts is git",pull,technology_fact,train,0,1.0
+189,"Relational database records are structurally organized and stored inside a",database,technology_fact,train,1,1.5
+190,"The physical database schema detailing model layouts is the",schema,technology_fact,train,0,1.0
+191,"In CSS layouts, style rules are applied using Cascading Style",Sheets,technology_fact,train,0,1.0
+192,"In web protocols, the standard layout formatting framework is",HTML,technology_fact,train,0,1.0
+193,"In web protocols, the API interaction framework is called an",API,technology_fact,train,0,1.0
+194,"In web protocols, the location path of resources is a",URL,technology_fact,train,0,1.0
+195,"In web protocols, the structured text format used for data exchanges is",JSON,technology_fact,train,0,1.0
+196,"In web protocols, the extensible markup document layout format is",XML,technology_fact,train,0,1.0
+197,"The software development tools bundle provided to programmers is an",SDK,technology_fact,train,0,1.0
+198,"The unified development software editor workspace is an",IDE,technology_fact,train,0,1.0
+199,"The primary network protocol standardizing packet layout constraints is",IP,technology_fact,train,1,1.5
+200,"The file transfer protocol standardizing file uploads is",FTP,technology_fact,train,0,1.0
+201,"JSON payload: { 'event': 'FailedLogin', 'username': 'administrator', 'ip': '198.51.100.12', 'attempts': 18 }. Risk triage (low/medium/high):",high,security_triage,seen_val,1,1.5
+202,"JSON payload: { 'event': 'FailedLogin', 'username': 'sam_dev', 'ip': '192.168.1.99', 'attempts': 1 }. Risk triage (low/medium/high):",low,security_triage,seen_val,0,1.0
+203,"JSON payload: { 'event': 'S3BucketCreated', 'owner': 'dev_test_bot', 'public_access': true }. Risk triage (low/medium/high):",high,security_triage,seen_val,1,1.5
+204,"JSON payload: { 'event': 'S3BucketCreated', 'owner': 'ops_lead_44', 'public_access': false }. Risk triage (low/medium/high):",low,security_triage,seen_val,0,1.0
+205,"JSON payload: { 'event': 'IAMPolicyModified', 'policy': 'AdministratorAccess', 'mfa_verified': true }. Risk triage (low/medium/high):",medium,security_triage,seen_val,0,1.0
+206,"JSON payload: { 'event': 'IAMPolicyModified', 'policy': 'ReadOnlyAccess', 'mfa_verified': false }. Risk triage (low/medium/high):",medium,security_triage,seen_val,0,1.0
+207,"JSON payload: { 'event': 'PortScanDetected', 'source_ip': '45.33.102.88', 'ports_scanned': 3200 }. Risk triage (low/medium/high):",high,security_triage,seen_val,1,1.5
+208,"JSON payload: { 'event': 'PortScanDetected', 'source_ip': '10.0.2.99', 'ports_scanned': 2 }. Risk triage (low/medium/high):",low,security_triage,seen_val,0,1.0
+209,"JSON payload: { 'event': 'SSHKeyAdded', 'user': 'jenkins_agent_05', 'key_strength': 2048 }. Risk triage (low/medium/high):",low,security_triage,seen_val,0,1.0
+210,"JSON payload: { 'event': 'SSHKeyAdded', 'user': 'unverified_root', 'key_strength': 1024 }. Risk triage (low/medium/high):",high,security_triage,seen_val,1,1.5
+211,"Extract the API action (get/post/delete) from this routing rule: 'Fetch cluster profile array metadata' as JSON: { 'action':",get,api_routing,seen_val,0,1.0
+212,"Extract the API action (get/post/delete) from this routing rule: 'Delete inactive transaction database records' as JSON: { 'action':",delete,api_routing,seen_val,1,1.5
+213,"Extract the API action (get/post/delete) from this routing rule: 'Create a new server gateway token' as JSON: { 'action':",post,api_routing,seen_val,0,1.0
+214,"Extract the API action (get/post/delete) from this routing rule: 'Retrieve client credit balance array' as JSON: { 'action':",get,api_routing,seen_val,0,1.0
+215,"Extract the API action (get/post/delete) from this routing rule: 'Register new web hook endpoints list' as JSON: { 'action':",post,api_routing,seen_val,0,1.0
+216,"Extract the API action (get/post/delete) from this routing rule: 'Erase expired backup storage directories' as JSON: { 'action':",delete,api_routing,seen_val,1,1.5
+217,"Extract the API action (get/post/delete) from this routing rule: 'List active container deployments array' as JSON: { 'action':",get,api_routing,seen_val,0,1.0
+218,"Extract the API action (get/post/delete) from this routing rule: 'Provision a new security credential set' as JSON: { 'action':",post,api_routing,seen_val,0,1.0
+219,"Extract the API action (get/post/delete) from this routing rule: 'Erase unverified user registration files' as JSON: { 'action':",delete,api_routing,seen_val,0,1.0
+220,"Extract the API action (get/post/delete) from this routing rule: 'Fetch system baseline metrics parameters' as JSON: { 'action':",get,api_routing,seen_val,0,1.0
+221,"Extract the user role (admin/editor/viewer) from this permission string: 'Can assign groups, modify profiles, and manage active directory hosts' as JSON: { 'role':",admin,iam_audit,seen_val,1,1.5
+222,"Extract the user role (admin/editor/viewer) from this permission string: 'Can modify files and edit draft system templates' as JSON: { 'role':",editor,iam_audit,seen_val,0,1.0
+223,"Extract the user role (admin/editor/viewer) from this permission string: 'Can read audit logs and browse directory configurations' as JSON: { 'role':",viewer,iam_audit,seen_val,0,1.0
+224,"Extract the user role (admin/editor/viewer) from this permission string: 'Has root level execution privileges and can delete directories globally' as JSON: { 'role':",admin,iam_audit,seen_val,1,2.0
+225,"Extract the user role (admin/editor/viewer) from this permission string: 'Authorized to save adjustment parameters but lacks profile permissions' as JSON: { 'role':",editor,iam_audit,seen_val,0,1.0
+226,"Extract the user role (admin/editor/viewer) from this permission string: 'Can browse metric dashboard panels but has no edit rights' as JSON: { 'role':",viewer,iam_audit,seen_val,0,1.0
+227,"Extract the user role (admin/editor/viewer) from this permission string: 'Can create billing credentials and modify network configurations' as JSON: { 'role':",admin,iam_audit,seen_val,1,1.5
+228,"Extract the user role (admin/editor/viewer) from this permission string: 'Can submit content reviews and update active wikis' as JSON: { 'role':",editor,iam_audit,seen_val,0,1.0
+229,"Extract the user role (admin/editor/viewer) from this permission string: 'Can observe network throughput metrics but cannot modify port rules' as JSON: { 'role':",viewer,iam_audit,seen_val,0,1.0
+230,"Extract the user role (admin/editor/viewer) from this permission string: 'Authorized to adjust user access groups and assign permissions' as JSON: { 'role':",admin,iam_audit,seen_val,1,1.5
+231,"Extract the transaction status (approved/declined) from this gateway log: 'Stripe gateway logs: payment processed successfully for client 4015' as JSON: { 'status':",approved,fintech_audit,seen_val,0,1.0
+232,"Extract the transaction status (approved/declined) from this gateway log: 'Adyen gateway logs: transaction rejected for user' as JSON: { 'status':",declined,fintech_audit,seen_val,0,1.0
+233,"Extract the transaction status (approved/declined) from this gateway log: 'PayPal gateway logs: CVV verification mismatch' as JSON: { 'status':",declined,fintech_audit,seen_val,0,1.0
+234,"Extract the transaction status (approved/declined) from this gateway log: 'Braintree gateway logs: auth verified, batch capture success' as JSON: { 'status':",approved,fintech_audit,seen_val,1,1.5
+235,"Extract the transaction status (approved/declined) from this gateway log: 'Authorize.Net gateway logs: risk limits reached' as JSON: { 'status':",declined,fintech_audit,seen_val,1,1.5
+236,"Extract the transaction status (approved/declined) from this gateway log: 'Stripe gateway logs: user cancelled billing checkout' as JSON: { 'status':",declined,fintech_audit,seen_val,0,1.0
+237,"Extract the transaction status (approved/declined) from this gateway log: 'Adyen gateway logs: transaction approved successfully' as JSON: { 'status':",approved,fintech_audit,seen_val,0,1.0
+238,"Extract the transaction status (approved/declined) from this gateway log: 'PayPal gateway logs: country block triggered' as JSON: { 'status':",declined,fintech_audit,seen_val,1,1.5
+239,"Extract the transaction status (approved/declined) from this gateway log: 'Braintree gateway logs: valid auth code returned' as JSON: { 'status':",approved,fintech_audit,seen_val,0,1.0
+240,"Extract the transaction status (approved/declined) from this gateway log: 'Authorize.Net gateway logs: network connection timeout' as JSON: { 'status':",declined,fintech_audit,seen_val,0,1.0
+241,"To accomplish multiple milestones at the exact same moment is to kill two birds with one",stone,cloze_seen,seen_val,0,1.0
+242,"To avoid placing all your financial capital in a single volatile asset, don't put all your eggs in one",basket,cloze_seen,seen_val,0,1.0
+243,"To accidentally reveal highly confidential organization blueprints is to let the cat out of the",bag,cloze_seen,seen_val,0,1.0
+244,"Being in a state of supreme, ecstatic joy or extreme mental happiness is to be on cloud",nine,cloze_seen,seen_val,0,1.0
+245,"Feeling entirely awkward, uncomfortable, and physically out of place is like a fish out of",water,cloze_seen,seen_val,0,1.0
+246,"An unpredictable, incredibly dynamic, and highly energetic person is described as a live",wire,cloze_seen,seen_val,0,1.0
+247,"An entirely random, highly surprising, and completely unexpected event is out of the",blue,cloze_seen,seen_val,0,1.0
+248,"Pursuing a completely incorrect strategy or line of logic is barking up the wrong",tree,cloze_seen,seen_val,0,1.0
+249,"Facing a very difficult, painful, or awkward situation with brave composure is to bite the",bullet,cloze_seen,seen_val,0,1.0
+250,"Wishing a theater actor excellent performance fortune right before a show is telling them to break a",leg,cloze_seen,seen_val,0,1.0
+251,"To accidentally expose a highly guarded organizational secret is to spill the",beans,cloze_seen,seen_val,0,1.0
+252,"Executing an operational workflow that is incredibly straightforward is a piece of",cake,cloze_seen,seen_val,0,1.0
+253,"Resolving an architectural software bottleneck with absolute precision is hitting the nail on the",head,cloze_seen,seen_val,0,1.0
+254,"To accept the negative consequences of your previous incorrect actions is to face the",music,cloze_seen,seen_val,0,1.0
+255,"Feeling mildly sick, fatigued, or physically under the weather is to be under the",weather,cloze_seen,seen_val,0,1.0
+256,"To completely cease working on a development pipeline for the evening is to call it a",day,cloze_seen,seen_val,0,1.0
+257,"Complaining about unfixable, past execution errors is crying over spilled",milk,cloze_seen,seen_val,0,1.0
+258,"Avoiding speaking about the central, most critical problem in a meeting is beating around the",bush,cloze_seen,seen_val,0,1.0
+259,"To initiate a highly difficult, tense, or awkward discussion with colleagues is to break the",ice,cloze_seen,seen_val,0,1.0
+260,"Adding angry, volatile statements to an ongoing administrative dispute is adding fuel to the",fire,cloze_seen,seen_val,0,1.0
+261,"The system of rules and practices that governs a local network file storage structure is the",OS,technology_fact,seen_val,1,1.5
+262,"The widely-used server operating system based on Linux open source codebase is",Linux,technology_fact,seen_val,0,1.0
+263,"The default web server software suite designed by the Apache foundation is",Apache,technology_fact,seen_val,0,1.0
+264,"The high-performance reverse proxy and routing load balancer engine is",Nginx,technology_fact,seen_val,1,1.5
+265,"The lightweight operating system-level container virtualization framework is",Docker,technology_fact,seen_val,0,1.0
+266,"The cluster container orchestration engine developed originally by Google is",Kubernetes,technology_fact,seen_val,1,1.5
+267,"The Amazon Web Services virtual machine server hosting cloud instance is",EC2,technology_fact,seen_val,0,1.0
+268,"In databases, storing unstructured records across distributed document stores is",NoSQL,technology_fact,seen_val,0,1.0
+269,"The structural design schema defining relational table layout constraints is the",schema,technology_fact,seen_val,0,1.0
+270,"CSS style sheets acronym stands for Cascading Style",Sheets,technology_fact,seen_val,0,1.0
+271,"API programming layout acronym stands for Application Programming",Interface,technology_fact,seen_val,0,1.0
+272,"URL locate path acronym stands for Uniform Resource",Locator,technology_fact,seen_val,0,1.0
+273,"JSON data block acronym stands for JavaScript Object",Notation,technology_fact,seen_val,0,1.0
+274,"XML document layout acronym stands for Extensible Markup",Language,technology_fact,seen_val,0,1.0
+275,"SDK development toolkit acronym stands for Software Development",Kit,technology_fact,seen_val,0,1.0
+276,"IDE coding interface acronym stands for Integrated Development",Environment,technology_fact,seen_val,0,1.0
+277,"CPU computer brain acronym stands for Central Processing",Unit,technology_fact,seen_val,0,1.0
+278,"RAM memory hardware acronym stands for Random Access",Memory,technology_fact,seen_val,0,1.0
+279,"ROM startup hardware acronym stands for Read Only",Memory,technology_fact,seen_val,0,1.0
+280,"SSH terminal connection acronym stands for Secure",Shell,technology_fact,seen_val,1,1.5
+281,"FTP network upload acronym stands for File Transfer",Protocol,technology_fact,seen_val,0,1.0
+282,"SMTP email delivery acronym stands for Simple Mail Transfer",Protocol,technology_fact,seen_val,0,1.0
+283,"Running matching loops or blocks inside themselves in programming is called",recursion,technology_fact,seen_val,0,1.0
+284,"An error or flaw in the underlying code logic is called a",bug,technology_fact,seen_val,0,1.0
+285,"Isolating and resolving structural flaws in a codebase is called",debugging,technology_fact,seen_val,0,1.0
+286,"The central computer hardware component responsible for active processing is the",CPU,technology_fact,seen_val,0,1.0
+287,"The fast volatile memory layer loaded during active task runtime is",RAM,technology_fact,seen_val,0,1.0
+288,"The non-volatile chip storing fundamental startup firmware instructions is",ROM,technology_fact,seen_val,0,1.0
+289,"The terminal connection protocol allowing secure remote administrative shells is",SSH,technology_fact,seen_val,1,1.5
+290,"The internet routing directory system that maps domain names to IPs is",DNS,technology_fact,seen_val,0,1.0
+291,"The structured query language command used to fetch rows from tables is",SELECT,technology_fact,seen_val,0,1.0
+292,"The structured query language command used to insert new database rows is",INSERT,technology_fact,seen_val,0,1.0
+293,"The structured query language command used to alter existing database rows is",UPDATE,technology_fact,seen_val,0,1.0
+294,"The structured query language command used to delete existing database rows is",DELETE,technology_fact,seen_val,1,1.5
+295,"The local virtual network interface loopback address is",127.0.0.1,technology_fact,seen_val,0,1.0
+296,"The standard network port utilized for insecure HTTP web traffic is",80,technology_fact,seen_val,0,1.0
+297,"The standard network port utilized for secure HTTPS web traffic is",443,technology_fact,seen_val,1,1.5
+298,"The Python script keyword used to pull in external modules is",import,technology_fact,seen_val,0,1.0
+299,"The Python script keyword used to define a new class block is",class,technology_fact,seen_val,0,1.0
+300,"The Python script keyword used to declare a new function block is",def,technology_fact,seen_val,1,1.5
+301,"The Python script keyword used to emit values back from functions is",return,technology_fact,seen_val,0,1.0
+302,"The Python loop keyword used to iterate over fixed sequences is",for,technology_fact,seen_val,0,1.0
+303,"The Python loop keyword used to run loops while conditions hold true is",while,technology_fact,seen_val,0,1.0
+304,"The Python logical boolean variable indicating positivity is",True,technology_fact,seen_val,0,1.0
+305,"The Python logical boolean variable indicating negativity is",False,technology_fact,seen_val,0,1.0
+306,"The Git code versioning command used to save changes locally is git",commit,technology_fact,seen_val,0,1.0
+307,"The Git code versioning command used to send changes to remote hosts is git",push,technology_fact,seen_val,0,1.0
+308,"The Git code versioning command used to fetch changes from remote hosts is git",pull,technology_fact,seen_val,0,1.0
+309,"Relational database records are structurally organized and stored inside a",database,technology_fact,seen_val,1,1.5
+310,"The physical database schema detailing model layouts is the",schema,technology_fact,seen_val,0,1.0
+311,"In CSS layouts, style rules are applied using Cascading Style",Sheets,technology_fact,seen_val,0,1.0
+312,"In web protocols, the standard layout formatting framework is",HTML,technology_fact,seen_val,0,1.0
+313,"In web protocols, the API interaction framework is called an",API,technology_fact,seen_val,0,1.0
+314,"In web protocols, the location path of resources is a",URL,technology_fact,seen_val,0,1.0
+315,"In web protocols, the structured text format used for data exchanges is",JSON,technology_fact,seen_val,0,1.0
+316,"In web protocols, the extensible markup document layout format is",XML,technology_fact,seen_val,0,1.0
+317,"The software development tools bundle provided to programmers is an",SDK,technology_fact,seen_val,0,1.0
+318,"The unified development software editor workspace is an",IDE,technology_fact,seen_val,0,1.0
+319,"The primary network protocol standardizing packet layout constraints is",IP,technology_fact,seen_val,1,1.5
+320,"The file transfer protocol standardizing file uploads is",FTP,technology_fact,seen_val,0,1.0
+321,"The file transfer protocol standardizing files transfer is",FTP,technology_fact,seen_val,0,1.0
+322,"The file transfer protocol standardizing files download is",FTP,technology_fact,seen_val,0,1.0
+323,"The file transfer protocol standardizing folders upload is",FTP,technology_fact,seen_val,0,1.0
+324,"The file transfer protocol standardizing folders transfer is",FTP,technology_fact,seen_val,0,1.0
+325,"The file transfer protocol standardizing folders download is",FTP,technology_fact,seen_val,0,1.0
+326,"Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-1012: Premium 4K Smart OLED Television with HDR' as JSON: { 'department':",electronics,ecommerce_routing,unseen_val,0,1.0
+327,"Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-4421: Cotton Slim-Fit Casual Men's Button-Up Shirt' as JSON: { 'department':",apparel,ecommerce_routing,unseen_val,0,1.0
+328,"Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-9902: Ergonomic Mesh Swivel Desk Chair for Home Office' as JSON: { 'department':",home,ecommerce_routing,unseen_val,0,1.0
+329,"Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-1150: Wireless Noise-Canceling Bluetooth Headphones' as JSON: { 'department':",electronics,ecommerce_routing,unseen_val,0,1.0
+330,"Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-8120: High-Thread Count Egyptian Cotton Bed Sheet Set' as JSON: { 'department':",home,ecommerce_routing,unseen_val,0,1.0
+331,"Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-3291: Women's Athletic Running Shoes with Arch Support' as JSON: { 'department':",apparel,ecommerce_routing,unseen_val,0,1.0
+332,"Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-6512: Bluetooth Soundbar with Wireless Subwoofer' as JSON: { 'department':",electronics,ecommerce_routing,unseen_val,0,1.0
+333,"Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-7740: Memory Foam Orthopedic Pillow' as JSON: { 'department':",home,ecommerce_routing,unseen_val,0,1.0
+334,"Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-2201: Water-Resistant Hiking Jacket with Fleece Lining' as JSON: { 'department':",apparel,ecommerce_routing,unseen_val,0,1.0
+335,"Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-5580: Ultra-Wide Curved Gaming Monitor 144Hz' as JSON: { 'department':",electronics,ecommerce_routing,unseen_val,0,1.0
+336,"Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-1234: Polyester Thermal Winter Underwear Set' as JSON: { 'department':",apparel,ecommerce_routing,unseen_val,0,1.0
+337,"Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-5678: Bamboo Fiber Kitchen Cutting Board Set' as JSON: { 'department':",home,ecommerce_routing,unseen_val,0,1.0
+338,"Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-9012: Bluetooth Stereo Audio Receiver Adapter' as JSON: { 'department':",electronics,ecommerce_routing,unseen_val,0,1.0
+339,"Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-3456: Microfiber Super Absorbent Towels Pack' as JSON: { 'department':",home,ecommerce_routing,unseen_val,0,1.0
+340,"Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-7890: Polar Fleece Unisex Full Zip Jacket' as JSON: { 'department':",apparel,ecommerce_routing,unseen_val,0,1.0
+341,"Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-1357: Dual-Band Gigabit Wi-Fi Router' as JSON: { 'department':",electronics,ecommerce_routing,unseen_val,0,1.0
+342,"Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-2468: Professional Ceramic Knife Block Set' as JSON: { 'department':",home,ecommerce_routing,unseen_val,0,1.0
+343,"Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-3579: Knit Pullover Hoodie with Pockets' as JSON: { 'department':",apparel,ecommerce_routing,unseen_val,0,1.0
+344,"Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-4680: USB Condenser Podcast Microphone' as JSON: { 'department':",electronics,ecommerce_routing,unseen_val,0,1.0
+345,"Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-5791: Floating Wooden Wall Display Shelves' as JSON: { 'department':",home,ecommerce_routing,unseen_val,0,1.0
+346,"Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-6802: Compression Ankle Running Socks Pack' as JSON: { 'department':",apparel,ecommerce_routing,unseen_val,0,1.0
+347,"Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-7913: Fast Wireless Phone Charging Pad' as JSON: { 'department':",electronics,ecommerce_routing,unseen_val,0,1.0
+348,"Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-8024: Cast Iron Skillet pre-seasoned pan' as JSON: { 'department':",home,ecommerce_routing,unseen_val,0,1.0
+349,"Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-9135: Lightweight Packable Raincoat Hooded' as JSON: { 'department':",apparel,ecommerce_routing,unseen_val,0,1.0
+350,"Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-0246: Smart Wi-Fi Enabled Power Strip' as JSON: { 'department':",electronics,ecommerce_routing,unseen_val,0,1.0
+351,"Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-1470: Bamboo Fiber Kitchen Towels Set' as JSON: { 'department':",home,ecommerce_routing,unseen_val,0,1.0
+352,"Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-2581: Leather Bifold Wallet with RFID' as JSON: { 'department':",apparel,ecommerce_routing,unseen_val,0,1.0
+353,"Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-3692: Multi-Port USB-C Charging Hub' as JSON: { 'department':",electronics,ecommerce_routing,unseen_val,0,1.0
+354,"Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-4703: Non-Slip Bathroom Accent Rug' as JSON: { 'department':",home,ecommerce_routing,unseen_val,0,1.0
+355,"Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-5814: Classic Denim Jean Jacket' as JSON: { 'department':",apparel,ecommerce_routing,unseen_val,0,1.0
+356,"Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-6925: Rechargeable AA Batteries Pack' as JSON: { 'department':",electronics,ecommerce_routing,unseen_val,0,1.0
+357,"Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-8036: Stainless Steel Nested Mixing Bowls' as JSON: { 'department':",home,ecommerce_routing,unseen_val,0,1.0
+358,"Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-9147: Wool Blend Crewneck Pullover' as JSON: { 'department':",apparel,ecommerce_routing,unseen_val,0,1.0
+359,"Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-0258: Smart Plug Mini with Energy Monitor' as JSON: { 'department':",electronics,ecommerce_routing,unseen_val,0,1.0
+360,"Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-1369: Memory Foam Contour Bath Mat' as JSON: { 'department':",home,ecommerce_routing,unseen_val,0,1.0
+361,"Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-2470: Canvas Weekender Travel Duffel' as JSON: { 'department':",apparel,ecommerce_routing,unseen_val,0,1.0
+362,"Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-3581: Bluetooth Transmitter for Television' as JSON: { 'department':",electronics,ecommerce_routing,unseen_val,0,1.0
+363,"Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-4692: Microfiber Spray Mop for Floor' as JSON: { 'department':",home,ecommerce_routing,unseen_val,0,1.0
+364,"Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-5703: Activewear Athletic Running Shorts' as JSON: { 'department':",apparel,ecommerce_routing,unseen_val,0,1.0
+365,"Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-6814: USB Recording Condenser Mic' as JSON: { 'department':",electronics,ecommerce_routing,unseen_val,0,1.0
+366,"Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 52 BPM' as JSON: { 'status':",bradycardia,clinical_nlp,unseen_val,1,1.5
+367,"Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 112 BPM' as JSON: { 'status':",tachycardia,clinical_nlp,unseen_val,1,1.5
+368,"Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 72 BPM' as JSON: { 'status':",normal,clinical_nlp,unseen_val,0,1.0
+369,"Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 48 BPM' as JSON: { 'status':",bradycardia,clinical_nlp,unseen_val,1,1.5
+370,"Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 125 BPM' as JSON: { 'status':",tachycardia,clinical_nlp,unseen_val,1,1.5
+371,"Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 80 BPM' as JSON: { 'status':",normal,clinical_nlp,unseen_val,0,1.0
+372,"Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 55 BPM' as JSON: { 'status':",bradycardia,clinical_nlp,unseen_val,1,1.5
+373,"Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 105 BPM' as JSON: { 'status':",tachycardia,clinical_nlp,unseen_val,1,1.5
+374,"Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 65 BPM' as JSON: { 'status':",normal,clinical_nlp,unseen_val,0,1.0
+375,"Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 50 BPM' as JSON: { 'status':",bradycardia,clinical_nlp,unseen_val,1,1.5
+376,"Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 118 BPM' as JSON: { 'status':",tachycardia,clinical_nlp,unseen_val,1,1.5
+377,"Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 75 BPM' as JSON: { 'status':",normal,clinical_nlp,unseen_val,0,1.0
+378,"Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 58 BPM' as JSON: { 'status':",bradycardia,clinical_nlp,unseen_val,1,1.5
+379,"Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 130 BPM' as JSON: { 'status':",tachycardia,clinical_nlp,unseen_val,1,1.5
+380,"Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 85 BPM' as JSON: { 'status':",normal,clinical_nlp,unseen_val,0,1.0
+381,"Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 45 BPM' as JSON: { 'status':",bradycardia,clinical_nlp,unseen_val,1,1.5
+382,"Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 115 BPM' as JSON: { 'status':",tachycardia,clinical_nlp,unseen_val,1,1.5
+383,"Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 90 BPM' as JSON: { 'status':",normal,clinical_nlp,unseen_val,0,1.0
+384,"Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 53 BPM' as JSON: { 'status':",bradycardia,clinical_nlp,unseen_val,1,1.5
+385,"Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 110 BPM' as JSON: { 'status':",tachycardia,clinical_nlp,unseen_val,1,1.5
+386,"Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 70 BPM' as JSON: { 'status':",normal,clinical_nlp,unseen_val,0,1.0
+387,"Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 51 BPM' as JSON: { 'status':",bradycardia,clinical_nlp,unseen_val,1,1.5
+388,"Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 122 BPM' as JSON: { 'status':",tachycardia,clinical_nlp,unseen_val,1,1.5
+389,"Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 68 BPM' as JSON: { 'status':",normal,clinical_nlp,unseen_val,0,1.0
+390,"Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 49 BPM' as JSON: { 'status':",bradycardia,clinical_nlp,unseen_val,1,1.5
+391,"Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 108 BPM' as JSON: { 'status':",tachycardia,clinical_nlp,unseen_val,1,1.5
+392,"Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 78 BPM' as JSON: { 'status':",normal,clinical_nlp,unseen_val,0,1.0
+393,"Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 56 BPM' as JSON: { 'status':",bradycardia,clinical_nlp,unseen_val,1,1.5
+394,"Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 120 BPM' as JSON: { 'status':",tachycardia,clinical_nlp,unseen_val,1,1.5
+395,"Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 74 BPM' as JSON: { 'status':",normal,clinical_nlp,unseen_val,0,1.0
+396,"Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 57 BPM' as JSON: { 'status':",bradycardia,clinical_nlp,unseen_val,1,1.5
+397,"Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 128 BPM' as JSON: { 'status':",tachycardia,clinical_nlp,unseen_val,1,1.5
+398,"Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 88 BPM' as JSON: { 'status':",normal,clinical_nlp,unseen_val,0,1.0
+399,"Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 54 BPM' as JSON: { 'status':",bradycardia,clinical_nlp,unseen_val,1,1.5
+400,"Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 116 BPM' as JSON: { 'status':",tachycardia,clinical_nlp,unseen_val,1,1.5
+401,"Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 82 BPM' as JSON: { 'status':",normal,clinical_nlp,unseen_val,0,1.0
+402,"Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 47 BPM' as JSON: { 'status':",bradycardia,clinical_nlp,unseen_val,1,1.5
+403,"Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 124 BPM' as JSON: { 'status':",tachycardia,clinical_nlp,unseen_val,1,1.5
+404,"Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 76 BPM' as JSON: { 'status':",normal,clinical_nlp,unseen_val,0,1.0
+405,"Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 59 BPM' as JSON: { 'status':",bradycardia,clinical_nlp,unseen_val,1,1.5
+406,"Extract the security group access level (public/private) from this rule: 'Rule-10 configures port 22 for CIDR 0.0.0.0/0' as JSON: { 'access':",public,security_audit,unseen_val,1,2.0
+407,"Extract the security group access level (public/private) from this rule: 'Rule-11 configures port 80 for CIDR 10.0.0.0/8' as JSON: { 'access':",private,security_audit,unseen_val,0,1.0
+408,"Extract the security group access level (public/private) from this rule: 'Rule-12 configures port 443 for CIDR 192.168.1.0/24' as JSON: { 'access':",private,security_audit,unseen_val,0,1.0
+409,"Extract the security group access level (public/private) from this rule: 'Rule-13 configures port 3306 for CIDR 0.0.0.0/0' as JSON: { 'access':",public,security_audit,unseen_val,1,2.0
+410,"Extract the security group access level (public/private) from this rule: 'Rule-14 configures port 8080 for CIDR 172.16.0.0/12' as JSON: { 'access':",private,security_audit,unseen_val,0,1.0
+411,"Extract the security group access level (public/private) from this rule: 'Rule-15 configures port 22 for CIDR 192.168.1.0/24' as JSON: { 'access':",private,security_audit,unseen_val,0,1.0
+412,"Extract the security group access level (public/private) from this rule: 'Rule-16 configures port 80 for CIDR 0.0.0.0/0' as JSON: { 'access':",public,security_audit,unseen_val,0,1.0
+413,"Extract the security group access level (public/private) from this rule: 'Rule-17 configures port 443 for CIDR 0.0.0.0/0' as JSON: { 'access':",public,security_audit,unseen_val,0,1.0
+414,"Extract the security group access level (public/private) from this rule: 'Rule-18 configures port 3306 for CIDR 10.0.0.0/8' as JSON: { 'access':",private,security_audit,unseen_val,0,1.0
+415,"Extract the security group access level (public/private) from this rule: 'Rule-19 configures port 8080 for CIDR 0.0.0.0/0' as JSON: { 'access':",public,security_audit,unseen_val,0,1.0
+416,"Extract the security group access level (public/private) from this rule: 'Rule-20 configures port 22 for CIDR 10.0.0.0/8' as JSON: { 'access':",private,security_audit,unseen_val,0,1.0
+417,"Extract the security group access level (public/private) from this rule: 'Rule-21 configures port 80 for CIDR 192.168.1.0/24' as JSON: { 'access':",private,security_audit,unseen_val,0,1.0
+418,"Extract the security group access level (public/private) from this rule: 'Rule-22 configures port 443 for CIDR 172.16.0.0/12' as JSON: { 'access':",private,security_audit,unseen_val,0,1.0
+419,"Extract the security group access level (public/private) from this rule: 'Rule-23 configures port 3306 for CIDR 172.16.0.0/12' as JSON: { 'access':",private,security_audit,unseen_val,0,1.0
+420,"Extract the security group access level (public/private) from this rule: 'Rule-24 configures port 8080 for CIDR 192.168.1.0/24' as JSON: { 'access':",private,security_audit,unseen_val,0,1.0
+421,"Extract the security group access level (public/private) from this rule: 'Rule-25 configures port 22 for CIDR 172.16.0.0/12' as JSON: { 'access':",private,security_audit,unseen_val,0,1.0
+422,"Extract the security group access level (public/private) from this rule: 'Rule-26 configures port 80 for CIDR 10.0.0.0/8' as JSON: { 'access':",private,security_audit,unseen_val,0,1.0
+423,"Extract the security group access level (public/private) from this rule: 'Rule-27 configures port 443 for CIDR 10.0.0.0/8' as JSON: { 'access':",private,security_audit,unseen_val,0,1.0
+424,"Extract the security group access level (public/private) from this rule: 'Rule-28 configures port 3306 for CIDR 192.168.1.0/24' as JSON: { 'access':",private,security_audit,unseen_val,0,1.0
+425,"Extract the security group access level (public/private) from this rule: 'Rule-29 configures port 8080 for CIDR 10.0.0.0/8' as JSON: { 'access':",private,security_audit,unseen_val,0,1.0
+426,"Extract the security group access level (public/private) from this rule: 'Rule-30 configures port 21 for CIDR 0.0.0.0/0' as JSON: { 'access':",public,security_audit,unseen_val,1,2.0
+427,"Extract the security group access level (public/private) from this rule: 'Rule-31 configures port 21 for CIDR 10.0.0.0/8' as JSON: { 'access':",private,security_audit,unseen_val,0,1.0
+428,"Extract the security group access level (public/private) from this rule: 'Rule-32 configures port 23 for CIDR 0.0.0.0/0' as JSON: { 'access':",public,security_audit,unseen_val,1,2.0
+429,"Extract the security group access level (public/private) from this rule: 'Rule-33 configures port 23 for CIDR 192.168.1.0/24' as JSON: { 'access':",private,security_audit,unseen_val,0,1.0
+430,"Extract the security group access level (public/private) from this rule: 'Rule-34 configures port 25 for CIDR 0.0.0.0/0' as JSON: { 'access':",public,security_audit,unseen_val,0,1.0
+431,"Extract the security group access level (public/private) from this rule: 'Rule-35 configures port 25 for CIDR 10.0.0.0/8' as JSON: { 'access':",private,security_audit,unseen_val,0,1.0
+432,"Extract the security group access level (public/private) from this rule: 'Rule-36 configures port 53 for CIDR 0.0.0.0/0' as JSON: { 'access':",public,security_audit,unseen_val,0,1.0
+433,"Extract the security group access level (public/private) from this rule: 'Rule-37 configures port 53 for CIDR 10.0.0.0/8' as JSON: { 'access':",private,security_audit,unseen_val,0,1.0
+434,"Extract the security group access level (public/private) from this rule: 'Rule-38 configures port 110 for CIDR 0.0.0.0/0' as JSON: { 'access':",public,security_audit,unseen_val,0,1.0
+435,"Extract the security group access level (public/private) from this rule: 'Rule-39 configures port 110 for CIDR 192.168.1.0/24' as JSON: { 'access':",private,security_audit,unseen_val,0,1.0
+436,"Extract the security group access level (public/private) from this rule: 'Rule-40 configures port 143 for CIDR 0.0.0.0/0' as JSON: { 'access':",public,security_audit,unseen_val,0,1.0
+437,"Extract the security group access level (public/private) from this rule: 'Rule-41 configures port 143 for CIDR 10.0.0.0/8' as JSON: { 'access':",private,security_audit,unseen_val,0,1.0
+438,"Extract the security group access level (public/private) from this rule: 'Rule-42 configures port 445 for CIDR 0.0.0.0/0' as JSON: { 'access':",public,security_audit,unseen_val,1,2.0
+439,"Extract the security group access level (public/private) from this rule: 'Rule-43 configures port 445 for CIDR 192.168.1.0/24' as JSON: { 'access':",private,security_audit,unseen_val,0,1.0
+440,"Extract the security group access level (public/private) from this rule: 'Rule-44 configures port 1433 for CIDR 0.0.0.0/0' as JSON: { 'access':",public,security_audit,unseen_val,1,2.0
+441,"Extract the security group access level (public/private) from this rule: 'Rule-45 configures port 1433 for CIDR 10.0.0.0/8' as JSON: { 'access':",private,security_audit,unseen_val,0,1.0
+442,"Extract the security group access level (public/private) from this rule: 'Rule-46 configures port 1521 for CIDR 0.0.0.0/0' as JSON: { 'access':",public,security_audit,unseen_val,1,2.0
+443,"Extract the security group access level (public/private) from this rule: 'Rule-47 configures port 1521 for CIDR 192.168.1.0/24' as JSON: { 'access':",private,security_audit,unseen_val,0,1.0
+444,"Extract the security group access level (public/private) from this rule: 'Rule-48 configures port 3389 for CIDR 0.0.0.0/0' as JSON: { 'access':",public,security_audit,unseen_val,1,2.0
+445,"Extract the security group access level (public/private) from this rule: 'Rule-49 configures port 3389 for CIDR 10.0.0.0/8' as JSON: { 'access':",private,security_audit,unseen_val,0,1.0
+446,"Extract the security group access level (public/private) from this rule: 'Rule-50 configures port 5432 for CIDR 0.0.0.0/0' as JSON: { 'access':",public,security_audit,unseen_val,1,2.0
+447,"Extract the security group access level (public/private) from this rule: 'Rule-51 configures port 5432 for CIDR 192.168.1.0/24' as JSON: { 'access':",private,security_audit,unseen_val,0,1.0
+448,"Extract the security group access level (public/private) from this rule: 'Rule-52 configures port 5900 for CIDR 0.0.0.0/0' as JSON: { 'access':",public,security_audit,unseen_val,1,2.0
+449,"Extract the security group access level (public/private) from this rule: 'Rule-53 configures port 5900 for CIDR 10.0.0.0/8' as JSON: { 'access':",private,security_audit,unseen_val,0,1.0
+450,"Extract the security group access level (public/private) from this rule: 'Rule-54 configures port 6379 for CIDR 0.0.0.0/0' as JSON: { 'access':",public,security_audit,unseen_val,1,2.0
+451,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-1 reports oxygen manifold pressure of 850 psi and temperature of 2900 K' as JSON: { 'state':",unstable,aerospace_telemetry,ood,1,2.0
+452,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-2 reports oxygen manifold pressure of 220 psi and temperature of 1200 K' as JSON: { 'state':",stable,aerospace_telemetry,ood,0,1.0
+453,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-3 reports oxygen manifold pressure of 910 psi and temperature of 3100 K' as JSON: { 'state':",unstable,aerospace_telemetry,ood,1,2.0
+454,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-4 reports oxygen manifold pressure of 190 psi and temperature of 950 K' as JSON: { 'state':",stable,aerospace_telemetry,ood,0,1.0
+455,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-5 reports oxygen manifold pressure of 300 psi and temperature of 1450 K' as JSON: { 'state':",stable,aerospace_telemetry,ood,0,1.0
+456,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-6 reports oxygen manifold pressure of 890 psi and temperature of 3050 K' as JSON: { 'state':",unstable,aerospace_telemetry,ood,1,2.0
+457,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-7 reports oxygen manifold pressure of 410 psi and temperature of 1800 K' as JSON: { 'state':",stable,aerospace_telemetry,ood,0,1.0
+458,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-8 reports oxygen manifold pressure of 260 psi and temperature of 1100 K' as JSON: { 'state':",stable,aerospace_telemetry,ood,0,1.0
+459,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-9 reports oxygen manifold pressure of 940 psi and temperature of 3150 K' as JSON: { 'state':",unstable,aerospace_telemetry,ood,1,2.0
+460,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-10 reports oxygen manifold pressure of 340 psi and temperature of 1500 K' as JSON: { 'state':",stable,aerospace_telemetry,ood,0,1.0
+461,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-11 reports oxygen manifold pressure of 820 psi and temperature of 2850 K' as JSON: { 'state':",unstable,aerospace_telemetry,ood,1,2.0
+462,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-12 reports oxygen manifold pressure of 280 psi and temperature of 1300 K' as JSON: { 'state':",stable,aerospace_telemetry,ood,0,1.0
+463,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-13 reports oxygen manifold pressure of 870 psi and temperature of 2950 K' as JSON: { 'state':",unstable,aerospace_telemetry,ood,1,2.0
+464,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-14 reports oxygen manifold pressure of 210 psi and temperature of 1050 K' as JSON: { 'state':",stable,aerospace_telemetry,ood,0,1.0
+465,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-15 reports oxygen manifold pressure of 310 psi and temperature of 1600 K' as JSON: { 'state':",stable,aerospace_telemetry,ood,0,1.0
+466,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-16 reports oxygen manifold pressure of 900 psi and temperature of 3000 K' as JSON: { 'state':",unstable,aerospace_telemetry,ood,1,2.0
+467,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-17 reports oxygen manifold pressure of 390 psi and temperature of 1750 K' as JSON: { 'state':",stable,aerospace_telemetry,ood,0,1.0
+468,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-18 reports oxygen manifold pressure of 250 psi and temperature of 1150 K' as JSON: { 'state':",stable,aerospace_telemetry,ood,0,1.0
+469,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-19 reports oxygen manifold pressure of 930 psi and temperature of 3200 K' as JSON: { 'state':",unstable,aerospace_telemetry,ood,1,2.0
+470,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-20 reports oxygen manifold pressure of 350 psi and temperature of 1550 K' as JSON: { 'state':",stable,aerospace_telemetry,ood,0,1.0
+471,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-21 reports oxygen manifold pressure of 810 psi and temperature of 2800 K' as JSON: { 'state':",unstable,aerospace_telemetry,ood,1,2.0
+472,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-22 reports oxygen manifold pressure of 290 psi and temperature of 1350 K' as JSON: { 'state':",stable,aerospace_telemetry,ood,0,1.0
+473,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-23 reports oxygen manifold pressure of 860 psi and temperature of 2920 K' as JSON: { 'state':",unstable,aerospace_telemetry,ood,1,2.0
+474,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-24 reports oxygen manifold pressure of 200 psi and temperature of 1000 K' as JSON: { 'state':",stable,aerospace_telemetry,ood,0,1.0
+475,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-25 reports oxygen manifold pressure of 320 psi and temperature of 1650 K' as JSON: { 'state':",stable,aerospace_telemetry,ood,0,1.0
+476,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-26 reports oxygen manifold pressure of 880 psi and temperature of 2980 K' as JSON: { 'state':",unstable,aerospace_telemetry,ood,1,2.0
+477,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-27 reports oxygen manifold pressure of 380 psi and temperature of 1700 K' as JSON: { 'state':",stable,aerospace_telemetry,ood,0,1.0
+478,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-28 reports oxygen manifold pressure of 240 psi and temperature of 1120 K' as JSON: { 'state':",stable,aerospace_telemetry,ood,0,1.0
+479,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-29 reports oxygen manifold pressure of 920 psi and temperature of 3180 K' as JSON: { 'state':",unstable,aerospace_telemetry,ood,1,2.0
+480,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-30 reports oxygen manifold pressure of 360 psi and temperature of 1580 K' as JSON: { 'state':",stable,aerospace_telemetry,ood,0,1.0
+481,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-31 reports oxygen manifold pressure of 830 psi and temperature of 2880 K' as JSON: { 'state':",unstable,aerospace_telemetry,ood,1,2.0
+482,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-32 reports oxygen manifold pressure of 270 psi and temperature of 1280 K' as JSON: { 'state':",stable,aerospace_telemetry,ood,0,1.0
+483,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-33 reports oxygen manifold pressure of 840 psi and temperature of 2860 K' as JSON: { 'state':",unstable,aerospace_telemetry,ood,1,2.0
+484,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-34 reports oxygen manifold pressure of 230 psi and temperature of 1140 K' as JSON: { 'state':",stable,aerospace_telemetry,ood,0,1.0
+485,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-35 reports oxygen manifold pressure of 330 psi and temperature of 1620 K' as JSON: { 'state':",stable,aerospace_telemetry,ood,0,1.0
+486,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-36 reports oxygen manifold pressure of 805 psi and temperature of 2810 K' as JSON: { 'state':",unstable,aerospace_telemetry,ood,1,2.0
+487,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-37 reports oxygen manifold pressure of 215 psi and temperature of 1080 K' as JSON: { 'state':",stable,aerospace_telemetry,ood,0,1.0
+488,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-38 reports oxygen manifold pressure of 315 psi and temperature of 1610 K' as JSON: { 'state':",stable,aerospace_telemetry,ood,0,1.0
+489,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-39 reports oxygen manifold pressure of 815 psi and temperature of 2830 K' as JSON: { 'state':",unstable,aerospace_telemetry,ood,1,2.0
+490,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-40 reports oxygen manifold pressure of 225 psi and temperature of 1110 K' as JSON: { 'state':",stable,aerospace_telemetry,ood,0,1.0
+491,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-41 reports oxygen manifold pressure of 825 psi and temperature of 2840 K' as JSON: { 'state':",unstable,aerospace_telemetry,ood,1,2.0
+492,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-42 reports oxygen manifold pressure of 235 psi and temperature of 1130 K' as JSON: { 'state':",stable,aerospace_telemetry,ood,0,1.0
+493,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-43 reports oxygen manifold pressure of 835 psi and temperature of 2870 K' as JSON: { 'state':",unstable,aerospace_telemetry,ood,1,2.0
+494,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-44 reports oxygen manifold pressure of 245 psi and temperature of 1170 K' as JSON: { 'state':",stable,aerospace_telemetry,ood,0,1.0
+495,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-45 reports oxygen manifold pressure of 305 psi and temperature of 1490 K' as JSON: { 'state':",stable,aerospace_telemetry,ood,0,1.0
+496,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-46 reports oxygen manifold pressure of 845 psi and temperature of 2890 K' as JSON: { 'state':",unstable,aerospace_telemetry,ood,1,2.0
+497,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-47 reports oxygen manifold pressure of 255 psi and temperature of 1210 K' as JSON: { 'state':",stable,aerospace_telemetry,ood,0,1.0
+498,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-48 reports oxygen manifold pressure of 325 psi and temperature of 1670 K' as JSON: { 'state':",stable,aerospace_telemetry,ood,0,1.0
+499,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-49 reports oxygen manifold pressure of 855 psi and temperature of 2910 K' as JSON: { 'state':",unstable,aerospace_telemetry,ood,1,2.0
+500,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-50 reports oxygen manifold pressure of 265 psi and temperature of 1230 K' as JSON: { 'state':",stable,aerospace_telemetry,ood,0,1.0

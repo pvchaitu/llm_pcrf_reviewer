@@ -1,0 +1,201 @@
+id,prompt,target,task_type,split,is_critical,criticality_weight
+1,"JSON payload: { 'event': 'FailedLogin', 'username': 'root', 'ip': '198.51.100.4', 'attempts': 15 }. Risk triage (low/medium/high):",high,security_triage,train,1,1.5
+2,"JSON payload: { 'event': 'FailedLogin', 'username': 'johndoe', 'ip': '192.168.1.45', 'attempts': 1 }. Risk triage (low/medium/high):",low,security_triage,train,0,1.0
+3,"JSON payload: { 'event': 'S3BucketCreated', 'owner': 'dev_user_99', 'public_access': true }. Risk triage (low/medium/high):",high,security_triage,train,1,1.5
+4,"JSON payload: { 'event': 'S3BucketCreated', 'owner': 'ops_manager_22', 'public_access': false }. Risk triage (low/medium/high):",low,security_triage,train,0,1.0
+5,"JSON payload: { 'event': 'IAMPolicyModified', 'policy': 'AdministratorAccess', 'mfa_verified': false }. Risk triage (low/medium/high):",high,security_triage,train,1,1.5
+6,"JSON payload: { 'event': 'IAMPolicyModified', 'policy': 'ReadOnlyAccess', 'mfa_verified': true }. Risk triage (low/medium/high):",low,security_triage,train,0,1.0
+7,"JSON payload: { 'event': 'PortScanDetected', 'source_ip': '45.33.102.55', 'ports_scanned': 2500 }. Risk triage (low/medium/high):",high,security_triage,train,1,1.5
+8,"JSON payload: { 'event': 'PortScanDetected', 'source_ip': '10.0.2.14', 'ports_scanned': 3 }. Risk triage (low/medium/high):",low,security_triage,train,0,1.0
+9,"JSON payload: { 'event': 'SSHKeyAdded', 'user': 'jenkins_agent_01', 'key_strength': 1024 }. Risk triage (low/medium/high):",medium,security_triage,train,0,1.0
+10,"JSON payload: { 'event': 'SSHKeyAdded', 'user': 'master_backup_bot', 'key_strength': 4096 }. Risk triage (low/medium/high):",low,security_triage,train,0,1.0
+11,"JSON payload: { 'event': 'FailedLogin', 'username': 'admin_crm', 'ip': '185.220.101.5', 'attempts': 8 }. Risk triage (low/medium/high):",medium,security_triage,train,0,1.0
+12,"JSON payload: { 'event': 'FailedLogin', 'username': 'staff_dev', 'ip': '192.168.2.10', 'attempts': 2 }. Risk triage (low/medium/high):",low,security_triage,train,0,1.0
+13,"JSON payload: { 'event': 'S3BucketCreated', 'owner': 'marketing_external', 'public_access': true }. Risk triage (low/medium/high):",high,security_triage,train,1,1.5
+14,"JSON payload: { 'event': 'S3BucketCreated', 'owner': 'finance_lead', 'public_access': false }. Risk triage (low/medium/high):",low,security_triage,train,0,1.0
+15,"JSON payload: { 'event': 'IAMPolicyModified', 'policy': 'BillingAccess', 'mfa_verified': false }. Risk triage (low/medium/high):",medium,security_triage,train,0,1.0
+16,"JSON payload: { 'event': 'IAMPolicyModified', 'policy': 'SecurityAuditOnly', 'mfa_verified': true }. Risk triage (low/medium/high):",low,security_triage,train,0,1.0
+17,"JSON payload: { 'event': 'PortScanDetected', 'source_ip': '185.190.140.22', 'ports_scanned': 5000 }. Risk triage (low/medium/high):",high,security_triage,train,1,1.5
+18,"JSON payload: { 'event': 'PortScanDetected', 'source_ip': '192.168.10.150', 'ports_scanned': 5 }. Risk triage (low/medium/high):",low,security_triage,train,0,1.0
+19,"JSON payload: { 'event': 'SSHKeyAdded', 'user': 'temporary_contractor', 'key_strength': 2048 }. Risk triage (low/medium/high):",medium,security_triage,train,0,1.0
+20,"JSON payload: { 'event': 'SSHKeyAdded', 'user': 'ceo_laptop_device', 'key_strength': 4096 }. Risk triage (low/medium/high):",low,security_triage,train,0,1.0
+21,"Extract the API action (get/post/delete) from this routing rule: 'Fetch client profile metadata from PostgreSQL' as JSON: { 'action':",get,api_routing,train,0,1.0
+22,"Extract the API action (get/post/delete) from this routing rule: 'Delete inactive user session records from Redis cache' as JSON: { 'action':",delete,api_routing,train,1,1.5
+23,"Extract the API action (get/post/delete) from this routing rule: 'Create a new client verification token' as JSON: { 'action':",post,api_routing,train,0,1.0
+24,"Extract the API action (get/post/delete) from this routing rule: 'Retrieve transaction ledger history array' as JSON: { 'action':",get,api_routing,train,0,1.0
+25,"Extract the API action (get/post/delete) from this routing rule: 'Register new mobile gateway configuration' as JSON: { 'action':",post,api_routing,train,0,1.0
+26,"Extract the API action (get/post/delete) from this routing rule: 'Erase configuration baseline revision logs' as JSON: { 'action':",delete,api_routing,train,1,1.5
+27,"Extract the API action (get/post/delete) from this routing rule: 'List active container workspace segments' as JSON: { 'action':",get,api_routing,train,0,1.0
+28,"Extract the API action (get/post/delete) from this routing rule: 'Provision a new security credential record' as JSON: { 'action':",post,api_routing,train,0,1.0
+29,"Extract the API action (get/post/delete) from this routing rule: 'Erase temporary local billing directory' as JSON: { 'action':",delete,api_routing,train,0,1.0
+30,"Extract the API action (get/post/delete) from this routing rule: 'Fetch compliance standard checklist' as JSON: { 'action':",get,api_routing,train,0,1.0
+31,"Extract the API action (get/post/delete) from this routing rule: 'Retrieve active cluster heartbeat telemetry' as JSON: { 'action':",get,api_routing,train,0,1.0
+32,"Extract the API action (get/post/delete) from this routing rule: 'Delete orphaned docker volumes from host server' as JSON: { 'action':",delete,api_routing,train,1,1.5
+33,"Extract the API action (get/post/delete) from this routing rule: 'Submit client access registration block' as JSON: { 'action':",post,api_routing,train,0,1.0
+34,"Extract the API action (get/post/delete) from this routing rule: 'Load active transaction audit logs' as JSON: { 'action':",get,api_routing,train,0,1.0
+35,"Extract the API action (get/post/delete) from this routing rule: 'Push latest system baseline profile configuration' as JSON: { 'action':",post,api_routing,train,0,1.0
+36,"Extract the API action (get/post/delete) from this routing rule: 'Purge deprecated session metadata blocks' as JSON: { 'action':",delete,api_routing,train,1,1.5
+37,"Extract the API action (get/post/delete) from this routing rule: 'Request latest network interface statuses' as JSON: { 'action':",get,api_routing,train,0,1.0
+38,"Extract the API action (get/post/delete) from this routing rule: 'Publish new API gateway endpoint route' as JSON: { 'action':",post,api_routing,train,0,1.0
+39,"Extract the API action (get/post/delete) from this routing rule: 'Erase staging database cluster indexes' as JSON: { 'action':",delete,api_routing,train,0,1.0
+40,"Extract the API action (get/post/delete) from this routing rule: 'Load balance incoming connection metrics list' as JSON: { 'action':",get,api_routing,train,0,1.0
+41,"Extract the user role (admin/editor/viewer) from this permission string: 'Can assign groups, modify profiles, and manage system administrators' as JSON: { 'role':",admin,iam_audit,train,1,1.5
+42,"Extract the user role (admin/editor/viewer) from this permission string: 'Can modify files and edit existing document drafts' as JSON: { 'role':",editor,iam_audit,train,0,1.0
+43,"Extract the user role (admin/editor/viewer) from this permission string: 'Can read audit logs and browse directory indices but cannot write changes' as JSON: { 'role':",viewer,iam_audit,train,0,1.0
+44,"Extract the user role (admin/editor/viewer) from this permission string: 'Has root level execution privileges and can delete files globally' as JSON: { 'role':",admin,iam_audit,train,1,2.0
+45,"Extract the user role (admin/editor/viewer) from this permission string: 'Authorized to save draft adjustments but lacks user admin panel rights' as JSON: { 'role':",editor,iam_audit,train,0,1.0
+46,"Extract the user role (admin/editor/viewer) from this permission string: 'Can browse metric dashboard views but lacks edit rights' as JSON: { 'role':",viewer,iam_audit,train,0,1.0
+47,"Extract the user role (admin/editor/viewer) from this permission string: 'Can create billing credentials and modify system configurations' as JSON: { 'role':",admin,iam_audit,train,1,1.5
+48,"Extract the user role (admin/editor/viewer) from this permission string: 'Can submit content reviews and update documentation files' as JSON: { 'role':",editor,iam_audit,train,0,1.0
+49,"Extract the user role (admin/editor/viewer) from this permission string: 'Can observe network throughput metrics but cannot change port bindings' as JSON: { 'role':",viewer,iam_audit,train,0,1.0
+50,"Extract the user role (admin/editor/viewer) from this permission string: 'Authorized to adjust user access directories and assign privileges' as JSON: { 'role':",admin,iam_audit,train,1,1.5
+51,"Extract the user role (admin/editor/viewer) from this permission string: 'Allowed to edit configuration templates and update baseline files' as JSON: { 'role':",editor,iam_audit,train,0,1.0
+52,"Extract the user role (admin/editor/viewer) from this permission string: 'Can view transaction history records but cannot trigger refunds' as JSON: { 'role':",viewer,iam_audit,train,0,1.0
+53,"Extract the user role (admin/editor/viewer) from this permission string: 'Has complete system owner role across all domain cabinets' as JSON: { 'role':",admin,iam_audit,train,1,1.5
+54,"Extract the user role (admin/editor/viewer) from this permission string: 'Can write new blog articles and modify published copy' as JSON: { 'role':",editor,iam_audit,train,0,1.0
+55,"Extract the user role (admin/editor/viewer) from this permission string: 'Can inspect user profile details but cannot alter names' as JSON: { 'role':",viewer,iam_audit,train,0,1.0
+56,"Extract the user role (admin/editor/viewer) from this permission string: 'Can establish database clusters and adjust primary host configs' as JSON: { 'role':",admin,iam_audit,train,1,1.5
+57,"Extract the user role (admin/editor/viewer) from this permission string: 'Allowed to adjust metadata keywords on uploaded videos' as JSON: { 'role':",editor,iam_audit,train,0,1.0
+58,"Extract the user role (admin/editor/viewer) from this permission string: 'Can download static file attachment assets' as JSON: { 'role':",viewer,iam_audit,train,0,1.0
+59,"Extract the user role (admin/editor/viewer) from this permission string: 'Has absolute root credentials on target cloud containers' as JSON: { 'role':",admin,iam_audit,train,1,1.5
+60,"Extract the user role (admin/editor/viewer) from this permission string: 'Can write updates to wiki documentation articles' as JSON: { 'role':",editor,iam_audit,train,0,1.0
+61,"Extract the transaction status (approved/declined) from this gateway log: 'Stripe gateway logs: payment processed successfully for client 1012' as JSON: { 'status':",approved,fintech_audit,train,0,1.0
+62,"Extract the transaction status (approved/declined) from this gateway log: 'Adyen gateway logs: transaction rejected due to insufficient credit' as JSON: { 'status':",declined,fintech_audit,train,0,1.0
+63,"Extract the transaction status (approved/declined) from this gateway log: 'PayPal gateway logs: credit card verification failure' as JSON: { 'status':",declined,fintech_audit,train,0,1.0
+64,"Extract the transaction status (approved/declined) from this gateway log: 'Braintree gateway logs: auth success, funds capture complete' as JSON: { 'status':",approved,fintech_audit,train,1,1.5
+65,"Extract the transaction status (approved/declined) from this gateway log: 'Authorize.Net gateway logs: fraud filter triggered' as JSON: { 'status':",declined,fintech_audit,train,1,1.5
+66,"Extract the transaction status (approved/declined) from this gateway log: 'Stripe gateway logs: verification code checked, order complete' as JSON: { 'status':",approved,fintech_audit,train,0,1.0
+67,"Extract the transaction status (approved/declined) from this gateway log: 'Adyen gateway logs: card has expired' as JSON: { 'status':",declined,fintech_audit,train,0,1.0
+68,"Extract the transaction status (approved/declined) from this gateway log: 'PayPal gateway logs: payment authorized, pending capture' as JSON: { 'status':",approved,fintech_audit,train,0,1.0
+69,"Extract the transaction status (approved/declined) from this gateway log: 'Braintree gateway logs: account billing block verified' as JSON: { 'status':",declined,fintech_audit,train,0,1.0
+70,"Extract the transaction status (approved/declined) from this gateway log: 'Authorize.Net gateway logs: digital wallet authenticated' as JSON: { 'status':",approved,fintech_audit,train,0,1.0
+71,"Extract the transaction status (approved/declined) from this gateway log: 'Stripe gateway logs: charge limit reached on customer plan' as JSON: { 'status':",declined,fintech_audit,train,0,1.0
+72,"Extract the transaction status (approved/declined) from this gateway log: 'Adyen gateway logs: address postcode verify mismatch' as JSON: { 'status':",declined,fintech_audit,train,0,1.0
+73,"Extract the transaction status (approved/declined) from this gateway log: 'PayPal gateway logs: payment completed successfully' as JSON: { 'status':",approved,fintech_audit,train,0,1.0
+74,"Extract the transaction status (approved/declined) from this gateway log: 'Braintree gateway logs: account flagged for prior chargeback' as JSON: { 'status':",declined,fintech_audit,train,1,1.5
+75,"Extract the transaction status (approved/declined) from this gateway log: 'Authorize.Net gateway logs: token validated, clearance complete' as JSON: { 'status':",approved,fintech_audit,train,1,1.5
+76,"Extract the transaction status (approved/declined) from this gateway log: 'Stripe gateway logs: user cancelled checkout session' as JSON: { 'status':",declined,fintech_audit,train,0,1.0
+77,"Extract the transaction status (approved/declined) from this gateway log: 'Adyen gateway logs: funds captured, invoice archived' as JSON: { 'status':",approved,fintech_audit,train,0,1.0
+78,"Extract the transaction status (approved/declined) from this gateway log: 'PayPal gateway logs: suspicious billing ip location flagged' as JSON: { 'status':",declined,fintech_audit,train,1,1.5
+79,"Extract the transaction status (approved/declined) from this gateway log: 'Braintree gateway logs: merchant manual override applied' as JSON: { 'status':",approved,fintech_audit,train,0,1.0
+80,"Extract the transaction status (approved/declined) from this gateway log: 'Authorize.Net gateway logs: network connection drop during verify' as JSON: { 'status':",declined,fintech_audit,train,0,1.0
+81,"To accomplish multiple milestones at the exact same moment is to kill two birds with one",stone,cloze_seen,train,0,1.0
+82,"To avoid placing all your financial capital in a single volatile asset, don't put all your eggs in one",basket,cloze_seen,train,0,1.0
+83,"To accidentally reveal highly confidential organization blueprints is to let the cat out of the",bag,cloze_seen,train,0,1.0
+84,"Being in a state of supreme, ecstatic joy or extreme mental happiness is to be on cloud",nine,cloze_seen,train,0,1.0
+85,"Feeling entirely awkward, uncomfortable, and physically out of place is like a fish out of",water,cloze_seen,train,0,1.0
+86,"An unpredictable, incredibly dynamic, and highly energetic person is described as a live",wire,cloze_seen,train,0,1.0
+87,"An entirely random, highly surprising, and completely unexpected event is out of the",blue,cloze_seen,train,0,1.0
+88,"Pursuing a completely incorrect strategy or line of logic is barking up the wrong",tree,cloze_seen,train,0,1.0
+89,"Facing a very difficult, painful, or awkward situation with brave composure is to bite the",bullet,cloze_seen,train,0,1.0
+90,"Wishing a theater actor excellent performance fortune right before a show is telling them to break a",leg,cloze_seen,train,0,1.0
+91,"To accidentally expose a highly guarded organizational secret is to spill the",beans,cloze_seen,train,0,1.0
+92,"Executing an operational workflow that is incredibly straightforward is a piece of",cake,cloze_seen,train,0,1.0
+93,"Resolving an architectural software bottleneck with absolute precision is hitting the nail on the",head,cloze_seen,train,0,1.0
+94,"To accept the negative consequences of your previous incorrect actions is to face the",music,cloze_seen,train,0,1.0
+95,"Feeling mildly sick, fatigued, or physically under the weather is to be under the",weather,cloze_seen,train,0,1.0
+96,"To completely cease working on a development pipeline for the evening is to call it a",day,cloze_seen,train,0,1.0
+97,"Complaining about unfixable, past execution errors is crying over spilled",milk,cloze_seen,train,0,1.0
+98,"Avoiding speaking about the central, most critical problem in a meeting is beating around the",bush,cloze_seen,train,0,1.0
+99,"To initiate a highly difficult, tense, or awkward discussion with colleagues is to break the",ice,cloze_seen,train,0,1.0
+100,"Adding angry, volatile statements to an ongoing administrative dispute is adding fuel to the",fire,cloze_seen,train,0,1.0
+101,"JSON payload: { 'event': 'FailedLogin', 'username': 'administrator', 'ip': '198.51.100.12', 'attempts': 18 }. Risk triage (low/medium/high):",high,security_triage,seen_val,1,1.5
+102,"JSON payload: { 'event': 'FailedLogin', 'username': 'sam_dev', 'ip': '192.168.1.99', 'attempts': 1 }. Risk triage (low/medium/high):",low,security_triage,seen_val,0,1.0
+103,"JSON payload: { 'event': 'S3BucketCreated', 'owner': 'dev_test_bot', 'public_access': true }. Risk triage (low/medium/high):",high,security_triage,seen_val,1,1.5
+104,"JSON payload: { 'event': 'S3BucketCreated', 'owner': 'ops_lead_44', 'public_access': false }. Risk triage (low/medium/high):",low,security_triage,seen_val,0,1.0
+105,"JSON payload: { 'event': 'IAMPolicyModified', 'policy': 'AdministratorAccess', 'mfa_verified': true }. Risk triage (low/medium/high):",medium,security_triage,seen_val,0,1.0
+106,"JSON payload: { 'event': 'IAMPolicyModified', 'policy': 'ReadOnlyAccess', 'mfa_verified': false }. Risk triage (low/medium/high):",medium,security_triage,seen_val,0,1.0
+107,"JSON payload: { 'event': 'PortScanDetected', 'source_ip': '45.33.102.88', 'ports_scanned': 3200 }. Risk triage (low/medium/high):",high,security_triage,seen_val,1,1.5
+108,"JSON payload: { 'event': 'PortScanDetected', 'source_ip': '10.0.2.99', 'ports_scanned': 2 }. Risk triage (low/medium/high):",low,security_triage,seen_val,0,1.0
+109,"JSON payload: { 'event': 'SSHKeyAdded', 'user': 'jenkins_agent_05', 'key_strength': 2048 }. Risk triage (low/medium/high):",low,security_triage,seen_val,0,1.0
+110,"JSON payload: { 'event': 'SSHKeyAdded', 'user': 'unverified_root', 'key_strength': 1024 }. Risk triage (low/medium/high):",high,security_triage,seen_val,1,1.5
+111,"Extract the API action (get/post/delete) from this routing rule: 'Fetch cluster profile array metadata' as JSON: { 'action':",get,api_routing,seen_val,0,1.0
+112,"Extract the API action (get/post/delete) from this routing rule: 'Delete inactive transaction database records' as JSON: { 'action':",delete,api_routing,seen_val,1,1.5
+113,"Extract the API action (get/post/delete) from this routing rule: 'Create a new server gateway token' as JSON: { 'action':",post,api_routing,seen_val,0,1.0
+114,"Extract the API action (get/post/delete) from this routing rule: 'Retrieve client credit balance array' as JSON: { 'action':",get,api_routing,seen_val,0,1.0
+115,"Extract the API action (get/post/delete) from this routing rule: 'Register new web hook endpoints list' as JSON: { 'action':",post,api_routing,seen_val,0,1.0
+116,"Extract the API action (get/post/delete) from this routing rule: 'Erase expired backup storage directories' as JSON: { 'action':",delete,api_routing,seen_val,1,1.5
+117,"Extract the API action (get/post/delete) from this routing rule: 'List active container deployments array' as JSON: { 'action':",get,api_routing,seen_val,0,1.0
+118,"Extract the API action (get/post/delete) from this routing rule: 'Provision a new security credential set' as JSON: { 'action':",post,api_routing,seen_val,0,1.0
+119,"Extract the API action (get/post/delete) from this routing rule: 'Erase unverified user registration files' as JSON: { 'action':",delete,api_routing,seen_val,0,1.0
+120,"Extract the API action (get/post/delete) from this routing rule: 'Fetch system baseline metrics parameters' as JSON: { 'action':",get,api_routing,seen_val,0,1.0
+121,"Extract the user role (admin/editor/viewer) from this permission string: 'Can assign groups, modify profiles, and manage active directory hosts' as JSON: { 'role':",admin,iam_audit,seen_val,1,1.5
+122,"Extract the user role (admin/editor/viewer) from this permission string: 'Can modify files and edit draft system templates' as JSON: { 'role':",editor,iam_audit,seen_val,0,1.0
+123,"Extract the user role (admin/editor/viewer) from this permission string: 'Can read audit logs and browse directory configurations' as JSON: { 'role':",viewer,iam_audit,seen_val,0,1.0
+124,"Extract the user role (admin/editor/viewer) from this permission string: 'Has root level execution privileges and can delete directories globally' as JSON: { 'role':",admin,iam_audit,seen_val,1,2.0
+125,"Extract the user role (admin/editor/viewer) from this permission string: 'Authorized to save adjustment parameters but lacks profile permissions' as JSON: { 'role':",editor,iam_audit,seen_val,0,1.0
+126,"Extract the user role (admin/editor/viewer) from this permission string: 'Can browse metric dashboard panels but has no edit rights' as JSON: { 'role':",viewer,iam_audit,seen_val,0,1.0
+127,"Extract the user role (admin/editor/viewer) from this permission string: 'Can create billing credentials and modify network configurations' as JSON: { 'role':",admin,iam_audit,seen_val,1,1.5
+128,"Extract the user role (admin/editor/viewer) from this permission string: 'Can submit content reviews and update active wikis' as JSON: { 'role':",editor,iam_audit,seen_val,0,1.0
+129,"Extract the user role (admin/editor/viewer) from this permission string: 'Can observe network throughput metrics but cannot modify port rules' as JSON: { 'role':",viewer,iam_audit,seen_val,0,1.0
+130,"Extract the user role (admin/editor/viewer) from this permission string: 'Authorized to adjust user access groups and assign permissions' as JSON: { 'role':",admin,iam_audit,seen_val,1,1.5
+131,"Extract the transaction status (approved/declined) from this gateway log: 'Stripe gateway logs: payment processed successfully for client 4015' as JSON: { 'status':",approved,fintech_audit,seen_val,0,1.0
+132,"Extract the transaction status (approved/declined) from this gateway log: 'Adyen gateway logs: transaction rejected for user' as JSON: { 'status':",declined,fintech_audit,seen_val,0,1.0
+133,"Extract the transaction status (approved/declined) from this gateway log: 'PayPal gateway logs: CVV verification mismatch' as JSON: { 'status':",declined,fintech_audit,seen_val,0,1.0
+134,"Extract the transaction status (approved/declined) from this gateway log: 'Braintree gateway logs: auth verified, batch capture success' as JSON: { 'status':",approved,fintech_audit,seen_val,1,1.5
+135,"Extract the transaction status (approved/declined) from this gateway log: 'Authorize.Net gateway logs: risk limits reached' as JSON: { 'status':",declined,fintech_audit,seen_val,1,1.5
+136,"Extract the transaction status (approved/declined) from this gateway log: 'Stripe gateway logs: user cancelled billing checkout' as JSON: { 'status':",declined,fintech_audit,seen_val,0,1.0
+137,"Extract the transaction status (approved/declined) from this gateway log: 'Adyen gateway logs: transaction approved successfully' as JSON: { 'status':",approved,fintech_audit,seen_val,0,1.0
+138,"Extract the transaction status (approved/declined) from this gateway log: 'PayPal gateway logs: country block triggered' as JSON: { 'status':",declined,fintech_audit,seen_val,1,1.5
+139,"Extract the transaction status (approved/declined) from this gateway log: 'Braintree gateway logs: valid auth code returned' as JSON: { 'status':",approved,fintech_audit,seen_val,0,1.0
+140,"Extract the transaction status (approved/declined) from this gateway log: 'Authorize.Net gateway logs: network connection timeout' as JSON: { 'status':",declined,fintech_audit,seen_val,0,1.0
+141,"Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-1012: Premium 4K Smart OLED Television with HDR' as JSON: { 'department':",electronics,ecommerce_routing,unseen_val,0,1.0
+142,"Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-4421: Cotton Slim-Fit Casual Men's Button-Up Shirt' as JSON: { 'department':",apparel,ecommerce_routing,unseen_val,0,1.0
+143,"Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-9902: Ergonomic Mesh Swivel Desk Chair for Home Office' as JSON: { 'department':",home,ecommerce_routing,unseen_val,0,1.0
+144,"Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-1150: Wireless Noise-Canceling Bluetooth Headphones' as JSON: { 'department':",electronics,ecommerce_routing,unseen_val,0,1.0
+145,"Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-8120: High-Thread Count Egyptian Cotton Bed Sheet Set' as JSON: { 'department':",home,ecommerce_routing,unseen_val,0,1.0
+146,"Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-3291: Women's Athletic Running Shoes with Arch Support' as JSON: { 'department':",apparel,ecommerce_routing,unseen_val,0,1.0
+147,"Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-6512: Bluetooth Soundbar with Wireless Subwoofer' as JSON: { 'department':",electronics,ecommerce_routing,unseen_val,0,1.0
+148,"Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-7740: Memory Foam Orthopedic Pillow' as JSON: { 'department':",home,ecommerce_routing,unseen_val,0,1.0
+149,"Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-2201: Water-Resistant Hiking Jacket with Fleece Lining' as JSON: { 'department':",apparel,ecommerce_routing,unseen_val,0,1.0
+150,"Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-5580: Ultra-Wide Curved Gaming Monitor 144Hz' as JSON: { 'department':",electronics,ecommerce_routing,unseen_val,0,1.0
+151,"Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 52 BPM' as JSON: { 'status':",bradycardia,clinical_nlp,unseen_val,1,1.5
+152,"Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 112 BPM' as JSON: { 'status':",tachycardia,clinical_nlp,unseen_val,1,1.5
+153,"Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 72 BPM' as JSON: { 'status':",normal,clinical_nlp,unseen_val,0,1.0
+154,"Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 48 BPM' as JSON: { 'status':",bradycardia,clinical_nlp,unseen_val,1,1.5
+155,"Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 125 BPM' as JSON: { 'status':",tachycardia,clinical_nlp,unseen_val,1,1.5
+156,"Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 80 BPM' as JSON: { 'status':",normal,clinical_nlp,unseen_val,0,1.0
+157,"Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 55 BPM' as JSON: { 'status':",bradycardia,clinical_nlp,unseen_val,1,1.5
+158,"Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 105 BPM' as JSON: { 'status':",tachycardia,clinical_nlp,unseen_val,1,1.5
+159,"Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 65 BPM' as JSON: { 'status':",normal,clinical_nlp,unseen_val,0,1.0
+160,"Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 50 BPM' as JSON: { 'status':",bradycardia,clinical_nlp,unseen_val,1,1.5
+161,"Extract the security group access level (public/private) from this rule: 'Rule-10 configures port 22 for CIDR 0.0.0.0/0' as JSON: { 'access':",public,security_audit,unseen_val,1,2.0
+162,"Extract the security group access level (public/private) from this rule: 'Rule-11 configures port 80 for CIDR 10.0.0.0/8' as JSON: { 'access':",private,security_audit,unseen_val,0,1.0
+163,"Extract the security group access level (public/private) from this rule: 'Rule-12 configures port 443 for CIDR 192.168.1.0/24' as JSON: { 'access':",private,security_audit,unseen_val,0,1.0
+164,"Extract the security group access level (public/private) from this rule: 'Rule-13 configures port 3306 for CIDR 0.0.0.0/0' as JSON: { 'access':",public,security_audit,unseen_val,1,2.0
+165,"Extract the security group access level (public/private) from this rule: 'Rule-14 configures port 8080 for CIDR 172.16.0.0/12' as JSON: { 'access':",private,security_audit,unseen_val,0,1.0
+166,"Extract the security group access level (public/private) from this rule: 'Rule-15 configures port 22 for CIDR 192.168.1.0/24' as JSON: { 'access':",private,security_audit,unseen_val,0,1.0
+167,"Extract the security group access level (public/private) from this rule: 'Rule-16 configures port 80 for CIDR 0.0.0.0/0' as JSON: { 'access':",public,security_audit,unseen_val,0,1.0
+168,"Extract the security group access level (public/private) from this rule: 'Rule-17 configures port 443 for CIDR 0.0.0.0/0' as JSON: { 'access':",public,security_audit,unseen_val,0,1.0
+169,"Extract the security group access level (public/private) from this rule: 'Rule-18 configures port 3306 for CIDR 10.0.0.0/8' as JSON: { 'access':",private,security_audit,unseen_val,0,1.0
+170,"Extract the security group access level (public/private) from this rule: 'Rule-19 configures port 8080 for CIDR 0.0.0.0/0' as JSON: { 'access':",public,security_audit,unseen_val,0,1.0
+171,"Extract the transaction status (approved/declined) from this gateway log: 'Billing address postcode check failed' as JSON: { 'status':",declined,fintech_audit,unseen_val,0,1.0
+172,"Extract the transaction status (approved/declined) from this gateway log: 'Secure handshake success, transaction cleared' as JSON: { 'status':",approved,fintech_audit,unseen_val,0,1.0
+173,"Extract the transaction status (approved/declined) from this gateway log: 'Issuer bank reports card has expired' as JSON: { 'status':",declined,fintech_audit,unseen_val,0,1.0
+174,"Extract the transaction status (approved/declined) from this gateway log: 'Risk engine blocker flags matched' as JSON: { 'status':",declined,fintech_audit,unseen_val,1,1.5
+175,"Extract the transaction status (approved/declined) from this gateway log: 'User authenticated, Batch captured' as JSON: { 'status':",approved,fintech_audit,unseen_val,1,1.5
+176,"Extract the transaction status (approved/declined) from this gateway log: 'Insufficient credit limit on account' as JSON: { 'status':",declined,fintech_audit,unseen_val,0,1.0
+177,"Extract the transaction status (approved/declined) from this gateway log: 'Charge verified and cleared successfully' as JSON: { 'status':",approved,fintech_audit,unseen_val,0,1.0
+178,"Extract the transaction status (approved/declined) from this gateway log: 'Handshake completed: capture approved' as JSON: { 'status':",approved,fintech_audit,unseen_val,0,1.0
+179,"Extract the transaction status (approved/declined) from this gateway log: 'Stolen card error returned by bank' as JSON: { 'status':",declined,fintech_audit,unseen_val,1,1.5
+180,"Extract the transaction status (approved/declined) from this gateway log: 'Authorized by merchant override' as JSON: { 'status':",approved,fintech_audit,unseen_val,0,1.0
+181,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-1 reports oxygen manifold pressure of 850 psi and temperature of 2900 K' as JSON: { 'state':",unstable,aerospace_telemetry,ood,1,2.0
+182,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-2 reports oxygen manifold pressure of 220 psi and temperature of 1200 K' as JSON: { 'state':",stable,aerospace_telemetry,ood,0,1.0
+183,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-3 reports oxygen manifold pressure of 910 psi and temperature of 3100 K' as JSON: { 'state':",unstable,aerospace_telemetry,ood,1,2.0
+184,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-4 reports oxygen manifold pressure of 190 psi and temperature of 950 K' as JSON: { 'state':",stable,aerospace_telemetry,ood,0,1.0
+185,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-5 reports oxygen manifold pressure of 300 psi and temperature of 1450 K' as JSON: { 'state':",stable,aerospace_telemetry,ood,0,1.0
+186,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-6 reports oxygen manifold pressure of 890 psi and temperature of 3050 K' as JSON: { 'state':",unstable,aerospace_telemetry,ood,1,2.0
+187,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-7 reports oxygen manifold pressure of 410 psi and temperature of 1800 K' as JSON: { 'state':",stable,aerospace_telemetry,ood,0,1.0
+188,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-8 reports oxygen manifold pressure of 260 psi and temperature of 1100 K' as JSON: { 'state':",stable,aerospace_telemetry,ood,0,1.0
+189,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-9 reports oxygen manifold pressure of 940 psi and temperature of 3150 K' as JSON: { 'state':",unstable,aerospace_telemetry,ood,1,2.0
+190,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-10 reports oxygen manifold pressure of 340 psi and temperature of 1500 K' as JSON: { 'state':",stable,aerospace_telemetry,ood,0,1.0
+191,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-11 reports oxygen manifold pressure of 820 psi and temperature of 2850 K' as JSON: { 'state':",unstable,aerospace_telemetry,ood,1,2.0
+192,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-12 reports oxygen manifold pressure of 280 psi and temperature of 1300 K' as JSON: { 'state':",stable,aerospace_telemetry,ood,0,1.0
+193,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-13 reports oxygen manifold pressure of 870 psi and temperature of 2950 K' as JSON: { 'state':",unstable,aerospace_telemetry,ood,1,2.0
+194,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-14 reports oxygen manifold pressure of 210 psi and temperature of 1050 K' as JSON: { 'state':",stable,aerospace_telemetry,ood,0,1.0
+195,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-15 reports oxygen manifold pressure of 310 psi and temperature of 1600 K' as JSON: { 'state':",stable,aerospace_telemetry,ood,0,1.0
+196,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-16 reports oxygen manifold pressure of 900 psi and temperature of 3000 K' as JSON: { 'state':",unstable,aerospace_telemetry,ood,1,2.0
+197,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-17 reports oxygen manifold pressure of 390 psi and temperature of 1750 K' as JSON: { 'state':",stable,aerospace_telemetry,ood,0,1.0
+198,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-18 reports oxygen manifold pressure of 250 psi and temperature of 1150 K' as JSON: { 'state':",stable,aerospace_telemetry,ood,0,1.0
+199,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-19 reports oxygen manifold pressure of 930 psi and temperature of 3200 K' as JSON: { 'state':",unstable,aerospace_telemetry,ood,1,2.0
+200,"Extract the engine combustion state (stable/unstable) from this rocket telemetry pack: 'Sensor-20 reports oxygen manifold pressure of 350 psi and temperature of 1550 K' as JSON: { 'state':",stable,aerospace_telemetry,ood,0,1.0

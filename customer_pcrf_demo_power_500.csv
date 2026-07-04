@@ -1,0 +1,501 @@
+id,prompt,target,task_type,split,is_critical,criticality_weight
+1,"Extract API action get, post, or delete from rule: 'Delete expired sessions from Redis cache'. Answer:",delete,api_routing,train,1,1.5
+2,"Classify IAM role as admin, editor, or viewer: 'Can view dashboards and export read-only audit logs'. Answer:",viewer,iam_audit,train,0,1.0
+3,Classify payment gateway status as approved or declined: 'manual merchant override approved after review'. Answer:,approved,fintech_audit,train,1,1.5
+4,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 112 BPM. Answer:",tachycardia,clinical_nlp,train,1,1.5
+5,"Classify product department as electronics, apparel, or home: 'water resistant hiking jacket'. Answer:",apparel,ecommerce_routing,train,0,1.0
+6,Classify network exposure as public or private: security group has port 443 opened to 10.0.0.0/8. Answer:,private,security_audit,train,0,1.0
+7,Complete with one exact token: A repeated validation failure across both systems is,persistent,governance_cloze,train,0,1.0
+8,"Classify security risk as low, medium, or high: S3 bucket created private for staging logs. Answer:",low,security_triage,train,0,1.0
+9,"Extract API action get, post, or delete from rule: 'Load model confidence audit trace'. Answer:",get,api_routing,train,0,1.0
+10,"Classify IAM role as admin, editor, or viewer: 'Can revise documentation pages but cannot change access groups'. Answer:",editor,iam_audit,train,0,1.0
+11,Classify payment gateway status as approved or declined: 'tokenized wallet authenticated and cleared'. Answer:,approved,fintech_audit,train,0,1.0
+12,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 48 BPM. Answer:",bradycardia,clinical_nlp,train,1,1.5
+13,"Classify product department as electronics, apparel, or home: 'cotton slim fit formal shirt'. Answer:",apparel,ecommerce_routing,train,0,1.0
+14,Classify network exposure as public or private: security group has port 3389 opened to 0.0.0.0/0. Answer:,public,security_audit,train,1,2.0
+15,Complete with one exact token: A rule preventing unsafe promotion is a,gate,governance_cloze,train,1,1.5
+16,"Classify security risk as low, medium, or high: ReadOnly policy attached to audit bot with MFA verified. Answer:",low,security_triage,train,0,1.0
+17,"Extract API action get, post, or delete from rule: 'Provision customer consent record'. Answer:",post,api_routing,train,0,1.0
+18,"Classify IAM role as admin, editor, or viewer: 'Can assign privileges and manage tenant security settings'. Answer:",admin,iam_audit,train,1,2.0
+19,Classify payment gateway status as approved or declined: 'issuer declined due to insufficient funds'. Answer:,declined,fintech_audit,train,0,1.0
+20,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 72 BPM. Answer:",normal,clinical_nlp,train,0,1.0
+21,"Classify product department as electronics, apparel, or home: 'wireless bluetooth headphones'. Answer:",electronics,ecommerce_routing,train,0,1.0
+22,Classify network exposure as public or private: security group has port 3306 opened to 0.0.0.0/0. Answer:,public,security_audit,train,1,2.0
+23,Complete with one exact token: A formerly correct output becoming wrong is a,regression,governance_cloze,train,1,1.5
+24,"Classify security risk as low, medium, or high: SSH key added with 1024 bit strength for temporary contractor account. Answer:",medium,security_triage,train,1,1.5
+25,"Extract API action get, post, or delete from rule: 'Erase stale backup snapshots'. Answer:",delete,api_routing,train,1,1.5
+26,"Classify IAM role as admin, editor, or viewer: 'Can view dashboards and export read-only audit logs'. Answer:",viewer,iam_audit,train,0,1.0
+27,Classify payment gateway status as approved or declined: 'manual merchant override approved after review'. Answer:,approved,fintech_audit,train,1,1.5
+28,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 112 BPM. Answer:",tachycardia,clinical_nlp,train,1,1.5
+29,"Classify product department as electronics, apparel, or home: 'water resistant hiking jacket'. Answer:",apparel,ecommerce_routing,train,0,1.0
+30,Classify network exposure as public or private: security group has port 22 opened to 0.0.0.0/0. Answer:,public,security_audit,train,1,2.0
+31,Complete with one exact token: A model answer withheld because risk remains unresolved is an,abstain,governance_cloze,train,1,1.5
+32,"Classify security risk as low, medium, or high: Public bucket enabled for finance exports containing invoice archives. Answer:",high,security_triage,train,1,2.0
+33,"Extract API action get, post, or delete from rule: 'Retrieve shipment tracking history'. Answer:",get,api_routing,train,0,1.0
+34,"Classify IAM role as admin, editor, or viewer: 'Can revise documentation pages but cannot change access groups'. Answer:",editor,iam_audit,train,0,1.0
+35,Classify payment gateway status as approved or declined: 'tokenized wallet authenticated and cleared'. Answer:,approved,fintech_audit,train,0,1.0
+36,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 48 BPM. Answer:",bradycardia,clinical_nlp,train,1,1.5
+37,"Classify product department as electronics, apparel, or home: 'cotton slim fit formal shirt'. Answer:",apparel,ecommerce_routing,train,0,1.0
+38,Classify network exposure as public or private: security group has port 6379 opened to 192.168.1.0/24. Answer:,private,security_audit,train,0,1.0
+39,Complete with one exact token: A structured machine-readable data format is,JSON,governance_cloze,train,0,1.0
+40,"Classify security risk as low, medium, or high: FailedLogin root from public IP with 18 attempts and no MFA. Answer:",high,security_triage,train,1,2.0
+41,"Extract API action get, post, or delete from rule: 'Delete expired sessions from Redis cache'. Answer:",delete,api_routing,train,1,1.5
+42,"Classify IAM role as admin, editor, or viewer: 'Can assign privileges and manage tenant security settings'. Answer:",admin,iam_audit,train,1,2.0
+43,Classify payment gateway status as approved or declined: 'issuer declined due to insufficient funds'. Answer:,declined,fintech_audit,train,0,1.0
+44,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 72 BPM. Answer:",normal,clinical_nlp,train,0,1.0
+45,"Classify product department as electronics, apparel, or home: 'wireless bluetooth headphones'. Answer:",electronics,ecommerce_routing,train,0,1.0
+46,Classify network exposure as public or private: security group has port 443 opened to 10.0.0.0/8. Answer:,private,security_audit,train,0,1.0
+47,Complete with one exact token: A repeated validation failure across both systems is,persistent,governance_cloze,train,0,1.0
+48,"Classify security risk as low, medium, or high: S3 bucket created private for staging logs. Answer:",low,security_triage,train,0,1.0
+49,"Extract API action get, post, or delete from rule: 'Load model confidence audit trace'. Answer:",get,api_routing,train,0,1.0
+50,"Classify IAM role as admin, editor, or viewer: 'Can view dashboards and export read-only audit logs'. Answer:",viewer,iam_audit,train,0,1.0
+51,Classify payment gateway status as approved or declined: 'manual merchant override approved after review'. Answer:,approved,fintech_audit,train,1,1.5
+52,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 112 BPM. Answer:",tachycardia,clinical_nlp,train,1,1.5
+53,"Classify product department as electronics, apparel, or home: 'water resistant hiking jacket'. Answer:",apparel,ecommerce_routing,train,0,1.0
+54,Classify network exposure as public or private: security group has port 3389 opened to 0.0.0.0/0. Answer:,public,security_audit,train,1,2.0
+55,Complete with one exact token: A rule preventing unsafe promotion is a,gate,governance_cloze,train,1,1.5
+56,"Classify security risk as low, medium, or high: ReadOnly policy attached to audit bot with MFA verified. Answer:",low,security_triage,train,0,1.0
+57,"Extract API action get, post, or delete from rule: 'Provision customer consent record'. Answer:",post,api_routing,train,0,1.0
+58,"Classify IAM role as admin, editor, or viewer: 'Can revise documentation pages but cannot change access groups'. Answer:",editor,iam_audit,train,0,1.0
+59,Classify payment gateway status as approved or declined: 'tokenized wallet authenticated and cleared'. Answer:,approved,fintech_audit,train,0,1.0
+60,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 48 BPM. Answer:",bradycardia,clinical_nlp,train,1,1.5
+61,"Classify product department as electronics, apparel, or home: 'cotton slim fit formal shirt'. Answer:",apparel,ecommerce_routing,train,0,1.0
+62,Classify network exposure as public or private: security group has port 3306 opened to 0.0.0.0/0. Answer:,public,security_audit,train,1,2.0
+63,Complete with one exact token: A formerly correct output becoming wrong is a,regression,governance_cloze,train,1,1.5
+64,"Classify security risk as low, medium, or high: SSH key added with 1024 bit strength for temporary contractor account. Answer:",medium,security_triage,train,1,1.5
+65,"Extract API action get, post, or delete from rule: 'Erase stale backup snapshots'. Answer:",delete,api_routing,train,1,1.5
+66,"Classify IAM role as admin, editor, or viewer: 'Can assign privileges and manage tenant security settings'. Answer:",admin,iam_audit,train,1,2.0
+67,Classify payment gateway status as approved or declined: 'issuer declined due to insufficient funds'. Answer:,declined,fintech_audit,train,0,1.0
+68,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 72 BPM. Answer:",normal,clinical_nlp,train,0,1.0
+69,"Classify product department as electronics, apparel, or home: 'wireless bluetooth headphones'. Answer:",electronics,ecommerce_routing,train,0,1.0
+70,Classify network exposure as public or private: security group has port 22 opened to 0.0.0.0/0. Answer:,public,security_audit,train,1,2.0
+71,Complete with one exact token: A model answer withheld because risk remains unresolved is an,abstain,governance_cloze,train,1,1.5
+72,"Classify security risk as low, medium, or high: Public bucket enabled for finance exports containing invoice archives. Answer:",high,security_triage,train,1,2.0
+73,"Extract API action get, post, or delete from rule: 'Retrieve shipment tracking history'. Answer:",get,api_routing,train,0,1.0
+74,"Classify IAM role as admin, editor, or viewer: 'Can view dashboards and export read-only audit logs'. Answer:",viewer,iam_audit,train,0,1.0
+75,Classify payment gateway status as approved or declined: 'manual merchant override approved after review'. Answer:,approved,fintech_audit,train,1,1.5
+76,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 112 BPM. Answer:",tachycardia,clinical_nlp,train,1,1.5
+77,"Classify product department as electronics, apparel, or home: 'water resistant hiking jacket'. Answer:",apparel,ecommerce_routing,train,0,1.0
+78,Classify network exposure as public or private: security group has port 6379 opened to 192.168.1.0/24. Answer:,private,security_audit,train,0,1.0
+79,Complete with one exact token: A structured machine-readable data format is,JSON,governance_cloze,train,0,1.0
+80,"Classify security risk as low, medium, or high: FailedLogin root from public IP with 18 attempts and no MFA. Answer:",high,security_triage,train,1,2.0
+81,"Extract API action get, post, or delete from rule: 'Delete expired sessions from Redis cache'. Answer:",delete,api_routing,train,1,1.5
+82,"Classify IAM role as admin, editor, or viewer: 'Can revise documentation pages but cannot change access groups'. Answer:",editor,iam_audit,train,0,1.0
+83,Classify payment gateway status as approved or declined: 'tokenized wallet authenticated and cleared'. Answer:,approved,fintech_audit,train,0,1.0
+84,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 48 BPM. Answer:",bradycardia,clinical_nlp,train,1,1.5
+85,"Classify product department as electronics, apparel, or home: 'cotton slim fit formal shirt'. Answer:",apparel,ecommerce_routing,train,0,1.0
+86,Classify network exposure as public or private: security group has port 443 opened to 10.0.0.0/8. Answer:,private,security_audit,train,0,1.0
+87,Complete with one exact token: A repeated validation failure across both systems is,persistent,governance_cloze,train,0,1.0
+88,"Classify security risk as low, medium, or high: S3 bucket created private for staging logs. Answer:",low,security_triage,train,0,1.0
+89,"Extract API action get, post, or delete from rule: 'Load model confidence audit trace'. Answer:",get,api_routing,train,0,1.0
+90,"Classify IAM role as admin, editor, or viewer: 'Can assign privileges and manage tenant security settings'. Answer:",admin,iam_audit,train,1,2.0
+91,Classify payment gateway status as approved or declined: 'issuer declined due to insufficient funds'. Answer:,declined,fintech_audit,train,0,1.0
+92,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 72 BPM. Answer:",normal,clinical_nlp,train,0,1.0
+93,"Classify product department as electronics, apparel, or home: 'wireless bluetooth headphones'. Answer:",electronics,ecommerce_routing,train,0,1.0
+94,Classify network exposure as public or private: security group has port 3389 opened to 0.0.0.0/0. Answer:,public,security_audit,train,1,2.0
+95,Complete with one exact token: A rule preventing unsafe promotion is a,gate,governance_cloze,train,1,1.5
+96,"Classify security risk as low, medium, or high: ReadOnly policy attached to audit bot with MFA verified. Answer:",low,security_triage,train,0,1.0
+97,"Extract API action get, post, or delete from rule: 'Provision customer consent record'. Answer:",post,api_routing,train,0,1.0
+98,"Classify IAM role as admin, editor, or viewer: 'Can view dashboards and export read-only audit logs'. Answer:",viewer,iam_audit,train,0,1.0
+99,Classify payment gateway status as approved or declined: 'manual merchant override approved after review'. Answer:,approved,fintech_audit,train,1,1.5
+100,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 112 BPM. Answer:",tachycardia,clinical_nlp,train,1,1.5
+101,"Classify product department as electronics, apparel, or home: 'water resistant hiking jacket'. Answer:",apparel,ecommerce_routing,train,0,1.0
+102,Classify network exposure as public or private: security group has port 3306 opened to 0.0.0.0/0. Answer:,public,security_audit,train,1,2.0
+103,Complete with one exact token: A formerly correct output becoming wrong is a,regression,governance_cloze,train,1,1.5
+104,"Classify security risk as low, medium, or high: SSH key added with 1024 bit strength for temporary contractor account. Answer:",medium,security_triage,train,1,1.5
+105,"Extract API action get, post, or delete from rule: 'Erase stale backup snapshots'. Answer:",delete,api_routing,train,1,1.5
+106,"Classify IAM role as admin, editor, or viewer: 'Can revise documentation pages but cannot change access groups'. Answer:",editor,iam_audit,train,0,1.0
+107,Classify payment gateway status as approved or declined: 'tokenized wallet authenticated and cleared'. Answer:,approved,fintech_audit,train,0,1.0
+108,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 48 BPM. Answer:",bradycardia,clinical_nlp,train,1,1.5
+109,"Classify product department as electronics, apparel, or home: 'cotton slim fit formal shirt'. Answer:",apparel,ecommerce_routing,train,0,1.0
+110,Classify network exposure as public or private: security group has port 22 opened to 0.0.0.0/0. Answer:,public,security_audit,train,1,2.0
+111,Complete with one exact token: A model answer withheld because risk remains unresolved is an,abstain,governance_cloze,train,1,1.5
+112,"Classify security risk as low, medium, or high: Public bucket enabled for finance exports containing invoice archives. Answer:",high,security_triage,train,1,2.0
+113,"Extract API action get, post, or delete from rule: 'Retrieve shipment tracking history'. Answer:",get,api_routing,train,0,1.0
+114,"Classify IAM role as admin, editor, or viewer: 'Can assign privileges and manage tenant security settings'. Answer:",admin,iam_audit,train,1,2.0
+115,Classify payment gateway status as approved or declined: 'issuer declined due to insufficient funds'. Answer:,declined,fintech_audit,train,0,1.0
+116,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 72 BPM. Answer:",normal,clinical_nlp,train,0,1.0
+117,"Classify product department as electronics, apparel, or home: 'wireless bluetooth headphones'. Answer:",electronics,ecommerce_routing,train,0,1.0
+118,Classify network exposure as public or private: security group has port 6379 opened to 192.168.1.0/24. Answer:,private,security_audit,train,0,1.0
+119,Complete with one exact token: A structured machine-readable data format is,JSON,governance_cloze,train,0,1.0
+120,"Classify security risk as low, medium, or high: FailedLogin root from public IP with 18 attempts and no MFA. Answer:",high,security_triage,train,1,2.0
+121,"Extract API action get, post, or delete from rule: 'Delete expired sessions from Redis cache'. Answer:",delete,api_routing,train,1,1.5
+122,"Classify IAM role as admin, editor, or viewer: 'Can view dashboards and export read-only audit logs'. Answer:",viewer,iam_audit,train,0,1.0
+123,Classify payment gateway status as approved or declined: 'manual merchant override approved after review'. Answer:,approved,fintech_audit,train,1,1.5
+124,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 112 BPM. Answer:",tachycardia,clinical_nlp,train,1,1.5
+125,"Classify product department as electronics, apparel, or home: 'water resistant hiking jacket'. Answer:",apparel,ecommerce_routing,train,0,1.0
+126,Classify network exposure as public or private: security group has port 443 opened to 10.0.0.0/8. Answer:,private,security_audit,train,0,1.0
+127,Complete with one exact token: A repeated validation failure across both systems is,persistent,governance_cloze,train,0,1.0
+128,"Classify security risk as low, medium, or high: S3 bucket created private for staging logs. Answer:",low,security_triage,train,0,1.0
+129,"Extract API action get, post, or delete from rule: 'Load model confidence audit trace'. Answer:",get,api_routing,train,0,1.0
+130,"Classify IAM role as admin, editor, or viewer: 'Can revise documentation pages but cannot change access groups'. Answer:",editor,iam_audit,train,0,1.0
+131,Classify payment gateway status as approved or declined: 'tokenized wallet authenticated and cleared'. Answer:,approved,fintech_audit,train,0,1.0
+132,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 48 BPM. Answer:",bradycardia,clinical_nlp,train,1,1.5
+133,"Classify product department as electronics, apparel, or home: 'cotton slim fit formal shirt'. Answer:",apparel,ecommerce_routing,train,0,1.0
+134,Classify network exposure as public or private: security group has port 3389 opened to 0.0.0.0/0. Answer:,public,security_audit,train,1,2.0
+135,Complete with one exact token: A rule preventing unsafe promotion is a,gate,governance_cloze,train,1,1.5
+136,"Classify security risk as low, medium, or high: ReadOnly policy attached to audit bot with MFA verified. Answer:",low,security_triage,train,0,1.0
+137,"Extract API action get, post, or delete from rule: 'Provision customer consent record'. Answer:",post,api_routing,train,0,1.0
+138,"Classify IAM role as admin, editor, or viewer: 'Can assign privileges and manage tenant security settings'. Answer:",admin,iam_audit,train,1,2.0
+139,Classify payment gateway status as approved or declined: 'issuer declined due to insufficient funds'. Answer:,declined,fintech_audit,train,0,1.0
+140,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 72 BPM. Answer:",normal,clinical_nlp,train,0,1.0
+141,"Classify product department as electronics, apparel, or home: 'wireless bluetooth headphones'. Answer:",electronics,ecommerce_routing,train,0,1.0
+142,Classify network exposure as public or private: security group has port 3306 opened to 0.0.0.0/0. Answer:,public,security_audit,train,1,2.0
+143,Complete with one exact token: A formerly correct output becoming wrong is a,regression,governance_cloze,train,1,1.5
+144,"Classify security risk as low, medium, or high: SSH key added with 1024 bit strength for temporary contractor account. Answer:",medium,security_triage,train,1,1.5
+145,"Extract API action get, post, or delete from rule: 'Erase stale backup snapshots'. Answer:",delete,api_routing,train,1,1.5
+146,"Classify IAM role as admin, editor, or viewer: 'Can view dashboards and export read-only audit logs'. Answer:",viewer,iam_audit,train,0,1.0
+147,Classify payment gateway status as approved or declined: 'manual merchant override approved after review'. Answer:,approved,fintech_audit,train,1,1.5
+148,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 112 BPM. Answer:",tachycardia,clinical_nlp,train,1,1.5
+149,"Classify product department as electronics, apparel, or home: 'water resistant hiking jacket'. Answer:",apparel,ecommerce_routing,train,0,1.0
+150,Classify network exposure as public or private: security group has port 22 opened to 0.0.0.0/0. Answer:,public,security_audit,train,1,2.0
+151,Complete with one exact token: A model answer withheld because risk remains unresolved is an,abstain,governance_cloze,train,1,1.5
+152,"Classify security risk as low, medium, or high: Public bucket enabled for finance exports containing invoice archives. Answer:",high,security_triage,train,1,2.0
+153,"Extract API action get, post, or delete from rule: 'Retrieve shipment tracking history'. Answer:",get,api_routing,train,0,1.0
+154,"Classify IAM role as admin, editor, or viewer: 'Can revise documentation pages but cannot change access groups'. Answer:",editor,iam_audit,train,0,1.0
+155,Classify payment gateway status as approved or declined: 'tokenized wallet authenticated and cleared'. Answer:,approved,fintech_audit,train,0,1.0
+156,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 48 BPM. Answer:",bradycardia,clinical_nlp,train,1,1.5
+157,"Classify product department as electronics, apparel, or home: 'cotton slim fit formal shirt'. Answer:",apparel,ecommerce_routing,train,0,1.0
+158,Classify network exposure as public or private: security group has port 6379 opened to 192.168.1.0/24. Answer:,private,security_audit,train,0,1.0
+159,Complete with one exact token: A structured machine-readable data format is,JSON,governance_cloze,train,0,1.0
+160,"Classify security risk as low, medium, or high: FailedLogin root from public IP with 18 attempts and no MFA. Answer:",high,security_triage,train,1,2.0
+161,"Extract API action get, post, or delete from rule: 'Delete expired sessions from Redis cache'. Answer:",delete,api_routing,train,1,1.5
+162,"Classify IAM role as admin, editor, or viewer: 'Can assign privileges and manage tenant security settings'. Answer:",admin,iam_audit,train,1,2.0
+163,Classify payment gateway status as approved or declined: 'issuer declined due to insufficient funds'. Answer:,declined,fintech_audit,train,0,1.0
+164,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 72 BPM. Answer:",normal,clinical_nlp,train,0,1.0
+165,"Classify product department as electronics, apparel, or home: 'wireless bluetooth headphones'. Answer:",electronics,ecommerce_routing,train,0,1.0
+166,Classify network exposure as public or private: security group has port 443 opened to 10.0.0.0/8. Answer:,private,security_audit,train,0,1.0
+167,Complete with one exact token: A repeated validation failure across both systems is,persistent,governance_cloze,train,0,1.0
+168,"Classify security risk as low, medium, or high: S3 bucket created private for staging logs. Answer:",low,security_triage,train,0,1.0
+169,"Extract API action get, post, or delete from rule: 'Load model confidence audit trace'. Answer:",get,api_routing,train,0,1.0
+170,"Classify IAM role as admin, editor, or viewer: 'Can view dashboards and export read-only audit logs'. Answer:",viewer,iam_audit,train,0,1.0
+171,Classify payment gateway status as approved or declined: 'manual merchant override approved after review'. Answer:,approved,fintech_audit,train,1,1.5
+172,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 112 BPM. Answer:",tachycardia,clinical_nlp,train,1,1.5
+173,"Classify product department as electronics, apparel, or home: 'water resistant hiking jacket'. Answer:",apparel,ecommerce_routing,train,0,1.0
+174,Classify network exposure as public or private: security group has port 3389 opened to 0.0.0.0/0. Answer:,public,security_audit,train,1,2.0
+175,Complete with one exact token: A rule preventing unsafe promotion is a,gate,governance_cloze,train,1,1.5
+176,"Classify security risk as low, medium, or high: ReadOnly policy attached to audit bot with MFA verified. Answer:",low,security_triage,train,0,1.0
+177,"Extract API action get, post, or delete from rule: 'Provision customer consent record'. Answer:",post,api_routing,train,0,1.0
+178,"Classify IAM role as admin, editor, or viewer: 'Can revise documentation pages but cannot change access groups'. Answer:",editor,iam_audit,train,0,1.0
+179,Classify payment gateway status as approved or declined: 'tokenized wallet authenticated and cleared'. Answer:,approved,fintech_audit,train,0,1.0
+180,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 48 BPM. Answer:",bradycardia,clinical_nlp,train,1,1.5
+181,"Classify product department as electronics, apparel, or home: 'cotton slim fit formal shirt'. Answer:",apparel,ecommerce_routing,train,0,1.0
+182,Classify network exposure as public or private: security group has port 3306 opened to 0.0.0.0/0. Answer:,public,security_audit,train,1,2.0
+183,Complete with one exact token: A formerly correct output becoming wrong is a,regression,governance_cloze,train,1,1.5
+184,"Classify security risk as low, medium, or high: SSH key added with 1024 bit strength for temporary contractor account. Answer:",medium,security_triage,train,1,1.5
+185,"Extract API action get, post, or delete from rule: 'Erase stale backup snapshots'. Answer:",delete,api_routing,train,1,1.5
+186,"Classify IAM role as admin, editor, or viewer: 'Can assign privileges and manage tenant security settings'. Answer:",admin,iam_audit,train,1,2.0
+187,Classify payment gateway status as approved or declined: 'issuer declined due to insufficient funds'. Answer:,declined,fintech_audit,train,0,1.0
+188,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 72 BPM. Answer:",normal,clinical_nlp,train,0,1.0
+189,"Classify product department as electronics, apparel, or home: 'wireless bluetooth headphones'. Answer:",electronics,ecommerce_routing,train,0,1.0
+190,Classify network exposure as public or private: security group has port 22 opened to 0.0.0.0/0. Answer:,public,security_audit,train,1,2.0
+191,Complete with one exact token: A model answer withheld because risk remains unresolved is an,abstain,governance_cloze,train,1,1.5
+192,"Classify security risk as low, medium, or high: Public bucket enabled for finance exports containing invoice archives. Answer:",high,security_triage,train,1,2.0
+193,"Extract API action get, post, or delete from rule: 'Retrieve shipment tracking history'. Answer:",get,api_routing,train,0,1.0
+194,"Classify IAM role as admin, editor, or viewer: 'Can view dashboards and export read-only audit logs'. Answer:",viewer,iam_audit,train,0,1.0
+195,Classify payment gateway status as approved or declined: 'manual merchant override approved after review'. Answer:,approved,fintech_audit,train,1,1.5
+196,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 112 BPM. Answer:",tachycardia,clinical_nlp,train,1,1.5
+197,"Classify product department as electronics, apparel, or home: 'water resistant hiking jacket'. Answer:",apparel,ecommerce_routing,train,0,1.0
+198,Classify network exposure as public or private: security group has port 6379 opened to 192.168.1.0/24. Answer:,private,security_audit,train,0,1.0
+199,Complete with one exact token: A structured machine-readable data format is,JSON,governance_cloze,train,0,1.0
+200,"Classify security risk as low, medium, or high: FailedLogin root from public IP with 18 attempts and no MFA. Answer:",high,security_triage,train,1,2.0
+201,"Extract API action get, post, or delete from rule: 'Delete expired sessions from Redis cache'. Answer:",delete,api_routing,seen_val,1,1.5
+202,"Classify IAM role as admin, editor, or viewer: 'Can revise documentation pages but cannot change access groups'. Answer:",editor,iam_audit,seen_val,0,1.0
+203,Classify payment gateway status as approved or declined: 'tokenized wallet authenticated and cleared'. Answer:,approved,fintech_audit,seen_val,0,1.0
+204,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 48 BPM. Answer:",bradycardia,clinical_nlp,seen_val,1,1.5
+205,"Classify product department as electronics, apparel, or home: 'cotton slim fit formal shirt'. Answer:",apparel,ecommerce_routing,seen_val,0,1.0
+206,Classify network exposure as public or private: security group has port 443 opened to 10.0.0.0/8. Answer:,private,security_audit,seen_val,0,1.0
+207,Complete with one exact token: A repeated validation failure across both systems is,persistent,governance_cloze,seen_val,0,1.0
+208,"Classify security risk as low, medium, or high: S3 bucket created private for staging logs. Answer:",low,security_triage,seen_val,0,1.0
+209,"Extract API action get, post, or delete from rule: 'Load model confidence audit trace'. Answer:",get,api_routing,seen_val,0,1.0
+210,"Classify IAM role as admin, editor, or viewer: 'Can assign privileges and manage tenant security settings'. Answer:",admin,iam_audit,seen_val,1,2.0
+211,Classify payment gateway status as approved or declined: 'issuer declined due to insufficient funds'. Answer:,declined,fintech_audit,seen_val,0,1.0
+212,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 72 BPM. Answer:",normal,clinical_nlp,seen_val,0,1.0
+213,"Classify product department as electronics, apparel, or home: 'wireless bluetooth headphones'. Answer:",electronics,ecommerce_routing,seen_val,0,1.0
+214,Classify network exposure as public or private: security group has port 3389 opened to 0.0.0.0/0. Answer:,public,security_audit,seen_val,1,2.0
+215,Complete with one exact token: A rule preventing unsafe promotion is a,gate,governance_cloze,seen_val,1,1.5
+216,"Classify security risk as low, medium, or high: ReadOnly policy attached to audit bot with MFA verified. Answer:",low,security_triage,seen_val,0,1.0
+217,"Extract API action get, post, or delete from rule: 'Provision customer consent record'. Answer:",post,api_routing,seen_val,0,1.0
+218,"Classify IAM role as admin, editor, or viewer: 'Can view dashboards and export read-only audit logs'. Answer:",viewer,iam_audit,seen_val,0,1.0
+219,Classify payment gateway status as approved or declined: 'manual merchant override approved after review'. Answer:,approved,fintech_audit,seen_val,1,1.5
+220,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 112 BPM. Answer:",tachycardia,clinical_nlp,seen_val,1,1.5
+221,"Classify product department as electronics, apparel, or home: 'water resistant hiking jacket'. Answer:",apparel,ecommerce_routing,seen_val,0,1.0
+222,Classify network exposure as public or private: security group has port 3306 opened to 0.0.0.0/0. Answer:,public,security_audit,seen_val,1,2.0
+223,Complete with one exact token: A formerly correct output becoming wrong is a,regression,governance_cloze,seen_val,1,1.5
+224,"Classify security risk as low, medium, or high: SSH key added with 1024 bit strength for temporary contractor account. Answer:",medium,security_triage,seen_val,1,1.5
+225,"Extract API action get, post, or delete from rule: 'Erase stale backup snapshots'. Answer:",delete,api_routing,seen_val,1,1.5
+226,"Classify IAM role as admin, editor, or viewer: 'Can revise documentation pages but cannot change access groups'. Answer:",editor,iam_audit,seen_val,0,1.0
+227,Classify payment gateway status as approved or declined: 'tokenized wallet authenticated and cleared'. Answer:,approved,fintech_audit,seen_val,0,1.0
+228,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 48 BPM. Answer:",bradycardia,clinical_nlp,seen_val,1,1.5
+229,"Classify product department as electronics, apparel, or home: 'cotton slim fit formal shirt'. Answer:",apparel,ecommerce_routing,seen_val,0,1.0
+230,Classify network exposure as public or private: security group has port 22 opened to 0.0.0.0/0. Answer:,public,security_audit,seen_val,1,2.0
+231,Complete with one exact token: A model answer withheld because risk remains unresolved is an,abstain,governance_cloze,seen_val,1,1.5
+232,"Classify security risk as low, medium, or high: Public bucket enabled for finance exports containing invoice archives. Answer:",high,security_triage,seen_val,1,2.0
+233,"Extract API action get, post, or delete from rule: 'Retrieve shipment tracking history'. Answer:",get,api_routing,seen_val,0,1.0
+234,"Classify IAM role as admin, editor, or viewer: 'Can assign privileges and manage tenant security settings'. Answer:",admin,iam_audit,seen_val,1,2.0
+235,Classify payment gateway status as approved or declined: 'issuer declined due to insufficient funds'. Answer:,declined,fintech_audit,seen_val,0,1.0
+236,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 72 BPM. Answer:",normal,clinical_nlp,seen_val,0,1.0
+237,"Classify product department as electronics, apparel, or home: 'wireless bluetooth headphones'. Answer:",electronics,ecommerce_routing,seen_val,0,1.0
+238,Classify network exposure as public or private: security group has port 6379 opened to 192.168.1.0/24. Answer:,private,security_audit,seen_val,0,1.0
+239,Complete with one exact token: A structured machine-readable data format is,JSON,governance_cloze,seen_val,0,1.0
+240,"Classify security risk as low, medium, or high: FailedLogin root from public IP with 18 attempts and no MFA. Answer:",high,security_triage,seen_val,1,2.0
+241,"Extract API action get, post, or delete from rule: 'Delete expired sessions from Redis cache'. Answer:",delete,api_routing,seen_val,1,1.5
+242,"Classify IAM role as admin, editor, or viewer: 'Can view dashboards and export read-only audit logs'. Answer:",viewer,iam_audit,seen_val,0,1.0
+243,Classify payment gateway status as approved or declined: 'manual merchant override approved after review'. Answer:,approved,fintech_audit,seen_val,1,1.5
+244,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 112 BPM. Answer:",tachycardia,clinical_nlp,seen_val,1,1.5
+245,"Classify product department as electronics, apparel, or home: 'water resistant hiking jacket'. Answer:",apparel,ecommerce_routing,seen_val,0,1.0
+246,Classify network exposure as public or private: security group has port 443 opened to 10.0.0.0/8. Answer:,private,security_audit,seen_val,0,1.0
+247,Complete with one exact token: A repeated validation failure across both systems is,persistent,governance_cloze,seen_val,0,1.0
+248,"Classify security risk as low, medium, or high: S3 bucket created private for staging logs. Answer:",low,security_triage,seen_val,0,1.0
+249,"Extract API action get, post, or delete from rule: 'Load model confidence audit trace'. Answer:",get,api_routing,seen_val,0,1.0
+250,"Classify IAM role as admin, editor, or viewer: 'Can revise documentation pages but cannot change access groups'. Answer:",editor,iam_audit,seen_val,0,1.0
+251,Classify payment gateway status as approved or declined: 'tokenized wallet authenticated and cleared'. Answer:,approved,fintech_audit,seen_val,0,1.0
+252,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 48 BPM. Answer:",bradycardia,clinical_nlp,seen_val,1,1.5
+253,"Classify product department as electronics, apparel, or home: 'cotton slim fit formal shirt'. Answer:",apparel,ecommerce_routing,seen_val,0,1.0
+254,Classify network exposure as public or private: security group has port 3389 opened to 0.0.0.0/0. Answer:,public,security_audit,seen_val,1,2.0
+255,Complete with one exact token: A rule preventing unsafe promotion is a,gate,governance_cloze,seen_val,1,1.5
+256,"Classify security risk as low, medium, or high: ReadOnly policy attached to audit bot with MFA verified. Answer:",low,security_triage,seen_val,0,1.0
+257,"Extract API action get, post, or delete from rule: 'Provision customer consent record'. Answer:",post,api_routing,seen_val,0,1.0
+258,"Classify IAM role as admin, editor, or viewer: 'Can assign privileges and manage tenant security settings'. Answer:",admin,iam_audit,seen_val,1,2.0
+259,Classify payment gateway status as approved or declined: 'issuer declined due to insufficient funds'. Answer:,declined,fintech_audit,seen_val,0,1.0
+260,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 72 BPM. Answer:",normal,clinical_nlp,seen_val,0,1.0
+261,"Classify product department as electronics, apparel, or home: 'wireless bluetooth headphones'. Answer:",electronics,ecommerce_routing,seen_val,0,1.0
+262,Classify network exposure as public or private: security group has port 3306 opened to 0.0.0.0/0. Answer:,public,security_audit,seen_val,1,2.0
+263,Complete with one exact token: A formerly correct output becoming wrong is a,regression,governance_cloze,seen_val,1,1.5
+264,"Classify security risk as low, medium, or high: SSH key added with 1024 bit strength for temporary contractor account. Answer:",medium,security_triage,seen_val,1,1.5
+265,"Extract API action get, post, or delete from rule: 'Erase stale backup snapshots'. Answer:",delete,api_routing,seen_val,1,1.5
+266,"Classify IAM role as admin, editor, or viewer: 'Can view dashboards and export read-only audit logs'. Answer:",viewer,iam_audit,seen_val,0,1.0
+267,Classify payment gateway status as approved or declined: 'manual merchant override approved after review'. Answer:,approved,fintech_audit,seen_val,1,1.5
+268,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 112 BPM. Answer:",tachycardia,clinical_nlp,seen_val,1,1.5
+269,"Classify product department as electronics, apparel, or home: 'water resistant hiking jacket'. Answer:",apparel,ecommerce_routing,seen_val,0,1.0
+270,Classify network exposure as public or private: security group has port 22 opened to 0.0.0.0/0. Answer:,public,security_audit,seen_val,1,2.0
+271,Complete with one exact token: A model answer withheld because risk remains unresolved is an,abstain,governance_cloze,seen_val,1,1.5
+272,"Classify security risk as low, medium, or high: Public bucket enabled for finance exports containing invoice archives. Answer:",high,security_triage,seen_val,1,2.0
+273,"Extract API action get, post, or delete from rule: 'Retrieve shipment tracking history'. Answer:",get,api_routing,seen_val,0,1.0
+274,"Classify IAM role as admin, editor, or viewer: 'Can revise documentation pages but cannot change access groups'. Answer:",editor,iam_audit,seen_val,0,1.0
+275,Classify payment gateway status as approved or declined: 'tokenized wallet authenticated and cleared'. Answer:,approved,fintech_audit,seen_val,0,1.0
+276,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 48 BPM. Answer:",bradycardia,clinical_nlp,seen_val,1,1.5
+277,"Classify product department as electronics, apparel, or home: 'cotton slim fit formal shirt'. Answer:",apparel,ecommerce_routing,seen_val,0,1.0
+278,Classify network exposure as public or private: security group has port 6379 opened to 192.168.1.0/24. Answer:,private,security_audit,seen_val,0,1.0
+279,Complete with one exact token: A structured machine-readable data format is,JSON,governance_cloze,seen_val,0,1.0
+280,"Classify security risk as low, medium, or high: FailedLogin root from public IP with 18 attempts and no MFA. Answer:",high,security_triage,seen_val,1,2.0
+281,"Extract API action get, post, or delete from rule: 'Delete expired sessions from Redis cache'. Answer:",delete,api_routing,seen_val,1,1.5
+282,"Classify IAM role as admin, editor, or viewer: 'Can assign privileges and manage tenant security settings'. Answer:",admin,iam_audit,seen_val,1,2.0
+283,Classify payment gateway status as approved or declined: 'issuer declined due to insufficient funds'. Answer:,declined,fintech_audit,seen_val,0,1.0
+284,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 72 BPM. Answer:",normal,clinical_nlp,seen_val,0,1.0
+285,"Classify product department as electronics, apparel, or home: 'wireless bluetooth headphones'. Answer:",electronics,ecommerce_routing,seen_val,0,1.0
+286,Classify network exposure as public or private: security group has port 443 opened to 10.0.0.0/8. Answer:,private,security_audit,seen_val,0,1.0
+287,Complete with one exact token: A repeated validation failure across both systems is,persistent,governance_cloze,seen_val,0,1.0
+288,"Classify security risk as low, medium, or high: S3 bucket created private for staging logs. Answer:",low,security_triage,seen_val,0,1.0
+289,"Extract API action get, post, or delete from rule: 'Load model confidence audit trace'. Answer:",get,api_routing,seen_val,0,1.0
+290,"Classify IAM role as admin, editor, or viewer: 'Can view dashboards and export read-only audit logs'. Answer:",viewer,iam_audit,seen_val,0,1.0
+291,Classify payment gateway status as approved or declined: 'manual merchant override approved after review'. Answer:,approved,fintech_audit,seen_val,1,1.5
+292,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 112 BPM. Answer:",tachycardia,clinical_nlp,seen_val,1,1.5
+293,"Classify product department as electronics, apparel, or home: 'water resistant hiking jacket'. Answer:",apparel,ecommerce_routing,seen_val,0,1.0
+294,Classify network exposure as public or private: security group has port 3389 opened to 0.0.0.0/0. Answer:,public,security_audit,seen_val,1,2.0
+295,Complete with one exact token: A rule preventing unsafe promotion is a,gate,governance_cloze,seen_val,1,1.5
+296,"Classify security risk as low, medium, or high: ReadOnly policy attached to audit bot with MFA verified. Answer:",low,security_triage,seen_val,0,1.0
+297,"Extract API action get, post, or delete from rule: 'Provision customer consent record'. Answer:",post,api_routing,seen_val,0,1.0
+298,"Classify IAM role as admin, editor, or viewer: 'Can revise documentation pages but cannot change access groups'. Answer:",editor,iam_audit,seen_val,0,1.0
+299,Classify payment gateway status as approved or declined: 'tokenized wallet authenticated and cleared'. Answer:,approved,fintech_audit,seen_val,0,1.0
+300,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 48 BPM. Answer:",bradycardia,clinical_nlp,seen_val,1,1.5
+301,"Classify product department as electronics, apparel, or home: 'cotton slim fit formal shirt'. Answer:",apparel,ecommerce_routing,seen_val,0,1.0
+302,Classify network exposure as public or private: security group has port 3306 opened to 0.0.0.0/0. Answer:,public,security_audit,seen_val,1,2.0
+303,Complete with one exact token: A formerly correct output becoming wrong is a,regression,governance_cloze,seen_val,1,1.5
+304,"Classify security risk as low, medium, or high: SSH key added with 1024 bit strength for temporary contractor account. Answer:",medium,security_triage,seen_val,1,1.5
+305,"Extract API action get, post, or delete from rule: 'Erase stale backup snapshots'. Answer:",delete,api_routing,seen_val,1,1.5
+306,"Classify IAM role as admin, editor, or viewer: 'Can assign privileges and manage tenant security settings'. Answer:",admin,iam_audit,seen_val,1,2.0
+307,Classify payment gateway status as approved or declined: 'issuer declined due to insufficient funds'. Answer:,declined,fintech_audit,seen_val,0,1.0
+308,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 72 BPM. Answer:",normal,clinical_nlp,seen_val,0,1.0
+309,"Classify product department as electronics, apparel, or home: 'wireless bluetooth headphones'. Answer:",electronics,ecommerce_routing,seen_val,0,1.0
+310,Classify network exposure as public or private: security group has port 22 opened to 0.0.0.0/0. Answer:,public,security_audit,seen_val,1,2.0
+311,Complete with one exact token: A model answer withheld because risk remains unresolved is an,abstain,governance_cloze,seen_val,1,1.5
+312,"Classify security risk as low, medium, or high: Public bucket enabled for finance exports containing invoice archives. Answer:",high,security_triage,seen_val,1,2.0
+313,"Extract API action get, post, or delete from rule: 'Retrieve shipment tracking history'. Answer:",get,api_routing,seen_val,0,1.0
+314,"Classify IAM role as admin, editor, or viewer: 'Can view dashboards and export read-only audit logs'. Answer:",viewer,iam_audit,seen_val,0,1.0
+315,Classify payment gateway status as approved or declined: 'manual merchant override approved after review'. Answer:,approved,fintech_audit,seen_val,1,1.5
+316,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 112 BPM. Answer:",tachycardia,clinical_nlp,seen_val,1,1.5
+317,"Classify product department as electronics, apparel, or home: 'water resistant hiking jacket'. Answer:",apparel,ecommerce_routing,seen_val,0,1.0
+318,Classify network exposure as public or private: security group has port 6379 opened to 192.168.1.0/24. Answer:,private,security_audit,seen_val,0,1.0
+319,Complete with one exact token: A structured machine-readable data format is,JSON,governance_cloze,seen_val,0,1.0
+320,"Classify security risk as low, medium, or high: FailedLogin root from public IP with 18 attempts and no MFA. Answer:",high,security_triage,seen_val,1,2.0
+321,"Extract API action get, post, or delete from rule: 'Delete expired sessions from Redis cache'. Answer:",delete,api_routing,seen_val,1,1.5
+322,"Classify IAM role as admin, editor, or viewer: 'Can revise documentation pages but cannot change access groups'. Answer:",editor,iam_audit,seen_val,0,1.0
+323,Classify payment gateway status as approved or declined: 'tokenized wallet authenticated and cleared'. Answer:,approved,fintech_audit,seen_val,0,1.0
+324,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 48 BPM. Answer:",bradycardia,clinical_nlp,seen_val,1,1.5
+325,"Classify product department as electronics, apparel, or home: 'cotton slim fit formal shirt'. Answer:",apparel,ecommerce_routing,seen_val,0,1.0
+326,Classify network exposure as public or private: security group has port 443 opened to 10.0.0.0/8. Answer:,private,security_audit,unseen_val,0,1.0
+327,Complete with one exact token: A repeated validation failure across both systems is,persistent,governance_cloze,unseen_val,0,1.0
+328,"Classify security risk as low, medium, or high: S3 bucket created private for staging logs. Answer:",low,security_triage,unseen_val,0,1.0
+329,"Extract API action get, post, or delete from rule: 'Load model confidence audit trace'. Answer:",get,api_routing,unseen_val,0,1.0
+330,"Classify IAM role as admin, editor, or viewer: 'Can assign privileges and manage tenant security settings'. Answer:",admin,iam_audit,unseen_val,1,2.0
+331,Classify payment gateway status as approved or declined: 'issuer declined due to insufficient funds'. Answer:,declined,fintech_audit,unseen_val,0,1.0
+332,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 72 BPM. Answer:",normal,clinical_nlp,unseen_val,0,1.0
+333,"Classify product department as electronics, apparel, or home: 'wireless bluetooth headphones'. Answer:",electronics,ecommerce_routing,unseen_val,0,1.0
+334,Classify network exposure as public or private: security group has port 3389 opened to 0.0.0.0/0. Answer:,public,security_audit,unseen_val,1,2.0
+335,Complete with one exact token: A rule preventing unsafe promotion is a,gate,governance_cloze,unseen_val,1,1.5
+336,"Classify security risk as low, medium, or high: ReadOnly policy attached to audit bot with MFA verified. Answer:",low,security_triage,unseen_val,0,1.0
+337,"Extract API action get, post, or delete from rule: 'Provision customer consent record'. Answer:",post,api_routing,unseen_val,0,1.0
+338,"Classify IAM role as admin, editor, or viewer: 'Can view dashboards and export read-only audit logs'. Answer:",viewer,iam_audit,unseen_val,0,1.0
+339,Classify payment gateway status as approved or declined: 'manual merchant override approved after review'. Answer:,approved,fintech_audit,unseen_val,1,1.5
+340,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 112 BPM. Answer:",tachycardia,clinical_nlp,unseen_val,1,1.5
+341,"Classify product department as electronics, apparel, or home: 'water resistant hiking jacket'. Answer:",apparel,ecommerce_routing,unseen_val,0,1.0
+342,Classify network exposure as public or private: security group has port 3306 opened to 0.0.0.0/0. Answer:,public,security_audit,unseen_val,1,2.0
+343,Complete with one exact token: A formerly correct output becoming wrong is a,regression,governance_cloze,unseen_val,1,1.5
+344,"Classify security risk as low, medium, or high: SSH key added with 1024 bit strength for temporary contractor account. Answer:",medium,security_triage,unseen_val,1,1.5
+345,"Extract API action get, post, or delete from rule: 'Erase stale backup snapshots'. Answer:",delete,api_routing,unseen_val,1,1.5
+346,"Classify IAM role as admin, editor, or viewer: 'Can revise documentation pages but cannot change access groups'. Answer:",editor,iam_audit,unseen_val,0,1.0
+347,Classify payment gateway status as approved or declined: 'tokenized wallet authenticated and cleared'. Answer:,approved,fintech_audit,unseen_val,0,1.0
+348,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 48 BPM. Answer:",bradycardia,clinical_nlp,unseen_val,1,1.5
+349,"Classify product department as electronics, apparel, or home: 'cotton slim fit formal shirt'. Answer:",apparel,ecommerce_routing,unseen_val,0,1.0
+350,Classify network exposure as public or private: security group has port 22 opened to 0.0.0.0/0. Answer:,public,security_audit,unseen_val,1,2.0
+351,Complete with one exact token: A model answer withheld because risk remains unresolved is an,abstain,governance_cloze,unseen_val,1,1.5
+352,"Classify security risk as low, medium, or high: Public bucket enabled for finance exports containing invoice archives. Answer:",high,security_triage,unseen_val,1,2.0
+353,"Extract API action get, post, or delete from rule: 'Retrieve shipment tracking history'. Answer:",get,api_routing,unseen_val,0,1.0
+354,"Classify IAM role as admin, editor, or viewer: 'Can assign privileges and manage tenant security settings'. Answer:",admin,iam_audit,unseen_val,1,2.0
+355,Classify payment gateway status as approved or declined: 'issuer declined due to insufficient funds'. Answer:,declined,fintech_audit,unseen_val,0,1.0
+356,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 72 BPM. Answer:",normal,clinical_nlp,unseen_val,0,1.0
+357,"Classify product department as electronics, apparel, or home: 'wireless bluetooth headphones'. Answer:",electronics,ecommerce_routing,unseen_val,0,1.0
+358,Classify network exposure as public or private: security group has port 6379 opened to 192.168.1.0/24. Answer:,private,security_audit,unseen_val,0,1.0
+359,Complete with one exact token: A structured machine-readable data format is,JSON,governance_cloze,unseen_val,0,1.0
+360,"Classify security risk as low, medium, or high: FailedLogin root from public IP with 18 attempts and no MFA. Answer:",high,security_triage,unseen_val,1,2.0
+361,"Extract API action get, post, or delete from rule: 'Delete expired sessions from Redis cache'. Answer:",delete,api_routing,unseen_val,1,1.5
+362,"Classify IAM role as admin, editor, or viewer: 'Can view dashboards and export read-only audit logs'. Answer:",viewer,iam_audit,unseen_val,0,1.0
+363,Classify payment gateway status as approved or declined: 'manual merchant override approved after review'. Answer:,approved,fintech_audit,unseen_val,1,1.5
+364,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 112 BPM. Answer:",tachycardia,clinical_nlp,unseen_val,1,1.5
+365,"Classify product department as electronics, apparel, or home: 'water resistant hiking jacket'. Answer:",apparel,ecommerce_routing,unseen_val,0,1.0
+366,Classify network exposure as public or private: security group has port 443 opened to 10.0.0.0/8. Answer:,private,security_audit,unseen_val,0,1.0
+367,Complete with one exact token: A repeated validation failure across both systems is,persistent,governance_cloze,unseen_val,0,1.0
+368,"Classify security risk as low, medium, or high: S3 bucket created private for staging logs. Answer:",low,security_triage,unseen_val,0,1.0
+369,"Extract API action get, post, or delete from rule: 'Load model confidence audit trace'. Answer:",get,api_routing,unseen_val,0,1.0
+370,"Classify IAM role as admin, editor, or viewer: 'Can revise documentation pages but cannot change access groups'. Answer:",editor,iam_audit,unseen_val,0,1.0
+371,Classify payment gateway status as approved or declined: 'tokenized wallet authenticated and cleared'. Answer:,approved,fintech_audit,unseen_val,0,1.0
+372,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 48 BPM. Answer:",bradycardia,clinical_nlp,unseen_val,1,1.5
+373,"Classify product department as electronics, apparel, or home: 'cotton slim fit formal shirt'. Answer:",apparel,ecommerce_routing,unseen_val,0,1.0
+374,Classify network exposure as public or private: security group has port 3389 opened to 0.0.0.0/0. Answer:,public,security_audit,unseen_val,1,2.0
+375,Complete with one exact token: A rule preventing unsafe promotion is a,gate,governance_cloze,unseen_val,1,1.5
+376,"Classify security risk as low, medium, or high: ReadOnly policy attached to audit bot with MFA verified. Answer:",low,security_triage,unseen_val,0,1.0
+377,"Extract API action get, post, or delete from rule: 'Provision customer consent record'. Answer:",post,api_routing,unseen_val,0,1.0
+378,"Classify IAM role as admin, editor, or viewer: 'Can assign privileges and manage tenant security settings'. Answer:",admin,iam_audit,unseen_val,1,2.0
+379,Classify payment gateway status as approved or declined: 'issuer declined due to insufficient funds'. Answer:,declined,fintech_audit,unseen_val,0,1.0
+380,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 72 BPM. Answer:",normal,clinical_nlp,unseen_val,0,1.0
+381,"Classify product department as electronics, apparel, or home: 'wireless bluetooth headphones'. Answer:",electronics,ecommerce_routing,unseen_val,0,1.0
+382,Classify network exposure as public or private: security group has port 3306 opened to 0.0.0.0/0. Answer:,public,security_audit,unseen_val,1,2.0
+383,Complete with one exact token: A formerly correct output becoming wrong is a,regression,governance_cloze,unseen_val,1,1.5
+384,"Classify security risk as low, medium, or high: SSH key added with 1024 bit strength for temporary contractor account. Answer:",medium,security_triage,unseen_val,1,1.5
+385,"Extract API action get, post, or delete from rule: 'Erase stale backup snapshots'. Answer:",delete,api_routing,unseen_val,1,1.5
+386,"Classify IAM role as admin, editor, or viewer: 'Can view dashboards and export read-only audit logs'. Answer:",viewer,iam_audit,unseen_val,0,1.0
+387,Classify payment gateway status as approved or declined: 'manual merchant override approved after review'. Answer:,approved,fintech_audit,unseen_val,1,1.5
+388,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 112 BPM. Answer:",tachycardia,clinical_nlp,unseen_val,1,1.5
+389,"Classify product department as electronics, apparel, or home: 'water resistant hiking jacket'. Answer:",apparel,ecommerce_routing,unseen_val,0,1.0
+390,Classify network exposure as public or private: security group has port 22 opened to 0.0.0.0/0. Answer:,public,security_audit,unseen_val,1,2.0
+391,Complete with one exact token: A model answer withheld because risk remains unresolved is an,abstain,governance_cloze,unseen_val,1,1.5
+392,"Classify security risk as low, medium, or high: Public bucket enabled for finance exports containing invoice archives. Answer:",high,security_triage,unseen_val,1,2.0
+393,"Extract API action get, post, or delete from rule: 'Retrieve shipment tracking history'. Answer:",get,api_routing,unseen_val,0,1.0
+394,"Classify IAM role as admin, editor, or viewer: 'Can revise documentation pages but cannot change access groups'. Answer:",editor,iam_audit,unseen_val,0,1.0
+395,Classify payment gateway status as approved or declined: 'tokenized wallet authenticated and cleared'. Answer:,approved,fintech_audit,unseen_val,0,1.0
+396,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 48 BPM. Answer:",bradycardia,clinical_nlp,unseen_val,1,1.5
+397,"Classify product department as electronics, apparel, or home: 'cotton slim fit formal shirt'. Answer:",apparel,ecommerce_routing,unseen_val,0,1.0
+398,Classify network exposure as public or private: security group has port 6379 opened to 192.168.1.0/24. Answer:,private,security_audit,unseen_val,0,1.0
+399,Complete with one exact token: A structured machine-readable data format is,JSON,governance_cloze,unseen_val,0,1.0
+400,"Classify security risk as low, medium, or high: FailedLogin root from public IP with 18 attempts and no MFA. Answer:",high,security_triage,unseen_val,1,2.0
+401,"Extract API action get, post, or delete from rule: 'Delete expired sessions from Redis cache'. Answer:",delete,api_routing,unseen_val,1,1.5
+402,"Classify IAM role as admin, editor, or viewer: 'Can assign privileges and manage tenant security settings'. Answer:",admin,iam_audit,unseen_val,1,2.0
+403,Classify payment gateway status as approved or declined: 'issuer declined due to insufficient funds'. Answer:,declined,fintech_audit,unseen_val,0,1.0
+404,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 72 BPM. Answer:",normal,clinical_nlp,unseen_val,0,1.0
+405,"Classify product department as electronics, apparel, or home: 'wireless bluetooth headphones'. Answer:",electronics,ecommerce_routing,unseen_val,0,1.0
+406,Classify network exposure as public or private: security group has port 443 opened to 10.0.0.0/8. Answer:,private,security_audit,unseen_val,0,1.0
+407,Complete with one exact token: A repeated validation failure across both systems is,persistent,governance_cloze,unseen_val,0,1.0
+408,"Classify security risk as low, medium, or high: S3 bucket created private for staging logs. Answer:",low,security_triage,unseen_val,0,1.0
+409,"Extract API action get, post, or delete from rule: 'Load model confidence audit trace'. Answer:",get,api_routing,unseen_val,0,1.0
+410,"Classify IAM role as admin, editor, or viewer: 'Can view dashboards and export read-only audit logs'. Answer:",viewer,iam_audit,unseen_val,0,1.0
+411,Classify payment gateway status as approved or declined: 'manual merchant override approved after review'. Answer:,approved,fintech_audit,unseen_val,1,1.5
+412,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 112 BPM. Answer:",tachycardia,clinical_nlp,unseen_val,1,1.5
+413,"Classify product department as electronics, apparel, or home: 'water resistant hiking jacket'. Answer:",apparel,ecommerce_routing,unseen_val,0,1.0
+414,Classify network exposure as public or private: security group has port 3389 opened to 0.0.0.0/0. Answer:,public,security_audit,unseen_val,1,2.0
+415,Complete with one exact token: A rule preventing unsafe promotion is a,gate,governance_cloze,unseen_val,1,1.5
+416,"Classify security risk as low, medium, or high: ReadOnly policy attached to audit bot with MFA verified. Answer:",low,security_triage,unseen_val,0,1.0
+417,"Extract API action get, post, or delete from rule: 'Provision customer consent record'. Answer:",post,api_routing,unseen_val,0,1.0
+418,"Classify IAM role as admin, editor, or viewer: 'Can revise documentation pages but cannot change access groups'. Answer:",editor,iam_audit,unseen_val,0,1.0
+419,Classify payment gateway status as approved or declined: 'tokenized wallet authenticated and cleared'. Answer:,approved,fintech_audit,unseen_val,0,1.0
+420,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 48 BPM. Answer:",bradycardia,clinical_nlp,unseen_val,1,1.5
+421,"Classify product department as electronics, apparel, or home: 'cotton slim fit formal shirt'. Answer:",apparel,ecommerce_routing,unseen_val,0,1.0
+422,Classify network exposure as public or private: security group has port 3306 opened to 0.0.0.0/0. Answer:,public,security_audit,unseen_val,1,2.0
+423,Complete with one exact token: A formerly correct output becoming wrong is a,regression,governance_cloze,unseen_val,1,1.5
+424,"Classify security risk as low, medium, or high: SSH key added with 1024 bit strength for temporary contractor account. Answer:",medium,security_triage,unseen_val,1,1.5
+425,"Extract API action get, post, or delete from rule: 'Erase stale backup snapshots'. Answer:",delete,api_routing,unseen_val,1,1.5
+426,"Classify IAM role as admin, editor, or viewer: 'Can assign privileges and manage tenant security settings'. Answer:",admin,iam_audit,unseen_val,1,2.0
+427,Classify payment gateway status as approved or declined: 'issuer declined due to insufficient funds'. Answer:,declined,fintech_audit,unseen_val,0,1.0
+428,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 72 BPM. Answer:",normal,clinical_nlp,unseen_val,0,1.0
+429,"Classify product department as electronics, apparel, or home: 'wireless bluetooth headphones'. Answer:",electronics,ecommerce_routing,unseen_val,0,1.0
+430,Classify network exposure as public or private: security group has port 22 opened to 0.0.0.0/0. Answer:,public,security_audit,unseen_val,1,2.0
+431,Complete with one exact token: A model answer withheld because risk remains unresolved is an,abstain,governance_cloze,unseen_val,1,1.5
+432,"Classify security risk as low, medium, or high: Public bucket enabled for finance exports containing invoice archives. Answer:",high,security_triage,unseen_val,1,2.0
+433,"Extract API action get, post, or delete from rule: 'Retrieve shipment tracking history'. Answer:",get,api_routing,unseen_val,0,1.0
+434,"Classify IAM role as admin, editor, or viewer: 'Can view dashboards and export read-only audit logs'. Answer:",viewer,iam_audit,unseen_val,0,1.0
+435,Classify payment gateway status as approved or declined: 'manual merchant override approved after review'. Answer:,approved,fintech_audit,unseen_val,1,1.5
+436,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 112 BPM. Answer:",tachycardia,clinical_nlp,unseen_val,1,1.5
+437,"Classify product department as electronics, apparel, or home: 'water resistant hiking jacket'. Answer:",apparel,ecommerce_routing,unseen_val,0,1.0
+438,Classify network exposure as public or private: security group has port 6379 opened to 192.168.1.0/24. Answer:,private,security_audit,unseen_val,0,1.0
+439,Complete with one exact token: A structured machine-readable data format is,JSON,governance_cloze,unseen_val,0,1.0
+440,"Classify security risk as low, medium, or high: FailedLogin root from public IP with 18 attempts and no MFA. Answer:",high,security_triage,unseen_val,1,2.0
+441,"Extract API action get, post, or delete from rule: 'Delete expired sessions from Redis cache'. Answer:",delete,api_routing,unseen_val,1,1.5
+442,"Classify IAM role as admin, editor, or viewer: 'Can revise documentation pages but cannot change access groups'. Answer:",editor,iam_audit,unseen_val,0,1.0
+443,Classify payment gateway status as approved or declined: 'tokenized wallet authenticated and cleared'. Answer:,approved,fintech_audit,unseen_val,0,1.0
+444,"Classify heart rate status as normal, bradycardia, or tachycardia: heart rate 48 BPM. Answer:",bradycardia,clinical_nlp,unseen_val,1,1.5
+445,"Classify product department as electronics, apparel, or home: 'cotton slim fit formal shirt'. Answer:",apparel,ecommerce_routing,unseen_val,0,1.0
+446,Classify network exposure as public or private: security group has port 443 opened to 10.0.0.0/8. Answer:,private,security_audit,unseen_val,0,1.0
+447,Complete with one exact token: A repeated validation failure across both systems is,persistent,governance_cloze,unseen_val,0,1.0
+448,"Classify security risk as low, medium, or high: S3 bucket created private for staging logs. Answer:",low,security_triage,unseen_val,0,1.0
+449,"Extract API action get, post, or delete from rule: 'Load model confidence audit trace'. Answer:",get,api_routing,unseen_val,0,1.0
+450,"Classify IAM role as admin, editor, or viewer: 'Can assign privileges and manage tenant security settings'. Answer:",admin,iam_audit,unseen_val,1,2.0
+451,"OOD reliability question: In information theory, distribution divergence is often measured with",KL,ood_reliability,ood,1,2.0
+452,"OOD reliability question: In causal reliability flow, a skipped path can create a residual",bypass,ood_reliability,ood,1,2.0
+453,"OOD reliability question: In hallucination control, refusing unsafe output is called",abstain,ood_reliability,ood,1,2.0
+454,"OOD reliability question: In model serving governance, a guarded routing layer is a",router,ood_reliability,ood,1,2.0
+455,"OOD reliability question: In transformer reliability, layer impact measurement uses Birnbaum",sensitivity,ood_reliability,ood,1,2.0
+456,"OOD reliability question: In information theory, distribution divergence is often measured with",KL,ood_reliability,ood,1,2.0
+457,"OOD reliability question: In causal reliability flow, a skipped path can create a residual",bypass,ood_reliability,ood,1,2.0
+458,"OOD reliability question: In hallucination control, refusing unsafe output is called",abstain,ood_reliability,ood,1,2.0
+459,"OOD reliability question: In model serving governance, a guarded routing layer is a",router,ood_reliability,ood,1,2.0
+460,"OOD reliability question: In transformer reliability, layer impact measurement uses Birnbaum",sensitivity,ood_reliability,ood,1,2.0
+461,"OOD reliability question: In information theory, distribution divergence is often measured with",KL,ood_reliability,ood,1,2.0
+462,"OOD reliability question: In causal reliability flow, a skipped path can create a residual",bypass,ood_reliability,ood,1,2.0
+463,"OOD reliability question: In hallucination control, refusing unsafe output is called",abstain,ood_reliability,ood,1,2.0
+464,"OOD reliability question: In model serving governance, a guarded routing layer is a",router,ood_reliability,ood,1,2.0
+465,"OOD reliability question: In transformer reliability, layer impact measurement uses Birnbaum",sensitivity,ood_reliability,ood,1,2.0
+466,"OOD reliability question: In information theory, distribution divergence is often measured with",KL,ood_reliability,ood,1,2.0
+467,"OOD reliability question: In causal reliability flow, a skipped path can create a residual",bypass,ood_reliability,ood,1,2.0
+468,"OOD reliability question: In hallucination control, refusing unsafe output is called",abstain,ood_reliability,ood,1,2.0
+469,"OOD reliability question: In model serving governance, a guarded routing layer is a",router,ood_reliability,ood,1,2.0
+470,"OOD reliability question: In transformer reliability, layer impact measurement uses Birnbaum",sensitivity,ood_reliability,ood,1,2.0
+471,"OOD reliability question: In information theory, distribution divergence is often measured with",KL,ood_reliability,ood,1,2.0
+472,"OOD reliability question: In causal reliability flow, a skipped path can create a residual",bypass,ood_reliability,ood,1,2.0
+473,"OOD reliability question: In hallucination control, refusing unsafe output is called",abstain,ood_reliability,ood,1,2.0
+474,"OOD reliability question: In model serving governance, a guarded routing layer is a",router,ood_reliability,ood,1,2.0
+475,"OOD reliability question: In transformer reliability, layer impact measurement uses Birnbaum",sensitivity,ood_reliability,ood,1,2.0
+476,"OOD reliability question: In information theory, distribution divergence is often measured with",KL,ood_reliability,ood,1,2.0
+477,"OOD reliability question: In causal reliability flow, a skipped path can create a residual",bypass,ood_reliability,ood,1,2.0
+478,"OOD reliability question: In hallucination control, refusing unsafe output is called",abstain,ood_reliability,ood,1,2.0
+479,"OOD reliability question: In model serving governance, a guarded routing layer is a",router,ood_reliability,ood,1,2.0
+480,"OOD reliability question: In transformer reliability, layer impact measurement uses Birnbaum",sensitivity,ood_reliability,ood,1,2.0
+481,"OOD reliability question: In information theory, distribution divergence is often measured with",KL,ood_reliability,ood,1,2.0
+482,"OOD reliability question: In causal reliability flow, a skipped path can create a residual",bypass,ood_reliability,ood,1,2.0
+483,"OOD reliability question: In hallucination control, refusing unsafe output is called",abstain,ood_reliability,ood,1,2.0
+484,"OOD reliability question: In model serving governance, a guarded routing layer is a",router,ood_reliability,ood,1,2.0
+485,"OOD reliability question: In transformer reliability, layer impact measurement uses Birnbaum",sensitivity,ood_reliability,ood,1,2.0
+486,"OOD reliability question: In information theory, distribution divergence is often measured with",KL,ood_reliability,ood,1,2.0
+487,"OOD reliability question: In causal reliability flow, a skipped path can create a residual",bypass,ood_reliability,ood,1,2.0
+488,"OOD reliability question: In hallucination control, refusing unsafe output is called",abstain,ood_reliability,ood,1,2.0
+489,"OOD reliability question: In model serving governance, a guarded routing layer is a",router,ood_reliability,ood,1,2.0
+490,"OOD reliability question: In transformer reliability, layer impact measurement uses Birnbaum",sensitivity,ood_reliability,ood,1,2.0
+491,"OOD reliability question: In information theory, distribution divergence is often measured with",KL,ood_reliability,ood,1,2.0
+492,"OOD reliability question: In causal reliability flow, a skipped path can create a residual",bypass,ood_reliability,ood,1,2.0
+493,"OOD reliability question: In hallucination control, refusing unsafe output is called",abstain,ood_reliability,ood,1,2.0
+494,"OOD reliability question: In model serving governance, a guarded routing layer is a",router,ood_reliability,ood,1,2.0
+495,"OOD reliability question: In transformer reliability, layer impact measurement uses Birnbaum",sensitivity,ood_reliability,ood,1,2.0
+496,"OOD reliability question: In information theory, distribution divergence is often measured with",KL,ood_reliability,ood,1,2.0
+497,"OOD reliability question: In causal reliability flow, a skipped path can create a residual",bypass,ood_reliability,ood,1,2.0
+498,"OOD reliability question: In hallucination control, refusing unsafe output is called",abstain,ood_reliability,ood,1,2.0
+499,"OOD reliability question: In model serving governance, a guarded routing layer is a",router,ood_reliability,ood,1,2.0
+500,"OOD reliability question: In transformer reliability, layer impact measurement uses Birnbaum",sensitivity,ood_reliability,ood,1,2.0

@@ -1,0 +1,201 @@
+sample_id,prompt,target,curriculum_score,pcrf_weight,criticality_weight,combined_weight,sampling_bucket
+193,Train 193: The capital of France is,Paris,0.007275,0.048886,1.0,0.000356,HIGH_PRIORITY
+185,Train 185: The capital of France is,Paris,0.007242,0.048886,1.0,0.000354,HIGH_PRIORITY
+169,Train 169: The capital of France is,Paris,0.007220,0.048886,1.0,0.000353,HIGH_PRIORITY
+25,Train 25: The capital of France is,Paris,0.007205,0.048886,1.0,0.000352,HIGH_PRIORITY
+129,Train 129: The capital of France is,Paris,0.007193,0.048886,1.0,0.000352,HIGH_PRIORITY
+145,Train 145: The capital of France is,Paris,0.007184,0.048886,1.0,0.000351,HIGH_PRIORITY
+49,Train 49: The capital of France is,Paris,0.007171,0.048886,1.0,0.000351,HIGH_PRIORITY
+33,Train 33: The capital of France is,Paris,0.007139,0.048886,1.0,0.000349,HIGH_PRIORITY
+41,Train 41: The capital of France is,Paris,0.007136,0.048886,1.5,0.000523,HIGH_PRIORITY
+113,Train 113: The capital of France is,Paris,0.007118,0.048886,1.0,0.000348,HIGH_PRIORITY
+81,Train 81: The capital of France is,Paris,0.007118,0.048886,1.5,0.000522,HIGH_PRIORITY
+161,Train 161: The capital of France is,Paris,0.007116,0.048886,1.5,0.000522,HIGH_PRIORITY
+9,Train 9: The capital of France is,Paris,0.007100,0.048886,1.0,0.000347,HIGH_PRIORITY
+177,Train 177: The capital of France is,Paris,0.007085,0.048886,1.0,0.000346,HIGH_PRIORITY
+65,Train 65: The capital of France is,Paris,0.007066,0.048886,1.0,0.000345,HIGH_PRIORITY
+121,Train 121: The capital of France is,Paris,0.007063,0.048886,1.5,0.000518,HIGH_PRIORITY
+153,Train 153: The capital of France is,Paris,0.007054,0.048886,1.0,0.000345,HIGH_PRIORITY
+105,Train 105: The capital of France is,Paris,0.007053,0.048886,1.0,0.000345,HIGH_PRIORITY
+17,Train 17: The capital of France is,Paris,0.007040,0.048886,1.0,0.000344,HIGH_PRIORITY
+97,Train 97: The capital of France is,Paris,0.007002,0.048886,1.0,0.000342,HIGH_PRIORITY
+137,Train 137: The capital of France is,Paris,0.007000,0.048886,1.0,0.000342,HIGH_PRIORITY
+57,Train 57: The capital of France is,Paris,0.007000,0.048886,1.0,0.000342,HIGH_PRIORITY
+89,Train 89: The capital of France is,Paris,0.006973,0.048886,1.0,0.000341,HIGH_PRIORITY
+73,Train 73: The capital of France is,Paris,0.006955,0.048886,1.0,0.000340,HIGH_PRIORITY
+1,Train 1: The capital of France is,Paris,0.006814,0.048886,1.5,0.000500,HIGH_PRIORITY
+150,Train 150: The DNS protocol primarily uses,UDP,0.006577,0.048886,1.0,0.000322,HIGH_PRIORITY
+110,Train 110: The DNS protocol primarily uses,UDP,0.006494,0.048886,1.0,0.000317,HIGH_PRIORITY
+14,Train 14: The DNS protocol primarily uses,UDP,0.006463,0.048886,1.0,0.000316,HIGH_PRIORITY
+166,Train 166: The DNS protocol primarily uses,UDP,0.006456,0.048886,1.0,0.000316,HIGH_PRIORITY
+182,Train 182: The DNS protocol primarily uses,UDP,0.006440,0.048886,1.0,0.000315,HIGH_PRIORITY
+22,Train 22: The DNS protocol primarily uses,UDP,0.006435,0.048886,1.0,0.000315,HIGH_PRIORITY
+126,Train 126: The DNS protocol primarily uses,UDP,0.006429,0.048886,1.0,0.000314,HIGH_PRIORITY
+118,Train 118: The DNS protocol primarily uses,UDP,0.006420,0.048886,1.0,0.000314,HIGH_PRIORITY
+190,Train 190: The DNS protocol primarily uses,UDP,0.006419,0.048886,1.0,0.000314,HIGH_PRIORITY
+142,Train 142: The DNS protocol primarily uses,UDP,0.006406,0.048886,1.0,0.000313,HIGH_PRIORITY
+102,Train 102: The DNS protocol primarily uses,UDP,0.006403,0.048886,1.0,0.000313,HIGH_PRIORITY
+198,Train 198: The DNS protocol primarily uses,UDP,0.006386,0.048886,1.0,0.000312,HIGH_PRIORITY
+6,Train 6: The DNS protocol primarily uses,UDP,0.006380,0.048886,1.0,0.000312,HIGH_PRIORITY
+134,Train 134: The DNS protocol primarily uses,UDP,0.006377,0.048886,1.0,0.000312,HIGH_PRIORITY
+158,Train 158: The DNS protocol primarily uses,UDP,0.006374,0.048886,1.0,0.000312,HIGH_PRIORITY
+70,Train 70: The DNS protocol primarily uses,UDP,0.006370,0.048886,1.0,0.000311,HIGH_PRIORITY
+174,Train 174: The DNS protocol primarily uses,UDP,0.006353,0.048886,1.0,0.000311,HIGH_PRIORITY
+30,Train 30: The DNS protocol primarily uses,UDP,0.006353,0.048886,1.0,0.000311,HIGH_PRIORITY
+62,Train 62: The DNS protocol primarily uses,UDP,0.006311,0.048886,1.0,0.000309,HIGH_PRIORITY
+46,Train 46: The DNS protocol primarily uses,UDP,0.006304,0.048886,1.0,0.000308,HIGH_PRIORITY
+94,Train 94: The DNS protocol primarily uses,UDP,0.006301,0.048886,1.0,0.000308,HIGH_PRIORITY
+38,Train 38: The DNS protocol primarily uses,UDP,0.006286,0.048886,1.0,0.000307,HIGH_PRIORITY
+54,Train 54: The DNS protocol primarily uses,UDP,0.006276,0.048886,1.0,0.000307,HIGH_PRIORITY
+78,Train 78: The DNS protocol primarily uses,UDP,0.006271,0.048886,1.0,0.000307,HIGH_PRIORITY
+86,Train 86: The DNS protocol primarily uses,UDP,0.006240,0.048886,1.0,0.000305,HIGH_PRIORITY
+88,Train 88: The largest planet in the solar system is,Jupiter,0.006159,0.048886,1.0,0.000301,MID_PRIORITY
+192,Train 192: The largest planet in the solar system is,Jupiter,0.006123,0.048886,1.0,0.000299,MID_PRIORITY
+56,Train 56: The largest planet in the solar system is,Jupiter,0.006106,0.048886,1.0,0.000299,MID_PRIORITY
+136,Train 136: The largest planet in the solar system is,Jupiter,0.006074,0.048886,1.0,0.000297,MID_PRIORITY
+160,Train 160: The largest planet in the solar system is,Jupiter,0.005991,0.048886,1.0,0.000293,MID_PRIORITY
+144,Train 144: The largest planet in the solar system is,Jupiter,0.005938,0.048886,1.0,0.000290,MID_PRIORITY
+168,Train 168: The largest planet in the solar system is,Jupiter,0.005898,0.048886,1.0,0.000288,MID_PRIORITY
+104,Train 104: The largest planet in the solar system is,Jupiter,0.005879,0.048886,1.0,0.000287,MID_PRIORITY
+64,Train 64: The largest planet in the solar system is,Jupiter,0.005878,0.048886,1.0,0.000287,MID_PRIORITY
+128,Train 128: The largest planet in the solar system is,Jupiter,0.005876,0.048886,1.0,0.000287,MID_PRIORITY
+152,Train 152: The largest planet in the solar system is,Jupiter,0.005867,0.048886,1.0,0.000287,MID_PRIORITY
+176,Train 176: The largest planet in the solar system is,Jupiter,0.005843,0.048886,1.0,0.000286,MID_PRIORITY
+72,Train 72: The largest planet in the solar system is,Jupiter,0.005819,0.048886,1.0,0.000284,MID_PRIORITY
+96,Train 96: The largest planet in the solar system is,Jupiter,0.005799,0.048886,1.0,0.000284,MID_PRIORITY
+184,Train 184: The largest planet in the solar system is,Jupiter,0.005772,0.048886,1.0,0.000282,MID_PRIORITY
+48,Train 48: The largest planet in the solar system is,Jupiter,0.005765,0.048886,1.0,0.000282,MID_PRIORITY
+32,Train 32: The largest planet in the solar system is,Jupiter,0.005764,0.048886,1.0,0.000282,MID_PRIORITY
+112,Train 112: The largest planet in the solar system is,Jupiter,0.005706,0.048886,1.0,0.000279,MID_PRIORITY
+16,Train 16: The largest planet in the solar system is,Jupiter,0.005641,0.048886,1.0,0.000276,MID_PRIORITY
+24,Train 24: The largest planet in the solar system is,Jupiter,0.005628,0.048886,1.0,0.000275,MID_PRIORITY
+80,Train 80: The largest planet in the solar system is,Jupiter,0.005606,0.048886,1.0,0.000274,MID_PRIORITY
+40,Train 40: The largest planet in the solar system is,Jupiter,0.005595,0.048886,1.0,0.000274,MID_PRIORITY
+120,Train 120: The largest planet in the solar system is,Jupiter,0.005593,0.048886,1.0,0.000273,MID_PRIORITY
+200,Train 200: The largest planet in the solar system is,Jupiter,0.005397,0.048886,1.0,0.000264,MID_PRIORITY
+8,Train 8: The largest planet in the solar system is,Jupiter,0.005248,0.048886,1.0,0.000257,MID_PRIORITY
+163,Train 163: The chemical symbol for gold is,Au,0.005219,0.048886,1.0,0.000255,MID_PRIORITY
+122,Train 122: The currency of Japan is,Yen,0.005196,0.048886,1.0,0.000254,MID_PRIORITY
+59,Train 59: The chemical symbol for gold is,Au,0.005192,0.048886,1.0,0.000254,MID_PRIORITY
+138,Train 138: The currency of Japan is,Yen,0.005183,0.048886,1.0,0.000253,MID_PRIORITY
+114,Train 114: The currency of Japan is,Yen,0.005178,0.048886,1.0,0.000253,MID_PRIORITY
+130,Train 130: The currency of Japan is,Yen,0.005160,0.048886,1.0,0.000252,MID_PRIORITY
+170,Train 170: The currency of Japan is,Yen,0.005138,0.048886,1.0,0.000251,MID_PRIORITY
+58,Train 58: The currency of Japan is,Yen,0.005136,0.048886,1.0,0.000251,MID_PRIORITY
+34,Train 34: The currency of Japan is,Yen,0.005129,0.048886,1.0,0.000251,MID_PRIORITY
+146,Train 146: The currency of Japan is,Yen,0.005118,0.048886,1.0,0.000250,MID_PRIORITY
+106,Train 106: The currency of Japan is,Yen,0.005114,0.048886,1.0,0.000250,MID_PRIORITY
+162,Train 162: The currency of Japan is,Yen,0.005107,0.048886,1.0,0.000250,MID_PRIORITY
+74,Train 74: The currency of Japan is,Yen,0.005106,0.048886,1.0,0.000250,MID_PRIORITY
+50,Train 50: The currency of Japan is,Yen,0.005103,0.048886,1.0,0.000249,MID_PRIORITY
+18,Train 18: The currency of Japan is,Yen,0.005096,0.048886,1.0,0.000249,MID_PRIORITY
+178,Train 178: The currency of Japan is,Yen,0.005094,0.048886,1.0,0.000249,MID_PRIORITY
+154,Train 154: The currency of Japan is,Yen,0.005093,0.048886,1.0,0.000249,MID_PRIORITY
+186,Train 186: The currency of Japan is,Yen,0.005090,0.048886,1.0,0.000249,MID_PRIORITY
+2,Train 2: The currency of Japan is,Yen,0.005082,0.048886,1.0,0.000248,MID_PRIORITY
+10,Train 10: The currency of Japan is,Yen,0.005080,0.048886,1.0,0.000248,MID_PRIORITY
+194,Train 194: The currency of Japan is,Yen,0.005075,0.048886,1.0,0.000248,MID_PRIORITY
+66,Train 66: The currency of Japan is,Yen,0.005060,0.048886,1.0,0.000247,MID_PRIORITY
+42,Train 42: The currency of Japan is,Yen,0.005054,0.048886,1.0,0.000247,MID_PRIORITY
+82,Train 82: The currency of Japan is,Yen,0.005046,0.048886,1.0,0.000247,MID_PRIORITY
+90,Train 90: The currency of Japan is,Yen,0.005045,0.048886,1.0,0.000247,MID_PRIORITY
+98,Train 98: The currency of Japan is,Yen,0.005043,0.048886,1.0,0.000247,MID_PRIORITY
+26,Train 26: The currency of Japan is,Yen,0.005024,0.048886,1.0,0.000246,MID_PRIORITY
+123,Train 123: The chemical symbol for gold is,Au,0.004945,0.048886,1.0,0.000242,MID_PRIORITY
+51,Train 51: The chemical symbol for gold is,Au,0.004944,0.048886,1.0,0.000242,MID_PRIORITY
+147,Train 147: The chemical symbol for gold is,Au,0.004914,0.048886,1.0,0.000240,MID_PRIORITY
+155,Train 155: The chemical symbol for gold is,Au,0.004908,0.048886,1.0,0.000240,MID_PRIORITY
+99,Train 99: The chemical symbol for gold is,Au,0.004874,0.048886,1.0,0.000238,MID_PRIORITY
+131,Train 131: The chemical symbol for gold is,Au,0.004864,0.048886,1.0,0.000238,MID_PRIORITY
+187,Train 187: The chemical symbol for gold is,Au,0.004836,0.048886,1.0,0.000236,MID_PRIORITY
+195,Train 195: The chemical symbol for gold is,Au,0.004825,0.048886,1.0,0.000236,MID_PRIORITY
+139,Train 139: The chemical symbol for gold is,Au,0.004780,0.048886,1.0,0.000234,MID_PRIORITY
+107,Train 107: The chemical symbol for gold is,Au,0.004774,0.048886,1.0,0.000233,MID_PRIORITY
+67,Train 67: The chemical symbol for gold is,Au,0.004758,0.048886,1.0,0.000233,MID_PRIORITY
+171,Train 171: The chemical symbol for gold is,Au,0.004757,0.048886,1.0,0.000233,MID_PRIORITY
+91,Train 91: The chemical symbol for gold is,Au,0.004757,0.048886,1.0,0.000233,MID_PRIORITY
+83,Train 83: The chemical symbol for gold is,Au,0.004750,0.048886,1.0,0.000232,MID_PRIORITY
+115,Train 115: The chemical symbol for gold is,Au,0.004686,0.048886,1.0,0.000229,MID_PRIORITY
+180,Train 180: The author of Hamlet is,Shakespeare,0.004625,0.048886,1.0,0.000226,MID_PRIORITY
+179,Train 179: The chemical symbol for gold is,Au,0.004605,0.048886,1.0,0.000225,MID_PRIORITY
+12,Train 12: The author of Hamlet is,Shakespeare,0.004588,0.048886,1.0,0.000224,MID_PRIORITY
+100,Train 100: The author of Hamlet is,Shakespeare,0.004577,0.048886,1.0,0.000224,MID_PRIORITY
+84,Train 84: The author of Hamlet is,Shakespeare,0.004568,0.048886,1.0,0.000223,MID_PRIORITY
+28,Train 28: The author of Hamlet is,Shakespeare,0.004565,0.048886,1.0,0.000223,MID_PRIORITY
+60,Train 60: The author of Hamlet is,Shakespeare,0.004563,0.048886,1.0,0.000223,MID_PRIORITY
+27,Train 27: The chemical symbol for gold is,Au,0.004546,0.048886,1.0,0.000222,MID_PRIORITY
+44,Train 44: The author of Hamlet is,Shakespeare,0.004542,0.048886,1.0,0.000222,MID_PRIORITY
+20,Train 20: The author of Hamlet is,Shakespeare,0.004540,0.048886,1.0,0.000222,MID_PRIORITY
+52,Train 52: The author of Hamlet is,Shakespeare,0.004537,0.048886,1.0,0.000222,MID_PRIORITY
+68,Train 68: The author of Hamlet is,Shakespeare,0.004535,0.048886,1.0,0.000222,MID_PRIORITY
+140,Train 140: The author of Hamlet is,Shakespeare,0.004531,0.048886,1.0,0.000222,MID_PRIORITY
+108,Train 108: The author of Hamlet is,Shakespeare,0.004527,0.048886,1.0,0.000221,MID_PRIORITY
+36,Train 36: The author of Hamlet is,Shakespeare,0.004526,0.048886,1.0,0.000221,MID_PRIORITY
+148,Train 148: The author of Hamlet is,Shakespeare,0.004519,0.048886,1.0,0.000221,MID_PRIORITY
+76,Train 76: The author of Hamlet is,Shakespeare,0.004516,0.048886,1.0,0.000221,MID_PRIORITY
+188,Train 188: The author of Hamlet is,Shakespeare,0.004514,0.048886,1.0,0.000221,MID_PRIORITY
+75,Train 75: The chemical symbol for gold is,Au,0.004507,0.048886,1.0,0.000220,MID_PRIORITY
+116,Train 116: The author of Hamlet is,Shakespeare,0.004505,0.048886,1.0,0.000220,MID_PRIORITY
+43,Train 43: The chemical symbol for gold is,Au,0.004505,0.048886,1.0,0.000220,MID_PRIORITY
+196,Train 196: The author of Hamlet is,Shakespeare,0.004499,0.048886,1.0,0.000220,MID_PRIORITY
+172,Train 172: The author of Hamlet is,Shakespeare,0.004496,0.048886,1.0,0.000220,MID_PRIORITY
+156,Train 156: The author of Hamlet is,Shakespeare,0.004493,0.048886,1.0,0.000220,MID_PRIORITY
+124,Train 124: The author of Hamlet is,Shakespeare,0.004491,0.048886,1.0,0.000220,MID_PRIORITY
+92,Train 92: The author of Hamlet is,Shakespeare,0.004485,0.048886,1.0,0.000219,MID_PRIORITY
+132,Train 132: The author of Hamlet is,Shakespeare,0.004478,0.048886,1.0,0.000219,MID_PRIORITY
+164,Train 164: The author of Hamlet is,Shakespeare,0.004468,0.048886,1.0,0.000218,MID_PRIORITY
+4,Train 4: The author of Hamlet is,Shakespeare,0.004457,0.048886,1.0,0.000218,MID_PRIORITY
+35,Train 35: The chemical symbol for gold is,Au,0.004453,0.048886,1.0,0.000218,MID_PRIORITY
+19,Train 19: The chemical symbol for gold is,Au,0.004441,0.048886,1.0,0.000217,MID_PRIORITY
+11,Train 11: The chemical symbol for gold is,Au,0.004314,0.048886,1.0,0.000211,MID_PRIORITY
+3,Train 3: The chemical symbol for gold is,Au,0.004237,0.048886,1.0,0.000207,MID_PRIORITY
+119,Train 119: The headquarters of Microsoft is in,Redmond,0.003640,0.048886,1.0,0.000178,LOW_PRIORITY
+71,Train 71: The headquarters of Microsoft is in,Redmond,0.003628,0.048886,1.0,0.000177,LOW_PRIORITY
+127,Train 127: The headquarters of Microsoft is in,Redmond,0.003617,0.048886,1.0,0.000177,LOW_PRIORITY
+63,Train 63: The headquarters of Microsoft is in,Redmond,0.003607,0.048886,1.0,0.000176,LOW_PRIORITY
+111,Train 111: The headquarters of Microsoft is in,Redmond,0.003568,0.048886,1.0,0.000174,LOW_PRIORITY
+55,Train 55: The headquarters of Microsoft is in,Redmond,0.003555,0.048886,1.0,0.000174,LOW_PRIORITY
+167,Train 167: The headquarters of Microsoft is in,Redmond,0.003551,0.048886,1.0,0.000174,LOW_PRIORITY
+143,Train 143: The headquarters of Microsoft is in,Redmond,0.003539,0.048886,1.0,0.000173,LOW_PRIORITY
+95,Train 95: The headquarters of Microsoft is in,Redmond,0.003535,0.048886,1.0,0.000173,LOW_PRIORITY
+47,Train 47: The headquarters of Microsoft is in,Redmond,0.003487,0.048886,1.0,0.000170,LOW_PRIORITY
+87,Train 87: The headquarters of Microsoft is in,Redmond,0.003478,0.048886,1.0,0.000170,LOW_PRIORITY
+103,Train 103: The headquarters of Microsoft is in,Redmond,0.003465,0.048886,1.0,0.000169,LOW_PRIORITY
+159,Train 159: The headquarters of Microsoft is in,Redmond,0.003441,0.048886,1.0,0.000168,LOW_PRIORITY
+183,Train 183: The headquarters of Microsoft is in,Redmond,0.003431,0.048886,1.0,0.000168,LOW_PRIORITY
+79,Train 79: The headquarters of Microsoft is in,Redmond,0.003426,0.048886,1.0,0.000167,LOW_PRIORITY
+191,Train 191: The headquarters of Microsoft is in,Redmond,0.003425,0.048886,1.0,0.000167,LOW_PRIORITY
+23,Train 23: The headquarters of Microsoft is in,Redmond,0.003417,0.048886,1.0,0.000167,LOW_PRIORITY
+135,Train 135: The headquarters of Microsoft is in,Redmond,0.003404,0.048886,1.0,0.000166,LOW_PRIORITY
+31,Train 31: The headquarters of Microsoft is in,Redmond,0.003380,0.048886,1.0,0.000165,LOW_PRIORITY
+39,Train 39: The headquarters of Microsoft is in,Redmond,0.003324,0.048886,1.0,0.000162,LOW_PRIORITY
+199,Train 199: The headquarters of Microsoft is in,Redmond,0.003294,0.048886,1.0,0.000161,LOW_PRIORITY
+175,Train 175: The headquarters of Microsoft is in,Redmond,0.003289,0.048886,1.0,0.000161,LOW_PRIORITY
+151,Train 151: The headquarters of Microsoft is in,Redmond,0.003289,0.048886,1.0,0.000161,LOW_PRIORITY
+7,Train 7: The headquarters of Microsoft is in,Redmond,0.003180,0.048886,1.0,0.000155,LOW_PRIORITY
+15,Train 15: The headquarters of Microsoft is in,Redmond,0.003172,0.048886,1.0,0.000155,LOW_PRIORITY
+5,Train 5: The default HTTPS port is,443,0.002976,0.048886,1.0,0.000146,LOW_PRIORITY
+125,Train 125: The default HTTPS port is,443,0.002964,0.048886,1.0,0.000145,LOW_PRIORITY
+13,Train 13: The default HTTPS port is,443,0.002963,0.048886,1.0,0.000145,LOW_PRIORITY
+21,Train 21: The default HTTPS port is,443,0.002953,0.048886,1.5,0.000217,LOW_PRIORITY
+61,Train 61: The default HTTPS port is,443,0.002947,0.048886,1.5,0.000216,LOW_PRIORITY
+189,Train 189: The default HTTPS port is,443,0.002944,0.048886,1.0,0.000144,LOW_PRIORITY
+181,Train 181: The default HTTPS port is,443,0.002940,0.048886,1.5,0.000216,LOW_PRIORITY
+165,Train 165: The default HTTPS port is,443,0.002938,0.048886,1.0,0.000144,LOW_PRIORITY
+117,Train 117: The default HTTPS port is,443,0.002936,0.048886,1.0,0.000144,LOW_PRIORITY
+29,Train 29: The default HTTPS port is,443,0.002935,0.048886,1.0,0.000143,LOW_PRIORITY
+45,Train 45: The default HTTPS port is,443,0.002933,0.048886,1.0,0.000143,LOW_PRIORITY
+53,Train 53: The default HTTPS port is,443,0.002929,0.048886,1.0,0.000143,LOW_PRIORITY
+157,Train 157: The default HTTPS port is,443,0.002926,0.048886,1.0,0.000143,LOW_PRIORITY
+141,Train 141: The default HTTPS port is,443,0.002923,0.048886,1.5,0.000214,LOW_PRIORITY
+109,Train 109: The default HTTPS port is,443,0.002920,0.048886,1.0,0.000143,LOW_PRIORITY
+37,Train 37: The default HTTPS port is,443,0.002919,0.048886,1.0,0.000143,LOW_PRIORITY
+149,Train 149: The default HTTPS port is,443,0.002903,0.048886,1.0,0.000142,LOW_PRIORITY
+77,Train 77: The default HTTPS port is,443,0.002903,0.048886,1.0,0.000142,LOW_PRIORITY
+197,Train 197: The default HTTPS port is,443,0.002903,0.048886,1.0,0.000142,LOW_PRIORITY
+69,Train 69: The default HTTPS port is,443,0.002899,0.048886,1.0,0.000142,LOW_PRIORITY
+133,Train 133: The default HTTPS port is,443,0.002896,0.048886,1.0,0.000142,LOW_PRIORITY
+173,Train 173: The default HTTPS port is,443,0.002889,0.048886,1.0,0.000141,LOW_PRIORITY
+85,Train 85: The default HTTPS port is,443,0.002872,0.048886,1.0,0.000140,LOW_PRIORITY
+93,Train 93: The default HTTPS port is,443,0.002870,0.048886,1.0,0.000140,LOW_PRIORITY
+101,Train 101: The default HTTPS port is,443,0.002786,0.048886,1.5,0.000204,LOW_PRIORITY
