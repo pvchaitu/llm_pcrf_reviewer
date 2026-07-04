@@ -1,7 +1,3 @@
-Here is the fully updated, comprehensive, and corporate-aligned `README.md` for the PCRF Transformer Reliability Suite. It has been meticulously updated to reflect the new modular architecture, the correct CLI entry points (`run_experiment.py`), advanced metrics, structural reconciliation mathematics, SFT-specific behaviors, and developer blueprints.
-
----
-
 # PCRF Transformer Reliability Suite — Experiment README
 
 **Version context:** Enterprise-grade PCRF Transformer Reliability Suite with baseline reporting, full PCRF experiment execution, external CSV dataset support, dataset validation, multi-tier structural reliability reconciliation, and generated developer blueprints.

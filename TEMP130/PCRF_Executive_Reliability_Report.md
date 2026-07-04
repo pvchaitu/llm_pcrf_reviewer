@@ -27,7 +27,7 @@
 
 ---
 
-## 1. Core Gating Status
+## Core Gating Status
 
 * **Direct Candidate Weight Promotion Status:** `DO_NOT_APPLY`
 * **Safe Diagnostic Components:** derivative diagnostics, curriculum curation, structural monitoring, protected routing
