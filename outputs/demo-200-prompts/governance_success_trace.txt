@@ -1,0 +1,886 @@
+=========================================================================
+PCRF SYSTEM GOVERNANCE SUCCESS TRACE (PROTECTED RUN EVIDENCE)
+=========================================================================
+
+Total Success Interventions Logged: 80
+
+--- SUCCESS ENTRY 1: PROMPT ID 101 (SAFE_ABSTAIN) ---
+Task Type: security_triage
+Decision: abstain_safe_fallback
+Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4449).
+Baseline Risk: 0.41244
+Candidate Risk: 0.44494
+Delta Risk: 0.03250
+Why Governance Decision Was Correct:
+  - Both configurations produced unresolved hallucinations, and PCRF correctly withheld output to safeguard user experience.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 2: PROMPT ID 102 (PROTECTED_BASELINE_DECISION) ---
+Task Type: security_triage
+Decision: use_baseline
+Reason: Baseline served to preserve stricter output contract or lower risk.
+Baseline Risk: 0.41056
+Candidate Risk: 0.44681
+Delta Risk: 0.03625
+Why Governance Decision Was Correct:
+  - Preserved exact semantic matching and strict output formatting contracts under governance controls.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 3: PROMPT ID 103 (SAFE_ABSTAIN) ---
+Task Type: security_triage
+Decision: abstain_safe_fallback
+Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4534).
+Baseline Risk: 0.41900
+Candidate Risk: 0.45337
+Delta Risk: 0.03437
+Why Governance Decision Was Correct:
+  - Both configurations produced unresolved hallucinations, and PCRF correctly withheld output to safeguard user experience.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 4: PROMPT ID 104 (PROMOTED_REPAIR) ---
+Task Type: security_triage
+Decision: use_candidate
+Reason: Contract-clean candidate repair promoted.
+Baseline Risk: 0.41806
+Candidate Risk: 0.44400
+Delta Risk: 0.02594
+Why Governance Decision Was Correct:
+  - SFT candidate successfully repaired a baseline failure, and the router safely promoted this verified clean output.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 5: PROMPT ID 105 (SAFE_ABSTAIN) ---
+Task Type: security_triage
+Decision: abstain_safe_fallback
+Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4627).
+Baseline Risk: 0.42087
+Candidate Risk: 0.46275
+Delta Risk: 0.04187
+Why Governance Decision Was Correct:
+  - Both configurations produced unresolved hallucinations, and PCRF correctly withheld output to safeguard user experience.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 6: PROMPT ID 106 (SAFE_ABSTAIN) ---
+Task Type: security_triage
+Decision: abstain_safe_fallback
+Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4449).
+Baseline Risk: 0.41900
+Candidate Risk: 0.44494
+Delta Risk: 0.02594
+Why Governance Decision Was Correct:
+  - Both configurations produced unresolved hallucinations, and PCRF correctly withheld output to safeguard user experience.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 7: PROMPT ID 107 (SAFE_ABSTAIN) ---
+Task Type: security_triage
+Decision: abstain_safe_fallback
+Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4281).
+Baseline Risk: 0.40119
+Candidate Risk: 0.42806
+Delta Risk: 0.02687
+Why Governance Decision Was Correct:
+  - Both configurations produced unresolved hallucinations, and PCRF correctly withheld output to safeguard user experience.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 8: PROMPT ID 108 (PROTECTED_BASELINE_DECISION) ---
+Task Type: security_triage
+Decision: use_baseline
+Reason: Baseline served to preserve stricter output contract or lower risk.
+Baseline Risk: 0.39744
+Candidate Risk: 0.42712
+Delta Risk: 0.02969
+Why Governance Decision Was Correct:
+  - Preserved exact semantic matching and strict output formatting contracts under governance controls.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 9: PROMPT ID 109 (PROTECTED_BASELINE_DECISION) ---
+Task Type: security_triage
+Decision: use_baseline
+Reason: Baseline served to preserve stricter output contract or lower risk.
+Baseline Risk: 0.40025
+Candidate Risk: 0.42150
+Delta Risk: 0.02125
+Why Governance Decision Was Correct:
+  - Preserved exact semantic matching and strict output formatting contracts under governance controls.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 10: PROMPT ID 110 (SAFE_ABSTAIN) ---
+Task Type: security_triage
+Decision: abstain_safe_fallback
+Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4159).
+Baseline Risk: 0.37962
+Candidate Risk: 0.41587
+Delta Risk: 0.03625
+Why Governance Decision Was Correct:
+  - Both configurations produced unresolved hallucinations, and PCRF correctly withheld output to safeguard user experience.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 11: PROMPT ID 111 (PROTECTED_BASELINE_DECISION) ---
+Task Type: api_routing
+Decision: use_baseline
+Reason: Baseline served to preserve stricter output contract or lower risk.
+Baseline Risk: 0.13533
+Candidate Risk: 0.26798
+Delta Risk: 0.13265
+Why Governance Decision Was Correct:
+  - Preserved exact semantic matching and strict output formatting contracts under governance controls.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 12: PROMPT ID 112 (PROTECTED_BASELINE_DECISION) ---
+Task Type: api_routing
+Decision: use_baseline
+Reason: Baseline served to preserve stricter output contract or lower risk.
+Baseline Risk: 0.13498
+Candidate Risk: 0.30173
+Delta Risk: 0.16675
+Why Governance Decision Was Correct:
+  - Preserved exact semantic matching and strict output formatting contracts under governance controls.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 13: PROMPT ID 113 (PROTECTED_BASELINE_DECISION) ---
+Task Type: api_routing
+Decision: use_baseline
+Reason: Baseline served to preserve stricter output contract or lower risk.
+Baseline Risk: 0.13420
+Candidate Risk: 0.23470
+Delta Risk: 0.10050
+Why Governance Decision Was Correct:
+  - Preserved exact semantic matching and strict output formatting contracts under governance controls.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 14: PROMPT ID 114 (PROTECTED_BASELINE_DECISION) ---
+Task Type: api_routing
+Decision: use_baseline
+Reason: Baseline served to preserve stricter output contract or lower risk.
+Baseline Risk: 0.13526
+Candidate Risk: 0.26869
+Delta Risk: 0.13343
+Why Governance Decision Was Correct:
+  - Preserved exact semantic matching and strict output formatting contracts under governance controls.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 15: PROMPT ID 115 (SAFE_ABSTAIN) ---
+Task Type: api_routing
+Decision: abstain_safe_fallback
+Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5344).
+Baseline Risk: 0.38626
+Candidate Risk: 0.53439
+Delta Risk: 0.14813
+Why Governance Decision Was Correct:
+  - Both configurations produced unresolved hallucinations, and PCRF correctly withheld output to safeguard user experience.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 16: PROMPT ID 116 (PROTECTED_BASELINE_DECISION) ---
+Task Type: api_routing
+Decision: use_baseline
+Reason: Baseline served to preserve stricter output contract or lower risk.
+Baseline Risk: 0.13516
+Candidate Risk: 0.31462
+Delta Risk: 0.17947
+Why Governance Decision Was Correct:
+  - Preserved exact semantic matching and strict output formatting contracts under governance controls.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 17: PROMPT ID 117 (PROTECTED_BASELINE_DECISION) ---
+Task Type: api_routing
+Decision: use_baseline
+Reason: Baseline served to preserve stricter output contract or lower risk.
+Baseline Risk: 0.13614
+Candidate Risk: 0.26681
+Delta Risk: 0.13067
+Why Governance Decision Was Correct:
+  - Preserved exact semantic matching and strict output formatting contracts under governance controls.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 18: PROMPT ID 118 (PROTECTED_BASELINE_DECISION) ---
+Task Type: api_routing
+Decision: use_baseline
+Reason: Baseline served to preserve stricter output contract or lower risk.
+Baseline Risk: 0.13410
+Candidate Risk: 0.24127
+Delta Risk: 0.10716
+Why Governance Decision Was Correct:
+  - Preserved exact semantic matching and strict output formatting contracts under governance controls.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 19: PROMPT ID 119 (PROTECTED_BASELINE_DECISION) ---
+Task Type: api_routing
+Decision: use_baseline
+Reason: Baseline served to preserve stricter output contract or lower risk.
+Baseline Risk: 0.13456
+Candidate Risk: 0.28533
+Delta Risk: 0.15077
+Why Governance Decision Was Correct:
+  - Preserved exact semantic matching and strict output formatting contracts under governance controls.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 20: PROMPT ID 120 (PROTECTED_BASELINE_DECISION) ---
+Task Type: api_routing
+Decision: use_baseline
+Reason: Baseline served to preserve stricter output contract or lower risk.
+Baseline Risk: 0.13479
+Candidate Risk: 0.25814
+Delta Risk: 0.12335
+Why Governance Decision Was Correct:
+  - Preserved exact semantic matching and strict output formatting contracts under governance controls.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 21: PROMPT ID 121 (PROTECTED_BASELINE_DECISION) ---
+Task Type: iam_audit
+Decision: use_baseline
+Reason: Baseline served to preserve stricter output contract or lower risk.
+Baseline Risk: 0.17923
+Candidate Risk: 0.33150
+Delta Risk: 0.15227
+Why Governance Decision Was Correct:
+  - Preserved exact semantic matching and strict output formatting contracts under governance controls.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 22: PROMPT ID 122 (SAFE_ABSTAIN) ---
+Task Type: iam_audit
+Decision: abstain_safe_fallback
+Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3981).
+Baseline Risk: 0.42918
+Candidate Risk: 0.39806
+Delta Risk: -0.03111
+Why Governance Decision Was Correct:
+  - Both configurations produced unresolved hallucinations, and PCRF correctly withheld output to safeguard user experience.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 23: PROMPT ID 123 (CONTAINED_REGRESSION) ---
+Task Type: iam_audit
+Decision: use_baseline
+Reason: Candidate blocked because baseline captured the target and candidate failed.
+Baseline Risk: 0.19845
+Candidate Risk: 0.41869
+Delta Risk: 0.22023
+Why Governance Decision Was Correct:
+  - The SFT candidate regressed relative to baseline, but the Protected Router successfully intercepted and served baseline fallback.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 24: PROMPT ID 124 (CONTAINED_REGRESSION) ---
+Task Type: iam_audit
+Decision: use_baseline
+Reason: Candidate blocked because baseline captured the target and candidate failed.
+Baseline Risk: 0.20068
+Candidate Risk: 0.39056
+Delta Risk: 0.18988
+Why Governance Decision Was Correct:
+  - The SFT candidate regressed relative to baseline, but the Protected Router successfully intercepted and served baseline fallback.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 25: PROMPT ID 125 (SAFE_ABSTAIN) ---
+Task Type: iam_audit
+Decision: abstain_safe_fallback
+Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5909).
+Baseline Risk: 0.45771
+Candidate Risk: 0.59087
+Delta Risk: 0.13316
+Why Governance Decision Was Correct:
+  - Both configurations produced unresolved hallucinations, and PCRF correctly withheld output to safeguard user experience.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 26: PROMPT ID 126 (CONTAINED_REGRESSION) ---
+Task Type: iam_audit
+Decision: use_baseline
+Reason: Candidate blocked because baseline captured the target and candidate failed.
+Baseline Risk: 0.18802
+Candidate Risk: 0.36525
+Delta Risk: 0.17723
+Why Governance Decision Was Correct:
+  - The SFT candidate regressed relative to baseline, but the Protected Router successfully intercepted and served baseline fallback.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 27: PROMPT ID 127 (CONTAINED_REGRESSION) ---
+Task Type: iam_audit
+Decision: use_baseline
+Reason: Candidate blocked because baseline captured the target and candidate failed.
+Baseline Risk: 0.17636
+Candidate Risk: 0.41587
+Delta Risk: 0.23951
+Why Governance Decision Was Correct:
+  - The SFT candidate regressed relative to baseline, but the Protected Router successfully intercepted and served baseline fallback.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 28: PROMPT ID 128 (SAFE_ABSTAIN) ---
+Task Type: iam_audit
+Decision: abstain_safe_fallback
+Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3821).
+Baseline Risk: 0.46240
+Candidate Risk: 0.38212
+Delta Risk: -0.08027
+Why Governance Decision Was Correct:
+  - Both configurations produced unresolved hallucinations, and PCRF correctly withheld output to safeguard user experience.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 29: PROMPT ID 129 (CONTAINED_REGRESSION) ---
+Task Type: iam_audit
+Decision: use_baseline
+Reason: Candidate blocked because baseline captured the target and candidate failed.
+Baseline Risk: 0.16722
+Candidate Risk: 0.38587
+Delta Risk: 0.21865
+Why Governance Decision Was Correct:
+  - The SFT candidate regressed relative to baseline, but the Protected Router successfully intercepted and served baseline fallback.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 30: PROMPT ID 130 (PROTECTED_BASELINE_DECISION) ---
+Task Type: iam_audit
+Decision: use_baseline
+Reason: Baseline served to preserve stricter output contract or lower risk.
+Baseline Risk: 0.18334
+Candidate Risk: 0.32728
+Delta Risk: 0.14395
+Why Governance Decision Was Correct:
+  - Preserved exact semantic matching and strict output formatting contracts under governance controls.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 31: PROMPT ID 131 (PROTECTED_BASELINE_DECISION) ---
+Task Type: fintech_audit
+Decision: use_baseline
+Reason: Baseline served to preserve stricter output contract or lower risk.
+Baseline Risk: 0.13349
+Candidate Risk: 0.28087
+Delta Risk: 0.14739
+Why Governance Decision Was Correct:
+  - Preserved exact semantic matching and strict output formatting contracts under governance controls.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 32: PROMPT ID 132 (PROMOTED_REPAIR) ---
+Task Type: fintech_audit
+Decision: use_candidate
+Reason: Contract-clean candidate repair promoted.
+Baseline Risk: 0.38551
+Candidate Risk: 0.42009
+Delta Risk: 0.03458
+Why Governance Decision Was Correct:
+  - SFT candidate successfully repaired a baseline failure, and the router safely promoted this verified clean output.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 33: PROMPT ID 133 (PROTECTED_BASELINE_DECISION) ---
+Task Type: fintech_audit
+Decision: use_baseline
+Reason: Baseline served to preserve stricter output contract or lower risk.
+Baseline Risk: 0.13442
+Candidate Risk: 0.38306
+Delta Risk: 0.24864
+Why Governance Decision Was Correct:
+  - Preserved exact semantic matching and strict output formatting contracts under governance controls.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 34: PROMPT ID 134 (PROTECTED_BASELINE_DECISION) ---
+Task Type: fintech_audit
+Decision: use_baseline
+Reason: Baseline served to preserve stricter output contract or lower risk.
+Baseline Risk: 0.13501
+Candidate Risk: 0.35259
+Delta Risk: 0.21758
+Why Governance Decision Was Correct:
+  - Preserved exact semantic matching and strict output formatting contracts under governance controls.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 35: PROMPT ID 135 (PROTECTED_BASELINE_DECISION) ---
+Task Type: fintech_audit
+Decision: use_baseline
+Reason: Baseline served to preserve stricter output contract or lower risk.
+Baseline Risk: 0.13579
+Candidate Risk: 0.32962
+Delta Risk: 0.19384
+Why Governance Decision Was Correct:
+  - Preserved exact semantic matching and strict output formatting contracts under governance controls.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 36: PROMPT ID 136 (PROTECTED_BASELINE_DECISION) ---
+Task Type: fintech_audit
+Decision: use_baseline
+Reason: Baseline served to preserve stricter output contract or lower risk.
+Baseline Risk: 0.13574
+Candidate Risk: 0.36759
+Delta Risk: 0.23185
+Why Governance Decision Was Correct:
+  - Preserved exact semantic matching and strict output formatting contracts under governance controls.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 37: PROMPT ID 137 (PROTECTED_BASELINE_DECISION) ---
+Task Type: fintech_audit
+Decision: use_baseline
+Reason: Baseline served to preserve stricter output contract or lower risk.
+Baseline Risk: 0.13349
+Candidate Risk: 0.33806
+Delta Risk: 0.20458
+Why Governance Decision Was Correct:
+  - Preserved exact semantic matching and strict output formatting contracts under governance controls.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 38: PROMPT ID 138 (PROTECTED_BASELINE_DECISION) ---
+Task Type: fintech_audit
+Decision: use_baseline
+Reason: Baseline served to preserve stricter output contract or lower risk.
+Baseline Risk: 0.13675
+Candidate Risk: 0.39244
+Delta Risk: 0.25568
+Why Governance Decision Was Correct:
+  - Preserved exact semantic matching and strict output formatting contracts under governance controls.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 39: PROMPT ID 139 (SAFE_ABSTAIN) ---
+Task Type: fintech_audit
+Decision: abstain_safe_fallback
+Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3999).
+Baseline Risk: 0.38576
+Candidate Risk: 0.39994
+Delta Risk: 0.01418
+Why Governance Decision Was Correct:
+  - Both configurations produced unresolved hallucinations, and PCRF correctly withheld output to safeguard user experience.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 40: PROMPT ID 140 (PROTECTED_BASELINE_DECISION) ---
+Task Type: fintech_audit
+Decision: use_baseline
+Reason: Baseline served to preserve stricter output contract or lower risk.
+Baseline Risk: 0.13552
+Candidate Risk: 0.29587
+Delta Risk: 0.16035
+Why Governance Decision Was Correct:
+  - Preserved exact semantic matching and strict output formatting contracts under governance controls.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 41: PROMPT ID 141 (PROTECTED_BASELINE_DECISION) ---
+Task Type: ecommerce_routing
+Decision: use_baseline
+Reason: Baseline served to preserve stricter output contract or lower risk.
+Baseline Risk: 0.15585
+Candidate Risk: 0.23529
+Delta Risk: 0.07943
+Why Governance Decision Was Correct:
+  - Preserved exact semantic matching and strict output formatting contracts under governance controls.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 42: PROMPT ID 142 (PROTECTED_BASELINE_DECISION) ---
+Task Type: ecommerce_routing
+Decision: use_baseline
+Reason: Baseline served to preserve stricter output contract or lower risk.
+Baseline Risk: 0.16054
+Candidate Risk: 0.27173
+Delta Risk: 0.11119
+Why Governance Decision Was Correct:
+  - Preserved exact semantic matching and strict output formatting contracts under governance controls.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 43: PROMPT ID 143 (SAFE_ABSTAIN) ---
+Task Type: ecommerce_routing
+Decision: abstain_safe_fallback
+Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5093).
+Baseline Risk: 0.40222
+Candidate Risk: 0.50931
+Delta Risk: 0.10709
+Why Governance Decision Was Correct:
+  - Both configurations produced unresolved hallucinations, and PCRF correctly withheld output to safeguard user experience.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 44: PROMPT ID 144 (PROTECTED_BASELINE_DECISION) ---
+Task Type: ecommerce_routing
+Decision: use_baseline
+Reason: Baseline served to preserve stricter output contract or lower risk.
+Baseline Risk: 0.14859
+Candidate Risk: 0.25744
+Delta Risk: 0.10885
+Why Governance Decision Was Correct:
+  - Preserved exact semantic matching and strict output formatting contracts under governance controls.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 45: PROMPT ID 145 (SAFE_ABSTAIN) ---
+Task Type: ecommerce_routing
+Decision: abstain_safe_fallback
+Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5342).
+Baseline Risk: 0.39636
+Candidate Risk: 0.53416
+Delta Risk: 0.13779
+Why Governance Decision Was Correct:
+  - Both configurations produced unresolved hallucinations, and PCRF correctly withheld output to safeguard user experience.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 46: PROMPT ID 146 (PROTECTED_BASELINE_DECISION) ---
+Task Type: ecommerce_routing
+Decision: use_baseline
+Reason: Baseline served to preserve stricter output contract or lower risk.
+Baseline Risk: 0.17156
+Candidate Risk: 0.24630
+Delta Risk: 0.07475
+Why Governance Decision Was Correct:
+  - Preserved exact semantic matching and strict output formatting contracts under governance controls.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 47: PROMPT ID 147 (PROTECTED_BASELINE_DECISION) ---
+Task Type: ecommerce_routing
+Decision: use_baseline
+Reason: Baseline served to preserve stricter output contract or lower risk.
+Baseline Risk: 0.15685
+Candidate Risk: 0.30291
+Delta Risk: 0.14605
+Why Governance Decision Was Correct:
+  - Preserved exact semantic matching and strict output formatting contracts under governance controls.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 48: PROMPT ID 148 (SAFE_ABSTAIN) ---
+Task Type: ecommerce_routing
+Decision: abstain_safe_fallback
+Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5051).
+Baseline Risk: 0.40498
+Candidate Risk: 0.50509
+Delta Risk: 0.10012
+Why Governance Decision Was Correct:
+  - Both configurations produced unresolved hallucinations, and PCRF correctly withheld output to safeguard user experience.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 49: PROMPT ID 149 (PROTECTED_BASELINE_DECISION) ---
+Task Type: ecommerce_routing
+Decision: use_baseline
+Reason: Baseline served to preserve stricter output contract or lower risk.
+Baseline Risk: 0.16423
+Candidate Risk: 0.28509
+Delta Risk: 0.12086
+Why Governance Decision Was Correct:
+  - Preserved exact semantic matching and strict output formatting contracts under governance controls.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 50: PROMPT ID 150 (PROTECTED_BASELINE_DECISION) ---
+Task Type: ecommerce_routing
+Decision: use_baseline
+Reason: Baseline served to preserve stricter output contract or lower risk.
+Baseline Risk: 0.13752
+Candidate Risk: 0.23599
+Delta Risk: 0.09848
+Why Governance Decision Was Correct:
+  - Preserved exact semantic matching and strict output formatting contracts under governance controls.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 51: PROMPT ID 151 (SAFE_ABSTAIN) ---
+Task Type: clinical_nlp
+Decision: abstain_safe_fallback
+Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5550).
+Baseline Risk: 0.41763
+Candidate Risk: 0.55502
+Delta Risk: 0.13738
+Why Governance Decision Was Correct:
+  - Both configurations produced unresolved hallucinations, and PCRF correctly withheld output to safeguard user experience.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 52: PROMPT ID 152 (SAFE_ABSTAIN) ---
+Task Type: clinical_nlp
+Decision: abstain_safe_fallback
+Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5367).
+Baseline Risk: 0.41734
+Candidate Risk: 0.53673
+Delta Risk: 0.11939
+Why Governance Decision Was Correct:
+  - Both configurations produced unresolved hallucinations, and PCRF correctly withheld output to safeguard user experience.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 53: PROMPT ID 153 (PROTECTED_BASELINE_DECISION) ---
+Task Type: clinical_nlp
+Decision: use_baseline
+Reason: Baseline served to preserve stricter output contract or lower risk.
+Baseline Risk: 0.16772
+Candidate Risk: 0.29470
+Delta Risk: 0.12698
+Why Governance Decision Was Correct:
+  - Preserved exact semantic matching and strict output formatting contracts under governance controls.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 54: PROMPT ID 154 (SAFE_ABSTAIN) ---
+Task Type: clinical_nlp
+Decision: abstain_safe_fallback
+Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5447).
+Baseline Risk: 0.42592
+Candidate Risk: 0.54470
+Delta Risk: 0.11878
+Why Governance Decision Was Correct:
+  - Both configurations produced unresolved hallucinations, and PCRF correctly withheld output to safeguard user experience.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 55: PROMPT ID 155 (SAFE_ABSTAIN) ---
+Task Type: clinical_nlp
+Decision: abstain_safe_fallback
+Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5412).
+Baseline Risk: 0.41754
+Candidate Risk: 0.54119
+Delta Risk: 0.12364
+Why Governance Decision Was Correct:
+  - Both configurations produced unresolved hallucinations, and PCRF correctly withheld output to safeguard user experience.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 56: PROMPT ID 156 (PROTECTED_BASELINE_DECISION) ---
+Task Type: clinical_nlp
+Decision: use_baseline
+Reason: Baseline served to preserve stricter output contract or lower risk.
+Baseline Risk: 0.16766
+Candidate Risk: 0.29423
+Delta Risk: 0.12657
+Why Governance Decision Was Correct:
+  - Preserved exact semantic matching and strict output formatting contracts under governance controls.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 57: PROMPT ID 157 (SAFE_ABSTAIN) ---
+Task Type: clinical_nlp
+Decision: abstain_safe_fallback
+Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5527).
+Baseline Risk: 0.42209
+Candidate Risk: 0.55267
+Delta Risk: 0.13059
+Why Governance Decision Was Correct:
+  - Both configurations produced unresolved hallucinations, and PCRF correctly withheld output to safeguard user experience.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 58: PROMPT ID 158 (SAFE_ABSTAIN) ---
+Task Type: clinical_nlp
+Decision: abstain_safe_fallback
+Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5410).
+Baseline Risk: 0.41725
+Candidate Risk: 0.54095
+Delta Risk: 0.12370
+Why Governance Decision Was Correct:
+  - Both configurations produced unresolved hallucinations, and PCRF correctly withheld output to safeguard user experience.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 59: PROMPT ID 159 (PROTECTED_BASELINE_DECISION) ---
+Task Type: clinical_nlp
+Decision: use_baseline
+Reason: Baseline served to preserve stricter output contract or lower risk.
+Baseline Risk: 0.17206
+Candidate Risk: 0.30127
+Delta Risk: 0.12921
+Why Governance Decision Was Correct:
+  - Preserved exact semantic matching and strict output formatting contracts under governance controls.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 60: PROMPT ID 160 (SAFE_ABSTAIN) ---
+Task Type: clinical_nlp
+Decision: abstain_safe_fallback
+Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5433).
+Baseline Risk: 0.41801
+Candidate Risk: 0.54330
+Delta Risk: 0.12528
+Why Governance Decision Was Correct:
+  - Both configurations produced unresolved hallucinations, and PCRF correctly withheld output to safeguard user experience.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 61: PROMPT ID 161 (SAFE_ABSTAIN) ---
+Task Type: security_audit
+Decision: abstain_safe_fallback
+Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5698).
+Baseline Risk: 0.46738
+Candidate Risk: 0.56978
+Delta Risk: 0.10240
+Why Governance Decision Was Correct:
+  - Both configurations produced unresolved hallucinations, and PCRF correctly withheld output to safeguard user experience.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 62: PROMPT ID 162 (PROTECTED_BASELINE_DECISION) ---
+Task Type: security_audit
+Decision: use_baseline
+Reason: Baseline served to preserve stricter output contract or lower risk.
+Baseline Risk: 0.22705
+Candidate Risk: 0.31908
+Delta Risk: 0.09203
+Why Governance Decision Was Correct:
+  - Preserved exact semantic matching and strict output formatting contracts under governance controls.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 63: PROMPT ID 163 (PROTECTED_BASELINE_DECISION) ---
+Task Type: security_audit
+Decision: use_baseline
+Reason: Baseline served to preserve stricter output contract or lower risk.
+Baseline Risk: 0.24193
+Candidate Risk: 0.35189
+Delta Risk: 0.10996
+Why Governance Decision Was Correct:
+  - Preserved exact semantic matching and strict output formatting contracts under governance controls.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 64: PROMPT ID 164 (SAFE_ABSTAIN) ---
+Task Type: security_audit
+Decision: abstain_safe_fallback
+Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5660).
+Baseline Risk: 0.48044
+Candidate Risk: 0.56603
+Delta Risk: 0.08559
+Why Governance Decision Was Correct:
+  - Both configurations produced unresolved hallucinations, and PCRF correctly withheld output to safeguard user experience.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 65: PROMPT ID 165 (PROTECTED_BASELINE_DECISION) ---
+Task Type: security_audit
+Decision: use_baseline
+Reason: Baseline served to preserve stricter output contract or lower risk.
+Baseline Risk: 0.24650
+Candidate Risk: 0.34955
+Delta Risk: 0.10305
+Why Governance Decision Was Correct:
+  - Preserved exact semantic matching and strict output formatting contracts under governance controls.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 66: PROMPT ID 166 (PROTECTED_BASELINE_DECISION) ---
+Task Type: security_audit
+Decision: use_baseline
+Reason: Baseline served to preserve stricter output contract or lower risk.
+Baseline Risk: 0.24158
+Candidate Risk: 0.34392
+Delta Risk: 0.10234
+Why Governance Decision Was Correct:
+  - Preserved exact semantic matching and strict output formatting contracts under governance controls.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 67: PROMPT ID 167 (CONTAINED_REGRESSION) ---
+Task Type: security_audit
+Decision: use_baseline
+Reason: Candidate blocked because baseline captured the target and candidate failed.
+Baseline Risk: 0.22693
+Candidate Risk: 0.57025
+Delta Risk: 0.34332
+Why Governance Decision Was Correct:
+  - The SFT candidate regressed relative to baseline, but the Protected Router successfully intercepted and served baseline fallback.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 68: PROMPT ID 168 (CONTAINED_REGRESSION) ---
+Task Type: security_audit
+Decision: use_baseline
+Reason: Candidate blocked because baseline captured the target and candidate failed.
+Baseline Risk: 0.22623
+Candidate Risk: 0.56345
+Delta Risk: 0.33723
+Why Governance Decision Was Correct:
+  - The SFT candidate regressed relative to baseline, but the Protected Router successfully intercepted and served baseline fallback.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 69: PROMPT ID 169 (PROTECTED_BASELINE_DECISION) ---
+Task Type: security_audit
+Decision: use_baseline
+Reason: Baseline served to preserve stricter output contract or lower risk.
+Baseline Risk: 0.23103
+Candidate Risk: 0.33994
+Delta Risk: 0.10891
+Why Governance Decision Was Correct:
+  - Preserved exact semantic matching and strict output formatting contracts under governance controls.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 70: PROMPT ID 170 (CONTAINED_REGRESSION) ---
+Task Type: security_audit
+Decision: use_baseline
+Reason: Candidate blocked because baseline captured the target and candidate failed.
+Baseline Risk: 0.22564
+Candidate Risk: 0.57048
+Delta Risk: 0.34484
+Why Governance Decision Was Correct:
+  - The SFT candidate regressed relative to baseline, but the Protected Router successfully intercepted and served baseline fallback.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 71: PROMPT ID 171 (PROTECTED_BASELINE_DECISION) ---
+Task Type: fintech_audit
+Decision: use_baseline
+Reason: Baseline served to preserve stricter output contract or lower risk.
+Baseline Risk: 0.13445
+Candidate Risk: 0.29259
+Delta Risk: 0.15814
+Why Governance Decision Was Correct:
+  - Preserved exact semantic matching and strict output formatting contracts under governance controls.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 72: PROMPT ID 172 (PROTECTED_BASELINE_DECISION) ---
+Task Type: fintech_audit
+Decision: use_baseline
+Reason: Baseline served to preserve stricter output contract or lower risk.
+Baseline Risk: 0.13441
+Candidate Risk: 0.30150
+Delta Risk: 0.16709
+Why Governance Decision Was Correct:
+  - Preserved exact semantic matching and strict output formatting contracts under governance controls.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 73: PROMPT ID 173 (PROTECTED_BASELINE_DECISION) ---
+Task Type: fintech_audit
+Decision: use_baseline
+Reason: Baseline served to preserve stricter output contract or lower risk.
+Baseline Risk: 0.13743
+Candidate Risk: 0.32728
+Delta Risk: 0.18985
+Why Governance Decision Was Correct:
+  - Preserved exact semantic matching and strict output formatting contracts under governance controls.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 74: PROMPT ID 174 (SAFE_ABSTAIN) ---
+Task Type: fintech_audit
+Decision: abstain_safe_fallback
+Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5749).
+Baseline Risk: 0.42214
+Candidate Risk: 0.57494
+Delta Risk: 0.15279
+Why Governance Decision Was Correct:
+  - Both configurations produced unresolved hallucinations, and PCRF correctly withheld output to safeguard user experience.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 75: PROMPT ID 175 (PROTECTED_BASELINE_DECISION) ---
+Task Type: fintech_audit
+Decision: use_baseline
+Reason: Baseline served to preserve stricter output contract or lower risk.
+Baseline Risk: 0.15357
+Candidate Risk: 0.28158
+Delta Risk: 0.12801
+Why Governance Decision Was Correct:
+  - Preserved exact semantic matching and strict output formatting contracts under governance controls.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 76: PROMPT ID 176 (PROTECTED_BASELINE_DECISION) ---
+Task Type: fintech_audit
+Decision: use_baseline
+Reason: Baseline served to preserve stricter output contract or lower risk.
+Baseline Risk: 0.13483
+Candidate Risk: 0.33478
+Delta Risk: 0.19995
+Why Governance Decision Was Correct:
+  - Preserved exact semantic matching and strict output formatting contracts under governance controls.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 77: PROMPT ID 177 (PROTECTED_BASELINE_DECISION) ---
+Task Type: fintech_audit
+Decision: use_baseline
+Reason: Baseline served to preserve stricter output contract or lower risk.
+Baseline Risk: 0.13426
+Candidate Risk: 0.25931
+Delta Risk: 0.12505
+Why Governance Decision Was Correct:
+  - Preserved exact semantic matching and strict output formatting contracts under governance controls.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 78: PROMPT ID 178 (PROTECTED_BASELINE_DECISION) ---
+Task Type: fintech_audit
+Decision: use_baseline
+Reason: Baseline served to preserve stricter output contract or lower risk.
+Baseline Risk: 0.13428
+Candidate Risk: 0.30291
+Delta Risk: 0.16863
+Why Governance Decision Was Correct:
+  - Preserved exact semantic matching and strict output formatting contracts under governance controls.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 79: PROMPT ID 179 (PROTECTED_BASELINE_DECISION) ---
+Task Type: fintech_audit
+Decision: use_baseline
+Reason: Baseline served to preserve stricter output contract or lower risk.
+Baseline Risk: 0.14115
+Candidate Risk: 0.33197
+Delta Risk: 0.19082
+Why Governance Decision Was Correct:
+  - Preserved exact semantic matching and strict output formatting contracts under governance controls.
+--------------------------------------------------------------------------------
+
+--- SUCCESS ENTRY 80: PROMPT ID 180 (CONTAINED_REGRESSION) ---
+Task Type: fintech_audit
+Decision: use_baseline
+Reason: Candidate blocked because baseline captured the target and candidate failed.
+Baseline Risk: 0.13728
+Candidate Risk: 0.53509
+Delta Risk: 0.39781
+Why Governance Decision Was Correct:
+  - The SFT candidate regressed relative to baseline, but the Protected Router successfully intercepted and served baseline fallback.
+--------------------------------------------------------------------------------
+

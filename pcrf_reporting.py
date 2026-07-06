@@ -213,7 +213,7 @@ def make_core_gating_status(summary: ExperimentComputedSummary, router_gov_text:
     unsafe_str = ", ".join(summary.unsafe_components) if summary.unsafe_components else "None"
     meas_str = ", ".join(summary.measurement_only_components) if summary.measurement_only_components else "None"
 
-    return f"""## 1. Core Gating Status
+    return f"""## Core Gating Status
 
 * **Direct Candidate Weight Promotion Status:** `{(summary.final_direct_promotion_decision)}`
 * **Safe Diagnostic Components:** {safe_str}

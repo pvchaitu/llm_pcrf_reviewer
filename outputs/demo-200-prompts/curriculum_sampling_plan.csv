@@ -1,0 +1,101 @@
+sample_id,prompt,target,curriculum_score,pcrf_weight,criticality_weight,combined_weight,sampling_bucket
+45,Extract the user role (admin/editor/viewer) from this permission string: 'Authorized to save draft adjustments but lacks user admin panel rights' as JSON: { 'role':,editor,0.016301,0.087196,1.0,0.001421,HIGH_PRIORITY
+44,Extract the user role (admin/editor/viewer) from this permission string: 'Has root level execution privileges and can delete files globally' as JSON: { 'role':,admin,0.016161,0.087196,2.0,0.002818,HIGH_PRIORITY
+42,Extract the user role (admin/editor/viewer) from this permission string: 'Can modify files and edit existing document drafts' as JSON: { 'role':,editor,0.016139,0.087196,1.0,0.001407,HIGH_PRIORITY
+50,Extract the user role (admin/editor/viewer) from this permission string: 'Authorized to adjust user access directories and assign privileges' as JSON: { 'role':,admin,0.016113,0.087196,1.5,0.002108,HIGH_PRIORITY
+53,Extract the user role (admin/editor/viewer) from this permission string: 'Has complete system owner role across all domain cabinets' as JSON: { 'role':,admin,0.016046,0.087196,1.5,0.002099,HIGH_PRIORITY
+51,Extract the user role (admin/editor/viewer) from this permission string: 'Allowed to edit configuration templates and update baseline files' as JSON: { 'role':,editor,0.015881,0.087196,1.0,0.001385,HIGH_PRIORITY
+59,Extract the user role (admin/editor/viewer) from this permission string: 'Has absolute root credentials on target cloud containers' as JSON: { 'role':,admin,0.015850,0.087196,1.5,0.002073,HIGH_PRIORITY
+47,Extract the user role (admin/editor/viewer) from this permission string: 'Can create billing credentials and modify system configurations' as JSON: { 'role':,admin,0.015794,0.087196,1.5,0.002066,HIGH_PRIORITY
+41,"Extract the user role (admin/editor/viewer) from this permission string: 'Can assign groups, modify profiles, and manage system administrators' as JSON: { 'role':",admin,0.015686,0.087196,1.5,0.002052,HIGH_PRIORITY
+48,Extract the user role (admin/editor/viewer) from this permission string: 'Can submit content reviews and update documentation files' as JSON: { 'role':,editor,0.015628,0.087196,1.0,0.001363,HIGH_PRIORITY
+57,Extract the user role (admin/editor/viewer) from this permission string: 'Allowed to adjust metadata keywords on uploaded videos' as JSON: { 'role':,editor,0.015589,0.087196,1.0,0.001359,HIGH_PRIORITY
+60,Extract the user role (admin/editor/viewer) from this permission string: 'Can write updates to wiki documentation articles' as JSON: { 'role':,editor,0.015441,0.087196,1.0,0.001346,HIGH_PRIORITY
+56,Extract the user role (admin/editor/viewer) from this permission string: 'Can establish database clusters and adjust primary host configs' as JSON: { 'role':,admin,0.015401,0.087196,1.5,0.002014,HIGH_PRIORITY
+54,Extract the user role (admin/editor/viewer) from this permission string: 'Can write new blog articles and modify published copy' as JSON: { 'role':,editor,0.015314,0.087196,1.0,0.001335,HIGH_PRIORITY
+43,Extract the user role (admin/editor/viewer) from this permission string: 'Can read audit logs and browse directory indices but cannot write changes' as JSON: { 'role':,viewer,0.015269,0.087196,1.0,0.001331,HIGH_PRIORITY
+94,To accept the negative consequences of your previous incorrect actions is to face the,music,0.015246,0.087196,1.0,0.001329,HIGH_PRIORITY
+61,Extract the transaction status (approved/declined) from this gateway log: 'Stripe gateway logs: payment processed successfully for client 1012' as JSON: { 'status':,approved,0.015005,0.087196,1.0,0.001308,HIGH_PRIORITY
+58,Extract the user role (admin/editor/viewer) from this permission string: 'Can download static file attachment assets' as JSON: { 'role':,viewer,0.014934,0.087196,1.0,0.001302,HIGH_PRIORITY
+46,Extract the user role (admin/editor/viewer) from this permission string: 'Can browse metric dashboard views but lacks edit rights' as JSON: { 'role':,viewer,0.014850,0.087196,1.0,0.001295,HIGH_PRIORITY
+52,Extract the user role (admin/editor/viewer) from this permission string: 'Can view transaction history records but cannot trigger refunds' as JSON: { 'role':,viewer,0.014797,0.087196,1.0,0.001290,HIGH_PRIORITY
+55,Extract the user role (admin/editor/viewer) from this permission string: 'Can inspect user profile details but cannot alter names' as JSON: { 'role':,viewer,0.014791,0.087196,1.0,0.001290,HIGH_PRIORITY
+49,Extract the user role (admin/editor/viewer) from this permission string: 'Can observe network throughput metrics but cannot change port bindings' as JSON: { 'role':,viewer,0.014557,0.087196,1.0,0.001269,HIGH_PRIORITY
+77,"Extract the transaction status (approved/declined) from this gateway log: 'Adyen gateway logs: funds captured, invoice archived' as JSON: { 'status':",approved,0.013996,0.087196,1.0,0.001220,HIGH_PRIORITY
+68,"Extract the transaction status (approved/declined) from this gateway log: 'PayPal gateway logs: payment authorized, pending capture' as JSON: { 'status':",approved,0.013809,0.087196,1.0,0.001204,HIGH_PRIORITY
+79,Extract the transaction status (approved/declined) from this gateway log: 'Braintree gateway logs: merchant manual override applied' as JSON: { 'status':,approved,0.013729,0.087196,1.0,0.001197,HIGH_PRIORITY
+73,Extract the transaction status (approved/declined) from this gateway log: 'PayPal gateway logs: payment completed successfully' as JSON: { 'status':,approved,0.013690,0.087196,1.0,0.001194,MID_PRIORITY
+64,"Extract the transaction status (approved/declined) from this gateway log: 'Braintree gateway logs: auth success, funds capture complete' as JSON: { 'status':",approved,0.013668,0.087196,1.5,0.001788,MID_PRIORITY
+75,"Extract the transaction status (approved/declined) from this gateway log: 'Authorize.Net gateway logs: token validated, clearance complete' as JSON: { 'status':",approved,0.013528,0.087196,1.5,0.001769,MID_PRIORITY
+66,"Extract the transaction status (approved/declined) from this gateway log: 'Stripe gateway logs: verification code checked, order complete' as JSON: { 'status':",approved,0.013365,0.087196,1.0,0.001165,MID_PRIORITY
+70,Extract the transaction status (approved/declined) from this gateway log: 'Authorize.Net gateway logs: digital wallet authenticated' as JSON: { 'status':,approved,0.013115,0.087196,1.0,0.001144,MID_PRIORITY
+36,Extract the API action (get/post/delete) from this routing rule: 'Purge deprecated session metadata blocks' as JSON: { 'action':,delete,0.012277,0.087196,1.5,0.001606,MID_PRIORITY
+26,Extract the API action (get/post/delete) from this routing rule: 'Erase configuration baseline revision logs' as JSON: { 'action':,delete,0.012134,0.087196,1.5,0.001587,MID_PRIORITY
+39,Extract the API action (get/post/delete) from this routing rule: 'Erase staging database cluster indexes' as JSON: { 'action':,delete,0.012061,0.087196,1.0,0.001052,MID_PRIORITY
+29,Extract the API action (get/post/delete) from this routing rule: 'Erase temporary local billing directory' as JSON: { 'action':,delete,0.011876,0.087196,1.0,0.001036,MID_PRIORITY
+99,"To initiate a highly difficult, tense, or awkward discussion with colleagues is to break the",ice,0.011006,0.087196,1.0,0.000960,MID_PRIORITY
+22,Extract the API action (get/post/delete) from this routing rule: 'Delete inactive user session records from Redis cache' as JSON: { 'action':,delete,0.010870,0.087196,1.5,0.001422,MID_PRIORITY
+32,Extract the API action (get/post/delete) from this routing rule: 'Delete orphaned docker volumes from host server' as JSON: { 'action':,delete,0.010825,0.087196,1.5,0.001416,MID_PRIORITY
+28,Extract the API action (get/post/delete) from this routing rule: 'Provision a new security credential record' as JSON: { 'action':,post,0.010497,0.087196,1.0,0.000915,MID_PRIORITY
+25,Extract the API action (get/post/delete) from this routing rule: 'Register new mobile gateway configuration' as JSON: { 'action':,post,0.010313,0.087196,1.0,0.000899,MID_PRIORITY
+23,Extract the API action (get/post/delete) from this routing rule: 'Create a new client verification token' as JSON: { 'action':,post,0.010310,0.087196,1.0,0.000899,MID_PRIORITY
+87,"An entirely random, highly surprising, and completely unexpected event is out of the",blue,0.010183,0.087196,1.0,0.000888,MID_PRIORITY
+35,Extract the API action (get/post/delete) from this routing rule: 'Push latest system baseline profile configuration' as JSON: { 'action':,post,0.010172,0.087196,1.0,0.000887,MID_PRIORITY
+33,Extract the API action (get/post/delete) from this routing rule: 'Submit client access registration block' as JSON: { 'action':,post,0.010126,0.087196,1.0,0.000883,MID_PRIORITY
+38,Extract the API action (get/post/delete) from this routing rule: 'Publish new API gateway endpoint route' as JSON: { 'action':,post,0.010032,0.087196,1.0,0.000875,MID_PRIORITY
+85,"Feeling entirely awkward, uncomfortable, and physically out of place is like a fish out of",water,0.009560,0.087196,1.0,0.000834,MID_PRIORITY
+96,To completely cease working on a development pipeline for the evening is to call it a,day,0.009551,0.087196,1.0,0.000833,MID_PRIORITY
+92,Executing an operational workflow that is incredibly straightforward is a piece of,cake,0.008999,0.087196,1.0,0.000785,MID_PRIORITY
+83,To accidentally reveal highly confidential organization blueprints is to let the cat out of the,bag,0.008819,0.087196,1.0,0.000769,MID_PRIORITY
+34,Extract the API action (get/post/delete) from this routing rule: 'Load active transaction audit logs' as JSON: { 'action':,get,0.008775,0.087196,1.0,0.000765,MID_PRIORITY
+31,Extract the API action (get/post/delete) from this routing rule: 'Retrieve active cluster heartbeat telemetry' as JSON: { 'action':,get,0.008679,0.087196,1.0,0.000757,MID_PRIORITY
+21,Extract the API action (get/post/delete) from this routing rule: 'Fetch client profile metadata from PostgreSQL' as JSON: { 'action':,get,0.008635,0.087196,1.0,0.000753,MID_PRIORITY
+30,Extract the API action (get/post/delete) from this routing rule: 'Fetch compliance standard checklist' as JSON: { 'action':,get,0.008447,0.087196,1.0,0.000737,MID_PRIORITY
+81,To accomplish multiple milestones at the exact same moment is to kill two birds with one,stone,0.008396,0.087196,1.0,0.000732,MID_PRIORITY
+95,"Feeling mildly sick, fatigued, or physically under the weather is to be under the",weather,0.008366,0.087196,1.0,0.000729,MID_PRIORITY
+40,Extract the API action (get/post/delete) from this routing rule: 'Load balance incoming connection metrics list' as JSON: { 'action':,get,0.008358,0.087196,1.0,0.000729,MID_PRIORITY
+27,Extract the API action (get/post/delete) from this routing rule: 'List active container workspace segments' as JSON: { 'action':,get,0.008263,0.087196,1.0,0.000720,MID_PRIORITY
+24,Extract the API action (get/post/delete) from this routing rule: 'Retrieve transaction ledger history array' as JSON: { 'action':,get,0.008170,0.087196,1.0,0.000712,MID_PRIORITY
+100,"Adding angry, volatile statements to an ongoing administrative dispute is adding fuel to the",fire,0.008144,0.087196,1.0,0.000710,MID_PRIORITY
+82,"To avoid placing all your financial capital in a single volatile asset, don't put all your eggs in one",basket,0.008143,0.087196,1.0,0.000710,MID_PRIORITY
+37,Extract the API action (get/post/delete) from this routing rule: 'Request latest network interface statuses' as JSON: { 'action':,get,0.008124,0.087196,1.0,0.000708,MID_PRIORITY
+5,"JSON payload: { 'event': 'IAMPolicyModified', 'policy': 'AdministratorAccess', 'mfa_verified': false }. Risk triage (low/medium/high):",high,0.007981,0.087196,1.5,0.001044,MID_PRIORITY
+15,"JSON payload: { 'event': 'IAMPolicyModified', 'policy': 'BillingAccess', 'mfa_verified': false }. Risk triage (low/medium/high):",medium,0.007903,0.087196,1.0,0.000689,MID_PRIORITY
+86,"An unpredictable, incredibly dynamic, and highly energetic person is described as a live",wire,0.007773,0.087196,1.0,0.000678,MID_PRIORITY
+91,To accidentally expose a highly guarded organizational secret is to spill the,beans,0.007653,0.087196,1.0,0.000667,MID_PRIORITY
+17,"JSON payload: { 'event': 'PortScanDetected', 'source_ip': '185.190.140.22', 'ports_scanned': 5000 }. Risk triage (low/medium/high):",high,0.007483,0.087196,1.5,0.000979,MID_PRIORITY
+62,Extract the transaction status (approved/declined) from this gateway log: 'Adyen gateway logs: transaction rejected due to insufficient credit' as JSON: { 'status':,declined,0.007460,0.087196,1.0,0.000651,MID_PRIORITY
+69,Extract the transaction status (approved/declined) from this gateway log: 'Braintree gateway logs: account billing block verified' as JSON: { 'status':,declined,0.007449,0.087196,1.0,0.000650,MID_PRIORITY
+93,Resolving an architectural software bottleneck with absolute precision is hitting the nail on the,head,0.007399,0.087196,1.0,0.000645,MID_PRIORITY
+84,"Being in a state of supreme, ecstatic joy or extreme mental happiness is to be on cloud",nine,0.007397,0.087196,1.0,0.000645,MID_PRIORITY
+74,Extract the transaction status (approved/declined) from this gateway log: 'Braintree gateway logs: account flagged for prior chargeback' as JSON: { 'status':,declined,0.007386,0.087196,1.5,0.000966,MID_PRIORITY
+13,"JSON payload: { 'event': 'S3BucketCreated', 'owner': 'marketing_external', 'public_access': true }. Risk triage (low/medium/high):",high,0.007301,0.087196,1.5,0.000955,MID_PRIORITY
+3,"JSON payload: { 'event': 'S3BucketCreated', 'owner': 'dev_user_99', 'public_access': true }. Risk triage (low/medium/high):",high,0.007296,0.087196,1.5,0.000954,MID_PRIORITY
+7,"JSON payload: { 'event': 'PortScanDetected', 'source_ip': '45.33.102.55', 'ports_scanned': 2500 }. Risk triage (low/medium/high):",high,0.007291,0.087196,1.5,0.000954,MID_PRIORITY
+90,Wishing a theater actor excellent performance fortune right before a show is telling them to break a,leg,0.007278,0.087196,1.0,0.000635,MID_PRIORITY
+1,"JSON payload: { 'event': 'FailedLogin', 'username': 'root', 'ip': '198.51.100.4', 'attempts': 15 }. Risk triage (low/medium/high):",high,0.007130,0.087196,1.5,0.000933,MID_PRIORITY
+19,"JSON payload: { 'event': 'SSHKeyAdded', 'user': 'temporary_contractor', 'key_strength': 2048 }. Risk triage (low/medium/high):",medium,0.007113,0.087196,1.0,0.000620,LOW_PRIORITY
+78,Extract the transaction status (approved/declined) from this gateway log: 'PayPal gateway logs: suspicious billing ip location flagged' as JSON: { 'status':,declined,0.007105,0.087196,1.5,0.000929,LOW_PRIORITY
+11,"JSON payload: { 'event': 'FailedLogin', 'username': 'admin_crm', 'ip': '185.220.101.5', 'attempts': 8 }. Risk triage (low/medium/high):",medium,0.007026,0.087196,1.0,0.000613,LOW_PRIORITY
+71,Extract the transaction status (approved/declined) from this gateway log: 'Stripe gateway logs: charge limit reached on customer plan' as JSON: { 'status':,declined,0.006966,0.087196,1.0,0.000607,LOW_PRIORITY
+63,Extract the transaction status (approved/declined) from this gateway log: 'PayPal gateway logs: credit card verification failure' as JSON: { 'status':,declined,0.006914,0.087196,1.0,0.000603,LOW_PRIORITY
+80,Extract the transaction status (approved/declined) from this gateway log: 'Authorize.Net gateway logs: network connection drop during verify' as JSON: { 'status':,declined,0.006891,0.087196,1.0,0.000601,LOW_PRIORITY
+76,Extract the transaction status (approved/declined) from this gateway log: 'Stripe gateway logs: user cancelled checkout session' as JSON: { 'status':,declined,0.006847,0.087196,1.0,0.000597,LOW_PRIORITY
+67,Extract the transaction status (approved/declined) from this gateway log: 'Adyen gateway logs: card has expired' as JSON: { 'status':,declined,0.006771,0.087196,1.0,0.000590,LOW_PRIORITY
+65,Extract the transaction status (approved/declined) from this gateway log: 'Authorize.Net gateway logs: fraud filter triggered' as JSON: { 'status':,declined,0.006690,0.087196,1.5,0.000875,LOW_PRIORITY
+89,"Facing a very difficult, painful, or awkward situation with brave composure is to bite the",bullet,0.006684,0.087196,1.0,0.000583,LOW_PRIORITY
+72,Extract the transaction status (approved/declined) from this gateway log: 'Adyen gateway logs: address postcode verify mismatch' as JSON: { 'status':,declined,0.006665,0.087196,1.0,0.000581,LOW_PRIORITY
+9,"JSON payload: { 'event': 'SSHKeyAdded', 'user': 'jenkins_agent_01', 'key_strength': 1024 }. Risk triage (low/medium/high):",medium,0.006195,0.087196,1.0,0.000540,LOW_PRIORITY
+88,Pursuing a completely incorrect strategy or line of logic is barking up the wrong,tree,0.006077,0.087196,1.0,0.000530,LOW_PRIORITY
+98,"Avoiding speaking about the central, most critical problem in a meeting is beating around the",bush,0.006054,0.087196,1.0,0.000528,LOW_PRIORITY
+6,"JSON payload: { 'event': 'IAMPolicyModified', 'policy': 'ReadOnlyAccess', 'mfa_verified': true }. Risk triage (low/medium/high):",low,0.005684,0.087196,1.0,0.000496,LOW_PRIORITY
+97,"Complaining about unfixable, past execution errors is crying over spilled",milk,0.005652,0.087196,1.0,0.000493,LOW_PRIORITY
+4,"JSON payload: { 'event': 'S3BucketCreated', 'owner': 'ops_manager_22', 'public_access': false }. Risk triage (low/medium/high):",low,0.005512,0.087196,1.0,0.000481,LOW_PRIORITY
+16,"JSON payload: { 'event': 'IAMPolicyModified', 'policy': 'SecurityAuditOnly', 'mfa_verified': true }. Risk triage (low/medium/high):",low,0.005433,0.087196,1.0,0.000474,LOW_PRIORITY
+14,"JSON payload: { 'event': 'S3BucketCreated', 'owner': 'finance_lead', 'public_access': false }. Risk triage (low/medium/high):",low,0.004723,0.087196,1.0,0.000412,LOW_PRIORITY
+10,"JSON payload: { 'event': 'SSHKeyAdded', 'user': 'master_backup_bot', 'key_strength': 4096 }. Risk triage (low/medium/high):",low,0.004570,0.087196,1.0,0.000399,LOW_PRIORITY
+18,"JSON payload: { 'event': 'PortScanDetected', 'source_ip': '192.168.10.150', 'ports_scanned': 5 }. Risk triage (low/medium/high):",low,0.004561,0.087196,1.0,0.000398,LOW_PRIORITY
+12,"JSON payload: { 'event': 'FailedLogin', 'username': 'staff_dev', 'ip': '192.168.2.10', 'attempts': 2 }. Risk triage (low/medium/high):",low,0.004493,0.087196,1.0,0.000392,LOW_PRIORITY
+2,"JSON payload: { 'event': 'FailedLogin', 'username': 'johndoe', 'ip': '192.168.1.45', 'attempts': 1 }. Risk triage (low/medium/high):",low,0.004479,0.087196,1.0,0.000391,LOW_PRIORITY
+20,"JSON payload: { 'event': 'SSHKeyAdded', 'user': 'ceo_laptop_device', 'key_strength': 4096 }. Risk triage (low/medium/high):",low,0.004461,0.087196,1.0,0.000389,LOW_PRIORITY
+8,"JSON payload: { 'event': 'PortScanDetected', 'source_ip': '10.0.2.14', 'ports_scanned': 3 }. Risk triage (low/medium/high):",low,0.004450,0.087196,1.0,0.000388,LOW_PRIORITY

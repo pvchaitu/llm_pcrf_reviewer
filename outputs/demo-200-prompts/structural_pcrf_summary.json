@@ -1,0 +1,277 @@
+{
+    "R_sys_chain": 0.33937757670657076,
+    "R_sys_crew_prod": 0.8881533371251984,
+    "R_sys_crew_geo": 0.9950700724323727,
+    "worst_k_risk": 0.009591908232704643,
+    "triggered_flaws": [
+        "RESIDUAL_STREAM_BYPASS_DETECTED"
+    ],
+    "structural_status": "STRUCTURAL_UNINFORMATIVE_BYPASS_DOMINATED",
+    "is_bypass_dominated": true,
+    "layers": [
+        {
+            "layer_idx": 0,
+            "reliability_r_l": 0.9973727006418279,
+            "r_series_local": 0.8727471992138512,
+            "structural_entropy_S_l": 0.0026307567662224884,
+            "analytical_derivative": 0.44438940249228515,
+            "crew_birnbaum_sensitivity": 0.01943009765179798,
+            "w_bypass": 0.95,
+            "w_attn": 0.02,
+            "w_mlp": 0.03
+        },
+        {
+            "layer_idx": 1,
+            "reliability_r_l": 0.9955905238522709,
+            "r_series_local": 0.9080275558219669,
+            "structural_entropy_S_l": 0.004419226561044961,
+            "analytical_derivative": 0.40979423285905653,
+            "crew_birnbaum_sensitivity": 0.019747263094874935,
+            "w_bypass": 0.95,
+            "w_attn": 0.02,
+            "w_mlp": 0.03
+        },
+        {
+            "layer_idx": 2,
+            "reliability_r_l": 0.9952938281936762,
+            "r_series_local": 0.9755070477330496,
+            "structural_entropy_S_l": 0.004717280700137707,
+            "analytical_derivative": 0.3549552733152327,
+            "crew_birnbaum_sensitivity": 0.020304881916303162,
+            "w_bypass": 0.95,
+            "w_attn": 0.02,
+            "w_mlp": 0.03
+        },
+        {
+            "layer_idx": 3,
+            "reliability_r_l": 0.9954279230680803,
+            "r_series_local": 0.9952272662096098,
+            "structural_entropy_S_l": 0.004582560843360236,
+            "analytical_derivative": 0.3410738564389635,
+            "crew_birnbaum_sensitivity": 0.020466253750955343,
+            "w_bypass": 0.95,
+            "w_attn": 0.02,
+            "w_mlp": 0.03
+        },
+        {
+            "layer_idx": 4,
+            "reliability_r_l": 0.9955519513873657,
+            "r_series_local": 0.9950685679927916,
+            "structural_entropy_S_l": 0.004457970614159807,
+            "analytical_derivative": 0.3412251679145363,
+            "crew_birnbaum_sensitivity": 0.020462378249398682,
+            "w_bypass": 0.95,
+            "w_attn": 0.02,
+            "w_mlp": 0.03
+        },
+        {
+            "layer_idx": 5,
+            "reliability_r_l": 0.9956781842644394,
+            "r_series_local": 0.9954653609922325,
+            "structural_entropy_S_l": 0.0043311817764632755,
+            "analytical_derivative": 0.3409964288782306,
+            "crew_birnbaum_sensitivity": 0.02046309856287768,
+            "w_bypass": 0.95,
+            "w_attn": 0.02,
+            "w_mlp": 0.03
+        },
+        {
+            "layer_idx": 6,
+            "reliability_r_l": 0.9957947425300291,
+            "r_series_local": 0.9953066248089933,
+            "structural_entropy_S_l": 0.004214124432469792,
+            "analytical_derivative": 0.34114513618758585,
+            "crew_birnbaum_sensitivity": 0.020459377459238207,
+            "w_bypass": 0.95,
+            "w_attn": 0.02,
+            "w_mlp": 0.03
+        },
+        {
+            "layer_idx": 7,
+            "reliability_r_l": 0.9958769187599079,
+            "r_series_local": 0.9939583888144016,
+            "structural_entropy_S_l": 0.004131604575886367,
+            "analytical_derivative": 0.3420994723893701,
+            "crew_birnbaum_sensitivity": 0.020446432102499412,
+            "w_bypass": 0.95,
+            "w_attn": 0.02,
+            "w_mlp": 0.03
+        },
+        {
+            "layer_idx": 8,
+            "reliability_r_l": 0.9959600210997976,
+            "r_series_local": 0.9941961800351166,
+            "structural_entropy_S_l": 0.004048161661182916,
+            "analytical_derivative": 0.34196437899800386,
+            "crew_birnbaum_sensitivity": 0.020446710890369858,
+            "w_bypass": 0.95,
+            "w_attn": 0.02,
+            "w_mlp": 0.03
+        },
+        {
+            "layer_idx": 9,
+            "reliability_r_l": 0.9960423258987026,
+            "r_series_local": 0.9943547391193988,
+            "structural_entropy_S_l": 0.003965526418231753,
+            "analytical_derivative": 0.3418835793757429,
+            "crew_birnbaum_sensitivity": 0.020446344820481695,
+            "w_bypass": 0.95,
+            "w_attn": 0.02,
+            "w_mlp": 0.03
+        },
+        {
+            "layer_idx": 10,
+            "reliability_r_l": 0.9961138010750171,
+            "r_series_local": 0.9940376462345508,
+            "structural_entropy_S_l": 0.0038937698170522974,
+            "analytical_derivative": 0.34212628130216577,
+            "crew_birnbaum_sensitivity": 0.020442231241056562,
+            "w_bypass": 0.95,
+            "w_attn": 0.02,
+            "w_mlp": 0.03
+        },
+        {
+            "layer_idx": 11,
+            "reliability_r_l": 0.9961749911865116,
+            "r_series_local": 0.9937206544684422,
+            "structural_entropy_S_l": 0.003832342867554373,
+            "analytical_derivative": 0.3423656189859581,
+            "crew_birnbaum_sensitivity": 0.020438330452699716,
+            "w_bypass": 0.95,
+            "w_attn": 0.02,
+            "w_mlp": 0.03
+        },
+        {
+            "layer_idx": 12,
+            "reliability_r_l": 0.9962331217924315,
+            "r_series_local": 0.9937206544684422,
+            "structural_entropy_S_l": 0.003773990760315219,
+            "analytical_derivative": 0.3423855973241556,
+            "crew_birnbaum_sensitivity": 0.020437137867844606,
+            "w_bypass": 0.95,
+            "w_attn": 0.02,
+            "w_mlp": 0.03
+        },
+        {
+            "layer_idx": 13,
+            "reliability_r_l": 0.9962883458680554,
+            "r_series_local": 0.9937206544684422,
+            "structural_entropy_S_l": 0.003718559412112138,
+            "analytical_derivative": 0.3424045767454431,
+            "crew_birnbaum_sensitivity": 0.020436005041136525,
+            "w_bypass": 0.95,
+            "w_attn": 0.02,
+            "w_mlp": 0.03
+        },
+        {
+            "layer_idx": 14,
+            "reliability_r_l": 0.9963139942480739,
+            "r_series_local": 0.9924536979466332,
+            "structural_entropy_S_l": 0.003692815810889199,
+            "analytical_derivative": 0.34328819267224403,
+            "crew_birnbaum_sensitivity": 0.0204249117839278,
+            "w_bypass": 0.95,
+            "w_attn": 0.02,
+            "w_mlp": 0.03
+        },
+        {
+            "layer_idx": 15,
+            "reliability_r_l": 0.9963082525776766,
+            "r_series_local": 0.9910303025715678,
+            "structural_entropy_S_l": 0.003698578740020803,
+            "analytical_derivative": 0.3442730316160592,
+            "crew_birnbaum_sensitivity": 0.02041316398076898,
+            "w_bypass": 0.95,
+            "w_attn": 0.02,
+            "w_mlp": 0.03
+        },
+        {
+            "layer_idx": 16,
+            "reliability_r_l": 0.9962744199130403,
+            "r_series_local": 0.9896878592557559,
+            "structural_entropy_S_l": 0.0037325373457104353,
+            "analytical_derivative": 0.34519590771624986,
+            "crew_birnbaum_sensitivity": 0.0204026724420203,
+            "w_bypass": 0.95,
+            "w_attn": 0.02,
+            "w_mlp": 0.03
+        },
+        {
+            "layer_idx": 17,
+            "reliability_r_l": 0.9961607913542606,
+            "r_series_local": 0.9858286297664406,
+            "structural_entropy_S_l": 0.003846597324434297,
+            "analytical_derivative": 0.3478641993200467,
+            "crew_birnbaum_sensitivity": 0.02037287645172672,
+            "w_bypass": 0.95,
+            "w_attn": 0.02,
+            "w_mlp": 0.03
+        },
+        {
+            "layer_idx": 18,
+            "reliability_r_l": 0.9959767599147228,
+            "r_series_local": 0.982219375731262,
+            "structural_entropy_S_l": 0.004031355088720298,
+            "analytical_derivative": 0.3503606755596768,
+            "crew_birnbaum_sensitivity": 0.020346638550312185,
+            "w_bypass": 0.95,
+            "w_attn": 0.02,
+            "w_mlp": 0.03
+        },
+        {
+            "layer_idx": 19,
+            "reliability_r_l": 0.9957016498218204,
+            "r_series_local": 0.9774535627881658,
+            "structural_entropy_S_l": 0.004307614642779984,
+            "analytical_derivative": 0.35368781913932995,
+            "crew_birnbaum_sensitivity": 0.020312700707162026,
+            "w_bypass": 0.95,
+            "w_attn": 0.02,
+            "w_mlp": 0.03
+        },
+        {
+            "layer_idx": 20,
+            "reliability_r_l": 0.9952725438204763,
+            "r_series_local": 0.9694587995913709,
+            "structural_entropy_S_l": 0.004738665943553832,
+            "analytical_derivative": 0.35939038487895986,
+            "crew_birnbaum_sensitivity": 0.020255240372524016,
+            "w_bypass": 0.95,
+            "w_attn": 0.02,
+            "w_mlp": 0.03
+        },
+        {
+            "layer_idx": 21,
+            "reliability_r_l": 0.9923751066380486,
+            "r_series_local": 0.8473752399874437,
+            "structural_entropy_S_l": 0.00765411147945398,
+            "analytical_derivative": 0.4690373917067754,
+            "crew_birnbaum_sensitivity": 0.019326719817210417,
+            "w_bypass": 0.95,
+            "w_attn": 0.02,
+            "w_mlp": 0.03
+        },
+        {
+            "layer_idx": 22,
+            "reliability_r_l": 0.9893231046054805,
+            "r_series_local": 0.832242016940237,
+            "structural_entropy_S_l": 0.01073430242705658,
+            "analytical_derivative": 0.48475469048508113,
+            "crew_birnbaum_sensitivity": 0.01926693980125305,
+            "w_bypass": 0.95,
+            "w_attn": 0.02,
+            "w_mlp": 0.03
+        },
+        {
+            "layer_idx": 23,
+            "reliability_r_l": 0.9846616120051761,
+            "r_series_local": 0.7410939064803331,
+            "structural_entropy_S_l": 0.015457237945310606,
+            "analytical_derivative": 0.6084482781385645,
+            "crew_birnbaum_sensitivity": 0.018651051751636345,
+            "w_bypass": 0.95,
+            "w_attn": 0.02,
+            "w_mlp": 0.03
+        }
+    ]
+}

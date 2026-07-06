@@ -1,0 +1,3074 @@
+=====================================================================
+[A] PCRF SYSTEM v1.0 EXECUTIVE RUN SUMMARY
+=====================================================================
+* Target Model evaluated  : QWEN/QWEN2.5-0.5B-INSTRUCT
+* Device context map      : CUDA
+* Dataset Train partition : 100 examples
+* Dataset Seen Validation : 40 examples
+* Dataset Unseen Val      : 40 examples
+* Baseline Seen EM        : 67.50%
+* Candidate Seen EM       : 60.00% if regularized_stats else 0.00%
+* Baseline Unseen EM      : 67.50%
+* Candidate Unseen EM     : 57.50% if regularized_stats else 0.00%
+* Seen Validation Loss Delta (NLL) : -6.88906
+* Unseen Validation Loss Delta (NLL): -4.92877
+* System Structural Reliability ($R_sys$): 33.9378%
+* Protected Router Unseen Accuracy: 67.50%
+* Final Gating Decision   : DO_NOT_APPLY (Reason Code: STRUCTURAL_RELIABILITY_FLOOR)
+* Verification Status     : SFT candidate model evaluation processed for DO_NOT_APPLY route.
+
+=====================================================================
+[B] ROUTER CONSISTENCY AUDIT SUMMARY
+=====================================================================
+* Total Router Rows Audited      : 80
+* Rows Passed Consistency Checks: 80
+* Consistency Warnings Detected : 0
+
+=====================================================================
+[C] TRANSITION ANALYSIS TABLE
+=====================================================================
+transition_type  | count | percentage | avg_delta_nll | avg_delta_entropy | avg_delta_margin | avg_delta_hallucination_risk
+-----------------|-------|------------|---------------|-------------------|------------------|-----------------------------
+correct_to_correct| 45    |  56.2%       | -7.71076     | +1.55686          | -2.38611         | +0.13854
+correct_to_wrong | 9     |  11.2%       | -10.30556    | +2.00217          | -2.36806         | +0.27430
+wrong_to_correct | 2     |   2.5%       | -5.34375     | +1.74829          | -2.46875         | +0.03026
+wrong_to_wrong   | 24    |  30.0%       | -4.64466     | +1.20862          | -1.48438         | +0.08110
+
+* Note: Total Critical High-Priority Regressions: 2 (Hard-gated and blocked by the Safety Router).
+
+=====================================================================
+[D] ROW-LEVEL DEBUGGING SAMPLES
+=====================================================================
+We display the localized SFT evaluation matrix trace of top transition samples below:
+- ID: 101 | Split: seen_val | Prompt: *JSON payload: { 'event': 'FailedLogin', 'userna...* | Target: `high` | Correct: wrong_to_wrong
+- ID: 102 | Split: seen_val | Prompt: *JSON payload: { 'event': 'FailedLogin', 'userna...* | Target: `low` | Correct: correct_to_correct
+- ID: 103 | Split: seen_val | Prompt: *JSON payload: { 'event': 'S3BucketCreated', 'ow...* | Target: `high` | Correct: wrong_to_wrong
+- ID: 104 | Split: seen_val | Prompt: *JSON payload: { 'event': 'S3BucketCreated', 'ow...* | Target: `low` | Correct: wrong_to_correct
+- ID: 105 | Split: seen_val | Prompt: *JSON payload: { 'event': 'IAMPolicyModified', '...* | Target: `medium` | Correct: wrong_to_wrong
+
+=====================================================================
+[E] STRUCTURAL INTERVENTION ATMAP
+=====================================================================
+layer_id | r_l     | S_l     | D_R     | empirical_delta_prob | combined_layer_risk_score | intervention_flag | observed_effect
+---------|---------|---------|---------|----------------------|---------------------------|-------------------|------------------
+Layer 00 | 0.8727  | 0.0026  | +0.4444  | +0.0159     | 0.0038                    | 1                 | Selected by union_empirical_and_birnbaum policy: bypass-dominated caution (Attention/MLP paths are masked), high bottleneck sensitivity D_R (0.4444), high empirical sensitivity (0.0159)
+Layer 01 | 0.9080  | 0.0044  | +0.4098  | +0.0114     | 0.0062                    | 1                 | Selected by union_empirical_and_birnbaum policy: bypass-dominated caution (Attention/MLP paths are masked), high bottleneck sensitivity D_R (0.4098), high empirical sensitivity (0.0114)
+Layer 02 | 0.9755  | 0.0047  | +0.3550  | +0.0074     | 0.0064                    | 1                 | Selected by union_empirical_and_birnbaum policy: bypass-dominated caution (Attention/MLP paths are masked)
+Layer 03 | 0.9952  | 0.0046  | +0.3411  | +0.0033     | 0.0061                    | 0                 | Stable representational highway block; frozen to prevent activation drift
+Layer 04 | 0.9951  | 0.0045  | +0.3412  | +0.0088     | 0.0060                    | 1                 | Selected by union_empirical_and_birnbaum policy: bypass-dominated caution (Attention/MLP paths are masked)
+Layer 05 | 0.9955  | 0.0043  | +0.3410  | -0.0018     | 0.0058                    | 0                 | Stable representational highway block; frozen to prevent activation drift
+Layer 06 | 0.9953  | 0.0042  | +0.3411  | +0.0019     | 0.0057                    | 0                 | Stable representational highway block; frozen to prevent activation drift
+Layer 07 | 0.9940  | 0.0041  | +0.3421  | +0.0019     | 0.0055                    | 0                 | Stable representational highway block; frozen to prevent activation drift
+Layer 08 | 0.9942  | 0.0040  | +0.3420  | +0.0025     | 0.0054                    | 0                 | Stable representational highway block; frozen to prevent activation drift
+Layer 09 | 0.9944  | 0.0040  | +0.3419  | +0.0037     | 0.0053                    | 0                 | Stable representational highway block; frozen to prevent activation drift
+Layer 10 | 0.9940  | 0.0039  | +0.3421  | +0.0007     | 0.0052                    | 0                 | Stable representational highway block; frozen to prevent activation drift
+Layer 11 | 0.9937  | 0.0038  | +0.3424  | +0.0034     | 0.0051                    | 0                 | Stable representational highway block; frozen to prevent activation drift
+Layer 12 | 0.9937  | 0.0038  | +0.3424  | +0.0011     | 0.0051                    | 0                 | Stable representational highway block; frozen to prevent activation drift
+Layer 13 | 0.9937  | 0.0037  | +0.3424  | +0.0015     | 0.0050                    | 0                 | Stable representational highway block; frozen to prevent activation drift
+Layer 14 | 0.9925  | 0.0037  | +0.3433  | +0.0030     | 0.0050                    | 0                 | Stable representational highway block; frozen to prevent activation drift
+Layer 15 | 0.9910  | 0.0037  | +0.3443  | +0.0029     | 0.0050                    | 0                 | Stable representational highway block; frozen to prevent activation drift
+Layer 16 | 0.9897  | 0.0037  | +0.3452  | -0.0012     | 0.0050                    | 0                 | Stable representational highway block; frozen to prevent activation drift
+Layer 17 | 0.9858  | 0.0038  | +0.3479  | +0.0028     | 0.0052                    | 0                 | Stable representational highway block; frozen to prevent activation drift
+Layer 18 | 0.9822  | 0.0040  | +0.3504  | +0.0007     | 0.0054                    | 0                 | Stable representational highway block; frozen to prevent activation drift
+Layer 19 | 0.9775  | 0.0043  | +0.3537  | +0.0002     | 0.0058                    | 0                 | Stable representational highway block; frozen to prevent activation drift
+Layer 20 | 0.9695  | 0.0047  | +0.3594  | +0.0002     | 0.0064                    | 0                 | Stable representational highway block; frozen to prevent activation drift
+Layer 21 | 0.8474  | 0.0077  | +0.4690  | +0.0012     | 0.0112                    | 1                 | Selected by union_empirical_and_birnbaum policy: bypass-dominated caution (Attention/MLP paths are masked), high bottleneck sensitivity D_R (0.4690)
+Layer 22 | 0.8322  | 0.0107  | +0.4848  | +0.0002     | 0.0159                    | 1                 | Selected by union_empirical_and_birnbaum policy: bypass-dominated caution (Attention/MLP paths are masked), high bottleneck sensitivity D_R (0.4848)
+Layer 23 | 0.7411  | 0.0155  | +0.6084  | +0.0008     | 0.0249                    | 1                 | Selected by union_empirical_and_birnbaum policy: bypass-dominated caution (Attention/MLP paths are masked), high bottleneck sensitivity D_R (0.6084)
+
+=====================================================================
+[F] ROW-BY-ROW VALIDATION PROMPT EXECUTION TRACE
+=====================================================================
+### ID: 101
+Split: seen_val
+Prompt Text: JSON payload: { 'event': 'FailedLogin', 'username': 'administrator', 'ip': '198.51.100.12', 'attempts': 18 }. Risk triage (low/medium/high):
+Semantic Target: high
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 0
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: wrong_to_wrong
+Baseline Output: low
+
+What is the risk level of this incident? The
+SFT Candidate Output: low
+
+What is the risk level of this incident? The
+Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
+Baseline NLL: 4.21875
+Candidate NLL: 4.06250
+Delta NLL: -0.15625
+Baseline Entropy: 4.78125
+Candidate Entropy: 4.59375
+Delta Entropy: -0.18750
+Baseline Margin: 0.43750
+Candidate Margin: 0.25000
+Delta Margin: -0.18750
+Baseline Target Probability: 0.08984
+Candidate Target Probability: 0.12500
+Delta Confidence: 0.03516
+Failure Category: WRONG_ENTITY_SUBSTITUTION
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: No
+Baseline Risk Score: 0.41244
+SFT Candidate Risk Score: 0.44494
+Router Decision: abstain_safe_fallback
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4449).
+--------------------------------------------------------------------------------
+### ID: 102
+Split: seen_val
+Prompt Text: JSON payload: { 'event': 'FailedLogin', 'username': 'sam_dev', 'ip': '192.168.1.99', 'attempts': 1 }. Risk triage (low/medium/high):
+Semantic Target: low
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: low
+
+What is the risk level of this incident? The
+SFT Candidate Output: low
+
+What is the risk level of this incident? The
+Final Served Output: low
+
+What is the risk level of this incident? The
+Baseline NLL: 2.32812
+Candidate NLL: 2.00000
+Delta NLL: -0.32812
+Baseline Entropy: 4.71875
+Candidate Entropy: 4.53125
+Delta Entropy: -0.18750
+Baseline Margin: 0.43750
+Candidate Margin: 0.12500
+Delta Margin: -0.31250
+Baseline Target Probability: 0.09814
+Candidate Target Probability: 0.13574
+Delta Confidence: 0.03760
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: No
+Baseline Risk Score: 0.41056
+SFT Candidate Risk Score: 0.44681
+Router Decision: use_baseline
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 103
+Split: seen_val
+Prompt Text: JSON payload: { 'event': 'S3BucketCreated', 'owner': 'dev_test_bot', 'public_access': true }. Risk triage (low/medium/high):
+Semantic Target: high
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 0
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: wrong_to_wrong
+Baseline Output: What is the risk of this event occurring? 
+Risk level
+SFT Candidate Output: low
+
+What is the risk level of this event? The
+Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
+Baseline NLL: 4.37500
+Candidate NLL: 3.87500
+Delta NLL: -0.50000
+Baseline Entropy: 4.93750
+Candidate Entropy: 4.93750
+Delta Entropy: 0.00000
+Baseline Margin: 0.37500
+Candidate Margin: 0.31250
+Delta Margin: -0.06250
+Baseline Target Probability: 0.07227
+Candidate Target Probability: 0.08203
+Delta Confidence: 0.00977
+Failure Category: WRONG_ENTITY_SUBSTITUTION
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: No
+Baseline Risk Score: 0.41900
+SFT Candidate Risk Score: 0.45337
+Router Decision: abstain_safe_fallback
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4534).
+--------------------------------------------------------------------------------
+### ID: 104
+Split: seen_val
+Prompt Text: JSON payload: { 'event': 'S3BucketCreated', 'owner': 'ops_lead_44', 'public_access': false }. Risk triage (low/medium/high):
+Semantic Target: low
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 0
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: wrong_to_correct
+Baseline Output: What is the risk of this event occurring? 
+Risk level
+SFT Candidate Output: low
+
+What is the risk level of this event? The
+Final Served Output: low
+
+What is the risk level of this event? The
+Baseline NLL: 2.93750
+Candidate NLL: 2.20312
+Delta NLL: -0.73438
+Baseline Entropy: 4.84375
+Candidate Entropy: 4.81250
+Delta Entropy: -0.03125
+Baseline Margin: 0.31250
+Candidate Margin: 0.50000
+Delta Margin: 0.18750
+Baseline Target Probability: 0.07227
+Candidate Target Probability: 0.11035
+Delta Confidence: 0.03809
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: No
+Baseline Risk Score: 0.41806
+SFT Candidate Risk Score: 0.44400
+Router Decision: use_candidate
+Prevention Action: Contract-clean candidate repair promoted.
+--------------------------------------------------------------------------------
+### ID: 105
+Split: seen_val
+Prompt Text: JSON payload: { 'event': 'IAMPolicyModified', 'policy': 'AdministratorAccess', 'mfa_verified': true }. Risk triage (low/medium/high):
+Semantic Target: medium
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 0
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: wrong_to_wrong
+Baseline Output: What is the risk of this event occurring? 
+Risk level
+SFT Candidate Output: low
+
+What is the risk level of this IAM policy modification
+Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
+Baseline NLL: 8.62500
+Candidate NLL: 6.68750
+Delta NLL: -1.93750
+Baseline Entropy: 4.87500
+Candidate Entropy: 5.00000
+Delta Entropy: 0.12500
+Baseline Margin: 0.25000
+Candidate Margin: 0.06250
+Delta Margin: -0.18750
+Baseline Target Probability: 0.08252
+Candidate Target Probability: 0.06494
+Delta Confidence: -0.01758
+Failure Category: WRONG_ENTITY_SUBSTITUTION
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: Yes
+Baseline Risk Score: 0.42087
+SFT Candidate Risk Score: 0.46275
+Router Decision: abstain_safe_fallback
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4627).
+--------------------------------------------------------------------------------
+### ID: 106
+Split: seen_val
+Prompt Text: JSON payload: { 'event': 'IAMPolicyModified', 'policy': 'ReadOnlyAccess', 'mfa_verified': false }. Risk triage (low/medium/high):
+Semantic Target: medium
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 0
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: wrong_to_wrong
+Baseline Output: What is the risk of this IAM policy modification? 
+Risk
+SFT Candidate Output: low
+
+What is the risk level of this IAM policy modification
+Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
+Baseline NLL: 7.28125
+Candidate NLL: 5.62500
+Delta NLL: -1.65625
+Baseline Entropy: 4.81250
+Candidate Entropy: 4.84375
+Delta Entropy: 0.03125
+Baseline Margin: 0.25000
+Candidate Margin: 0.50000
+Delta Margin: 0.25000
+Baseline Target Probability: 0.07373
+Candidate Target Probability: 0.09814
+Delta Confidence: 0.02441
+Failure Category: WRONG_ENTITY_SUBSTITUTION
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: No
+Baseline Risk Score: 0.41900
+SFT Candidate Risk Score: 0.44494
+Router Decision: abstain_safe_fallback
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4449).
+--------------------------------------------------------------------------------
+### ID: 107
+Split: seen_val
+Prompt Text: JSON payload: { 'event': 'PortScanDetected', 'source_ip': '45.33.102.88', 'ports_scanned': 3200 }. Risk triage (low/medium/high):
+Semantic Target: high
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 0
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: wrong_to_wrong
+Baseline Output: low
+
+What is the risk level of this incident? The
+SFT Candidate Output: low
+
+What is the risk level of this incident? The
+Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
+Baseline NLL: 4.28125
+Candidate NLL: 4.03125
+Delta NLL: -0.25000
+Baseline Entropy: 4.59375
+Candidate Entropy: 4.65625
+Delta Entropy: 0.06250
+Baseline Margin: 0.62500
+Candidate Margin: 0.87500
+Delta Margin: 0.25000
+Baseline Target Probability: 0.13086
+Candidate Target Probability: 0.14844
+Delta Confidence: 0.01758
+Failure Category: WRONG_ENTITY_SUBSTITUTION
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: No
+Baseline Risk Score: 0.40119
+SFT Candidate Risk Score: 0.42806
+Router Decision: abstain_safe_fallback
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4281).
+--------------------------------------------------------------------------------
+### ID: 108
+Split: seen_val
+Prompt Text: JSON payload: { 'event': 'PortScanDetected', 'source_ip': '10.0.2.99', 'ports_scanned': 2 }. Risk triage (low/medium/high):
+Semantic Target: low
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: low
+
+What is the risk level of this incident? The
+SFT Candidate Output: low
+
+What is the risk level of this incident? The
+Final Served Output: low
+
+What is the risk level of this incident? The
+Baseline NLL: 2.14062
+Candidate NLL: 1.96094
+Delta NLL: -0.17969
+Baseline Entropy: 4.40625
+Candidate Entropy: 4.50000
+Delta Entropy: 0.09375
+Baseline Margin: 0.56250
+Candidate Margin: 0.75000
+Delta Margin: 0.18750
+Baseline Target Probability: 0.11865
+Candidate Target Probability: 0.14062
+Delta Confidence: 0.02197
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: No
+Baseline Risk Score: 0.39744
+SFT Candidate Risk Score: 0.42712
+Router Decision: use_baseline
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 109
+Split: seen_val
+Prompt Text: JSON payload: { 'event': 'SSHKeyAdded', 'user': 'jenkins_agent_05', 'key_strength': 2048 }. Risk triage (low/medium/high):
+Semantic Target: low
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: low
+
+What is the risk level of this event? The
+SFT Candidate Output: low
+
+What is the risk level of this event? The
+Final Served Output: low
+
+What is the risk level of this event? The
+Baseline NLL: 1.93750
+Candidate NLL: 1.78906
+Delta NLL: -0.14844
+Baseline Entropy: 4.62500
+Candidate Entropy: 4.56250
+Delta Entropy: -0.06250
+Baseline Margin: 0.68750
+Candidate Margin: 1.00000
+Delta Margin: 0.31250
+Baseline Target Probability: 0.14453
+Candidate Target Probability: 0.16699
+Delta Confidence: 0.02246
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: No
+Baseline Risk Score: 0.40025
+SFT Candidate Risk Score: 0.42150
+Router Decision: use_baseline
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 110
+Split: seen_val
+Prompt Text: JSON payload: { 'event': 'SSHKeyAdded', 'user': 'unverified_root', 'key_strength': 1024 }. Risk triage (low/medium/high):
+Semantic Target: high
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 0
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: wrong_to_wrong
+Baseline Output: low
+
+What is the risk level of this event? The
+SFT Candidate Output: low
+
+What is the risk level of this event? The
+Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
+Baseline NLL: 3.92188
+Candidate NLL: 3.79688
+Delta NLL: -0.12500
+Baseline Entropy: 4.37500
+Candidate Entropy: 4.37500
+Delta Entropy: 0.00000
+Baseline Margin: 1.12500
+Candidate Margin: 1.00000
+Delta Margin: -0.12500
+Baseline Target Probability: 0.18848
+Candidate Target Probability: 0.18652
+Delta Confidence: -0.00195
+Failure Category: WRONG_ENTITY_SUBSTITUTION
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: Yes
+Baseline Risk Score: 0.37962
+SFT Candidate Risk Score: 0.41587
+Router Decision: abstain_safe_fallback
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4159).
+--------------------------------------------------------------------------------
+### ID: 111
+Split: seen_val
+Prompt Text: Extract the API action (get/post/delete) from this routing rule: 'Fetch cluster profile array metadata' as JSON: { 'action':
+Semantic Target: get
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: 'GET', 'url': '/api/v1/clusters
+SFT Candidate Output: 'GET', 'url': '/api/v1/clusters
+Final Served Output: 'GET', 'url': '/api/v1/clusters
+Baseline NLL: 6.62500
+Candidate NLL: 3.09375
+Delta NLL: -3.53125
+Baseline Entropy: 0.10693
+Candidate Entropy: 1.32031
+Delta Entropy: 1.21338
+Baseline Margin: 5.75000
+Candidate Margin: 2.87500
+Delta Margin: -2.87500
+Baseline Target Probability: 0.98828
+Candidate Target Probability: 0.80078
+Delta Confidence: -0.18750
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: Yes
+Baseline Risk Score: 0.13533
+SFT Candidate Risk Score: 0.26798
+Router Decision: use_baseline
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 112
+Split: seen_val
+Prompt Text: Extract the API action (get/post/delete) from this routing rule: 'Delete inactive transaction database records' as JSON: { 'action':
+Semantic Target: delete
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: 'delete', 'id': 12345
+SFT Candidate Output: 'deleteInactiveTransactions', 'data': data }
+
+To extract
+Final Served Output: 'delete', 'id': 12345
+Baseline NLL: 8.50000
+Candidate NLL: 2.60938
+Delta NLL: -5.89062
+Baseline Entropy: 0.09521
+Candidate Entropy: 1.82031
+Delta Entropy: 1.72510
+Baseline Margin: 5.87500
+Candidate Margin: 2.25000
+Delta Margin: -3.62500
+Baseline Target Probability: 0.98828
+Candidate Target Probability: 0.69922
+Delta Confidence: -0.28906
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: Yes
+Baseline Risk Score: 0.13498
+SFT Candidate Risk Score: 0.30173
+Router Decision: use_baseline
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 113
+Split: seen_val
+Prompt Text: Extract the API action (get/post/delete) from this routing rule: 'Create a new server gateway token' as JSON: { 'action':
+Semantic Target: post
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: 'POST', 'data': { 'server_gateway_token':
+SFT Candidate Output: 'POST', 'url': '/api/gateways/new
+Final Served Output: 'POST', 'data': { 'server_gateway_token':
+Baseline NLL: 10.37500
+Candidate NLL: 5.62500
+Delta NLL: -4.75000
+Baseline Entropy: 0.06934
+Candidate Entropy: 0.83594
+Delta Entropy: 0.76660
+Baseline Margin: 5.87500
+Candidate Margin: 3.50000
+Delta Margin: -2.37500
+Baseline Target Probability: 0.99219
+Candidate Target Probability: 0.87891
+Delta Confidence: -0.11328
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: Yes
+Baseline Risk Score: 0.13420
+SFT Candidate Risk Score: 0.23470
+Router Decision: use_baseline
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 114
+Split: seen_val
+Prompt Text: Extract the API action (get/post/delete) from this routing rule: 'Retrieve client credit balance array' as JSON: { 'action':
+Semantic Target: get
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: 'GET', 'url': '/api/credit-balance
+SFT Candidate Output: 'GET', 'url': '/api/credit-balance
+Final Served Output: 'GET', 'url': '/api/credit-balance
+Baseline NLL: 6.37500
+Candidate NLL: 2.95312
+Delta NLL: -3.42188
+Baseline Entropy: 0.10449
+Candidate Entropy: 1.21875
+Delta Entropy: 1.11426
+Baseline Margin: 5.62500
+Candidate Margin: 2.75000
+Delta Margin: -2.87500
+Baseline Target Probability: 0.98828
+Candidate Target Probability: 0.81641
+Delta Confidence: -0.17188
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: Yes
+Baseline Risk Score: 0.13526
+SFT Candidate Risk Score: 0.26869
+Router Decision: use_baseline
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 115
+Split: seen_val
+Prompt Text: Extract the API action (get/post/delete) from this routing rule: 'Register new web hook endpoints list' as JSON: { 'action':
+Semantic Target: post
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 0
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: wrong_to_wrong
+Baseline Output: 'GET', 'url': '/webhooks/new-endpoints
+SFT Candidate Output: 'GET', 'url': '/webhooks/new-endpoints
+Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
+Baseline NLL: 9.68750
+Candidate NLL: 4.81250
+Delta NLL: -4.87500
+Baseline Entropy: 0.13770
+Candidate Entropy: 1.74219
+Delta Entropy: 1.60449
+Baseline Margin: 5.25000
+Candidate Margin: 2.75000
+Delta Margin: -2.50000
+Baseline Target Probability: 0.98438
+Candidate Target Probability: 0.73438
+Delta Confidence: -0.25000
+Failure Category: HIGH_CONFIDENCE_WRONG
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: Yes
+Baseline Risk Score: 0.38626
+SFT Candidate Risk Score: 0.53439
+Router Decision: abstain_safe_fallback
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5344).
+--------------------------------------------------------------------------------
+### ID: 116
+Split: seen_val
+Prompt Text: Extract the API action (get/post/delete) from this routing rule: 'Erase expired backup storage directories' as JSON: { 'action':
+Semantic Target: delete
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: 'delete', 'path': '/backup/storage/directories
+SFT Candidate Output: 'delete', 'path': '/backup/storage/directories
+Final Served Output: 'delete', 'path': '/backup/storage/directories
+Baseline NLL: 11.25000
+Candidate NLL: 4.93750
+Delta NLL: -6.31250
+Baseline Entropy: 0.10107
+Candidate Entropy: 2.25000
+Delta Entropy: 2.14893
+Baseline Margin: 5.75000
+Candidate Margin: 2.25000
+Delta Margin: -3.50000
+Baseline Target Probability: 0.98828
+Candidate Target Probability: 0.64453
+Delta Confidence: -0.34375
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: Yes
+Baseline Risk Score: 0.13516
+SFT Candidate Risk Score: 0.31462
+Router Decision: use_baseline
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 117
+Split: seen_val
+Prompt Text: Extract the API action (get/post/delete) from this routing rule: 'List active container deployments array' as JSON: { 'action':
+Semantic Target: get
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: 'GET', 'url': '/api/v1/deploy
+SFT Candidate Output: 'GET', 'url': '/api/v1/deploy
+Final Served Output: 'GET', 'url': '/api/v1/deploy
+Baseline NLL: 6.59375
+Candidate NLL: 3.09375
+Delta NLL: -3.50000
+Baseline Entropy: 0.13379
+Candidate Entropy: 1.28125
+Delta Entropy: 1.14746
+Baseline Margin: 5.50000
+Candidate Margin: 2.87500
+Delta Margin: -2.62500
+Baseline Target Probability: 0.98438
+Candidate Target Probability: 0.80859
+Delta Confidence: -0.17578
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: Yes
+Baseline Risk Score: 0.13614
+SFT Candidate Risk Score: 0.26681
+Router Decision: use_baseline
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 118
+Split: seen_val
+Prompt Text: Extract the API action (get/post/delete) from this routing rule: 'Provision a new security credential set' as JSON: { 'action':
+Semantic Target: post
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: 'POST', 'data': {} } To extract the API
+SFT Candidate Output: 'POST' } To extract the API action from the given
+Final Served Output: 'POST', 'data': {} } To extract the API
+Baseline NLL: 10.56250
+Candidate NLL: 5.65625
+Delta NLL: -4.90625
+Baseline Entropy: 0.06592
+Candidate Entropy: 0.92969
+Delta Entropy: 0.86377
+Baseline Margin: 6.00000
+Candidate Margin: 3.37500
+Delta Margin: -2.62500
+Baseline Target Probability: 0.99219
+Candidate Target Probability: 0.86328
+Delta Confidence: -0.12891
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: Yes
+Baseline Risk Score: 0.13410
+SFT Candidate Risk Score: 0.24127
+Router Decision: use_baseline
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 119
+Split: seen_val
+Prompt Text: Extract the API action (get/post/delete) from this routing rule: 'Erase unverified user registration files' as JSON: { 'action':
+Semantic Target: delete
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: 'delete', 'data': {} } To extract the API
+SFT Candidate Output: 'delete', 'uri': '/users/verify/unverified
+Final Served Output: 'delete', 'data': {} } To extract the API
+Baseline NLL: 11.50000
+Candidate NLL: 5.53125
+Delta NLL: -5.96875
+Baseline Entropy: 0.08105
+Candidate Entropy: 1.64844
+Delta Entropy: 1.56738
+Baseline Margin: 6.12500
+Candidate Margin: 2.62500
+Delta Margin: -3.50000
+Baseline Target Probability: 0.99219
+Candidate Target Probability: 0.75000
+Delta Confidence: -0.24219
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: Yes
+Baseline Risk Score: 0.13456
+SFT Candidate Risk Score: 0.28533
+Router Decision: use_baseline
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 120
+Split: seen_val
+Prompt Text: Extract the API action (get/post/delete) from this routing rule: 'Fetch system baseline metrics parameters' as JSON: { 'action':
+Semantic Target: get
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: 'GET', 'url': '/api/system-baseline-m
+SFT Candidate Output: 'GET', 'url': '/api/system-baseline-m
+Final Served Output: 'GET', 'url': '/api/system-baseline-m
+Baseline NLL: 6.81250
+Candidate NLL: 3.17188
+Delta NLL: -3.64062
+Baseline Entropy: 0.08887
+Candidate Entropy: 1.11719
+Delta Entropy: 1.02832
+Baseline Margin: 6.00000
+Candidate Margin: 3.00000
+Delta Margin: -3.00000
+Baseline Target Probability: 0.98828
+Candidate Target Probability: 0.83594
+Delta Confidence: -0.15234
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: Yes
+Baseline Risk Score: 0.13479
+SFT Candidate Risk Score: 0.25814
+Router Decision: use_baseline
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 121
+Split: seen_val
+Prompt Text: Extract the user role (admin/editor/viewer) from this permission string: 'Can assign groups, modify profiles, and manage active directory hosts' as JSON: { 'role':
+Semantic Target: admin
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: 'admin' } The user role is set to admin.
+SFT Candidate Output: 'admin' } The user role is set to admin.
+Final Served Output: 'admin' } The user role is set to admin.
+Baseline NLL: 16.00000
+Candidate NLL: 4.59375
+Delta NLL: -11.40625
+Baseline Entropy: 0.32031
+Candidate Entropy: 2.31250
+Delta Entropy: 1.99219
+Baseline Margin: 3.75000
+Candidate Margin: 1.75000
+Delta Margin: -2.00000
+Baseline Target Probability: 0.94531
+Candidate Target Probability: 0.56250
+Delta Confidence: -0.38281
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: Yes
+Baseline Risk Score: 0.17923
+SFT Candidate Risk Score: 0.33150
+Router Decision: use_baseline
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 122
+Split: seen_val
+Prompt Text: Extract the user role (admin/editor/viewer) from this permission string: 'Can modify files and edit draft system templates' as JSON: { 'role':
+Semantic Target: editor
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 0
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: wrong_to_wrong
+Baseline Output: 'admin' } The user role is set to admin.
+SFT Candidate Output: '' }
+
+The given permission string is already in a format that
+Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
+Baseline NLL: 17.62500
+Candidate NLL: 5.59375
+Delta NLL: -12.03125
+Baseline Entropy: 0.31836
+Candidate Entropy: 3.40625
+Delta Entropy: 3.08789
+Baseline Margin: 3.75000
+Candidate Margin: 0.62500
+Delta Margin: -3.12500
+Baseline Target Probability: 0.94531
+Candidate Target Probability: 0.25781
+Delta Confidence: -0.68750
+Failure Category: WRONG_ENTITY_SUBSTITUTION
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: Yes
+Baseline Risk Score: 0.42918
+SFT Candidate Risk Score: 0.39806
+Router Decision: abstain_safe_fallback
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3981).
+--------------------------------------------------------------------------------
+### ID: 123
+Split: seen_val
+Prompt Text: Extract the user role (admin/editor/viewer) from this permission string: 'Can read audit logs and browse directory configurations' as JSON: { 'role':
+Semantic Target: viewer
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_wrong
+Baseline Output: 'viewer' } The user role is viewer. Here's
+SFT Candidate Output: permissions.split(' ')[1] } Here is the Python code
+Final Served Output: 'viewer' } The user role is viewer. Here's
+Baseline NLL: 20.37500
+Candidate NLL: 7.84375
+Delta NLL: -12.53125
+Baseline Entropy: 0.46094
+Candidate Entropy: 3.46875
+Delta Entropy: 3.00781
+Baseline Margin: 3.25000
+Candidate Margin: 0.00000
+Delta Margin: -3.25000
+Baseline Target Probability: 0.91406
+Candidate Target Probability: 0.18945
+Delta Confidence: -0.72461
+Failure Category: WRONG_ENTITY_SUBSTITUTION
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: Yes
+Baseline Risk Score: 0.19845
+SFT Candidate Risk Score: 0.41869
+Router Decision: use_baseline
+Prevention Action: Candidate blocked because baseline captured the target and candidate failed.
+--------------------------------------------------------------------------------
+### ID: 124
+Split: seen_val
+Prompt Text: Extract the user role (admin/editor/viewer) from this permission string: 'Has root level execution privileges and can delete directories globally' as JSON: { 'role':
+Semantic Target: admin
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_wrong
+Baseline Output: 'admin' } The user role is already provided in the
+SFT Candidate Output: permissions.split(' ')[1] } Here is a Python function
+Final Served Output: 'admin' } The user role is already provided in the
+Baseline NLL: 16.37500
+Candidate NLL: 4.75000
+Delta NLL: -11.62500
+Baseline Entropy: 0.41016
+Candidate Entropy: 3.15625
+Delta Entropy: 2.74609
+Baseline Margin: 3.12500
+Candidate Margin: 0.62500
+Delta Margin: -2.50000
+Baseline Target Probability: 0.92188
+Candidate Target Probability: 0.28711
+Delta Confidence: -0.63477
+Failure Category: WRONG_ENTITY_SUBSTITUTION
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: Yes
+Baseline Risk Score: 0.20068
+SFT Candidate Risk Score: 0.39056
+Router Decision: use_baseline
+Prevention Action: Candidate blocked because baseline captured the target and candidate failed.
+--------------------------------------------------------------------------------
+### ID: 125
+Split: seen_val
+Prompt Text: Extract the user role (admin/editor/viewer) from this permission string: 'Authorized to save adjustment parameters but lacks profile permissions' as JSON: { 'role':
+Semantic Target: editor
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 0
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: wrong_to_wrong
+Baseline Output: 'viewer' } The user role is viewer. Here's
+SFT Candidate Output: '' }
+
+The given permission string is already in a format that
+Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
+Baseline NLL: 18.12500
+Candidate NLL: 6.28125
+Delta NLL: -11.84375
+Baseline Entropy: 0.51953
+Candidate Entropy: 2.50000
+Delta Entropy: 1.98047
+Baseline Margin: 3.00000
+Candidate Margin: 1.62500
+Delta Margin: -1.37500
+Baseline Target Probability: 0.90234
+Candidate Target Probability: 0.51562
+Delta Confidence: -0.38672
+Failure Category: WRONG_ENTITY_SUBSTITUTION
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: Yes
+Baseline Risk Score: 0.45771
+SFT Candidate Risk Score: 0.59087
+Router Decision: abstain_safe_fallback
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5909).
+--------------------------------------------------------------------------------
+### ID: 126
+Split: seen_val
+Prompt Text: Extract the user role (admin/editor/viewer) from this permission string: 'Can browse metric dashboard panels but has no edit rights' as JSON: { 'role':
+Semantic Target: viewer
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_wrong
+Baseline Output: 'viewer' } The user role is viewer. Here's
+SFT Candidate Output: '' }
+
+The given permission string is already in a format that
+Final Served Output: 'viewer' } The user role is viewer. Here's
+Baseline NLL: 19.75000
+Candidate NLL: 7.59375
+Delta NLL: -12.15625
+Baseline Entropy: 0.36328
+Candidate Entropy: 2.81250
+Delta Entropy: 2.44922
+Baseline Margin: 3.50000
+Candidate Margin: 1.12500
+Delta Margin: -2.37500
+Baseline Target Probability: 0.93750
+Candidate Target Probability: 0.40625
+Delta Confidence: -0.53125
+Failure Category: WRONG_ENTITY_SUBSTITUTION
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: Yes
+Baseline Risk Score: 0.18802
+SFT Candidate Risk Score: 0.36525
+Router Decision: use_baseline
+Prevention Action: Candidate blocked because baseline captured the target and candidate failed.
+--------------------------------------------------------------------------------
+### ID: 127
+Split: seen_val
+Prompt Text: Extract the user role (admin/editor/viewer) from this permission string: 'Can create billing credentials and modify network configurations' as JSON: { 'role':
+Semantic Target: admin
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_wrong
+Baseline Output: 'admin' } The user role is set to admin.
+SFT Candidate Output: permissions.split(' ')[1] } Here is the Python code
+Final Served Output: 'admin' } The user role is set to admin.
+Baseline NLL: 15.87500
+Candidate NLL: 4.65625
+Delta NLL: -11.21875
+Baseline Entropy: 0.34961
+Candidate Entropy: 3.37500
+Delta Entropy: 3.02539
+Baseline Margin: 3.87500
+Candidate Margin: 0.00000
+Delta Margin: -3.87500
+Baseline Target Probability: 0.94141
+Candidate Target Probability: 0.19336
+Delta Confidence: -0.74805
+Failure Category: WRONG_ENTITY_SUBSTITUTION
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: Yes
+Baseline Risk Score: 0.17636
+SFT Candidate Risk Score: 0.41587
+Router Decision: use_baseline
+Prevention Action: Candidate blocked because baseline captured the target and candidate failed.
+--------------------------------------------------------------------------------
+### ID: 128
+Split: seen_val
+Prompt Text: Extract the user role (admin/editor/viewer) from this permission string: 'Can submit content reviews and update active wikis' as JSON: { 'role':
+Semantic Target: editor
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 0
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: wrong_to_wrong
+Baseline Output: 'viewer' } The user role is viewer. Here's
+SFT Candidate Output: '' }
+
+The user role is an identifier for a specific user
+Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
+Baseline NLL: 19.00000
+Candidate NLL: 5.43750
+Delta NLL: -13.56250
+Baseline Entropy: 0.42578
+Candidate Entropy: 3.12500
+Delta Entropy: 2.69922
+Baseline Margin: 2.75000
+Candidate Margin: 0.87500
+Delta Margin: -1.87500
+Baseline Target Probability: 0.91406
+Candidate Target Probability: 0.32617
+Delta Confidence: -0.58789
+Failure Category: WRONG_ENTITY_SUBSTITUTION
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: Yes
+Baseline Risk Score: 0.46240
+SFT Candidate Risk Score: 0.38212
+Router Decision: abstain_safe_fallback
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3821).
+--------------------------------------------------------------------------------
+### ID: 129
+Split: seen_val
+Prompt Text: Extract the user role (admin/editor/viewer) from this permission string: 'Can observe network throughput metrics but cannot modify port rules' as JSON: { 'role':
+Semantic Target: viewer
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_wrong
+Baseline Output: 'viewer' } The user role is viewer. Here's
+SFT Candidate Output: '' }
+
+The given permission string is already in a format that
+Final Served Output: 'viewer' } The user role is viewer. Here's
+Baseline NLL: 19.37500
+Candidate NLL: 7.25000
+Delta NLL: -12.12500
+Baseline Entropy: 0.29492
+Candidate Entropy: 3.00000
+Delta Entropy: 2.70508
+Baseline Margin: 4.12500
+Candidate Margin: 0.62500
+Delta Margin: -3.50000
+Baseline Target Probability: 0.95312
+Candidate Target Probability: 0.34180
+Delta Confidence: -0.61133
+Failure Category: WRONG_ENTITY_SUBSTITUTION
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: Yes
+Baseline Risk Score: 0.16722
+SFT Candidate Risk Score: 0.38587
+Router Decision: use_baseline
+Prevention Action: Candidate blocked because baseline captured the target and candidate failed.
+--------------------------------------------------------------------------------
+### ID: 130
+Split: seen_val
+Prompt Text: Extract the user role (admin/editor/viewer) from this permission string: 'Authorized to adjust user access groups and assign permissions' as JSON: { 'role':
+Semantic Target: admin
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: 'admin' } The user role is already specified in the
+SFT Candidate Output: 'admin' } The user role is already provided in the
+Final Served Output: 'admin' } The user role is already specified in the
+Baseline NLL: 16.87500
+Candidate NLL: 4.62500
+Delta NLL: -12.25000
+Baseline Entropy: 0.33203
+Candidate Entropy: 2.29688
+Delta Entropy: 1.96484
+Baseline Margin: 3.62500
+Candidate Margin: 1.87500
+Delta Margin: -1.75000
+Baseline Target Probability: 0.94141
+Candidate Target Probability: 0.56641
+Delta Confidence: -0.37500
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: Yes
+Baseline Risk Score: 0.18334
+SFT Candidate Risk Score: 0.32728
+Router Decision: use_baseline
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 131
+Split: seen_val
+Prompt Text: Extract the transaction status (approved/declined) from this gateway log: 'Stripe gateway logs: payment processed successfully for client 4015' as JSON: { 'status':
+Semantic Target: approved
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: 'approved', 'reason': 'payment successful', 'amount
+SFT Candidate Output: 'approved', 'message': 'Payment successful.' } Here
+Final Served Output: 'approved', 'reason': 'payment successful', 'amount
+Baseline NLL: 15.37500
+Candidate NLL: 3.73438
+Delta NLL: -11.64062
+Baseline Entropy: 0.04541
+Candidate Entropy: 2.00000
+Delta Entropy: 1.95459
+Baseline Margin: 6.50000
+Candidate Margin: 3.12500
+Delta Margin: -3.37500
+Baseline Target Probability: 0.99609
+Candidate Target Probability: 0.69922
+Delta Confidence: -0.29688
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: Yes
+Baseline Risk Score: 0.13349
+SFT Candidate Risk Score: 0.28087
+Router Decision: use_baseline
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 132
+Split: seen_val
+Prompt Text: Extract the transaction status (approved/declined) from this gateway log: 'Adyen gateway logs: transaction rejected for user' as JSON: { 'status':
+Semantic Target: declined
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 0
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: wrong_to_correct
+Baseline Output: 'rejected', 'reason': 'user rejected payment request'
+SFT Candidate Output: declined } Here is a Python code snippet that can extract the
+Final Served Output: declined } Here is a Python code snippet that can extract the
+Baseline NLL: 12.81250
+Candidate NLL: 2.85938
+Delta NLL: -9.95312
+Baseline Entropy: 0.11279
+Candidate Entropy: 3.64062
+Delta Entropy: 3.52783
+Baseline Margin: 5.25000
+Candidate Margin: 0.12500
+Delta Margin: -5.12500
+Baseline Target Probability: 0.98438
+Candidate Target Probability: 0.22754
+Delta Confidence: -0.75684
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: Yes
+Baseline Risk Score: 0.38551
+SFT Candidate Risk Score: 0.42009
+Router Decision: use_candidate
+Prevention Action: Contract-clean candidate repair promoted.
+--------------------------------------------------------------------------------
+### ID: 133
+Split: seen_val
+Prompt Text: Extract the transaction status (approved/declined) from this gateway log: 'PayPal gateway logs: CVV verification mismatch' as JSON: { 'status':
+Semantic Target: declined
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: 'declined', 'reason': 'CVV verification mismatch
+SFT Candidate Output: declined, 'message': 'The payment was declined due to
+Final Served Output: 'declined', 'reason': 'CVV verification mismatch
+Baseline NLL: 12.81250
+Candidate NLL: 1.64062
+Delta NLL: -11.17188
+Baseline Entropy: 0.07666
+Candidate Entropy: 3.03125
+Delta Entropy: 2.95459
+Baseline Margin: 5.87500
+Candidate Margin: 0.75000
+Delta Margin: -5.12500
+Baseline Target Probability: 0.99219
+Candidate Target Probability: 0.41211
+Delta Confidence: -0.58008
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: Yes
+Baseline Risk Score: 0.13442
+SFT Candidate Risk Score: 0.38306
+Router Decision: use_baseline
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 134
+Split: seen_val
+Prompt Text: Extract the transaction status (approved/declined) from this gateway log: 'Braintree gateway logs: auth verified, batch capture success' as JSON: { 'status':
+Semantic Target: approved
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: 'approved', 'reason': 'batch capture successful'} The
+SFT Candidate Output: 'approved', 'reason': 'batch capture successful'} Here
+Final Served Output: 'approved', 'reason': 'batch capture successful'} The
+Baseline NLL: 13.68750
+Candidate NLL: 3.90625
+Delta NLL: -9.78125
+Baseline Entropy: 0.09619
+Candidate Entropy: 3.51562
+Delta Entropy: 3.41943
+Baseline Margin: 5.25000
+Candidate Margin: 2.25000
+Delta Margin: -3.00000
+Baseline Target Probability: 0.98828
+Candidate Target Probability: 0.43164
+Delta Confidence: -0.55664
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: Yes
+Baseline Risk Score: 0.13501
+SFT Candidate Risk Score: 0.35259
+Router Decision: use_baseline
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 135
+Split: seen_val
+Prompt Text: Extract the transaction status (approved/declined) from this gateway log: 'Authorize.Net gateway logs: risk limits reached' as JSON: { 'status':
+Semantic Target: declined
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: 'declined', 'reason': 'risk limit exceeded'
+SFT Candidate Output: 'declined', 'reason': 'risk limit exceeded'}
+Final Served Output: 'declined', 'reason': 'risk limit exceeded'
+Baseline NLL: 13.06250
+Candidate NLL: 3.06250
+Delta NLL: -10.00000
+Baseline Entropy: 0.12207
+Candidate Entropy: 2.93750
+Delta Entropy: 2.81543
+Baseline Margin: 5.62500
+Candidate Margin: 2.43750
+Delta Margin: -3.18750
+Baseline Target Probability: 0.98438
+Candidate Target Probability: 0.53516
+Delta Confidence: -0.44922
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: Yes
+Baseline Risk Score: 0.13579
+SFT Candidate Risk Score: 0.32962
+Router Decision: use_baseline
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 136
+Split: seen_val
+Prompt Text: Extract the transaction status (approved/declined) from this gateway log: 'Stripe gateway logs: user cancelled billing checkout' as JSON: { 'status':
+Semantic Target: declined
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: 'declined', 'reason': 'user cancelled billing checkout
+SFT Candidate Output: 'declined', 'reason': 'user canceled billing checkout
+Final Served Output: 'declined', 'reason': 'user cancelled billing checkout
+Baseline NLL: 12.56250
+Candidate NLL: 2.96875
+Delta NLL: -9.59375
+Baseline Entropy: 0.12061
+Candidate Entropy: 3.76562
+Delta Entropy: 3.64502
+Baseline Margin: 5.12500
+Candidate Margin: 2.00000
+Delta Margin: -3.12500
+Baseline Target Probability: 0.98438
+Candidate Target Probability: 0.37891
+Delta Confidence: -0.60547
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: Yes
+Baseline Risk Score: 0.13574
+SFT Candidate Risk Score: 0.36759
+Router Decision: use_baseline
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 137
+Split: seen_val
+Prompt Text: Extract the transaction status (approved/declined) from this gateway log: 'Adyen gateway logs: transaction approved successfully' as JSON: { 'status':
+Semantic Target: approved
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: 'approved', 'reason': '' } Here is the extracted
+SFT Candidate Output: 'approved', 'message': 'Transaction successful.' } Here
+Final Served Output: 'approved', 'reason': '' } Here is the extracted
+Baseline NLL: 13.93750
+Candidate NLL: 3.06250
+Delta NLL: -10.87500
+Baseline Entropy: 0.04541
+Candidate Entropy: 2.53125
+Delta Entropy: 2.48584
+Baseline Margin: 6.25000
+Candidate Margin: 1.75000
+Delta Margin: -4.50000
+Baseline Target Probability: 0.99609
+Candidate Target Probability: 0.56641
+Delta Confidence: -0.42969
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: Yes
+Baseline Risk Score: 0.13349
+SFT Candidate Risk Score: 0.33806
+Router Decision: use_baseline
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 138
+Split: seen_val
+Prompt Text: Extract the transaction status (approved/declined) from this gateway log: 'PayPal gateway logs: country block triggered' as JSON: { 'status':
+Semantic Target: declined
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: 'declined', 'reason': 'block detected in payment
+SFT Candidate Output: declined } The transaction status is declined. Here's how you
+Final Served Output: 'declined', 'reason': 'block detected in payment
+Baseline NLL: 12.62500
+Candidate NLL: 2.62500
+Delta NLL: -10.00000
+Baseline Entropy: 0.15430
+Candidate Entropy: 4.03125
+Delta Entropy: 3.87695
+Baseline Margin: 5.00000
+Candidate Margin: 1.43750
+Delta Margin: -3.56250
+Baseline Target Probability: 0.98047
+Candidate Target Probability: 0.30664
+Delta Confidence: -0.67383
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: Yes
+Baseline Risk Score: 0.13675
+SFT Candidate Risk Score: 0.39244
+Router Decision: use_baseline
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 139
+Split: seen_val
+Prompt Text: Extract the transaction status (approved/declined) from this gateway log: 'Braintree gateway logs: valid auth code returned' as JSON: { 'status':
+Semantic Target: approved
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 0
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: wrong_to_wrong
+Baseline Output: 'pending', 'reason': 'gateway error', 'details
+SFT Candidate Output: 'pending', 'message': 'Invalid request, please try
+Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
+Baseline NLL: 12.87500
+Candidate NLL: 3.71875
+Delta NLL: -9.15625
+Baseline Entropy: 0.12109
+Candidate Entropy: 4.09375
+Delta Entropy: 3.97266
+Baseline Margin: 5.50000
+Candidate Margin: 1.25000
+Delta Margin: -4.25000
+Baseline Target Probability: 0.98438
+Candidate Target Probability: 0.25977
+Delta Confidence: -0.72461
+Failure Category: WRONG_ENTITY_SUBSTITUTION
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: Yes
+Baseline Risk Score: 0.38576
+SFT Candidate Risk Score: 0.39994
+Router Decision: abstain_safe_fallback
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3999).
+--------------------------------------------------------------------------------
+### ID: 140
+Split: seen_val
+Prompt Text: Extract the transaction status (approved/declined) from this gateway log: 'Authorize.Net gateway logs: network connection timeout' as JSON: { 'status':
+Semantic Target: declined
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: 'declined', 'reason': 'network connection timeout'
+SFT Candidate Output: 'declined', 'reason': 'network connection timeout'}
+Final Served Output: 'declined', 'reason': 'network connection timeout'
+Baseline NLL: 13.12500
+Candidate NLL: 3.29688
+Delta NLL: -9.82812
+Baseline Entropy: 0.11328
+Candidate Entropy: 2.25000
+Delta Entropy: 2.13672
+Baseline Margin: 5.75000
+Candidate Margin: 2.87500
+Delta Margin: -2.87500
+Baseline Target Probability: 0.98438
+Candidate Target Probability: 0.65625
+Delta Confidence: -0.32812
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: Yes
+Baseline Risk Score: 0.13552
+SFT Candidate Risk Score: 0.29587
+Router Decision: use_baseline
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 141
+Split: unseen_val
+Prompt Text: Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-1012: Premium 4K Smart OLED Television with HDR' as JSON: { 'department':
+Semantic Target: electronics
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: 'Electronics', 'product_category': 'Apparel',
+SFT Candidate Output: 'electronics', 'product_category': 'apparel', '
+Final Served Output: 'Electronics', 'product_category': 'Apparel',
+Baseline NLL: 18.75000
+Candidate NLL: 9.18750
+Delta NLL: -9.56250
+Baseline Entropy: 0.29102
+Candidate Entropy: 0.98047
+Delta Entropy: 0.68945
+Baseline Margin: 4.50000
+Candidate Margin: 3.62500
+Delta Margin: -0.87500
+Baseline Target Probability: 0.95703
+Candidate Target Probability: 0.84766
+Delta Confidence: -0.10938
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: Yes
+Baseline Risk Score: 0.15585
+SFT Candidate Risk Score: 0.23529
+Router Decision: use_baseline
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 142
+Split: unseen_val
+Prompt Text: Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-4421: Cotton Slim-Fit Casual Men's Button-Up Shirt' as JSON: { 'department':
+Semantic Target: apparel
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: 'electronics', 'category': 'apparel', 'sub
+SFT Candidate Output: 'electronics', 'category': 'apparel', 'sub
+Final Served Output: 'electronics', 'category': 'apparel', 'sub
+Baseline NLL: 19.87500
+Candidate NLL: 12.43750
+Delta NLL: -7.43750
+Baseline Entropy: 0.32227
+Candidate Entropy: 1.32031
+Delta Entropy: 0.99805
+Baseline Margin: 4.37500
+Candidate Margin: 2.75000
+Delta Margin: -1.62500
+Baseline Target Probability: 0.95312
+Candidate Target Probability: 0.76953
+Delta Confidence: -0.18359
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: Yes
+Baseline Risk Score: 0.16054
+SFT Candidate Risk Score: 0.27173
+Router Decision: use_baseline
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 143
+Split: unseen_val
+Prompt Text: Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-9902: Ergonomic Mesh Swivel Desk Chair for Home Office' as JSON: { 'department':
+Semantic Target: home
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 0
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: wrong_to_wrong
+Baseline Output: 'electronics', 'category': 'apparel', 'sub
+SFT Candidate Output: 'electronics', 'category': 'apparel', 'sub
+Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
+Baseline NLL: 16.37500
+Candidate NLL: 9.43750
+Delta NLL: -6.93750
+Baseline Entropy: 0.29492
+Candidate Entropy: 1.28125
+Delta Entropy: 0.98633
+Baseline Margin: 4.62500
+Candidate Margin: 3.12500
+Delta Margin: -1.50000
+Baseline Target Probability: 0.95703
+Candidate Target Probability: 0.79297
+Delta Confidence: -0.16406
+Failure Category: HIGH_CONFIDENCE_WRONG
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: Yes
+Baseline Risk Score: 0.40222
+SFT Candidate Risk Score: 0.50931
+Router Decision: abstain_safe_fallback
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5093).
+--------------------------------------------------------------------------------
+### ID: 144
+Split: unseen_val
+Prompt Text: Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-1150: Wireless Noise-Canceling Bluetooth Headphones' as JSON: { 'department':
+Semantic Target: electronics
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: 'electronics', 'product_category': 'apparel', '
+SFT Candidate Output: 'electronics', 'product_category': 'home', 'product
+Final Served Output: 'electronics', 'product_category': 'apparel', '
+Baseline NLL: 18.25000
+Candidate NLL: 8.50000
+Delta NLL: -9.75000
+Baseline Entropy: 0.29883
+Candidate Entropy: 1.09375
+Delta Entropy: 0.79492
+Baseline Margin: 4.75000
+Candidate Margin: 3.00000
+Delta Margin: -1.75000
+Baseline Target Probability: 0.95703
+Candidate Target Probability: 0.82422
+Delta Confidence: -0.13281
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: Yes
+Baseline Risk Score: 0.14859
+SFT Candidate Risk Score: 0.25744
+Router Decision: use_baseline
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 145
+Split: unseen_val
+Prompt Text: Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-8120: High-Thread Count Egyptian Cotton Bed Sheet Set' as JSON: { 'department':
+Semantic Target: home
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 0
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: wrong_to_wrong
+Baseline Output: 'electronics', 'category': 'apparel', 'sub
+SFT Candidate Output: 'electronics', 'product_category': 'apparel', '
+Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
+Baseline NLL: 17.37500
+Candidate NLL: 11.43750
+Delta NLL: -5.93750
+Baseline Entropy: 0.22461
+Candidate Entropy: 1.35938
+Delta Entropy: 1.13477
+Baseline Margin: 4.75000
+Candidate Margin: 2.37500
+Delta Margin: -2.37500
+Baseline Target Probability: 0.96875
+Candidate Target Probability: 0.75000
+Delta Confidence: -0.21875
+Failure Category: HIGH_CONFIDENCE_WRONG
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: Yes
+Baseline Risk Score: 0.39636
+SFT Candidate Risk Score: 0.53416
+Router Decision: abstain_safe_fallback
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5342).
+--------------------------------------------------------------------------------
+### ID: 146
+Split: unseen_val
+Prompt Text: Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-3291: Women's Athletic Running Shoes with Arch Support' as JSON: { 'department':
+Semantic Target: apparel
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: 'Electronics', 'category': 'Apparel', '
+SFT Candidate Output: 'electronics', 'product_category': 'apparel', '
+Final Served Output: 'Electronics', 'category': 'Apparel', '
+Baseline NLL: 20.75000
+Candidate NLL: 13.50000
+Delta NLL: -7.25000
+Baseline Entropy: 0.31445
+Candidate Entropy: 0.97266
+Delta Entropy: 0.65820
+Baseline Margin: 4.00000
+Candidate Margin: 3.25000
+Delta Margin: -0.75000
+Baseline Target Probability: 0.94922
+Candidate Target Probability: 0.84375
+Delta Confidence: -0.10547
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: Yes
+Baseline Risk Score: 0.17156
+SFT Candidate Risk Score: 0.24630
+Router Decision: use_baseline
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 147
+Split: unseen_val
+Prompt Text: Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-6512: Bluetooth Soundbar with Wireless Subwoofer' as JSON: { 'department':
+Semantic Target: electronics
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: 'electronics', 'product_category': 'apparel', '
+SFT Candidate Output: 'electronics', 'product_category': 'apparel', '
+Final Served Output: 'electronics', 'product_category': 'apparel', '
+Baseline NLL: 18.75000
+Candidate NLL: 9.62500
+Delta NLL: -9.12500
+Baseline Entropy: 0.32422
+Candidate Entropy: 1.60938
+Delta Entropy: 1.28516
+Baseline Margin: 4.50000
+Candidate Margin: 2.00000
+Delta Margin: -2.50000
+Baseline Target Probability: 0.95312
+Candidate Target Probability: 0.69922
+Delta Confidence: -0.25391
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: Yes
+Baseline Risk Score: 0.15685
+SFT Candidate Risk Score: 0.30291
+Router Decision: use_baseline
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 148
+Split: unseen_val
+Prompt Text: Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-7740: Memory Foam Orthopedic Pillow' as JSON: { 'department':
+Semantic Target: home
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 0
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: wrong_to_wrong
+Baseline Output: 'electronics', 'category': 'apparel', 'sub
+SFT Candidate Output: 'electronics', 'product_category': 'apparel', '
+Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
+Baseline NLL: 17.37500
+Candidate NLL: 11.25000
+Delta NLL: -6.12500
+Baseline Entropy: 0.26172
+Candidate Entropy: 1.14062
+Delta Entropy: 0.87891
+Baseline Margin: 4.50000
+Candidate Margin: 3.12500
+Delta Margin: -1.37500
+Baseline Target Probability: 0.96094
+Candidate Target Probability: 0.81250
+Delta Confidence: -0.14844
+Failure Category: HIGH_CONFIDENCE_WRONG
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: Yes
+Baseline Risk Score: 0.40498
+SFT Candidate Risk Score: 0.50509
+Router Decision: abstain_safe_fallback
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5051).
+--------------------------------------------------------------------------------
+### ID: 149
+Split: unseen_val
+Prompt Text: Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-2201: Water-Resistant Hiking Jacket with Fleece Lining' as JSON: { 'department':
+Semantic Target: apparel
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: 'electronics', 'product_category': 'apparel', '
+SFT Candidate Output: 'electronics', 'product_category': 'apparel', '
+Final Served Output: 'electronics', 'product_category': 'apparel', '
+Baseline NLL: 21.25000
+Candidate NLL: 13.31250
+Delta NLL: -7.93750
+Baseline Entropy: 0.32031
+Candidate Entropy: 1.39062
+Delta Entropy: 1.07031
+Baseline Margin: 4.25000
+Candidate Margin: 2.37500
+Delta Margin: -1.87500
+Baseline Target Probability: 0.94922
+Candidate Target Probability: 0.74609
+Delta Confidence: -0.20312
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: Yes
+Baseline Risk Score: 0.16423
+SFT Candidate Risk Score: 0.28509
+Router Decision: use_baseline
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 150
+Split: unseen_val
+Prompt Text: Extract the product department (electronics/apparel/home) from this item description: 'Product SKU-5580: Ultra-Wide Curved Gaming Monitor 144Hz' as JSON: { 'department':
+Semantic Target: electronics
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: 'electronics', 'product_category': 'apparel', '
+SFT Candidate Output: 'electronics', 'product_category': 'apparel', '
+Final Served Output: 'electronics', 'product_category': 'apparel', '
+Baseline NLL: 18.87500
+Candidate NLL: 9.18750
+Delta NLL: -9.68750
+Baseline Entropy: 0.17969
+Candidate Entropy: 0.87891
+Delta Entropy: 0.69922
+Baseline Margin: 5.12500
+Candidate Margin: 3.50000
+Delta Margin: -1.62500
+Baseline Target Probability: 0.97656
+Candidate Target Probability: 0.86328
+Delta Confidence: -0.11328
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: Yes
+Baseline Risk Score: 0.13752
+SFT Candidate Risk Score: 0.23599
+Router Decision: use_baseline
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 151
+Split: unseen_val
+Prompt Text: Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 52 BPM' as JSON: { 'status':
+Semantic Target: bradycardia
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 0
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: wrong_to_wrong
+Baseline Output: 'normal', 'rate': 52 } The heart
+SFT Candidate Output: 'normal', 'rate': 52 } The heart
+Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
+Baseline NLL: 3.25000
+Candidate NLL: 1.54375
+Delta NLL: -1.70625
+Baseline Entropy: 0.18359
+Candidate Entropy: 1.55469
+Delta Entropy: 1.37109
+Baseline Margin: 4.00000
+Candidate Margin: 1.87500
+Delta Margin: -2.12500
+Baseline Target Probability: 0.96875
+Candidate Target Probability: 0.71094
+Delta Confidence: -0.25781
+Failure Category: HIGH_CONFIDENCE_WRONG
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: Yes
+Baseline Risk Score: 0.41763
+SFT Candidate Risk Score: 0.55502
+Router Decision: abstain_safe_fallback
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5550).
+--------------------------------------------------------------------------------
+### ID: 152
+Split: unseen_val
+Prompt Text: Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 112 BPM' as JSON: { 'status':
+Semantic Target: tachycardia
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 0
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: wrong_to_wrong
+Baseline Output: 'normal', 'rate': 112 } The
+SFT Candidate Output: 'normal', 'rate': 112 } The
+Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
+Baseline NLL: 4.27500
+Candidate NLL: 2.41250
+Delta NLL: -1.86250
+Baseline Entropy: 0.17383
+Candidate Entropy: 1.32031
+Delta Entropy: 1.14648
+Baseline Margin: 4.00000
+Candidate Margin: 2.25000
+Delta Margin: -1.75000
+Baseline Target Probability: 0.97266
+Candidate Target Probability: 0.76953
+Delta Confidence: -0.20312
+Failure Category: HIGH_CONFIDENCE_WRONG
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: Yes
+Baseline Risk Score: 0.41734
+SFT Candidate Risk Score: 0.53673
+Router Decision: abstain_safe_fallback
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5367).
+--------------------------------------------------------------------------------
+### ID: 153
+Split: unseen_val
+Prompt Text: Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 72 BPM' as JSON: { 'status':
+Semantic Target: normal
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: 'normal', 'rate': 72 } The heart
+SFT Candidate Output: 'normal', 'rate': 72 } The heart
+Final Served Output: 'normal', 'rate': 72 } The heart
+Baseline NLL: 13.25000
+Candidate NLL: 5.75000
+Delta NLL: -7.50000
+Baseline Entropy: 0.18652
+Candidate Entropy: 1.46094
+Delta Entropy: 1.27441
+Baseline Margin: 4.00000
+Candidate Margin: 2.12500
+Delta Margin: -1.87500
+Baseline Target Probability: 0.96875
+Candidate Target Probability: 0.74219
+Delta Confidence: -0.22656
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: Yes
+Baseline Risk Score: 0.16772
+SFT Candidate Risk Score: 0.29470
+Router Decision: use_baseline
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 154
+Split: unseen_val
+Prompt Text: Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 48 BPM' as JSON: { 'status':
+Semantic Target: bradycardia
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 0
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: wrong_to_wrong
+Baseline Output: 'normal', 'rate': 48 } The heart
+SFT Candidate Output: 'normal', 'rate': 48 } The heart
+Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
+Baseline NLL: 3.22500
+Candidate NLL: 1.49375
+Delta NLL: -1.73125
+Baseline Entropy: 0.20996
+Candidate Entropy: 1.46094
+Delta Entropy: 1.25098
+Baseline Margin: 3.75000
+Candidate Margin: 2.12500
+Delta Margin: -1.62500
+Baseline Target Probability: 0.96484
+Candidate Target Probability: 0.74219
+Delta Confidence: -0.22266
+Failure Category: HIGH_CONFIDENCE_WRONG
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: Yes
+Baseline Risk Score: 0.42592
+SFT Candidate Risk Score: 0.54470
+Router Decision: abstain_safe_fallback
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5447).
+--------------------------------------------------------------------------------
+### ID: 155
+Split: unseen_val
+Prompt Text: Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 125 BPM' as JSON: { 'status':
+Semantic Target: tachycardia
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 0
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: wrong_to_wrong
+Baseline Output: 'normal', 'rate': 125 } The
+SFT Candidate Output: 'normal', 'rate': 125 } The
+Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
+Baseline NLL: 4.20000
+Candidate NLL: 2.41250
+Delta NLL: -1.78750
+Baseline Entropy: 0.18066
+Candidate Entropy: 1.34375
+Delta Entropy: 1.16309
+Baseline Margin: 4.00000
+Candidate Margin: 2.12500
+Delta Margin: -1.87500
+Baseline Target Probability: 0.96875
+Candidate Target Probability: 0.76172
+Delta Confidence: -0.20703
+Failure Category: HIGH_CONFIDENCE_WRONG
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: Yes
+Baseline Risk Score: 0.41754
+SFT Candidate Risk Score: 0.54119
+Router Decision: abstain_safe_fallback
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5412).
+--------------------------------------------------------------------------------
+### ID: 156
+Split: unseen_val
+Prompt Text: Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 80 BPM' as JSON: { 'status':
+Semantic Target: normal
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: 'normal', 'rate': 80 } The heart
+SFT Candidate Output: 'normal', 'rate': 80 } The heart
+Final Served Output: 'normal', 'rate': 80 } The heart
+Baseline NLL: 12.87500
+Candidate NLL: 5.53125
+Delta NLL: -7.34375
+Baseline Entropy: 0.18457
+Candidate Entropy: 1.44531
+Delta Entropy: 1.26074
+Baseline Margin: 4.00000
+Candidate Margin: 2.12500
+Delta Margin: -1.87500
+Baseline Target Probability: 0.96875
+Candidate Target Probability: 0.74609
+Delta Confidence: -0.22266
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: Yes
+Baseline Risk Score: 0.16766
+SFT Candidate Risk Score: 0.29423
+Router Decision: use_baseline
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 157
+Split: unseen_val
+Prompt Text: Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 55 BPM' as JSON: { 'status':
+Semantic Target: bradycardia
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 0
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: wrong_to_wrong
+Baseline Output: 'normal', 'rate': 55 } The heart
+SFT Candidate Output: 'normal', 'rate': 55 } The heart
+Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
+Baseline NLL: 3.20000
+Candidate NLL: 1.58750
+Delta NLL: -1.61250
+Baseline Entropy: 0.20703
+Candidate Entropy: 1.47656
+Delta Entropy: 1.26953
+Baseline Margin: 3.87500
+Candidate Margin: 1.87500
+Delta Margin: -2.00000
+Baseline Target Probability: 0.96484
+Candidate Target Probability: 0.72266
+Delta Confidence: -0.24219
+Failure Category: HIGH_CONFIDENCE_WRONG
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: Yes
+Baseline Risk Score: 0.42209
+SFT Candidate Risk Score: 0.55267
+Router Decision: abstain_safe_fallback
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5527).
+--------------------------------------------------------------------------------
+### ID: 158
+Split: unseen_val
+Prompt Text: Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 105 BPM' as JSON: { 'status':
+Semantic Target: tachycardia
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 0
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: wrong_to_wrong
+Baseline Output: 'normal', 'rate': 105 } The
+SFT Candidate Output: 'normal', 'rate': 105 } The
+Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
+Baseline NLL: 4.22500
+Candidate NLL: 2.43750
+Delta NLL: -1.78750
+Baseline Entropy: 0.17090
+Candidate Entropy: 1.33594
+Delta Entropy: 1.16504
+Baseline Margin: 4.00000
+Candidate Margin: 2.12500
+Delta Margin: -1.87500
+Baseline Target Probability: 0.97266
+Candidate Target Probability: 0.76172
+Delta Confidence: -0.21094
+Failure Category: HIGH_CONFIDENCE_WRONG
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: Yes
+Baseline Risk Score: 0.41725
+SFT Candidate Risk Score: 0.54095
+Router Decision: abstain_safe_fallback
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5410).
+--------------------------------------------------------------------------------
+### ID: 159
+Split: unseen_val
+Prompt Text: Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 65 BPM' as JSON: { 'status':
+Semantic Target: normal
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: 'normal', 'rate': 65 } The heart
+SFT Candidate Output: 'normal', 'rate': 65 } The heart
+Final Served Output: 'normal', 'rate': 65 } The heart
+Baseline NLL: 13.12500
+Candidate NLL: 5.78125
+Delta NLL: -7.34375
+Baseline Entropy: 0.20605
+Candidate Entropy: 1.55469
+Delta Entropy: 1.34863
+Baseline Margin: 3.87500
+Candidate Margin: 2.00000
+Delta Margin: -1.87500
+Baseline Target Probability: 0.96484
+Candidate Target Probability: 0.71875
+Delta Confidence: -0.24609
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: Yes
+Baseline Risk Score: 0.17206
+SFT Candidate Risk Score: 0.30127
+Router Decision: use_baseline
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 160
+Split: unseen_val
+Prompt Text: Extract the heart rate status (normal/bradycardia/tachycardia) from this vital log: 'Heart rate observed at 50 BPM' as JSON: { 'status':
+Semantic Target: bradycardia
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 0
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: wrong_to_wrong
+Baseline Output: 'normal', 'rate': 50 } The heart
+SFT Candidate Output: 'normal', 'rate': 50 } The heart
+Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
+Baseline NLL: 3.22500
+Candidate NLL: 1.50625
+Delta NLL: -1.71875
+Baseline Entropy: 0.19629
+Candidate Entropy: 1.41406
+Delta Entropy: 1.21777
+Baseline Margin: 4.00000
+Candidate Margin: 2.12500
+Delta Margin: -1.87500
+Baseline Target Probability: 0.96875
+Candidate Target Probability: 0.75000
+Delta Confidence: -0.21875
+Failure Category: HIGH_CONFIDENCE_WRONG
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: Yes
+Baseline Risk Score: 0.41801
+SFT Candidate Risk Score: 0.54330
+Router Decision: abstain_safe_fallback
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5433).
+--------------------------------------------------------------------------------
+### ID: 161
+Split: unseen_val
+Prompt Text: Extract the security group access level (public/private) from this rule: 'Rule-10 configures port 22 for CIDR 0.0.0.0/0' as JSON: { 'access':
+Semantic Target: public
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 0
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: wrong_to_wrong
+Baseline Output: 'private', 'description': 'Allow all traffic on port
+SFT Candidate Output: 'private', 'cidr': '0.0.
+Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
+Baseline NLL: 13.50000
+Candidate NLL: 5.90625
+Delta NLL: -7.59375
+Baseline Entropy: 0.46680
+Candidate Entropy: 1.42188
+Delta Entropy: 0.95508
+Baseline Margin: 2.62500
+Candidate Margin: 1.25000
+Delta Margin: -1.37500
+Baseline Target Probability: 0.89844
+Candidate Target Probability: 0.67578
+Delta Confidence: -0.22266
+Failure Category: HIGH_CONFIDENCE_WRONG
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: Yes
+Baseline Risk Score: 0.46738
+SFT Candidate Risk Score: 0.56978
+Router Decision: abstain_safe_fallback
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5698).
+--------------------------------------------------------------------------------
+### ID: 162
+Split: unseen_val
+Prompt Text: Extract the security group access level (public/private) from this rule: 'Rule-11 configures port 80 for CIDR 10.0.0.0/8' as JSON: { 'access':
+Semantic Target: private
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: 'private', 'cidr': '10.0
+SFT Candidate Output: 'private', 'cidr': '10.0
+Final Served Output: 'private', 'cidr': '10.0
+Baseline NLL: 15.56250
+Candidate NLL: 7.78125
+Delta NLL: -7.78125
+Baseline Entropy: 0.53906
+Candidate Entropy: 1.39844
+Delta Entropy: 0.85938
+Baseline Margin: 2.37500
+Candidate Margin: 1.25000
+Delta Margin: -1.12500
+Baseline Target Probability: 0.87500
+Candidate Target Probability: 0.67578
+Delta Confidence: -0.19922
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: Yes
+Baseline Risk Score: 0.22705
+SFT Candidate Risk Score: 0.31908
+Router Decision: use_baseline
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 163
+Split: unseen_val
+Prompt Text: Extract the security group access level (public/private) from this rule: 'Rule-12 configures port 443 for CIDR 192.168.1.0/24' as JSON: { 'access':
+Semantic Target: private
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: 'private', 'cidr': '192.
+SFT Candidate Output: 'private', 'cidr': '192.
+Final Served Output: 'private', 'cidr': '192.
+Baseline NLL: 15.18750
+Candidate NLL: 7.71875
+Delta NLL: -7.46875
+Baseline Entropy: 0.66016
+Candidate Entropy: 1.74219
+Delta Entropy: 1.08203
+Baseline Margin: 2.00000
+Candidate Margin: 0.50000
+Delta Margin: -1.50000
+Baseline Target Probability: 0.83594
+Candidate Target Probability: 0.51562
+Delta Confidence: -0.32031
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: Yes
+Baseline Risk Score: 0.24193
+SFT Candidate Risk Score: 0.35189
+Router Decision: use_baseline
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 164
+Split: unseen_val
+Prompt Text: Extract the security group access level (public/private) from this rule: 'Rule-13 configures port 3306 for CIDR 0.0.0.0/0' as JSON: { 'access':
+Semantic Target: public
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 0
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: wrong_to_wrong
+Baseline Output: 'private', 'cidr': '0.0.
+SFT Candidate Output: 'private', 'cidr': '0.0.
+Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
+Baseline NLL: 13.56250
+Candidate NLL: 5.81250
+Delta NLL: -7.75000
+Baseline Entropy: 0.52734
+Candidate Entropy: 1.42188
+Delta Entropy: 0.89453
+Baseline Margin: 2.25000
+Candidate Margin: 1.37500
+Delta Margin: -0.87500
+Baseline Target Probability: 0.87500
+Candidate Target Probability: 0.69141
+Delta Confidence: -0.18359
+Failure Category: HIGH_CONFIDENCE_WRONG
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: Yes
+Baseline Risk Score: 0.48044
+SFT Candidate Risk Score: 0.56603
+Router Decision: abstain_safe_fallback
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5660).
+--------------------------------------------------------------------------------
+### ID: 165
+Split: unseen_val
+Prompt Text: Extract the security group access level (public/private) from this rule: 'Rule-14 configures port 8080 for CIDR 172.16.0.0/12' as JSON: { 'access':
+Semantic Target: private
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: 'private', 'cidr': '172.
+SFT Candidate Output: 'private', 'cidr': '172.
+Final Served Output: 'private', 'cidr': '172.
+Baseline NLL: 15.18750
+Candidate NLL: 7.59375
+Delta NLL: -7.59375
+Baseline Entropy: 0.68750
+Candidate Entropy: 1.66406
+Delta Entropy: 0.97656
+Baseline Margin: 1.87500
+Candidate Margin: 0.50000
+Delta Margin: -1.37500
+Baseline Target Probability: 0.82031
+Candidate Target Probability: 0.52734
+Delta Confidence: -0.29297
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: Yes
+Baseline Risk Score: 0.24650
+SFT Candidate Risk Score: 0.34955
+Router Decision: use_baseline
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 166
+Split: unseen_val
+Prompt Text: Extract the security group access level (public/private) from this rule: 'Rule-15 configures port 22 for CIDR 192.168.1.0/24' as JSON: { 'access':
+Semantic Target: private
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: 'private', 'description': 'Allow all traffic on port
+SFT Candidate Output: 'private', 'cidr': '192.
+Final Served Output: 'private', 'description': 'Allow all traffic on port
+Baseline NLL: 15.56250
+Candidate NLL: 7.68750
+Delta NLL: -7.87500
+Baseline Entropy: 0.64844
+Candidate Entropy: 1.72656
+Delta Entropy: 1.07812
+Baseline Margin: 2.00000
+Candidate Margin: 0.75000
+Delta Margin: -1.25000
+Baseline Target Probability: 0.83594
+Candidate Target Probability: 0.56250
+Delta Confidence: -0.27344
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: Yes
+Baseline Risk Score: 0.24158
+SFT Candidate Risk Score: 0.34392
+Router Decision: use_baseline
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 167
+Split: unseen_val
+Prompt Text: Extract the security group access level (public/private) from this rule: 'Rule-16 configures port 80 for CIDR 0.0.0.0/0' as JSON: { 'access':
+Semantic Target: public
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_wrong
+Baseline Output: 'public' } The security group access level is public.
+SFT Candidate Output: 'private', 'cidr': '0.0.
+Final Served Output: 'public' } The security group access level is public.
+Baseline NLL: 13.43750
+Candidate NLL: 5.65625
+Delta NLL: -7.78125
+Baseline Entropy: 0.53516
+Candidate Entropy: 1.43750
+Delta Entropy: 0.90234
+Baseline Margin: 2.37500
+Candidate Margin: 1.25000
+Delta Margin: -1.12500
+Baseline Target Probability: 0.87891
+Candidate Target Probability: 0.67188
+Delta Confidence: -0.20703
+Failure Category: HIGH_CONFIDENCE_WRONG
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: Yes
+Baseline Risk Score: 0.22693
+SFT Candidate Risk Score: 0.57025
+Router Decision: use_baseline
+Prevention Action: Candidate blocked because baseline captured the target and candidate failed.
+--------------------------------------------------------------------------------
+### ID: 168
+Split: unseen_val
+Prompt Text: Extract the security group access level (public/private) from this rule: 'Rule-17 configures port 443 for CIDR 0.0.0.0/0' as JSON: { 'access':
+Semantic Target: public
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_wrong
+Baseline Output: 'public', 'cidr': '0.0.
+SFT Candidate Output: 'private', 'cidr': '0.0.
+Final Served Output: 'public', 'cidr': '0.0.
+Baseline NLL: 14.06250
+Candidate NLL: 5.96875
+Delta NLL: -8.09375
+Baseline Entropy: 0.51172
+Candidate Entropy: 1.33594
+Delta Entropy: 0.82422
+Baseline Margin: 2.37500
+Candidate Margin: 1.37500
+Delta Margin: -1.00000
+Baseline Target Probability: 0.88281
+Candidate Target Probability: 0.70312
+Delta Confidence: -0.17969
+Failure Category: HIGH_CONFIDENCE_WRONG
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: Yes
+Baseline Risk Score: 0.22623
+SFT Candidate Risk Score: 0.56345
+Router Decision: use_baseline
+Prevention Action: Candidate blocked because baseline captured the target and candidate failed.
+--------------------------------------------------------------------------------
+### ID: 169
+Split: unseen_val
+Prompt Text: Extract the security group access level (public/private) from this rule: 'Rule-18 configures port 3306 for CIDR 10.0.0.0/8' as JSON: { 'access':
+Semantic Target: private
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: 'private', 'rule_id': '18', '
+SFT Candidate Output: 'private', 'rule': 'configures port 3
+Final Served Output: 'private', 'rule_id': '18', '
+Baseline NLL: 15.50000
+Candidate NLL: 7.59375
+Delta NLL: -7.90625
+Baseline Entropy: 0.54688
+Candidate Entropy: 1.71875
+Delta Entropy: 1.17188
+Baseline Margin: 2.25000
+Candidate Margin: 0.87500
+Delta Margin: -1.37500
+Baseline Target Probability: 0.87109
+Candidate Target Probability: 0.58594
+Delta Confidence: -0.28516
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: Yes
+Baseline Risk Score: 0.23103
+SFT Candidate Risk Score: 0.33994
+Router Decision: use_baseline
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 170
+Split: unseen_val
+Prompt Text: Extract the security group access level (public/private) from this rule: 'Rule-19 configures port 8080 for CIDR 0.0.0.0/0' as JSON: { 'access':
+Semantic Target: public
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_wrong
+Baseline Output: 'public' } The security group access level is public.
+SFT Candidate Output: 'private', 'cidr': '0.0.
+Final Served Output: 'public' } The security group access level is public.
+Baseline NLL: 14.00000
+Candidate NLL: 5.84375
+Delta NLL: -8.15625
+Baseline Entropy: 0.49219
+Candidate Entropy: 1.44531
+Delta Entropy: 0.95312
+Baseline Margin: 2.37500
+Candidate Margin: 1.25000
+Delta Margin: -1.12500
+Baseline Target Probability: 0.88672
+Candidate Target Probability: 0.67188
+Delta Confidence: -0.21484
+Failure Category: HIGH_CONFIDENCE_WRONG
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: Yes
+Baseline Risk Score: 0.22564
+SFT Candidate Risk Score: 0.57048
+Router Decision: use_baseline
+Prevention Action: Candidate blocked because baseline captured the target and candidate failed.
+--------------------------------------------------------------------------------
+### ID: 171
+Split: unseen_val
+Prompt Text: Extract the transaction status (approved/declined) from this gateway log: 'Billing address postcode check failed' as JSON: { 'status':
+Semantic Target: declined
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: 'declined', 'reason': 'billing address postcode check
+SFT Candidate Output: 'declined', 'reason': 'billing address postcode check
+Final Served Output: 'declined', 'reason': 'billing address postcode check
+Baseline NLL: 12.62500
+Candidate NLL: 3.76562
+Delta NLL: -8.85938
+Baseline Entropy: 0.07764
+Candidate Entropy: 2.07812
+Delta Entropy: 2.00049
+Baseline Margin: 6.25000
+Candidate Margin: 2.81250
+Delta Margin: -3.43750
+Baseline Target Probability: 0.99219
+Candidate Target Probability: 0.67969
+Delta Confidence: -0.31250
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: Yes
+Baseline Risk Score: 0.13445
+SFT Candidate Risk Score: 0.29259
+Router Decision: use_baseline
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 172
+Split: unseen_val
+Prompt Text: Extract the transaction status (approved/declined) from this gateway log: 'Secure handshake success, transaction cleared' as JSON: { 'status':
+Semantic Target: approved
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: 'approved', 'reason': '' } The transaction status is
+SFT Candidate Output: 'approved', 'message': 'Transaction cleared'}.
+
+The
+Final Served Output: 'approved', 'reason': '' } The transaction status is
+Baseline NLL: 14.12500
+Candidate NLL: 3.59375
+Delta NLL: -10.53125
+Baseline Entropy: 0.07617
+Candidate Entropy: 2.06250
+Delta Entropy: 1.98633
+Baseline Margin: 6.12500
+Candidate Margin: 2.50000
+Delta Margin: -3.62500
+Baseline Target Probability: 0.99219
+Candidate Target Probability: 0.66797
+Delta Confidence: -0.32422
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: Yes
+Baseline Risk Score: 0.13441
+SFT Candidate Risk Score: 0.30150
+Router Decision: use_baseline
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 173
+Split: unseen_val
+Prompt Text: Extract the transaction status (approved/declined) from this gateway log: 'Issuer bank reports card has expired' as JSON: { 'status':
+Semantic Target: declined
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: 'declined', 'reason': 'card expired' }
+SFT Candidate Output: 'declined', 'reason': 'card expired'} The
+Final Served Output: 'declined', 'reason': 'card expired' }
+Baseline NLL: 12.18750
+Candidate NLL: 3.56250
+Delta NLL: -8.62500
+Baseline Entropy: 0.17676
+Candidate Entropy: 2.67188
+Delta Entropy: 2.49512
+Baseline Margin: 5.12500
+Candidate Margin: 2.25000
+Delta Margin: -2.87500
+Baseline Target Probability: 0.97656
+Candidate Target Probability: 0.57031
+Delta Confidence: -0.40625
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: Yes
+Baseline Risk Score: 0.13743
+SFT Candidate Risk Score: 0.32728
+Router Decision: use_baseline
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 174
+Split: unseen_val
+Prompt Text: Extract the transaction status (approved/declined) from this gateway log: 'Risk engine blocker flags matched' as JSON: { 'status':
+Semantic Target: declined
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 0
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 0
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: wrong_to_wrong
+Baseline Output: 'approved', 'reason': 'no reason provided'} The
+SFT Candidate Output: 'pending', 'reason': 'blocked by risk engine',
+Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
+Baseline NLL: 12.56250
+Candidate NLL: 3.73438
+Delta NLL: -8.82812
+Baseline Entropy: 0.33398
+Candidate Entropy: 2.53125
+Delta Entropy: 2.19727
+Baseline Margin: 4.00000
+Candidate Margin: 2.18750
+Delta Margin: -1.81250
+Baseline Target Probability: 0.94922
+Candidate Target Probability: 0.58203
+Delta Confidence: -0.36719
+Failure Category: WRONG_ENTITY_SUBSTITUTION
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: Yes
+Baseline Risk Score: 0.42214
+SFT Candidate Risk Score: 0.57494
+Router Decision: abstain_safe_fallback
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5749).
+--------------------------------------------------------------------------------
+### ID: 175
+Split: unseen_val
+Prompt Text: Extract the transaction status (approved/declined) from this gateway log: 'User authenticated, Batch captured' as JSON: { 'status':
+Semantic Target: approved
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: 'approved', 'message': 'Batch captured successfully' }
+SFT Candidate Output: 'approved', 'message': 'Batch captured successfully'}.
+Final Served Output: 'approved', 'message': 'Batch captured successfully' }
+Baseline NLL: 13.12500
+Candidate NLL: 4.37500
+Delta NLL: -8.75000
+Baseline Entropy: 0.21484
+Candidate Entropy: 1.77344
+Delta Entropy: 1.55859
+Baseline Margin: 4.50000
+Candidate Margin: 2.87500
+Delta Margin: -1.62500
+Baseline Target Probability: 0.96875
+Candidate Target Probability: 0.73047
+Delta Confidence: -0.23828
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: Yes
+Baseline Risk Score: 0.15357
+SFT Candidate Risk Score: 0.28158
+Router Decision: use_baseline
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 176
+Split: unseen_val
+Prompt Text: Extract the transaction status (approved/declined) from this gateway log: 'Insufficient credit limit on account' as JSON: { 'status':
+Semantic Target: declined
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: 'declined', 'reason': 'Insufficient credit limit
+SFT Candidate Output: declined, 'message': 'Insufficient credit limit on account
+Final Served Output: 'declined', 'reason': 'Insufficient credit limit
+Baseline NLL: 12.50000
+Candidate NLL: 2.17188
+Delta NLL: -10.32812
+Baseline Entropy: 0.09033
+Candidate Entropy: 2.29688
+Delta Entropy: 2.20654
+Baseline Margin: 6.00000
+Candidate Margin: 1.62500
+Delta Margin: -4.37500
+Baseline Target Probability: 0.98828
+Candidate Target Probability: 0.57812
+Delta Confidence: -0.41016
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: Yes
+Baseline Risk Score: 0.13483
+SFT Candidate Risk Score: 0.33478
+Router Decision: use_baseline
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 177
+Split: unseen_val
+Prompt Text: Extract the transaction status (approved/declined) from this gateway log: 'Charge verified and cleared successfully' as JSON: { 'status':
+Semantic Target: approved
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: 'approved', 'message': 'Transaction successful.' } The
+SFT Candidate Output: 'approved', 'message': 'Transaction successful.' } Here
+Final Served Output: 'approved', 'message': 'Transaction successful.' } The
+Baseline NLL: 14.12500
+Candidate NLL: 4.46875
+Delta NLL: -9.65625
+Baseline Entropy: 0.07129
+Candidate Entropy: 1.28125
+Delta Entropy: 1.20996
+Baseline Margin: 5.87500
+Candidate Margin: 3.12500
+Delta Margin: -2.75000
+Baseline Target Probability: 0.99219
+Candidate Target Probability: 0.80469
+Delta Confidence: -0.18750
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: Yes
+Baseline Risk Score: 0.13426
+SFT Candidate Risk Score: 0.25931
+Router Decision: use_baseline
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 178
+Split: unseen_val
+Prompt Text: Extract the transaction status (approved/declined) from this gateway log: 'Handshake completed: capture approved' as JSON: { 'status':
+Semantic Target: approved
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: 'approved', 'reason': 'capture approved'} The transaction
+SFT Candidate Output: 'approved', 'message': 'Transaction successful.' } Here
+Final Served Output: 'approved', 'reason': 'capture approved'} The transaction
+Baseline NLL: 14.50000
+Candidate NLL: 3.79688
+Delta NLL: -10.70312
+Baseline Entropy: 0.07178
+Candidate Entropy: 2.29688
+Delta Entropy: 2.22510
+Baseline Margin: 6.00000
+Candidate Margin: 2.68750
+Delta Margin: -3.31250
+Baseline Target Probability: 0.99219
+Candidate Target Probability: 0.65625
+Delta Confidence: -0.33594
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: Yes
+Baseline Risk Score: 0.13428
+SFT Candidate Risk Score: 0.30291
+Router Decision: use_baseline
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 179
+Split: unseen_val
+Prompt Text: Extract the transaction status (approved/declined) from this gateway log: 'Stolen card error returned by bank' as JSON: { 'status':
+Semantic Target: declined
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 1
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 1
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_correct
+Baseline Output: 'declined', 'reason': 'card stolen' }
+SFT Candidate Output: 'declined', 'reason': 'card stolen'} The
+Final Served Output: 'declined', 'reason': 'card stolen' }
+Baseline NLL: 11.50000
+Candidate NLL: 2.65625
+Delta NLL: -8.84375
+Baseline Entropy: 0.17578
+Candidate Entropy: 2.64062
+Delta Entropy: 2.46484
+Baseline Margin: 4.87500
+Candidate Margin: 2.06250
+Delta Margin: -2.81250
+Baseline Target Probability: 0.97656
+Candidate Target Probability: 0.54688
+Delta Confidence: -0.42969
+Failure Category: INSTRUCTION_CONTRACT_VIOLATION
+Hallucination / Target Failure Detected: No
+Confidence Lowered: Yes
+Baseline Risk Score: 0.14115
+SFT Candidate Risk Score: 0.33197
+Router Decision: use_baseline
+Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--------------------------------------------------------------------------------
+### ID: 180
+Split: unseen_val
+Prompt Text: Extract the transaction status (approved/declined) from this gateway log: 'Authorized by merchant override' as JSON: { 'status':
+Semantic Target: approved
+Strict Target-Only Correct — Baseline: 0
+Strict Target-Only Correct — Candidate: 0
+First-Token Match — Baseline: 1
+First-Token Match — Candidate: 0
+Semantic Capture — Baseline: 1
+Semantic Capture — Candidate: 0
+Instruction Contract Violation — Baseline: 1
+Instruction Contract Violation — Candidate: 1
+Transition Type: correct_to_wrong
+Baseline Output: 'approved', 'reason': 'authorized by merchant override',
+SFT Candidate Output: 'authorized', 'amount': 100, '
+Final Served Output: 'approved', 'reason': 'authorized by merchant override',
+Baseline NLL: 14.18750
+Candidate NLL: 5.12500
+Delta NLL: -9.06250
+Baseline Entropy: 0.17188
+Candidate Entropy: 1.57812
+Delta Entropy: 1.40625
+Baseline Margin: 5.12500
+Candidate Margin: 2.56250
+Delta Margin: -2.56250
+Baseline Target Probability: 0.97656
+Candidate Target Probability: 0.74219
+Delta Confidence: -0.23438
+Failure Category: HIGH_CONFIDENCE_WRONG
+Hallucination / Target Failure Detected: Yes
+Confidence Lowered: Yes
+Baseline Risk Score: 0.13728
+SFT Candidate Risk Score: 0.53509
+Router Decision: use_baseline
+Prevention Action: Candidate blocked because baseline captured the target and candidate failed.
+--------------------------------------------------------------------------------
+
+=====================================================================
+[G] RAW CONSOLE LOG APPENDIX
+=====================================================================
+[PCRF-Suite] 2026-07-06 04:34:37,353 - INFO - Loaded external dataset from another-dataset.csv
+[PCRF-Suite] 2026-07-06 04:34:37,353 - INFO - [SPLIT AUDIT] train split count: 100
+[PCRF-Suite] 2026-07-06 04:34:37,353 - INFO - [SPLIT AUDIT] seen_val split count: 40
+[PCRF-Suite] 2026-07-06 04:34:37,354 - INFO - [SPLIT AUDIT] unseen_val split count: 40
+[PCRF-Suite] 2026-07-06 04:34:37,354 - INFO - [SPLIT AUDIT] ood split count: 20
+[PCRF-Suite] 2026-07-06 04:34:37,355 - INFO - [SPLIT AUDIT] total records loaded: 200
+[PCRF-Suite] 2026-07-06 04:34:37,355 - INFO - Retrieving tokenizer and architecture weights for: Qwen/Qwen2.5-0.5B-Instruct
+[PCRF-Suite] 2026-07-06 04:34:52,329 - INFO - Model parameter arrays successfully allocated.
+[PCRF-Suite] 2026-07-06 04:34:52,331 - INFO - ==========================================================================================
+[PCRF-Suite] 2026-07-06 04:34:52,332 - INFO -                   PCRF RESOURCE AUDIT & COMPUTE PROFILING SYSTEM                  
+[PCRF-Suite] 2026-07-06 04:34:52,333 - INFO - ==========================================================================================
+[PCRF-Suite] 2026-07-06 04:34:52,333 - INFO - Host OS Platform          : Linux 6.1.0-49-cloud-amd64
+[PCRF-Suite] 2026-07-06 04:34:52,334 - INFO - Active CPU Cores Detected : 8
+[PCRF-Suite] 2026-07-06 04:34:52,335 - INFO - Host System RAM           : 29.38 GB
+[PCRF-Suite] 2026-07-06 04:34:52,335 - INFO - GPU Hardware Accelerator  : Tesla T4
+[PCRF-Suite] 2026-07-06 04:34:52,336 - INFO - Dedicated VRAM Capacity   : 14.56 GB
+[PCRF-Suite] 2026-07-06 04:34:52,337 - INFO - Target Model Size (Params): 494.0 Million Parameters
+[PCRF-Suite] 2026-07-06 04:34:52,337 - INFO - ------------------------------------------------------------------------------------------
+[PCRF-Suite] 2026-07-06 04:34:52,338 - INFO - RECOMMENDED GCP COMPUTE INFRASTRUCTURE SETUP:
+[PCRF-Suite] 2026-07-06 04:34:52,339 - INFO -   - Recommended GCP Tier  : n1-standard-8 (8 vCPUs, 30 GB RAM)
+  - Accelerator Context   : 1x NVIDIA T4 (16 GB VRAM)
+  - Technical Reason      : Light parameter profiles run perfectly inside standard T4 envelopes.
+                            At least 30 GB Host RAM prevents OS swap stalls during model download.
+[PCRF-Suite] 2026-07-06 04:34:52,339 - INFO - ------------------------------------------------------------------------------------------
+[PCRF-Suite] 2026-07-06 04:34:52,340 - INFO - GCP COMPUTE ENGINE SAFETY GUIDELINES (OOME PREVENTION):
+[PCRF-Suite] 2026-07-06 04:34:52,341 - INFO -  1. Always purge dangling activations using 'torch.cuda.empty_cache()' during hooks teardown.
+[PCRF-Suite] 2026-07-06 04:34:52,341 - INFO -  2. Enable half-precision (FP16/BF16) modes across all forward passes.
+[PCRF-Suite] 2026-07-06 04:34:52,342 - INFO -  3. Anchor maximum sequence length limits (`max_len`) tightly to block quadratic expansion.
+[PCRF-Suite] 2026-07-06 04:34:52,342 - INFO - ==========================================================================================
+
+[PCRF-Suite] 2026-07-06 04:34:52,344 - INFO - Baseline model parameters frozen.
+[PCRF-Suite] 2026-07-06 04:34:52,348 - INFO - --- Phase 1: Running Baseline Profile Evaluation ---
+[PCRF-Suite] 2026-07-06 04:35:37,544 - INFO - FP32 candidate model loaded securely for optimization.
+[PCRF-Suite] 2026-07-06 04:35:37,545 - INFO - 
+--- Scenario A: Run Standalone Layer Derivative Estimation ---
+[PCRF-Suite] 2026-07-06 04:38:08,365 - INFO - 
+--- Scenario B: Independent Curriculum Selection ---
+[PCRF-Suite] 2026-07-06 04:40:45,880 - INFO - 
+--- Scenario C: Standalone Structural Residual-Depth Monitoring ---
+[PCRF-Suite] 2026-07-06 04:43:33,574 - INFO - 
+--- Scenario D: Derivative-Weighted Regularization ---
+[PCRF-Suite] 2026-07-06 04:46:07,889 - INFO - Initializing Advanced CDL v2 SFT Regularization training loop...
+[PCRF-Suite] 2026-07-06 04:46:19,003 - INFO - Regularization SFT optimization completed.
+[PCRF-Suite] 2026-07-06 04:46:54,475 - INFO - [ROUTER AUDIT] baseline served count: 54
+[PCRF-Suite] 2026-07-06 04:46:54,476 - INFO - [ROUTER AUDIT] candidate served count: 2
+[PCRF-Suite] 2026-07-06 04:46:54,477 - INFO - [ROUTER AUDIT] abstain count: 24
+[PCRF-Suite] 2026-07-06 04:46:54,477 - INFO - [ROUTER AUDIT] semantic recoveries observed: 2
+[PCRF-Suite] 2026-07-06 04:46:54,479 - INFO - [ROUTER AUDIT] contract clean repairs promoted: 2
+[PCRF-Suite] 2026-07-06 04:46:54,479 - INFO - [ROUTER AUDIT] semantic recoveries withheld: 0
+[PCRF-Suite] 2026-07-06 04:46:54,480 - INFO - Generating detailed developer SFT debug log at: ./customer_pcrf_artifacts/pcrf_debug_report.txt
+

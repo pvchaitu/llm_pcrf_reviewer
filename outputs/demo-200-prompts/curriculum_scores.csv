@@ -1,0 +1,101 @@
+id,prompt,target,priority_score
+45,Extract the user role (admin/editor/viewer) from this permission string: 'Authorized to save draft adjustments but lacks user admin panel rights' as JSON: { 'role':,editor,23.756098349222036
+44,Extract the user role (admin/editor/viewer) from this permission string: 'Has root level execution privileges and can delete files globally' as JSON: { 'role':,admin,23.552307103088587
+42,Extract the user role (admin/editor/viewer) from this permission string: 'Can modify files and edit existing document drafts' as JSON: { 'role':,editor,23.519605447022766
+50,Extract the user role (admin/editor/viewer) from this permission string: 'Authorized to adjust user access directories and assign privileges' as JSON: { 'role':,admin,23.48265278303463
+53,Extract the user role (admin/editor/viewer) from this permission string: 'Has complete system owner role across all domain cabinets' as JSON: { 'role':,admin,23.384466942003527
+51,Extract the user role (admin/editor/viewer) from this permission string: 'Allowed to edit configuration templates and update baseline files' as JSON: { 'role':,editor,23.143401614209765
+59,Extract the user role (admin/editor/viewer) from this permission string: 'Has absolute root credentials on target cloud containers' as JSON: { 'role':,admin,23.098622948319765
+47,Extract the user role (admin/editor/viewer) from this permission string: 'Can create billing credentials and modify system configurations' as JSON: { 'role':,admin,23.017181931177785
+41,"Extract the user role (admin/editor/viewer) from this permission string: 'Can assign groups, modify profiles, and manage system administrators' as JSON: { 'role':",admin,22.859987952860127
+48,Extract the user role (admin/editor/viewer) from this permission string: 'Can submit content reviews and update documentation files' as JSON: { 'role':,editor,22.77541155816764
+57,Extract the user role (admin/editor/viewer) from this permission string: 'Allowed to adjust metadata keywords on uploaded videos' as JSON: { 'role':,editor,22.71878191165518
+60,Extract the user role (admin/editor/viewer) from this permission string: 'Can write updates to wiki documentation articles' as JSON: { 'role':,editor,22.50277264665427
+56,Extract the user role (admin/editor/viewer) from this permission string: 'Can establish database clusters and adjust primary host configs' as JSON: { 'role':,admin,22.444753646333055
+54,Extract the user role (admin/editor/viewer) from this permission string: 'Can write new blog articles and modify published copy' as JSON: { 'role':,editor,22.317542752673337
+43,Extract the user role (admin/editor/viewer) from this permission string: 'Can read audit logs and browse directory indices but cannot write changes' as JSON: { 'role':,viewer,22.252249344648956
+94,To accept the negative consequences of your previous incorrect actions is to face the,music,22.2187431075715
+61,Extract the transaction status (approved/declined) from this gateway log: 'Stripe gateway logs: payment processed successfully for client 1012' as JSON: { 'status':,approved,21.868113753151633
+58,Extract the user role (admin/editor/viewer) from this permission string: 'Can download static file attachment assets' as JSON: { 'role':,viewer,21.76329426609931
+46,Extract the user role (admin/editor/viewer) from this permission string: 'Can browse metric dashboard views but lacks edit rights' as JSON: { 'role':,viewer,21.64136499057527
+52,Extract the user role (admin/editor/viewer) from this permission string: 'Can view transaction history records but cannot trigger refunds' as JSON: { 'role':,viewer,21.56463533440866
+55,Extract the user role (admin/editor/viewer) from this permission string: 'Can inspect user profile details but cannot alter names' as JSON: { 'role':,viewer,21.555245791056343
+49,Extract the user role (admin/editor/viewer) from this permission string: 'Can observe network throughput metrics but cannot change port bindings' as JSON: { 'role':,viewer,21.215163083608623
+77,"Extract the transaction status (approved/declined) from this gateway log: 'Adyen gateway logs: funds captured, invoice archived' as JSON: { 'status':",approved,20.39650397792892
+68,"Extract the transaction status (approved/declined) from this gateway log: 'PayPal gateway logs: payment authorized, pending capture' as JSON: { 'status':",approved,20.124640616153574
+79,Extract the transaction status (approved/declined) from this gateway log: 'Braintree gateway logs: merchant manual override applied' as JSON: { 'status':,approved,20.008337186723796
+73,Extract the transaction status (approved/declined) from this gateway log: 'PayPal gateway logs: payment completed successfully' as JSON: { 'status':,approved,19.951448332411196
+64,"Extract the transaction status (approved/declined) from this gateway log: 'Braintree gateway logs: auth success, funds capture complete' as JSON: { 'status':",approved,19.91961346722905
+75,"Extract the transaction status (approved/declined) from this gateway log: 'Authorize.Net gateway logs: token validated, clearance complete' as JSON: { 'status':",approved,19.71549043511142
+66,"Extract the transaction status (approved/declined) from this gateway log: 'Stripe gateway logs: verification code checked, order complete' as JSON: { 'status':",approved,19.477380076239267
+70,Extract the transaction status (approved/declined) from this gateway log: 'Authorize.Net gateway logs: digital wallet authenticated' as JSON: { 'status':,approved,19.113641028119456
+36,Extract the API action (get/post/delete) from this routing rule: 'Purge deprecated session metadata blocks' as JSON: { 'action':,delete,17.891590301885532
+26,Extract the API action (get/post/delete) from this routing rule: 'Erase configuration baseline revision logs' as JSON: { 'action':,delete,17.683419480760897
+39,Extract the API action (get/post/delete) from this routing rule: 'Erase staging database cluster indexes' as JSON: { 'action':,delete,17.57677309713318
+29,Extract the API action (get/post/delete) from this routing rule: 'Erase temporary local billing directory' as JSON: { 'action':,delete,17.307081896723023
+99,"To initiate a highly difficult, tense, or awkward discussion with colleagues is to break the",ice,16.039976707499747
+22,Extract the API action (get/post/delete) from this routing rule: 'Delete inactive user session records from Redis cache' as JSON: { 'action':,delete,15.841688961378896
+32,Extract the API action (get/post/delete) from this routing rule: 'Delete orphaned docker volumes from host server' as JSON: { 'action':,delete,15.775847069649418
+28,Extract the API action (get/post/delete) from this routing rule: 'Provision a new security credential record' as JSON: { 'action':,post,15.297755908419294
+25,Extract the API action (get/post/delete) from this routing rule: 'Register new mobile gateway configuration' as JSON: { 'action':,post,15.029224922122566
+23,Extract the API action (get/post/delete) from this routing rule: 'Create a new client verification token' as JSON: { 'action':,post,15.025170912128356
+87,"An entirely random, highly surprising, and completely unexpected event is out of the",blue,14.840862761084724
+35,Extract the API action (get/post/delete) from this routing rule: 'Push latest system baseline profile configuration' as JSON: { 'action':,post,14.823522796086474
+33,Extract the API action (get/post/delete) from this routing rule: 'Submit client access registration block' as JSON: { 'action':,post,14.756851439396543
+38,Extract the API action (get/post/delete) from this routing rule: 'Publish new API gateway endpoint route' as JSON: { 'action':,post,14.620174276875664
+85,"Feeling entirely awkward, uncomfortable, and physically out of place is like a fish out of",water,13.931950609889435
+96,To completely cease working on a development pipeline for the evening is to call it a,day,13.919510709145058
+92,Executing an operational workflow that is incredibly straightforward is a piece of,cake,13.114698484148898
+83,To accidentally reveal highly confidential organization blueprints is to let the cat out of the,bag,12.851744612880008
+34,Extract the API action (get/post/delete) from this routing rule: 'Load active transaction audit logs' as JSON: { 'action':,get,12.787968088902055
+31,Extract the API action (get/post/delete) from this routing rule: 'Retrieve active cluster heartbeat telemetry' as JSON: { 'action':,get,12.648788015863012
+21,Extract the API action (get/post/delete) from this routing rule: 'Fetch client profile metadata from PostgreSQL' as JSON: { 'action':,get,12.584331330617488
+30,Extract the API action (get/post/delete) from this routing rule: 'Fetch compliance standard checklist' as JSON: { 'action':,get,12.310638998604347
+81,To accomplish multiple milestones at the exact same moment is to kill two birds with one,stone,12.235872063900404
+95,"Feeling mildly sick, fatigued, or physically under the weather is to be under the",weather,12.191625292416294
+40,Extract the API action (get/post/delete) from this routing rule: 'Load balance incoming connection metrics list' as JSON: { 'action':,get,12.180332126979739
+27,Extract the API action (get/post/delete) from this routing rule: 'List active container workspace segments' as JSON: { 'action':,get,12.041416445896841
+24,Extract the API action (get/post/delete) from this routing rule: 'Retrieve transaction ledger history array' as JSON: { 'action':,get,11.90596274419263
+100,"Adding angry, volatile statements to an ongoing administrative dispute is adding fuel to the",fire,11.868487517279409
+82,"To avoid placing all your financial capital in a single volatile asset, don't put all your eggs in one",basket,11.86678504044808
+37,Extract the API action (get/post/delete) from this routing rule: 'Request latest network interface statuses' as JSON: { 'action':,get,11.838839329099253
+5,"JSON payload: { 'event': 'IAMPolicyModified', 'policy': 'AdministratorAccess', 'mfa_verified': false }. Risk triage (low/medium/high):",high,11.631335190436578
+15,"JSON payload: { 'event': 'IAMPolicyModified', 'policy': 'BillingAccess', 'mfa_verified': false }. Risk triage (low/medium/high):",medium,11.516859694413398
+86,"An unpredictable, incredibly dynamic, and highly energetic person is described as a live",wire,11.32806724842732
+91,To accidentally expose a highly guarded organizational secret is to spill the,beans,11.152506842222854
+17,"JSON payload: { 'event': 'PortScanDetected', 'source_ip': '185.190.140.22', 'ports_scanned': 5000 }. Risk triage (low/medium/high):",high,10.905392641204996
+62,Extract the transaction status (approved/declined) from this gateway log: 'Adyen gateway logs: transaction rejected due to insufficient credit' as JSON: { 'status':,declined,10.872352978167791
+69,Extract the transaction status (approved/declined) from this gateway log: 'Braintree gateway logs: account billing block verified' as JSON: { 'status':,declined,10.855496176509007
+93,Resolving an architectural software bottleneck with absolute precision is hitting the nail on the,head,10.78248252336522
+84,"Being in a state of supreme, ecstatic joy or extreme mental happiness is to be on cloud",nine,10.780029380744683
+74,Extract the transaction status (approved/declined) from this gateway log: 'Braintree gateway logs: account flagged for prior chargeback' as JSON: { 'status':,declined,10.76455571190745
+13,"JSON payload: { 'event': 'S3BucketCreated', 'owner': 'marketing_external', 'public_access': true }. Risk triage (low/medium/high):",high,10.640156704463664
+3,"JSON payload: { 'event': 'S3BucketCreated', 'owner': 'dev_user_99', 'public_access': true }. Risk triage (low/medium/high):",high,10.632420906876247
+7,"JSON payload: { 'event': 'PortScanDetected', 'source_ip': '45.33.102.55', 'ports_scanned': 2500 }. Risk triage (low/medium/high):",high,10.624780497759284
+90,Wishing a theater actor excellent performance fortune right before a show is telling them to break a,leg,10.606192187995555
+1,"JSON payload: { 'event': 'FailedLogin', 'username': 'root', 'ip': '198.51.100.4', 'attempts': 15 }. Risk triage (low/medium/high):",high,10.391486219813757
+19,"JSON payload: { 'event': 'SSHKeyAdded', 'user': 'temporary_contractor', 'key_strength': 2048 }. Risk triage (low/medium/high):",medium,10.366487182736934
+78,Extract the transaction status (approved/declined) from this gateway log: 'PayPal gateway logs: suspicious billing ip location flagged' as JSON: { 'status':,declined,10.355155654545959
+11,"JSON payload: { 'event': 'FailedLogin', 'username': 'admin_crm', 'ip': '185.220.101.5', 'attempts': 8 }. Risk triage (low/medium/high):",medium,10.23950646560374
+71,Extract the transaction status (approved/declined) from this gateway log: 'Stripe gateway logs: charge limit reached on customer plan' as JSON: { 'status':,declined,10.15230170381782
+63,Extract the transaction status (approved/declined) from this gateway log: 'PayPal gateway logs: credit card verification failure' as JSON: { 'status':,declined,10.07654874264214
+80,Extract the transaction status (approved/declined) from this gateway log: 'Authorize.Net gateway logs: network connection drop during verify' as JSON: { 'status':,declined,10.042376859933919
+76,Extract the transaction status (approved/declined) from this gateway log: 'Stripe gateway logs: user cancelled checkout session' as JSON: { 'status':,declined,9.978628330398381
+67,Extract the transaction status (approved/declined) from this gateway log: 'Adyen gateway logs: card has expired' as JSON: { 'status':,declined,9.867191786624057
+65,Extract the transaction status (approved/declined) from this gateway log: 'Authorize.Net gateway logs: fraud filter triggered' as JSON: { 'status':,declined,9.749751990198462
+89,"Facing a very difficult, painful, or awkward situation with brave composure is to bite the",bullet,9.741321515706668
+72,Extract the transaction status (approved/declined) from this gateway log: 'Adyen gateway logs: address postcode verify mismatch' as JSON: { 'status':,declined,9.713552065661935
+9,"JSON payload: { 'event': 'SSHKeyAdded', 'user': 'jenkins_agent_01', 'key_strength': 1024 }. Risk triage (low/medium/high):",medium,9.027616685135353
+88,Pursuing a completely incorrect strategy or line of logic is barking up the wrong,tree,8.856535389717328
+98,"Avoiding speaking about the central, most critical problem in a meeting is beating around the",bush,8.823115209629515
+6,"JSON payload: { 'event': 'IAMPolicyModified', 'policy': 'ReadOnlyAccess', 'mfa_verified': true }. Risk triage (low/medium/high):",low,8.283302523860959
+97,"Complaining about unfixable, past execution errors is crying over spilled",milk,8.236982608391319
+4,"JSON payload: { 'event': 'S3BucketCreated', 'owner': 'ops_manager_22', 'public_access': false }. Risk triage (low/medium/high):",low,8.032211038357733
+16,"JSON payload: { 'event': 'IAMPolicyModified', 'policy': 'SecurityAuditOnly', 'mfa_verified': true }. Risk triage (low/medium/high):",low,7.91725134216389
+14,"JSON payload: { 'event': 'S3BucketCreated', 'owner': 'finance_lead', 'public_access': false }. Risk triage (low/medium/high):",low,6.882943270325472
+10,"JSON payload: { 'event': 'SSHKeyAdded', 'user': 'master_backup_bot', 'key_strength': 4096 }. Risk triage (low/medium/high):",low,6.660747751966393
+18,"JSON payload: { 'event': 'PortScanDetected', 'source_ip': '192.168.10.150', 'ports_scanned': 5 }. Risk triage (low/medium/high):",low,6.6471953313438075
+12,"JSON payload: { 'event': 'FailedLogin', 'username': 'staff_dev', 'ip': '192.168.2.10', 'attempts': 2 }. Risk triage (low/medium/high):",low,6.547205404023721
+2,"JSON payload: { 'event': 'FailedLogin', 'username': 'johndoe', 'ip': '192.168.1.45', 'attempts': 1 }. Risk triage (low/medium/high):",low,6.527922417355613
+20,"JSON payload: { 'event': 'SSHKeyAdded', 'user': 'ceo_laptop_device', 'key_strength': 4096 }. Risk triage (low/medium/high):",low,6.501165432978232
+8,"JSON payload: { 'event': 'PortScanDetected', 'source_ip': '10.0.2.14', 'ports_scanned': 3 }. Risk triage (low/medium/high):",low,6.485577712708938
