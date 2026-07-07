@@ -322,7 +322,7 @@ def main(run_mode: str = "full", dataset_path: str = None):
             "recommendation": "Deploy Priority Replay Buffer" if curr_decision.status == "SAFE_TO_APPLY" else curr_decision.recommender_action
         }
 
-    # Scenario C: Structural Reliability Monitoring with CREW Formulation
+    # Scenario C: Standalone Structural Residual-Depth Monitoring ---
     logger.info("\n--- Scenario C: Standalone Structural Residual-Depth Monitoring ---")
     struct_plugin = StructuralPCRFPlugin()
     layer_breakdown = []
@@ -364,63 +364,74 @@ def main(run_mode: str = "full", dataset_path: str = None):
     if regularizer.health_check(model_candidate).is_healthy:
         regularizer.run_standalone(model_candidate, tokenizer, splits, pcrf_config)
 
-        # --- NEW CODE: PHYSICAL DISK STORAGE & LOGGING ---
-        # 1. Get baseline physical size from HuggingFace cache
-        hf_cache_dir = os.path.expanduser("~/.cache/huggingface/hub")
-        model_cache_folder = "models--" + pcrf_config.model_cfg.model_name.replace("/", "--")
-        baseline_physical_path = os.path.join(hf_cache_dir, model_cache_folder)
-        baseline_size_mb = get_directory_size_mb(baseline_physical_path)
+        # --- NEW CODE: PHYSICAL DISK STORAGE & LOGGING VIA 'ls -altrL' ---
+        
+        # 1. Save Baseline physically to artifacts folder for an apples-to-apples comparison
+        baseline_physical_path = os.path.join(pcrf_config.artifact_cfg.output_dir, "baseline_model")
+        logger.info(f"Saving physical Baseline model to disk at: {baseline_physical_path}")
+        model_base.save_pretrained(baseline_physical_path)
+        tokenizer.save_pretrained(baseline_physical_path)
+        baseline_ls_path = baseline_physical_path
 
         # 2. Save SFT Candidate physically to artifacts folder
         candidate_physical_path = os.path.join(pcrf_config.artifact_cfg.output_dir, "sft_candidate_model")
         logger.info(f"Saving physical SFT candidate model to disk at: {candidate_physical_path}")
         model_candidate.save_pretrained(candidate_physical_path)
         tokenizer.save_pretrained(candidate_physical_path)
-        candidate_size_mb = get_directory_size_mb(candidate_physical_path)
 
-        # 3. Print to Console & Global Log Buffer
         logger.info("=" * 80)
-        logger.info("💾 PHYSICAL MODEL DISK FOOTPRINT AUDIT")
+        logger.info("📄 DETAILED FILE-LEVEL FOOTPRINT (ls -altrL)")
         logger.info("=" * 80)
-        logger.info(f"Baseline Model Path : {baseline_physical_path}")
-        logger.info(f"Baseline Size (MB)  : {baseline_size_mb:.2f} MB")
-        logger.info(f"Candidate Model Path: {candidate_physical_path}")
-        logger.info(f"Candidate Size (MB) : {candidate_size_mb:.2f} MB")
-        logger.info(f"Delta on Disk       : {candidate_size_mb - baseline_size_mb:+.2f} MB")
-        logger.info("=" * 80)
-        # -------------------------------------------------
 
-        # --- RUN 'ls -altrh' TO SHOW FILE-LEVEL BREAKDOWN ---
-        logger.info("=" * 80)
-        logger.info("📄 DETAILED FILE-LEVEL FOOTPRINT (ls -altr)")
-        logger.info("=" * 80)
-        
-        # 1. List Baseline Files
-        logger.info(f"--- Baseline Directory: {baseline_physical_path} ---")
+        # Helper function to parse the 5th column (bytes) from 'ls -altrL' text
+        def parse_ls_for_bytes(ls_text: str) -> int:
+            total_b = 0
+            for line in ls_text.split('\n'):
+                parts = line.split()
+                # Ensure it's a valid file/dir line (starts with -, d) and has >= 5 columns
+                if len(parts) >= 5 and parts[0] and parts[0][0] in ('-', 'd'):
+                    try:
+                        total_b += int(parts[4])
+                    except ValueError:
+                        pass
+            return total_b
+
+        baseline_bytes = 0
+        candidate_bytes = 0
+
+        # 3. Run 'ls -altrL' on Baseline, log it, and parse the string for bytes
+        logger.info(f"--- Baseline Directory: {baseline_ls_path} ---")
         try:
-            baseline_ls = subprocess.run(
-                ["ls", "-altr", baseline_physical_path], 
-                capture_output=True, text=True, check=True
-            ).stdout
+            baseline_ls = subprocess.run(["ls", "-altrL", baseline_ls_path], capture_output=True, text=True, check=True).stdout
             for line in baseline_ls.split('\n'):
                 if line.strip(): logger.info(line)
+            baseline_bytes = parse_ls_for_bytes(baseline_ls)
         except Exception as e:
             logger.error(f"Failed to list baseline directory: {e}")
 
-        # 2. List Candidate Files
+        # 4. Run 'ls -altrL' on Candidate, log it, and parse the string for bytes
         logger.info(f"--- Candidate Directory: {candidate_physical_path} ---")
         try:
-            candidate_ls = subprocess.run(
-                ["ls", "-altr", candidate_physical_path], 
-                capture_output=True, text=True, check=True
-            ).stdout
+            candidate_ls = subprocess.run(["ls", "-altrL", candidate_physical_path], capture_output=True, text=True, check=True).stdout
             for line in candidate_ls.split('\n'):
                 if line.strip(): logger.info(line)
+            candidate_bytes = parse_ls_for_bytes(candidate_ls)
         except Exception as e:
             logger.error(f"Failed to list candidate directory: {e}")
-            
+
+        # 5. Calculate exact KB and MB difference (4-decimal precision) from parsed output
+        delta_bytes = candidate_bytes - baseline_bytes
+        delta_kb = delta_bytes / 1024.0
+        delta_mb = delta_bytes / (1024.0 * 1024.0)
+
         logger.info("=" * 80)
-        # --------------------------------------------------------------
+        logger.info("💾 FINAL DISK SIZE DELTA SUMMARY (PARSED FROM ls)")
+        logger.info("=" * 80)
+        logger.info(f"Baseline Parsed Size : {baseline_bytes} Bytes")
+        logger.info(f"Candidate Parsed Size: {candidate_bytes} Bytes")
+        logger.info(f"Storage Difference   : {delta_kb:+.4f} KB  |  {delta_mb:+.4f} MB")
+        logger.info("=" * 80)
+        # -------------------------------------------------
 
         # PartEEE -After the SFT training loop updates model_candidate's weights in Scenario D, the system does a 
         # second generation pass. Because the weights have changed via optimizer.step(), candidate_output differs from baseline_output.
@@ -647,13 +658,30 @@ def main(run_mode: str = "full", dataset_path: str = None):
             "confidence_calibration_delta": c_item["top1_prob"] - b_item["top1_prob"],
             "router_decision": "abstain_safe_fallback" if is_unresolved else r_item["router_decision"],
             "decision_reason": r_item["decision_reason"],
+            
             # --- NEW CODE FOR EXPERIMENT: MATH VS GOLD TRACKING ---
+            # Inference Math (c_hr): Threshold > 0.40 means Hallucination.
+            # Intuition: This threshold represents the critical boundary where structural entropy and 
+            # margin collapse indicate severe representational instability. Scores above 0.40 strongly 
+            # correlate with latent degradation.
+            # 
+            # Curriculum Math (c_nll): Threshold > 3.5 means Hallucination.
+            # Intuition: An NLL above 3.5 signifies that the generated token sequence is highly 
+            # "surprising" or statistically improbable according to the base model's learned 
+            # distribution, serving as a robust sequence-level anomaly detector.
             "gold_hallucination": 1 if c_item["correct"] == 0 else 0,
-            "math_hallucination": 1 if c_hr > 0.40 else 0, # 0.40 is your target Math threshold
+            "math_hallucination": 1 if c_hr > 0.40 else 0,
             "math_true_positive": 1 if (c_item["correct"] == 0 and c_hr > 0.40) else 0,
             "math_false_negative": 1 if (c_item["correct"] == 0 and c_hr <= 0.40) else 0,
             "math_false_positive": 1 if (c_item["correct"] == 1 and c_hr > 0.40) else 0,
+            
+            "hybrid_is_hallucination": 1 if c_item["nll"] > 3.5 else 0,
+            "hybrid_true_positive": 1 if (c_item["correct"] == 0 and c_item["nll"] > 3.5) else 0,
+            "hybrid_false_negative": 1 if (c_item["correct"] == 0 and c_item["nll"] <= 3.5) else 0,
+            "hybrid_false_positive": 1 if (c_item["correct"] == 1 and c_item["nll"] > 3.5) else 0,
+            "hybrid_true_negative": 1 if (c_item["correct"] == 1 and c_item["nll"] <= 3.5) else 0,
             # ------------------------------------------------------
+            
             "strict_em_baseline": b_item["is_strict_em"],
             "strict_em_candidate": c_item["is_strict_em"],
             "first_token_baseline": b_item["is_first_token"],

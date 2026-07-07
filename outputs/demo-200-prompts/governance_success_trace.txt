@@ -161,9 +161,9 @@ Why Governance Decision Was Correct:
 --- SUCCESS ENTRY 15: PROMPT ID 115 (SAFE_ABSTAIN) ---
 Task Type: api_routing
 Decision: abstain_safe_fallback
-Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5344).
-Baseline Risk: 0.38626
-Candidate Risk: 0.53439
+Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2844).
+Baseline Risk: 0.13626
+Candidate Risk: 0.28439
 Delta Risk: 0.14813
 Why Governance Decision Was Correct:
   - Both configurations produced unresolved hallucinations, and PCRF correctly withheld output to safeguard user experience.
@@ -239,9 +239,9 @@ Why Governance Decision Was Correct:
 Task Type: iam_audit
 Decision: abstain_safe_fallback
 Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3981).
-Baseline Risk: 0.42918
+Baseline Risk: 0.17918
 Candidate Risk: 0.39806
-Delta Risk: -0.03111
+Delta Risk: 0.21889
 Why Governance Decision Was Correct:
   - Both configurations produced unresolved hallucinations, and PCRF correctly withheld output to safeguard user experience.
 --------------------------------------------------------------------------------
@@ -271,9 +271,9 @@ Why Governance Decision Was Correct:
 --- SUCCESS ENTRY 25: PROMPT ID 125 (SAFE_ABSTAIN) ---
 Task Type: iam_audit
 Decision: abstain_safe_fallback
-Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5909).
-Baseline Risk: 0.45771
-Candidate Risk: 0.59087
+Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3409).
+Baseline Risk: 0.20771
+Candidate Risk: 0.34087
 Delta Risk: 0.13316
 Why Governance Decision Was Correct:
   - Both configurations produced unresolved hallucinations, and PCRF correctly withheld output to safeguard user experience.
@@ -305,9 +305,9 @@ Why Governance Decision Was Correct:
 Task Type: iam_audit
 Decision: abstain_safe_fallback
 Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3821).
-Baseline Risk: 0.46240
+Baseline Risk: 0.21240
 Candidate Risk: 0.38212
-Delta Risk: -0.08027
+Delta Risk: 0.16973
 Why Governance Decision Was Correct:
   - Both configurations produced unresolved hallucinations, and PCRF correctly withheld output to safeguard user experience.
 --------------------------------------------------------------------------------
@@ -349,9 +349,9 @@ Why Governance Decision Was Correct:
 Task Type: fintech_audit
 Decision: use_candidate
 Reason: Contract-clean candidate repair promoted.
-Baseline Risk: 0.38551
+Baseline Risk: 0.13551
 Candidate Risk: 0.42009
-Delta Risk: 0.03458
+Delta Risk: 0.28458
 Why Governance Decision Was Correct:
   - SFT candidate successfully repaired a baseline failure, and the router safely promoted this verified clean output.
 --------------------------------------------------------------------------------
@@ -426,9 +426,9 @@ Why Governance Decision Was Correct:
 Task Type: fintech_audit
 Decision: abstain_safe_fallback
 Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3999).
-Baseline Risk: 0.38576
+Baseline Risk: 0.13576
 Candidate Risk: 0.39994
-Delta Risk: 0.01418
+Delta Risk: 0.26418
 Why Governance Decision Was Correct:
   - Both configurations produced unresolved hallucinations, and PCRF correctly withheld output to safeguard user experience.
 --------------------------------------------------------------------------------
@@ -469,9 +469,9 @@ Why Governance Decision Was Correct:
 --- SUCCESS ENTRY 43: PROMPT ID 143 (SAFE_ABSTAIN) ---
 Task Type: ecommerce_routing
 Decision: abstain_safe_fallback
-Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5093).
-Baseline Risk: 0.40222
-Candidate Risk: 0.50931
+Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2593).
+Baseline Risk: 0.15222
+Candidate Risk: 0.25931
 Delta Risk: 0.10709
 Why Governance Decision Was Correct:
   - Both configurations produced unresolved hallucinations, and PCRF correctly withheld output to safeguard user experience.
@@ -491,9 +491,9 @@ Why Governance Decision Was Correct:
 --- SUCCESS ENTRY 45: PROMPT ID 145 (SAFE_ABSTAIN) ---
 Task Type: ecommerce_routing
 Decision: abstain_safe_fallback
-Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5342).
-Baseline Risk: 0.39636
-Candidate Risk: 0.53416
+Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2842).
+Baseline Risk: 0.14636
+Candidate Risk: 0.28416
 Delta Risk: 0.13779
 Why Governance Decision Was Correct:
   - Both configurations produced unresolved hallucinations, and PCRF correctly withheld output to safeguard user experience.
@@ -524,9 +524,9 @@ Why Governance Decision Was Correct:
 --- SUCCESS ENTRY 48: PROMPT ID 148 (SAFE_ABSTAIN) ---
 Task Type: ecommerce_routing
 Decision: abstain_safe_fallback
-Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5051).
-Baseline Risk: 0.40498
-Candidate Risk: 0.50509
+Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2551).
+Baseline Risk: 0.15498
+Candidate Risk: 0.25509
 Delta Risk: 0.10012
 Why Governance Decision Was Correct:
   - Both configurations produced unresolved hallucinations, and PCRF correctly withheld output to safeguard user experience.
@@ -557,9 +557,9 @@ Why Governance Decision Was Correct:
 --- SUCCESS ENTRY 51: PROMPT ID 151 (SAFE_ABSTAIN) ---
 Task Type: clinical_nlp
 Decision: abstain_safe_fallback
-Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5550).
-Baseline Risk: 0.41763
-Candidate Risk: 0.55502
+Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3050).
+Baseline Risk: 0.16763
+Candidate Risk: 0.30502
 Delta Risk: 0.13738
 Why Governance Decision Was Correct:
   - Both configurations produced unresolved hallucinations, and PCRF correctly withheld output to safeguard user experience.
@@ -568,9 +568,9 @@ Why Governance Decision Was Correct:
 --- SUCCESS ENTRY 52: PROMPT ID 152 (SAFE_ABSTAIN) ---
 Task Type: clinical_nlp
 Decision: abstain_safe_fallback
-Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5367).
-Baseline Risk: 0.41734
-Candidate Risk: 0.53673
+Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2867).
+Baseline Risk: 0.16734
+Candidate Risk: 0.28673
 Delta Risk: 0.11939
 Why Governance Decision Was Correct:
   - Both configurations produced unresolved hallucinations, and PCRF correctly withheld output to safeguard user experience.
@@ -590,9 +590,9 @@ Why Governance Decision Was Correct:
 --- SUCCESS ENTRY 54: PROMPT ID 154 (SAFE_ABSTAIN) ---
 Task Type: clinical_nlp
 Decision: abstain_safe_fallback
-Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5447).
-Baseline Risk: 0.42592
-Candidate Risk: 0.54470
+Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2947).
+Baseline Risk: 0.17592
+Candidate Risk: 0.29470
 Delta Risk: 0.11878
 Why Governance Decision Was Correct:
   - Both configurations produced unresolved hallucinations, and PCRF correctly withheld output to safeguard user experience.
@@ -601,9 +601,9 @@ Why Governance Decision Was Correct:
 --- SUCCESS ENTRY 55: PROMPT ID 155 (SAFE_ABSTAIN) ---
 Task Type: clinical_nlp
 Decision: abstain_safe_fallback
-Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5412).
-Baseline Risk: 0.41754
-Candidate Risk: 0.54119
+Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2912).
+Baseline Risk: 0.16754
+Candidate Risk: 0.29119
 Delta Risk: 0.12364
 Why Governance Decision Was Correct:
   - Both configurations produced unresolved hallucinations, and PCRF correctly withheld output to safeguard user experience.
@@ -623,9 +623,9 @@ Why Governance Decision Was Correct:
 --- SUCCESS ENTRY 57: PROMPT ID 157 (SAFE_ABSTAIN) ---
 Task Type: clinical_nlp
 Decision: abstain_safe_fallback
-Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5527).
-Baseline Risk: 0.42209
-Candidate Risk: 0.55267
+Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3027).
+Baseline Risk: 0.17209
+Candidate Risk: 0.30267
 Delta Risk: 0.13059
 Why Governance Decision Was Correct:
   - Both configurations produced unresolved hallucinations, and PCRF correctly withheld output to safeguard user experience.
@@ -634,9 +634,9 @@ Why Governance Decision Was Correct:
 --- SUCCESS ENTRY 58: PROMPT ID 158 (SAFE_ABSTAIN) ---
 Task Type: clinical_nlp
 Decision: abstain_safe_fallback
-Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5410).
-Baseline Risk: 0.41725
-Candidate Risk: 0.54095
+Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2910).
+Baseline Risk: 0.16725
+Candidate Risk: 0.29095
 Delta Risk: 0.12370
 Why Governance Decision Was Correct:
   - Both configurations produced unresolved hallucinations, and PCRF correctly withheld output to safeguard user experience.
@@ -656,9 +656,9 @@ Why Governance Decision Was Correct:
 --- SUCCESS ENTRY 60: PROMPT ID 160 (SAFE_ABSTAIN) ---
 Task Type: clinical_nlp
 Decision: abstain_safe_fallback
-Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5433).
-Baseline Risk: 0.41801
-Candidate Risk: 0.54330
+Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2933).
+Baseline Risk: 0.16801
+Candidate Risk: 0.29330
 Delta Risk: 0.12528
 Why Governance Decision Was Correct:
   - Both configurations produced unresolved hallucinations, and PCRF correctly withheld output to safeguard user experience.
@@ -667,9 +667,9 @@ Why Governance Decision Was Correct:
 --- SUCCESS ENTRY 61: PROMPT ID 161 (SAFE_ABSTAIN) ---
 Task Type: security_audit
 Decision: abstain_safe_fallback
-Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5698).
-Baseline Risk: 0.46738
-Candidate Risk: 0.56978
+Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3198).
+Baseline Risk: 0.21738
+Candidate Risk: 0.31978
 Delta Risk: 0.10240
 Why Governance Decision Was Correct:
   - Both configurations produced unresolved hallucinations, and PCRF correctly withheld output to safeguard user experience.
@@ -700,9 +700,9 @@ Why Governance Decision Was Correct:
 --- SUCCESS ENTRY 64: PROMPT ID 164 (SAFE_ABSTAIN) ---
 Task Type: security_audit
 Decision: abstain_safe_fallback
-Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5660).
-Baseline Risk: 0.48044
-Candidate Risk: 0.56603
+Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3160).
+Baseline Risk: 0.23044
+Candidate Risk: 0.31603
 Delta Risk: 0.08559
 Why Governance Decision Was Correct:
   - Both configurations produced unresolved hallucinations, and PCRF correctly withheld output to safeguard user experience.
@@ -735,8 +735,8 @@ Task Type: security_audit
 Decision: use_baseline
 Reason: Candidate blocked because baseline captured the target and candidate failed.
 Baseline Risk: 0.22693
-Candidate Risk: 0.57025
-Delta Risk: 0.34332
+Candidate Risk: 0.32025
+Delta Risk: 0.09332
 Why Governance Decision Was Correct:
   - The SFT candidate regressed relative to baseline, but the Protected Router successfully intercepted and served baseline fallback.
 --------------------------------------------------------------------------------
@@ -746,8 +746,8 @@ Task Type: security_audit
 Decision: use_baseline
 Reason: Candidate blocked because baseline captured the target and candidate failed.
 Baseline Risk: 0.22623
-Candidate Risk: 0.56345
-Delta Risk: 0.33723
+Candidate Risk: 0.31345
+Delta Risk: 0.08723
 Why Governance Decision Was Correct:
   - The SFT candidate regressed relative to baseline, but the Protected Router successfully intercepted and served baseline fallback.
 --------------------------------------------------------------------------------
@@ -768,8 +768,8 @@ Task Type: security_audit
 Decision: use_baseline
 Reason: Candidate blocked because baseline captured the target and candidate failed.
 Baseline Risk: 0.22564
-Candidate Risk: 0.57048
-Delta Risk: 0.34484
+Candidate Risk: 0.32048
+Delta Risk: 0.09484
 Why Governance Decision Was Correct:
   - The SFT candidate regressed relative to baseline, but the Protected Router successfully intercepted and served baseline fallback.
 --------------------------------------------------------------------------------
@@ -810,9 +810,9 @@ Why Governance Decision Was Correct:
 --- SUCCESS ENTRY 74: PROMPT ID 174 (SAFE_ABSTAIN) ---
 Task Type: fintech_audit
 Decision: abstain_safe_fallback
-Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5749).
-Baseline Risk: 0.42214
-Candidate Risk: 0.57494
+Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3249).
+Baseline Risk: 0.17214
+Candidate Risk: 0.32494
 Delta Risk: 0.15279
 Why Governance Decision Was Correct:
   - Both configurations produced unresolved hallucinations, and PCRF correctly withheld output to safeguard user experience.
@@ -878,8 +878,8 @@ Task Type: fintech_audit
 Decision: use_baseline
 Reason: Candidate blocked because baseline captured the target and candidate failed.
 Baseline Risk: 0.13728
-Candidate Risk: 0.53509
-Delta Risk: 0.39781
+Candidate Risk: 0.28509
+Delta Risk: 0.14781
 Why Governance Decision Was Correct:
   - The SFT candidate regressed relative to baseline, but the Protected Router successfully intercepted and served baseline fallback.
 --------------------------------------------------------------------------------

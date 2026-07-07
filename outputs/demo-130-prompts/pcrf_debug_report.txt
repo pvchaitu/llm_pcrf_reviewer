@@ -1710,66 +1710,90 @@ Prevention Action: Contract-clean candidate repair promoted.
 =====================================================================
 [G] RAW CONSOLE LOG APPENDIX
 =====================================================================
-[PCRF-Suite] 2026-07-07 08:15:29,711 - INFO - Loaded built-in mock cloze dataset
-[PCRF-Suite] 2026-07-07 08:15:29,712 - INFO - [SPLIT AUDIT] train split count: 80
-[PCRF-Suite] 2026-07-07 08:15:29,712 - INFO - [SPLIT AUDIT] seen_val split count: 20
-[PCRF-Suite] 2026-07-07 08:15:29,713 - INFO - [SPLIT AUDIT] unseen_val split count: 20
-[PCRF-Suite] 2026-07-07 08:15:29,713 - INFO - [SPLIT AUDIT] ood split count: 10
-[PCRF-Suite] 2026-07-07 08:15:29,713 - INFO - [SPLIT AUDIT] total records loaded: 130
-[PCRF-Suite] 2026-07-07 08:15:29,714 - INFO - Retrieving tokenizer and architecture weights for: Qwen/Qwen2.5-0.5B-Instruct
-[PCRF-Suite] 2026-07-07 08:16:04,444 - INFO - Model parameter arrays successfully allocated.
-[PCRF-Suite] 2026-07-07 08:16:04,447 - INFO - ==========================================================================================
-[PCRF-Suite] 2026-07-07 08:16:04,447 - INFO -                   PCRF RESOURCE AUDIT & COMPUTE PROFILING SYSTEM                  
-[PCRF-Suite] 2026-07-07 08:16:04,448 - INFO - ==========================================================================================
-[PCRF-Suite] 2026-07-07 08:16:04,448 - INFO - Host OS Platform          : Linux 6.1.0-49-cloud-amd64
-[PCRF-Suite] 2026-07-07 08:16:04,449 - INFO - Active CPU Cores Detected : 8
-[PCRF-Suite] 2026-07-07 08:16:04,450 - INFO - Host System RAM           : 29.38 GB
-[PCRF-Suite] 2026-07-07 08:16:04,450 - INFO - GPU Hardware Accelerator  : Tesla T4
-[PCRF-Suite] 2026-07-07 08:16:04,451 - INFO - Dedicated VRAM Capacity   : 14.56 GB
-[PCRF-Suite] 2026-07-07 08:16:04,451 - INFO - Target Model Size (Params): 494.0 Million Parameters
-[PCRF-Suite] 2026-07-07 08:16:04,452 - INFO - ------------------------------------------------------------------------------------------
-[PCRF-Suite] 2026-07-07 08:16:04,453 - INFO - RECOMMENDED GCP COMPUTE INFRASTRUCTURE SETUP:
-[PCRF-Suite] 2026-07-07 08:16:04,453 - INFO -   - Recommended GCP Tier  : n1-standard-8 (8 vCPUs, 30 GB RAM)
+[PCRF-Suite] 2026-07-07 14:51:08,697 - INFO - Loaded built-in mock cloze dataset
+[PCRF-Suite] 2026-07-07 14:51:08,698 - INFO - [SPLIT AUDIT] train split count: 80
+[PCRF-Suite] 2026-07-07 14:51:08,699 - INFO - [SPLIT AUDIT] seen_val split count: 20
+[PCRF-Suite] 2026-07-07 14:51:08,700 - INFO - [SPLIT AUDIT] unseen_val split count: 20
+[PCRF-Suite] 2026-07-07 14:51:08,701 - INFO - [SPLIT AUDIT] ood split count: 10
+[PCRF-Suite] 2026-07-07 14:51:08,702 - INFO - [SPLIT AUDIT] total records loaded: 130
+[PCRF-Suite] 2026-07-07 14:51:08,702 - INFO - Retrieving tokenizer and architecture weights for: Qwen/Qwen2.5-0.5B-Instruct
+[PCRF-Suite] 2026-07-07 14:51:50,600 - INFO - Model parameter arrays successfully allocated.
+[PCRF-Suite] 2026-07-07 14:51:50,602 - INFO - ==========================================================================================
+[PCRF-Suite] 2026-07-07 14:51:50,603 - INFO -                   PCRF RESOURCE AUDIT & COMPUTE PROFILING SYSTEM                  
+[PCRF-Suite] 2026-07-07 14:51:50,603 - INFO - ==========================================================================================
+[PCRF-Suite] 2026-07-07 14:51:50,603 - INFO - Host OS Platform          : Linux 6.1.0-49-cloud-amd64
+[PCRF-Suite] 2026-07-07 14:51:50,604 - INFO - Active CPU Cores Detected : 8
+[PCRF-Suite] 2026-07-07 14:51:50,605 - INFO - Host System RAM           : 29.38 GB
+[PCRF-Suite] 2026-07-07 14:51:50,605 - INFO - GPU Hardware Accelerator  : Tesla T4
+[PCRF-Suite] 2026-07-07 14:51:50,606 - INFO - Dedicated VRAM Capacity   : 14.56 GB
+[PCRF-Suite] 2026-07-07 14:51:50,606 - INFO - Target Model Size (Params): 494.0 Million Parameters
+[PCRF-Suite] 2026-07-07 14:51:50,607 - INFO - ------------------------------------------------------------------------------------------
+[PCRF-Suite] 2026-07-07 14:51:50,607 - INFO - RECOMMENDED GCP COMPUTE INFRASTRUCTURE SETUP:
+[PCRF-Suite] 2026-07-07 14:51:50,608 - INFO -   - Recommended GCP Tier  : n1-standard-8 (8 vCPUs, 30 GB RAM)
   - Accelerator Context   : 1x NVIDIA T4 (16 GB VRAM)
   - Technical Reason      : Light parameter profiles run perfectly inside standard T4 envelopes.
                             At least 30 GB Host RAM prevents OS swap stalls during model download.
-[PCRF-Suite] 2026-07-07 08:16:04,454 - INFO - ------------------------------------------------------------------------------------------
-[PCRF-Suite] 2026-07-07 08:16:04,454 - INFO - GCP COMPUTE ENGINE SAFETY GUIDELINES (OOME PREVENTION):
-[PCRF-Suite] 2026-07-07 08:16:04,455 - INFO -  1. Always purge dangling activations using 'torch.cuda.empty_cache()' during hooks teardown.
-[PCRF-Suite] 2026-07-07 08:16:04,455 - INFO -  2. Enable half-precision (FP16/BF16) modes across all forward passes.
-[PCRF-Suite] 2026-07-07 08:16:04,456 - INFO -  3. Anchor maximum sequence length limits (`max_len`) tightly to block quadratic expansion.
-[PCRF-Suite] 2026-07-07 08:16:04,457 - INFO - ==========================================================================================
+[PCRF-Suite] 2026-07-07 14:51:50,608 - INFO - ------------------------------------------------------------------------------------------
+[PCRF-Suite] 2026-07-07 14:51:50,609 - INFO - GCP COMPUTE ENGINE SAFETY GUIDELINES (OOME PREVENTION):
+[PCRF-Suite] 2026-07-07 14:51:50,609 - INFO -  1. Always purge dangling activations using 'torch.cuda.empty_cache()' during hooks teardown.
+[PCRF-Suite] 2026-07-07 14:51:50,610 - INFO -  2. Enable half-precision (FP16/BF16) modes across all forward passes.
+[PCRF-Suite] 2026-07-07 14:51:50,610 - INFO -  3. Anchor maximum sequence length limits (`max_len`) tightly to block quadratic expansion.
+[PCRF-Suite] 2026-07-07 14:51:50,610 - INFO - ==========================================================================================
 
-[PCRF-Suite] 2026-07-07 08:16:04,458 - INFO - Baseline model parameters frozen.
-[PCRF-Suite] 2026-07-07 08:16:04,459 - INFO - --- Phase 1: Running Baseline Profile Evaluation ---
-[PCRF-Suite] 2026-07-07 08:16:32,936 - INFO - FP32 candidate model loaded securely for optimization.
-[PCRF-Suite] 2026-07-07 08:16:32,937 - INFO - 
+[PCRF-Suite] 2026-07-07 14:51:50,612 - INFO - Baseline model parameters frozen.
+[PCRF-Suite] 2026-07-07 14:51:50,613 - INFO - --- Phase 1: Running Baseline Profile Evaluation ---
+[PCRF-Suite] 2026-07-07 14:52:18,807 - INFO - FP32 candidate model loaded securely for optimization.
+[PCRF-Suite] 2026-07-07 14:52:18,808 - INFO - 
 --- Scenario A: Run Standalone Layer Derivative Estimation ---
-[PCRF-Suite] 2026-07-07 08:18:30,758 - INFO - 
+[PCRF-Suite] 2026-07-07 14:54:16,616 - INFO - 
 --- Scenario B: Independent Curriculum Selection ---
-[PCRF-Suite] 2026-07-07 08:20:34,892 - INFO - 
+[PCRF-Suite] 2026-07-07 14:56:27,536 - INFO - 
 --- Scenario C: Standalone Structural Residual-Depth Monitoring ---
-[PCRF-Suite] 2026-07-07 08:22:48,878 - INFO - 
+[PCRF-Suite] 2026-07-07 14:58:47,999 - INFO - 
 --- Scenario D: Derivative-Weighted Regularization ---
-[PCRF-Suite] 2026-07-07 08:24:50,085 - INFO - Initializing Advanced CDL v2 SFT Regularization training loop...
-[PCRF-Suite] 2026-07-07 08:24:59,784 - INFO - Regularization SFT optimization completed.
-[PCRF-Suite] 2026-07-07 08:24:59,844 - INFO - Saving physical SFT candidate model to disk at: ./customer_pcrf_artifacts/sft_candidate_model
-[PCRF-Suite] 2026-07-07 08:25:01,140 - INFO - ================================================================================
-[PCRF-Suite] 2026-07-07 08:25:01,141 - INFO - 💾 PHYSICAL MODEL DISK FOOTPRINT AUDIT
-[PCRF-Suite] 2026-07-07 08:25:01,142 - INFO - ================================================================================
-[PCRF-Suite] 2026-07-07 08:25:01,142 - INFO - Baseline Model Path : /home/jupyter/.cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B-Instruct
-[PCRF-Suite] 2026-07-07 08:25:01,143 - INFO - Baseline Size (MB)  : 953.28 MB
-[PCRF-Suite] 2026-07-07 08:25:01,143 - INFO - Candidate Model Path: ./customer_pcrf_artifacts/sft_candidate_model
-[PCRF-Suite] 2026-07-07 08:25:01,144 - INFO - Candidate Size (MB) : 953.22 MB
-[PCRF-Suite] 2026-07-07 08:25:01,145 - INFO - Delta on Disk       : -0.06 MB
-[PCRF-Suite] 2026-07-07 08:25:01,145 - INFO - ================================================================================
-[PCRF-Suite] 2026-07-07 08:25:18,670 - INFO - [ROUTER AUDIT] baseline served count: 19
-[PCRF-Suite] 2026-07-07 08:25:18,671 - INFO - [ROUTER AUDIT] candidate served count: 4
-[PCRF-Suite] 2026-07-07 08:25:18,672 - INFO - [ROUTER AUDIT] abstain count: 17
-[PCRF-Suite] 2026-07-07 08:25:18,672 - INFO - [ROUTER AUDIT] semantic recoveries observed: 2
-[PCRF-Suite] 2026-07-07 08:25:18,672 - INFO - [ROUTER AUDIT] contract clean repairs promoted: 2
-[PCRF-Suite] 2026-07-07 08:25:18,673 - INFO - [ROUTER AUDIT] semantic recoveries withheld: 0
-[PCRF-Suite] 2026-07-07 08:25:18,674 - INFO - Generating detailed developer SFT debug log at: ./customer_pcrf_artifacts/pcrf_debug_report.txt
+[PCRF-Suite] 2026-07-07 15:00:57,005 - INFO - Initializing Advanced CDL v2 SFT Regularization training loop...
+[PCRF-Suite] 2026-07-07 15:01:07,481 - INFO - Regularization SFT optimization completed.
+[PCRF-Suite] 2026-07-07 15:01:07,541 - INFO - Saving physical Baseline model to disk at: ./customer_pcrf_artifacts/baseline_model
+[PCRF-Suite] 2026-07-07 15:01:08,827 - INFO - Saving physical SFT candidate model to disk at: ./customer_pcrf_artifacts/sft_candidate_model
+[PCRF-Suite] 2026-07-07 15:01:10,016 - INFO - ================================================================================
+[PCRF-Suite] 2026-07-07 15:01:10,018 - INFO - 📄 DETAILED FILE-LEVEL FOOTPRINT (ls -altrL)
+[PCRF-Suite] 2026-07-07 15:01:10,018 - INFO - ================================================================================
+[PCRF-Suite] 2026-07-07 15:01:10,019 - INFO - --- Baseline Directory: ./customer_pcrf_artifacts/baseline_model ---
+[PCRF-Suite] 2026-07-07 15:01:10,023 - INFO - total 976124
+[PCRF-Suite] 2026-07-07 15:01:10,024 - INFO - drwxr-xr-x 2 jupyter jupyter      4096 Jul  7 12:31 .ipynb_checkpoints
+[PCRF-Suite] 2026-07-07 15:01:10,024 - INFO - drwxr-xr-x 5 jupyter jupyter      4096 Jul  7 14:58 ..
+[PCRF-Suite] 2026-07-07 15:01:10,025 - INFO - -rw-r--r-- 1 jupyter jupyter       242 Jul  7 15:01 generation_config.json
+[PCRF-Suite] 2026-07-07 15:01:10,026 - INFO - -rw-r--r-- 1 jupyter jupyter      1286 Jul  7 15:01 config.json
+[PCRF-Suite] 2026-07-07 15:01:10,026 - INFO - -rw------- 1 jupyter jupyter 988097824 Jul  7 15:01 model.safetensors
+[PCRF-Suite] 2026-07-07 15:01:10,027 - INFO - -rw-r--r-- 1 jupyter jupyter       694 Jul  7 15:01 tokenizer_config.json
+[PCRF-Suite] 2026-07-07 15:01:10,027 - INFO - -rw-r--r-- 1 jupyter jupyter      2507 Jul  7 15:01 chat_template.jinja
+[PCRF-Suite] 2026-07-07 15:01:10,028 - INFO - -rw-r--r-- 1 jupyter jupyter  11421990 Jul  7 15:01 tokenizer.json
+[PCRF-Suite] 2026-07-07 15:01:10,028 - INFO - drwxr-xr-x 3 jupyter jupyter      4096 Jul  7 15:01 .
+[PCRF-Suite] 2026-07-07 15:01:10,029 - INFO - --- Candidate Directory: ./customer_pcrf_artifacts/sft_candidate_model ---
+[PCRF-Suite] 2026-07-07 15:01:10,033 - INFO - total 976124
+[PCRF-Suite] 2026-07-07 15:01:10,033 - INFO - drwxr-xr-x 2 jupyter jupyter      4096 Jul  7 08:31 .ipynb_checkpoints
+[PCRF-Suite] 2026-07-07 15:01:10,034 - INFO - drwxr-xr-x 5 jupyter jupyter      4096 Jul  7 14:58 ..
+[PCRF-Suite] 2026-07-07 15:01:10,034 - INFO - -rw-r--r-- 1 jupyter jupyter       242 Jul  7 15:01 generation_config.json
+[PCRF-Suite] 2026-07-07 15:01:10,035 - INFO - -rw-r--r-- 1 jupyter jupyter      1284 Jul  7 15:01 config.json
+[PCRF-Suite] 2026-07-07 15:01:10,036 - INFO - -rw------- 1 jupyter jupyter 988097824 Jul  7 15:01 model.safetensors
+[PCRF-Suite] 2026-07-07 15:01:10,036 - INFO - -rw-r--r-- 1 jupyter jupyter       694 Jul  7 15:01 tokenizer_config.json
+[PCRF-Suite] 2026-07-07 15:01:10,037 - INFO - -rw-r--r-- 1 jupyter jupyter      2507 Jul  7 15:01 chat_template.jinja
+[PCRF-Suite] 2026-07-07 15:01:10,038 - INFO - -rw-r--r-- 1 jupyter jupyter  11421990 Jul  7 15:01 tokenizer.json
+[PCRF-Suite] 2026-07-07 15:01:10,038 - INFO - drwxr-xr-x 3 jupyter jupyter      4096 Jul  7 15:01 .
+[PCRF-Suite] 2026-07-07 15:01:10,039 - INFO - ================================================================================
+[PCRF-Suite] 2026-07-07 15:01:10,040 - INFO - 💾 FINAL DISK SIZE DELTA SUMMARY (PARSED FROM ls)
+[PCRF-Suite] 2026-07-07 15:01:10,040 - INFO - ================================================================================
+[PCRF-Suite] 2026-07-07 15:01:10,041 - INFO - Baseline Parsed Size : 999536831 Bytes
+[PCRF-Suite] 2026-07-07 15:01:10,041 - INFO - Candidate Parsed Size: 999536829 Bytes
+[PCRF-Suite] 2026-07-07 15:01:10,042 - INFO - Storage Difference   : -0.0020 KB  |  -0.0000 MB
+[PCRF-Suite] 2026-07-07 15:01:10,042 - INFO - ================================================================================
+[PCRF-Suite] 2026-07-07 15:01:28,037 - INFO - [ROUTER AUDIT] baseline served count: 19
+[PCRF-Suite] 2026-07-07 15:01:28,038 - INFO - [ROUTER AUDIT] candidate served count: 4
+[PCRF-Suite] 2026-07-07 15:01:28,038 - INFO - [ROUTER AUDIT] abstain count: 17
+[PCRF-Suite] 2026-07-07 15:01:28,039 - INFO - [ROUTER AUDIT] semantic recoveries observed: 2
+[PCRF-Suite] 2026-07-07 15:01:28,039 - INFO - [ROUTER AUDIT] contract clean repairs promoted: 2
+[PCRF-Suite] 2026-07-07 15:01:28,040 - INFO - [ROUTER AUDIT] semantic recoveries withheld: 0
+[PCRF-Suite] 2026-07-07 15:01:28,041 - INFO - Generating detailed developer SFT debug log at: ./customer_pcrf_artifacts/pcrf_debug_report.txt
 
 
 =====================================================================
@@ -1784,3 +1808,18 @@ Prevention Action: Contract-clean candidate repair promoted.
 * BEFORE PCRF Accuracy  : 57.50% (Served 40 prompts)
 * AFTER PCRF Accuracy   : 69.57% (Served 23 prompts)
 * Math Recall Rate      : 58.82%
+
+=====================================================================
+[I] ZERO-SHOT HYBRID ENSEMBLE SIMULATION (MATH VS GOLD)
+=====================================================================
+* Inference Risk Threshold : 0.4 (Checks Structural Entropy)
+* Curriculum NLL Threshold : 3.5 (Checks Sequence Probability)
+
+* Hybrid True Positives   : 15 (Hallucinations Caught)
+* Hybrid False Negatives  : 2 (Hallucinations Missed)
+* Hybrid False Positives  : 3 (Good Answers Blocked)
+* Hybrid True Negatives   : 20 (Good Answers Allowed)
+
+* BEFORE PCRF Accuracy    : 57.50% (Served 40 prompts)
+* AFTER PCRF Accuracy     : 90.91% (Served 22 prompts)
+* Hallucinations Caught   : 88.24%

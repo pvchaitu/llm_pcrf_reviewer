@@ -30,9 +30,9 @@
 transition_type  | count | percentage | avg_delta_nll | avg_delta_entropy | avg_delta_margin | avg_delta_hallucination_risk
 -----------------|-------|------------|---------------|-------------------|------------------|-----------------------------
 correct_to_correct| 45    |  56.2%       | -7.71076     | +1.55686          | -2.38611         | +0.13854
-correct_to_wrong | 9     |  11.2%       | -10.30556    | +2.00217          | -2.36806         | +0.27430
-wrong_to_correct | 2     |   2.5%       | -5.34375     | +1.74829          | -2.46875         | +0.03026
-wrong_to_wrong   | 24    |  30.0%       | -4.64466     | +1.20862          | -1.48438         | +0.08110
+correct_to_wrong | 9     |  11.2%       | -10.30556    | +2.00217          | -2.36806         | +0.16319
+wrong_to_correct | 2     |   2.5%       | -5.34375     | +1.74829          | -2.46875         | +0.15526
+wrong_to_wrong   | 24    |  30.0%       | -4.64466     | +1.20862          | -1.48438         | +0.11235
 
 * Note: Total Critical High-Priority Regressions: 2 (Hard-gated and blocked by the Safety Router).
 
@@ -660,10 +660,10 @@ Delta Confidence: -0.25000
 Failure Category: HIGH_CONFIDENCE_WRONG
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
-Baseline Risk Score: 0.38626
-SFT Candidate Risk Score: 0.53439
+Baseline Risk Score: 0.13626
+SFT Candidate Risk Score: 0.28439
 Router Decision: abstain_safe_fallback
-Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5344).
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2844).
 --------------------------------------------------------------------------------
 ### ID: 116
 Split: seen_val
@@ -914,7 +914,7 @@ Delta Confidence: -0.68750
 Failure Category: WRONG_ENTITY_SUBSTITUTION
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
-Baseline Risk Score: 0.42918
+Baseline Risk Score: 0.17918
 SFT Candidate Risk Score: 0.39806
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3981).
@@ -1024,10 +1024,10 @@ Delta Confidence: -0.38672
 Failure Category: WRONG_ENTITY_SUBSTITUTION
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
-Baseline Risk Score: 0.45771
-SFT Candidate Risk Score: 0.59087
+Baseline Risk Score: 0.20771
+SFT Candidate Risk Score: 0.34087
 Router Decision: abstain_safe_fallback
-Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5909).
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3409).
 --------------------------------------------------------------------------------
 ### ID: 126
 Split: seen_val
@@ -1136,7 +1136,7 @@ Delta Confidence: -0.58789
 Failure Category: WRONG_ENTITY_SUBSTITUTION
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
-Baseline Risk Score: 0.46240
+Baseline Risk Score: 0.21240
 SFT Candidate Risk Score: 0.38212
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3821).
@@ -1282,7 +1282,7 @@ Delta Confidence: -0.75684
 Failure Category: INSTRUCTION_CONTRACT_VIOLATION
 Hallucination / Target Failure Detected: No
 Confidence Lowered: Yes
-Baseline Risk Score: 0.38551
+Baseline Risk Score: 0.13551
 SFT Candidate Risk Score: 0.42009
 Router Decision: use_candidate
 Prevention Action: Contract-clean candidate repair promoted.
@@ -1534,7 +1534,7 @@ Delta Confidence: -0.72461
 Failure Category: WRONG_ENTITY_SUBSTITUTION
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
-Baseline Risk Score: 0.38576
+Baseline Risk Score: 0.13576
 SFT Candidate Risk Score: 0.39994
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3999).
@@ -1678,10 +1678,10 @@ Delta Confidence: -0.16406
 Failure Category: HIGH_CONFIDENCE_WRONG
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
-Baseline Risk Score: 0.40222
-SFT Candidate Risk Score: 0.50931
+Baseline Risk Score: 0.15222
+SFT Candidate Risk Score: 0.25931
 Router Decision: abstain_safe_fallback
-Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5093).
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2593).
 --------------------------------------------------------------------------------
 ### ID: 144
 Split: unseen_val
@@ -1750,10 +1750,10 @@ Delta Confidence: -0.21875
 Failure Category: HIGH_CONFIDENCE_WRONG
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
-Baseline Risk Score: 0.39636
-SFT Candidate Risk Score: 0.53416
+Baseline Risk Score: 0.14636
+SFT Candidate Risk Score: 0.28416
 Router Decision: abstain_safe_fallback
-Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5342).
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2842).
 --------------------------------------------------------------------------------
 ### ID: 146
 Split: unseen_val
@@ -1858,10 +1858,10 @@ Delta Confidence: -0.14844
 Failure Category: HIGH_CONFIDENCE_WRONG
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
-Baseline Risk Score: 0.40498
-SFT Candidate Risk Score: 0.50509
+Baseline Risk Score: 0.15498
+SFT Candidate Risk Score: 0.25509
 Router Decision: abstain_safe_fallback
-Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5051).
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2551).
 --------------------------------------------------------------------------------
 ### ID: 149
 Split: unseen_val
@@ -1966,10 +1966,10 @@ Delta Confidence: -0.25781
 Failure Category: HIGH_CONFIDENCE_WRONG
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
-Baseline Risk Score: 0.41763
-SFT Candidate Risk Score: 0.55502
+Baseline Risk Score: 0.16763
+SFT Candidate Risk Score: 0.30502
 Router Decision: abstain_safe_fallback
-Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5550).
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3050).
 --------------------------------------------------------------------------------
 ### ID: 152
 Split: unseen_val
@@ -2002,10 +2002,10 @@ Delta Confidence: -0.20312
 Failure Category: HIGH_CONFIDENCE_WRONG
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
-Baseline Risk Score: 0.41734
-SFT Candidate Risk Score: 0.53673
+Baseline Risk Score: 0.16734
+SFT Candidate Risk Score: 0.28673
 Router Decision: abstain_safe_fallback
-Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5367).
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2867).
 --------------------------------------------------------------------------------
 ### ID: 153
 Split: unseen_val
@@ -2074,10 +2074,10 @@ Delta Confidence: -0.22266
 Failure Category: HIGH_CONFIDENCE_WRONG
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
-Baseline Risk Score: 0.42592
-SFT Candidate Risk Score: 0.54470
+Baseline Risk Score: 0.17592
+SFT Candidate Risk Score: 0.29470
 Router Decision: abstain_safe_fallback
-Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5447).
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2947).
 --------------------------------------------------------------------------------
 ### ID: 155
 Split: unseen_val
@@ -2110,10 +2110,10 @@ Delta Confidence: -0.20703
 Failure Category: HIGH_CONFIDENCE_WRONG
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
-Baseline Risk Score: 0.41754
-SFT Candidate Risk Score: 0.54119
+Baseline Risk Score: 0.16754
+SFT Candidate Risk Score: 0.29119
 Router Decision: abstain_safe_fallback
-Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5412).
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2912).
 --------------------------------------------------------------------------------
 ### ID: 156
 Split: unseen_val
@@ -2182,10 +2182,10 @@ Delta Confidence: -0.24219
 Failure Category: HIGH_CONFIDENCE_WRONG
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
-Baseline Risk Score: 0.42209
-SFT Candidate Risk Score: 0.55267
+Baseline Risk Score: 0.17209
+SFT Candidate Risk Score: 0.30267
 Router Decision: abstain_safe_fallback
-Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5527).
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3027).
 --------------------------------------------------------------------------------
 ### ID: 158
 Split: unseen_val
@@ -2218,10 +2218,10 @@ Delta Confidence: -0.21094
 Failure Category: HIGH_CONFIDENCE_WRONG
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
-Baseline Risk Score: 0.41725
-SFT Candidate Risk Score: 0.54095
+Baseline Risk Score: 0.16725
+SFT Candidate Risk Score: 0.29095
 Router Decision: abstain_safe_fallback
-Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5410).
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2910).
 --------------------------------------------------------------------------------
 ### ID: 159
 Split: unseen_val
@@ -2290,10 +2290,10 @@ Delta Confidence: -0.21875
 Failure Category: HIGH_CONFIDENCE_WRONG
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
-Baseline Risk Score: 0.41801
-SFT Candidate Risk Score: 0.54330
+Baseline Risk Score: 0.16801
+SFT Candidate Risk Score: 0.29330
 Router Decision: abstain_safe_fallback
-Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5433).
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2933).
 --------------------------------------------------------------------------------
 ### ID: 161
 Split: unseen_val
@@ -2326,10 +2326,10 @@ Delta Confidence: -0.22266
 Failure Category: HIGH_CONFIDENCE_WRONG
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
-Baseline Risk Score: 0.46738
-SFT Candidate Risk Score: 0.56978
+Baseline Risk Score: 0.21738
+SFT Candidate Risk Score: 0.31978
 Router Decision: abstain_safe_fallback
-Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5698).
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3198).
 --------------------------------------------------------------------------------
 ### ID: 162
 Split: unseen_val
@@ -2434,10 +2434,10 @@ Delta Confidence: -0.18359
 Failure Category: HIGH_CONFIDENCE_WRONG
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
-Baseline Risk Score: 0.48044
-SFT Candidate Risk Score: 0.56603
+Baseline Risk Score: 0.23044
+SFT Candidate Risk Score: 0.31603
 Router Decision: abstain_safe_fallback
-Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5660).
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3160).
 --------------------------------------------------------------------------------
 ### ID: 165
 Split: unseen_val
@@ -2543,7 +2543,7 @@ Failure Category: HIGH_CONFIDENCE_WRONG
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
 Baseline Risk Score: 0.22693
-SFT Candidate Risk Score: 0.57025
+SFT Candidate Risk Score: 0.32025
 Router Decision: use_baseline
 Prevention Action: Candidate blocked because baseline captured the target and candidate failed.
 --------------------------------------------------------------------------------
@@ -2579,7 +2579,7 @@ Failure Category: HIGH_CONFIDENCE_WRONG
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
 Baseline Risk Score: 0.22623
-SFT Candidate Risk Score: 0.56345
+SFT Candidate Risk Score: 0.31345
 Router Decision: use_baseline
 Prevention Action: Candidate blocked because baseline captured the target and candidate failed.
 --------------------------------------------------------------------------------
@@ -2651,7 +2651,7 @@ Failure Category: HIGH_CONFIDENCE_WRONG
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
 Baseline Risk Score: 0.22564
-SFT Candidate Risk Score: 0.57048
+SFT Candidate Risk Score: 0.32048
 Router Decision: use_baseline
 Prevention Action: Candidate blocked because baseline captured the target and candidate failed.
 --------------------------------------------------------------------------------
@@ -2796,10 +2796,10 @@ Delta Confidence: -0.36719
 Failure Category: WRONG_ENTITY_SUBSTITUTION
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
-Baseline Risk Score: 0.42214
-SFT Candidate Risk Score: 0.57494
+Baseline Risk Score: 0.17214
+SFT Candidate Risk Score: 0.32494
 Router Decision: abstain_safe_fallback
-Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5749).
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3249).
 --------------------------------------------------------------------------------
 ### ID: 175
 Split: unseen_val
@@ -3013,7 +3013,7 @@ Failure Category: HIGH_CONFIDENCE_WRONG
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
 Baseline Risk Score: 0.13728
-SFT Candidate Risk Score: 0.53509
+SFT Candidate Risk Score: 0.28509
 Router Decision: use_baseline
 Prevention Action: Candidate blocked because baseline captured the target and candidate failed.
 --------------------------------------------------------------------------------
@@ -3021,54 +3021,116 @@ Prevention Action: Candidate blocked because baseline captured the target and ca
 =====================================================================
 [G] RAW CONSOLE LOG APPENDIX
 =====================================================================
-[PCRF-Suite] 2026-07-06 09:12:43,129 - INFO - Loaded external dataset from another-dataset.csv
-[PCRF-Suite] 2026-07-06 09:12:43,130 - INFO - [SPLIT AUDIT] train split count: 100
-[PCRF-Suite] 2026-07-06 09:12:43,130 - INFO - [SPLIT AUDIT] seen_val split count: 40
-[PCRF-Suite] 2026-07-06 09:12:43,131 - INFO - [SPLIT AUDIT] unseen_val split count: 40
-[PCRF-Suite] 2026-07-06 09:12:43,132 - INFO - [SPLIT AUDIT] ood split count: 20
-[PCRF-Suite] 2026-07-06 09:12:43,132 - INFO - [SPLIT AUDIT] total records loaded: 200
-[PCRF-Suite] 2026-07-06 09:12:43,133 - INFO - Retrieving tokenizer and architecture weights for: Qwen/Qwen2.5-0.5B-Instruct
-[PCRF-Suite] 2026-07-06 09:12:44,546 - INFO - Model parameter arrays successfully allocated.
-[PCRF-Suite] 2026-07-06 09:12:44,549 - INFO - ==========================================================================================
-[PCRF-Suite] 2026-07-06 09:12:44,549 - INFO -                   PCRF RESOURCE AUDIT & COMPUTE PROFILING SYSTEM                  
-[PCRF-Suite] 2026-07-06 09:12:44,550 - INFO - ==========================================================================================
-[PCRF-Suite] 2026-07-06 09:12:44,550 - INFO - Host OS Platform          : Linux 6.1.0-49-cloud-amd64
-[PCRF-Suite] 2026-07-06 09:12:44,551 - INFO - Active CPU Cores Detected : 8
-[PCRF-Suite] 2026-07-06 09:12:44,552 - INFO - Host System RAM           : 29.38 GB
-[PCRF-Suite] 2026-07-06 09:12:44,552 - INFO - GPU Hardware Accelerator  : Tesla T4
-[PCRF-Suite] 2026-07-06 09:12:44,553 - INFO - Dedicated VRAM Capacity   : 14.56 GB
-[PCRF-Suite] 2026-07-06 09:12:44,553 - INFO - Target Model Size (Params): 494.0 Million Parameters
-[PCRF-Suite] 2026-07-06 09:12:44,554 - INFO - ------------------------------------------------------------------------------------------
-[PCRF-Suite] 2026-07-06 09:12:44,554 - INFO - RECOMMENDED GCP COMPUTE INFRASTRUCTURE SETUP:
-[PCRF-Suite] 2026-07-06 09:12:44,555 - INFO -   - Recommended GCP Tier  : n1-standard-8 (8 vCPUs, 30 GB RAM)
+[PCRF-Suite] 2026-07-07 15:09:31,458 - INFO - Loaded external dataset from another-dataset.csv
+[PCRF-Suite] 2026-07-07 15:09:31,459 - INFO - [SPLIT AUDIT] train split count: 100
+[PCRF-Suite] 2026-07-07 15:09:31,460 - INFO - [SPLIT AUDIT] seen_val split count: 40
+[PCRF-Suite] 2026-07-07 15:09:31,460 - INFO - [SPLIT AUDIT] unseen_val split count: 40
+[PCRF-Suite] 2026-07-07 15:09:31,461 - INFO - [SPLIT AUDIT] ood split count: 20
+[PCRF-Suite] 2026-07-07 15:09:31,461 - INFO - [SPLIT AUDIT] total records loaded: 200
+[PCRF-Suite] 2026-07-07 15:09:31,462 - INFO - Retrieving tokenizer and architecture weights for: Qwen/Qwen2.5-0.5B-Instruct
+[PCRF-Suite] 2026-07-07 15:09:32,853 - INFO - Model parameter arrays successfully allocated.
+[PCRF-Suite] 2026-07-07 15:09:32,855 - INFO - ==========================================================================================
+[PCRF-Suite] 2026-07-07 15:09:32,856 - INFO -                   PCRF RESOURCE AUDIT & COMPUTE PROFILING SYSTEM                  
+[PCRF-Suite] 2026-07-07 15:09:32,856 - INFO - ==========================================================================================
+[PCRF-Suite] 2026-07-07 15:09:32,857 - INFO - Host OS Platform          : Linux 6.1.0-49-cloud-amd64
+[PCRF-Suite] 2026-07-07 15:09:32,857 - INFO - Active CPU Cores Detected : 8
+[PCRF-Suite] 2026-07-07 15:09:32,857 - INFO - Host System RAM           : 29.38 GB
+[PCRF-Suite] 2026-07-07 15:09:32,858 - INFO - GPU Hardware Accelerator  : Tesla T4
+[PCRF-Suite] 2026-07-07 15:09:32,859 - INFO - Dedicated VRAM Capacity   : 14.56 GB
+[PCRF-Suite] 2026-07-07 15:09:32,859 - INFO - Target Model Size (Params): 494.0 Million Parameters
+[PCRF-Suite] 2026-07-07 15:09:32,859 - INFO - ------------------------------------------------------------------------------------------
+[PCRF-Suite] 2026-07-07 15:09:32,860 - INFO - RECOMMENDED GCP COMPUTE INFRASTRUCTURE SETUP:
+[PCRF-Suite] 2026-07-07 15:09:32,860 - INFO -   - Recommended GCP Tier  : n1-standard-8 (8 vCPUs, 30 GB RAM)
   - Accelerator Context   : 1x NVIDIA T4 (16 GB VRAM)
   - Technical Reason      : Light parameter profiles run perfectly inside standard T4 envelopes.
                             At least 30 GB Host RAM prevents OS swap stalls during model download.
-[PCRF-Suite] 2026-07-06 09:12:44,555 - INFO - ------------------------------------------------------------------------------------------
-[PCRF-Suite] 2026-07-06 09:12:44,556 - INFO - GCP COMPUTE ENGINE SAFETY GUIDELINES (OOME PREVENTION):
-[PCRF-Suite] 2026-07-06 09:12:44,556 - INFO -  1. Always purge dangling activations using 'torch.cuda.empty_cache()' during hooks teardown.
-[PCRF-Suite] 2026-07-06 09:12:44,557 - INFO -  2. Enable half-precision (FP16/BF16) modes across all forward passes.
-[PCRF-Suite] 2026-07-06 09:12:44,557 - INFO -  3. Anchor maximum sequence length limits (`max_len`) tightly to block quadratic expansion.
-[PCRF-Suite] 2026-07-06 09:12:44,558 - INFO - ==========================================================================================
+[PCRF-Suite] 2026-07-07 15:09:32,861 - INFO - ------------------------------------------------------------------------------------------
+[PCRF-Suite] 2026-07-07 15:09:32,861 - INFO - GCP COMPUTE ENGINE SAFETY GUIDELINES (OOME PREVENTION):
+[PCRF-Suite] 2026-07-07 15:09:32,861 - INFO -  1. Always purge dangling activations using 'torch.cuda.empty_cache()' during hooks teardown.
+[PCRF-Suite] 2026-07-07 15:09:32,862 - INFO -  2. Enable half-precision (FP16/BF16) modes across all forward passes.
+[PCRF-Suite] 2026-07-07 15:09:32,862 - INFO -  3. Anchor maximum sequence length limits (`max_len`) tightly to block quadratic expansion.
+[PCRF-Suite] 2026-07-07 15:09:32,863 - INFO - ==========================================================================================
 
-[PCRF-Suite] 2026-07-06 09:12:44,560 - INFO - Baseline model parameters frozen.
-[PCRF-Suite] 2026-07-06 09:12:44,561 - INFO - --- Phase 1: Running Baseline Profile Evaluation ---
-[PCRF-Suite] 2026-07-06 09:13:22,810 - INFO - FP32 candidate model loaded securely for optimization.
-[PCRF-Suite] 2026-07-06 09:13:22,811 - INFO - 
+[PCRF-Suite] 2026-07-07 15:09:32,864 - INFO - Baseline model parameters frozen.
+[PCRF-Suite] 2026-07-07 15:09:32,864 - INFO - --- Phase 1: Running Baseline Profile Evaluation ---
+[PCRF-Suite] 2026-07-07 15:10:10,168 - INFO - FP32 candidate model loaded securely for optimization.
+[PCRF-Suite] 2026-07-07 15:10:10,169 - INFO - 
 --- Scenario A: Run Standalone Layer Derivative Estimation ---
-[PCRF-Suite] 2026-07-06 09:16:00,587 - INFO - 
+[PCRF-Suite] 2026-07-07 15:12:49,971 - INFO - 
 --- Scenario B: Independent Curriculum Selection ---
-[PCRF-Suite] 2026-07-06 09:18:42,497 - INFO - 
+[PCRF-Suite] 2026-07-07 15:15:34,702 - INFO - 
 --- Scenario C: Standalone Structural Residual-Depth Monitoring ---
-[PCRF-Suite] 2026-07-06 09:21:35,219 - INFO - 
+[PCRF-Suite] 2026-07-07 15:18:29,841 - INFO - 
 --- Scenario D: Derivative-Weighted Regularization ---
-[PCRF-Suite] 2026-07-06 09:24:13,765 - INFO - Initializing Advanced CDL v2 SFT Regularization training loop...
-[PCRF-Suite] 2026-07-06 09:24:22,441 - INFO - Regularization SFT optimization completed.
-[PCRF-Suite] 2026-07-06 09:24:58,562 - INFO - [ROUTER AUDIT] baseline served count: 54
-[PCRF-Suite] 2026-07-06 09:24:58,563 - INFO - [ROUTER AUDIT] candidate served count: 2
-[PCRF-Suite] 2026-07-06 09:24:58,563 - INFO - [ROUTER AUDIT] abstain count: 24
-[PCRF-Suite] 2026-07-06 09:24:58,564 - INFO - [ROUTER AUDIT] semantic recoveries observed: 2
-[PCRF-Suite] 2026-07-06 09:24:58,564 - INFO - [ROUTER AUDIT] contract clean repairs promoted: 2
-[PCRF-Suite] 2026-07-06 09:24:58,566 - INFO - [ROUTER AUDIT] semantic recoveries withheld: 0
-[PCRF-Suite] 2026-07-06 09:24:58,566 - INFO - Generating detailed developer SFT debug log at: ./customer_pcrf_artifacts/pcrf_debug_report.txt
+[PCRF-Suite] 2026-07-07 15:21:10,792 - INFO - Initializing Advanced CDL v2 SFT Regularization training loop...
+[PCRF-Suite] 2026-07-07 15:21:19,794 - INFO - Regularization SFT optimization completed.
+[PCRF-Suite] 2026-07-07 15:21:19,854 - INFO - Saving physical Baseline model to disk at: ./customer_pcrf_artifacts/baseline_model
+[PCRF-Suite] 2026-07-07 15:21:21,136 - INFO - Saving physical SFT candidate model to disk at: ./customer_pcrf_artifacts/sft_candidate_model
+[PCRF-Suite] 2026-07-07 15:21:22,281 - INFO - ================================================================================
+[PCRF-Suite] 2026-07-07 15:21:22,282 - INFO - 📄 DETAILED FILE-LEVEL FOOTPRINT (ls -altrL)
+[PCRF-Suite] 2026-07-07 15:21:22,283 - INFO - ================================================================================
+[PCRF-Suite] 2026-07-07 15:21:22,283 - INFO - --- Baseline Directory: ./customer_pcrf_artifacts/baseline_model ---
+[PCRF-Suite] 2026-07-07 15:21:22,287 - INFO - total 976124
+[PCRF-Suite] 2026-07-07 15:21:22,288 - INFO - drwxr-xr-x 2 jupyter jupyter      4096 Jul  7 12:31 .ipynb_checkpoints
+[PCRF-Suite] 2026-07-07 15:21:22,288 - INFO - drwxr-xr-x 5 jupyter jupyter      4096 Jul  7 15:18 ..
+[PCRF-Suite] 2026-07-07 15:21:22,289 - INFO - -rw-r--r-- 1 jupyter jupyter       242 Jul  7 15:21 generation_config.json
+[PCRF-Suite] 2026-07-07 15:21:22,289 - INFO - -rw-r--r-- 1 jupyter jupyter      1286 Jul  7 15:21 config.json
+[PCRF-Suite] 2026-07-07 15:21:22,290 - INFO - -rw------- 1 jupyter jupyter 988097824 Jul  7 15:21 model.safetensors
+[PCRF-Suite] 2026-07-07 15:21:22,290 - INFO - -rw-r--r-- 1 jupyter jupyter       694 Jul  7 15:21 tokenizer_config.json
+[PCRF-Suite] 2026-07-07 15:21:22,291 - INFO - -rw-r--r-- 1 jupyter jupyter      2507 Jul  7 15:21 chat_template.jinja
+[PCRF-Suite] 2026-07-07 15:21:22,291 - INFO - -rw-r--r-- 1 jupyter jupyter  11421990 Jul  7 15:21 tokenizer.json
+[PCRF-Suite] 2026-07-07 15:21:22,292 - INFO - drwxr-xr-x 3 jupyter jupyter      4096 Jul  7 15:21 .
+[PCRF-Suite] 2026-07-07 15:21:22,292 - INFO - --- Candidate Directory: ./customer_pcrf_artifacts/sft_candidate_model ---
+[PCRF-Suite] 2026-07-07 15:21:22,297 - INFO - total 976124
+[PCRF-Suite] 2026-07-07 15:21:22,298 - INFO - drwxr-xr-x 2 jupyter jupyter      4096 Jul  7 08:31 .ipynb_checkpoints
+[PCRF-Suite] 2026-07-07 15:21:22,299 - INFO - drwxr-xr-x 5 jupyter jupyter      4096 Jul  7 15:18 ..
+[PCRF-Suite] 2026-07-07 15:21:22,299 - INFO - -rw-r--r-- 1 jupyter jupyter       242 Jul  7 15:21 generation_config.json
+[PCRF-Suite] 2026-07-07 15:21:22,300 - INFO - -rw-r--r-- 1 jupyter jupyter      1284 Jul  7 15:21 config.json
+[PCRF-Suite] 2026-07-07 15:21:22,300 - INFO - -rw------- 1 jupyter jupyter 988097824 Jul  7 15:21 model.safetensors
+[PCRF-Suite] 2026-07-07 15:21:22,301 - INFO - -rw-r--r-- 1 jupyter jupyter       694 Jul  7 15:21 tokenizer_config.json
+[PCRF-Suite] 2026-07-07 15:21:22,301 - INFO - -rw-r--r-- 1 jupyter jupyter      2507 Jul  7 15:21 chat_template.jinja
+[PCRF-Suite] 2026-07-07 15:21:22,302 - INFO - -rw-r--r-- 1 jupyter jupyter  11421990 Jul  7 15:21 tokenizer.json
+[PCRF-Suite] 2026-07-07 15:21:22,302 - INFO - drwxr-xr-x 3 jupyter jupyter      4096 Jul  7 15:21 .
+[PCRF-Suite] 2026-07-07 15:21:22,303 - INFO - ================================================================================
+[PCRF-Suite] 2026-07-07 15:21:22,303 - INFO - 💾 FINAL DISK SIZE DELTA SUMMARY (PARSED FROM ls)
+[PCRF-Suite] 2026-07-07 15:21:22,304 - INFO - ================================================================================
+[PCRF-Suite] 2026-07-07 15:21:22,304 - INFO - Baseline Parsed Size : 999536831 Bytes
+[PCRF-Suite] 2026-07-07 15:21:22,305 - INFO - Candidate Parsed Size: 999536829 Bytes
+[PCRF-Suite] 2026-07-07 15:21:22,305 - INFO - Storage Difference   : -0.0020 KB  |  -0.0000 MB
+[PCRF-Suite] 2026-07-07 15:21:22,306 - INFO - ================================================================================
+[PCRF-Suite] 2026-07-07 15:21:57,661 - INFO - [ROUTER AUDIT] baseline served count: 54
+[PCRF-Suite] 2026-07-07 15:21:57,661 - INFO - [ROUTER AUDIT] candidate served count: 2
+[PCRF-Suite] 2026-07-07 15:21:57,662 - INFO - [ROUTER AUDIT] abstain count: 24
+[PCRF-Suite] 2026-07-07 15:21:57,663 - INFO - [ROUTER AUDIT] semantic recoveries observed: 2
+[PCRF-Suite] 2026-07-07 15:21:57,663 - INFO - [ROUTER AUDIT] contract clean repairs promoted: 2
+[PCRF-Suite] 2026-07-07 15:21:57,664 - INFO - [ROUTER AUDIT] semantic recoveries withheld: 0
+[PCRF-Suite] 2026-07-07 15:21:57,664 - INFO - Generating detailed developer SFT debug log at: ./customer_pcrf_artifacts/pcrf_debug_report.txt
 
+
+=====================================================================
+[H] ZERO-SHOT PRODUCTION SIMULATION (MATH VS GOLD)
+=====================================================================
+* Risk Threshold        : 0.4
+* Math True Positives   : 8 (Hallucinations Caught)
+* Math False Negatives  : 25 (Hallucinations Missed)
+* Math False Positives  : 5 (Good Answers Blocked)
+* Math True Negatives   : 42 (Good Answers Allowed)
+
+* BEFORE PCRF Accuracy  : 58.75% (Served 80 prompts)
+* AFTER PCRF Accuracy   : 62.69% (Served 67 prompts)
+* Math Recall Rate      : 24.24%
+
+=====================================================================
+[I] ZERO-SHOT HYBRID ENSEMBLE SIMULATION (MATH VS GOLD)
+=====================================================================
+* Inference Risk Threshold : 0.4 (Checks Structural Entropy)
+* Curriculum NLL Threshold : 3.5 (Checks Sequence Probability)
+
+* Hybrid True Positives   : 26 (Hallucinations Caught)
+* Hybrid False Negatives  : 7 (Hallucinations Missed)
+* Hybrid False Positives  : 29 (Good Answers Blocked)
+* Hybrid True Negatives   : 18 (Good Answers Allowed)
+
+* BEFORE PCRF Accuracy    : 58.75% (Served 80 prompts)
+* AFTER PCRF Accuracy     : 72.00% (Served 25 prompts)
+* Hallucinations Caught   : 78.79%
