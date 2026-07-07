@@ -906,6 +906,7 @@ class DerivativeRegularizer(BaseFeaturePlugin):
         for l_id in target_layers:
             optimized_params.extend(list(model_mgr.block_list[l_id].parameters()))
 
+        #PartBBB -Optimizer Initialization 
         optimizer = torch.optim.AdamW(optimized_params if optimized_params else model.parameters(), lr=1e-5)
 
         mc_targets = ["____", "A.", "B.", "A", "B", "\n", "\n\n", "______", "A ", "B ", "A)"]
@@ -1008,10 +1009,11 @@ class DerivativeRegularizer(BaseFeaturePlugin):
                    (reg_cfg.lambda_wrong * l_wrong) + \
                    (reg_cfg.lambda_contrastive * contrastive_penalty)
 
+            # PartCCC -Training Step / Weight Update
             if torch.isfinite(loss):
                 loss.backward()
                 torch.nn.utils.clip_grad_norm_(optimized_params if optimized_params else model.parameters(), max_norm=1.0)
-                optimizer.step()
+                optimizer.step()    # <--- Model weights are updated here
 
         model_mgr.remove_all_hooks()
         ref_mgr.remove_all_hooks()

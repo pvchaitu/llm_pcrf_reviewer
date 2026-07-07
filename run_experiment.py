@@ -18,6 +18,7 @@ import json
 import math
 import numpy as np
 import torch
+import subprocess
 from transformers import AutoModelForCausalLM
 
 # Import modules from modular codebase structure
@@ -70,6 +71,19 @@ from pcrf_reporting import (
 )
 
 logger = logging.getLogger("PCRF_Suite")
+
+def get_directory_size_mb(path: str) -> float:
+    """Calculates the physical disk footprint of a directory in Megabytes."""
+    total_size = 0
+    if not os.path.exists(path):
+        return 0.0
+    for dirpath, _, filenames in os.walk(path):
+        for f in filenames:
+            fp = os.path.join(dirpath, f)
+            # Skip symlinks to avoid double-counting Hugging Face cache blobs
+            if not os.path.islink(fp):
+                total_size += os.path.getsize(fp)
+    return total_size / (1024 * 1024)
 
 # ==============================================================================
 # GLOBAL LOGGING AND CONSOLE CAPTURE SETUP
@@ -153,6 +167,7 @@ def main(run_mode: str = "full", dataset_path: str = None):
     unseen_val_dataset = CustomFactualDataset(splits["unseen_val"], tokenizer, pcrf_config.model_cfg.max_len)
 
     logger.info("--- Phase 1: Running Baseline Profile Evaluation ---")
+    # PARTDDD -The system generates text using the completely frozen, untouched model_base. This populates baseline_output.
     base_seen_metrics = EvaluatorPlus.evaluate_dataset_detailed(model_base, tokenizer, seen_val_dataset, pcrf_config.model_cfg.max_len)
     base_unseen_metrics = EvaluatorPlus.evaluate_dataset_detailed(model_base, tokenizer, unseen_val_dataset, pcrf_config.model_cfg.max_len)
 
@@ -260,11 +275,12 @@ def main(run_mode: str = "full", dataset_path: str = None):
         return
 
     # Continue Full PCRF Execution
+    #PartAAA -Enabling Gradients for the Candidate Model
     model_candidate = AutoModelForCausalLM.from_pretrained(pcrf_config.model_cfg.model_name)
     model_candidate.load_state_dict(model_base.state_dict())
     model_candidate.to(pcrf_config.model_cfg.device)
     for param in model_candidate.parameters():
-        param.requires_grad = True
+        param.requires_grad = True        # <--- Weights are explicitly unfrozen here
     logger.info("FP32 candidate model loaded securely for optimization.")
 
     pcrf_scorecard = {}
@@ -348,6 +364,66 @@ def main(run_mode: str = "full", dataset_path: str = None):
     if regularizer.health_check(model_candidate).is_healthy:
         regularizer.run_standalone(model_candidate, tokenizer, splits, pcrf_config)
 
+        # --- NEW CODE: PHYSICAL DISK STORAGE & LOGGING ---
+        # 1. Get baseline physical size from HuggingFace cache
+        hf_cache_dir = os.path.expanduser("~/.cache/huggingface/hub")
+        model_cache_folder = "models--" + pcrf_config.model_cfg.model_name.replace("/", "--")
+        baseline_physical_path = os.path.join(hf_cache_dir, model_cache_folder)
+        baseline_size_mb = get_directory_size_mb(baseline_physical_path)
+
+        # 2. Save SFT Candidate physically to artifacts folder
+        candidate_physical_path = os.path.join(pcrf_config.artifact_cfg.output_dir, "sft_candidate_model")
+        logger.info(f"Saving physical SFT candidate model to disk at: {candidate_physical_path}")
+        model_candidate.save_pretrained(candidate_physical_path)
+        tokenizer.save_pretrained(candidate_physical_path)
+        candidate_size_mb = get_directory_size_mb(candidate_physical_path)
+
+        # 3. Print to Console & Global Log Buffer
+        logger.info("=" * 80)
+        logger.info("💾 PHYSICAL MODEL DISK FOOTPRINT AUDIT")
+        logger.info("=" * 80)
+        logger.info(f"Baseline Model Path : {baseline_physical_path}")
+        logger.info(f"Baseline Size (MB)  : {baseline_size_mb:.2f} MB")
+        logger.info(f"Candidate Model Path: {candidate_physical_path}")
+        logger.info(f"Candidate Size (MB) : {candidate_size_mb:.2f} MB")
+        logger.info(f"Delta on Disk       : {candidate_size_mb - baseline_size_mb:+.2f} MB")
+        logger.info("=" * 80)
+        # -------------------------------------------------
+
+        # --- RUN 'ls -altrh' TO SHOW FILE-LEVEL BREAKDOWN ---
+        logger.info("=" * 80)
+        logger.info("📄 DETAILED FILE-LEVEL FOOTPRINT (ls -altr)")
+        logger.info("=" * 80)
+        
+        # 1. List Baseline Files
+        logger.info(f"--- Baseline Directory: {baseline_physical_path} ---")
+        try:
+            baseline_ls = subprocess.run(
+                ["ls", "-altr", baseline_physical_path], 
+                capture_output=True, text=True, check=True
+            ).stdout
+            for line in baseline_ls.split('\n'):
+                if line.strip(): logger.info(line)
+        except Exception as e:
+            logger.error(f"Failed to list baseline directory: {e}")
+
+        # 2. List Candidate Files
+        logger.info(f"--- Candidate Directory: {candidate_physical_path} ---")
+        try:
+            candidate_ls = subprocess.run(
+                ["ls", "-altr", candidate_physical_path], 
+                capture_output=True, text=True, check=True
+            ).stdout
+            for line in candidate_ls.split('\n'):
+                if line.strip(): logger.info(line)
+        except Exception as e:
+            logger.error(f"Failed to list candidate directory: {e}")
+            
+        logger.info("=" * 80)
+        # --------------------------------------------------------------
+
+        # PartEEE -After the SFT training loop updates model_candidate's weights in Scenario D, the system does a 
+        # second generation pass. Because the weights have changed via optimizer.step(), candidate_output differs from baseline_output.
         reg_seen_metrics = EvaluatorPlus.evaluate_dataset_detailed(model_candidate, tokenizer, seen_val_dataset, pcrf_config.model_cfg.max_len)
         reg_unseen_metrics = EvaluatorPlus.evaluate_dataset_detailed(model_candidate, tokenizer, unseen_val_dataset, pcrf_config.model_cfg.max_len)
 
@@ -414,11 +490,12 @@ def main(run_mode: str = "full", dataset_path: str = None):
         b_item = next(p for p in base_seen_metrics["predictions"] + base_unseen_metrics["predictions"] if p["id"] == ex.example_id)
         c_item = next(p for p in reg_seen_metrics["predictions"] + reg_unseen_metrics["predictions"] if p["id"] == ex.example_id)
 
+        # FIXED: Strictly zero-shot math, no ground truth knowledge allowed
         b_hr, _ = compute_hallucination_risk(
-            b_item["entropy"], b_item["margin"], 0.0, r_sys_chain, 0.0, b_item["correct"] == 0 and b_item["top1_prob"] > 0.5
+            b_item["entropy"], b_item["margin"], 0.0, r_sys_chain, 0.0, False
         )
         c_hr, c_band = compute_hallucination_risk(
-            c_item["entropy"], c_item["margin"], 0.05, r_sys_chain, 0.02, c_item["correct"] == 0 and c_item["top1_prob"] > 0.5
+            c_item["entropy"], c_item["margin"], 0.05, r_sys_chain, 0.02, False
         )
 
         trace_row_pre = {
@@ -488,6 +565,8 @@ def main(run_mode: str = "full", dataset_path: str = None):
         b_ivrs.append(b_item["is_instruction_violation"])
         c_ivrs.append(c_item["is_instruction_violation"])
 
+        # PartGGG -This is where the actual output string is chosen or overwritten based on 
+        # decision: "use_baseline", "use_candidate", or "abstain_safe_fallback".
         is_unresolved = (b_item['correct'] == 0 and c_item['correct'] == 0)
 
         if is_unresolved or r_item["router_decision"] == "abstain_safe_fallback":
@@ -568,6 +647,13 @@ def main(run_mode: str = "full", dataset_path: str = None):
             "confidence_calibration_delta": c_item["top1_prob"] - b_item["top1_prob"],
             "router_decision": "abstain_safe_fallback" if is_unresolved else r_item["router_decision"],
             "decision_reason": r_item["decision_reason"],
+            # --- NEW CODE FOR EXPERIMENT: MATH VS GOLD TRACKING ---
+            "gold_hallucination": 1 if c_item["correct"] == 0 else 0,
+            "math_hallucination": 1 if c_hr > 0.40 else 0, # 0.40 is your target Math threshold
+            "math_true_positive": 1 if (c_item["correct"] == 0 and c_hr > 0.40) else 0,
+            "math_false_negative": 1 if (c_item["correct"] == 0 and c_hr <= 0.40) else 0,
+            "math_false_positive": 1 if (c_item["correct"] == 1 and c_hr > 0.40) else 0,
+            # ------------------------------------------------------
             "strict_em_baseline": b_item["is_strict_em"],
             "strict_em_candidate": c_item["is_strict_em"],
             "first_token_baseline": b_item["is_first_token"],
@@ -618,9 +704,42 @@ def main(run_mode: str = "full", dataset_path: str = None):
     regularized_stats["strict_em_acc"] = cand_strict
     regularized_stats["instruction_violation_rate"] = cand_iv
 
+    # ------------------------------------------------------------------
+    # Build served-aware gating metrics for the regularization scorecard.
+    # This prevents the scorecard status from using candidate-only metrics
+    # when protected routing has already generated served outcomes.
+    # ------------------------------------------------------------------
+    seen_rows_for_gate = [r for r in trace_rows if r["split"] == "seen_val"]
+    unseen_rows_for_gate = [r for r in trace_rows if r["split"] == "unseen_val"]
+
+    def _mean_or_zero(values):
+        return float(np.mean(values)) if values else 0.0
+
+    served_seen_acc_for_gate = _mean_or_zero([
+        r["candidate_correct"] if r["router_decision"] == "use_candidate" else r["baseline_correct"]
+        for r in seen_rows_for_gate
+    ])
+
+    served_unseen_acc_for_gate = _mean_or_zero([
+        r["candidate_correct"] if r["router_decision"] == "use_candidate" else r["baseline_correct"]
+        for r in unseen_rows_for_gate
+    ])
+
+    baseline_stats_for_gate = dict(baseline_stats)
+    regularized_stats_for_gate = dict(regularized_stats)
+
+    regularized_stats_for_gate.update({
+        "served_seen_val_acc": served_seen_acc_for_gate,
+        "served_unseen_val_acc": served_unseen_acc_for_gate,
+        "transitions": transitions,
+        "contained_regressions": reconciliation_data.get("contained_regressions", 0),
+        "served_regressions": reconciliation_data.get("served_regressions", 0),
+        "critical_regressions": regularized_stats.get("critical_regressions", 0),
+    })
+
     reg_decision = safety_controller.compute_promotion_decision(
-        baseline_metrics=baseline_stats,
-        feature_metrics=regularized_stats,
+        baseline_metrics=baseline_stats_for_gate,
+        feature_metrics=regularized_stats_for_gate,
         feature_name="regularization",
         r_sys_chain=r_sys_chain
     )

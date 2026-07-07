@@ -8,7 +8,7 @@
 
 ## Dataset Source
 - Dataset Source: External File
-- Dataset File: customer-demo-grade-500-prompt.csv
+- Dataset File: new-customer-demo-500-prompt.csv
 
 ## Dataset Partition Counts
 - Train Split: 200
@@ -19,12 +19,12 @@
 
 ## Baseline Metrics
 - model_name: Qwen/Qwen2.5-0.5B-Instruct
-- seen_val_acc: 0.824
-- unseen_val_acc: 0.368
-- seen_val_nll: 2.3784375
-- unseen_val_nll: 3.368046875
-- seen_val_ppl: 10.788033385918167
-- unseen_val_ppl: 29.021788486435117
+- seen_val_acc: 0.68
+- unseen_val_acc: 0.56
+- seen_val_nll: 5.157656669616699
+- unseen_val_nll: 8.998390557939913
+- seen_val_ppl: 173.75680855699622
+- unseen_val_ppl: 8090.052972582302
 
 ## Baseline Prompt / Generation Hallucination Audit
 
@@ -32,503 +32,503 @@ Baseline row audit includes train, seen validation, unseen validation, and OOD p
 
 | ID | Split | Prompt | Baseline Generation | Expected Value | Actual Value | Match? | Hallucinated? |
 |----|--------|---------|---------|---------|---------|---------|---------|
-| 1 | train | Train 1: The capital of France is | Paris. It's the largest city in Europe and one of | Paris | Paris. It's the largest city in Europe and one of | YES | NO |
-| 2 | train | Train 2: The currency of Japan is | the yen. It is also known as Yen, or | Yen | the yen. It is also known as Yen, or | YES | NO |
-| 3 | train | Train 3: The chemical symbol for gold is | Au. Which of the following statements about gol... | Au | Au. Which of the following statements about gol... | YES | NO |
-| 4 | train | Train 4: The author of Hamlet is | a famous playwright, and the author of Romeo an... | Shakespeare | a famous playwright, and the author of Romeo an... | NO | YES |
-| 5 | train | Train 5: The default HTTPS port is | 443, which means that all traffic on this | 443 | 443, which means that all traffic on this | YES | NO |
-| 6 | train | Train 6: The DNS protocol primarily uses | the ___ method to resolve domain names.<br>A. A- | UDP | the ___ method to resolve domain names.<br>A. A- | NO | YES |
-| 7 | train | Train 7: The headquarters of Microsoft is in | Redmond, Washington. It has a large office buil... | Redmond | Redmond, Washington. It has a large office buil... | YES | NO |
-| 8 | train | Train 8: The largest planet in the solar system is | Jupiter, which has a diameter of approximately 142 | Jupiter | Jupiter, which has a diameter of approximately 142 | YES | NO |
-| 9 | train | Train 9: The capital of France is | Paris. It was founded in the 12th century | Paris | Paris. It was founded in the 12th century | YES | NO |
-| 10 | train | Train 10: The currency of Japan is | the yen. It is the world's most widely used cur... | Yen | the yen. It is the world's most widely used cur... | YES | NO |
-| 11 | train | Train 11: The chemical symbol for gold is | Au. Which of the following statements about gol... | Au | Au. Which of the following statements about gol... | YES | NO |
-| 12 | train | Train 12: The author of Hamlet is | a man who was born in which country?<br>Answer ... | Shakespeare | a man who was born in which country?<br>Answer ... | NO | YES |
-| 13 | train | Train 13: The default HTTPS port is | 443, which means that all traffic on this | 443 | 443, which means that all traffic on this | YES | NO |
-| 14 | train | Train 14: The DNS protocol primarily uses | the ___ method to resolve domain names.<br>A. A- | UDP | the ___ method to resolve domain names.<br>A. A- | NO | YES |
-| 15 | train | Train 15: The headquarters of Microsoft is in | Redmond, Washington. It has a large office buil... | Redmond | Redmond, Washington. It has a large office buil... | YES | NO |
-| 16 | train | Train 16: The largest planet in the solar system is | Jupiter, which has a diameter of approximately 79, | Jupiter | Jupiter, which has a diameter of approximately 79, | YES | NO |
-| 17 | train | Train 17: The capital of France is | Paris. It was founded in the 8th century by | Paris | Paris. It was founded in the 8th century by | YES | NO |
-| 18 | train | Train 18: The currency of Japan is | the yen, and it's worth about $2.5 | Yen | the yen, and it's worth about $2.5 | YES | NO |
-| 19 | train | Train 19: The chemical symbol for gold is | Au. True or False?<br>To determine whether the ... | Au | Au. True or False?<br>To determine whether the ... | YES | NO |
-| 20 | train | Train 20: The author of Hamlet is | a famous playwright, and the play was written i... | Shakespeare | a famous playwright, and the play was written i... | NO | YES |
-| 21 | train | Train 21: The default HTTPS port is | 443, which means that all traffic on the | 443 | 443, which means that all traffic on the | YES | NO |
-| 22 | train | Train 22: The DNS protocol primarily uses | the ___ method to resolve domain names.<br>A. A- | UDP | the ___ method to resolve domain names.<br>A. A- | NO | YES |
-| 23 | train | Train 23: The headquarters of Microsoft is in | Redmond, Washington. It has a large office buil... | Redmond | Redmond, Washington. It has a large office buil... | YES | NO |
-| 24 | train | Train 24: The largest planet in the solar system is | ____<br>A. Mercury<br>B. Venus<br>C. | Jupiter | ____<br>A. Mercury<br>B. Venus<br>C. | NO | YES |
-| 25 | train | Train 25: The capital of France is | Paris. It was founded in the 13th century | Paris | Paris. It was founded in the 13th century | YES | NO |
-| 26 | train | Train 26: The currency of Japan is | the yen, and it's worth about $1.3 | Yen | the yen, and it's worth about $1.3 | YES | NO |
-| 27 | train | Train 27: The chemical symbol for gold is | Au. True or False?<br>To determine whether the ... | Au | Au. True or False?<br>To determine whether the ... | YES | NO |
-| 28 | train | Train 28: The author of Hamlet is | a famous playwright, and the play was written i... | Shakespeare | a famous playwright, and the play was written i... | NO | YES |
-| 29 | train | Train 29: The default HTTPS port is | 443, which means that all traffic on the | 443 | 443, which means that all traffic on the | YES | NO |
-| 30 | train | Train 30: The DNS protocol primarily uses | the ___ method to resolve domain names.<br>A. A | UDP | the ___ method to resolve domain names.<br>A. A | NO | YES |
-| 31 | train | Train 31: The headquarters of Microsoft is in | Redmond, Washington. It has a large office buil... | Redmond | Redmond, Washington. It has a large office buil... | YES | NO |
-| 32 | train | Train 32: The largest planet in the solar system is | Jupiter, which has a diameter of approximately 14. | Jupiter | Jupiter, which has a diameter of approximately 14. | YES | NO |
-| 33 | train | Train 33: The capital of France is | Paris. It was founded in the 12th century | Paris | Paris. It was founded in the 12th century | YES | NO |
-| 34 | train | Train 34: The currency of Japan is | the yen, and it's worth about 100 | Yen | the yen, and it's worth about 100 | YES | NO |
-| 35 | train | Train 35: The chemical symbol for gold is | Au. Which of the following statements about gol... | Au | Au. Which of the following statements about gol... | YES | NO |
-| 36 | train | Train 36: The author of Hamlet is | a famous playwright, and the play is also known... | Shakespeare | a famous playwright, and the play is also known... | NO | YES |
-| 37 | train | Train 37: The default HTTPS port is | 443, which means that the user can access | 443 | 443, which means that the user can access | YES | NO |
-| 38 | train | Train 38: The DNS protocol primarily uses | the ___ address to identify hosts.<br>A. IP<br>B | UDP | the ___ address to identify hosts.<br>A. IP<br>B | NO | YES |
-| 39 | train | Train 39: The headquarters of Microsoft is in | Redmond, Washington. It has a large office buil... | Redmond | Redmond, Washington. It has a large office buil... | YES | NO |
-| 40 | train | Train 40: The largest planet in the solar system is | Jupiter, which has a diameter of approximately 139 | Jupiter | Jupiter, which has a diameter of approximately 139 | YES | NO |
-| 41 | train | Train 41: The capital of France is | Paris. It was founded in the 8th century by | Paris | Paris. It was founded in the 8th century by | YES | NO |
-| 42 | train | Train 42: The currency of Japan is | the yen, and it's worth about $1.3 | Yen | the yen, and it's worth about $1.3 | YES | NO |
-| 43 | train | Train 43: The chemical symbol for gold is | Au. Which of the following statements about gol... | Au | Au. Which of the following statements about gol... | YES | NO |
-| 44 | train | Train 44: The author of Hamlet is | a famous playwright, and the play is also known... | Shakespeare | a famous playwright, and the play is also known... | NO | YES |
-| 45 | train | Train 45: The default HTTPS port is | 443, which means that the user can access | 443 | 443, which means that the user can access | YES | NO |
-| 46 | train | Train 46: The DNS protocol primarily uses | the ___ address to identify hosts.<br>A. IP<br>B | UDP | the ___ address to identify hosts.<br>A. IP<br>B | NO | YES |
-| 47 | train | Train 47: The headquarters of Microsoft is in | Redmond, Washington. It has a large office buil... | Redmond | Redmond, Washington. It has a large office buil... | YES | NO |
-| 48 | train | Train 48: The largest planet in the solar system is | ____<br>A. Mercury<br>B. Venus<br>C. | Jupiter | ____<br>A. Mercury<br>B. Venus<br>C. | NO | YES |
-| 49 | train | Train 49: The capital of France is | Paris. It was founded in the 12th century | Paris | Paris. It was founded in the 12th century | YES | NO |
-| 50 | train | Train 50: The currency of Japan is | the yen, which is a type of ( ) currency. | Yen | the yen, which is a type of ( ) currency. | YES | NO |
-| 51 | train | Train 51: The chemical symbol for gold is | Au. Is this statement correct?<br>A. Correct<br>B | Au | Au. Is this statement correct?<br>A. Correct<br>B | YES | NO |
-| 52 | train | Train 52: The author of Hamlet is | ______.<br>A. Shakespeare<br>B. Dickens<br>C. | Shakespeare | ______.<br>A. Shakespeare<br>B. Dickens<br>C. | YES | NO |
-| 53 | train | Train 53: The default HTTPS port is | 443, and the default HTTP port is | 443 | 443, and the default HTTP port is | YES | NO |
-| 54 | train | Train 54: The DNS protocol primarily uses | the ___ method to resolve domain names.<br>A. A... | UDP | the ___ method to resolve domain names.<br>A. A... | NO | YES |
-| 55 | train | Train 55: The headquarters of Microsoft is in | which city?<br>A. Beijing<br>B. Shanghai<br>C | Redmond | which city?<br>A. Beijing<br>B. Shanghai<br>C | NO | YES |
-| 56 | train | Train 56: The largest planet in the solar system is | ____<br>A. Mercury<br>B. Venus<br>C. | Jupiter | ____<br>A. Mercury<br>B. Venus<br>C. | NO | YES |
-| 57 | train | Train 57: The capital of France is | Paris. It was founded in the 12th century | Paris | Paris. It was founded in the 12th century | YES | NO |
-| 58 | train | Train 58: The currency of Japan is | the yen, and it's worth approximately $1.2 | Yen | the yen, and it's worth approximately $1.2 | YES | NO |
-| 59 | train | Train 59: The chemical symbol for gold is | ____<br>A. Au<br>B. Ag<br>C. | Au | ____<br>A. Au<br>B. Ag<br>C. | YES | NO |
-| 60 | train | Train 60: The author of Hamlet is | a famous playwright, and the play was written i... | Shakespeare | a famous playwright, and the play was written i... | NO | YES |
-| 61 | train | Train 61: The default HTTPS port is | 443, and the default HTTP port is | 443 | 443, and the default HTTP port is | YES | NO |
-| 62 | train | Train 62: The DNS protocol primarily uses | the ___ address to identify hosts.<br>A. IP<br>B | UDP | the ___ address to identify hosts.<br>A. IP<br>B | NO | YES |
-| 63 | train | Train 63: The headquarters of Microsoft is in | which city?<br>A. Beijing<br>B. Shanghai<br>C | Redmond | which city?<br>A. Beijing<br>B. Shanghai<br>C | NO | YES |
-| 64 | train | Train 64: The largest planet in the solar system is | ____<br>A. Mercury<br>B. Venus<br>C. | Jupiter | ____<br>A. Mercury<br>B. Venus<br>C. | NO | YES |
-| 65 | train | Train 65: The capital of France is | Paris. It was founded in the 12th century | Paris | Paris. It was founded in the 12th century | YES | NO |
-| 66 | train | Train 66: The currency of Japan is | the yen, and it's worth about $1.2 | Yen | the yen, and it's worth about $1.2 | YES | NO |
-| 67 | train | Train 67: The chemical symbol for gold is | Au. Is this statement correct?<br>A. Correct<br>B | Au | Au. Is this statement correct?<br>A. Correct<br>B | YES | NO |
-| 68 | train | Train 68: The author of Hamlet is | a famous playwright, and the author of Romeo an... | Shakespeare | a famous playwright, and the author of Romeo an... | NO | YES |
-| 69 | train | Train 69: The default HTTPS port is | 443, and the default HTTP port is | 443 | 443, and the default HTTP port is | YES | NO |
-| 70 | train | Train 70: The DNS protocol primarily uses | the ___ address to identify hosts.<br>A. IP<br>B | UDP | the ___ address to identify hosts.<br>A. IP<br>B | NO | YES |
-| 71 | train | Train 71: The headquarters of Microsoft is in | which city?<br>A. New York<br>B. London | Redmond | which city?<br>A. New York<br>B. London | NO | YES |
-| 72 | train | Train 72: The largest planet in the solar system is | ____<br>A. Mercury<br>B. Venus<br>C. | Jupiter | ____<br>A. Mercury<br>B. Venus<br>C. | NO | YES |
-| 73 | train | Train 73: The capital of France is | Paris. It was founded in the 12th century | Paris | Paris. It was founded in the 12th century | YES | NO |
-| 74 | train | Train 74: The currency of Japan is | the yen, and it's worth about $1.2 | Yen | the yen, and it's worth about $1.2 | YES | NO |
-| 75 | train | Train 75: The chemical symbol for gold is | Au. Is the following statement true or false? G... | Au | Au. Is the following statement true or false? G... | YES | NO |
-| 76 | train | Train 76: The author of Hamlet is | a famous playwright, and the play is also known... | Shakespeare | a famous playwright, and the play is also known... | NO | YES |
-| 77 | train | Train 77: The default HTTPS port is | 443, and the default HTTP port is | 443 | 443, and the default HTTP port is | YES | NO |
-| 78 | train | Train 78: The DNS protocol primarily uses | the ___ address to identify hosts.<br>A. IP<br>B | UDP | the ___ address to identify hosts.<br>A. IP<br>B | NO | YES |
-| 79 | train | Train 79: The headquarters of Microsoft is in | which city?<br>A. Beijing<br>B. Shanghai<br>C | Redmond | which city?<br>A. Beijing<br>B. Shanghai<br>C | NO | YES |
-| 80 | train | Train 80: The largest planet in the solar system is | Jupiter, which has a diameter of approximately 142 | Jupiter | Jupiter, which has a diameter of approximately 142 | YES | NO |
-| 81 | train | Train 81: The capital of France is | Paris. It was founded in the 12th century | Paris | Paris. It was founded in the 12th century | YES | NO |
-| 82 | train | Train 82: The currency of Japan is | the yen, and it's worth about $1.3 | Yen | the yen, and it's worth about $1.3 | YES | NO |
-| 83 | train | Train 83: The chemical symbol for gold is | Au. Is the following statement true or false? G... | Au | Au. Is the following statement true or false? G... | YES | NO |
-| 84 | train | Train 84: The author of Hamlet is | a famous playwright, and the play was written i... | Shakespeare | a famous playwright, and the play was written i... | NO | YES |
-| 85 | train | Train 85: The default HTTPS port is | 443, which means that all traffic on the | 443 | 443, which means that all traffic on the | YES | NO |
-| 86 | train | Train 86: The DNS protocol primarily uses | the ___ address to identify hosts.<br>A. IP<br>B | UDP | the ___ address to identify hosts.<br>A. IP<br>B | NO | YES |
-| 87 | train | Train 87: The headquarters of Microsoft is in | Redmond, Washington. It has a large office buil... | Redmond | Redmond, Washington. It has a large office buil... | YES | NO |
-| 88 | train | Train 88: The largest planet in the solar system is | ____<br>A. Mercury<br>B. Venus<br>C. | Jupiter | ____<br>A. Mercury<br>B. Venus<br>C. | NO | YES |
-| 89 | train | Train 89: The capital of France is | Paris. It was founded in the 12th century | Paris | Paris. It was founded in the 12th century | YES | NO |
-| 90 | train | Train 90: The currency of Japan is | the yen, and it's worth about $1.2 | Yen | the yen, and it's worth about $1.2 | YES | NO |
-| 91 | train | Train 91: The chemical symbol for gold is | Au. Is this statement correct?<br>A. Correct<br>B | Au | Au. Is this statement correct?<br>A. Correct<br>B | YES | NO |
-| 92 | train | Train 92: The author of Hamlet is | a famous playwright, and the play was written i... | Shakespeare | a famous playwright, and the play was written i... | NO | YES |
-| 93 | train | Train 93: The default HTTPS port is | 443, and the default HTTP port is | 443 | 443, and the default HTTP port is | YES | NO |
-| 94 | train | Train 94: The DNS protocol primarily uses | the ___ address to identify hosts.<br>A. IP<br>B | UDP | the ___ address to identify hosts.<br>A. IP<br>B | NO | YES |
-| 95 | train | Train 95: The headquarters of Microsoft is in | Redmond, Washington. It has a large office buil... | Redmond | Redmond, Washington. It has a large office buil... | YES | NO |
-| 96 | train | Train 96: The largest planet in the solar system is | ____<br>A. Mercury<br>B. Venus<br>C. | Jupiter | ____<br>A. Mercury<br>B. Venus<br>C. | NO | YES |
-| 97 | train | Train 97: The capital of France is | Paris. It was founded in the 12th century | Paris | Paris. It was founded in the 12th century | YES | NO |
-| 98 | train | Train 98: The currency of Japan is | the yen, and it's worth about $1.2 | Yen | the yen, and it's worth about $1.2 | YES | NO |
-| 99 | train | Train 99: The chemical symbol for gold is | Au. Is this statement correct?<br>A. Correct<br>B | Au | Au. Is this statement correct?<br>A. Correct<br>B | YES | NO |
-| 100 | train | Train 100: The author of Hamlet is | a man who was born in which country?<br>Answer:... | Shakespeare | a man who was born in which country?<br>Answer:... | NO | YES |
-| 101 | train | Train 101: The default HTTPS port is | 443, but it's not always the case | 443 | 443, but it's not always the case | YES | NO |
-| 102 | train | Train 102: The DNS protocol primarily uses | the ___ method to resolve domain names.<br>A. A | UDP | the ___ method to resolve domain names.<br>A. A | NO | YES |
-| 103 | train | Train 103: The headquarters of Microsoft is in | Redmond, Washington. It has a large office buil... | Redmond | Redmond, Washington. It has a large office buil... | YES | NO |
-| 104 | train | Train 104: The largest planet in the solar system is | ____<br>A. Mercury<br>B. Venus<br>C. | Jupiter | ____<br>A. Mercury<br>B. Venus<br>C. | NO | YES |
-| 105 | train | Train 105: The capital of France is | Paris. It was founded in the 8th century by | Paris | Paris. It was founded in the 8th century by | YES | NO |
-| 106 | train | Train 106: The currency of Japan is | the yen, and it's worth about $2.5 | Yen | the yen, and it's worth about $2.5 | YES | NO |
-| 107 | train | Train 107: The chemical symbol for gold is | Au. Is this statement correct?<br>A. Correct<br>B | Au | Au. Is this statement correct?<br>A. Correct<br>B | YES | NO |
-| 108 | train | Train 108: The author of Hamlet is | a famous playwright, and the play was written i... | Shakespeare | a famous playwright, and the play was written i... | NO | YES |
-| 109 | train | Train 109: The default HTTPS port is | 443, and the default HTTP port is | 443 | 443, and the default HTTP port is | YES | NO |
-| 110 | train | Train 110: The DNS protocol primarily uses | the ___ method to resolve domain names.<br>A. A | UDP | the ___ method to resolve domain names.<br>A. A | NO | YES |
-| 111 | train | Train 111: The headquarters of Microsoft is in | Redmond, Washington. It has a large office buil... | Redmond | Redmond, Washington. It has a large office buil... | YES | NO |
-| 112 | train | Train 112: The largest planet in the solar system is | ____<br>A. Mercury<br>B. Venus<br>C. | Jupiter | ____<br>A. Mercury<br>B. Venus<br>C. | NO | YES |
-| 113 | train | Train 113: The capital of France is | Paris. It was founded in the 8th century by | Paris | Paris. It was founded in the 8th century by | YES | NO |
-| 114 | train | Train 114: The currency of Japan is | the yen, and it's worth about $2.5 | Yen | the yen, and it's worth about $2.5 | YES | NO |
-| 115 | train | Train 115: The chemical symbol for gold is | Au. Is this statement correct?<br>A. Correct<br>B | Au | Au. Is this statement correct?<br>A. Correct<br>B | YES | NO |
-| 116 | train | Train 116: The author of Hamlet is | a famous playwright, and the author of Romeo an... | Shakespeare | a famous playwright, and the author of Romeo an... | NO | YES |
-| 117 | train | Train 117: The default HTTPS port is | 443, and the default HTTP port is | 443 | 443, and the default HTTP port is | YES | NO |
-| 118 | train | Train 118: The DNS protocol primarily uses | the ___ address to identify hosts.<br>A. IP<br>B | UDP | the ___ address to identify hosts.<br>A. IP<br>B | NO | YES |
-| 119 | train | Train 119: The headquarters of Microsoft is in | which city?<br>A. Beijing<br>B. Shanghai<br>C | Redmond | which city?<br>A. Beijing<br>B. Shanghai<br>C | NO | YES |
-| 120 | train | Train 120: The largest planet in the solar system is | Jupiter, which has a diameter of approximately 79, | Jupiter | Jupiter, which has a diameter of approximately 79, | YES | NO |
-| 121 | train | Train 121: The capital of France is | Paris. It was founded in the 8th century by | Paris | Paris. It was founded in the 8th century by | YES | NO |
-| 122 | train | Train 122: The currency of Japan is | the yen, and it's worth about $3.5 | Yen | the yen, and it's worth about $3.5 | YES | NO |
-| 123 | train | Train 123: The chemical symbol for gold is | Au. Is this statement correct?<br>A. Correct<br>B | Au | Au. Is this statement correct?<br>A. Correct<br>B | YES | NO |
-| 124 | train | Train 124: The author of Hamlet is | a famous playwright, and the play was written i... | Shakespeare | a famous playwright, and the play was written i... | NO | YES |
-| 125 | train | Train 125: The default HTTPS port is | 443, which means that if you are using | 443 | 443, which means that if you are using | YES | NO |
-| 126 | train | Train 126: The DNS protocol primarily uses | the ___ address to identify hosts.<br>A. IP<br>B | UDP | the ___ address to identify hosts.<br>A. IP<br>B | NO | YES |
-| 127 | train | Train 127: The headquarters of Microsoft is in | which city?<br>A. New York<br>B. London | Redmond | which city?<br>A. New York<br>B. London | NO | YES |
-| 128 | train | Train 128: The largest planet in the solar system is | ____<br>A. Mercury<br>B. Venus<br>C. | Jupiter | ____<br>A. Mercury<br>B. Venus<br>C. | NO | YES |
-| 129 | train | Train 129: The capital of France is | Paris. It was founded in the 8th century by | Paris | Paris. It was founded in the 8th century by | YES | NO |
-| 130 | train | Train 130: The currency of Japan is | the yen, and it's worth about $2.5 | Yen | the yen, and it's worth about $2.5 | YES | NO |
-| 131 | train | Train 131: The chemical symbol for gold is | Au. Is this statement correct?<br>A. Correct<br>B | Au | Au. Is this statement correct?<br>A. Correct<br>B | YES | NO |
-| 132 | train | Train 132: The author of Hamlet is | a famous playwright, and the play is also known... | Shakespeare | a famous playwright, and the play is also known... | NO | YES |
-| 133 | train | Train 133: The default HTTPS port is | 443, and the default HTTP port is | 443 | 443, and the default HTTP port is | YES | NO |
-| 134 | train | Train 134: The DNS protocol primarily uses | the ___ address to identify hosts.<br>A. IP<br>B | UDP | the ___ address to identify hosts.<br>A. IP<br>B | NO | YES |
-| 135 | train | Train 135: The headquarters of Microsoft is in | Redmond, Washington. It has a large office buil... | Redmond | Redmond, Washington. It has a large office buil... | YES | NO |
-| 136 | train | Train 136: The largest planet in the solar system is | ____<br>A. Mercury<br>B. Venus<br>C. | Jupiter | ____<br>A. Mercury<br>B. Venus<br>C. | NO | YES |
-| 137 | train | Train 137: The capital of France is | Paris. It was founded in the 8th century by | Paris | Paris. It was founded in the 8th century by | YES | NO |
-| 138 | train | Train 138: The currency of Japan is | the yen, and it's worth about $2.5 | Yen | the yen, and it's worth about $2.5 | YES | NO |
-| 139 | train | Train 139: The chemical symbol for gold is | Au. Is this statement correct?<br>A. Correct<br>B | Au | Au. Is this statement correct?<br>A. Correct<br>B | YES | NO |
-| 140 | train | Train 140: The author of Hamlet is | a famous playwright, and the play is also known... | Shakespeare | a famous playwright, and the play is also known... | NO | YES |
-| 141 | train | Train 141: The default HTTPS port is | 443, and the default HTTP port is | 443 | 443, and the default HTTP port is | YES | NO |
-| 142 | train | Train 142: The DNS protocol primarily uses | the ___ method to resolve domain names.<br>A. A- | UDP | the ___ method to resolve domain names.<br>A. A- | NO | YES |
-| 143 | train | Train 143: The headquarters of Microsoft is in | which city?<br>Answer Choices:<br>- A: New York | Redmond | which city?<br>Answer Choices:<br>- A: New York | NO | YES |
-| 144 | train | Train 144: The largest planet in the solar system is | ____<br>A. Mercury<br>B. Venus<br>C. | Jupiter | ____<br>A. Mercury<br>B. Venus<br>C. | NO | YES |
-| 145 | train | Train 145: The capital of France is | Paris. It was founded in the 8th century by | Paris | Paris. It was founded in the 8th century by | YES | NO |
-| 146 | train | Train 146: The currency of Japan is | the yen, and it's worth about $2.5 | Yen | the yen, and it's worth about $2.5 | YES | NO |
-| 147 | train | Train 147: The chemical symbol for gold is | Au. Is this statement correct?<br>A. Correct<br>B | Au | Au. Is this statement correct?<br>A. Correct<br>B | YES | NO |
-| 148 | train | Train 148: The author of Hamlet is | a famous playwright, and the play is also known... | Shakespeare | a famous playwright, and the play is also known... | NO | YES |
-| 149 | train | Train 149: The default HTTPS port is | 443, and the default HTTP port is | 443 | 443, and the default HTTP port is | YES | NO |
-| 150 | train | Train 150: The DNS protocol primarily uses | the ___ method to resolve domain names.<br>A. A | UDP | the ___ method to resolve domain names.<br>A. A | NO | YES |
-| 151 | train | Train 151: The headquarters of Microsoft is in | Redmond, Washington. It has a large office buil... | Redmond | Redmond, Washington. It has a large office buil... | YES | NO |
-| 152 | train | Train 152: The largest planet in the solar system is | ____<br>A. Mercury<br>B. Venus<br>C. | Jupiter | ____<br>A. Mercury<br>B. Venus<br>C. | NO | YES |
-| 153 | train | Train 153: The capital of France is | Paris. It was founded in the 8th century by | Paris | Paris. It was founded in the 8th century by | YES | NO |
-| 154 | train | Train 154: The currency of Japan is | the yen, and it's worth about $2.3 | Yen | the yen, and it's worth about $2.3 | YES | NO |
-| 155 | train | Train 155: The chemical symbol for gold is | Au. Is this statement correct?<br>A. Correct<br>B | Au | Au. Is this statement correct?<br>A. Correct<br>B | YES | NO |
-| 156 | train | Train 156: The author of Hamlet is | a famous playwright, and the play is also known... | Shakespeare | a famous playwright, and the play is also known... | NO | YES |
-| 157 | train | Train 157: The default HTTPS port is | 443, and the default HTTP port is | 443 | 443, and the default HTTP port is | YES | NO |
-| 158 | train | Train 158: The DNS protocol primarily uses | the ___ method to resolve domain names.<br>A. A- | UDP | the ___ method to resolve domain names.<br>A. A- | NO | YES |
-| 159 | train | Train 159: The headquarters of Microsoft is in | Redmond, Washington. It has a large office buil... | Redmond | Redmond, Washington. It has a large office buil... | YES | NO |
-| 160 | train | Train 160: The largest planet in the solar system is | ____<br>A. Mercury<br>B. Venus<br>C. | Jupiter | ____<br>A. Mercury<br>B. Venus<br>C. | NO | YES |
-| 161 | train | Train 161: The capital of France is | Paris. It was founded in the 8th century by | Paris | Paris. It was founded in the 8th century by | YES | NO |
-| 162 | train | Train 162: The currency of Japan is | the yen, and it's worth about $3.5 | Yen | the yen, and it's worth about $3.5 | YES | NO |
-| 163 | train | Train 163: The chemical symbol for gold is | Au. Is this statement correct?<br>A. Correct<br>B | Au | Au. Is this statement correct?<br>A. Correct<br>B | YES | NO |
-| 164 | train | Train 164: The author of Hamlet is | a famous playwright, and the play was written i... | Shakespeare | a famous playwright, and the play was written i... | NO | YES |
-| 165 | train | Train 165: The default HTTPS port is | 443, and the default HTTP port is | 443 | 443, and the default HTTP port is | YES | NO |
-| 166 | train | Train 166: The DNS protocol primarily uses | the ___ method to resolve domain names.<br>A. A- | UDP | the ___ method to resolve domain names.<br>A. A- | NO | YES |
-| 167 | train | Train 167: The headquarters of Microsoft is in | which city?<br>A. Beijing<br>B. Shanghai<br>C | Redmond | which city?<br>A. Beijing<br>B. Shanghai<br>C | NO | YES |
-| 168 | train | Train 168: The largest planet in the solar system is | ____<br>A. Mercury<br>B. Venus<br>C. | Jupiter | ____<br>A. Mercury<br>B. Venus<br>C. | NO | YES |
-| 169 | train | Train 169: The capital of France is | Paris, the largest city in Europe. It has a pop... | Paris | Paris, the largest city in Europe. It has a pop... | YES | NO |
-| 170 | train | Train 170: The currency of Japan is | the yen, and it's worth about $2.5 | Yen | the yen, and it's worth about $2.5 | YES | NO |
-| 171 | train | Train 171: The chemical symbol for gold is | Au. Is this statement correct?<br>A. Correct<br>B | Au | Au. Is this statement correct?<br>A. Correct<br>B | YES | NO |
-| 172 | train | Train 172: The author of Hamlet is | a man who was born in which country?<br>Answer:... | Shakespeare | a man who was born in which country?<br>Answer:... | NO | YES |
-| 173 | train | Train 173: The default HTTPS port is | 443, and the default HTTP port is | 443 | 443, and the default HTTP port is | YES | NO |
-| 174 | train | Train 174: The DNS protocol primarily uses | the ___ method to resolve domain names.<br>A. A- | UDP | the ___ method to resolve domain names.<br>A. A- | NO | YES |
-| 175 | train | Train 175: The headquarters of Microsoft is in | Redmond, Washington. It has a large office buil... | Redmond | Redmond, Washington. It has a large office buil... | YES | NO |
-| 176 | train | Train 176: The largest planet in the solar system is | ____<br>A. Mercury<br>B. Venus<br>C. | Jupiter | ____<br>A. Mercury<br>B. Venus<br>C. | NO | YES |
-| 177 | train | Train 177: The capital of France is | Paris. It was founded in the 8th century by | Paris | Paris. It was founded in the 8th century by | YES | NO |
-| 178 | train | Train 178: The currency of Japan is | the yen, and it's worth about $2.3 | Yen | the yen, and it's worth about $2.3 | YES | NO |
-| 179 | train | Train 179: The chemical symbol for gold is | Au. True or False?<br>A. True<br>B. | Au | Au. True or False?<br>A. True<br>B. | YES | NO |
-| 180 | train | Train 180: The author of Hamlet is | a man who was born in which country?<br>Answer:... | Shakespeare | a man who was born in which country?<br>Answer:... | NO | YES |
-| 181 | train | Train 181: The default HTTPS port is | 443, but it can be changed to any | 443 | 443, but it can be changed to any | YES | NO |
-| 182 | train | Train 182: The DNS protocol primarily uses | the ___ method to resolve domain names.<br>A. A- | UDP | the ___ method to resolve domain names.<br>A. A- | NO | YES |
-| 183 | train | Train 183: The headquarters of Microsoft is in | Redmond, Washington. It has a large office buil... | Redmond | Redmond, Washington. It has a large office buil... | YES | NO |
-| 184 | train | Train 184: The largest planet in the solar system is | ____<br>A. Mercury<br>B. Venus<br>C. | Jupiter | ____<br>A. Mercury<br>B. Venus<br>C. | NO | YES |
-| 185 | train | Train 185: The capital of France is | Paris, the largest city in Europe. It has a pop... | Paris | Paris, the largest city in Europe. It has a pop... | YES | NO |
-| 186 | train | Train 186: The currency of Japan is | the yen, and it's worth about $2.5 | Yen | the yen, and it's worth about $2.5 | YES | NO |
-| 187 | train | Train 187: The chemical symbol for gold is | Au. Is this statement correct?<br>A. Correct<br>B | Au | Au. Is this statement correct?<br>A. Correct<br>B | YES | NO |
-| 188 | train | Train 188: The author of Hamlet is | a famous playwright, and the play was written i... | Shakespeare | a famous playwright, and the play was written i... | NO | YES |
-| 189 | train | Train 189: The default HTTPS port is | 443, but it can be changed to any | 443 | 443, but it can be changed to any | YES | NO |
-| 190 | train | Train 190: The DNS protocol primarily uses | the ___ method to resolve domain names.<br>A. A- | UDP | the ___ method to resolve domain names.<br>A. A- | NO | YES |
-| 191 | train | Train 191: The headquarters of Microsoft is in | Redmond, Washington. It has a large office buil... | Redmond | Redmond, Washington. It has a large office buil... | YES | NO |
-| 192 | train | Train 192: The largest planet in the solar system is | ____<br>A. Venus<br>B. Mars<br>C. | Jupiter | ____<br>A. Venus<br>B. Mars<br>C. | NO | YES |
-| 193 | train | Train 193: The capital of France is | Paris. It was founded in the 8th century by | Paris | Paris. It was founded in the 8th century by | YES | NO |
-| 194 | train | Train 194: The currency of Japan is | the yen, and it's worth about $2.5 | Yen | the yen, and it's worth about $2.5 | YES | NO |
-| 195 | train | Train 195: The chemical symbol for gold is | Au. Is this statement correct?<br>A. Correct<br>B | Au | Au. Is this statement correct?<br>A. Correct<br>B | YES | NO |
-| 196 | train | Train 196: The author of Hamlet is | a famous playwright, and the play was written i... | Shakespeare | a famous playwright, and the play was written i... | NO | YES |
-| 197 | train | Train 197: The default HTTPS port is | 443, but it can be changed to any | 443 | 443, but it can be changed to any | YES | NO |
-| 198 | train | Train 198: The DNS protocol primarily uses | the ___ method to resolve domain names.<br>A. A- | UDP | the ___ method to resolve domain names.<br>A. A- | NO | YES |
-| 199 | train | Train 199: The headquarters of Microsoft is in | Redmond, Washington. It has a large office buil... | Redmond | Redmond, Washington. It has a large office buil... | YES | NO |
-| 200 | train | Train 200: The largest planet in the solar system is | ____<br>A. Mercury<br>B. Venus<br>C. | Jupiter | ____<br>A. Mercury<br>B. Venus<br>C. | NO | YES |
-| 201 | seen_val | Seen Validation 1: The capital of Germany is | Berlin. <br><br>What is the next sentence?<br>O... | Berlin | Berlin. <br><br>What is the next sentence?<br>O... | YES | NO |
-| 202 | seen_val | Seen Validation 2: The capital of Italy is | Rome. It was founded by the Romans in the 8 | Rome | Rome. It was founded by the Romans in the 8 | YES | NO |
-| 203 | seen_val | Seen Validation 3: The currency of United Kingdom is | the Pound Sterling (GBP). It is a unit of measu... | Pound | the Pound Sterling (GBP). It is a unit of measu... | YES | NO |
-| 204 | seen_val | Seen Validation 4: The author of Odyssey is | a Greek poet and playwright. A) 正确 B | Homer | a Greek poet and playwright. A) 正确 B | NO | YES |
-| 205 | seen_val | Seen Validation 5: The chemical symbol for silver is | ____<br>A. Ag<br>B. Au<br>C. | Ag | ____<br>A. Ag<br>B. Au<br>C. | YES | NO |
-| 206 | seen_val | Seen Validation 6: The capital of Germany is | Berlin. It was founded in the year 187 | Berlin | Berlin. It was founded in the year 187 | YES | NO |
-| 207 | seen_val | Seen Validation 7: The capital of Italy is | Rome. It was founded by the Romans in the 8 | Rome | Rome. It was founded by the Romans in the 8 | YES | NO |
-| 208 | seen_val | Seen Validation 8: The currency of United Kingdom is | the Pound Sterling (GBP). It is a unit of measu... | Pound | the Pound Sterling (GBP). It is a unit of measu... | YES | NO |
-| 209 | seen_val | Seen Validation 9: The author of Odyssey is | a Greek poet and playwright. A) True B) False | Homer | a Greek poet and playwright. A) True B) False | NO | YES |
-| 210 | seen_val | Seen Validation 10: The chemical symbol for silver is | ____<br>A. Ag<br>B. Au<br>C. | Ag | ____<br>A. Ag<br>B. Au<br>C. | YES | NO |
-| 211 | seen_val | Seen Validation 11: The capital of Germany is | Berlin. It was founded in the year 187 | Berlin | Berlin. It was founded in the year 187 | YES | NO |
-| 212 | seen_val | Seen Validation 12: The capital of Italy is | Rome. It was founded by the Romans in the 8 | Rome | Rome. It was founded by the Romans in the 8 | YES | NO |
-| 213 | seen_val | Seen Validation 13: The currency of United Kingdom is | the Pound Sterling (GBP). The pound sterling wa... | Pound | the Pound Sterling (GBP). The pound sterling wa... | YES | NO |
-| 214 | seen_val | Seen Validation 14: The author of Odyssey is | a Greek poet and playwright. A) True B) False | Homer | a Greek poet and playwright. A) True B) False | NO | YES |
-| 215 | seen_val | Seen Validation 15: The chemical symbol for silver is | ____<br>A. Ag<br>B. Au<br>C. | Ag | ____<br>A. Ag<br>B. Au<br>C. | YES | NO |
-| 216 | seen_val | Seen Validation 16: The capital of Germany is | Berlin. It was founded in the year ________.<br>A | Berlin | Berlin. It was founded in the year ________.<br>A | YES | NO |
-| 217 | seen_val | Seen Validation 17: The capital of Italy is | Rome. It was founded by the Romans in the 8 | Rome | Rome. It was founded by the Romans in the 8 | YES | NO |
-| 218 | seen_val | Seen Validation 18: The currency of United Kingdom is | the Pound Sterling (GBP). It is a unit of measu... | Pound | the Pound Sterling (GBP). It is a unit of measu... | YES | NO |
-| 219 | seen_val | Seen Validation 19: The author of Odyssey is | a Greek poet and playwright. A) 正确 B | Homer | a Greek poet and playwright. A) 正确 B | NO | YES |
-| 220 | seen_val | Seen Validation 20: The chemical symbol for silver is | ____<br>A. Ag<br>B. Au<br>C. | Ag | ____<br>A. Ag<br>B. Au<br>C. | YES | NO |
-| 221 | seen_val | Seen Validation 21: The capital of Germany is | Berlin. It was founded in the year 187 | Berlin | Berlin. It was founded in the year 187 | YES | NO |
-| 222 | seen_val | Seen Validation 22: The capital of Italy is | Rome. It was founded by the Romans in the 8 | Rome | Rome. It was founded by the Romans in the 8 | YES | NO |
-| 223 | seen_val | Seen Validation 23: The currency of United Kingdom is | the Pound Sterling (GBP). It is a unit of measu... | Pound | the Pound Sterling (GBP). It is a unit of measu... | YES | NO |
-| 224 | seen_val | Seen Validation 24: The author of Odyssey is | a man named Homer. He was born in the city of | Homer | a man named Homer. He was born in the city of | YES | NO |
-| 225 | seen_val | Seen Validation 25: The chemical symbol for silver is | ____<br>A. Ag<br>B. Au<br>C. | Ag | ____<br>A. Ag<br>B. Au<br>C. | YES | NO |
-| 226 | seen_val | Seen Validation 26: The capital of Germany is | Berlin. It was founded in the year ________.<br>A | Berlin | Berlin. It was founded in the year ________.<br>A | YES | NO |
-| 227 | seen_val | Seen Validation 27: The capital of Italy is | Rome. It was founded by the Romans in the 8 | Rome | Rome. It was founded by the Romans in the 8 | YES | NO |
-| 228 | seen_val | Seen Validation 28: The currency of United Kingdom is | the Pound Sterling (GBP). It is a unit of measu... | Pound | the Pound Sterling (GBP). It is a unit of measu... | YES | NO |
-| 229 | seen_val | Seen Validation 29: The author of Odyssey is | a Greek poet and playwright. He was born in Ath... | Homer | a Greek poet and playwright. He was born in Ath... | NO | YES |
-| 230 | seen_val | Seen Validation 30: The chemical symbol for silver is | ____<br>A. Ag<br>B. Au<br>C. | Ag | ____<br>A. Ag<br>B. Au<br>C. | YES | NO |
-| 231 | seen_val | Seen Validation 31: The capital of Germany is | Berlin. It was founded in the year ________.<br>A | Berlin | Berlin. It was founded in the year ________.<br>A | YES | NO |
-| 232 | seen_val | Seen Validation 32: The capital of Italy is | Rome. It was founded by the Romans in the 8 | Rome | Rome. It was founded by the Romans in the 8 | YES | NO |
-| 233 | seen_val | Seen Validation 33: The currency of United Kingdom is | the Pound Sterling (GBP). It is a unit of measu... | Pound | the Pound Sterling (GBP). It is a unit of measu... | YES | NO |
-| 234 | seen_val | Seen Validation 34: The author of Odyssey is | a man who has been in the military for many years. | Homer | a man who has been in the military for many years. | NO | YES |
-| 235 | seen_val | Seen Validation 35: The chemical symbol for silver is | ____<br>A. Ag<br>B. Au<br>C. | Ag | ____<br>A. Ag<br>B. Au<br>C. | YES | NO |
-| 236 | seen_val | Seen Validation 36: The capital of Germany is | Berlin. It was founded in the year ________.<br>A | Berlin | Berlin. It was founded in the year ________.<br>A | YES | NO |
-| 237 | seen_val | Seen Validation 37: The capital of Italy is | Rome. It was founded by the Romans in the 8 | Rome | Rome. It was founded by the Romans in the 8 | YES | NO |
-| 238 | seen_val | Seen Validation 38: The currency of United Kingdom is | the Pound Sterling (GBP). It is a unit of measu... | Pound | the Pound Sterling (GBP). It is a unit of measu... | YES | NO |
-| 239 | seen_val | Seen Validation 39: The author of Odyssey is | a Greek poet and playwright. A) 正确 B | Homer | a Greek poet and playwright. A) 正确 B | NO | YES |
-| 240 | seen_val | Seen Validation 40: The chemical symbol for silver is | ____<br>A. Ag<br>B. Au<br>C. | Ag | ____<br>A. Ag<br>B. Au<br>C. | YES | NO |
-| 241 | seen_val | Seen Validation 41: The capital of Germany is | Berlin. It was founded in the year 187 | Berlin | Berlin. It was founded in the year 187 | YES | NO |
-| 242 | seen_val | Seen Validation 42: The capital of Italy is | Rome. It was founded by the Romans in the 8 | Rome | Rome. It was founded by the Romans in the 8 | YES | NO |
-| 243 | seen_val | Seen Validation 43: The currency of United Kingdom is | the Pound Sterling (GBP). It is a unit of measu... | Pound | the Pound Sterling (GBP). It is a unit of measu... | YES | NO |
-| 244 | seen_val | Seen Validation 44: The author of Odyssey is | a man named Homer. He was born in the city of | Homer | a man named Homer. He was born in the city of | YES | NO |
-| 245 | seen_val | Seen Validation 45: The chemical symbol for silver is | ____<br>A. Ag<br>B. Au<br>C. | Ag | ____<br>A. Ag<br>B. Au<br>C. | YES | NO |
-| 246 | seen_val | Seen Validation 46: The capital of Germany is | Berlin. It was founded in the year 187 | Berlin | Berlin. It was founded in the year 187 | YES | NO |
-| 247 | seen_val | Seen Validation 47: The capital of Italy is | Rome. It was founded by the Romans in the 8 | Rome | Rome. It was founded by the Romans in the 8 | YES | NO |
-| 248 | seen_val | Seen Validation 48: The currency of United Kingdom is | the Pound Sterling (GBP). It is a unit of measu... | Pound | the Pound Sterling (GBP). It is a unit of measu... | YES | NO |
-| 249 | seen_val | Seen Validation 49: The author of Odyssey is | a Greek poet and playwright. A) 正确 B | Homer | a Greek poet and playwright. A) 正确 B | NO | YES |
-| 250 | seen_val | Seen Validation 50: The chemical symbol for silver is | ____<br>A. Ag<br>B. Au<br>C. | Ag | ____<br>A. Ag<br>B. Au<br>C. | YES | NO |
-| 251 | seen_val | Seen Validation 51: The capital of Germany is | Berlin. It was founded in the year 187 | Berlin | Berlin. It was founded in the year 187 | YES | NO |
-| 252 | seen_val | Seen Validation 52: The capital of Italy is | Rome. It was founded by the Romans in the 8 | Rome | Rome. It was founded by the Romans in the 8 | YES | NO |
-| 253 | seen_val | Seen Validation 53: The currency of United Kingdom is | the Pound Sterling (GBP). It is a unit of measu... | Pound | the Pound Sterling (GBP). It is a unit of measu... | YES | NO |
-| 254 | seen_val | Seen Validation 54: The author of Odyssey is | a Greek poet and playwright. A) 正确 B | Homer | a Greek poet and playwright. A) 正确 B | NO | YES |
-| 255 | seen_val | Seen Validation 55: The chemical symbol for silver is | ____<br>A. Ag<br>B. Au<br>C. | Ag | ____<br>A. Ag<br>B. Au<br>C. | YES | NO |
-| 256 | seen_val | Seen Validation 56: The capital of Germany is | Berlin. It was founded in the year 187 | Berlin | Berlin. It was founded in the year 187 | YES | NO |
-| 257 | seen_val | Seen Validation 57: The capital of Italy is | Rome. It was founded by the Romans in the 8 | Rome | Rome. It was founded by the Romans in the 8 | YES | NO |
-| 258 | seen_val | Seen Validation 58: The currency of United Kingdom is | the Pound Sterling (GBP). It is a unit of measu... | Pound | the Pound Sterling (GBP). It is a unit of measu... | YES | NO |
-| 259 | seen_val | Seen Validation 59: The author of Odyssey is | a Greek poet and playwright. A) 正确 B | Homer | a Greek poet and playwright. A) 正确 B | NO | YES |
-| 260 | seen_val | Seen Validation 60: The chemical symbol for silver is | ____<br>A. Ag<br>B. Au<br>C. | Ag | ____<br>A. Ag<br>B. Au<br>C. | YES | NO |
-| 261 | seen_val | Seen Validation 61: The capital of Germany is | Berlin. It was founded in the year 187 | Berlin | Berlin. It was founded in the year 187 | YES | NO |
-| 262 | seen_val | Seen Validation 62: The capital of Italy is | Rome. It was founded by the Romans in the 8 | Rome | Rome. It was founded by the Romans in the 8 | YES | NO |
-| 263 | seen_val | Seen Validation 63: The currency of United Kingdom is | the Pound Sterling (GBP). It is a unit of measu... | Pound | the Pound Sterling (GBP). It is a unit of measu... | YES | NO |
-| 264 | seen_val | Seen Validation 64: The author of Odyssey is | a man who has been in the military for many years. | Homer | a man who has been in the military for many years. | NO | YES |
-| 265 | seen_val | Seen Validation 65: The chemical symbol for silver is | ____<br>A. Ag<br>B. Au<br>C. | Ag | ____<br>A. Ag<br>B. Au<br>C. | YES | NO |
-| 266 | seen_val | Seen Validation 66: The capital of Germany is | Berlin. It was founded in the year ________.<br>A | Berlin | Berlin. It was founded in the year ________.<br>A | YES | NO |
-| 267 | seen_val | Seen Validation 67: The capital of Italy is | Rome. It was founded by the Romans in the 8 | Rome | Rome. It was founded by the Romans in the 8 | YES | NO |
-| 268 | seen_val | Seen Validation 68: The currency of United Kingdom is | the Pound Sterling (GBP). It is a unit of measu... | Pound | the Pound Sterling (GBP). It is a unit of measu... | YES | NO |
-| 269 | seen_val | Seen Validation 69: The author of Odyssey is | a man who was born in the year ________.<br>A | Homer | a man who was born in the year ________.<br>A | NO | YES |
-| 270 | seen_val | Seen Validation 70: The chemical symbol for silver is | ____<br>A. Ag<br>B. Au<br>C. | Ag | ____<br>A. Ag<br>B. Au<br>C. | YES | NO |
-| 271 | seen_val | Seen Validation 71: The capital of Germany is | Berlin. It was founded in the year ________.<br>A | Berlin | Berlin. It was founded in the year ________.<br>A | YES | NO |
-| 272 | seen_val | Seen Validation 72: The capital of Italy is | Rome. It was founded by the Romans in the 8 | Rome | Rome. It was founded by the Romans in the 8 | YES | NO |
-| 273 | seen_val | Seen Validation 73: The currency of United Kingdom is | the Pound Sterling (GBP). It is a unit of measu... | Pound | the Pound Sterling (GBP). It is a unit of measu... | YES | NO |
-| 274 | seen_val | Seen Validation 74: The author of Odyssey is | a man who has been in the military for many years. | Homer | a man who has been in the military for many years. | NO | YES |
-| 275 | seen_val | Seen Validation 75: The chemical symbol for silver is | ____<br>A. Ag<br>B. Au<br>C. | Ag | ____<br>A. Ag<br>B. Au<br>C. | YES | NO |
-| 276 | seen_val | Seen Validation 76: The capital of Germany is | Berlin. It was founded in the year 187 | Berlin | Berlin. It was founded in the year 187 | YES | NO |
-| 277 | seen_val | Seen Validation 77: The capital of Italy is | Rome. It was founded by the Romans in the 8 | Rome | Rome. It was founded by the Romans in the 8 | YES | NO |
-| 278 | seen_val | Seen Validation 78: The currency of United Kingdom is | the Pound Sterling (GBP). It is a unit of measu... | Pound | the Pound Sterling (GBP). It is a unit of measu... | YES | NO |
-| 279 | seen_val | Seen Validation 79: The author of Odyssey is | a man who has been in the military for many years. | Homer | a man who has been in the military for many years. | NO | YES |
-| 280 | seen_val | Seen Validation 80: The chemical symbol for silver is | ____<br>A. Ag<br>B. Au<br>C. | Ag | ____<br>A. Ag<br>B. Au<br>C. | YES | NO |
-| 281 | seen_val | Seen Validation 81: The capital of Germany is | Berlin. It was founded in the year 192 | Berlin | Berlin. It was founded in the year 192 | YES | NO |
-| 282 | seen_val | Seen Validation 82: The capital of Italy is | Rome. It was founded by the Romans in the 7 | Rome | Rome. It was founded by the Romans in the 7 | YES | NO |
-| 283 | seen_val | Seen Validation 83: The currency of United Kingdom is | the Pound Sterling (GBP). It is a unit of measu... | Pound | the Pound Sterling (GBP). It is a unit of measu... | YES | NO |
-| 284 | seen_val | Seen Validation 84: The author of Odyssey is | a man who has been in the military for many years. | Homer | a man who has been in the military for many years. | NO | YES |
-| 285 | seen_val | Seen Validation 85: The chemical symbol for silver is | ____<br>A. Ag<br>B. Au<br>C. | Ag | ____<br>A. Ag<br>B. Au<br>C. | YES | NO |
-| 286 | seen_val | Seen Validation 86: The capital of Germany is | Berlin. It was founded in the year 192 | Berlin | Berlin. It was founded in the year 192 | YES | NO |
-| 287 | seen_val | Seen Validation 87: The capital of Italy is | Rome. It was founded by the Romans in the 6 | Rome | Rome. It was founded by the Romans in the 6 | YES | NO |
-| 288 | seen_val | Seen Validation 88: The currency of United Kingdom is | the Pound Sterling (GBP). It is a unit of measu... | Pound | the Pound Sterling (GBP). It is a unit of measu... | YES | NO |
-| 289 | seen_val | Seen Validation 89: The author of Odyssey is | a man who has been in the military for many years. | Homer | a man who has been in the military for many years. | NO | YES |
-| 290 | seen_val | Seen Validation 90: The chemical symbol for silver is | ____<br>A. Ag<br>B. Au<br>C. | Ag | ____<br>A. Ag<br>B. Au<br>C. | YES | NO |
-| 291 | seen_val | Seen Validation 91: The capital of Germany is | Berlin. It was founded in the year ________.<br>A | Berlin | Berlin. It was founded in the year ________.<br>A | YES | NO |
-| 292 | seen_val | Seen Validation 92: The capital of Italy is | Rome. It was founded by the Romans in the 8 | Rome | Rome. It was founded by the Romans in the 8 | YES | NO |
-| 293 | seen_val | Seen Validation 93: The currency of United Kingdom is | the Pound Sterling (GBP). It is a unit of measu... | Pound | the Pound Sterling (GBP). It is a unit of measu... | YES | NO |
-| 294 | seen_val | Seen Validation 94: The author of Odyssey is | a man who has been in the business for over 1 | Homer | a man who has been in the business for over 1 | NO | YES |
-| 295 | seen_val | Seen Validation 95: The chemical symbol for silver is | ____<br>A. Ag<br>B. Au<br>C. | Ag | ____<br>A. Ag<br>B. Au<br>C. | YES | NO |
-| 296 | seen_val | Seen Validation 96: The capital of Germany is | Berlin. It was founded in the year ________.<br>A | Berlin | Berlin. It was founded in the year ________.<br>A | YES | NO |
-| 297 | seen_val | Seen Validation 97: The capital of Italy is | Rome. It was founded by the Romans in the 8 | Rome | Rome. It was founded by the Romans in the 8 | YES | NO |
-| 298 | seen_val | Seen Validation 98: The currency of United Kingdom is | the Pound Sterling (GBP). It is a unit of measu... | Pound | the Pound Sterling (GBP). It is a unit of measu... | YES | NO |
-| 299 | seen_val | Seen Validation 99: The author of Odyssey is | a man named Homer. He was born in the city of | Homer | a man named Homer. He was born in the city of | YES | NO |
-| 300 | seen_val | Seen Validation 100: The chemical symbol for silver is | ____<br>A. Ag<br>B. Au<br>C. | Ag | ____<br>A. Ag<br>B. Au<br>C. | YES | NO |
-| 301 | seen_val | Seen Validation 101: The capital of Germany is | Berlin. It's the largest city in Europe and one of | Berlin | Berlin. It's the largest city in Europe and one of | YES | NO |
-| 302 | seen_val | Seen Validation 102: The capital of Italy is | Rome. It was founded by the Romans in the 8 | Rome | Rome. It was founded by the Romans in the 8 | YES | NO |
-| 303 | seen_val | Seen Validation 103: The currency of United Kingdom is | the Pound Sterling (GBP). It is a unit of measu... | Pound | the Pound Sterling (GBP). It is a unit of measu... | YES | NO |
-| 304 | seen_val | Seen Validation 104: The author of Odyssey is | a man who has been in the business for over 5 | Homer | a man who has been in the business for over 5 | NO | YES |
-| 305 | seen_val | Seen Validation 105: The chemical symbol for silver is | ____<br>A. Ag<br>B. Au<br>C. | Ag | ____<br>A. Ag<br>B. Au<br>C. | YES | NO |
-| 306 | seen_val | Seen Validation 106: The capital of Germany is | Berlin. It was founded in the year 187 | Berlin | Berlin. It was founded in the year 187 | YES | NO |
-| 307 | seen_val | Seen Validation 107: The capital of Italy is | Rome. It was founded by the Romans in the 8 | Rome | Rome. It was founded by the Romans in the 8 | YES | NO |
-| 308 | seen_val | Seen Validation 108: The currency of United Kingdom is | the Pound Sterling (GBP). It is a unit of measu... | Pound | the Pound Sterling (GBP). It is a unit of measu... | YES | NO |
-| 309 | seen_val | Seen Validation 109: The author of Odyssey is | a man who has been in the military for many years. | Homer | a man who has been in the military for many years. | NO | YES |
-| 310 | seen_val | Seen Validation 110: The chemical symbol for silver is | ____<br>A. Ag<br>B. Au<br>C. | Ag | ____<br>A. Ag<br>B. Au<br>C. | YES | NO |
-| 311 | seen_val | Seen Validation 111: The capital of Germany is | Berlin. It was founded in the year 187 | Berlin | Berlin. It was founded in the year 187 | YES | NO |
-| 312 | seen_val | Seen Validation 112: The capital of Italy is | Rome. It was founded by the Romans in the 8 | Rome | Rome. It was founded by the Romans in the 8 | YES | NO |
-| 313 | seen_val | Seen Validation 113: The currency of United Kingdom is | the Pound Sterling (GBP). It is a unit of measu... | Pound | the Pound Sterling (GBP). It is a unit of measu... | YES | NO |
-| 314 | seen_val | Seen Validation 114: The author of Odyssey is | a man who has been in the military for many years. | Homer | a man who has been in the military for many years. | NO | YES |
-| 315 | seen_val | Seen Validation 115: The chemical symbol for silver is | ____<br>A. Ag<br>B. Au<br>C. | Ag | ____<br>A. Ag<br>B. Au<br>C. | YES | NO |
-| 316 | seen_val | Seen Validation 116: The capital of Germany is | Berlin. It was founded in the year ________.<br>A | Berlin | Berlin. It was founded in the year ________.<br>A | YES | NO |
-| 317 | seen_val | Seen Validation 117: The capital of Italy is | Rome. It was founded by the Romans in the 8 | Rome | Rome. It was founded by the Romans in the 8 | YES | NO |
-| 318 | seen_val | Seen Validation 118: The currency of United Kingdom is | the Pound Sterling (GBP). It is a unit of measu... | Pound | the Pound Sterling (GBP). It is a unit of measu... | YES | NO |
-| 319 | seen_val | Seen Validation 119: The author of Odyssey is | a Greek poet and playwright. A) 正确 B | Homer | a Greek poet and playwright. A) 正确 B | NO | YES |
-| 320 | seen_val | Seen Validation 120: The chemical symbol for silver is | ____<br>A. Ag<br>B. Au<br>C. | Ag | ____<br>A. Ag<br>B. Au<br>C. | YES | NO |
-| 321 | seen_val | Seen Validation 121: The capital of Germany is | Berlin. It was founded in the year ________.<br>A | Berlin | Berlin. It was founded in the year ________.<br>A | YES | NO |
-| 322 | seen_val | Seen Validation 122: The capital of Italy is | Rome. It was founded by the Romans in the 8 | Rome | Rome. It was founded by the Romans in the 8 | YES | NO |
-| 323 | seen_val | Seen Validation 123: The currency of United Kingdom is | the Pound Sterling (GBP). It is also known as B... | Pound | the Pound Sterling (GBP). It is also known as B... | YES | NO |
-| 324 | seen_val | Seen Validation 124: The author of Odyssey is | a man who has been in the military for many years. | Homer | a man who has been in the military for many years. | NO | YES |
-| 325 | seen_val | Seen Validation 125: The chemical symbol for silver is | ____<br>A. Ag<br>B. Au<br>C. | Ag | ____<br>A. Ag<br>B. Au<br>C. | YES | NO |
-| 326 | unseen_val | Unseen Validation 1: The Kubernetes scheduler component is called | by the Kubernetes API server to manage the sche... | kube-scheduler | by the Kubernetes API server to manage the sche... | NO | YES |
-| 327 | unseen_val | Unseen Validation 2: The Docker packaging artifact is called a | container. A container is a lightweight, execut... | container | container. A container is a lightweight, execut... | YES | NO |
-| 328 | unseen_val | Unseen Validation 3: The Apache Kafka storage abstraction is a | key to understanding the power of distributed s... | topic | key to understanding the power of distributed s... | NO | YES |
-| 329 | unseen_val | Unseen Validation 4: The cloud object storage service on AWS is | a great option for storing and managing data. H... | S3 | a great option for storing and managing data. H... | NO | YES |
-| 330 | unseen_val | Unseen Validation 5: The protocol used for secure web traffic is | not the same as the one used for insecure web t... | HTTPS | not the same as the one used for insecure web t... | NO | YES |
-| 331 | unseen_val | Unseen Validation 6: The Kubernetes scheduler component is called | by the Kubernetes API server to manage the depl... | kube-scheduler | by the Kubernetes API server to manage the depl... | NO | YES |
-| 332 | unseen_val | Unseen Validation 7: The Docker packaging artifact is called a | container, and it's the smallest unit of softwa... | container | container, and it's the smallest unit of softwa... | YES | NO |
-| 333 | unseen_val | Unseen Validation 8: The Apache Kafka storage abstraction is a | key to understanding the power of distributed s... | topic | key to understanding the power of distributed s... | NO | YES |
-| 334 | unseen_val | Unseen Validation 9: The cloud object storage service on AWS is | a great option for storing and managing data. H... | S3 | a great option for storing and managing data. H... | NO | YES |
-| 335 | unseen_val | Unseen Validation 10: The protocol used for secure web traffic is | not the same as the one used for secure email. ... | HTTPS | not the same as the one used for secure email. ... | NO | YES |
-| 336 | unseen_val | Unseen Validation 11: The Kubernetes scheduler component is called | by the Kubernetes API server to manage the sche... | kube-scheduler | by the Kubernetes API server to manage the sche... | NO | YES |
-| 337 | unseen_val | Unseen Validation 12: The Docker packaging artifact is called a | container, and it's the smallest unit of softwa... | container | container, and it's the smallest unit of softwa... | YES | NO |
-| 338 | unseen_val | Unseen Validation 13: The Apache Kafka storage abstraction is a | key to understanding the power of distributed s... | topic | key to understanding the power of distributed s... | NO | YES |
-| 339 | unseen_val | Unseen Validation 14: The cloud object storage service on AWS is | a great option for storing and managing data. H... | S3 | a great option for storing and managing data. H... | NO | YES |
-| 340 | unseen_val | Unseen Validation 15: The protocol used for secure web traffic is | called ____<br>A. SSL<br>B. HTTPS<br>C | HTTPS | called ____<br>A. SSL<br>B. HTTPS<br>C | YES | NO |
-| 341 | unseen_val | Unseen Validation 16: The Kubernetes scheduler component is called | by the Kubernetes API server to manage the sche... | kube-scheduler | by the Kubernetes API server to manage the sche... | NO | YES |
-| 342 | unseen_val | Unseen Validation 17: The Docker packaging artifact is called a | container, and it's the smallest unit of softwa... | container | container, and it's the smallest unit of softwa... | YES | NO |
-| 343 | unseen_val | Unseen Validation 18: The Apache Kafka storage abstraction is a | key component of the Apache Kafka ecosystem. It... | topic | key component of the Apache Kafka ecosystem. It... | NO | YES |
-| 344 | unseen_val | Unseen Validation 19: The cloud object storage service on AWS is | a great option for storing and managing data. H... | S3 | a great option for storing and managing data. H... | NO | YES |
-| 345 | unseen_val | Unseen Validation 20: The protocol used for secure web traffic is | called ____<br>A. SSL<br>B. HTTPS<br>C | HTTPS | called ____<br>A. SSL<br>B. HTTPS<br>C | YES | NO |
-| 346 | unseen_val | Unseen Validation 21: The Kubernetes scheduler component is called | by the Kubernetes API server to manage the sche... | kube-scheduler | by the Kubernetes API server to manage the sche... | NO | YES |
-| 347 | unseen_val | Unseen Validation 22: The Docker packaging artifact is called a | container, and it's the smallest unit of softwa... | container | container, and it's the smallest unit of softwa... | YES | NO |
-| 348 | unseen_val | Unseen Validation 23: The Apache Kafka storage abstraction is a | key to understanding the power of distributed s... | topic | key to understanding the power of distributed s... | NO | YES |
-| 349 | unseen_val | Unseen Validation 24: The cloud object storage service on AWS is | a great option for storing and managing data. H... | S3 | a great option for storing and managing data. H... | NO | YES |
-| 350 | unseen_val | Unseen Validation 25: The protocol used for secure web traffic is | called ____<br>A. SSL<br>B. TLS<br>C | HTTPS | called ____<br>A. SSL<br>B. TLS<br>C | NO | YES |
-| 351 | unseen_val | Unseen Validation 26: The Kubernetes scheduler component is called | by the Kubernetes API server to manage the sche... | kube-scheduler | by the Kubernetes API server to manage the sche... | NO | YES |
-| 352 | unseen_val | Unseen Validation 27: The Docker packaging artifact is called a | container, and it's the smallest unit of softwa... | container | container, and it's the smallest unit of softwa... | YES | NO |
-| 353 | unseen_val | Unseen Validation 28: The Apache Kafka storage abstraction is a | key to understanding the power of distributed s... | topic | key to understanding the power of distributed s... | NO | YES |
-| 354 | unseen_val | Unseen Validation 29: The cloud object storage service on AWS is | a great option for storing and managing data. H... | S3 | a great option for storing and managing data. H... | NO | YES |
-| 355 | unseen_val | Unseen Validation 30: The protocol used for secure web traffic is | called ____<br>A. SSL<br>B. HTTPS<br>C | HTTPS | called ____<br>A. SSL<br>B. HTTPS<br>C | YES | NO |
-| 356 | unseen_val | Unseen Validation 31: The Kubernetes scheduler component is called | by the Kubernetes API server to manage the sche... | kube-scheduler | by the Kubernetes API server to manage the sche... | NO | YES |
-| 357 | unseen_val | Unseen Validation 32: The Docker packaging artifact is called a | container, and it's the smallest unit of softwa... | container | container, and it's the smallest unit of softwa... | YES | NO |
-| 358 | unseen_val | Unseen Validation 33: The Apache Kafka storage abstraction is a | key component of the Apache Kafka ecosystem. It... | topic | key component of the Apache Kafka ecosystem. It... | NO | YES |
-| 359 | unseen_val | Unseen Validation 34: The cloud object storage service on AWS is | a great option for storing and managing data. H... | S3 | a great option for storing and managing data. H... | NO | YES |
-| 360 | unseen_val | Unseen Validation 35: The protocol used for secure web traffic is | called ____<br>A. SSL<br>B. HTTPS<br>C | HTTPS | called ____<br>A. SSL<br>B. HTTPS<br>C | YES | NO |
-| 361 | unseen_val | Unseen Validation 36: The Kubernetes scheduler component is called | by the Kubernetes API server to manage the sche... | kube-scheduler | by the Kubernetes API server to manage the sche... | NO | YES |
-| 362 | unseen_val | Unseen Validation 37: The Docker packaging artifact is called a | container, and the container image is also know... | container | container, and the container image is also know... | YES | NO |
-| 363 | unseen_val | Unseen Validation 38: The Apache Kafka storage abstraction is a | key component of the Apache Kafka ecosystem. It... | topic | key component of the Apache Kafka ecosystem. It... | NO | YES |
-| 364 | unseen_val | Unseen Validation 39: The cloud object storage service on AWS is | a great option for storing and managing data. H... | S3 | a great option for storing and managing data. H... | NO | YES |
-| 365 | unseen_val | Unseen Validation 40: The protocol used for secure web traffic is | called ____<br>A. SSL<br>B. HTTPS<br>C | HTTPS | called ____<br>A. SSL<br>B. HTTPS<br>C | YES | NO |
-| 366 | unseen_val | Unseen Validation 41: The Kubernetes scheduler component is called | by the Kubernetes API server to manage the sche... | kube-scheduler | by the Kubernetes API server to manage the sche... | NO | YES |
-| 367 | unseen_val | Unseen Validation 42: The Docker packaging artifact is called a | container, and it's the smallest unit of softwa... | container | container, and it's the smallest unit of softwa... | YES | NO |
-| 368 | unseen_val | Unseen Validation 43: The Apache Kafka storage abstraction is a | key component of the Apache Kafka ecosystem. It... | topic | key component of the Apache Kafka ecosystem. It... | NO | YES |
-| 369 | unseen_val | Unseen Validation 44: The cloud object storage service on AWS is | a great option for storing and managing data. H... | S3 | a great option for storing and managing data. H... | NO | YES |
-| 370 | unseen_val | Unseen Validation 45: The protocol used for secure web traffic is | called ____<br>A. SSL<br>B. HTTPS<br>C | HTTPS | called ____<br>A. SSL<br>B. HTTPS<br>C | YES | NO |
-| 371 | unseen_val | Unseen Validation 46: The Kubernetes scheduler component is called | by the Kubernetes API server to manage the sche... | kube-scheduler | by the Kubernetes API server to manage the sche... | NO | YES |
-| 372 | unseen_val | Unseen Validation 47: The Docker packaging artifact is called a | container, and it's the smallest unit of softwa... | container | container, and it's the smallest unit of softwa... | YES | NO |
-| 373 | unseen_val | Unseen Validation 48: The Apache Kafka storage abstraction is a | key component of the Apache Kafka ecosystem. It... | topic | key component of the Apache Kafka ecosystem. It... | NO | YES |
-| 374 | unseen_val | Unseen Validation 49: The cloud object storage service on AWS is | a great option for storing and managing data. H... | S3 | a great option for storing and managing data. H... | NO | YES |
-| 375 | unseen_val | Unseen Validation 50: The protocol used for secure web traffic is | called ____<br>A. SSL<br>B. HTTPS<br>C | HTTPS | called ____<br>A. SSL<br>B. HTTPS<br>C | YES | NO |
-| 376 | unseen_val | Unseen Validation 51: The Kubernetes scheduler component is called | by the Kubernetes API server to manage the sche... | kube-scheduler | by the Kubernetes API server to manage the sche... | NO | YES |
-| 377 | unseen_val | Unseen Validation 52: The Docker packaging artifact is called a | container, and it's the smallest unit of softwa... | container | container, and it's the smallest unit of softwa... | YES | NO |
-| 378 | unseen_val | Unseen Validation 53: The Apache Kafka storage abstraction is a | key to understanding the power of distributed s... | topic | key to understanding the power of distributed s... | NO | YES |
-| 379 | unseen_val | Unseen Validation 54: The cloud object storage service on AWS is | a great option for storing and managing data. H... | S3 | a great option for storing and managing data. H... | NO | YES |
-| 380 | unseen_val | Unseen Validation 55: The protocol used for secure web traffic is | called ____<br>A. SSL<br>B. HTTPS<br>C | HTTPS | called ____<br>A. SSL<br>B. HTTPS<br>C | YES | NO |
-| 381 | unseen_val | Unseen Validation 56: The Kubernetes scheduler component is called | by the Kubernetes API server to manage the sche... | kube-scheduler | by the Kubernetes API server to manage the sche... | NO | YES |
-| 382 | unseen_val | Unseen Validation 57: The Docker packaging artifact is called a | container, and it's the smallest unit of softwa... | container | container, and it's the smallest unit of softwa... | YES | NO |
-| 383 | unseen_val | Unseen Validation 58: The Apache Kafka storage abstraction is a | key to understanding the power of distributed s... | topic | key to understanding the power of distributed s... | NO | YES |
-| 384 | unseen_val | Unseen Validation 59: The cloud object storage service on AWS is | a great option for storing and managing data. H... | S3 | a great option for storing and managing data. H... | NO | YES |
-| 385 | unseen_val | Unseen Validation 60: The protocol used for secure web traffic is | called ____<br>A. SSL<br>B. HTTPS<br>C | HTTPS | called ____<br>A. SSL<br>B. HTTPS<br>C | YES | NO |
-| 386 | unseen_val | Unseen Validation 61: The Kubernetes scheduler component is called | by the Kubernetes API server to manage the sche... | kube-scheduler | by the Kubernetes API server to manage the sche... | NO | YES |
-| 387 | unseen_val | Unseen Validation 62: The Docker packaging artifact is called a | container, and it's the smallest unit of softwa... | container | container, and it's the smallest unit of softwa... | YES | NO |
-| 388 | unseen_val | Unseen Validation 63: The Apache Kafka storage abstraction is a | key component of the Apache Kafka ecosystem. It... | topic | key component of the Apache Kafka ecosystem. It... | NO | YES |
-| 389 | unseen_val | Unseen Validation 64: The cloud object storage service on AWS is | a great option for storing and managing data. H... | S3 | a great option for storing and managing data. H... | NO | YES |
-| 390 | unseen_val | Unseen Validation 65: The protocol used for secure web traffic is | called ____<br>A. SSL<br>B. TLS<br>C | HTTPS | called ____<br>A. SSL<br>B. TLS<br>C | NO | YES |
-| 391 | unseen_val | Unseen Validation 66: The Kubernetes scheduler component is called | by the Kubernetes API server to manage the sche... | kube-scheduler | by the Kubernetes API server to manage the sche... | NO | YES |
-| 392 | unseen_val | Unseen Validation 67: The Docker packaging artifact is called a | container, and the container image is also know... | container | container, and the container image is also know... | YES | NO |
-| 393 | unseen_val | Unseen Validation 68: The Apache Kafka storage abstraction is a | key component of the Apache Kafka ecosystem. It... | topic | key component of the Apache Kafka ecosystem. It... | NO | YES |
-| 394 | unseen_val | Unseen Validation 69: The cloud object storage service on AWS is | a great option for storing and managing data. H... | S3 | a great option for storing and managing data. H... | NO | YES |
-| 395 | unseen_val | Unseen Validation 70: The protocol used for secure web traffic is | called ____<br>A. SSL<br>B. HTTPS<br>C | HTTPS | called ____<br>A. SSL<br>B. HTTPS<br>C | YES | NO |
-| 396 | unseen_val | Unseen Validation 71: The Kubernetes scheduler component is called | by the Kubernetes API server to manage the sche... | kube-scheduler | by the Kubernetes API server to manage the sche... | NO | YES |
-| 397 | unseen_val | Unseen Validation 72: The Docker packaging artifact is called a | container, and it's the smallest unit of softwa... | container | container, and it's the smallest unit of softwa... | YES | NO |
-| 398 | unseen_val | Unseen Validation 73: The Apache Kafka storage abstraction is a | key to understanding the power of distributed s... | topic | key to understanding the power of distributed s... | NO | YES |
-| 399 | unseen_val | Unseen Validation 74: The cloud object storage service on AWS is | a great option for storing and managing data. H... | S3 | a great option for storing and managing data. H... | NO | YES |
-| 400 | unseen_val | Unseen Validation 75: The protocol used for secure web traffic is | called ____<br>A. SSL<br>B. HTTPS<br>C | HTTPS | called ____<br>A. SSL<br>B. HTTPS<br>C | YES | NO |
-| 401 | unseen_val | Unseen Validation 76: The Kubernetes scheduler component is called | by the Kubernetes API server to manage the sche... | kube-scheduler | by the Kubernetes API server to manage the sche... | NO | YES |
-| 402 | unseen_val | Unseen Validation 77: The Docker packaging artifact is called a | container, and it's the smallest unit of softwa... | container | container, and it's the smallest unit of softwa... | YES | NO |
-| 403 | unseen_val | Unseen Validation 78: The Apache Kafka storage abstraction is a | key component of the Apache Kafka ecosystem. It... | topic | key component of the Apache Kafka ecosystem. It... | NO | YES |
-| 404 | unseen_val | Unseen Validation 79: The cloud object storage service on AWS is | a great option for storing and managing data. H... | S3 | a great option for storing and managing data. H... | NO | YES |
-| 405 | unseen_val | Unseen Validation 80: The protocol used for secure web traffic is | called ____<br>A. SSL<br>B. HTTPS<br>C | HTTPS | called ____<br>A. SSL<br>B. HTTPS<br>C | YES | NO |
-| 406 | unseen_val | Unseen Validation 81: The Kubernetes scheduler component is called | by the Kubernetes API server to manage the sche... | kube-scheduler | by the Kubernetes API server to manage the sche... | NO | YES |
-| 407 | unseen_val | Unseen Validation 82: The Docker packaging artifact is called a | container, and it's the smallest unit of softwa... | container | container, and it's the smallest unit of softwa... | YES | NO |
-| 408 | unseen_val | Unseen Validation 83: The Apache Kafka storage abstraction is a | key component of the Apache Kafka ecosystem. It... | topic | key component of the Apache Kafka ecosystem. It... | NO | YES |
-| 409 | unseen_val | Unseen Validation 84: The cloud object storage service on AWS is | a great option for storing and managing data. H... | S3 | a great option for storing and managing data. H... | NO | YES |
-| 410 | unseen_val | Unseen Validation 85: The protocol used for secure web traffic is | called ____<br>A. SSL<br>B. HTTPS<br>C | HTTPS | called ____<br>A. SSL<br>B. HTTPS<br>C | YES | NO |
-| 411 | unseen_val | Unseen Validation 86: The Kubernetes scheduler component is called | by the Kubernetes API server to manage the sche... | kube-scheduler | by the Kubernetes API server to manage the sche... | NO | YES |
-| 412 | unseen_val | Unseen Validation 87: The Docker packaging artifact is called a | container, and it's the smallest unit of softwa... | container | container, and it's the smallest unit of softwa... | YES | NO |
-| 413 | unseen_val | Unseen Validation 88: The Apache Kafka storage abstraction is a | key component of the Apache Kafka ecosystem. It... | topic | key component of the Apache Kafka ecosystem. It... | NO | YES |
-| 414 | unseen_val | Unseen Validation 89: The cloud object storage service on AWS is | a great option for storing and managing data. H... | S3 | a great option for storing and managing data. H... | NO | YES |
-| 415 | unseen_val | Unseen Validation 90: The protocol used for secure web traffic is | called ____<br>A. SSL<br>B. HTTPS<br>C | HTTPS | called ____<br>A. SSL<br>B. HTTPS<br>C | YES | NO |
-| 416 | unseen_val | Unseen Validation 91: The Kubernetes scheduler component is called | the "master" in Kubernetes. It manages the sche... | kube-scheduler | the "master" in Kubernetes. It manages the sche... | NO | YES |
-| 417 | unseen_val | Unseen Validation 92: The Docker packaging artifact is called a | container, and it's the smallest unit of softwa... | container | container, and it's the smallest unit of softwa... | YES | NO |
-| 418 | unseen_val | Unseen Validation 93: The Apache Kafka storage abstraction is a | key to understanding the power of distributed s... | topic | key to understanding the power of distributed s... | NO | YES |
-| 419 | unseen_val | Unseen Validation 94: The cloud object storage service on AWS is | a great option for storing and managing data. H... | S3 | a great option for storing and managing data. H... | NO | YES |
-| 420 | unseen_val | Unseen Validation 95: The protocol used for secure web traffic is | called ____<br>A. SSL<br>B. HTTPS<br>C | HTTPS | called ____<br>A. SSL<br>B. HTTPS<br>C | YES | NO |
-| 421 | unseen_val | Unseen Validation 96: The Kubernetes scheduler component is called | by the Kubernetes API server to manage the sche... | kube-scheduler | by the Kubernetes API server to manage the sche... | NO | YES |
-| 422 | unseen_val | Unseen Validation 97: The Docker packaging artifact is called a | container, and it's the smallest unit of softwa... | container | container, and it's the smallest unit of softwa... | YES | NO |
-| 423 | unseen_val | Unseen Validation 98: The Apache Kafka storage abstraction is a | key component of the Apache Kafka ecosystem. It... | topic | key component of the Apache Kafka ecosystem. It... | NO | YES |
-| 424 | unseen_val | Unseen Validation 99: The cloud object storage service on AWS is | a great option for storing and managing data. H... | S3 | a great option for storing and managing data. H... | NO | YES |
-| 425 | unseen_val | Unseen Validation 100: The protocol used for secure web traffic is | called ____<br>A. SSL<br>B. HTTPS<br>C | HTTPS | called ____<br>A. SSL<br>B. HTTPS<br>C | YES | NO |
-| 426 | unseen_val | Unseen Validation 101: The Kubernetes scheduler component is called | by the Kubernetes API server to manage the depl... | kube-scheduler | by the Kubernetes API server to manage the depl... | NO | YES |
-| 427 | unseen_val | Unseen Validation 102: The Docker packaging artifact is called a | container. A container is a lightweight, execut... | container | container. A container is a lightweight, execut... | YES | NO |
-| 428 | unseen_val | Unseen Validation 103: The Apache Kafka storage abstraction is a | key to understanding the power of distributed s... | topic | key to understanding the power of distributed s... | NO | YES |
-| 429 | unseen_val | Unseen Validation 104: The cloud object storage service on AWS is | a great option for storing and managing data. H... | S3 | a great option for storing and managing data. H... | NO | YES |
-| 430 | unseen_val | Unseen Validation 105: The protocol used for secure web traffic is | called ____<br>A. SSL<br>B. HTTPS<br>C | HTTPS | called ____<br>A. SSL<br>B. HTTPS<br>C | YES | NO |
-| 431 | unseen_val | Unseen Validation 106: The Kubernetes scheduler component is called | by the Kubernetes API server to manage the sche... | kube-scheduler | by the Kubernetes API server to manage the sche... | NO | YES |
-| 432 | unseen_val | Unseen Validation 107: The Docker packaging artifact is called a | container, and it's the smallest unit of softwa... | container | container, and it's the smallest unit of softwa... | YES | NO |
-| 433 | unseen_val | Unseen Validation 108: The Apache Kafka storage abstraction is a | key to understanding the power of distributed s... | topic | key to understanding the power of distributed s... | NO | YES |
-| 434 | unseen_val | Unseen Validation 109: The cloud object storage service on AWS is | a great option for storing and managing data. H... | S3 | a great option for storing and managing data. H... | NO | YES |
-| 435 | unseen_val | Unseen Validation 110: The protocol used for secure web traffic is | called ____<br>A. SSL<br>B. HTTPS<br>C | HTTPS | called ____<br>A. SSL<br>B. HTTPS<br>C | YES | NO |
-| 436 | unseen_val | Unseen Validation 111: The Kubernetes scheduler component is called | the "scheduler" because it schedules pods to ru... | kube-scheduler | the "scheduler" because it schedules pods to ru... | NO | YES |
-| 437 | unseen_val | Unseen Validation 112: The Docker packaging artifact is called a | container, and it's the smallest unit of softwa... | container | container, and it's the smallest unit of softwa... | YES | NO |
-| 438 | unseen_val | Unseen Validation 113: The Apache Kafka storage abstraction is a | key component of the Apache Kafka ecosystem. It... | topic | key component of the Apache Kafka ecosystem. It... | NO | YES |
-| 439 | unseen_val | Unseen Validation 114: The cloud object storage service on AWS is | a great option for storing and managing data. H... | S3 | a great option for storing and managing data. H... | NO | YES |
-| 440 | unseen_val | Unseen Validation 115: The protocol used for secure web traffic is | called ____<br>A. SSL<br>B. HTTPS<br>C | HTTPS | called ____<br>A. SSL<br>B. HTTPS<br>C | YES | NO |
-| 441 | unseen_val | Unseen Validation 116: The Kubernetes scheduler component is called | by the Kubernetes API server to manage the sche... | kube-scheduler | by the Kubernetes API server to manage the sche... | NO | YES |
-| 442 | unseen_val | Unseen Validation 117: The Docker packaging artifact is called a | container, and it's the smallest unit of softwa... | container | container, and it's the smallest unit of softwa... | YES | NO |
-| 443 | unseen_val | Unseen Validation 118: The Apache Kafka storage abstraction is a | key component of the Apache Kafka ecosystem. It... | topic | key component of the Apache Kafka ecosystem. It... | NO | YES |
-| 444 | unseen_val | Unseen Validation 119: The cloud object storage service on AWS is | a great option for storing and managing data. H... | S3 | a great option for storing and managing data. H... | NO | YES |
-| 445 | unseen_val | Unseen Validation 120: The protocol used for secure web traffic is | called ____<br>A. SSL<br>B. HTTPS<br>C | HTTPS | called ____<br>A. SSL<br>B. HTTPS<br>C | YES | NO |
-| 446 | unseen_val | Unseen Validation 121: The Kubernetes scheduler component is called | by the Kubernetes API server to manage the sche... | kube-scheduler | by the Kubernetes API server to manage the sche... | NO | YES |
-| 447 | unseen_val | Unseen Validation 122: The Docker packaging artifact is called a | container, and it's the smallest unit of softwa... | container | container, and it's the smallest unit of softwa... | YES | NO |
-| 448 | unseen_val | Unseen Validation 123: The Apache Kafka storage abstraction is a | key component of the Apache Kafka ecosystem, pr... | topic | key component of the Apache Kafka ecosystem, pr... | NO | YES |
-| 449 | unseen_val | Unseen Validation 124: The cloud object storage service on AWS is | a great option for storing and managing data. H... | S3 | a great option for storing and managing data. H... | NO | YES |
-| 450 | unseen_val | Unseen Validation 125: The protocol used for secure web traffic is | called ____<br>A. SSL<br>B. HTTPS<br>C | HTTPS | called ____<br>A. SSL<br>B. HTTPS<br>C | YES | NO |
-| 451 | ood | OOD Challenge 1: In quantum computing, a basic information unit is a | qubit. A qubit can be in one of two | qubit | qubit. A qubit can be in one of two | YES | NO |
-| 452 | ood | OOD Challenge 2: In machine learning, a model predicting its training da... | called overfitting. Overfitting occurs when the... | overfitting | called overfitting. Overfitting occurs when the... | YES | NO |
-| 453 | ood | OOD Challenge 3: In information theory, uncertainty is measured using | the entropy of a probability distribution. The ... | entropy | the entropy of a probability distribution. The ... | YES | NO |
-| 454 | ood | OOD Challenge 4: In transformer models, the mechanism relating tokens is | not always clear. The following are some exampl... | attention | not always clear. The following are some exampl... | NO | YES |
-| 455 | ood | OOD Challenge 5: In reliability engineering, Birnbaum importance measures | are used to assess the impact of a single failu... | sensitivity | are used to assess the impact of a single failu... | NO | YES |
-| 456 | ood | OOD Challenge 6: In quantum computing, a basic information unit is a | qubit. A qubit can be in one of two | qubit | qubit. A qubit can be in one of two | YES | NO |
-| 457 | ood | OOD Challenge 7: In machine learning, a model predicting its training da... | called overfitting. Overfitting occurs when the... | overfitting | called overfitting. Overfitting occurs when the... | YES | NO |
-| 458 | ood | OOD Challenge 8: In information theory, uncertainty is measured using | the entropy of a probability distribution. The ... | entropy | the entropy of a probability distribution. The ... | YES | NO |
-| 459 | ood | OOD Challenge 9: In transformer models, the mechanism relating tokens is | not clear. I am trying to understand how the mo... | attention | not clear. I am trying to understand how the mo... | NO | YES |
-| 460 | ood | OOD Challenge 10: In reliability engineering, Birnbaum importance measures | are used to assess the impact of a single failu... | sensitivity | are used to assess the impact of a single failu... | NO | YES |
-| 461 | ood | OOD Challenge 11: In quantum computing, a basic information unit is a | qubit. A qubit can be in one of two | qubit | qubit. A qubit can be in one of two | YES | NO |
-| 462 | ood | OOD Challenge 12: In machine learning, a model predicting its training d... | called overfitting. Overfitting occurs when the... | overfitting | called overfitting. Overfitting occurs when the... | YES | NO |
-| 463 | ood | OOD Challenge 13: In information theory, uncertainty is measured using | the entropy of a probability distribution. The ... | entropy | the entropy of a probability distribution. The ... | YES | NO |
-| 464 | ood | OOD Challenge 14: In transformer models, the mechanism relating tokens is | often a sequence of operations. The first opera... | attention | often a sequence of operations. The first opera... | NO | YES |
-| 465 | ood | OOD Challenge 15: In reliability engineering, Birnbaum importance measures | are used to assess the impact of a single failu... | sensitivity | are used to assess the impact of a single failu... | NO | YES |
-| 466 | ood | OOD Challenge 16: In quantum computing, a basic information unit is a | qubit. A qubit can be in one of two | qubit | qubit. A qubit can be in one of two | YES | NO |
-| 467 | ood | OOD Challenge 17: In machine learning, a model predicting its training d... | called overfitting. Overfitting occurs when the... | overfitting | called overfitting. Overfitting occurs when the... | YES | NO |
-| 468 | ood | OOD Challenge 18: In information theory, uncertainty is measured using | the entropy of a probability distribution. The ... | entropy | the entropy of a probability distribution. The ... | YES | NO |
-| 469 | ood | OOD Challenge 19: In transformer models, the mechanism relating tokens is | often a sequence of operations. The first opera... | attention | often a sequence of operations. The first opera... | NO | YES |
-| 470 | ood | OOD Challenge 20: In reliability engineering, Birnbaum importance measures | are used to assess the impact of a single failu... | sensitivity | are used to assess the impact of a single failu... | NO | YES |
-| 471 | ood | OOD Challenge 21: In quantum computing, a basic information unit is a | qubit. A qubit can be in one of two | qubit | qubit. A qubit can be in one of two | YES | NO |
-| 472 | ood | OOD Challenge 22: In machine learning, a model predicting its training d... | called overfitting. Overfitting occurs when the... | overfitting | called overfitting. Overfitting occurs when the... | YES | NO |
-| 473 | ood | OOD Challenge 23: In information theory, uncertainty is measured using | the entropy of a probability distribution. The ... | entropy | the entropy of a probability distribution. The ... | YES | NO |
-| 474 | ood | OOD Challenge 24: In transformer models, the mechanism relating tokens is | often a sequence of operations. The first opera... | attention | often a sequence of operations. The first opera... | NO | YES |
-| 475 | ood | OOD Challenge 25: In reliability engineering, Birnbaum importance measures | are used to assess the impact of a single failu... | sensitivity | are used to assess the impact of a single failu... | NO | YES |
-| 476 | ood | OOD Challenge 26: In quantum computing, a basic information unit is a | qubit. A qubit can be in one of two | qubit | qubit. A qubit can be in one of two | YES | NO |
-| 477 | ood | OOD Challenge 27: In machine learning, a model predicting its training d... | called overfitting. Overfitting occurs when the... | overfitting | called overfitting. Overfitting occurs when the... | YES | NO |
-| 478 | ood | OOD Challenge 28: In information theory, uncertainty is measured using | the entropy of a probability distribution. The ... | entropy | the entropy of a probability distribution. The ... | YES | NO |
-| 479 | ood | OOD Challenge 29: In transformer models, the mechanism relating tokens is | often a sequence of operations. The first opera... | attention | often a sequence of operations. The first opera... | NO | YES |
-| 480 | ood | OOD Challenge 30: In reliability engineering, Birnbaum importance measures | are used to assess the impact of a single failu... | sensitivity | are used to assess the impact of a single failu... | NO | YES |
-| 481 | ood | OOD Challenge 31: In quantum computing, a basic information unit is a | qubit. A qubit can be in one of two | qubit | qubit. A qubit can be in one of two | YES | NO |
-| 482 | ood | OOD Challenge 32: In machine learning, a model predicting its training d... | called overfitting. Overfitting occurs when the... | overfitting | called overfitting. Overfitting occurs when the... | YES | NO |
-| 483 | ood | OOD Challenge 33: In information theory, uncertainty is measured using | the entropy of a probability distribution. The ... | entropy | the entropy of a probability distribution. The ... | YES | NO |
-| 484 | ood | OOD Challenge 34: In transformer models, the mechanism relating tokens is | often a sequence of operations. The first opera... | attention | often a sequence of operations. The first opera... | NO | YES |
-| 485 | ood | OOD Challenge 35: In reliability engineering, Birnbaum importance measures | are used to assess the impact of a single failu... | sensitivity | are used to assess the impact of a single failu... | NO | YES |
-| 486 | ood | OOD Challenge 36: In quantum computing, a basic information unit is a | qubit. A qubit can be in one of two | qubit | qubit. A qubit can be in one of two | YES | NO |
-| 487 | ood | OOD Challenge 37: In machine learning, a model predicting its training d... | called overfitting. Overfitting occurs when the... | overfitting | called overfitting. Overfitting occurs when the... | YES | NO |
-| 488 | ood | OOD Challenge 38: In information theory, uncertainty is measured using | the entropy of a probability distribution. The ... | entropy | the entropy of a probability distribution. The ... | YES | NO |
-| 489 | ood | OOD Challenge 39: In transformer models, the mechanism relating tokens is | often a sequence of operations. The first opera... | attention | often a sequence of operations. The first opera... | NO | YES |
-| 490 | ood | OOD Challenge 40: In reliability engineering, Birnbaum importance measures | are used to assess the impact of a single failu... | sensitivity | are used to assess the impact of a single failu... | NO | YES |
-| 491 | ood | OOD Challenge 41: In quantum computing, a basic information unit is a | qubit. A qubit can be in one of two | qubit | qubit. A qubit can be in one of two | YES | NO |
-| 492 | ood | OOD Challenge 42: In machine learning, a model predicting its training d... | called overfitting. Overfitting occurs when the... | overfitting | called overfitting. Overfitting occurs when the... | YES | NO |
-| 493 | ood | OOD Challenge 43: In information theory, uncertainty is measured using | the entropy of a probability distribution. The ... | entropy | the entropy of a probability distribution. The ... | YES | NO |
-| 494 | ood | OOD Challenge 44: In transformer models, the mechanism relating tokens is | not always clear. The following are some exampl... | attention | not always clear. The following are some exampl... | NO | YES |
-| 495 | ood | OOD Challenge 45: In reliability engineering, Birnbaum importance measures | are used to assess the impact of a single failu... | sensitivity | are used to assess the impact of a single failu... | NO | YES |
-| 496 | ood | OOD Challenge 46: In quantum computing, a basic information unit is a | qubit. A qubit can be in one of two | qubit | qubit. A qubit can be in one of two | YES | NO |
-| 497 | ood | OOD Challenge 47: In machine learning, a model predicting its training d... | called overfitting. Overfitting occurs when the... | overfitting | called overfitting. Overfitting occurs when the... | YES | NO |
-| 498 | ood | OOD Challenge 48: In information theory, uncertainty is measured using | the entropy of a probability distribution. The ... | entropy | the entropy of a probability distribution. The ... | YES | NO |
-| 499 | ood | OOD Challenge 49: In transformer models, the mechanism relating tokens is | not clear. The following are some examples of h... | attention | not clear. The following are some examples of h... | NO | YES |
-| 500 | ood | OOD Challenge 50: In reliability engineering, Birnbaum importance measures | are used to assess the impact of a single failu... | sensitivity | are used to assess the impact of a single failu... | NO | YES |
+| 1 | train | JSON payload: { 'event': 'FailedLogin', 'username': 'root', 'ip': '198.5... | low<br><br>What is the risk level of this incid... | high | low<br><br>What is the risk level of this incid... | NO | YES |
+| 2 | train | JSON payload: { 'event': 'FailedLogin', 'username': 'johndoe', 'ip': '19... | low<br><br>What is the risk level of this incid... | low | low<br><br>What is the risk level of this incid... | YES | NO |
+| 3 | train | JSON payload: { 'event': 'S3BucketCreated', 'owner': 'dev_user_99', 'pub... | What is the risk of this event occurring? <br>R... | high | What is the risk of this event occurring? <br>R... | NO | YES |
+| 4 | train | JSON payload: { 'event': 'S3BucketCreated', 'owner': 'ops_manager_22', '... | What is the risk of this event occurring? <br>R... | low | What is the risk of this event occurring? <br>R... | NO | YES |
+| 5 | train | JSON payload: { 'event': 'IAMPolicyModified', 'policy': 'AdministratorAc... | What is the risk of this event occurring? <br>R... | high | What is the risk of this event occurring? <br>R... | NO | YES |
+| 6 | train | JSON payload: { 'event': 'IAMPolicyModified', 'policy': 'ReadOnlyAccess'... | What is the risk of this event occurring? <br>R... | low | What is the risk of this event occurring? <br>R... | NO | YES |
+| 7 | train | JSON payload: { 'event': 'PortScanDetected', 'source_ip': '45.33.102.55'... | low<br><br>What is the risk level of this incid... | high | low<br><br>What is the risk level of this incid... | NO | YES |
+| 8 | train | JSON payload: { 'event': 'PortScanDetected', 'source_ip': '10.0.2.14', '... | low<br><br>What is the risk level of this incid... | low | low<br><br>What is the risk level of this incid... | YES | NO |
+| 9 | train | JSON payload: { 'event': 'SSHKeyAdded', 'user': 'jenkins_agent_01', 'key... | low<br><br>What is the risk level of this event... | medium | low<br><br>What is the risk level of this event... | NO | YES |
+| 10 | train | JSON payload: { 'event': 'SSHKeyAdded', 'user': 'master_backup_bot', 'ke... | low<br><br>What is the risk level of this event... | low | low<br><br>What is the risk level of this event... | YES | NO |
+| 11 | train | JSON payload: { 'event': 'FailedLogin', 'username': 'admin_crm', 'ip': '... | What is the risk of this event? <br>Risk level: | medium | What is the risk of this event? <br>Risk level: | NO | YES |
+| 12 | train | JSON payload: { 'event': 'FailedLogin', 'username': 'staff_dev', 'ip': '... | low<br><br>What is the risk level of this incid... | low | low<br><br>What is the risk level of this incid... | YES | NO |
+| 13 | train | JSON payload: { 'event': 'S3BucketCreated', 'owner': 'marketing_external... | low<br><br>What is the risk level of this event... | high | low<br><br>What is the risk level of this event... | NO | YES |
+| 14 | train | JSON payload: { 'event': 'S3BucketCreated', 'owner': 'finance_lead', 'pu... | low. Severity of the risk: medium.<br><br>What ... | low | low. Severity of the risk: medium.<br><br>What ... | YES | NO |
+| 15 | train | JSON payload: { 'event': 'IAMPolicyModified', 'policy': 'BillingAccess',... | What is the risk of this event occurring? <br>R... | medium | What is the risk of this event occurring? <br>R... | NO | YES |
+| 16 | train | JSON payload: { 'event': 'IAMPolicyModified', 'policy': 'SecurityAuditOn... | What is the risk level of this IAM policy modif... | low | What is the risk level of this IAM policy modif... | NO | YES |
+| 17 | train | JSON payload: { 'event': 'PortScanDetected', 'source_ip': '185.190.140.2... | low<br><br>What is the risk level of this incid... | high | low<br><br>What is the risk level of this incid... | NO | YES |
+| 18 | train | JSON payload: { 'event': 'PortScanDetected', 'source_ip': '192.168.10.15... | low<br><br>What is the risk level of this incid... | low | low<br><br>What is the risk level of this incid... | YES | NO |
+| 19 | train | JSON payload: { 'event': 'SSHKeyAdded', 'user': 'temporary_contractor', ... | low<br><br>What is the risk level of this event... | medium | low<br><br>What is the risk level of this event... | NO | YES |
+| 20 | train | JSON payload: { 'event': 'SSHKeyAdded', 'user': 'ceo_laptop_device', 'ke... | low<br><br>What is the risk level of this event... | low | low<br><br>What is the risk level of this event... | YES | NO |
+| 21 | train | Extract the API action (get/post/delete) from this routing rule: 'Fetch ... | 'GET' } To extract the API action from the given | get | 'GET' } To extract the API action from the given | YES | NO |
+| 22 | train | Extract the API action (get/post/delete) from this routing rule: 'Delete... | 'delete', 'data': {} } The provided JSON object | delete | 'delete', 'data': {} } The provided JSON object | YES | NO |
+| 23 | train | Extract the API action (get/post/delete) from this routing rule: 'Create... | 'POST', 'data': { 'client_id': ' | post | 'POST', 'data': { 'client_id': ' | YES | NO |
+| 24 | train | Extract the API action (get/post/delete) from this routing rule: 'Retrie... | 'GET', 'url': '/api/transactions' } | get | 'GET', 'url': '/api/transactions' } | YES | NO |
+| 25 | train | Extract the API action (get/post/delete) from this routing rule: 'Regist... | 'POST', 'data': { 'mobile_gateway_id': | post | 'POST', 'data': { 'mobile_gateway_id': | YES | NO |
+| 26 | train | Extract the API action (get/post/delete) from this routing rule: 'Erase ... | 'delete', 'resource': 'configurationBaselineRev... | delete | 'delete', 'resource': 'configurationBaselineRev... | YES | NO |
+| 27 | train | Extract the API action (get/post/delete) from this routing rule: 'List a... | 'GET', 'uri': '/containers/{containerId}/ | get | 'GET', 'uri': '/containers/{containerId}/ | YES | NO |
+| 28 | train | Extract the API action (get/post/delete) from this routing rule: 'Provis... | 'POST', 'data': { 'name': 'John | post | 'POST', 'data': { 'name': 'John | YES | NO |
+| 29 | train | Extract the API action (get/post/delete) from this routing rule: 'Erase ... | 'delete', 'uri': '/api/billing/direct | delete | 'delete', 'uri': '/api/billing/direct | YES | NO |
+| 30 | train | Extract the API action (get/post/delete) from this routing rule: 'Fetch ... | 'GET', 'url': '/compliance-checklist/' | get | 'GET', 'url': '/compliance-checklist/' | YES | NO |
+| 31 | train | Extract the API action (get/post/delete) from this routing rule: 'Retrie... | 'GET', 'url': '/api/heartbeat-telemetry | get | 'GET', 'url': '/api/heartbeat-telemetry | YES | NO |
+| 32 | train | Extract the API action (get/post/delete) from this routing rule: 'Delete... | 'delete_orphaned_volumes_from_host_server' } | delete | 'delete_orphaned_volumes_from_host_server' } | YES | NO |
+| 33 | train | Extract the API action (get/post/delete) from this routing rule: 'Submit... | 'get', 'url': '/api/submit/client-access | post | 'get', 'url': '/api/submit/client-access | NO | YES |
+| 34 | train | Extract the API action (get/post/delete) from this routing rule: 'Load a... | 'GET', 'url': '/api/v1/transactions | get | 'GET', 'url': '/api/v1/transactions | YES | NO |
+| 35 | train | Extract the API action (get/post/delete) from this routing rule: 'Push l... | 'GET', 'url': '/api/system-baseline-profile | post | 'GET', 'url': '/api/system-baseline-profile | NO | YES |
+| 36 | train | Extract the API action (get/post/delete) from this routing rule: 'Purge ... | 'GET', 'uri': '/purge-deprecated-session | delete | 'GET', 'uri': '/purge-deprecated-session | NO | YES |
+| 37 | train | Extract the API action (get/post/delete) from this routing rule: 'Reques... | 'GET', 'url': '/api/network/interfaces/latest' | get | 'GET', 'url': '/api/network/interfaces/latest' | YES | NO |
+| 38 | train | Extract the API action (get/post/delete) from this routing rule: 'Publis... | 'POST', 'data': {} } To extract the API | post | 'POST', 'data': {} } To extract the API | YES | NO |
+| 39 | train | Extract the API action (get/post/delete) from this routing rule: 'Erase ... | 'delete', 'database': 'staging', 'cluster | delete | 'delete', 'database': 'staging', 'cluster | YES | NO |
+| 40 | train | Extract the API action (get/post/delete) from this routing rule: 'Load b... | 'GET', 'uri': '/metrics/load-balancer-in | get | 'GET', 'uri': '/metrics/load-balancer-in | YES | NO |
+| 41 | train | Extract the user role (admin/editor/viewer) from this permission string:... | 'admin' } The user role is already provided in the | admin | 'admin' } The user role is already provided in the | YES | NO |
+| 42 | train | Extract the user role (admin/editor/viewer) from this permission string:... | 'viewer' } The user role is viewer. Here's | editor | 'viewer' } The user role is viewer. Here's | NO | YES |
+| 43 | train | Extract the user role (admin/editor/viewer) from this permission string:... | 'viewer' } The user role is viewer. Here's | viewer | 'viewer' } The user role is viewer. Here's | YES | NO |
+| 44 | train | Extract the user role (admin/editor/viewer) from this permission string:... | 'admin' } The provided permission string is alr... | admin | 'admin' } The provided permission string is alr... | YES | NO |
+| 45 | train | Extract the user role (admin/editor/viewer) from this permission string:... | 'viewer' } The user role is viewer. Here's | editor | 'viewer' } The user role is viewer. Here's | NO | YES |
+| 46 | train | Extract the user role (admin/editor/viewer) from this permission string:... | 'viewer' } The user role is viewer. Here's | viewer | 'viewer' } The user role is viewer. Here's | YES | NO |
+| 47 | train | Extract the user role (admin/editor/viewer) from this permission string:... | 'admin' } The user role is set to admin. | admin | 'admin' } The user role is set to admin. | YES | NO |
+| 48 | train | Extract the user role (admin/editor/viewer) from this permission string:... | 'admin' } The user role is set to admin. | editor | 'admin' } The user role is set to admin. | NO | YES |
+| 49 | train | Extract the user role (admin/editor/viewer) from this permission string:... | 'viewer' } The user role is viewer. Here's | viewer | 'viewer' } The user role is viewer. Here's | YES | NO |
+| 50 | train | Extract the user role (admin/editor/viewer) from this permission string:... | 'admin' } The user role is already specified in... | admin | 'admin' } The user role is already specified in... | YES | NO |
+| 51 | train | Extract the user role (admin/editor/viewer) from this permission string:... | 'editor' } The user role is set to `editor | editor | 'editor' } The user role is set to `editor | YES | NO |
+| 52 | train | Extract the user role (admin/editor/viewer) from this permission string:... | 'viewer' } The user role is viewer. Here's | viewer | 'viewer' } The user role is viewer. Here's | YES | NO |
+| 53 | train | Extract the user role (admin/editor/viewer) from this permission string:... | 'admin' } The user role is already provided in the | admin | 'admin' } The user role is already provided in the | YES | NO |
+| 54 | train | Extract the user role (admin/editor/viewer) from this permission string:... | 'admin' } The user role is set to admin. | editor | 'admin' } The user role is set to admin. | NO | YES |
+| 55 | train | Extract the user role (admin/editor/viewer) from this permission string:... | 'viewer' } The user role is viewer. Here's | viewer | 'viewer' } The user role is viewer. Here's | YES | NO |
+| 56 | train | Extract the user role (admin/editor/viewer) from this permission string:... | 'admin' } The user role is set to admin. | admin | 'admin' } The user role is set to admin. | YES | NO |
+| 57 | train | Extract the user role (admin/editor/viewer) from this permission string:... | 'viewer' } The user role is viewer. Here's | editor | 'viewer' } The user role is viewer. Here's | NO | YES |
+| 58 | train | Extract the user role (admin/editor/viewer) from this permission string:... | 'viewer' } The user role is viewer. Here's | viewer | 'viewer' } The user role is viewer. Here's | YES | NO |
+| 59 | train | Extract the user role (admin/editor/viewer) from this permission string:... | 'admin' } The user role is already provided in the | admin | 'admin' } The user role is already provided in the | YES | NO |
+| 60 | train | Extract the user role (admin/editor/viewer) from this permission string:... | 'viewer' } The user role is viewer. Here's | editor | 'viewer' } The user role is viewer. Here's | NO | YES |
+| 61 | train | Extract the transaction status (approved/declined) from this gateway log... | 'approved', 'reason': 'payment successful', 'am... | approved | 'approved', 'reason': 'payment successful', 'am... | YES | NO |
+| 62 | train | Extract the transaction status (approved/declined) from this gateway log... | 'rejected', 'reason': 'insufficient credit' } | declined | 'rejected', 'reason': 'insufficient credit' } | NO | YES |
+| 63 | train | Extract the transaction status (approved/declined) from this gateway log... | 'declined', 'reason': 'credit card verification... | declined | 'declined', 'reason': 'credit card verification... | YES | NO |
+| 64 | train | Extract the transaction status (approved/declined) from this gateway log... | 'approved', 'reason': 'funds captured successfu... | approved | 'approved', 'reason': 'funds captured successfu... | YES | NO |
+| 65 | train | Extract the transaction status (approved/declined) from this gateway log... | 'declined', 'reason': 'fraud filter triggered | declined | 'declined', 'reason': 'fraud filter triggered | YES | NO |
+| 66 | train | Extract the transaction status (approved/declined) from this gateway log... | 'approved', 'reason': 'verified', 'order_id | approved | 'approved', 'reason': 'verified', 'order_id | YES | NO |
+| 67 | train | Extract the transaction status (approved/declined) from this gateway log... | 'declined', 'reason': 'card has expired' | declined | 'declined', 'reason': 'card has expired' | YES | NO |
+| 68 | train | Extract the transaction status (approved/declined) from this gateway log... | 'pending_capture', 'reason': 'payment authorize... | approved | 'pending_capture', 'reason': 'payment authorize... | NO | YES |
+| 69 | train | Extract the transaction status (approved/declined) from this gateway log... | 'approved', 'reason': '' } The transaction stat... | declined | 'approved', 'reason': '' } The transaction stat... | NO | YES |
+| 70 | train | Extract the transaction status (approved/declined) from this gateway log... | 'approved', 'reason': 'digital wallet authentic... | approved | 'approved', 'reason': 'digital wallet authentic... | YES | NO |
+| 71 | train | Extract the transaction status (approved/declined) from this gateway log... | 'declined', 'reason': 'Charge limit exceeded for | declined | 'declined', 'reason': 'Charge limit exceeded for | YES | NO |
+| 72 | train | Extract the transaction status (approved/declined) from this gateway log... | 'declined', 'reason': 'address postcode verify ... | declined | 'declined', 'reason': 'address postcode verify ... | YES | NO |
+| 73 | train | Extract the transaction status (approved/declined) from this gateway log... | 'approved', 'reason': 'payment completed succes... | approved | 'approved', 'reason': 'payment completed succes... | YES | NO |
+| 74 | train | Extract the transaction status (approved/declined) from this gateway log... | 'declined', 'reason': 'chargeback rejected by | declined | 'declined', 'reason': 'chargeback rejected by | YES | NO |
+| 75 | train | Extract the transaction status (approved/declined) from this gateway log... | 'approved', 'reason': 'token validated and clea... | approved | 'approved', 'reason': 'token validated and clea... | YES | NO |
+| 76 | train | Extract the transaction status (approved/declined) from this gateway log... | 'declined', 'reason': 'user cancelled checkout ... | declined | 'declined', 'reason': 'user cancelled checkout ... | YES | NO |
+| 77 | train | Extract the transaction status (approved/declined) from this gateway log... | 'approved', 'reason': 'invoice archived' } The | approved | 'approved', 'reason': 'invoice archived' } The | YES | NO |
+| 78 | train | Extract the transaction status (approved/declined) from this gateway log... | 'pending', 'reason': 'suspicious billing ip | declined | 'pending', 'reason': 'suspicious billing ip | NO | YES |
+| 79 | train | Extract the transaction status (approved/declined) from this gateway log... | 'approved', 'reason': 'merchant manual override... | approved | 'approved', 'reason': 'merchant manual override... | YES | NO |
+| 80 | train | Extract the transaction status (approved/declined) from this gateway log... | 'declined', 'reason': 'network connection dropp... | declined | 'declined', 'reason': 'network connection dropp... | YES | NO |
+| 81 | train | To accomplish multiple milestones at the exact same moment is to kill tw... | stone. This is a common strategy used by many p... | stone | stone. This is a common strategy used by many p... | YES | NO |
+| 82 | train | To avoid placing all your financial capital in a single volatile asset, ... | basket. Instead, diversify your investments acr... | basket | basket. Instead, diversify your investments acr... | YES | NO |
+| 83 | train | To accidentally reveal highly confidential organization blueprints is to... | bag. This is a common occurrence in many organi... | bag | bag. This is a common occurrence in many organi... | YES | NO |
+| 84 | train | Being in a state of supreme, ecstatic joy or extreme mental happiness is... | nine. This feeling can come from many different... | nine | nine. This feeling can come from many different... | YES | NO |
+| 85 | train | Feeling entirely awkward, uncomfortable, and physically out of place is ... | water. It can be very embarrassing to feel this... | water | water. It can be very embarrassing to feel this... | YES | NO |
+| 86 | train | An unpredictable, incredibly dynamic, and highly energetic person is des... | action film director. This type of person can b... | wire | action film director. This type of person can b... | NO | YES |
+| 87 | train | An entirely random, highly surprising, and completely unexpected event i... | ordinary. It's a situation that has never happe... | blue | ordinary. It's a situation that has never happe... | NO | YES |
+| 88 | train | Pursuing a completely incorrect strategy or line of logic is barking up ... | tree. The goal should be to find a way to solve | tree | tree. The goal should be to find a way to solve | YES | NO |
+| 89 | train | Facing a very difficult, painful, or awkward situation with brave compos... | bullet. The act of biting the bullet can be don... | bullet | bullet. The act of biting the bullet can be don... | YES | NO |
+| 90 | train | Wishing a theater actor excellent performance fortune right before a sho... | promise. The actor breaks the promise and gets ... | leg | promise. The actor breaks the promise and gets ... | NO | YES |
+| 91 | train | To accidentally expose a highly guarded organizational secret is to spil... | beans. This is an example of which type of logi... | beans | beans. This is an example of which type of logi... | YES | NO |
+| 92 | train | Executing an operational workflow that is incredibly straightforward is ... | cake. However, when it comes to creating a work... | cake | cake. However, when it comes to creating a work... | YES | NO |
+| 93 | train | Resolving an architectural software bottleneck with absolute precision i... | head. The software that I am working on has a very | head | head. The software that I am working on has a very | YES | NO |
+| 94 | train | To accept the negative consequences of your previous incorrect actions i... | reality that you are not a good person. This st... | music | reality that you are not a good person. This st... | NO | YES |
+| 95 | train | Feeling mildly sick, fatigued, or physically under the weather is to be ... | care of a doctor. The doctor will examine you a... | weather | care of a doctor. The doctor will examine you a... | NO | YES |
+| 96 | train | To completely cease working on a development pipeline for the evening is... | day. The development pipeline is a series of st... | day | day. The development pipeline is a series of st... | YES | NO |
+| 97 | train | Complaining about unfixable, past execution errors is crying over spilled | milk. This is a common complaint from users of ... | milk | milk. This is a common complaint from users of ... | YES | NO |
+| 98 | train | Avoiding speaking about the central, most critical problem in a meeting ... | bush. It’s not just a matter of being polite or | bush | bush. It’s not just a matter of being polite or | YES | NO |
+| 99 | train | To initiate a highly difficult, tense, or awkward discussion with collea... | rules of social etiquette. The most appropriate... | ice | rules of social etiquette. The most appropriate... | NO | YES |
+| 100 | train | Adding angry, volatile statements to an ongoing administrative dispute i... | fire. The problem of conflict resolution in org... | fire | fire. The problem of conflict resolution in org... | YES | NO |
+| 101 | train | JSON payload: { 'event': 'PortScanDetected', 'source_ip': '185.190.140.4... | low<br><br>What is the risk level of this incid... | medium | low<br><br>What is the risk level of this incid... | NO | YES |
+| 102 | train | JSON payload: { 'event': 'SSHKeyAdded', 'user': 'ops_agent_12', 'key_str... | low<br><br>What is the risk level of this event... | low | low<br><br>What is the risk level of this event... | YES | NO |
+| 103 | train | JSON payload: { 'event': 'FailedLogin', 'username': 'root', 'ip': '198.5... | low<br><br>What is the risk level of this incid... | high | low<br><br>What is the risk level of this incid... | NO | YES |
+| 104 | train | JSON payload: { 'event': 'FailedLogin', 'username': 'sam', 'ip': '192.16... | low<br><br>What is the risk level of this incid... | low | low<br><br>What is the risk level of this incid... | YES | NO |
+| 105 | train | JSON payload: { 'event': 'S3BucketCreated', 'owner': 'dev_test_user', 'p... | What is the risk of this event occurring? <br>R... | high | What is the risk of this event occurring? <br>R... | NO | YES |
+| 106 | train | JSON payload: { 'event': 'S3BucketCreated', 'owner': 'ops_admin_4', 'pub... | What is the risk of this event occurring? <br>R... | low | What is the risk of this event occurring? <br>R... | NO | YES |
+| 107 | train | JSON payload: { 'event': 'IAMPolicyModified', 'policy': 'AdministratorAc... | What is the risk of this event occurring? <br>R... | medium | What is the risk of this event occurring? <br>R... | NO | YES |
+| 108 | train | JSON payload: { 'event': 'IAMPolicyModified', 'policy': 'ReadOnlyAccess'... | What is the risk of this IAM policy modificatio... | medium | What is the risk of this IAM policy modificatio... | NO | YES |
+| 109 | train | JSON payload: { 'event': 'PortScanDetected', 'source_ip': '45.33.102.12'... | low<br><br>What is the risk level of this incid... | medium | low<br><br>What is the risk level of this incid... | NO | YES |
+| 110 | train | JSON payload: { 'event': 'PortScanDetected', 'source_ip': '10.0.2.19', '... | low<br><br>What is the risk level of this incid... | low | low<br><br>What is the risk level of this incid... | YES | NO |
+| 111 | train | Extract the API action (get/post/delete) from this routing rule: 'Delete... | 'delete', 'data': {} } To extract the API | delete | 'delete', 'data': {} } To extract the API | YES | NO |
+| 112 | train | Extract the API action (get/post/delete) from this routing rule: 'Create... | 'POST', 'url': '/api/webhooks/server/ | post | 'POST', 'url': '/api/webhooks/server/ | YES | NO |
+| 113 | train | Extract the API action (get/post/delete) from this routing rule: 'Retrie... | 'GET', 'url': '/api/system-balance-profile | get | 'GET', 'url': '/api/system-balance-profile | YES | NO |
+| 114 | train | Extract the API action (get/post/delete) from this routing rule: 'Regist... | 'GET', 'url': '/webhooks/gateways | post | 'GET', 'url': '/webhooks/gateways | NO | YES |
+| 115 | train | Extract the API action (get/post/delete) from this routing rule: 'Erase ... | 'GET' } To extract the API action from a given | delete | 'GET' } To extract the API action from a given | NO | YES |
+| 116 | train | Extract the API action (get/post/delete) from this routing rule: 'List a... | 'GET', 'url': '/api/system/deployments | get | 'GET', 'url': '/api/system/deployments | YES | NO |
+| 117 | train | Extract the API action (get/post/delete) from this routing rule: 'Provis... | 'POST', 'data': {} } To extract the API | post | 'POST', 'data': {} } To extract the API | YES | NO |
+| 118 | train | Extract the API action (get/post/delete) from this routing rule: 'Erase ... | 'delete', 'data': {} } To extract the API | delete | 'delete', 'data': {} } To extract the API | YES | NO |
+| 119 | train | Extract the API action (get/post/delete) from this routing rule: 'Fetch ... | 'GET', 'uri': '/api/system-baseline-m | get | 'GET', 'uri': '/api/system-baseline-m | YES | NO |
+| 120 | train | Extract the API action (get/post/delete) from this routing rule: 'Submit... | 'POST', 'data': { 'transaction_id': ' | post | 'POST', 'data': { 'transaction_id': ' | YES | NO |
+| 121 | train | Extract the user role (admin/editor/viewer) from this permission string:... | 'admin' } The user role is already provided in the | admin | 'admin' } The user role is already provided in the | YES | NO |
+| 122 | train | Extract the user role (admin/editor/viewer) from this permission string:... | 'admin' } The user role is set to admin. | editor | 'admin' } The user role is set to admin. | NO | YES |
+| 123 | train | Extract the user role (admin/editor/viewer) from this permission string:... | 'viewer' } The user role is viewer. Here's | viewer | 'viewer' } The user role is viewer. Here's | YES | NO |
+| 124 | train | Extract the user role (admin/editor/viewer) from this permission string:... | 'admin' } The provided permission string is alr... | admin | 'admin' } The provided permission string is alr... | YES | NO |
+| 125 | train | Extract the user role (admin/editor/viewer) from this permission string:... | 'viewer' } The user role is viewer. Here's | editor | 'viewer' } The user role is viewer. Here's | NO | YES |
+| 126 | train | Extract the user role (admin/editor/viewer) from this permission string:... | 'viewer' } The user role is viewer. Here's | viewer | 'viewer' } The user role is viewer. Here's | YES | NO |
+| 127 | train | Extract the user role (admin/editor/viewer) from this permission string:... | 'admin' } The user role is set to admin. | admin | 'admin' } The user role is set to admin. | YES | NO |
+| 128 | train | Extract the user role (admin/editor/viewer) from this permission string:... | 'admin' } The user role is set to admin. | editor | 'admin' } The user role is set to admin. | NO | YES |
+| 129 | train | Extract the user role (admin/editor/viewer) from this permission string:... | 'viewer' } The user role is viewer. Here's | viewer | 'viewer' } The user role is viewer. Here's | YES | NO |
+| 130 | train | Extract the user role (admin/editor/viewer) from this permission string:... | 'viewer' } The user role is viewer. Here's | admin | 'viewer' } The user role is viewer. Here's | NO | YES |
+| 131 | train | Extract the transaction status (approved/declined) from this gateway log... | 'approved', 'reason': 'payment successful', 'am... | approved | 'approved', 'reason': 'payment successful', 'am... | YES | NO |
+| 132 | train | Extract the transaction status (approved/declined) from this gateway log... | 'rejected', 'reason': 'user rejected payment re... | declined | 'rejected', 'reason': 'user rejected payment re... | NO | YES |
+| 133 | train | Extract the transaction status (approved/declined) from this gateway log... | 'declined', 'reason': 'CVV verification mismatch | declined | 'declined', 'reason': 'CVV verification mismatch | YES | NO |
+| 134 | train | Extract the transaction status (approved/declined) from this gateway log... | 'approved', 'reason': 'batch capture successful... | approved | 'approved', 'reason': 'batch capture successful... | YES | NO |
+| 135 | train | Extract the transaction status (approved/declined) from this gateway log... | 'declined', 'reason': 'risk limit exceeded' | declined | 'declined', 'reason': 'risk limit exceeded' | YES | NO |
+| 136 | train | Extract the transaction status (approved/declined) from this gateway log... | 'declined', 'reason': 'user cancelled billing c... | declined | 'declined', 'reason': 'user cancelled billing c... | YES | NO |
+| 137 | train | Extract the transaction status (approved/declined) from this gateway log... | 'approved', 'reason': '' } Here is the extracted | approved | 'approved', 'reason': '' } Here is the extracted | YES | NO |
+| 138 | train | Extract the transaction status (approved/declined) from this gateway log... | 'declined', 'reason': 'block detected in payment | declined | 'declined', 'reason': 'block detected in payment | YES | NO |
+| 139 | train | Extract the transaction status (approved/declined) from this gateway log... | 'pending', 'reason': 'gateway error', 'details | approved | 'pending', 'reason': 'gateway error', 'details | NO | YES |
+| 140 | train | Extract the transaction status (approved/declined) from this gateway log... | 'declined', 'reason': 'network connection timeout' | declined | 'declined', 'reason': 'network connection timeout' | YES | NO |
+| 141 | train | The system of rules and practices that governs a local network file stor... | ____.<br>A. Network File System<br>B. Local Area | OS | ____.<br>A. Network File System<br>B. Local Area | NO | YES |
+| 142 | train | The widely-used server operating system based on Linux open source codeb... | ____.<br>A. Windows Server 2016 | Linux | ____.<br>A. Windows Server 2016 | NO | YES |
+| 143 | train | The default web server software suite designed by the Apache foundation is | known as ____.<br>A. Tomcat<br>B. I | Apache | known as ____.<br>A. Tomcat<br>B. I | NO | YES |
+| 144 | train | The high-performance reverse proxy and routing load balancer engine is | a powerful tool for managing traffic on your ne... | Nginx | a powerful tool for managing traffic on your ne... | NO | YES |
+| 145 | train | The lightweight operating system-level container virtualization framewor... | ____<br>KVM<br>Xen<br>QEMU<br>V | Docker | ____<br>KVM<br>Xen<br>QEMU<br>V | NO | YES |
+| 146 | train | The cluster container orchestration engine developed originally by Googl... | called<br>A. Kubernetes<br>B. Docker<br>C. | Kubernetes | called<br>A. Kubernetes<br>B. Docker<br>C. | YES | NO |
+| 147 | train | The Amazon Web Services virtual machine server hosting cloud instance is | a type of cloud computing service that allows u... | EC2 | a type of cloud computing service that allows u... | NO | YES |
+| 148 | train | In databases, storing unstructured records across distributed document s... | a common practice. Which of the following state... | NoSQL | a common practice. Which of the following state... | NO | YES |
+| 149 | train | The structural design schema defining relational table layout constraint... | ____.<br>A. Data Definition Language<br>B. Data... | schema | ____.<br>A. Data Definition Language<br>B. Data... | NO | YES |
+| 150 | train | CSS style sheets acronym stands for Cascading Style | Sheets. It is a set of rules that define the ap... | Sheets | Sheets. It is a set of rules that define the ap... | YES | NO |
+| 151 | train | API programming layout acronym stands for Application Programming | Interface. A. Correct B. Incorrect<br>Answer:<b... | Interface | Interface. A. Correct B. Incorrect<br>Answer:<b... | YES | NO |
+| 152 | train | URL locate path acronym stands for Uniform Resource | Locator. It is a string that represents the loc... | Locator | Locator. It is a string that represents the loc... | YES | NO |
+| 153 | train | JSON data block acronym stands for JavaScript Object | Notation. It is a format used to represent and ... | Notation | Notation. It is a format used to represent and ... | YES | NO |
+| 154 | train | XML document layout acronym stands for Extensible Markup | Language. It is a markup language that allows d... | Language | Language. It is a markup language that allows d... | YES | NO |
+| 155 | train | SDK development toolkit acronym stands for Software Development | Kit. It is a collection of software components ... | Kit | Kit. It is a collection of software components ... | YES | NO |
+| 156 | train | IDE coding interface acronym stands for Integrated Development | Environment. It is a software development envir... | Environment | Environment. It is a software development envir... | YES | NO |
+| 157 | train | CPU computer brain acronym stands for Central Processing | Unit. It is the core of a computer and it is | Unit | Unit. It is the core of a computer and it is | YES | NO |
+| 158 | train | RAM memory hardware acronym stands for Random Access | Memory. It is a type of computer memory that al... | Memory | Memory. It is a type of computer memory that al... | YES | NO |
+| 159 | train | ROM startup hardware acronym stands for Read Only | Memory. It is a type of memory that stores data in | Memory | Memory. It is a type of memory that stores data in | YES | NO |
+| 160 | train | SSH terminal connection acronym stands for Secure | Terminal Connection. It is a protocol that allo... | Shell | Terminal Connection. It is a protocol that allo... | NO | YES |
+| 161 | train | FTP network upload acronym stands for File Transfer | Protocol. It is a protocol used to transfer fil... | Protocol | Protocol. It is a protocol used to transfer fil... | YES | NO |
+| 162 | train | SMTP email delivery acronym stands for Simple Mail Transfer | Protocol. It is a protocol used to transfer ema... | Protocol | Protocol. It is a protocol used to transfer ema... | YES | NO |
+| 163 | train | Running matching loops or blocks inside themselves in programming is called | nesting. In this article, we will discuss the s... | recursion | nesting. In this article, we will discuss the s... | NO | YES |
+| 164 | train | An error or flaw in the underlying code logic is called a | (n) ________.<br>A. Error<br>B. Bug | bug | (n) ________.<br>A. Error<br>B. Bug | YES | NO |
+| 165 | train | Isolating and resolving structural flaws in a codebase is called | :<br><br>A) Code review<br>B) Code optimization... | debugging | :<br><br>A) Code review<br>B) Code optimization... | NO | YES |
+| 166 | train | The central computer hardware component responsible for active processin... | ____.<br>A. Arithmetic Logic Unit (ALU)<br>B | CPU | ____.<br>A. Arithmetic Logic Unit (ALU)<br>B | NO | YES |
+| 167 | train | The fast volatile memory layer loaded during active task runtime is | called ____.<br>A. Page Table<br>B. Stack Pointer | RAM | called ____.<br>A. Page Table<br>B. Stack Pointer | NO | YES |
+| 168 | train | The non-volatile chip storing fundamental startup firmware instructions is | called a(n) ____.<br>A. ROM<br>B. | ROM | called a(n) ____.<br>A. ROM<br>B. | YES | NO |
+| 169 | train | The terminal connection protocol allowing secure remote administrative s... | ____<br>SSH<br>HTTP<br>FTP<br>TELNET<br>Answer | SSH | ____<br>SSH<br>HTTP<br>FTP<br>TELNET<br>Answer | YES | NO |
+| 170 | train | The internet routing directory system that maps domain names to IPs is | called ____.<br>A. DNS<br>B. FTP<br>C | DNS | called ____.<br>A. DNS<br>B. FTP<br>C | YES | NO |
+| 171 | train | The structured query language command used to fetch rows from tables is | ____<br>A. SELECT<br>B. INSERT<br>C. | SELECT | ____<br>A. SELECT<br>B. INSERT<br>C. | YES | NO |
+| 172 | train | The structured query language command used to insert new database rows is | ____<br>A. INSERT<br>B. UPDATE<br>C. | INSERT | ____<br>A. INSERT<br>B. UPDATE<br>C. | YES | NO |
+| 173 | train | The structured query language command used to alter existing database ro... | ____.<br>A. INSERT<br>B. UPDATE<br>C. | UPDATE | ____.<br>A. INSERT<br>B. UPDATE<br>C. | YES | NO |
+| 174 | train | The structured query language command used to delete existing database r... | ____<br>A. DELETE<br>B. INSERT<br>C. | DELETE | ____<br>A. DELETE<br>B. INSERT<br>C. | YES | NO |
+| 175 | train | The local virtual network interface loopback address is | ____.<br>A. 127.0.0 | 127.0.0.1 | ____.<br>A. 127.0.0 | NO | YES |
+| 176 | train | The standard network port utilized for insecure HTTP web traffic is | :<br>A. 80<br>B. 44 | 80 | :<br>A. 80<br>B. 44 | YES | NO |
+| 177 | train | The standard network port utilized for secure HTTPS web traffic is | :<br>A. 443<br>B. 8 | 443 | :<br>A. 443<br>B. 8 | YES | NO |
+| 178 | train | The Python script keyword used to pull in external modules is | ____<br>A. from<br>B. import<br>C. | import | ____<br>A. from<br>B. import<br>C. | YES | NO |
+| 179 | train | The Python script keyword used to define a new class block is | ____<br>A. def<br>B. class<br>C. | class | ____<br>A. def<br>B. class<br>C. | YES | NO |
+| 180 | train | The Python script keyword used to declare a new function block is | ____<br>A. def<br>B. class<br>C. | def | ____<br>A. def<br>B. class<br>C. | YES | NO |
+| 181 | train | The Python script keyword used to emit values back from functions is | ____<br>A. def<br>B. return<br>C. | return | ____<br>A. def<br>B. return<br>C. | YES | NO |
+| 182 | train | The Python loop keyword used to iterate over fixed sequences is | ____<br>A. for<br>B. while<br>C. | for | ____<br>A. for<br>B. while<br>C. | YES | NO |
+| 183 | train | The Python loop keyword used to run loops while conditions hold true is | :<br>A. for<br>B. while<br>C. if | while | :<br>A. for<br>B. while<br>C. if | YES | NO |
+| 184 | train | The Python logical boolean variable indicating positivity is | `True` if the number is positive, and `False | True | `True` if the number is positive, and `False | YES | NO |
+| 185 | train | The Python logical boolean variable indicating negativity is | ____<br>A. True<br>B. False<br>C. | False | ____<br>A. True<br>B. False<br>C. | YES | NO |
+| 186 | train | The Git code versioning command used to save changes locally is git | commit. ____<br>A. Correct<br>B. Incorrect | commit | commit. ____<br>A. Correct<br>B. Incorrect | YES | NO |
+| 187 | train | The Git code versioning command used to send changes to remote hosts is git | push. The following are the steps for using thi... | push | push. The following are the steps for using thi... | YES | NO |
+| 188 | train | The Git code versioning command used to fetch changes from remote hosts ... | fetch. The syntax for this command is:<br><br>`... | pull | fetch. The syntax for this command is:<br><br>`... | NO | YES |
+| 189 | train | Relational database records are structurally organized and stored inside a | table. The data in the table is called a record, | database | table. The data in the table is called a record, | NO | YES |
+| 190 | train | The physical database schema detailing model layouts is the | foundation of a database system. Which of the f... | schema | foundation of a database system. Which of the f... | NO | YES |
+| 191 | train | In CSS layouts, style rules are applied using Cascading Style | Sheets (CSS). This means that the styles for a ... | Sheets | Sheets (CSS). This means that the styles for a ... | YES | NO |
+| 192 | train | In web protocols, the standard layout formatting framework is | known as ____.<br>A. HTML<br>B. CSS | HTML | known as ____.<br>A. HTML<br>B. CSS | YES | NO |
+| 193 | train | In web protocols, the API interaction framework is called an | HTTP/HTTPS protocol. A. Correct B. Incorrect | API | HTTP/HTTPS protocol. A. Correct B. Incorrect | NO | YES |
+| 194 | train | In web protocols, the location path of resources is a | crucial part. Which of the following statements... | URL | crucial part. Which of the following statements... | NO | YES |
+| 195 | train | In web protocols, the structured text format used for data exchanges is | known as:<br>A. HTML<br>B. XML<br>C | JSON | known as:<br>A. HTML<br>B. XML<br>C | NO | YES |
+| 196 | train | In web protocols, the extensible markup document layout format is | ____.<br>HTML<br>XML<br>XHTML<br>MIME | XML | ____.<br>HTML<br>XML<br>XHTML<br>MIME | YES | NO |
+| 197 | train | The software development tools bundle provided to programmers is an | example of a(n) ________.<br>A. Software | SDK | example of a(n) ________.<br>A. Software | NO | YES |
+| 198 | train | The unified development software editor workspace is an | important part of the development environment. ... | IDE | important part of the development environment. ... | YES | NO |
+| 199 | train | The primary network protocol standardizing packet layout constraints is | ____<br>A. TCP<br>B. IP<br>C. | IP | ____<br>A. TCP<br>B. IP<br>C. | YES | NO |
+| 200 | train | The file transfer protocol standardizing file uploads is | ____<br>FTP<br>HTTP<br>SMTP<br>SNMP<br>Answer | FTP | ____<br>FTP<br>HTTP<br>SMTP<br>SNMP<br>Answer | YES | NO |
+| 201 | seen_val | JSON payload: { 'event': 'FailedLogin', 'username': 'administrator', 'ip... | low<br><br>What is the risk level of this incid... | high | low<br><br>What is the risk level of this incid... | NO | YES |
+| 202 | seen_val | JSON payload: { 'event': 'FailedLogin', 'username': 'sam_dev', 'ip': '19... | low<br><br>What is the risk level of this incid... | low | low<br><br>What is the risk level of this incid... | YES | NO |
+| 203 | seen_val | JSON payload: { 'event': 'S3BucketCreated', 'owner': 'dev_test_bot', 'pu... | What is the risk of this event occurring? <br>R... | high | What is the risk of this event occurring? <br>R... | NO | YES |
+| 204 | seen_val | JSON payload: { 'event': 'S3BucketCreated', 'owner': 'ops_lead_44', 'pub... | What is the risk of this event occurring? <br>R... | low | What is the risk of this event occurring? <br>R... | NO | YES |
+| 205 | seen_val | JSON payload: { 'event': 'IAMPolicyModified', 'policy': 'AdministratorAc... | What is the risk of this event occurring? <br>R... | medium | What is the risk of this event occurring? <br>R... | NO | YES |
+| 206 | seen_val | JSON payload: { 'event': 'IAMPolicyModified', 'policy': 'ReadOnlyAccess'... | What is the risk of this IAM policy modificatio... | medium | What is the risk of this IAM policy modificatio... | NO | YES |
+| 207 | seen_val | JSON payload: { 'event': 'PortScanDetected', 'source_ip': '45.33.102.88'... | low<br><br>What is the risk level of this incid... | high | low<br><br>What is the risk level of this incid... | NO | YES |
+| 208 | seen_val | JSON payload: { 'event': 'PortScanDetected', 'source_ip': '10.0.2.99', '... | low<br><br>What is the risk level of this incid... | low | low<br><br>What is the risk level of this incid... | YES | NO |
+| 209 | seen_val | JSON payload: { 'event': 'SSHKeyAdded', 'user': 'jenkins_agent_05', 'key... | low<br><br>What is the risk level of this event... | low | low<br><br>What is the risk level of this event... | YES | NO |
+| 210 | seen_val | JSON payload: { 'event': 'SSHKeyAdded', 'user': 'unverified_root', 'key_... | low<br><br>What is the risk level of this event... | high | low<br><br>What is the risk level of this event... | NO | YES |
+| 211 | seen_val | Extract the API action (get/post/delete) from this routing rule: 'Fetch ... | 'GET', 'url': '/api/v1/clusters | get | 'GET', 'url': '/api/v1/clusters | YES | NO |
+| 212 | seen_val | Extract the API action (get/post/delete) from this routing rule: 'Delete... | 'delete', 'id': 12345 | delete | 'delete', 'id': 12345 | YES | NO |
+| 213 | seen_val | Extract the API action (get/post/delete) from this routing rule: 'Create... | 'POST', 'data': { 'server_gateway_token': | post | 'POST', 'data': { 'server_gateway_token': | YES | NO |
+| 214 | seen_val | Extract the API action (get/post/delete) from this routing rule: 'Retrie... | 'GET', 'url': '/api/credit-balance | get | 'GET', 'url': '/api/credit-balance | YES | NO |
+| 215 | seen_val | Extract the API action (get/post/delete) from this routing rule: 'Regist... | 'GET', 'url': '/webhooks/new-endpoints | post | 'GET', 'url': '/webhooks/new-endpoints | NO | YES |
+| 216 | seen_val | Extract the API action (get/post/delete) from this routing rule: 'Erase ... | 'delete', 'path': '/backup/storage/directories | delete | 'delete', 'path': '/backup/storage/directories | YES | NO |
+| 217 | seen_val | Extract the API action (get/post/delete) from this routing rule: 'List a... | 'GET', 'url': '/api/v1/deploy | get | 'GET', 'url': '/api/v1/deploy | YES | NO |
+| 218 | seen_val | Extract the API action (get/post/delete) from this routing rule: 'Provis... | 'POST', 'data': {} } To extract the API | post | 'POST', 'data': {} } To extract the API | YES | NO |
+| 219 | seen_val | Extract the API action (get/post/delete) from this routing rule: 'Erase ... | 'delete', 'data': {} } To extract the API | delete | 'delete', 'data': {} } To extract the API | YES | NO |
+| 220 | seen_val | Extract the API action (get/post/delete) from this routing rule: 'Fetch ... | 'GET', 'url': '/api/system-baseline-m | get | 'GET', 'url': '/api/system-baseline-m | YES | NO |
+| 221 | seen_val | Extract the user role (admin/editor/viewer) from this permission string:... | 'admin' } The user role is set to admin. | admin | 'admin' } The user role is set to admin. | YES | NO |
+| 222 | seen_val | Extract the user role (admin/editor/viewer) from this permission string:... | 'admin' } The user role is set to admin. | editor | 'admin' } The user role is set to admin. | NO | YES |
+| 223 | seen_val | Extract the user role (admin/editor/viewer) from this permission string:... | 'viewer' } The user role is viewer. Here's | viewer | 'viewer' } The user role is viewer. Here's | YES | NO |
+| 224 | seen_val | Extract the user role (admin/editor/viewer) from this permission string:... | 'admin' } The user role is already provided in the | admin | 'admin' } The user role is already provided in the | YES | NO |
+| 225 | seen_val | Extract the user role (admin/editor/viewer) from this permission string:... | 'viewer' } The user role is viewer. Here's | editor | 'viewer' } The user role is viewer. Here's | NO | YES |
+| 226 | seen_val | Extract the user role (admin/editor/viewer) from this permission string:... | 'viewer' } The user role is viewer. Here's | viewer | 'viewer' } The user role is viewer. Here's | YES | NO |
+| 227 | seen_val | Extract the user role (admin/editor/viewer) from this permission string:... | 'admin' } The user role is set to admin. | admin | 'admin' } The user role is set to admin. | YES | NO |
+| 228 | seen_val | Extract the user role (admin/editor/viewer) from this permission string:... | 'viewer' } The user role is viewer. Here's | editor | 'viewer' } The user role is viewer. Here's | NO | YES |
+| 229 | seen_val | Extract the user role (admin/editor/viewer) from this permission string:... | 'viewer' } The user role is viewer. Here's | viewer | 'viewer' } The user role is viewer. Here's | YES | NO |
+| 230 | seen_val | Extract the user role (admin/editor/viewer) from this permission string:... | 'admin' } The user role is already specified in... | admin | 'admin' } The user role is already specified in... | YES | NO |
+| 231 | seen_val | Extract the transaction status (approved/declined) from this gateway log... | 'approved', 'reason': 'payment successful', 'am... | approved | 'approved', 'reason': 'payment successful', 'am... | YES | NO |
+| 232 | seen_val | Extract the transaction status (approved/declined) from this gateway log... | 'rejected', 'reason': 'user rejected payment re... | declined | 'rejected', 'reason': 'user rejected payment re... | NO | YES |
+| 233 | seen_val | Extract the transaction status (approved/declined) from this gateway log... | 'declined', 'reason': 'CVV verification mismatch | declined | 'declined', 'reason': 'CVV verification mismatch | YES | NO |
+| 234 | seen_val | Extract the transaction status (approved/declined) from this gateway log... | 'approved', 'reason': 'batch capture successful... | approved | 'approved', 'reason': 'batch capture successful... | YES | NO |
+| 235 | seen_val | Extract the transaction status (approved/declined) from this gateway log... | 'declined', 'reason': 'risk limit exceeded' | declined | 'declined', 'reason': 'risk limit exceeded' | YES | NO |
+| 236 | seen_val | Extract the transaction status (approved/declined) from this gateway log... | 'declined', 'reason': 'user cancelled billing c... | declined | 'declined', 'reason': 'user cancelled billing c... | YES | NO |
+| 237 | seen_val | Extract the transaction status (approved/declined) from this gateway log... | 'approved', 'reason': '' } Here is the extracted | approved | 'approved', 'reason': '' } Here is the extracted | YES | NO |
+| 238 | seen_val | Extract the transaction status (approved/declined) from this gateway log... | 'declined', 'reason': 'block detected in payment | declined | 'declined', 'reason': 'block detected in payment | YES | NO |
+| 239 | seen_val | Extract the transaction status (approved/declined) from this gateway log... | 'pending', 'reason': 'gateway error', 'details | approved | 'pending', 'reason': 'gateway error', 'details | NO | YES |
+| 240 | seen_val | Extract the transaction status (approved/declined) from this gateway log... | 'declined', 'reason': 'network connection timeout' | declined | 'declined', 'reason': 'network connection timeout' | YES | NO |
+| 241 | seen_val | To accomplish multiple milestones at the exact same moment is to kill tw... | stone. This is a common strategy used by many p... | stone | stone. This is a common strategy used by many p... | YES | NO |
+| 242 | seen_val | To avoid placing all your financial capital in a single volatile asset, ... | basket. Instead, diversify your investments acr... | basket | basket. Instead, diversify your investments acr... | YES | NO |
+| 243 | seen_val | To accidentally reveal highly confidential organization blueprints is to... | bag. This is a common occurrence in many organi... | bag | bag. This is a common occurrence in many organi... | YES | NO |
+| 244 | seen_val | Being in a state of supreme, ecstatic joy or extreme mental happiness is... | nine. This feeling can come from many different... | nine | nine. This feeling can come from many different... | YES | NO |
+| 245 | seen_val | Feeling entirely awkward, uncomfortable, and physically out of place is ... | water. It can be very embarrassing to feel this... | water | water. It can be very embarrassing to feel this... | YES | NO |
+| 246 | seen_val | An unpredictable, incredibly dynamic, and highly energetic person is des... | action film director. This type of person can b... | wire | action film director. This type of person can b... | NO | YES |
+| 247 | seen_val | An entirely random, highly surprising, and completely unexpected event i... | ordinary. It's a situation that has never happe... | blue | ordinary. It's a situation that has never happe... | NO | YES |
+| 248 | seen_val | Pursuing a completely incorrect strategy or line of logic is barking up ... | tree. The goal should be to find a way to solve | tree | tree. The goal should be to find a way to solve | YES | NO |
+| 249 | seen_val | Facing a very difficult, painful, or awkward situation with brave compos... | bullet. The act of biting the bullet can be don... | bullet | bullet. The act of biting the bullet can be don... | YES | NO |
+| 250 | seen_val | Wishing a theater actor excellent performance fortune right before a sho... | promise. The actor breaks the promise and gets ... | leg | promise. The actor breaks the promise and gets ... | NO | YES |
+| 251 | seen_val | To accidentally expose a highly guarded organizational secret is to spil... | beans. This is an example of which type of logi... | beans | beans. This is an example of which type of logi... | YES | NO |
+| 252 | seen_val | Executing an operational workflow that is incredibly straightforward is ... | cake. However, when it comes to creating a work... | cake | cake. However, when it comes to creating a work... | YES | NO |
+| 253 | seen_val | Resolving an architectural software bottleneck with absolute precision i... | head. The software that I am working on has a very | head | head. The software that I am working on has a very | YES | NO |
+| 254 | seen_val | To accept the negative consequences of your previous incorrect actions i... | reality that you are not a good person. This st... | music | reality that you are not a good person. This st... | NO | YES |
+| 255 | seen_val | Feeling mildly sick, fatigued, or physically under the weather is to be ... | care of a doctor. The doctor will examine you a... | weather | care of a doctor. The doctor will examine you a... | NO | YES |
+| 256 | seen_val | To completely cease working on a development pipeline for the evening is... | day. The development pipeline is a series of st... | day | day. The development pipeline is a series of st... | YES | NO |
+| 257 | seen_val | Complaining about unfixable, past execution errors is crying over spilled | milk. This is a common complaint from users of ... | milk | milk. This is a common complaint from users of ... | YES | NO |
+| 258 | seen_val | Avoiding speaking about the central, most critical problem in a meeting ... | bush. It’s not just a matter of being polite or | bush | bush. It’s not just a matter of being polite or | YES | NO |
+| 259 | seen_val | To initiate a highly difficult, tense, or awkward discussion with collea... | rules of social etiquette. The most appropriate... | ice | rules of social etiquette. The most appropriate... | NO | YES |
+| 260 | seen_val | Adding angry, volatile statements to an ongoing administrative dispute i... | fire. The problem of conflict resolution in org... | fire | fire. The problem of conflict resolution in org... | YES | NO |
+| 261 | seen_val | The system of rules and practices that governs a local network file stor... | ____.<br>A. Network File System<br>B. Local Area | OS | ____.<br>A. Network File System<br>B. Local Area | NO | YES |
+| 262 | seen_val | The widely-used server operating system based on Linux open source codeb... | ____.<br>A. Windows Server 2016 | Linux | ____.<br>A. Windows Server 2016 | NO | YES |
+| 263 | seen_val | The default web server software suite designed by the Apache foundation is | known as ____.<br>A. Tomcat<br>B. I | Apache | known as ____.<br>A. Tomcat<br>B. I | NO | YES |
+| 264 | seen_val | The high-performance reverse proxy and routing load balancer engine is | a powerful tool for managing traffic on your ne... | Nginx | a powerful tool for managing traffic on your ne... | NO | YES |
+| 265 | seen_val | The lightweight operating system-level container virtualization framewor... | ____<br>KVM<br>Xen<br>QEMU<br>V | Docker | ____<br>KVM<br>Xen<br>QEMU<br>V | NO | YES |
+| 266 | seen_val | The cluster container orchestration engine developed originally by Googl... | called<br>A. Kubernetes<br>B. Docker<br>C. | Kubernetes | called<br>A. Kubernetes<br>B. Docker<br>C. | YES | NO |
+| 267 | seen_val | The Amazon Web Services virtual machine server hosting cloud instance is | a type of cloud computing service that allows u... | EC2 | a type of cloud computing service that allows u... | NO | YES |
+| 268 | seen_val | In databases, storing unstructured records across distributed document s... | a common practice. Which of the following state... | NoSQL | a common practice. Which of the following state... | NO | YES |
+| 269 | seen_val | The structural design schema defining relational table layout constraint... | ____.<br>A. Data Definition Language<br>B. Data... | schema | ____.<br>A. Data Definition Language<br>B. Data... | NO | YES |
+| 270 | seen_val | CSS style sheets acronym stands for Cascading Style | Sheets. It is a set of rules that define the ap... | Sheets | Sheets. It is a set of rules that define the ap... | YES | NO |
+| 271 | seen_val | API programming layout acronym stands for Application Programming | Interface. A. Correct B. Incorrect<br>Answer:<b... | Interface | Interface. A. Correct B. Incorrect<br>Answer:<b... | YES | NO |
+| 272 | seen_val | URL locate path acronym stands for Uniform Resource | Locator. It is a string that represents the loc... | Locator | Locator. It is a string that represents the loc... | YES | NO |
+| 273 | seen_val | JSON data block acronym stands for JavaScript Object | Notation. It is a format used to represent and ... | Notation | Notation. It is a format used to represent and ... | YES | NO |
+| 274 | seen_val | XML document layout acronym stands for Extensible Markup | Language. It is a markup language that allows d... | Language | Language. It is a markup language that allows d... | YES | NO |
+| 275 | seen_val | SDK development toolkit acronym stands for Software Development | Kit. It is a collection of software components ... | Kit | Kit. It is a collection of software components ... | YES | NO |
+| 276 | seen_val | IDE coding interface acronym stands for Integrated Development | Environment. It is a software development envir... | Environment | Environment. It is a software development envir... | YES | NO |
+| 277 | seen_val | CPU computer brain acronym stands for Central Processing | Unit. It is the core of a computer and it is | Unit | Unit. It is the core of a computer and it is | YES | NO |
+| 278 | seen_val | RAM memory hardware acronym stands for Random Access | Memory. It is a type of computer memory that al... | Memory | Memory. It is a type of computer memory that al... | YES | NO |
+| 279 | seen_val | ROM startup hardware acronym stands for Read Only | Memory. It is a type of memory that stores data in | Memory | Memory. It is a type of memory that stores data in | YES | NO |
+| 280 | seen_val | SSH terminal connection acronym stands for Secure | Terminal Connection. It is a protocol that allo... | Shell | Terminal Connection. It is a protocol that allo... | NO | YES |
+| 281 | seen_val | FTP network upload acronym stands for File Transfer | Protocol. It is a protocol used to transfer fil... | Protocol | Protocol. It is a protocol used to transfer fil... | YES | NO |
+| 282 | seen_val | SMTP email delivery acronym stands for Simple Mail Transfer | Protocol. It is a protocol used to transfer ema... | Protocol | Protocol. It is a protocol used to transfer ema... | YES | NO |
+| 283 | seen_val | Running matching loops or blocks inside themselves in programming is called | nesting. In this article, we will discuss the s... | recursion | nesting. In this article, we will discuss the s... | NO | YES |
+| 284 | seen_val | An error or flaw in the underlying code logic is called a | (n) ________.<br>A. Error<br>B. Bug | bug | (n) ________.<br>A. Error<br>B. Bug | YES | NO |
+| 285 | seen_val | Isolating and resolving structural flaws in a codebase is called | :<br><br>A) Code review<br>B) Code optimization... | debugging | :<br><br>A) Code review<br>B) Code optimization... | NO | YES |
+| 286 | seen_val | The central computer hardware component responsible for active processin... | ____.<br>A. Arithmetic Logic Unit (ALU)<br>B | CPU | ____.<br>A. Arithmetic Logic Unit (ALU)<br>B | NO | YES |
+| 287 | seen_val | The fast volatile memory layer loaded during active task runtime is | called ____.<br>A. Page Table<br>B. Stack Pointer | RAM | called ____.<br>A. Page Table<br>B. Stack Pointer | NO | YES |
+| 288 | seen_val | The non-volatile chip storing fundamental startup firmware instructions is | called a(n) ____.<br>A. ROM<br>B. | ROM | called a(n) ____.<br>A. ROM<br>B. | YES | NO |
+| 289 | seen_val | The terminal connection protocol allowing secure remote administrative s... | ____<br>SSH<br>HTTP<br>FTP<br>TELNET<br>Answer | SSH | ____<br>SSH<br>HTTP<br>FTP<br>TELNET<br>Answer | YES | NO |
+| 290 | seen_val | The internet routing directory system that maps domain names to IPs is | called ____.<br>A. DNS<br>B. FTP<br>C | DNS | called ____.<br>A. DNS<br>B. FTP<br>C | YES | NO |
+| 291 | seen_val | The structured query language command used to fetch rows from tables is | ____<br>A. SELECT<br>B. INSERT<br>C. | SELECT | ____<br>A. SELECT<br>B. INSERT<br>C. | YES | NO |
+| 292 | seen_val | The structured query language command used to insert new database rows is | ____<br>A. INSERT<br>B. UPDATE<br>C. | INSERT | ____<br>A. INSERT<br>B. UPDATE<br>C. | YES | NO |
+| 293 | seen_val | The structured query language command used to alter existing database ro... | ____.<br>A. INSERT<br>B. UPDATE<br>C. | UPDATE | ____.<br>A. INSERT<br>B. UPDATE<br>C. | YES | NO |
+| 294 | seen_val | The structured query language command used to delete existing database r... | ____<br>A. DELETE<br>B. INSERT<br>C. | DELETE | ____<br>A. DELETE<br>B. INSERT<br>C. | YES | NO |
+| 295 | seen_val | The local virtual network interface loopback address is | ____.<br>A. 127.0.0 | 127.0.0.1 | ____.<br>A. 127.0.0 | NO | YES |
+| 296 | seen_val | The standard network port utilized for insecure HTTP web traffic is | :<br>A. 80<br>B. 44 | 80 | :<br>A. 80<br>B. 44 | YES | NO |
+| 297 | seen_val | The standard network port utilized for secure HTTPS web traffic is | :<br>A. 443<br>B. 8 | 443 | :<br>A. 443<br>B. 8 | YES | NO |
+| 298 | seen_val | The Python script keyword used to pull in external modules is | ____<br>A. from<br>B. import<br>C. | import | ____<br>A. from<br>B. import<br>C. | YES | NO |
+| 299 | seen_val | The Python script keyword used to define a new class block is | ____<br>A. def<br>B. class<br>C. | class | ____<br>A. def<br>B. class<br>C. | YES | NO |
+| 300 | seen_val | The Python script keyword used to declare a new function block is | ____<br>A. def<br>B. class<br>C. | def | ____<br>A. def<br>B. class<br>C. | YES | NO |
+| 301 | seen_val | The Python script keyword used to emit values back from functions is | ____<br>A. def<br>B. return<br>C. | return | ____<br>A. def<br>B. return<br>C. | YES | NO |
+| 302 | seen_val | The Python loop keyword used to iterate over fixed sequences is | ____<br>A. for<br>B. while<br>C. | for | ____<br>A. for<br>B. while<br>C. | YES | NO |
+| 303 | seen_val | The Python loop keyword used to run loops while conditions hold true is | :<br>A. for<br>B. while<br>C. if | while | :<br>A. for<br>B. while<br>C. if | YES | NO |
+| 304 | seen_val | The Python logical boolean variable indicating positivity is | `True` if the number is positive, and `False | True | `True` if the number is positive, and `False | YES | NO |
+| 305 | seen_val | The Python logical boolean variable indicating negativity is | ____<br>A. True<br>B. False<br>C. | False | ____<br>A. True<br>B. False<br>C. | YES | NO |
+| 306 | seen_val | The Git code versioning command used to save changes locally is git | commit. ____<br>A. Correct<br>B. Incorrect | commit | commit. ____<br>A. Correct<br>B. Incorrect | YES | NO |
+| 307 | seen_val | The Git code versioning command used to send changes to remote hosts is git | push. The following are the steps for using thi... | push | push. The following are the steps for using thi... | YES | NO |
+| 308 | seen_val | The Git code versioning command used to fetch changes from remote hosts ... | fetch. The syntax for this command is:<br><br>`... | pull | fetch. The syntax for this command is:<br><br>`... | NO | YES |
+| 309 | seen_val | Relational database records are structurally organized and stored inside a | table. The data in the table is called a record, | database | table. The data in the table is called a record, | NO | YES |
+| 310 | seen_val | The physical database schema detailing model layouts is the | foundation of a database system. Which of the f... | schema | foundation of a database system. Which of the f... | NO | YES |
+| 311 | seen_val | In CSS layouts, style rules are applied using Cascading Style | Sheets (CSS). This means that the styles for a ... | Sheets | Sheets (CSS). This means that the styles for a ... | YES | NO |
+| 312 | seen_val | In web protocols, the standard layout formatting framework is | known as ____.<br>A. HTML<br>B. CSS | HTML | known as ____.<br>A. HTML<br>B. CSS | YES | NO |
+| 313 | seen_val | In web protocols, the API interaction framework is called an | HTTP/HTTPS protocol. A. Correct B. Incorrect | API | HTTP/HTTPS protocol. A. Correct B. Incorrect | NO | YES |
+| 314 | seen_val | In web protocols, the location path of resources is a | crucial part. Which of the following statements... | URL | crucial part. Which of the following statements... | NO | YES |
+| 315 | seen_val | In web protocols, the structured text format used for data exchanges is | known as:<br>A. HTML<br>B. XML<br>C | JSON | known as:<br>A. HTML<br>B. XML<br>C | NO | YES |
+| 316 | seen_val | In web protocols, the extensible markup document layout format is | ____.<br>HTML<br>XML<br>XHTML<br>MIME | XML | ____.<br>HTML<br>XML<br>XHTML<br>MIME | YES | NO |
+| 317 | seen_val | The software development tools bundle provided to programmers is an | example of a(n) ________.<br>A. Software | SDK | example of a(n) ________.<br>A. Software | NO | YES |
+| 318 | seen_val | The unified development software editor workspace is an | important part of the development environment. ... | IDE | important part of the development environment. ... | YES | NO |
+| 319 | seen_val | The primary network protocol standardizing packet layout constraints is | ____<br>A. TCP<br>B. IP<br>C. | IP | ____<br>A. TCP<br>B. IP<br>C. | YES | NO |
+| 320 | seen_val | The file transfer protocol standardizing file uploads is | ____<br>FTP<br>HTTP<br>SMTP<br>SNMP<br>Answer | FTP | ____<br>FTP<br>HTTP<br>SMTP<br>SNMP<br>Answer | YES | NO |
+| 321 | seen_val | The file transfer protocol standardizing files transfer is | ____<br>FTP<br>HTTP<br>SMTP<br>TCP<br>Answer: | FTP | ____<br>FTP<br>HTTP<br>SMTP<br>TCP<br>Answer: | YES | NO |
+| 322 | seen_val | The file transfer protocol standardizing files download is | ____<br>FTP<br>HTTP<br>SMTP<br>TCP<br>Answer: | FTP | ____<br>FTP<br>HTTP<br>SMTP<br>TCP<br>Answer: | YES | NO |
+| 323 | seen_val | The file transfer protocol standardizing folders upload is | ____<br>FTP<br>HTTP<br>SMTP<br>SNMP<br>Answer | FTP | ____<br>FTP<br>HTTP<br>SMTP<br>SNMP<br>Answer | YES | NO |
+| 324 | seen_val | The file transfer protocol standardizing folders transfer is | ____<br>FTP<br>HTTP<br>SMTP<br>SNMP<br>Answer | FTP | ____<br>FTP<br>HTTP<br>SMTP<br>SNMP<br>Answer | YES | NO |
+| 325 | seen_val | The file transfer protocol standardizing folders download is | ____<br>FTP<br>HTTP<br>SMTP<br>SNMP<br>Answer | FTP | ____<br>FTP<br>HTTP<br>SMTP<br>SNMP<br>Answer | YES | NO |
+| 326 | unseen_val | Extract the product department (electronics/apparel/home) from this item... | 'Electronics', 'product_category': 'Apparel', | electronics | 'Electronics', 'product_category': 'Apparel', | YES | NO |
+| 327 | unseen_val | Extract the product department (electronics/apparel/home) from this item... | 'electronics', 'category': 'apparel', 'sub | apparel | 'electronics', 'category': 'apparel', 'sub | YES | NO |
+| 328 | unseen_val | Extract the product department (electronics/apparel/home) from this item... | 'electronics', 'category': 'apparel', 'sub | home | 'electronics', 'category': 'apparel', 'sub | NO | YES |
+| 329 | unseen_val | Extract the product department (electronics/apparel/home) from this item... | 'electronics', 'product_category': 'apparel', ' | electronics | 'electronics', 'product_category': 'apparel', ' | YES | NO |
+| 330 | unseen_val | Extract the product department (electronics/apparel/home) from this item... | 'electronics', 'category': 'apparel', 'sub | home | 'electronics', 'category': 'apparel', 'sub | NO | YES |
+| 331 | unseen_val | Extract the product department (electronics/apparel/home) from this item... | 'Electronics', 'category': 'Apparel', ' | apparel | 'Electronics', 'category': 'Apparel', ' | YES | NO |
+| 332 | unseen_val | Extract the product department (electronics/apparel/home) from this item... | 'electronics', 'product_category': 'apparel', ' | electronics | 'electronics', 'product_category': 'apparel', ' | YES | NO |
+| 333 | unseen_val | Extract the product department (electronics/apparel/home) from this item... | 'electronics', 'category': 'apparel', 'sub | home | 'electronics', 'category': 'apparel', 'sub | NO | YES |
+| 334 | unseen_val | Extract the product department (electronics/apparel/home) from this item... | 'electronics', 'product_category': 'apparel', ' | apparel | 'electronics', 'product_category': 'apparel', ' | YES | NO |
+| 335 | unseen_val | Extract the product department (electronics/apparel/home) from this item... | 'electronics', 'product_category': 'apparel', ' | electronics | 'electronics', 'product_category': 'apparel', ' | YES | NO |
+| 336 | unseen_val | Extract the product department (electronics/apparel/home) from this item... | 'electronics', 'category': 'apparel', 'sub | apparel | 'electronics', 'category': 'apparel', 'sub | YES | NO |
+| 337 | unseen_val | Extract the product department (electronics/apparel/home) from this item... | 'electronics', 'category': 'apparel', 'sub | home | 'electronics', 'category': 'apparel', 'sub | NO | YES |
+| 338 | unseen_val | Extract the product department (electronics/apparel/home) from this item... | 'electronics', 'category': 'apparel', 'sub | electronics | 'electronics', 'category': 'apparel', 'sub | YES | NO |
+| 339 | unseen_val | Extract the product department (electronics/apparel/home) from this item... | 'electronics', 'category': 'apparel', 'sub | home | 'electronics', 'category': 'apparel', 'sub | NO | YES |
+| 340 | unseen_val | Extract the product department (electronics/apparel/home) from this item... | 'electronics', 'category': 'apparel', 'sub | apparel | 'electronics', 'category': 'apparel', 'sub | YES | NO |
+| 341 | unseen_val | Extract the product department (electronics/apparel/home) from this item... | 'electronics', 'product_category': 'apparel', ' | electronics | 'electronics', 'product_category': 'apparel', ' | YES | NO |
+| 342 | unseen_val | Extract the product department (electronics/apparel/home) from this item... | 'electronics', 'category': 'apparel', 'sub | home | 'electronics', 'category': 'apparel', 'sub | NO | YES |
+| 343 | unseen_val | Extract the product department (electronics/apparel/home) from this item... | 'electronics', 'category': 'apparel', 'sub | apparel | 'electronics', 'category': 'apparel', 'sub | YES | NO |
+| 344 | unseen_val | Extract the product department (electronics/apparel/home) from this item... | 'electronics', 'category': 'apparel', 'sub | electronics | 'electronics', 'category': 'apparel', 'sub | YES | NO |
+| 345 | unseen_val | Extract the product department (electronics/apparel/home) from this item... | 'electronics', 'category': 'apparel', 'sub | home | 'electronics', 'category': 'apparel', 'sub | NO | YES |
+| 346 | unseen_val | Extract the product department (electronics/apparel/home) from this item... | 'electronics', 'category': 'apparel', 'sub | apparel | 'electronics', 'category': 'apparel', 'sub | YES | NO |
+| 347 | unseen_val | Extract the product department (electronics/apparel/home) from this item... | 'electronics', 'product_category': 'apparel', ' | electronics | 'electronics', 'product_category': 'apparel', ' | YES | NO |
+| 348 | unseen_val | Extract the product department (electronics/apparel/home) from this item... | 'electronics', 'category': 'apparel', 'sub | home | 'electronics', 'category': 'apparel', 'sub | NO | YES |
+| 349 | unseen_val | Extract the product department (electronics/apparel/home) from this item... | 'electronics', 'category': 'apparel', 'sub | apparel | 'electronics', 'category': 'apparel', 'sub | YES | NO |
+| 350 | unseen_val | Extract the product department (electronics/apparel/home) from this item... | 'electronics', 'category': 'apparel', 'sub | electronics | 'electronics', 'category': 'apparel', 'sub | YES | NO |
+| 351 | unseen_val | Extract the product department (electronics/apparel/home) from this item... | 'electronics', 'category': 'apparel', 'sub | home | 'electronics', 'category': 'apparel', 'sub | NO | YES |
+| 352 | unseen_val | Extract the product department (electronics/apparel/home) from this item... | 'electronics', 'product_category': 'apparel', ' | apparel | 'electronics', 'product_category': 'apparel', ' | YES | NO |
+| 353 | unseen_val | Extract the product department (electronics/apparel/home) from this item... | 'electronics', 'product_category': 'apparel', ' | electronics | 'electronics', 'product_category': 'apparel', ' | YES | NO |
+| 354 | unseen_val | Extract the product department (electronics/apparel/home) from this item... | 'electronics', 'category': 'apparel', 'sub | home | 'electronics', 'category': 'apparel', 'sub | NO | YES |
+| 355 | unseen_val | Extract the product department (electronics/apparel/home) from this item... | 'electronics', 'category': 'apparel', 'sub | apparel | 'electronics', 'category': 'apparel', 'sub | YES | NO |
+| 356 | unseen_val | Extract the product department (electronics/apparel/home) from this item... | 'electronics', 'product_category': 'apparel', ' | electronics | 'electronics', 'product_category': 'apparel', ' | YES | NO |
+| 357 | unseen_val | Extract the product department (electronics/apparel/home) from this item... | 'electronics', 'category': 'apparel', 'sub | home | 'electronics', 'category': 'apparel', 'sub | NO | YES |
+| 358 | unseen_val | Extract the product department (electronics/apparel/home) from this item... | 'electronics', 'category': 'apparel', 'sub | apparel | 'electronics', 'category': 'apparel', 'sub | YES | NO |
+| 359 | unseen_val | Extract the product department (electronics/apparel/home) from this item... | 'electronics', 'category': 'apparel', 'sub | electronics | 'electronics', 'category': 'apparel', 'sub | YES | NO |
+| 360 | unseen_val | Extract the product department (electronics/apparel/home) from this item... | 'electronics', 'category': 'apparel', 'sub | home | 'electronics', 'category': 'apparel', 'sub | NO | YES |
+| 361 | unseen_val | Extract the product department (electronics/apparel/home) from this item... | 'electronics', 'category': 'apparel', 'sub | apparel | 'electronics', 'category': 'apparel', 'sub | YES | NO |
+| 362 | unseen_val | Extract the product department (electronics/apparel/home) from this item... | 'electronics', 'category': 'apparel', 'sub | electronics | 'electronics', 'category': 'apparel', 'sub | YES | NO |
+| 363 | unseen_val | Extract the product department (electronics/apparel/home) from this item... | 'electronics', 'category': 'apparel', 'sub | home | 'electronics', 'category': 'apparel', 'sub | NO | YES |
+| 364 | unseen_val | Extract the product department (electronics/apparel/home) from this item... | 'electronics', 'category': 'apparel', 'sub | apparel | 'electronics', 'category': 'apparel', 'sub | YES | NO |
+| 365 | unseen_val | Extract the product department (electronics/apparel/home) from this item... | 'electronics', 'product_category': 'apparel', ' | electronics | 'electronics', 'product_category': 'apparel', ' | YES | NO |
+| 366 | unseen_val | Extract the heart rate status (normal/bradycardia/tachycardia) from this... | 'normal', 'rate': 52 } The heart | bradycardia | 'normal', 'rate': 52 } The heart | NO | YES |
+| 367 | unseen_val | Extract the heart rate status (normal/bradycardia/tachycardia) from this... | 'normal', 'rate': 112 } The | tachycardia | 'normal', 'rate': 112 } The | NO | YES |
+| 368 | unseen_val | Extract the heart rate status (normal/bradycardia/tachycardia) from this... | 'normal', 'rate': 72 } The heart | normal | 'normal', 'rate': 72 } The heart | YES | NO |
+| 369 | unseen_val | Extract the heart rate status (normal/bradycardia/tachycardia) from this... | 'normal', 'rate': 48 } The heart | bradycardia | 'normal', 'rate': 48 } The heart | NO | YES |
+| 370 | unseen_val | Extract the heart rate status (normal/bradycardia/tachycardia) from this... | 'normal', 'rate': 125 } The | tachycardia | 'normal', 'rate': 125 } The | NO | YES |
+| 371 | unseen_val | Extract the heart rate status (normal/bradycardia/tachycardia) from this... | 'normal', 'rate': 80 } The heart | normal | 'normal', 'rate': 80 } The heart | YES | NO |
+| 372 | unseen_val | Extract the heart rate status (normal/bradycardia/tachycardia) from this... | 'normal', 'rate': 55 } The heart | bradycardia | 'normal', 'rate': 55 } The heart | NO | YES |
+| 373 | unseen_val | Extract the heart rate status (normal/bradycardia/tachycardia) from this... | 'normal', 'rate': 105 } The | tachycardia | 'normal', 'rate': 105 } The | NO | YES |
+| 374 | unseen_val | Extract the heart rate status (normal/bradycardia/tachycardia) from this... | 'normal', 'rate': 65 } The heart | normal | 'normal', 'rate': 65 } The heart | YES | NO |
+| 375 | unseen_val | Extract the heart rate status (normal/bradycardia/tachycardia) from this... | 'normal', 'rate': 50 } The heart | bradycardia | 'normal', 'rate': 50 } The heart | NO | YES |
+| 376 | unseen_val | Extract the heart rate status (normal/bradycardia/tachycardia) from this... | 'normal', 'rate': 118 } The | tachycardia | 'normal', 'rate': 118 } The | NO | YES |
+| 377 | unseen_val | Extract the heart rate status (normal/bradycardia/tachycardia) from this... | 'normal', 'rate': 75 } The heart | normal | 'normal', 'rate': 75 } The heart | YES | NO |
+| 378 | unseen_val | Extract the heart rate status (normal/bradycardia/tachycardia) from this... | 'normal', 'rate': 58 } The heart | bradycardia | 'normal', 'rate': 58 } The heart | NO | YES |
+| 379 | unseen_val | Extract the heart rate status (normal/bradycardia/tachycardia) from this... | 'normal', 'rate': 130 } The | tachycardia | 'normal', 'rate': 130 } The | NO | YES |
+| 380 | unseen_val | Extract the heart rate status (normal/bradycardia/tachycardia) from this... | 'normal', 'rate': 85 } The heart | normal | 'normal', 'rate': 85 } The heart | YES | NO |
+| 381 | unseen_val | Extract the heart rate status (normal/bradycardia/tachycardia) from this... | 'normal', 'rate': 45 } The heart | bradycardia | 'normal', 'rate': 45 } The heart | NO | YES |
+| 382 | unseen_val | Extract the heart rate status (normal/bradycardia/tachycardia) from this... | 'normal', 'rate': 115 } The | tachycardia | 'normal', 'rate': 115 } The | NO | YES |
+| 383 | unseen_val | Extract the heart rate status (normal/bradycardia/tachycardia) from this... | 'normal', 'rate': 90 } The heart | normal | 'normal', 'rate': 90 } The heart | YES | NO |
+| 384 | unseen_val | Extract the heart rate status (normal/bradycardia/tachycardia) from this... | 'normal', 'rate': 53 } The heart | bradycardia | 'normal', 'rate': 53 } The heart | NO | YES |
+| 385 | unseen_val | Extract the heart rate status (normal/bradycardia/tachycardia) from this... | 'normal', 'rate': 110 } The | tachycardia | 'normal', 'rate': 110 } The | NO | YES |
+| 386 | unseen_val | Extract the heart rate status (normal/bradycardia/tachycardia) from this... | 'normal', 'rate': 70 } The heart | normal | 'normal', 'rate': 70 } The heart | YES | NO |
+| 387 | unseen_val | Extract the heart rate status (normal/bradycardia/tachycardia) from this... | 'normal', 'rate': 51 } The heart | bradycardia | 'normal', 'rate': 51 } The heart | NO | YES |
+| 388 | unseen_val | Extract the heart rate status (normal/bradycardia/tachycardia) from this... | 'normal', 'rate': 122 } The | tachycardia | 'normal', 'rate': 122 } The | NO | YES |
+| 389 | unseen_val | Extract the heart rate status (normal/bradycardia/tachycardia) from this... | 'normal', 'rate': 68 } The heart | normal | 'normal', 'rate': 68 } The heart | YES | NO |
+| 390 | unseen_val | Extract the heart rate status (normal/bradycardia/tachycardia) from this... | 'normal', 'rate': 49 } The heart | bradycardia | 'normal', 'rate': 49 } The heart | NO | YES |
+| 391 | unseen_val | Extract the heart rate status (normal/bradycardia/tachycardia) from this... | 'normal', 'rate': 108 } The | tachycardia | 'normal', 'rate': 108 } The | NO | YES |
+| 392 | unseen_val | Extract the heart rate status (normal/bradycardia/tachycardia) from this... | 'normal', 'rate': 78 } The heart | normal | 'normal', 'rate': 78 } The heart | YES | NO |
+| 393 | unseen_val | Extract the heart rate status (normal/bradycardia/tachycardia) from this... | 'normal', 'rate': 56 } The heart | bradycardia | 'normal', 'rate': 56 } The heart | NO | YES |
+| 394 | unseen_val | Extract the heart rate status (normal/bradycardia/tachycardia) from this... | 'normal', 'rate': 120 } The | tachycardia | 'normal', 'rate': 120 } The | NO | YES |
+| 395 | unseen_val | Extract the heart rate status (normal/bradycardia/tachycardia) from this... | 'normal', 'rate': 74 } The heart | normal | 'normal', 'rate': 74 } The heart | YES | NO |
+| 396 | unseen_val | Extract the heart rate status (normal/bradycardia/tachycardia) from this... | 'normal', 'rate': 57 } The heart | bradycardia | 'normal', 'rate': 57 } The heart | NO | YES |
+| 397 | unseen_val | Extract the heart rate status (normal/bradycardia/tachycardia) from this... | 'normal', 'rate': 128 } The | tachycardia | 'normal', 'rate': 128 } The | NO | YES |
+| 398 | unseen_val | Extract the heart rate status (normal/bradycardia/tachycardia) from this... | 'normal', 'rate': 88 } The heart | normal | 'normal', 'rate': 88 } The heart | YES | NO |
+| 399 | unseen_val | Extract the heart rate status (normal/bradycardia/tachycardia) from this... | 'normal', 'rate': 54 } The heart | bradycardia | 'normal', 'rate': 54 } The heart | NO | YES |
+| 400 | unseen_val | Extract the heart rate status (normal/bradycardia/tachycardia) from this... | 'normal', 'rate': 116 } The | tachycardia | 'normal', 'rate': 116 } The | NO | YES |
+| 401 | unseen_val | Extract the heart rate status (normal/bradycardia/tachycardia) from this... | 'normal', 'rate': 82 } The heart | normal | 'normal', 'rate': 82 } The heart | YES | NO |
+| 402 | unseen_val | Extract the heart rate status (normal/bradycardia/tachycardia) from this... | 'normal', 'rate': 47 } The heart | bradycardia | 'normal', 'rate': 47 } The heart | NO | YES |
+| 403 | unseen_val | Extract the heart rate status (normal/bradycardia/tachycardia) from this... | 'normal', 'rate': 124 } The | tachycardia | 'normal', 'rate': 124 } The | NO | YES |
+| 404 | unseen_val | Extract the heart rate status (normal/bradycardia/tachycardia) from this... | 'normal', 'rate': 76 } The heart | normal | 'normal', 'rate': 76 } The heart | YES | NO |
+| 405 | unseen_val | Extract the heart rate status (normal/bradycardia/tachycardia) from this... | 'normal', 'rate': 59 } The heart | bradycardia | 'normal', 'rate': 59 } The heart | NO | YES |
+| 406 | unseen_val | Extract the security group access level (public/private) from this rule:... | 'private', 'description': 'Allow all traffic on... | public | 'private', 'description': 'Allow all traffic on... | NO | YES |
+| 407 | unseen_val | Extract the security group access level (public/private) from this rule:... | 'private', 'cidr': '10.0 | private | 'private', 'cidr': '10.0 | YES | NO |
+| 408 | unseen_val | Extract the security group access level (public/private) from this rule:... | 'private', 'cidr': '192. | private | 'private', 'cidr': '192. | YES | NO |
+| 409 | unseen_val | Extract the security group access level (public/private) from this rule:... | 'private', 'cidr': '0.0. | public | 'private', 'cidr': '0.0. | NO | YES |
+| 410 | unseen_val | Extract the security group access level (public/private) from this rule:... | 'private', 'cidr': '172. | private | 'private', 'cidr': '172. | YES | NO |
+| 411 | unseen_val | Extract the security group access level (public/private) from this rule:... | 'private', 'description': 'Allow all traffic on... | private | 'private', 'description': 'Allow all traffic on... | YES | NO |
+| 412 | unseen_val | Extract the security group access level (public/private) from this rule:... | 'public' } The security group access level is p... | public | 'public' } The security group access level is p... | YES | NO |
+| 413 | unseen_val | Extract the security group access level (public/private) from this rule:... | 'public', 'cidr': '0.0. | public | 'public', 'cidr': '0.0. | YES | NO |
+| 414 | unseen_val | Extract the security group access level (public/private) from this rule:... | 'private', 'rule_id': '18', ' | private | 'private', 'rule_id': '18', ' | YES | NO |
+| 415 | unseen_val | Extract the security group access level (public/private) from this rule:... | 'public' } The security group access level is p... | public | 'public' } The security group access level is p... | YES | NO |
+| 416 | unseen_val | Extract the security group access level (public/private) from this rule:... | 'private', 'cidr': '10.0 | private | 'private', 'cidr': '10.0 | YES | NO |
+| 417 | unseen_val | Extract the security group access level (public/private) from this rule:... | 'private', 'cidr': '192. | private | 'private', 'cidr': '192. | YES | NO |
+| 418 | unseen_val | Extract the security group access level (public/private) from this rule:... | 'private', 'cidr': '172. | private | 'private', 'cidr': '172. | YES | NO |
+| 419 | unseen_val | Extract the security group access level (public/private) from this rule:... | 'private', 'cidr': '172. | private | 'private', 'cidr': '172. | YES | NO |
+| 420 | unseen_val | Extract the security group access level (public/private) from this rule:... | 'private', 'cidr': '192. | private | 'private', 'cidr': '192. | YES | NO |
+| 421 | unseen_val | Extract the security group access level (public/private) from this rule:... | 'private', 'cidr': '172. | private | 'private', 'cidr': '172. | YES | NO |
+| 422 | unseen_val | Extract the security group access level (public/private) from this rule:... | 'private', 'cidr': '10.0 | private | 'private', 'cidr': '10.0 | YES | NO |
+| 423 | unseen_val | Extract the security group access level (public/private) from this rule:... | 'private', 'cidr': '10.0 | private | 'private', 'cidr': '10.0 | YES | NO |
+| 424 | unseen_val | Extract the security group access level (public/private) from this rule:... | 'private', 'cidr': '192. | private | 'private', 'cidr': '192. | YES | NO |
+| 425 | unseen_val | Extract the security group access level (public/private) from this rule:... | 'private', 'cidr': '10.0 | private | 'private', 'cidr': '10.0 | YES | NO |
+| 426 | unseen_val | Extract the security group access level (public/private) from this rule:... | 'private', 'description': 'Allow all traffic on... | public | 'private', 'description': 'Allow all traffic on... | NO | YES |
+| 427 | unseen_val | Extract the security group access level (public/private) from this rule:... | 'private', 'cidr': '10.0 | private | 'private', 'cidr': '10.0 | YES | NO |
+| 428 | unseen_val | Extract the security group access level (public/private) from this rule:... | 'private', 'description': 'Allow all traffic on... | public | 'private', 'description': 'Allow all traffic on... | NO | YES |
+| 429 | unseen_val | Extract the security group access level (public/private) from this rule:... | 'private', 'description': 'Allow all traffic on... | private | 'private', 'description': 'Allow all traffic on... | YES | NO |
+| 430 | unseen_val | Extract the security group access level (public/private) from this rule:... | 'private', 'description': 'Allow all traffic on... | public | 'private', 'description': 'Allow all traffic on... | NO | YES |
+| 431 | unseen_val | Extract the security group access level (public/private) from this rule:... | 'private', 'cidr': '10.0 | private | 'private', 'cidr': '10.0 | YES | NO |
+| 432 | unseen_val | Extract the security group access level (public/private) from this rule:... | 'private', 'cidr': '0.0. | public | 'private', 'cidr': '0.0. | NO | YES |
+| 433 | unseen_val | Extract the security group access level (public/private) from this rule:... | 'private', 'cidr': '10.0 | private | 'private', 'cidr': '10.0 | YES | NO |
+| 434 | unseen_val | Extract the security group access level (public/private) from this rule:... | 'private', 'cidr': '0.0. | public | 'private', 'cidr': '0.0. | NO | YES |
+| 435 | unseen_val | Extract the security group access level (public/private) from this rule:... | 'private', 'cidr': '192. | private | 'private', 'cidr': '192. | YES | NO |
+| 436 | unseen_val | Extract the security group access level (public/private) from this rule:... | 'private', 'cidr': '0.0. | public | 'private', 'cidr': '0.0. | NO | YES |
+| 437 | unseen_val | Extract the security group access level (public/private) from this rule:... | 'private', 'cidr': '10.0 | private | 'private', 'cidr': '10.0 | YES | NO |
+| 438 | unseen_val | Extract the security group access level (public/private) from this rule:... | 'private', 'cidr': '0.0. | public | 'private', 'cidr': '0.0. | NO | YES |
+| 439 | unseen_val | Extract the security group access level (public/private) from this rule:... | 'private', 'cidr': '192. | private | 'private', 'cidr': '192. | YES | NO |
+| 440 | unseen_val | Extract the security group access level (public/private) from this rule:... | 'private', 'cidr': '0.0. | public | 'private', 'cidr': '0.0. | NO | YES |
+| 441 | unseen_val | Extract the security group access level (public/private) from this rule:... | 'private', 'cidr': '10.0 | private | 'private', 'cidr': '10.0 | YES | NO |
+| 442 | unseen_val | Extract the security group access level (public/private) from this rule:... | 'private', 'protocol': 'tcp', 'source_address | public | 'private', 'protocol': 'tcp', 'source_address | NO | YES |
+| 443 | unseen_val | Extract the security group access level (public/private) from this rule:... | 'private', 'cidr': '192. | private | 'private', 'cidr': '192. | YES | NO |
+| 444 | unseen_val | Extract the security group access level (public/private) from this rule:... | 'private', 'description': 'Allow all traffic on... | public | 'private', 'description': 'Allow all traffic on... | NO | YES |
+| 445 | unseen_val | Extract the security group access level (public/private) from this rule:... | 'private', 'description': 'Allow all traffic on... | private | 'private', 'description': 'Allow all traffic on... | YES | NO |
+| 446 | unseen_val | Extract the security group access level (public/private) from this rule:... | 'private', 'description': 'Allow all traffic on... | public | 'private', 'description': 'Allow all traffic on... | NO | YES |
+| 447 | unseen_val | Extract the security group access level (public/private) from this rule:... | 'private', 'cidr': '192. | private | 'private', 'cidr': '192. | YES | NO |
+| 448 | unseen_val | Extract the security group access level (public/private) from this rule:... | 'private', 'description': 'Port 590 | public | 'private', 'description': 'Port 590 | NO | YES |
+| 449 | unseen_val | Extract the security group access level (public/private) from this rule:... | 'private', 'description': 'Port 590 | private | 'private', 'description': 'Port 590 | YES | NO |
+| 450 | unseen_val | Extract the security group access level (public/private) from this rule:... | 'private', 'description': 'Allow all traffic on... | public | 'private', 'description': 'Allow all traffic on... | NO | YES |
+| 451 | ood | Extract the engine combustion state (stable/unstable) from this rocket t... | 'unstable', 'reason': 'high pressure or high | unstable | 'unstable', 'reason': 'high pressure or high | YES | NO |
+| 452 | ood | Extract the engine combustion state (stable/unstable) from this rocket t... | 'unstable', 'reason': 'high oxygen pressure, | stable | 'unstable', 'reason': 'high oxygen pressure, | YES | NO |
+| 453 | ood | Extract the engine combustion state (stable/unstable) from this rocket t... | 'unstable', 'reason': 'high pressure or high | unstable | 'unstable', 'reason': 'high pressure or high | YES | NO |
+| 454 | ood | Extract the engine combustion state (stable/unstable) from this rocket t... | 'unstable', 'reason': 'high pressure or high | stable | 'unstable', 'reason': 'high pressure or high | YES | NO |
+| 455 | ood | Extract the engine combustion state (stable/unstable) from this rocket t... | 'unstable', 'reason': 'high pressure or high | stable | 'unstable', 'reason': 'high pressure or high | YES | NO |
+| 456 | ood | Extract the engine combustion state (stable/unstable) from this rocket t... | 'unstable', 'reason': 'high pressure or high | unstable | 'unstable', 'reason': 'high pressure or high | YES | NO |
+| 457 | ood | Extract the engine combustion state (stable/unstable) from this rocket t... | 'unstable', 'reason': 'high pressure or high | stable | 'unstable', 'reason': 'high pressure or high | YES | NO |
+| 458 | ood | Extract the engine combustion state (stable/unstable) from this rocket t... | 'unstable', 'reason': 'high pressure or high | stable | 'unstable', 'reason': 'high pressure or high | YES | NO |
+| 459 | ood | Extract the engine combustion state (stable/unstable) from this rocket t... | 'unstable', 'reason': 'high pressure or high | unstable | 'unstable', 'reason': 'high pressure or high | YES | NO |
+| 460 | ood | Extract the engine combustion state (stable/unstable) from this rocket t... | 'unstable', 'reason': 'high pressure or high | stable | 'unstable', 'reason': 'high pressure or high | YES | NO |
+| 461 | ood | Extract the engine combustion state (stable/unstable) from this rocket t... | 'unstable', 'reason': 'high pressure or high | unstable | 'unstable', 'reason': 'high pressure or high | YES | NO |
+| 462 | ood | Extract the engine combustion state (stable/unstable) from this rocket t... | 'unstable', 'reason': 'high pressure or high | stable | 'unstable', 'reason': 'high pressure or high | YES | NO |
+| 463 | ood | Extract the engine combustion state (stable/unstable) from this rocket t... | 'unstable', 'reason': 'high pressure or high | unstable | 'unstable', 'reason': 'high pressure or high | YES | NO |
+| 464 | ood | Extract the engine combustion state (stable/unstable) from this rocket t... | 'unstable', 'reason': 'high oxygen pressure, | stable | 'unstable', 'reason': 'high oxygen pressure, | YES | NO |
+| 465 | ood | Extract the engine combustion state (stable/unstable) from this rocket t... | 'unstable', 'reason': 'high pressure or high | stable | 'unstable', 'reason': 'high pressure or high | YES | NO |
+| 466 | ood | Extract the engine combustion state (stable/unstable) from this rocket t... | 'unstable', 'reason': 'high pressure or high | unstable | 'unstable', 'reason': 'high pressure or high | YES | NO |
+| 467 | ood | Extract the engine combustion state (stable/unstable) from this rocket t... | 'unstable', 'reason': 'high pressure or high | stable | 'unstable', 'reason': 'high pressure or high | YES | NO |
+| 468 | ood | Extract the engine combustion state (stable/unstable) from this rocket t... | 'unstable', 'reason': 'high pressure or high | stable | 'unstable', 'reason': 'high pressure or high | YES | NO |
+| 469 | ood | Extract the engine combustion state (stable/unstable) from this rocket t... | 'unstable', 'reason': 'high pressure or high | unstable | 'unstable', 'reason': 'high pressure or high | YES | NO |
+| 470 | ood | Extract the engine combustion state (stable/unstable) from this rocket t... | 'unstable', 'reason': 'high pressure or high | stable | 'unstable', 'reason': 'high pressure or high | YES | NO |
+| 471 | ood | Extract the engine combustion state (stable/unstable) from this rocket t... | 'unstable', 'reason': 'high pressure or high | unstable | 'unstable', 'reason': 'high pressure or high | YES | NO |
+| 472 | ood | Extract the engine combustion state (stable/unstable) from this rocket t... | 'unstable', 'reason': 'high pressure or high | stable | 'unstable', 'reason': 'high pressure or high | YES | NO |
+| 473 | ood | Extract the engine combustion state (stable/unstable) from this rocket t... | 'unstable', 'reason': 'high pressure or high | unstable | 'unstable', 'reason': 'high pressure or high | YES | NO |
+| 474 | ood | Extract the engine combustion state (stable/unstable) from this rocket t... | 'unstable', 'reason': 'high pressure or high | stable | 'unstable', 'reason': 'high pressure or high | YES | NO |
+| 475 | ood | Extract the engine combustion state (stable/unstable) from this rocket t... | 'unstable', 'reason': 'high pressure or high | stable | 'unstable', 'reason': 'high pressure or high | YES | NO |
+| 476 | ood | Extract the engine combustion state (stable/unstable) from this rocket t... | 'unstable', 'reason': 'high pressure or high | unstable | 'unstable', 'reason': 'high pressure or high | YES | NO |
+| 477 | ood | Extract the engine combustion state (stable/unstable) from this rocket t... | 'unstable', 'reason': 'high pressure or high | stable | 'unstable', 'reason': 'high pressure or high | YES | NO |
+| 478 | ood | Extract the engine combustion state (stable/unstable) from this rocket t... | 'unstable', 'reason': 'high pressure or high | stable | 'unstable', 'reason': 'high pressure or high | YES | NO |
+| 479 | ood | Extract the engine combustion state (stable/unstable) from this rocket t... | 'unstable', 'reason': 'high pressure or high | unstable | 'unstable', 'reason': 'high pressure or high | YES | NO |
+| 480 | ood | Extract the engine combustion state (stable/unstable) from this rocket t... | 'unstable', 'reason': 'high pressure or high | stable | 'unstable', 'reason': 'high pressure or high | YES | NO |
+| 481 | ood | Extract the engine combustion state (stable/unstable) from this rocket t... | 'unstable', 'reason': 'high pressure or high | unstable | 'unstable', 'reason': 'high pressure or high | YES | NO |
+| 482 | ood | Extract the engine combustion state (stable/unstable) from this rocket t... | 'unstable', 'reason': 'high pressure or high | stable | 'unstable', 'reason': 'high pressure or high | YES | NO |
+| 483 | ood | Extract the engine combustion state (stable/unstable) from this rocket t... | 'unstable', 'reason': 'high pressure or high | unstable | 'unstable', 'reason': 'high pressure or high | YES | NO |
+| 484 | ood | Extract the engine combustion state (stable/unstable) from this rocket t... | 'unstable', 'reason': 'high pressure or high | stable | 'unstable', 'reason': 'high pressure or high | YES | NO |
+| 485 | ood | Extract the engine combustion state (stable/unstable) from this rocket t... | 'unstable', 'reason': 'high pressure or high | stable | 'unstable', 'reason': 'high pressure or high | YES | NO |
+| 486 | ood | Extract the engine combustion state (stable/unstable) from this rocket t... | 'unstable', 'reason': 'high pressure or high | unstable | 'unstable', 'reason': 'high pressure or high | YES | NO |
+| 487 | ood | Extract the engine combustion state (stable/unstable) from this rocket t... | 'unstable', 'reason': 'high pressure or high | stable | 'unstable', 'reason': 'high pressure or high | YES | NO |
+| 488 | ood | Extract the engine combustion state (stable/unstable) from this rocket t... | 'unstable', 'reason': 'high pressure or high | stable | 'unstable', 'reason': 'high pressure or high | YES | NO |
+| 489 | ood | Extract the engine combustion state (stable/unstable) from this rocket t... | 'unstable', 'reason': 'high pressure or high | unstable | 'unstable', 'reason': 'high pressure or high | YES | NO |
+| 490 | ood | Extract the engine combustion state (stable/unstable) from this rocket t... | 'unstable', 'reason': 'high pressure or high | stable | 'unstable', 'reason': 'high pressure or high | YES | NO |
+| 491 | ood | Extract the engine combustion state (stable/unstable) from this rocket t... | 'unstable', 'reason': 'high pressure or high | unstable | 'unstable', 'reason': 'high pressure or high | YES | NO |
+| 492 | ood | Extract the engine combustion state (stable/unstable) from this rocket t... | 'unstable', 'reason': 'high pressure or high | stable | 'unstable', 'reason': 'high pressure or high | YES | NO |
+| 493 | ood | Extract the engine combustion state (stable/unstable) from this rocket t... | 'unstable', 'reason': 'high pressure or high | unstable | 'unstable', 'reason': 'high pressure or high | YES | NO |
+| 494 | ood | Extract the engine combustion state (stable/unstable) from this rocket t... | 'unstable', 'reason': 'high pressure or high | stable | 'unstable', 'reason': 'high pressure or high | YES | NO |
+| 495 | ood | Extract the engine combustion state (stable/unstable) from this rocket t... | 'unstable', 'reason': 'high pressure or high | stable | 'unstable', 'reason': 'high pressure or high | YES | NO |
+| 496 | ood | Extract the engine combustion state (stable/unstable) from this rocket t... | 'unstable', 'reason': 'high pressure or high | unstable | 'unstable', 'reason': 'high pressure or high | YES | NO |
+| 497 | ood | Extract the engine combustion state (stable/unstable) from this rocket t... | 'unstable', 'reason': 'high pressure or high | stable | 'unstable', 'reason': 'high pressure or high | YES | NO |
+| 498 | ood | Extract the engine combustion state (stable/unstable) from this rocket t... | 'unstable', 'reason': 'high pressure or high | stable | 'unstable', 'reason': 'high pressure or high | YES | NO |
+| 499 | ood | Extract the engine combustion state (stable/unstable) from this rocket t... | 'unstable', 'reason': 'high pressure or high | unstable | 'unstable', 'reason': 'high pressure or high | YES | NO |
+| 500 | ood | Extract the engine combustion state (stable/unstable) from this rocket t... | 'unstable', 'reason': 'high pressure or high | stable | 'unstable', 'reason': 'high pressure or high | YES | NO |

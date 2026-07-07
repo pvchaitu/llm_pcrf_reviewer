@@ -3021,54 +3021,54 @@ Prevention Action: Candidate blocked because baseline captured the target and ca
 =====================================================================
 [G] RAW CONSOLE LOG APPENDIX
 =====================================================================
-[PCRF-Suite] 2026-07-06 04:34:37,353 - INFO - Loaded external dataset from another-dataset.csv
-[PCRF-Suite] 2026-07-06 04:34:37,353 - INFO - [SPLIT AUDIT] train split count: 100
-[PCRF-Suite] 2026-07-06 04:34:37,353 - INFO - [SPLIT AUDIT] seen_val split count: 40
-[PCRF-Suite] 2026-07-06 04:34:37,354 - INFO - [SPLIT AUDIT] unseen_val split count: 40
-[PCRF-Suite] 2026-07-06 04:34:37,354 - INFO - [SPLIT AUDIT] ood split count: 20
-[PCRF-Suite] 2026-07-06 04:34:37,355 - INFO - [SPLIT AUDIT] total records loaded: 200
-[PCRF-Suite] 2026-07-06 04:34:37,355 - INFO - Retrieving tokenizer and architecture weights for: Qwen/Qwen2.5-0.5B-Instruct
-[PCRF-Suite] 2026-07-06 04:34:52,329 - INFO - Model parameter arrays successfully allocated.
-[PCRF-Suite] 2026-07-06 04:34:52,331 - INFO - ==========================================================================================
-[PCRF-Suite] 2026-07-06 04:34:52,332 - INFO -                   PCRF RESOURCE AUDIT & COMPUTE PROFILING SYSTEM                  
-[PCRF-Suite] 2026-07-06 04:34:52,333 - INFO - ==========================================================================================
-[PCRF-Suite] 2026-07-06 04:34:52,333 - INFO - Host OS Platform          : Linux 6.1.0-49-cloud-amd64
-[PCRF-Suite] 2026-07-06 04:34:52,334 - INFO - Active CPU Cores Detected : 8
-[PCRF-Suite] 2026-07-06 04:34:52,335 - INFO - Host System RAM           : 29.38 GB
-[PCRF-Suite] 2026-07-06 04:34:52,335 - INFO - GPU Hardware Accelerator  : Tesla T4
-[PCRF-Suite] 2026-07-06 04:34:52,336 - INFO - Dedicated VRAM Capacity   : 14.56 GB
-[PCRF-Suite] 2026-07-06 04:34:52,337 - INFO - Target Model Size (Params): 494.0 Million Parameters
-[PCRF-Suite] 2026-07-06 04:34:52,337 - INFO - ------------------------------------------------------------------------------------------
-[PCRF-Suite] 2026-07-06 04:34:52,338 - INFO - RECOMMENDED GCP COMPUTE INFRASTRUCTURE SETUP:
-[PCRF-Suite] 2026-07-06 04:34:52,339 - INFO -   - Recommended GCP Tier  : n1-standard-8 (8 vCPUs, 30 GB RAM)
+[PCRF-Suite] 2026-07-06 09:12:43,129 - INFO - Loaded external dataset from another-dataset.csv
+[PCRF-Suite] 2026-07-06 09:12:43,130 - INFO - [SPLIT AUDIT] train split count: 100
+[PCRF-Suite] 2026-07-06 09:12:43,130 - INFO - [SPLIT AUDIT] seen_val split count: 40
+[PCRF-Suite] 2026-07-06 09:12:43,131 - INFO - [SPLIT AUDIT] unseen_val split count: 40
+[PCRF-Suite] 2026-07-06 09:12:43,132 - INFO - [SPLIT AUDIT] ood split count: 20
+[PCRF-Suite] 2026-07-06 09:12:43,132 - INFO - [SPLIT AUDIT] total records loaded: 200
+[PCRF-Suite] 2026-07-06 09:12:43,133 - INFO - Retrieving tokenizer and architecture weights for: Qwen/Qwen2.5-0.5B-Instruct
+[PCRF-Suite] 2026-07-06 09:12:44,546 - INFO - Model parameter arrays successfully allocated.
+[PCRF-Suite] 2026-07-06 09:12:44,549 - INFO - ==========================================================================================
+[PCRF-Suite] 2026-07-06 09:12:44,549 - INFO -                   PCRF RESOURCE AUDIT & COMPUTE PROFILING SYSTEM                  
+[PCRF-Suite] 2026-07-06 09:12:44,550 - INFO - ==========================================================================================
+[PCRF-Suite] 2026-07-06 09:12:44,550 - INFO - Host OS Platform          : Linux 6.1.0-49-cloud-amd64
+[PCRF-Suite] 2026-07-06 09:12:44,551 - INFO - Active CPU Cores Detected : 8
+[PCRF-Suite] 2026-07-06 09:12:44,552 - INFO - Host System RAM           : 29.38 GB
+[PCRF-Suite] 2026-07-06 09:12:44,552 - INFO - GPU Hardware Accelerator  : Tesla T4
+[PCRF-Suite] 2026-07-06 09:12:44,553 - INFO - Dedicated VRAM Capacity   : 14.56 GB
+[PCRF-Suite] 2026-07-06 09:12:44,553 - INFO - Target Model Size (Params): 494.0 Million Parameters
+[PCRF-Suite] 2026-07-06 09:12:44,554 - INFO - ------------------------------------------------------------------------------------------
+[PCRF-Suite] 2026-07-06 09:12:44,554 - INFO - RECOMMENDED GCP COMPUTE INFRASTRUCTURE SETUP:
+[PCRF-Suite] 2026-07-06 09:12:44,555 - INFO -   - Recommended GCP Tier  : n1-standard-8 (8 vCPUs, 30 GB RAM)
   - Accelerator Context   : 1x NVIDIA T4 (16 GB VRAM)
   - Technical Reason      : Light parameter profiles run perfectly inside standard T4 envelopes.
                             At least 30 GB Host RAM prevents OS swap stalls during model download.
-[PCRF-Suite] 2026-07-06 04:34:52,339 - INFO - ------------------------------------------------------------------------------------------
-[PCRF-Suite] 2026-07-06 04:34:52,340 - INFO - GCP COMPUTE ENGINE SAFETY GUIDELINES (OOME PREVENTION):
-[PCRF-Suite] 2026-07-06 04:34:52,341 - INFO -  1. Always purge dangling activations using 'torch.cuda.empty_cache()' during hooks teardown.
-[PCRF-Suite] 2026-07-06 04:34:52,341 - INFO -  2. Enable half-precision (FP16/BF16) modes across all forward passes.
-[PCRF-Suite] 2026-07-06 04:34:52,342 - INFO -  3. Anchor maximum sequence length limits (`max_len`) tightly to block quadratic expansion.
-[PCRF-Suite] 2026-07-06 04:34:52,342 - INFO - ==========================================================================================
+[PCRF-Suite] 2026-07-06 09:12:44,555 - INFO - ------------------------------------------------------------------------------------------
+[PCRF-Suite] 2026-07-06 09:12:44,556 - INFO - GCP COMPUTE ENGINE SAFETY GUIDELINES (OOME PREVENTION):
+[PCRF-Suite] 2026-07-06 09:12:44,556 - INFO -  1. Always purge dangling activations using 'torch.cuda.empty_cache()' during hooks teardown.
+[PCRF-Suite] 2026-07-06 09:12:44,557 - INFO -  2. Enable half-precision (FP16/BF16) modes across all forward passes.
+[PCRF-Suite] 2026-07-06 09:12:44,557 - INFO -  3. Anchor maximum sequence length limits (`max_len`) tightly to block quadratic expansion.
+[PCRF-Suite] 2026-07-06 09:12:44,558 - INFO - ==========================================================================================
 
-[PCRF-Suite] 2026-07-06 04:34:52,344 - INFO - Baseline model parameters frozen.
-[PCRF-Suite] 2026-07-06 04:34:52,348 - INFO - --- Phase 1: Running Baseline Profile Evaluation ---
-[PCRF-Suite] 2026-07-06 04:35:37,544 - INFO - FP32 candidate model loaded securely for optimization.
-[PCRF-Suite] 2026-07-06 04:35:37,545 - INFO - 
+[PCRF-Suite] 2026-07-06 09:12:44,560 - INFO - Baseline model parameters frozen.
+[PCRF-Suite] 2026-07-06 09:12:44,561 - INFO - --- Phase 1: Running Baseline Profile Evaluation ---
+[PCRF-Suite] 2026-07-06 09:13:22,810 - INFO - FP32 candidate model loaded securely for optimization.
+[PCRF-Suite] 2026-07-06 09:13:22,811 - INFO - 
 --- Scenario A: Run Standalone Layer Derivative Estimation ---
-[PCRF-Suite] 2026-07-06 04:38:08,365 - INFO - 
+[PCRF-Suite] 2026-07-06 09:16:00,587 - INFO - 
 --- Scenario B: Independent Curriculum Selection ---
-[PCRF-Suite] 2026-07-06 04:40:45,880 - INFO - 
+[PCRF-Suite] 2026-07-06 09:18:42,497 - INFO - 
 --- Scenario C: Standalone Structural Residual-Depth Monitoring ---
-[PCRF-Suite] 2026-07-06 04:43:33,574 - INFO - 
+[PCRF-Suite] 2026-07-06 09:21:35,219 - INFO - 
 --- Scenario D: Derivative-Weighted Regularization ---
-[PCRF-Suite] 2026-07-06 04:46:07,889 - INFO - Initializing Advanced CDL v2 SFT Regularization training loop...
-[PCRF-Suite] 2026-07-06 04:46:19,003 - INFO - Regularization SFT optimization completed.
-[PCRF-Suite] 2026-07-06 04:46:54,475 - INFO - [ROUTER AUDIT] baseline served count: 54
-[PCRF-Suite] 2026-07-06 04:46:54,476 - INFO - [ROUTER AUDIT] candidate served count: 2
-[PCRF-Suite] 2026-07-06 04:46:54,477 - INFO - [ROUTER AUDIT] abstain count: 24
-[PCRF-Suite] 2026-07-06 04:46:54,477 - INFO - [ROUTER AUDIT] semantic recoveries observed: 2
-[PCRF-Suite] 2026-07-06 04:46:54,479 - INFO - [ROUTER AUDIT] contract clean repairs promoted: 2
-[PCRF-Suite] 2026-07-06 04:46:54,479 - INFO - [ROUTER AUDIT] semantic recoveries withheld: 0
-[PCRF-Suite] 2026-07-06 04:46:54,480 - INFO - Generating detailed developer SFT debug log at: ./customer_pcrf_artifacts/pcrf_debug_report.txt
+[PCRF-Suite] 2026-07-06 09:24:13,765 - INFO - Initializing Advanced CDL v2 SFT Regularization training loop...
+[PCRF-Suite] 2026-07-06 09:24:22,441 - INFO - Regularization SFT optimization completed.
+[PCRF-Suite] 2026-07-06 09:24:58,562 - INFO - [ROUTER AUDIT] baseline served count: 54
+[PCRF-Suite] 2026-07-06 09:24:58,563 - INFO - [ROUTER AUDIT] candidate served count: 2
+[PCRF-Suite] 2026-07-06 09:24:58,563 - INFO - [ROUTER AUDIT] abstain count: 24
+[PCRF-Suite] 2026-07-06 09:24:58,564 - INFO - [ROUTER AUDIT] semantic recoveries observed: 2
+[PCRF-Suite] 2026-07-06 09:24:58,564 - INFO - [ROUTER AUDIT] contract clean repairs promoted: 2
+[PCRF-Suite] 2026-07-06 09:24:58,566 - INFO - [ROUTER AUDIT] semantic recoveries withheld: 0
+[PCRF-Suite] 2026-07-06 09:24:58,566 - INFO - Generating detailed developer SFT debug log at: ./customer_pcrf_artifacts/pcrf_debug_report.txt
 

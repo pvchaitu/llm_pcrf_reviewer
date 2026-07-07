@@ -195,9 +195,9 @@ Why Governance Decision Was Correct:
 Task Type: cs
 Decision: abstain_safe_fallback
 Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3915).
-Baseline Risk: 0.53214
+Baseline Risk: 0.28214
 Candidate Risk: 0.39152
-Delta Risk: -0.14063
+Delta Risk: 0.10937
 Why Governance Decision Was Correct:
   - Both configurations produced unresolved hallucinations, and PCRF correctly withheld output to safeguard user experience.
 --------------------------------------------------------------------------------
@@ -282,9 +282,9 @@ Why Governance Decision Was Correct:
 --- SUCCESS ENTRY 26: PROMPT ID 106 (SAFE_ABSTAIN) ---
 Task Type: scientific
 Decision: abstain_safe_fallback
-Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5867).
-Baseline Risk: 0.55511
-Candidate Risk: 0.58667
+Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3367).
+Baseline Risk: 0.30511
+Candidate Risk: 0.33667
 Delta Risk: 0.03156
 Why Governance Decision Was Correct:
   - Both configurations produced unresolved hallucinations, and PCRF correctly withheld output to safeguard user experience.
@@ -294,9 +294,9 @@ Why Governance Decision Was Correct:
 Task Type: scientific
 Decision: abstain_safe_fallback
 Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3742).
-Baseline Risk: 0.56542
+Baseline Risk: 0.31542
 Candidate Risk: 0.37417
-Delta Risk: -0.19125
+Delta Risk: 0.05875
 Why Governance Decision Was Correct:
   - Both configurations produced unresolved hallucinations, and PCRF correctly withheld output to safeguard user experience.
 --------------------------------------------------------------------------------
@@ -425,9 +425,9 @@ Why Governance Decision Was Correct:
 --- SUCCESS ENTRY 39: PROMPT ID 119 (SAFE_ABSTAIN) ---
 Task Type: cs
 Decision: abstain_safe_fallback
-Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.5506).
-Baseline Risk: 0.44507
-Candidate Risk: 0.55058
+Reason: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3006).
+Baseline Risk: 0.19507
+Candidate Risk: 0.30058
 Delta Risk: 0.10551
 Why Governance Decision Was Correct:
   - Both configurations produced unresolved hallucinations, and PCRF correctly withheld output to safeguard user experience.
