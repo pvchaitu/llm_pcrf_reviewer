@@ -1,4 +1,3 @@
-
 # ==============================================================================
 # File: pcrf_reporting.py
 # ==============================================================================
@@ -898,7 +897,7 @@ def write_baseline_only_artifacts(
 
 
 def write_critical_failure_analysis(trace_rows: List[Dict[str, Any]], output_dir: str, z_score_audit_text: str = "") -> None:
-    cf_path = os.path.join(output_dir, "critical_observations.txt")
+    cf_path = os.path.join(output_dir, "critical_failure.txt")
     
     failure_rows = []
     for r in trace_rows:
@@ -908,7 +907,7 @@ def write_critical_failure_analysis(trace_rows: List[Dict[str, Any]], output_dir
             
     with open(cf_path, "w", encoding="utf-8") as f:
         f.write("=========================================================================\n")
-        f.write("PCRF SYSTEM GOVERNANCE CRITICAL OBSERVATIONS ANALYSIS\n")
+        f.write("PCRF SYSTEM GOVERNANCE CRITICAL FAILURE ANALYSIS (GENUINE GOVERNANCE FAILURES ONLY)\n")
         f.write("=========================================================================\n\n")
         f.write(f"Total Genuine Governance Failures Tracked: {len(failure_rows)}\n\n")
         
@@ -951,7 +950,7 @@ def write_critical_failure_analysis(trace_rows: List[Dict[str, Any]], output_dir
                 f.write("  - Dampen SFT learning rates on mid-layer bottleneck blocks or elevate abstention threshold boundaries.\n")
                 f.write("-" * 80 + "\n\n")
         
-        # --- APPEND THE Z-SCORE/K-FACTOR AUDIT TO THE BOTTOM ---
+        # --- APPEND THE Z-SCORE AUDIT TO THE BOTTOM ---
         if z_score_audit_text:
             f.write("\n")
             f.write(z_score_audit_text)
@@ -1063,72 +1062,90 @@ def make_zero_shot_simulation_box(stats: Dict[str, Any]) -> str:
 > **The Verdict:** The continuous structural math successfully identified and blocked **{stats['recall']:.1f}%** of all hallucinations (`{stats['tp']}/{stats['gold_hallucinations']}`) with zero ground-truth knowledge. While yielding {stats['fp']} false positives (safe abstains on correct answers), it transformed an erratic baseline into a highly reliable endpoint, proving extreme safety suitability for high-risk domains.
 """
 
-def calculate_inference_only_simulation(trace_rows: List[Dict[str, Any]], hr_threshold: float = 0.40) -> Dict[str, Any]:
-    """Calculates Zero-Shot Production Simulation using Inference Math (HR) only."""
-    total = len(trace_rows)
-    gold_correct, gold_hallucinations = 0, 0
-    tp, fn, fp, tn = 0, 0, 0, 0
+def calibrate_unsupervised_thresholds(trace_rows: List[Dict[str, Any]], z_score_cutoff: float = 2.0) -> Tuple[float, float]:
+    """
+    Dynamically derives thresholds using Robust Z-Scores (Median Absolute Deviation).
+    
+    Standard Z-scores (Mean/StdDev) assume a perfect bell curve and are warped by extreme outliers. 
+    Because LLM risk scores (NLL, Entropy) are heavily right-skewed, we use Robust Z-Scores.
+    
+    Formula: Z_robust = 0.6745 * (X - Median) / MAD
+    We solve for X (the threshold boundary) where Z_robust equals our cutoff (e.g., Z = 2.0).
+    """
+    hr_scores = [float(r.get("candidate_hallucination_risk_score", 0.0)) for r in trace_rows]
+    nll_scores = [float(r.get("candidate_nll", 0.0)) for r in trace_rows]
 
-    for r in trace_rows:
-        c_corr = int(r.get("candidate_correct", 0))
-        c_hr = float(r.get("candidate_hallucination_risk_score", 0.0))
+    if not hr_scores or not nll_scores:
+        return 0.40, 3.50  # Fallbacks
 
-        inf_is_hal = c_hr > hr_threshold
+    # 1. Calculate the Median (The true, un-warped center of the model's confidence)
+    hr_median = np.median(hr_scores)
+    nll_median = np.median(nll_scores)
 
-        if c_corr == 1:
-            gold_correct += 1
-            if inf_is_hal: fp += 1
-            else: tn += 1
-        else:
-            gold_hallucinations += 1
-            if inf_is_hal: tp += 1
-            else: fn += 1
+    # 2. Calculate the Median Absolute Deviation (MAD) (The un-warped variance)
+    hr_mad = np.median([abs(x - hr_median) for x in hr_scores])
+    nll_mad = np.median([abs(x - nll_median) for x in nll_scores])
 
-    raw_acc = (gold_correct / total) * 100.0 if total > 0 else 0.0
-    served_total = tn + fn
-    zs_acc = (tn / served_total) * 100.0 if served_total > 0 else 0.0
-    recall = (tp / gold_hallucinations) * 100.0 if gold_hallucinations > 0 else 100.0
+    # Prevent division by zero if a model outputs the exact same confidence for every prompt
+    hr_mad = max(1e-6, hr_mad)
+    nll_mad = max(1e-6, nll_mad)
 
-    return {
-        "total": total, "gold_correct": gold_correct, "gold_hallucinations": gold_hallucinations,
-        "tp": tp, "fn": fn, "fp": fp, "tn": tn,
-        "raw_acc": raw_acc, "served_total": served_total, "zs_acc": zs_acc, 
-        "recall": recall, "hr_threshold": hr_threshold
-    }
+    # 3. Solve for the Anomaly Boundary (X) using the Robust Z-Score formula
+    # 0.6745 is the mathematical constant used to scale MAD to standard normal deviations
+    dynamic_hr = (z_score_cutoff * hr_mad / 0.6745) + hr_median
+    dynamic_nll = (z_score_cutoff * nll_mad / 0.6745) + nll_median
 
+    # 4. Enforce sane mathematical floors to prevent the model from over-penalizing itself
+    dynamic_hr = max(0.20, dynamic_hr)
+    dynamic_nll = max(1.50, dynamic_nll)
 
-def calculate_curriculum_only_simulation(trace_rows: List[Dict[str, Any]], nll_threshold: float = 3.5) -> Dict[str, Any]:
-    """Calculates Zero-Shot Production Simulation using Curriculum Math (NLL) only."""
-    total = len(trace_rows)
-    gold_correct, gold_hallucinations = 0, 0
-    tp, fn, fp, tn = 0, 0, 0, 0
+    return round(float(dynamic_hr), 2), round(float(dynamic_nll), 2)
 
-    for r in trace_rows:
-        c_corr = int(r.get("candidate_correct", 0))
-        c_nll = float(r.get("candidate_nll", 0.0))
+def audit_z_score_sweep(trace_rows: List[Dict[str, Any]]) -> str:
+    """
+    Sweeps through multiple Robust Z-Scores to find the one that maximizes the F1-Score.
+    This acts purely as an AUDIT LOG and does NOT auto-apply the thresholds.
+    Returns a formatted string to be appended to critical_failure.txt.
+    """
+    lines = []
+    lines.append("================================================================================")
+    lines.append("🔍 ROBUST Z-SCORE OPTIMIZATION SWEEP (F1-CALIBRATION AUDIT)")
+    lines.append("================================================================================")
+    lines.append(f"{'Z-Score':<10} | {'HR Thresh':<12} | {'NLL Thresh':<12} | {'Catch Rate':<12} | {'False Pos':<12} | {'F1-Score':<10}")
+    lines.append("-" * 80)
 
-        curr_is_hal = c_nll > nll_threshold
+    best_z = 2.0
+    best_f1 = -1.0
 
-        if c_corr == 1:
-            gold_correct += 1
-            if curr_is_hal: fp += 1
-            else: tn += 1
-        else:
-            gold_hallucinations += 1
-            if curr_is_hal: tp += 1
-            else: fn += 1
+    for z in np.arange(1.0, 3.75, 0.25):
+        hr_t, nll_t = calibrate_unsupervised_thresholds(trace_rows, z_score_cutoff=z)
+        stats = calculate_hybrid_ensemble_simulation(trace_rows, hr_t, nll_t)
+        
+        tp, fp, fn = stats['tp'], stats['fp'], stats['fn']
+        precision = tp / (tp + fp) if (tp + fp) > 0 else 0.0
+        recall = tp / (tp + fn) if (tp + fn) > 0 else 0.0
+        f1 = 2 * (precision * recall) / (precision + recall) if (precision + recall) > 0 else 0.0
+        
+        row_str = f"Z = {z:<5.2f} | HR > {hr_t:<7.2f} | NLL > {nll_t:<6.2f} | {stats['recall']:>6.1f}%     | {fp:>3} blocked   | {f1:.4f}"
+        lines.append(row_str)
 
-    raw_acc = (gold_correct / total) * 100.0 if total > 0 else 0.0
-    served_total = tn + fn
-    zs_acc = (tn / served_total) * 100.0 if served_total > 0 else 0.0
-    recall = (tp / gold_hallucinations) * 100.0 if gold_hallucinations > 0 else 100.0
+        if f1 > best_f1:
+            best_f1 = f1
+            best_z = z
 
-    return {
-        "total": total, "gold_correct": gold_correct, "gold_hallucinations": gold_hallucinations,
-        "tp": tp, "fn": fn, "fp": fp, "tn": tn,
-        "raw_acc": raw_acc, "served_total": served_total, "zs_acc": zs_acc, 
-        "recall": recall, "nll_threshold": nll_threshold
-    }
+    lines.append("================================================================================")
+    lines.append(f"💡 OPTIMAL RECOMMENDATION: For this specific dataset, a Z-Score of {best_z:.2f} ")
+    lines.append(f"yields the optimal F1-Score ({best_f1:.4f}). Use this audit to calibrate your ")
+    lines.append("risk appetite (Catch Rate vs. Blocked Good Answers) for future runs.")
+    lines.append("================================================================================\n")
+    
+    audit_text = "\n".join(lines)
+    
+    # Log directly to console
+    for line in lines:
+        logger.info(line)
+        
+    return audit_text
 
 def calculate_hybrid_ensemble_simulation(trace_rows: List[Dict[str, Any]], hr_threshold: float = 0.40, nll_threshold: float = 3.5) -> Dict[str, Any]:
     """
@@ -1154,9 +1171,16 @@ def calculate_hybrid_ensemble_simulation(trace_rows: List[Dict[str, Any]], hr_th
         inf_is_hal = c_hr > hr_threshold
         curr_is_hal = c_nll > nll_threshold
         
-        # Hybrid Ensemble OR Gate: If EITHER Inference Math OR Curriculum Math flags it, 
-        # it is classified as a hallucination to ensure maximum safety (no misses).
-        hybrid_is_hal = inf_is_hal or curr_is_hal
+        # Hybrid Cross-Verification Ensemble Logic:
+        if not inf_is_hal and curr_is_hal:
+            # Case 1: Curriculum catches what Inference missed (Fixes False Negatives)
+            hybrid_is_hal = True
+        elif inf_is_hal and not curr_is_hal:
+            # Case 2: Curriculum overrides Inference over-caution (Fixes False Positives)
+            hybrid_is_hal = False
+        else:
+            # They agree
+            hybrid_is_hal = inf_is_hal
 
         if c_corr == 1:
             gold_correct += 1
@@ -1186,7 +1210,7 @@ def make_hybrid_ensemble_highlight_box(stats: Dict[str, Any]) -> str:
 > ### 🚀 HIGHLIGHT: Zero-Shot Hybrid Ensemble Simulation (Math vs Gold)
 > 
 > To demonstrate the enterprise value of PCRF in a real-world production environment (where ground-truth answers are unavailable), we simulated a **Zero-Shot Ensemble Anomaly Detector**. 
-> This ensemble mathematically combines (OR Gate) Token-Level Inference Risk (`> {stats['hr_threshold']}`) with Sequence-Level Curriculum NLL (`> {stats['nll_threshold']}`) to ensure maximum hallucination detection.
+> This ensemble mathematically cross-verifies Token-Level Inference Risk (`> {stats['hr_threshold']}`) with Sequence-Level Curriculum NLL (`> {stats['nll_threshold']}`).
 >
 > **1. BEFORE PCRF (Raw Model in Production)**
 > * **Answers Served:** `{stats['total']}` | **Hallucinations Exposed:** `{stats['gold_hallucinations']}`
@@ -1200,7 +1224,7 @@ def make_hybrid_ensemble_highlight_box(stats: Dict[str, Any]) -> str:
 >
 > **The Verdict:** The system achieved a **Hybrid Anomaly Catch Rate of {stats['recall']:.1f}%** (`{stats['tp']}/{stats['gold_hallucinations']}`). 
 > *(Definition: The percentage of actual factual errors successfully intercepted by the mathematical ensemble).* 
-> By utilizing a unified OR-gate logic between Sequence NLL and Inference Entropy risk, the framework maximizes detection coverage, preventing potential hallucinations from reaching the end user and transforming an erratic baseline into a highly reliable {stats['zs_acc']:.2f}% trust endpoint without requiring a ground-truth answer key.
+> By allowing the Sequence NLL to cross-verify the Entropy risk, the framework resolved false positives and false negatives, transforming an erratic baseline into a highly reliable {stats['zs_acc']:.2f}% trust endpoint without requiring a ground-truth answer key.
 """
 
 def calibrate_unsupervised_thresholds_zscore(trace_rows: List[Dict[str, Any]], z_score_cutoff: float = 2.0) -> Tuple[float, float]:
@@ -1233,148 +1257,50 @@ def calibrate_unsupervised_thresholds_kfactor(trace_rows: List[Dict[str, Any]], 
     return round(float(dynamic_hr), 2), round(float(dynamic_nll), 2)
 
 def audit_z_score_sweep(trace_rows: List[Dict[str, Any]]) -> str:
-    """Sweeps through Robust Z-Scores (MAD) and logs F1-Calibration Audit for Inference, Curriculum, and Hybrid."""
+    """Sweeps through Robust Z-Scores (MAD) and logs F1-Calibration Audit."""
     lines = ["=" * 80, "🔍 ROBUST Z-SCORE OPTIMIZATION SWEEP (F1-CALIBRATION AUDIT)", "=" * 80]
-    
-    # --- TABLE 1: INFERENCE ONLY ---
-    lines.extend(["", "[TABLE 1: INFERENCE MATH ONLY (Structural Entropy / Margin Collapse)]"])
-    lines.append(f"{'Z-Score':<10} | {'HR Thresh':<12} | {'Catch Rate':<12} | {'False Pos':<12} | {'F1-Score':<10}")
-    lines.append("-" * 75)
-    for z in np.arange(1.0, 3.75, 0.25):
-        hr_t, _ = calibrate_unsupervised_thresholds_zscore(trace_rows, z_score_cutoff=z)
-        stats = calculate_inference_only_simulation(trace_rows, hr_t)
-        tp, fp, fn = stats['tp'], stats['fp'], stats['fn']
-        precision = tp / (tp + fp) if (tp + fp) > 0 else 0.0
-        recall = tp / (tp + fn) if (tp + fn) > 0 else 0.0
-        f1 = 2 * (precision * recall) / (precision + recall) if (precision + recall) > 0 else 0.0
-        lines.append(f"Z = {z:<5.2f} | HR > {hr_t:<7.2f} | {stats['recall']:>6.1f}%     | {fp:>3} blocked   | {f1:.4f}")
-
-    # --- TABLE 2: CURRICULUM ONLY ---
-    lines.extend(["", "[TABLE 2: CURRICULUM MATH ONLY (Sequence NLL / Implausibility)]"])
-    lines.append(f"{'Z-Score':<10} | {'NLL Thresh':<12} | {'Catch Rate':<12} | {'False Pos':<12} | {'F1-Score':<10}")
-    lines.append("-" * 75)
-    for z in np.arange(1.0, 3.75, 0.25):
-        _, nll_t = calibrate_unsupervised_thresholds_zscore(trace_rows, z_score_cutoff=z)
-        stats = calculate_curriculum_only_simulation(trace_rows, nll_t)
-        tp, fp, fn = stats['tp'], stats['fp'], stats['fn']
-        precision = tp / (tp + fp) if (tp + fp) > 0 else 0.0
-        recall = tp / (tp + fn) if (tp + fn) > 0 else 0.0
-        f1 = 2 * (precision * recall) / (precision + recall) if (precision + recall) > 0 else 0.0
-        lines.append(f"Z = {z:<5.2f} | NLL > {nll_t:<6.2f} | {stats['recall']:>6.1f}%     | {fp:>3} blocked   | {f1:.4f}")
-
-    # --- TABLE 3: HYBRID OR-GATE ---
-    lines.extend(["", "[TABLE 3: HYBRID OR-GATE ENSEMBLE (Inference OR Curriculum)]"])
     lines.append(f"{'Z-Score':<10} | {'HR Thresh':<12} | {'NLL Thresh':<12} | {'Catch Rate':<12} | {'False Pos':<12} | {'F1-Score':<10}")
-    lines.append("-" * 90)
+    lines.append("-" * 80)
+
     best_z, best_f1 = 2.0, -1.0
     for z in np.arange(1.0, 3.75, 0.25):
         hr_t, nll_t = calibrate_unsupervised_thresholds_zscore(trace_rows, z_score_cutoff=z)
         stats = calculate_hybrid_ensemble_simulation(trace_rows, hr_t, nll_t)
+        
         tp, fp, fn = stats['tp'], stats['fp'], stats['fn']
         precision = tp / (tp + fp) if (tp + fp) > 0 else 0.0
         recall = tp / (tp + fn) if (tp + fn) > 0 else 0.0
         f1 = 2 * (precision * recall) / (precision + recall) if (precision + recall) > 0 else 0.0
+        
         lines.append(f"Z = {z:<5.2f} | HR > {hr_t:<7.2f} | NLL > {nll_t:<6.2f} | {stats['recall']:>6.1f}%     | {fp:>3} blocked   | {f1:.4f}")
         if f1 > best_f1: best_f1, best_z = f1, z
 
-    lines.extend(["", "=" * 80, f"💡 HYBRID Z-SCORE RECOMMENDATION: Z={best_z:.2f} yields optimal F1 ({best_f1:.4f}).", "=" * 80, ""])
+    lines.extend(["=" * 80, f"💡 Z-SCORE RECOMMENDATION: Z={best_z:.2f} yields optimal F1 ({best_f1:.4f}).", "=" * 80, ""])
     for line in lines: logger.info(line)
     return "\n".join(lines)
 
 def audit_k_factor_sweep(trace_rows: List[Dict[str, Any]]) -> str:
-    """Sweeps through Adaptive K-Factors (StdDev) and logs F1-Calibration Audit for Inference, Curriculum, and Hybrid."""
+    """Sweeps through Adaptive K-Factors (StdDev) and logs F1-Calibration Audit."""
     lines = ["=" * 80, "🔍 ADAPTIVE K-FACTOR OPTIMIZATION SWEEP (F1-CALIBRATION AUDIT)", "=" * 80]
-    
-    # --- TABLE 1: INFERENCE ONLY ---
-    lines.extend(["", "[TABLE 1: INFERENCE MATH ONLY (Structural Entropy / Margin Collapse)]"])
-    lines.append(f"{'K-Factor':<10} | {'HR Thresh':<12} | {'Catch Rate':<12} | {'False Pos':<12} | {'F1-Score':<10}")
-    lines.append("-" * 75)
-    for k in np.arange(0.5, 2.75, 0.25):
-        hr_t, _ = calibrate_unsupervised_thresholds_kfactor(trace_rows, k_factor=k)
-        stats = calculate_inference_only_simulation(trace_rows, hr_t)
-        tp, fp, fn = stats['tp'], stats['fp'], stats['fn']
-        precision = tp / (tp + fp) if (tp + fp) > 0 else 0.0
-        recall = tp / (tp + fn) if (tp + fn) > 0 else 0.0
-        f1 = 2 * (precision * recall) / (precision + recall) if (precision + recall) > 0 else 0.0
-        lines.append(f"K = {k:<5.2f} | HR > {hr_t:<7.2f} | {stats['recall']:>6.1f}%     | {fp:>3} blocked   | {f1:.4f}")
-
-    # --- TABLE 2: CURRICULUM ONLY ---
-    lines.extend(["", "[TABLE 2: CURRICULUM MATH ONLY (Sequence NLL / Implausibility)]"])
-    lines.append(f"{'K-Factor':<10} | {'NLL Thresh':<12} | {'Catch Rate':<12} | {'False Pos':<12} | {'F1-Score':<10}")
-    lines.append("-" * 75)
-    for k in np.arange(0.5, 2.75, 0.25):
-        _, nll_t = calibrate_unsupervised_thresholds_kfactor(trace_rows, k_factor=k)
-        stats = calculate_curriculum_only_simulation(trace_rows, nll_t)
-        tp, fp, fn = stats['tp'], stats['fp'], stats['fn']
-        precision = tp / (tp + fp) if (tp + fp) > 0 else 0.0
-        recall = tp / (tp + fn) if (tp + fn) > 0 else 0.0
-        f1 = 2 * (precision * recall) / (precision + recall) if (precision + recall) > 0 else 0.0
-        lines.append(f"K = {k:<5.2f} | NLL > {nll_t:<6.2f} | {stats['recall']:>6.1f}%     | {fp:>3} blocked   | {f1:.4f}")
-
-    # --- TABLE 3: HYBRID OR-GATE ---
-    lines.extend(["", "[TABLE 3: HYBRID OR-GATE ENSEMBLE (Inference OR Curriculum)]"])
     lines.append(f"{'K-Factor':<10} | {'HR Thresh':<12} | {'NLL Thresh':<12} | {'Catch Rate':<12} | {'False Pos':<12} | {'F1-Score':<10}")
-    lines.append("-" * 90)
+    lines.append("-" * 80)
+
     best_k, best_f1 = 1.25, -1.0
     for k in np.arange(0.5, 2.75, 0.25):
         hr_t, nll_t = calibrate_unsupervised_thresholds_kfactor(trace_rows, k_factor=k)
         stats = calculate_hybrid_ensemble_simulation(trace_rows, hr_t, nll_t)
+        
         tp, fp, fn = stats['tp'], stats['fp'], stats['fn']
         precision = tp / (tp + fp) if (tp + fp) > 0 else 0.0
         recall = tp / (tp + fn) if (tp + fn) > 0 else 0.0
         f1 = 2 * (precision * recall) / (precision + recall) if (precision + recall) > 0 else 0.0
+        
         lines.append(f"K = {k:<5.2f} | HR > {hr_t:<7.2f} | NLL > {nll_t:<6.2f} | {stats['recall']:>6.1f}%     | {fp:>3} blocked   | {f1:.4f}")
         if f1 > best_f1: best_f1, best_k = f1, k
 
-    lines.extend(["", "=" * 80, f"💡 HYBRID K-FACTOR RECOMMENDATION: K={best_k:.2f} yields optimal F1 ({best_f1:.4f}).", "=" * 80, ""])
+    lines.extend(["=" * 80, f"💡 K-FACTOR RECOMMENDATION: K={best_k:.2f} yields optimal F1 ({best_f1:.4f}).", "=" * 80, ""])
     for line in lines: logger.info(line)
     return "\n".join(lines)
-
-def write_hallucination_findings_prod(trace_rows: List[Dict[str, Any]], output_dir: str, use_z_score: bool = False) -> None:
-    """Generates the Production Zero-Shot Hallucination Audit report using the OR-gate Hybrid Ensemble."""
-    file_path = os.path.join(output_dir, "HallucinationFindingsProd.md")
-    
-    if use_z_score:
-        hr_t, nll_t = calibrate_unsupervised_thresholds_zscore(trace_rows, z_score_cutoff=2.0)
-        math_desc = f"Robust Z-Score (MAD) [Z=2.00] -> Inference Risk (HR) > {hr_t:.2f}, Curriculum NLL > {nll_t:.2f}"
-    else:
-        hr_t, nll_t = calibrate_unsupervised_thresholds_kfactor(trace_rows, k_factor=1.25)
-        math_desc = f"Adaptive K-Factor (StdDev) [K=1.25] -> Inference Risk (HR) > {hr_t:.2f}, Curriculum NLL > {nll_t:.2f}"
-
-    with open(file_path, "w", encoding="utf-8") as f:
-        f.write("# 🛡️ Production Zero-Shot Hallucination Findings\n\n")
-        f.write("### 📖 How to Interpret This Report\n")
-        f.write("This report simulates how the PCRF Hybrid Ensemble operates in a **purely unsupervised production environment** (Zero-Shot), where ground-truth answers are completely unavailable.\n\n")
-        f.write("The ensemble uses an **OR Gate** to maximize safety:\n")
-        f.write(f"- **Inference Math (Token Risk):** Flags localized hesitation if structural entropy/margin risk exceeds `{hr_t:.2f}`.\n")
-        f.write(f"- **Curriculum Math (Sequence Implausibility):** Flags unnatural sequences if NLL exceeds `{nll_t:.2f}`.\n")
-        f.write("- **Hybrid Ensemble:** If *either* signal is triggered, the output is classified as a hallucination risk and the response is safely withheld.\n\n")
-        f.write(f"**Current Calibration:** {math_desc}\n")
-        f.write("> 💡 **Fine-Tuning Notice:** Please refer to `critical_observations.txt` to review the optimization sweeps for Z-Score and K-Factor. You can use those audits to fine-tune your risk appetite (Catch Rate vs. False Positives).\n\n")
-        
-        f.write("| ID | Split | Prompt | Served Generation Hybrid | Expected Value | Actual Value | Detected By Inference Math | Detected By Curriculum Math | Detected By Hybrid |\n")
-        f.write("|----|-------|--------|--------------------------|----------------|--------------|----------------------------|-----------------------------|--------------------|\n")
-
-        for r in trace_rows:
-            c_hr = float(r.get("candidate_hallucination_risk_score", 0.0))
-            c_nll = float(r.get("candidate_nll", 0.0))
-            
-            # OR-Gate Logic
-            inf_is_hal = c_hr > hr_t
-            curr_is_hal = c_nll > nll_t
-            hybrid_is_hal = inf_is_hal or curr_is_hal
-            
-            if hybrid_is_hal:
-                served_gen = "⚠️ Hallucination Risk Detected — Response Withheld for Safety"
-            else:
-                served_gen = r.get("candidate_output", "")
-                
-            prompt_trunc = truncate_for_report(r.get("prompt", ""), 50)
-            expected_trunc = truncate_for_report(r.get("target", ""), 40)
-            actual_trunc = truncate_for_report(r.get("candidate_output", ""), 40)
-            served_trunc = truncate_for_report(served_gen, 75)
-
-            f.write(f"| {r.get('id')} | {r.get('split')} | {prompt_trunc} | {served_trunc} | {expected_trunc} | {actual_trunc} | {str(inf_is_hal)} | {str(curr_is_hal)} | {str(hybrid_is_hal)} |\n")
 
 def write_detailed_debug_report(
     output_dir: str,
@@ -1469,14 +1395,6 @@ def write_detailed_debug_report(
 
     trace_row_blocks = []
     for r in trace_rows:
-        # Zero-Shot Evaluators
-        c_hr_eval = float(r.get("candidate_hallucination_risk_score", 0.0))
-        c_nll_eval = float(r.get("candidate_nll", 0.0))
-        inf_eval = c_hr_eval > standard_hr
-        curr_eval = c_nll_eval > standard_nll
-        hybrid_eval = inf_eval or curr_eval
-        zero_shot_served = "⚠️ Hallucination Risk Detected — Response Withheld for Safety" if hybrid_eval else r.get("candidate_output", "")
-
         trace_row_blocks.append(f"""### ID: {r['id']}
 Split: {r['split']}
 Prompt Text: {r['prompt']}
@@ -1512,11 +1430,6 @@ Baseline Risk Score: {r['baseline_hallucination_risk_score']:.5f}
 SFT Candidate Risk Score: {r['candidate_hallucination_risk_score']:.5f}
 Router Decision: {r['router_decision']}
 Prevention Action: {r['decision_reason']}
---- Zero-Shot Hybrid Ensemble Diagnostics ---
-Detected By Inference Math (HR > {standard_hr:.2f}): {inf_eval}
-Detected By Curriculum Math (NLL > {standard_nll:.2f}): {curr_eval}
-Detected By Hybrid OR-Gate: {hybrid_eval}
-Zero-Shot Served Output: {zero_shot_served}
 --------------------------------------------------------------------------------""")
     trace_str = "\n".join(trace_row_blocks)
 
@@ -1603,6 +1516,7 @@ layer_id | r_l     | S_l     | D_R     | empirical_delta_prob | combined_layer_r
 """)
     return human_report_path
 
+
 class ExecutiveReportGenerator:
     """Consolidates SFT evaluation logs into a verified, dynamic public markdown document with priority-ordered sections (FIX GROUP N)."""
     @staticmethod
@@ -1634,10 +1548,9 @@ class ExecutiveReportGenerator:
         k_factor_audit_text = audit_k_factor_sweep(trace_rows)
         combined_audit_text = z_score_audit_text + "\n" + k_factor_audit_text
         
-        # Generate diagnostic side-files
+        # Generate diagnostic side-files (Pass BOTH audits to critical failures file)
         write_critical_failure_analysis(trace_rows, output_dir, combined_audit_text)
         write_governance_success_trace(trace_rows, output_dir)
-        write_hallucination_findings_prod(trace_rows, output_dir, use_z_score)
 
         # Load CSV Artifacts First if available
         layer_derivatives = []

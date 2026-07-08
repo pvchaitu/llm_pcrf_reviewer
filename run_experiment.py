@@ -1,3 +1,4 @@
+
 # ==============================================================================
 # File: run_experiment.py
 # ==============================================================================
@@ -19,6 +20,7 @@ import math
 import numpy as np
 import torch
 import subprocess
+import datetime
 from transformers import AutoModelForCausalLM
 
 # Import modules from modular codebase structure
@@ -166,6 +168,7 @@ def main(run_mode: str = "full", dataset_path: str = None):
     seen_val_dataset = CustomFactualDataset(splits["seen_val"], tokenizer, pcrf_config.model_cfg.max_len)
     unseen_val_dataset = CustomFactualDataset(splits["unseen_val"], tokenizer, pcrf_config.model_cfg.max_len)
 
+    logger.info("CodeFlow#1: Baseline triggered for Model")
     logger.info("--- Phase 1: Running Baseline Profile Evaluation ---")
     # PARTDDD -The system generates text using the completely frozen, untouched model_base. This populates baseline_output.
     base_seen_metrics = EvaluatorPlus.evaluate_dataset_detailed(model_base, tokenizer, seen_val_dataset, pcrf_config.model_cfg.max_len)
@@ -181,98 +184,141 @@ def main(run_mode: str = "full", dataset_path: str = None):
         "unseen_val_ppl": base_unseen_metrics["perplexity"]
     }
 
-    # Baseline Exit Route with New Audit Table & Source Info (Feature 1, Feature 2, Part E)
+    logger.info("CodeFlow#2: Hallucinations based on Ground truth for the Prompts")
+    # Baseline evaluation metrics over all loaded splits (Part E) - Now executed unconditionally
+    train_val_dataset = CustomFactualDataset(splits["train"], tokenizer, pcrf_config.model_cfg.max_len)
+    ood_val_dataset = CustomFactualDataset(splits["ood"], tokenizer, pcrf_config.model_cfg.max_len)
+
+    logger.info("Running Baseline Row-Level evaluations across train and OOD splits...")
+    base_train_metrics = EvaluatorPlus.evaluate_dataset_detailed(model_base, tokenizer, train_val_dataset, pcrf_config.model_cfg.max_len)
+    base_ood_metrics = EvaluatorPlus.evaluate_dataset_detailed(model_base, tokenizer, ood_val_dataset, pcrf_config.model_cfg.max_len)
+
+    combined_predictions = (
+        base_train_metrics["predictions"] +
+        base_seen_metrics["predictions"] +
+        base_unseen_metrics["predictions"] +
+        base_ood_metrics["predictions"]
+    )
+
+    # Part J - Logging audits (J2)
+    logger.info(f"[ROW AUDIT] train rows: {len(base_train_metrics['predictions'])}")
+    logger.info(f"[ROW AUDIT] seen_val rows: {len(base_seen_metrics['predictions'])}")
+    logger.info(f"[ROW AUDIT] unseen_val rows: {len(base_unseen_metrics['predictions'])}")
+    logger.info(f"[ROW AUDIT] ood rows: {len(base_ood_metrics['predictions'])}")
+    logger.info(f"[ROW AUDIT] total audited predictions: {len(combined_predictions)}")
+
+    write_baseline_only_artifacts(
+        output_dir=pcrf_config.artifact_cfg.output_dir,
+        baseline_stats=baseline_stats,
+        splits=splits,
+        cfg=pcrf_config,
+        base_seen_predictions=base_seen_metrics["predictions"],
+        base_unseen_predictions=base_unseen_metrics["predictions"],
+        dataset_metadata=dataset_metadata
+    )
+
+    # Re-write the complete audit table including all splits (Feature 1, Part E)
+    md_path = os.path.join(pcrf_config.artifact_cfg.output_dir, "Baseline_Only_Report.md")
+    with open(md_path, "w", encoding="utf-8") as f:
+        f.write("# Baseline-Only Evaluation Report\n\n")
+        f.write("## Execution Mode\n")
+        f.write(f"- Run Mode: {run_mode}\n")
+        f.write(f"- PCRF Components Executed: {'Yes' if run_mode == 'full' else 'No'}\n")
+        f.write(f"- SFT Candidate Regularization Executed: {'Yes' if run_mode == 'full' else 'No'}\n")
+        f.write(f"- Protected Router Executed: {'Yes' if run_mode == 'full' else 'No'}\n\n")
+
+        f.write("## Dataset Source\n")
+        f.write(f"- Dataset Source: {dataset_metadata.get('dataset_source', 'N/A')}\n")
+        f.write(f"- Dataset File: {dataset_metadata.get('dataset_file', 'N/A')}\n\n")
+
+        f.write("## Dataset Partition Counts\n")
+        f.write(f"- Train Split: {len(splits.get('train', []))}\n")
+        f.write(f"- Seen Validation Split: {len(splits.get('seen_val', []))}\n")
+        f.write(f"- Unseen Validation Split: {len(splits.get('unseen_val', []))}\n")
+        f.write(f"- OOD Split: {len(splits.get('ood', []))}\n")
+        f.write(f"- Total Rows Audited: {len(combined_predictions)}\n\n")
+
+        f.write("## Baseline Metrics\n")
+        for k, v in baseline_stats.items():
+            f.write(f"- {k}: {v}\n")
+        f.write("\n")
+
+        f.write("## Baseline Prompt / Generation Hallucination Audit\n\n")
+        f.write("Baseline row audit includes train, seen validation, unseen validation, and OOD prompts where available. This gives a complete view of baseline hallucination exposure before PCRF governance.\n\n")
+        f.write("| ID | Split | Prompt | Baseline Generation | Expected Value | Actual Value | Match? | Hallucinated? |\n")
+        f.write("|----|--------|---------|---------|---------|---------|---------|---------|\n")
+
+        split_mappings = {
+            "train": base_train_metrics["predictions"],
+            "seen_val": base_seen_metrics["predictions"],
+            "unseen_val": base_unseen_metrics["predictions"],
+            "ood": base_ood_metrics["predictions"]
+        }
+
+        for s_name, preds in split_mappings.items():
+            for p in preds:
+                pid = p.get("id", "N/A")
+                p_prompt = truncate_for_report(p.get("prompt", ""), 75)
+                p_gen = truncate_for_report(p.get("actual", ""), 50)
+                p_expected = truncate_for_report(p.get("expected", ""), 50)
+                p_actual = truncate_for_report(p.get("actual", ""), 50)
+
+                match_yes_no = "YES" if p.get("correct", 0) == 1 else "NO"
+                hall_yes_no = "NO" if p.get("correct", 0) == 1 else "YES"
+
+                f.write(f"| {pid} | {s_name} | {p_prompt} | {p_gen} | {p_expected} | {p_actual} | {match_yes_no} | {hall_yes_no} |\n")
+
+    logger.info("Please refer to the Baseline_Only_Report.md for Hallucination details for the baseline.")
+
+    # Helper function to parse the 5th column (bytes) from 'ls -altrL' text
+    def parse_ls_for_bytes(ls_text: str) -> int:
+        total_b = 0
+        for line in ls_text.split('\n'):
+            parts = line.split()
+            # Ensure it's a valid file/dir line (starts with -, d) and has >= 5 columns
+            if len(parts) >= 5 and parts[0] and parts[0][0] in ('-', 'd'):
+                try:
+                    total_b += int(parts[4])
+                except ValueError:
+                    pass
+        return total_b
+
+    # 1. Save Baseline physically to artifacts folder for an apples-to-apples comparison
+    baseline_physical_path = os.path.join(pcrf_config.artifact_cfg.output_dir, "baseline_model")
+    logger.info(f"Saving physical Baseline model to disk at: {baseline_physical_path}")
+    model_base.save_pretrained(baseline_physical_path)
+    tokenizer.save_pretrained(baseline_physical_path)
+    baseline_ls_path = baseline_physical_path
+
+    logger.info("=" * 80)
+    logger.info("📄 DETAILED FILE-LEVEL FOOTPRINT FOR BASELINE (ls -altrL)")
+    logger.info("=" * 80)
+
+    baseline_bytes = 0
+    # 2. Run 'ls -altrL' on Baseline, log it, and parse the string for bytes
+    logger.info(f"--- Baseline Directory: {baseline_ls_path} ---")
+    try:
+        baseline_ls = subprocess.run(["ls", "-altrL", baseline_ls_path], capture_output=True, text=True, check=True).stdout
+        for line in baseline_ls.split('\n'):
+            if line.strip(): logger.info(line)
+        baseline_bytes = parse_ls_for_bytes(baseline_ls)
+    except Exception as e:
+        logger.error(f"Failed to list baseline directory: {e}")
+
+    logger.info(f"Baseline Parsed Size : {baseline_bytes} Bytes")
+
+    try:
+        mtime = os.path.getmtime(baseline_physical_path)
+        dt_mtime = datetime.datetime.fromtimestamp(mtime).strftime('%Y-%m-%d %H:%M:%S')
+        logger.info(f"Baseline Model Datetimestamp: {dt_mtime}")
+    except Exception as e:
+        logger.warning(f"Could not retrieve timestamp for Baseline model: {e}")
+
     if run_mode == "baseline":
-        logger.info(
-            "Baseline-only mode selected. Skipping all PCRF derivative, curriculum, "
-            "structural, regularization, and protected-router components."
-        )
-
-        # Baseline evaluation metrics over all loaded splits (Part E)
-        train_val_dataset = CustomFactualDataset(splits["train"], tokenizer, pcrf_config.model_cfg.max_len)
-        ood_val_dataset = CustomFactualDataset(splits["ood"], tokenizer, pcrf_config.model_cfg.max_len)
-
-        logger.info("Running Baseline Row-Level evaluations across train and OOD splits...")
-        base_train_metrics = EvaluatorPlus.evaluate_dataset_detailed(model_base, tokenizer, train_val_dataset, pcrf_config.model_cfg.max_len)
-        base_ood_metrics = EvaluatorPlus.evaluate_dataset_detailed(model_base, tokenizer, ood_val_dataset, pcrf_config.model_cfg.max_len)
-
-        combined_predictions = (
-            base_train_metrics["predictions"] +
-            base_seen_metrics["predictions"] +
-            base_unseen_metrics["predictions"] +
-            base_ood_metrics["predictions"]
-        )
-
-        # Part J - Logging audits (J2)
-        logger.info(f"[ROW AUDIT] train rows: {len(base_train_metrics['predictions'])}")
-        logger.info(f"[ROW AUDIT] seen_val rows: {len(base_seen_metrics['predictions'])}")
-        logger.info(f"[ROW AUDIT] unseen_val rows: {len(base_unseen_metrics['predictions'])}")
-        logger.info(f"[ROW AUDIT] ood rows: {len(base_ood_metrics['predictions'])}")
-        logger.info(f"[ROW AUDIT] total audited predictions: {len(combined_predictions)}")
-
-        write_baseline_only_artifacts(
-            output_dir=pcrf_config.artifact_cfg.output_dir,
-            baseline_stats=baseline_stats,
-            splits=splits,
-            cfg=pcrf_config,
-            base_seen_predictions=base_seen_metrics["predictions"],
-            base_unseen_predictions=base_unseen_metrics["predictions"],
-            dataset_metadata=dataset_metadata
-        )
-
-        # Re-write the complete audit table including all splits (Feature 1, Part E)
-        md_path = os.path.join(pcrf_config.artifact_cfg.output_dir, "Baseline_Only_Report.md")
-        with open(md_path, "w", encoding="utf-8") as f:
-            f.write("# Baseline-Only Evaluation Report\n\n")
-            f.write("## Execution Mode\n")
-            f.write("- Run Mode: baseline\n")
-            f.write("- PCRF Components Executed: No\n")
-            f.write("- SFT Candidate Regularization Executed: No\n")
-            f.write("- Protected Router Executed: No\n\n")
-
-            f.write("## Dataset Source\n")
-            f.write(f"- Dataset Source: {dataset_metadata.get('dataset_source', 'N/A')}\n")
-            f.write(f"- Dataset File: {dataset_metadata.get('dataset_file', 'N/A')}\n\n")
-
-            f.write("## Dataset Partition Counts\n")
-            f.write(f"- Train Split: {len(splits.get('train', []))}\n")
-            f.write(f"- Seen Validation Split: {len(splits.get('seen_val', []))}\n")
-            f.write(f"- Unseen Validation Split: {len(splits.get('unseen_val', []))}\n")
-            f.write(f"- OOD Split: {len(splits.get('ood', []))}\n")
-            f.write(f"- Total Rows Audited: {len(combined_predictions)}\n\n")
-
-            f.write("## Baseline Metrics\n")
-            for k, v in baseline_stats.items():
-                f.write(f"- {k}: {v}\n")
-            f.write("\n")
-
-            f.write("## Baseline Prompt / Generation Hallucination Audit\n\n")
-            f.write("Baseline row audit includes train, seen validation, unseen validation, and OOD prompts where available. This gives a complete view of baseline hallucination exposure before PCRF governance.\n\n")
-            f.write("| ID | Split | Prompt | Baseline Generation | Expected Value | Actual Value | Match? | Hallucinated? |\n")
-            f.write("|----|--------|---------|---------|---------|---------|---------|---------|\n")
-
-            split_mappings = {
-                "train": base_train_metrics["predictions"],
-                "seen_val": base_seen_metrics["predictions"],
-                "unseen_val": base_unseen_metrics["predictions"],
-                "ood": base_ood_metrics["predictions"]
-            }
-
-            for s_name, preds in split_mappings.items():
-                for p in preds:
-                    pid = p.get("id", "N/A")
-                    p_prompt = truncate_for_report(p.get("prompt", ""), 75)
-                    p_gen = truncate_for_report(p.get("actual", ""), 50)
-                    p_expected = truncate_for_report(p.get("expected", ""), 50)
-                    p_actual = truncate_for_report(p.get("actual", ""), 50)
-
-                    match_yes_no = "YES" if p.get("correct", 0) == 1 else "NO"
-                    hall_yes_no = "NO" if p.get("correct", 0) == 1 else "YES"
-
-                    f.write(f"| {pid} | {s_name} | {p_prompt} | {p_gen} | {p_expected} | {p_actual} | {match_yes_no} | {hall_yes_no} |\n")
-
         logger.info("Baseline-only execution completed successfully.")
         return
+
+    logger.info("CodeFlow#3: PCRF Full mode experiment Initiated")
 
     # Continue Full PCRF Execution
     #PartAAA -Enabling Gradients for the Candidate Model
@@ -364,51 +410,17 @@ def main(run_mode: str = "full", dataset_path: str = None):
     if regularizer.health_check(model_candidate).is_healthy:
         regularizer.run_standalone(model_candidate, tokenizer, splits, pcrf_config)
 
-        # --- NEW CODE: PHYSICAL DISK STORAGE & LOGGING VIA 'ls -altrL' ---
-        
-        # 1. Save Baseline physically to artifacts folder for an apples-to-apples comparison
-        baseline_physical_path = os.path.join(pcrf_config.artifact_cfg.output_dir, "baseline_model")
-        logger.info(f"Saving physical Baseline model to disk at: {baseline_physical_path}")
-        model_base.save_pretrained(baseline_physical_path)
-        tokenizer.save_pretrained(baseline_physical_path)
-        baseline_ls_path = baseline_physical_path
-
-        # 2. Save SFT Candidate physically to artifacts folder
+        # 3. Save SFT Candidate physically to artifacts folder
         candidate_physical_path = os.path.join(pcrf_config.artifact_cfg.output_dir, "sft_candidate_model")
         logger.info(f"Saving physical SFT candidate model to disk at: {candidate_physical_path}")
         model_candidate.save_pretrained(candidate_physical_path)
         tokenizer.save_pretrained(candidate_physical_path)
 
         logger.info("=" * 80)
-        logger.info("📄 DETAILED FILE-LEVEL FOOTPRINT (ls -altrL)")
+        logger.info("📄 DETAILED FILE-LEVEL FOOTPRINT FOR CANDIDATE (ls -altrL)")
         logger.info("=" * 80)
 
-        # Helper function to parse the 5th column (bytes) from 'ls -altrL' text
-        def parse_ls_for_bytes(ls_text: str) -> int:
-            total_b = 0
-            for line in ls_text.split('\n'):
-                parts = line.split()
-                # Ensure it's a valid file/dir line (starts with -, d) and has >= 5 columns
-                if len(parts) >= 5 and parts[0] and parts[0][0] in ('-', 'd'):
-                    try:
-                        total_b += int(parts[4])
-                    except ValueError:
-                        pass
-            return total_b
-
-        baseline_bytes = 0
         candidate_bytes = 0
-
-        # 3. Run 'ls -altrL' on Baseline, log it, and parse the string for bytes
-        logger.info(f"--- Baseline Directory: {baseline_ls_path} ---")
-        try:
-            baseline_ls = subprocess.run(["ls", "-altrL", baseline_ls_path], capture_output=True, text=True, check=True).stdout
-            for line in baseline_ls.split('\n'):
-                if line.strip(): logger.info(line)
-            baseline_bytes = parse_ls_for_bytes(baseline_ls)
-        except Exception as e:
-            logger.error(f"Failed to list baseline directory: {e}")
-
         # 4. Run 'ls -altrL' on Candidate, log it, and parse the string for bytes
         logger.info(f"--- Candidate Directory: {candidate_physical_path} ---")
         try:
@@ -418,6 +430,15 @@ def main(run_mode: str = "full", dataset_path: str = None):
             candidate_bytes = parse_ls_for_bytes(candidate_ls)
         except Exception as e:
             logger.error(f"Failed to list candidate directory: {e}")
+
+        logger.info(f"Candidate Parsed Size : {candidate_bytes} Bytes")
+
+        try:
+            c_mtime = os.path.getmtime(candidate_physical_path)
+            c_dt_mtime = datetime.datetime.fromtimestamp(c_mtime).strftime('%Y-%m-%d %H:%M:%S')
+            logger.info(f"Candidate Model Datetimestamp: {c_dt_mtime}")
+        except Exception as e:
+            logger.warning(f"Could not retrieve timestamp for Candidate model: {e}")
 
         # 5. Calculate exact KB and MB difference (4-decimal precision) from parsed output
         delta_bytes = candidate_bytes - baseline_bytes
@@ -878,6 +899,9 @@ def main(run_mode: str = "full", dataset_path: str = None):
         cfg=pcrf_config,
         layer_consistency=layer_consistency
     )
+    
+    if run_mode == "full":
+        logger.info("CodeFlow#4: PCRF Full mode experiment Completed successfully")
 
 if __name__ == "__main__":
     main(run_mode="full", dataset_path=None)
