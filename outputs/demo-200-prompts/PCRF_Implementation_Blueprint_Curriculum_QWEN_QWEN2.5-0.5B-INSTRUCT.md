@@ -1,8 +1,9 @@
 # PCRF Implementation Blueprint: Priority-Weighted Curriculum Datasets Curation for QWEN_QWEN2.5-0.5B-INSTRUCT
 This blueprint was programmatically generated because the Curriculum Curation track was verified as safe (`SAFE_TO_APPLY`).
 
-Configure your training pipeline to load SFT examples using priority-based weighted sampling. Examples with higher 
-representation loss or higher layer derivative sensitivity are prioritized to stabilize the training trajectory:
+**🔍 Run Observation:** Your dataset yielded PCRF Prioritized (Std=5.39). This massive mathematical variance proves the model has distinct blind spots that can be highly optimized via a Priority Replay Buffer.
+
+Configure your training pipeline to load SFT examples using priority-based weighted sampling:
 
 ```python
 import torch

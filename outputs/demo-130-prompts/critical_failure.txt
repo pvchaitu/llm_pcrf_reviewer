@@ -5,3 +5,42 @@ PCRF SYSTEM GOVERNANCE CRITICAL FAILURE ANALYSIS (GENUINE GOVERNANCE FAILURES ON
 Total Genuine Governance Failures Tracked: 0
 
 No genuine governance failures observed in this run! PCRF routing containment achieved 100% security.
+
+
+================================================================================
+🔍 ROBUST Z-SCORE OPTIMIZATION SWEEP (F1-CALIBRATION AUDIT)
+================================================================================
+Z-Score    | HR Thresh    | NLL Thresh   | Catch Rate   | False Pos    | F1-Score  
+--------------------------------------------------------------------------------
+Z = 1.00  | HR > 0.45    | NLL > 7.88   |   38.9%     |   0 blocked   | 0.5600
+Z = 1.25  | HR > 0.47    | NLL > 9.05   |   27.8%     |   0 blocked   | 0.4348
+Z = 1.50  | HR > 0.49    | NLL > 10.22  |   16.7%     |   0 blocked   | 0.2857
+Z = 1.75  | HR > 0.51    | NLL > 11.39  |   11.1%     |   0 blocked   | 0.2000
+Z = 2.00  | HR > 0.53    | NLL > 12.56  |    5.6%     |   0 blocked   | 0.1053
+Z = 2.25  | HR > 0.55    | NLL > 13.74  |    0.0%     |   0 blocked   | 0.0000
+Z = 2.50  | HR > 0.56    | NLL > 14.91  |    0.0%     |   0 blocked   | 0.0000
+Z = 2.75  | HR > 0.58    | NLL > 16.08  |    0.0%     |   0 blocked   | 0.0000
+Z = 3.00  | HR > 0.60    | NLL > 17.25  |    0.0%     |   0 blocked   | 0.0000
+Z = 3.25  | HR > 0.62    | NLL > 18.42  |    0.0%     |   0 blocked   | 0.0000
+Z = 3.50  | HR > 0.64    | NLL > 19.59  |    0.0%     |   0 blocked   | 0.0000
+================================================================================
+💡 Z-SCORE RECOMMENDATION: Z=1.00 yields optimal F1 (0.5600).
+================================================================================
+
+================================================================================
+🔍 ADAPTIVE K-FACTOR OPTIMIZATION SWEEP (F1-CALIBRATION AUDIT)
+================================================================================
+K-Factor   | HR Thresh    | NLL Thresh   | Catch Rate   | False Pos    | F1-Score  
+--------------------------------------------------------------------------------
+K = 0.50  | HR > 0.39    | NLL > 5.88   |   83.3%     |   6 blocked   | 0.7692
+K = 0.75  | HR > 0.41    | NLL > 6.84   |   77.8%     |   6 blocked   | 0.7368
+K = 1.00  | HR > 0.44    | NLL > 7.80   |   44.4%     |   2 blocked   | 0.5714
+K = 1.25  | HR > 0.46    | NLL > 8.76   |   27.8%     |   0 blocked   | 0.4348
+K = 1.50  | HR > 0.49    | NLL > 9.72   |   16.7%     |   0 blocked   | 0.2857
+K = 1.75  | HR > 0.52    | NLL > 10.68  |   11.1%     |   0 blocked   | 0.2000
+K = 2.00  | HR > 0.54    | NLL > 11.65  |   11.1%     |   0 blocked   | 0.2000
+K = 2.25  | HR > 0.57    | NLL > 12.61  |    5.6%     |   0 blocked   | 0.1053
+K = 2.50  | HR > 0.59    | NLL > 13.57  |    0.0%     |   0 blocked   | 0.0000
+================================================================================
+💡 K-FACTOR RECOMMENDATION: K=0.50 yields optimal F1 (0.7692).
+================================================================================

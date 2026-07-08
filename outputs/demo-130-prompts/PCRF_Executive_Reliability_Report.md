@@ -7,58 +7,43 @@
 ### 📦 Customer Executive Summary
 
 - **What Happened?**  
-  The SFT candidate's Seen Validation EM accuracy was improved by +5.00 percentage points, while the Unseen SFT Generalization accuracy was improved by +5.00 percentage points.  
+  The SFT candidate's Seen Validation EM accuracy was improved by +5.00 percentage points, while the Unseen SFT Generalization accuracy was unchanged.  
 
 - **Likelihood & Confidence Behavior:**  
-  SFT Generalization Negative Log-Likelihood (NLL) improved (decreased) by 0.9496, and SFT Perplexity (PPL) improved (decreased) by 109.70.  
+  SFT Generalization Negative Log-Likelihood (NLL) improved (decreased) by 0.9670, and SFT Perplexity (PPL) improved (decreased) by 110.89.  
 
 - **Why was Direct Adoption Accepted/Rejected?**  
   Direct adoption was REJECTED (DO_NOT_APPLY) due to SFT continuous and structural safety check limitations: Overall system chain reliability R_sys (35.57%) vs floor (75.0%).; Validation examples count (40) vs strong claim requirement (100)..  
 
 - **What did PCRF Prove in This Run?**  
-  PCRF demonstrated repair promotion capabilities by successfully validating and promoting 2 correct response(s).  
+  PCRF demonstrated repair promotion capabilities by successfully validating and promoting 1 correct response(s).  
 
   - **PCRF Hallucination Exposure Control:** 100.00% of 19 baseline hallucination/target-failure cases were controlled through 19 protected router interventions.
-  * Repairs Found (Semantic Recoveries): `2`
-  * Repairs Promoted (Contract-Clean): `2`
+  * Repairs Found (Semantic Recoveries): `1`
+  * Repairs Promoted (Contract-Clean): `1`
   * Repairs Withheld (Contract Violation): `0`
-  * Safe withhold/abstain decisions executed: `17`
+  * Safe withhold/abstain decisions executed: `18`
 
 
-
-> ### 🚀 HIGHLIGHT: Zero-Shot Production Simulation (Math vs Gold)
-> 
-> To demonstrate the enterprise value of PCRF in a real-world production environment (where ground-truth answers are unavailable), we simulated a pure math-based routing policy using a strict risk threshold (`Risk > 0.4`).
->
-> **BEFORE PCRF (Raw Model in Production)**
-> * **Answers Served:** `40` | **Correct:** `23` | **Hallucinations Exposed:** `17`
-> * **Raw Model Accuracy / Trust:** `57.50%`
->
-> **AFTER PCRF (Math-Based Zero-Shot Router)**
-> * **Answers Served:** `23` | **Correct:** `16` | **Hallucinations Exposed:** `7`
-> * **Governed Accuracy / Trust:** `69.57%`
->
-> **The Verdict:** The continuous structural math successfully identified and blocked **58.8%** of all hallucinations (`10/17`) with zero ground-truth knowledge. While yielding 7 false positives (safe abstains on correct answers), it transformed an erratic baseline into a highly reliable endpoint, proving extreme safety suitability for high-risk domains.
-
----
 
 > ### 🚀 HIGHLIGHT: Zero-Shot Hybrid Ensemble Simulation (Math vs Gold)
 > 
 > To demonstrate the enterprise value of PCRF in a real-world production environment (where ground-truth answers are unavailable), we simulated a **Zero-Shot Ensemble Anomaly Detector**. 
-> This ensemble cross-verifies Token-Level Inference Risk (`> 0.4`) with Sequence-Level Curriculum NLL (`> 3.5`).
+> This ensemble mathematically combines (OR Gate) Token-Level Inference Risk (`> 0.46`) with Sequence-Level Curriculum NLL (`> 8.76`) to ensure maximum hallucination detection.
 >
-> * **Inference Math Threshold (`> 0.4`)**: Captures severe structural entropy and margin collapse indicating latent degradation.
-> * **Curriculum Math Threshold (`> 3.5`)**: Captures sequence probability irregularity acting as a cross-verifier for highly surprising statistical anomalies.
+> **1. BEFORE PCRF (Raw Model in Production)**
+> * **Answers Served:** `40` | **Hallucinations Exposed:** `18`
+> * **Baseline Yield Accuracy:** `55.00%` 
+>   *(Definition: The raw accuracy of the model if no safety filters or routers are applied.)*
 >
-> **BEFORE PCRF (Raw Model in Production)**
-> * **Answers Served:** `40` | **Correct:** `23` | **Hallucinations Exposed:** `17`
-> * **Raw Model Accuracy / Trust:** `57.50%`
+> **2. AFTER PCRF HYBRID ENSEMBLE (Zero-Shot Cross-Verification)**
+> * **Answers Served:** `35` | **Hallucinations Exposed:** `13`
+> * **Zero-Shot Governed Trust Score:** `62.86%` 
+>   *(Definition: The reliability of the responses the user actually sees after the AI mathematically self-censors its own doubts.)*
 >
-> **AFTER PCRF HYBRID ENSEMBLE (Zero-Shot Cross-Verification)**
-> * **Answers Served:** `22` | **Correct:** `20` | **Hallucinations Exposed:** `2`
-> * **Governed Accuracy / Trust:** `90.91%`
->
-> **The Verdict:** The Hybrid Ensemble successfully identified and blocked **88.2%** of all hallucinations (`15/17`) with zero ground-truth knowledge. By allowing the Sequence NLL to cross-verify the Entropy risk, it mathematically resolved false positives and false negatives, transforming an erratic baseline into a highly reliable endpoint.
+> **The Verdict:** The system achieved a **Hybrid Anomaly Catch Rate of 27.8%** (`5/18`). 
+> *(Definition: The percentage of actual factual errors successfully intercepted by the mathematical ensemble).* 
+> By utilizing a unified OR-gate logic between Sequence NLL and Inference Entropy risk, the framework maximizes detection coverage, preventing potential hallucinations from reaching the end user and transforming an erratic baseline into a highly reliable 62.86% trust endpoint without requiring a ground-truth answer key.
 
 
 ---
@@ -83,7 +68,7 @@ This section tracks the active interception of hallucinated outputs and formatti
 | **Observed Risk Events** | `19` | All validation prompts triggering baseline failure or candidate degradation. |
 | **Contained Risk Events** | `19` | Total safety interventions successfully managed by Protected Router. |
 | **Served Risk Events** | `0` | Safety-withheld or incorrect completions exposed to served streams. |
-| **Safe Abstains** | `17` | Unsafe outputs withheld and mapped cleanly to fallback states. |
+| **Safe Abstains** | `18` | Unsafe outputs withheld and mapped cleanly to fallback states. |
 | **Exposure Control Rate** | `100.00%` | Percentage of overall risk events successfully contained under governance. |
 
 
@@ -93,16 +78,16 @@ This section tracks the active interception of hallucinated outputs and formatti
 
 > ### 🛡️ Service Governance Scorecard
 > 
-> * **Governed Accuracy (Primary Customer Metric):** `57.50%`  
+> * **Governed Accuracy (Primary Customer Metric):** `55.00%`  
 > * **Baseline Accuracy (Comparison Metric):** `52.50%`  
-> * **Candidate Accuracy (Engineering Metric):** `57.50%`  
+> * **Candidate Accuracy (Engineering Metric):** `55.00%`  
 > * **Regression Containment Effectiveness:** `100.00%`  
 > * **Repair Promotion Effectiveness:** `100.00%`  
 > * **Hallucination Exposure Control Rate:** `100.00%`  
-> * **Safe Abstains Executed:** `17`  
+> * **Safe Abstains Executed:** `18`  
 > 
 > **Service Impact Narrative:**  
-> Governed outcomes remained protected despite candidate degradation events during SFT evaluation. The Protected Router successfully insulated the final served endpoint, maintaining served quality at **57.50%** while preventing degraded candidate outputs from reaching users.
+> Governed outcomes remained protected despite candidate degradation events during SFT evaluation. The Protected Router successfully insulated the final served endpoint, maintaining served quality at **55.00%** while preventing degraded candidate outputs from reaching users.
 
 
 ---
@@ -113,7 +98,7 @@ This section tracks the active interception of hallucinated outputs and formatti
 | Derivatives | 0.00 (Unmeasured) | 0.00378 (Avg Sensitivity) | 3.8/100 | `SAFE_TO_APPLY` |
 | Curriculum Curation | Uniform Selection (Std=0.0) | PCRF Prioritized (Std=3.58) | 71.5/100 | `SAFE_TO_APPLY` |
 | Structural Depth Monitor | Unmonitored Depth | Geometric Reliability: 99.56% | 99.6/100 | `MEASUREMENT_ONLY` |
-| Safe SFT Regularization | Unseen SFT Acc: 50.0% | Unseen SFT Acc: 55.0% | 45.0/100 | `DO_NOT_APPLY` |
+| Safe SFT Regularization | Unseen SFT Acc: 50.0% | Unseen SFT Acc: 50.0% | 45.0/100 | `DO_NOT_APPLY` |
 
 
 ---
@@ -122,19 +107,19 @@ This section tracks the active interception of hallucinated outputs and formatti
 | Gate Check Name | Passed? | Severity | Metric Value | Threshold / Limit | Check Explanation |
 |---|---|---|---|---|---|
 | Structural Reliability Floor | 🔴 FAIL | CRITICAL | 35.57% | 75.00% | Overall system chain reliability R_sys (35.57%) vs floor (75.0%). |
-| Candidate Regression Review | 🟢 PASS | DIAGNOSTIC_ONLY | Observed Regressions: 0, Observed Repairs: 2, Net Delta: +2 | N/A | Model evaluation only. Captures raw candidate parameter variance before PCRF routing. |
+| Candidate Regression Review | 🟢 PASS | DIAGNOSTIC_ONLY | Observed Regressions: 0, Observed Repairs: 1, Net Delta: +1 | N/A | Model evaluation only. Captures raw candidate parameter variance before PCRF routing. |
 | Regression Exposure Control | 🟢 PASS | CRITICAL | Effectiveness: 100.0%, Served Regressions: 0 | Served Regressions = 0 | Observed regressions were contained before reaching served output. |
 | Critical High-Priority Regressions | 🟢 PASS | CRITICAL | 0 | 0 | Zero critical high-priority regressions required. Found 0 regressions. |
 | Universal Instruction Contract Violation Gate | 🟢 PASS | DIAGNOSTIC_ONLY | 100.00% | 10.00% | Both baseline and candidate violate strict output contracts. Tracking operated as a diagnostic planner. |
-| Generalization Non-Degradation Guard | 🟢 PASS | WARNING | 5.00% | 0.00% | Generalization monitoring warning: raw SFT candidate unseen validation exact-match changed by 5.00% versus baseline. This is reported as candidate-side generalization telemetry only and does not block deployment when Protected Router served outputs remain governed and regression exposure is contained. |
+| Generalization Non-Degradation Guard | 🟢 PASS | WARNING | 0.00% | 0.00% | Generalization monitoring warning: raw SFT candidate unseen validation exact-match changed by 0.00% versus baseline. This is reported as candidate-side generalization telemetry only and does not block deployment when Protected Router served outputs remain governed and regression exposure is contained. |
 | Strict EM Candidate Non-Degradation Gate | 🟢 PASS | DIAGNOSTIC_ONLY | 0.00% | 0.00% | Strict EM validation tracking operated diagnostically for this validation pass. |
 | Strict EM Absolute Direct Promotion Threshold | 🟢 PASS | DIAGNOSTIC_ONLY | 0.00% | 10.00% | Strict EM validation boundary executed as diagnostic analyzer. |
 | Minimum Gating Evidence Verification Size | 🔴 FAIL | HIGH | 40 | 100 | Validation examples count (40) vs strong claim requirement (100). |
 | Served Seen Accuracy Non-Inferiority Margin | 🟢 PASS | HIGH | -5.00% | 1.00% | Served seen accuracy baseline=55.00%, served=60.00%, delta=5.00%. Non-inferiority allows at most 1.0% served degradation. This gate evaluates governed served output after Protected Router decisions. |
 | Served Seen Accuracy Degradation Budget | 🟢 PASS | CRITICAL | -5.00% | 3.00% | Served seen accuracy baseline=55.00%, served=60.00%, delta=5.00%. Deployment budget allows at most 3.0% served degradation. This remains blocking only when the governed served stream degrades beyond budget. |
-| Candidate Unseen Accuracy Improvement Review | 🟢 PASS | WARNING | 5.00% | 2.00% | Candidate-side unseen accuracy improvement was 5.00% vs target 2.0%. This is reported as raw SFT generalization telemetry only and does not block deployment when served outputs remain governed. |
-| Served Unseen Generalization Preservation | 🟢 PASS | HIGH | 5.00% | 0.00% | Served unseen accuracy baseline=50.00%, served=55.00%, delta=5.00%. This deployment-facing gate verifies that governed served output does not degrade on unseen validation after Protected Router decisions. |
-| Generalization Non-Degradation Guard | 🟢 PASS | WARNING | 5.00% | 0.00% | Generalization monitoring warning: raw SFT candidate unseen validation exact-match changed by 5.00% versus baseline. This is reported as candidate-side generalization telemetry only and does not block deployment when Protected Router served outputs remain governed and regression exposure is contained. |
+| Candidate Unseen Accuracy Improvement Review | 🟡 WARNING | WARNING | 0.00% | 2.00% | Candidate-side unseen accuracy improvement was 0.00% vs target 2.0%. This is reported as raw SFT generalization telemetry only and does not block deployment when served outputs remain governed. |
+| Served Unseen Generalization Preservation | 🟢 PASS | HIGH | 0.00% | 0.00% | Served unseen accuracy baseline=50.00%, served=50.00%, delta=0.00%. This deployment-facing gate verifies that governed served output does not degrade on unseen validation after Protected Router decisions. |
+| Generalization Non-Degradation Guard | 🟢 PASS | WARNING | 0.00% | 0.00% | Generalization monitoring warning: raw SFT candidate unseen validation exact-match changed by 0.00% versus baseline. This is reported as candidate-side generalization telemetry only and does not block deployment when Protected Router served outputs remain governed and regression exposure is contained. |
 
 
 ---
@@ -144,10 +129,10 @@ This section tracks the active interception of hallucinated outputs and formatti
 | Diagnostic Metric | Measured Count | Engineering Definition & Protective Scope |
 |---|:---:|---|
 | **Total Baseline Hallucinations Found** | `19` | Validation prompts where baseline failed to capture semantic target. |
-| **Repairs Found (Semantic Recoveries)** | `2` | Raw semantic improvements found in SFT candidate. |
-| **Repairs Promoted (Contract-Clean)** | `2` | Baseline errors resolved cleanly and promoted with strict EM. |
+| **Repairs Found (Semantic Recoveries)** | `1` | Raw semantic improvements found in SFT candidate. |
+| **Repairs Promoted (Contract-Clean)** | `1` | Baseline errors resolved cleanly and promoted with strict EM. |
 | **Repairs Withheld (Contract Violation)**| `0` | Semantic target recovered, but withheld due to contract/EM violation. |
-| **Candidate Over-Steers Prevented** | `17` | Both models failed, but SFT candidate risk was higher; baseline served. |
+| **Candidate Over-Steers Prevented** | `18` | Both models failed, but SFT candidate risk was higher; baseline served. |
 | **Catastrophic Regressions Blocked** | `0` | Baseline was correct but SFT candidate failed; router served baseline fallback. |
 | **Hallucination Exposure Control Rate** | 100.00% | All baseline cases were either repaired or withheld. |
 | **Net Gateway Interventions** | `19` | Overall cases actively guarded by the Protected Router (100% active coverage). |
@@ -157,10 +142,10 @@ This tracks how well purely mathematical zero-shot risk signals align with verif
 
 | Metric | Result | Interpretation |
 |---|:---:|---|
-| **Gold Hallucinations (Total)** | `17` | Actual semantic target failures. |
-| **Hallucinations Caught (Recall)** | `88.24%` | Percentage of actual hallucinations successfully predicted by zero-shot Math alone. |
-| **Math False Negatives (Blind Spots)** | `2` | Hallucinations missed by math (Highly confident but wrong). |
-| **Math False Positives (Over-caution)** | `3` | Correct answers improperly flagged as risky by math. |
+| **Gold Hallucinations (Total)** | `18` | Actual semantic target failures. |
+| **Hallucinations Caught (Recall)** | `27.78%` | Percentage of actual hallucinations successfully predicted by zero-shot Math alone. |
+| **Math False Negatives (Blind Spots)** | `13` | Hallucinations missed by math (Highly confident but wrong). |
+| **Math False Positives (Over-caution)** | `0` | Correct answers improperly flagged as risky by math. |
 
 ### Failure Taxonomy & Recommended Fix Plan
 
@@ -168,9 +153,9 @@ This tracks how well purely mathematical zero-shot risk signals align with verif
 |---|---|---|---|
 | TARGET_MISS | 0 | Generated output failed to include the required target completion. | Add target-token anchoring, curriculum replay on misses, and prompt-target alignment diagnostics. |
 | FORMAT_TEMPLATE_FAILURE | 0 | Generated output echoed blanks, answer choices, scaffolding, or template artifacts. | Add formatting suppression, answer-choice leakage penalties, and template artifact filters. |
-| WRONG_ENTITY_SUBSTITUTION | 16 | Generated a semantically plausible but incorrect entity, distractor, or adjacent concept instead of the target. | Add semantic contrastive negatives, entity-disambiguation replay, and high-risk distractor curation. |
+| WRONG_ENTITY_SUBSTITUTION | 17 | Generated a semantically plausible but incorrect entity, distractor, or adjacent concept instead of the target. | Add semantic contrastive negatives, entity-disambiguation replay, and high-risk distractor curation. |
 | OVER_GENERATION | 0 | Generated the target or related text but continued beyond the required one-word answer. | Add stop-token enforcement, max-new-token constraints, post-decode truncation policy, and one-token decoding mode. |
-| INSTRUCTION_CONTRACT_VIOLATION | 23 | Target may be present, but output violates task constraints such as one-word-only completion. | Add explicit contract loss, strict EM validation, and one-word output gate. |
+| INSTRUCTION_CONTRACT_VIOLATION | 22 | Target may be present, but output violates task constraints such as one-word-only completion. | Add explicit contract loss, strict EM validation, and one-word output gate. |
 | HIGH_CONFIDENCE_WRONG | 1 | Incorrect output emitted with confidence above configured high-confidence threshold. | Add high-confidence wrong penalty and calibration SFT regularization. |
 
 *Note: Over-generation is currently nested under instruction-contract violation by taxonomy policy.*
@@ -183,38 +168,38 @@ This tracks how well purely mathematical zero-shot risk signals align with verif
 | Routing Action Type | Action Count | Operational Role |
 |---|:---:|---|
 | **Regressions Blocked** | `0` | Fallback to baseline on candidate failure |
-| **Contract-Clean Repairs Promoted** | `2` | Upgrade to SFT candidate on verified contract-clean SFT repair |
-| **Over-steers Prevented** | `17` | Fallback to baseline when candidate risk spikes |
+| **Contract-Clean Repairs Promoted** | `1` | Upgrade to SFT candidate on verified contract-clean SFT repair |
+| **Over-steers Prevented** | `18` | Fallback to baseline when candidate risk spikes |
 
 ### Served Output Impact:
 **Regression Containment:** The router successfully blocked 0 regression(s) where candidate degraded baseline correct outputs. This demonstrates safe containment control.
-* **Generalization Repair:** Promoted 2 successful contract-clean SFT candidate repair(s) into active serving streams.
+* **Generalization Repair:** Promoted 1 successful contract-clean SFT candidate repair(s) into active serving streams.
 
 ### Dynamic Showcase Cases
 #### Showcase Case 1: ID 084 (seen_val)
 * **Operational Category:** Persistent Failure Contained: Both failed target capture; candidate risk was contained and fallback was executed.
 * **Prompt:** *Complete with one word only: The official capital city of Switzerland is*
 * **Expected Target:** `Bern`
-* **Outputs:** Baseline=`__________. Zurich<br><br>What does t...` (Risk: 0.3285) | SFT Candidate=`__________. Zurich<br><br>The officia...` (Risk: 0.3723)
-* **Latent Telemetry:** Baseline Top-1 Prob: `35.35%` | SFT Candidate Top-1 Prob: `28.52%` | Delta: `-0.0684`
+* **Outputs:** Baseline=`__________. Zurich<br><br>What does t...` (Risk: 0.3285) | SFT Candidate=`__________. Zurich<br><br>The officia...` (Risk: 0.3789)
+* **Latent Telemetry:** Baseline Top-1 Prob: `35.35%` | SFT Candidate Top-1 Prob: `25.20%` | Delta: `-0.1016`
 * **Router Action:** `abstain_safe_fallback` -> **Served Output:** `⚠️ Hallucination Risk Detected — Resp...`
-* **Protected Router Decision Explanation:** *Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3723).*
+* **Protected Router Decision Explanation:** *Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3789).*
 
-#### Showcase Case 2: ID 081 (seen_val)
+#### Showcase Case 2: ID 085 (seen_val)
 * **Operational Category:** Preserved Stricter Contract: SFT candidate violated formatting contracts; baseline output safely served instead.
-* **Prompt:** *Complete with one word only: The official capital city of South Korea is*
-* **Expected Target:** `Seoul`
-* **Outputs:** Baseline=`__________. Seoul<br><br>What is the ...` (Risk: 0.3417) | SFT Candidate=`Seoul. <br><br>The official capital c...` (Risk: 0.3456)
-* **Latent Telemetry:** Baseline Top-1 Prob: `33.79%` | SFT Candidate Top-1 Prob: `51.95%` | Delta: `+0.1816`
-* **Router Action:** `use_baseline` -> **Served Output:** `__________. Seoul<br><br>What is the ...`
+* **Prompt:** *Complete with one word only: The official capital city of Poland is*
+* **Expected Target:** `Warsaw`
+* **Outputs:** Baseline=`Warsaw. <br><br>A) Capital<br>B) City...` (Risk: 0.3600) | SFT Candidate=`Warsaw. <br><br>The official capital ...` (Risk: 0.3662)
+* **Latent Telemetry:** Baseline Top-1 Prob: `22.07%` | SFT Candidate Top-1 Prob: `44.73%` | Delta: `+0.2266`
+* **Router Action:** `use_baseline` -> **Served Output:** `Warsaw. <br><br>A) Capital<br>B) City...`
 * **Protected Router Decision Explanation:** *Baseline served to preserve stricter output contract or lower risk.*
 
 #### Showcase Case 3: ID 082 (seen_val)
 * **Operational Category:** Repair Promoted: Candidate successfully recovered and validated semantic target completion.
 * **Prompt:** *Complete with one word only: The official capital city of Norway is*
 * **Expected Target:** `Oslo`
-* **Outputs:** Baseline=`________.<br>Stockholm<br><br>The off...` (Risk: 0.3150) | SFT Candidate=`Oslo. <br><br>The official capital ci...` (Risk: 0.3578)
-* **Latent Telemetry:** Baseline Top-1 Prob: `41.41%` | SFT Candidate Top-1 Prob: `45.90%` | Delta: `+0.0449`
+* **Outputs:** Baseline=`________.<br>Stockholm<br><br>The off...` (Risk: 0.3150) | SFT Candidate=`Oslo. <br><br>The official capital ci...` (Risk: 0.3442)
+* **Latent Telemetry:** Baseline Top-1 Prob: `41.41%` | SFT Candidate Top-1 Prob: `51.95%` | Delta: `+0.1055`
 * **Router Action:** `use_candidate` -> **Served Output:** `Oslo. <br><br>The official capital ci...`
 * **Protected Router Decision Explanation:** *Contract-clean candidate repair promoted.*
 
@@ -222,10 +207,10 @@ This tracks how well purely mathematical zero-shot risk signals align with verif
 * **Operational Category:** Transition trace display for analysis (wrong_to_wrong).
 * **Prompt:** *Complete with one word only: The noble element designated by atomic number 10 is*
 * **Expected Target:** `Neon`
-* **Outputs:** Baseline=`____. <br>A. Gold<br>B. Silver<br>C` (Risk: 0.3379) | SFT Candidate=`____<br>A. Iron<br>B. Gold<br>C.` (Risk: 0.4154)
-* **Latent Telemetry:** Baseline Top-1 Prob: `36.52%` | SFT Candidate Top-1 Prob: `17.29%` | Delta: `-0.1924`
+* **Outputs:** Baseline=`____. <br>A. Gold<br>B. Silver<br>C` (Risk: 0.3379) | SFT Candidate=`____. <br>A. Iron<br>B. Gold<br>C` (Risk: 0.4173)
+* **Latent Telemetry:** Baseline Top-1 Prob: `36.52%` | SFT Candidate Top-1 Prob: `17.87%` | Delta: `-0.1865`
 * **Router Action:** `abstain_safe_fallback` -> **Served Output:** `⚠️ Hallucination Risk Detected — Resp...`
-* **Protected Router Decision Explanation:** *Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4154).*
+* **Protected Router Decision Explanation:** *Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4173).*
 
 
 
@@ -242,10 +227,10 @@ The following SFT trace displays prompts where the baseline or candidate configu
 |---|---|---|---|---|---|---|
 | seen_val | 82 | *Complete with one word only: The official capit...* | `Oslo` | `________.<br>Stockholm<br><...` | `Oslo. <br><br>The official ...` | 2.8125 |
 | seen_val | 84 | *Complete with one word only: The official capit...* | `Bern` | `__________. Zurich<br><br>W...` | `__________. Zurich<br><br>T...` | 3.7344 |
-| seen_val | 86 | *Complete with one word only: The noble element ...* | `Neon` | `____. <br>A. Gold<br>B. Sil...` | `____<br>A. Iron<br>B. Gold<...` | 10.0625 |
-| seen_val | 87 | *Complete with one word only: The volatile eleme...* | `Sulfur` | `__________. <br>A. Sodium<b...` | `____<br>A. Sodium<br>B. Mag...` | 3.6667 |
+| seen_val | 86 | *Complete with one word only: The noble element ...* | `Neon` | `____. <br>A. Gold<br>B. Sil...` | `____. <br>A. Iron<br>B. Gol...` | 10.0625 |
+| seen_val | 87 | *Complete with one word only: The volatile eleme...* | `Sulfur` | `__________. <br>A. Sodium<b...` | `____. <br>A. Sodium<br>B. M...` | 3.6667 |
 | seen_val | 90 | *Complete with one word only: Mechanical acousti...* | `Vacuum` | `medium. <br><br>A) Inertial...` | `medium. The sound waves tha...` | 12.3125 |
-| seen_val | 96 | *Complete with one word only: To enforce unique ...* | `Set` | `technique known as ________...` | `technique known as hashing....` | 7.7500 |
+| seen_val | 96 | *Complete with one word only: To enforce unique ...* | `Set` | `technique known as ________...` | `technique known as ________...` | 7.7500 |
 | seen_val | 98 | *Complete with one word only: An execution failu...* | `Bug` | `(n) ________.<br>A. Error<b...` | `(n) ________.<br>A. Error<b...` | 11.8125 |
 | seen_val | 99 | *Complete with one word only: A standardized tex...* | `JSON` | `called a(n) ________.<br>A....` | `called a(n) ________.<br>A....` | 10.9375 |
 | seen_val | 100 | *Complete with one word only: The active keyword...* | `import` | `____________.<br>module<br>...` | `____________.<br>The active...` | 7.5312 |
@@ -308,16 +293,16 @@ Applying adapters specifically to these bottleneck blocks protects the mid-layer
 
 | Metric Dimension | Direction | Baseline | Candidate | Served Router | Candidate Delta | Candidate Direction | Served Delta | Served Direction | Customer Reading Guidance |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Seen Validation NLL | Lower is Better ⬇️ | 4.7107 | 3.6968 | 4.5042 | -1.0138 | Favorable | -0.2064 | Favorable | Served Delta reflects production-facing impact after Protected Router gating controls successfully exposed candidate improvements. |
-| Unseen Validation NLL | Lower is Better ⬇️ | 5.1869 | 4.2373 | 5.0932 | -0.9496 | Favorable | -0.0938 | Favorable | Served Delta reflects production-facing impact after Protected Router gating controls successfully exposed candidate improvements. |
-| Unseen Perplexity (PPL) | Lower is Better ⬇️ | 178.9205 | 69.2234 | 162.9090 | -109.6971 | Favorable | -16.0115 | Favorable | Served Delta reflects production-facing impact after Protected Router gating controls successfully exposed candidate improvements. |
-| Average Cross-Entropy Loss (NLL) | Lower is Better ⬇️ | 4.9488 | 3.9671 | 4.7987 | -0.9817 | Favorable | -0.1501 | Favorable | Served Delta reflects production-facing impact after Protected Router gating controls successfully exposed candidate improvements. |
+| Seen Validation NLL | Lower is Better ⬇️ | 4.7107 | 3.6873 | 4.4874 | -1.0234 | Favorable | -0.2232 | Favorable | Served Delta reflects production-facing impact after Protected Router gating controls successfully exposed candidate improvements. |
+| Unseen Validation NLL | Lower is Better ⬇️ | 5.1869 | 4.2199 | 5.1838 | -0.9670 | Favorable | -0.0031 | Favorable | Served Delta reflects production-facing impact after Protected Router gating controls successfully exposed candidate improvements. |
+| Unseen Perplexity (PPL) | Lower is Better ⬇️ | 178.9205 | 68.0263 | 178.3622 | -110.8942 | Favorable | -0.5583 | Favorable | Served Delta reflects production-facing impact after Protected Router gating controls successfully exposed candidate improvements. |
+| Average Cross-Entropy Loss (NLL) | Lower is Better ⬇️ | 4.9488 | 3.9536 | 4.8356 | -0.9952 | Favorable | -0.1132 | Favorable | Served Delta reflects production-facing impact after Protected Router gating controls successfully exposed candidate improvements. |
 | Instruction Contract Violation Rate | Lower is Better ⬇️ | 100.00% | 100.00% | 100.00% | +0.00% | Flat | +0.00% | Flat (No Change) | No material movement versus baseline across both candidate and served paths. |
-| Semantic Target Capture | Higher is Better ⬆️ | 52.50% | 57.50% | 57.50% | +5.00% | Favorable | +5.00% | Favorable | Served Delta reflects production-facing impact after Protected Router gating controls successfully exposed candidate improvements. |
-| First-Token Target Match | Higher is Better ⬆️ | 37.50% | 47.50% | 40.00% | +10.00% | Favorable | +2.50% | Favorable | Served Delta reflects production-facing impact after Protected Router gating controls successfully exposed candidate improvements. |
+| Semantic Target Capture | Higher is Better ⬆️ | 52.50% | 55.00% | 55.00% | +2.50% | Favorable | +2.50% | Favorable | Served Delta reflects production-facing impact after Protected Router gating controls successfully exposed candidate improvements. |
+| First-Token Target Match | Higher is Better ⬆️ | 37.50% | 45.00% | 40.00% | +7.50% | Favorable | +2.50% | Favorable | Served Delta reflects production-facing impact after Protected Router gating controls successfully exposed candidate improvements. |
 | Strict EM Accuracy | Higher is Better ⬆️ | 0.00% | 0.00% | 0.00% | +0.00% | Flat | +0.00% | Flat (No Change) | No material movement versus baseline across both candidate and served paths. |
 | Seen Exact-Match Accuracy | Higher is Better ⬆️ | 55.00% | 60.00% | 60.00% | +5.00% | Favorable | +5.00% | Favorable | Served Delta reflects production-facing impact after Protected Router gating controls successfully exposed candidate improvements. |
-| Unseen Generalization Accuracy | Higher is Better ⬆️ | 50.00% | 55.00% | 55.00% | +5.00% | Favorable | +5.00% | Favorable | Served Delta reflects production-facing impact after Protected Router gating controls successfully exposed candidate improvements. |
+| Unseen Generalization Accuracy | Higher is Better ⬆️ | 50.00% | 50.00% | 50.00% | +0.00% | Flat | +0.00% | Flat (No Change) | No material movement versus baseline across both candidate and served paths. |
 
 
 **Reading the Metrics Scoreboard:**
@@ -328,8 +313,8 @@ Applying adapters specifically to these bottleneck blocks protects the mid-layer
 |---|:---:|:---:|---|
 | **Correct ➔ Correct** | `21` | `52.5%` | Semantic target preserved across both models |
 | **Correct ➔ Wrong (Regression)** | `0` | `0.0%` | Candidate degraded baseline correct output |
-| **Wrong ➔ Correct (Repair)** | `2` | `5.0%` | Candidate successfully resolved baseline error |
-| **Wrong ➔ Wrong (Persistent)** | `17` | `42.5%` | Persistent target failure across both configurations |
+| **Wrong ➔ Correct (Repair)** | `1` | `2.5%` | Candidate successfully resolved baseline error |
+| **Wrong ➔ Wrong (Persistent)** | `18` | `45.0%` | Persistent target failure across both configurations |
 
 ### Metric Confidence & Validation Sample Size Limits
 
@@ -347,7 +332,7 @@ Enterprise deployments should scale validation spaces to larger evaluation corpu
 Based on SFT evidence compiled in this evaluation cycle, we draw the following conclusions:
 
 * **Demonstrated SFT Capabilities:** SFT candidate model demonstrated improved continuous likelihood metrics (NLL) but failed discrete accuracy non-inferiority or structural safety thresholds. Direct promotion of current weights is not safe.
-* **Repairs Promoted:** Promoted 2 validated SFT semantic repairs.
+* **Repairs Promoted:** Promoted 1 validated SFT semantic repairs.
 * **Router Safety:** The Protected Router successfully preserved SFT served accuracy by blocking 0 regressions.
 
 ### Compute Environment Audit

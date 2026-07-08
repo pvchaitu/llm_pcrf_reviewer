@@ -7,11 +7,11 @@
 * Dataset Seen Validation : 40 examples
 * Dataset Unseen Val      : 40 examples
 * Baseline Seen EM        : 67.50%
-* Candidate Seen EM       : 60.00% if regularized_stats else 0.00%
+* Candidate Seen EM       : 50.00% if regularized_stats else 0.00%
 * Baseline Unseen EM      : 67.50%
-* Candidate Unseen EM     : 57.50% if regularized_stats else 0.00%
-* Seen Validation Loss Delta (NLL) : -6.88906
-* Unseen Validation Loss Delta (NLL): -4.92877
+* Candidate Unseen EM     : 52.50% if regularized_stats else 0.00%
+* Seen Validation Loss Delta (NLL) : -6.89453
+* Unseen Validation Loss Delta (NLL): -4.73024
 * System Structural Reliability ($R_sys$): 33.9378%
 * Protected Router Unseen Accuracy: 67.50%
 * Final Gating Decision   : DO_NOT_APPLY (Reason Code: STRUCTURAL_RELIABILITY_FLOOR)
@@ -29,19 +29,19 @@
 =====================================================================
 transition_type  | count | percentage | avg_delta_nll | avg_delta_entropy | avg_delta_margin | avg_delta_hallucination_risk
 -----------------|-------|------------|---------------|-------------------|------------------|-----------------------------
-correct_to_correct| 45    |  56.2%       | -7.71076     | +1.55686          | -2.38611         | +0.13854
-correct_to_wrong | 9     |  11.2%       | -10.30556    | +2.00217          | -2.36806         | +0.16319
-wrong_to_correct | 2     |   2.5%       | -5.34375     | +1.74829          | -2.46875         | +0.15526
-wrong_to_wrong   | 24    |  30.0%       | -4.64466     | +1.20862          | -1.48438         | +0.11235
+correct_to_correct| 39    |  48.8%       | -7.31330     | +1.35915          | -2.31250         | +0.13025
+correct_to_wrong | 15    |  18.8%       | -9.66146     | +1.86413          | -2.29583         | +0.15255
+wrong_to_correct | 2     |   2.5%       | -5.57031     | +1.40454          | -2.25000         | +0.13839
+wrong_to_wrong   | 24    |  30.0%       | -4.60651     | +1.04976          | -1.39583         | +0.10493
 
-* Note: Total Critical High-Priority Regressions: 2 (Hard-gated and blocked by the Safety Router).
+* Note: Total Critical High-Priority Regressions: 5 (Hard-gated and blocked by the Safety Router).
 
 =====================================================================
 [D] ROW-LEVEL DEBUGGING SAMPLES
 =====================================================================
 We display the localized SFT evaluation matrix trace of top transition samples below:
 - ID: 101 | Split: seen_val | Prompt: *JSON payload: { 'event': 'FailedLogin', 'userna...* | Target: `high` | Correct: wrong_to_wrong
-- ID: 102 | Split: seen_val | Prompt: *JSON payload: { 'event': 'FailedLogin', 'userna...* | Target: `low` | Correct: correct_to_correct
+- ID: 102 | Split: seen_val | Prompt: *JSON payload: { 'event': 'FailedLogin', 'userna...* | Target: `low` | Correct: correct_to_wrong
 - ID: 103 | Split: seen_val | Prompt: *JSON payload: { 'event': 'S3BucketCreated', 'ow...* | Target: `high` | Correct: wrong_to_wrong
 - ID: 104 | Split: seen_val | Prompt: *JSON payload: { 'event': 'S3BucketCreated', 'ow...* | Target: `low` | Correct: wrong_to_correct
 - ID: 105 | Split: seen_val | Prompt: *JSON payload: { 'event': 'IAMPolicyModified', '...* | Target: `medium` | Correct: wrong_to_wrong
@@ -100,24 +100,24 @@ SFT Candidate Output: low
 What is the risk level of this incident? The
 Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 Baseline NLL: 4.21875
-Candidate NLL: 4.06250
-Delta NLL: -0.15625
+Candidate NLL: 3.89062
+Delta NLL: -0.32812
 Baseline Entropy: 4.78125
-Candidate Entropy: 4.59375
-Delta Entropy: -0.18750
+Candidate Entropy: 4.12500
+Delta Entropy: -0.65625
 Baseline Margin: 0.43750
-Candidate Margin: 0.25000
-Delta Margin: -0.18750
+Candidate Margin: 0.00000
+Delta Margin: -0.43750
 Baseline Target Probability: 0.08984
-Candidate Target Probability: 0.12500
-Delta Confidence: 0.03516
+Candidate Target Probability: 0.15918
+Delta Confidence: 0.06934
 Failure Category: WRONG_ENTITY_SUBSTITUTION
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: No
 Baseline Risk Score: 0.41244
-SFT Candidate Risk Score: 0.44494
+SFT Candidate Risk Score: 0.43837
 Router Decision: abstain_safe_fallback
-Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4449).
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4384).
 --------------------------------------------------------------------------------
 ### ID: 102
 Split: seen_val
@@ -126,40 +126,40 @@ Semantic Target: low
 Strict Target-Only Correct — Baseline: 0
 Strict Target-Only Correct — Candidate: 0
 First-Token Match — Baseline: 1
-First-Token Match — Candidate: 1
+First-Token Match — Candidate: 0
 Semantic Capture — Baseline: 1
-Semantic Capture — Candidate: 1
+Semantic Capture — Candidate: 0
 Instruction Contract Violation — Baseline: 1
 Instruction Contract Violation — Candidate: 1
-Transition Type: correct_to_correct
+Transition Type: correct_to_wrong
 Baseline Output: low
 
 What is the risk level of this incident? The
-SFT Candidate Output: low
+SFT Candidate Output: Medium
 
 What is the risk level of this incident? The
 Final Served Output: low
 
 What is the risk level of this incident? The
 Baseline NLL: 2.32812
-Candidate NLL: 2.00000
-Delta NLL: -0.32812
+Candidate NLL: 1.78125
+Delta NLL: -0.54688
 Baseline Entropy: 4.71875
-Candidate Entropy: 4.53125
-Delta Entropy: -0.18750
+Candidate Entropy: 4.03125
+Delta Entropy: -0.68750
 Baseline Margin: 0.43750
 Candidate Margin: 0.12500
 Delta Margin: -0.31250
 Baseline Target Probability: 0.09814
-Candidate Target Probability: 0.13574
-Delta Confidence: 0.03760
-Failure Category: INSTRUCTION_CONTRACT_VIOLATION
-Hallucination / Target Failure Detected: No
+Candidate Target Probability: 0.19043
+Delta Confidence: 0.09229
+Failure Category: WRONG_ENTITY_SUBSTITUTION
+Hallucination / Target Failure Detected: Yes
 Confidence Lowered: No
 Baseline Risk Score: 0.41056
-SFT Candidate Risk Score: 0.44681
+SFT Candidate Risk Score: 0.43181
 Router Decision: use_baseline
-Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+Prevention Action: Candidate blocked because baseline captured the target and candidate failed.
 --------------------------------------------------------------------------------
 ### ID: 103
 Split: seen_val
@@ -181,24 +181,24 @@ SFT Candidate Output: low
 What is the risk level of this event? The
 Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 Baseline NLL: 4.37500
-Candidate NLL: 3.87500
-Delta NLL: -0.50000
+Candidate NLL: 3.56250
+Delta NLL: -0.81250
 Baseline Entropy: 4.93750
-Candidate Entropy: 4.93750
-Delta Entropy: 0.00000
+Candidate Entropy: 4.62500
+Delta Entropy: -0.31250
 Baseline Margin: 0.37500
-Candidate Margin: 0.31250
-Delta Margin: -0.06250
+Candidate Margin: 0.68750
+Delta Margin: 0.31250
 Baseline Target Probability: 0.07227
-Candidate Target Probability: 0.08203
-Delta Confidence: 0.00977
+Candidate Target Probability: 0.14453
+Delta Confidence: 0.07227
 Failure Category: WRONG_ENTITY_SUBSTITUTION
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: No
 Baseline Risk Score: 0.41900
-SFT Candidate Risk Score: 0.45337
+SFT Candidate Risk Score: 0.43275
 Router Decision: abstain_safe_fallback
-Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4534).
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4327).
 --------------------------------------------------------------------------------
 ### ID: 104
 Split: seen_val
@@ -222,22 +222,22 @@ Final Served Output: low
 
 What is the risk level of this event? The
 Baseline NLL: 2.93750
-Candidate NLL: 2.20312
-Delta NLL: -0.73438
+Candidate NLL: 1.75000
+Delta NLL: -1.18750
 Baseline Entropy: 4.84375
-Candidate Entropy: 4.81250
-Delta Entropy: -0.03125
+Candidate Entropy: 4.40625
+Delta Entropy: -0.43750
 Baseline Margin: 0.31250
-Candidate Margin: 0.50000
-Delta Margin: 0.18750
+Candidate Margin: 0.81250
+Delta Margin: 0.50000
 Baseline Target Probability: 0.07227
-Candidate Target Probability: 0.11035
-Delta Confidence: 0.03809
+Candidate Target Probability: 0.17480
+Delta Confidence: 0.10254
 Failure Category: INSTRUCTION_CONTRACT_VIOLATION
 Hallucination / Target Failure Detected: No
 Confidence Lowered: No
 Baseline Risk Score: 0.41806
-SFT Candidate Risk Score: 0.44400
+SFT Candidate Risk Score: 0.42244
 Router Decision: use_candidate
 Prevention Action: Contract-clean candidate repair promoted.
 --------------------------------------------------------------------------------
@@ -261,24 +261,24 @@ SFT Candidate Output: low
 What is the risk level of this IAM policy modification
 Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 Baseline NLL: 8.62500
-Candidate NLL: 6.68750
-Delta NLL: -1.93750
+Candidate NLL: 5.46875
+Delta NLL: -3.15625
 Baseline Entropy: 4.87500
-Candidate Entropy: 5.00000
-Delta Entropy: 0.12500
+Candidate Entropy: 4.87500
+Delta Entropy: 0.00000
 Baseline Margin: 0.25000
-Candidate Margin: 0.06250
-Delta Margin: -0.18750
+Candidate Margin: 0.68750
+Delta Margin: 0.43750
 Baseline Target Probability: 0.08252
-Candidate Target Probability: 0.06494
-Delta Confidence: -0.01758
+Candidate Target Probability: 0.10352
+Delta Confidence: 0.02100
 Failure Category: WRONG_ENTITY_SUBSTITUTION
 Hallucination / Target Failure Detected: Yes
-Confidence Lowered: Yes
+Confidence Lowered: No
 Baseline Risk Score: 0.42087
-SFT Candidate Risk Score: 0.46275
+SFT Candidate Risk Score: 0.44025
 Router Decision: abstain_safe_fallback
-Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4627).
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4402).
 --------------------------------------------------------------------------------
 ### ID: 106
 Split: seen_val
@@ -300,24 +300,24 @@ SFT Candidate Output: low
 What is the risk level of this IAM policy modification
 Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 Baseline NLL: 7.28125
-Candidate NLL: 5.62500
-Delta NLL: -1.65625
+Candidate NLL: 4.37500
+Delta NLL: -2.90625
 Baseline Entropy: 4.81250
-Candidate Entropy: 4.84375
-Delta Entropy: 0.03125
+Candidate Entropy: 4.50000
+Delta Entropy: -0.31250
 Baseline Margin: 0.25000
-Candidate Margin: 0.50000
-Delta Margin: 0.25000
+Candidate Margin: 0.56250
+Delta Margin: 0.31250
 Baseline Target Probability: 0.07373
-Candidate Target Probability: 0.09814
-Delta Confidence: 0.02441
+Candidate Target Probability: 0.15234
+Delta Confidence: 0.07861
 Failure Category: WRONG_ENTITY_SUBSTITUTION
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: No
 Baseline Risk Score: 0.41900
-SFT Candidate Risk Score: 0.44494
+SFT Candidate Risk Score: 0.43275
 Router Decision: abstain_safe_fallback
-Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4449).
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4327).
 --------------------------------------------------------------------------------
 ### ID: 107
 Split: seen_val
@@ -340,24 +340,24 @@ SFT Candidate Output: low
 What is the risk level of this incident? The
 Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 Baseline NLL: 4.28125
-Candidate NLL: 4.03125
-Delta NLL: -0.25000
+Candidate NLL: 3.96875
+Delta NLL: -0.31250
 Baseline Entropy: 4.59375
-Candidate Entropy: 4.65625
-Delta Entropy: 0.06250
+Candidate Entropy: 4.31250
+Delta Entropy: -0.28125
 Baseline Margin: 0.62500
-Candidate Margin: 0.87500
-Delta Margin: 0.25000
+Candidate Margin: 1.00000
+Delta Margin: 0.37500
 Baseline Target Probability: 0.13086
-Candidate Target Probability: 0.14844
-Delta Confidence: 0.01758
+Candidate Target Probability: 0.17969
+Delta Confidence: 0.04883
 Failure Category: WRONG_ENTITY_SUBSTITUTION
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: No
 Baseline Risk Score: 0.40119
-SFT Candidate Risk Score: 0.42806
+SFT Candidate Risk Score: 0.41400
 Router Decision: abstain_safe_fallback
-Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4281).
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4140).
 --------------------------------------------------------------------------------
 ### ID: 108
 Split: seen_val
@@ -382,22 +382,22 @@ Final Served Output: low
 
 What is the risk level of this incident? The
 Baseline NLL: 2.14062
-Candidate NLL: 1.96094
-Delta NLL: -0.17969
+Candidate NLL: 1.74219
+Delta NLL: -0.39844
 Baseline Entropy: 4.40625
-Candidate Entropy: 4.50000
-Delta Entropy: 0.09375
+Candidate Entropy: 4.21875
+Delta Entropy: -0.18750
 Baseline Margin: 0.56250
-Candidate Margin: 0.75000
-Delta Margin: 0.18750
+Candidate Margin: 0.62500
+Delta Margin: 0.06250
 Baseline Target Probability: 0.11865
-Candidate Target Probability: 0.14062
-Delta Confidence: 0.02197
+Candidate Target Probability: 0.17480
+Delta Confidence: 0.05615
 Failure Category: INSTRUCTION_CONTRACT_VIOLATION
 Hallucination / Target Failure Detected: No
 Confidence Lowered: No
 Baseline Risk Score: 0.39744
-SFT Candidate Risk Score: 0.42712
+SFT Candidate Risk Score: 0.42244
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
 --------------------------------------------------------------------------------
@@ -424,22 +424,22 @@ Final Served Output: low
 
 What is the risk level of this event? The
 Baseline NLL: 1.93750
-Candidate NLL: 1.78906
-Delta NLL: -0.14844
+Candidate NLL: 1.53906
+Delta NLL: -0.39844
 Baseline Entropy: 4.62500
-Candidate Entropy: 4.56250
-Delta Entropy: -0.06250
+Candidate Entropy: 4.09375
+Delta Entropy: -0.53125
 Baseline Margin: 0.68750
-Candidate Margin: 1.00000
-Delta Margin: 0.31250
+Candidate Margin: 0.81250
+Delta Margin: 0.12500
 Baseline Target Probability: 0.14453
-Candidate Target Probability: 0.16699
-Delta Confidence: 0.02246
+Candidate Target Probability: 0.21387
+Delta Confidence: 0.06934
 Failure Category: INSTRUCTION_CONTRACT_VIOLATION
 Hallucination / Target Failure Detected: No
 Confidence Lowered: No
 Baseline Risk Score: 0.40025
-SFT Candidate Risk Score: 0.42150
+SFT Candidate Risk Score: 0.41306
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
 --------------------------------------------------------------------------------
@@ -464,24 +464,24 @@ SFT Candidate Output: low
 What is the risk level of this event? The
 Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 Baseline NLL: 3.92188
-Candidate NLL: 3.79688
-Delta NLL: -0.12500
+Candidate NLL: 3.71875
+Delta NLL: -0.20312
 Baseline Entropy: 4.37500
-Candidate Entropy: 4.37500
-Delta Entropy: 0.00000
+Candidate Entropy: 3.93750
+Delta Entropy: -0.43750
 Baseline Margin: 1.12500
 Candidate Margin: 1.00000
 Delta Margin: -0.12500
 Baseline Target Probability: 0.18848
-Candidate Target Probability: 0.18652
-Delta Confidence: -0.00195
+Candidate Target Probability: 0.24707
+Delta Confidence: 0.05859
 Failure Category: WRONG_ENTITY_SUBSTITUTION
 Hallucination / Target Failure Detected: Yes
-Confidence Lowered: Yes
+Confidence Lowered: No
 Baseline Risk Score: 0.37962
-SFT Candidate Risk Score: 0.41587
+SFT Candidate Risk Score: 0.40275
 Router Decision: abstain_safe_fallback
-Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4159).
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4027).
 --------------------------------------------------------------------------------
 ### ID: 111
 Split: seen_val
@@ -503,8 +503,8 @@ Baseline NLL: 6.62500
 Candidate NLL: 3.09375
 Delta NLL: -3.53125
 Baseline Entropy: 0.10693
-Candidate Entropy: 1.32031
-Delta Entropy: 1.21338
+Candidate Entropy: 1.29688
+Delta Entropy: 1.18994
 Baseline Margin: 5.75000
 Candidate Margin: 2.87500
 Delta Margin: -2.87500
@@ -515,7 +515,7 @@ Failure Category: INSTRUCTION_CONTRACT_VIOLATION
 Hallucination / Target Failure Detected: No
 Confidence Lowered: Yes
 Baseline Risk Score: 0.13533
-SFT Candidate Risk Score: 0.26798
+SFT Candidate Risk Score: 0.26728
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
 --------------------------------------------------------------------------------
@@ -538,22 +538,22 @@ SFT Candidate Output: 'deleteInactiveTransactions', 'data': data }
 To extract
 Final Served Output: 'delete', 'id': 12345
 Baseline NLL: 8.50000
-Candidate NLL: 2.60938
-Delta NLL: -5.89062
+Candidate NLL: 2.98438
+Delta NLL: -5.51562
 Baseline Entropy: 0.09521
-Candidate Entropy: 1.82031
-Delta Entropy: 1.72510
+Candidate Entropy: 1.88281
+Delta Entropy: 1.78760
 Baseline Margin: 5.87500
-Candidate Margin: 2.25000
-Delta Margin: -3.62500
+Candidate Margin: 2.62500
+Delta Margin: -3.25000
 Baseline Target Probability: 0.98828
-Candidate Target Probability: 0.69922
-Delta Confidence: -0.28906
+Candidate Target Probability: 0.69141
+Delta Confidence: -0.29688
 Failure Category: INSTRUCTION_CONTRACT_VIOLATION
 Hallucination / Target Failure Detected: No
 Confidence Lowered: Yes
 Baseline Risk Score: 0.13498
-SFT Candidate Risk Score: 0.30173
+SFT Candidate Risk Score: 0.29236
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
 --------------------------------------------------------------------------------
@@ -574,22 +574,22 @@ Baseline Output: 'POST', 'data': { 'server_gateway_token':
 SFT Candidate Output: 'POST', 'url': '/api/gateways/new
 Final Served Output: 'POST', 'data': { 'server_gateway_token':
 Baseline NLL: 10.37500
-Candidate NLL: 5.62500
-Delta NLL: -4.75000
+Candidate NLL: 5.81250
+Delta NLL: -4.56250
 Baseline Entropy: 0.06934
-Candidate Entropy: 0.83594
-Delta Entropy: 0.76660
+Candidate Entropy: 0.76172
+Delta Entropy: 0.69238
 Baseline Margin: 5.87500
 Candidate Margin: 3.50000
 Delta Margin: -2.37500
 Baseline Target Probability: 0.99219
-Candidate Target Probability: 0.87891
-Delta Confidence: -0.11328
+Candidate Target Probability: 0.89062
+Delta Confidence: -0.10156
 Failure Category: INSTRUCTION_CONTRACT_VIOLATION
 Hallucination / Target Failure Detected: No
 Confidence Lowered: Yes
 Baseline Risk Score: 0.13420
-SFT Candidate Risk Score: 0.23470
+SFT Candidate Risk Score: 0.23248
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
 --------------------------------------------------------------------------------
@@ -610,22 +610,22 @@ Baseline Output: 'GET', 'url': '/api/credit-balance
 SFT Candidate Output: 'GET', 'url': '/api/credit-balance
 Final Served Output: 'GET', 'url': '/api/credit-balance
 Baseline NLL: 6.37500
-Candidate NLL: 2.95312
-Delta NLL: -3.42188
+Candidate NLL: 3.06250
+Delta NLL: -3.31250
 Baseline Entropy: 0.10449
-Candidate Entropy: 1.21875
-Delta Entropy: 1.11426
+Candidate Entropy: 1.08594
+Delta Entropy: 0.98145
 Baseline Margin: 5.62500
-Candidate Margin: 2.75000
-Delta Margin: -2.87500
+Candidate Margin: 2.87500
+Delta Margin: -2.75000
 Baseline Target Probability: 0.98828
-Candidate Target Probability: 0.81641
-Delta Confidence: -0.17188
+Candidate Target Probability: 0.83594
+Delta Confidence: -0.15234
 Failure Category: INSTRUCTION_CONTRACT_VIOLATION
 Hallucination / Target Failure Detected: No
 Confidence Lowered: Yes
 Baseline Risk Score: 0.13526
-SFT Candidate Risk Score: 0.26869
+SFT Candidate Risk Score: 0.26095
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
 --------------------------------------------------------------------------------
@@ -646,14 +646,14 @@ Baseline Output: 'GET', 'url': '/webhooks/new-endpoints
 SFT Candidate Output: 'GET', 'url': '/webhooks/new-endpoints
 Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 Baseline NLL: 9.68750
-Candidate NLL: 4.81250
-Delta NLL: -4.87500
+Candidate NLL: 4.87500
+Delta NLL: -4.81250
 Baseline Entropy: 0.13770
-Candidate Entropy: 1.74219
-Delta Entropy: 1.60449
+Candidate Entropy: 1.67969
+Delta Entropy: 1.54199
 Baseline Margin: 5.25000
-Candidate Margin: 2.75000
-Delta Margin: -2.50000
+Candidate Margin: 2.62500
+Delta Margin: -2.62500
 Baseline Target Probability: 0.98438
 Candidate Target Probability: 0.73438
 Delta Confidence: -0.25000
@@ -661,9 +661,9 @@ Failure Category: HIGH_CONFIDENCE_WRONG
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
 Baseline Risk Score: 0.13626
-SFT Candidate Risk Score: 0.28439
+SFT Candidate Risk Score: 0.28627
 Router Decision: abstain_safe_fallback
-Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2844).
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2863).
 --------------------------------------------------------------------------------
 ### ID: 116
 Split: seen_val
@@ -682,22 +682,22 @@ Baseline Output: 'delete', 'path': '/backup/storage/directories
 SFT Candidate Output: 'delete', 'path': '/backup/storage/directories
 Final Served Output: 'delete', 'path': '/backup/storage/directories
 Baseline NLL: 11.25000
-Candidate NLL: 4.93750
-Delta NLL: -6.31250
+Candidate NLL: 5.43750
+Delta NLL: -5.81250
 Baseline Entropy: 0.10107
-Candidate Entropy: 2.25000
-Delta Entropy: 2.14893
+Candidate Entropy: 2.00000
+Delta Entropy: 1.89893
 Baseline Margin: 5.75000
-Candidate Margin: 2.25000
-Delta Margin: -3.50000
+Candidate Margin: 2.37500
+Delta Margin: -3.37500
 Baseline Target Probability: 0.98828
-Candidate Target Probability: 0.64453
-Delta Confidence: -0.34375
+Candidate Target Probability: 0.68359
+Delta Confidence: -0.30469
 Failure Category: INSTRUCTION_CONTRACT_VIOLATION
 Hallucination / Target Failure Detected: No
 Confidence Lowered: Yes
 Baseline Risk Score: 0.13516
-SFT Candidate Risk Score: 0.31462
+SFT Candidate Risk Score: 0.30337
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
 --------------------------------------------------------------------------------
@@ -718,22 +718,22 @@ Baseline Output: 'GET', 'url': '/api/v1/deploy
 SFT Candidate Output: 'GET', 'url': '/api/v1/deploy
 Final Served Output: 'GET', 'url': '/api/v1/deploy
 Baseline NLL: 6.59375
-Candidate NLL: 3.09375
-Delta NLL: -3.50000
+Candidate NLL: 2.98438
+Delta NLL: -3.60938
 Baseline Entropy: 0.13379
-Candidate Entropy: 1.28125
-Delta Entropy: 1.14746
+Candidate Entropy: 1.35938
+Delta Entropy: 1.22559
 Baseline Margin: 5.50000
-Candidate Margin: 2.87500
-Delta Margin: -2.62500
+Candidate Margin: 2.75000
+Delta Margin: -2.75000
 Baseline Target Probability: 0.98438
-Candidate Target Probability: 0.80859
-Delta Confidence: -0.17578
+Candidate Target Probability: 0.78906
+Delta Confidence: -0.19531
 Failure Category: INSTRUCTION_CONTRACT_VIOLATION
 Hallucination / Target Failure Detected: No
 Confidence Lowered: Yes
 Baseline Risk Score: 0.13614
-SFT Candidate Risk Score: 0.26681
+SFT Candidate Risk Score: 0.27291
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
 --------------------------------------------------------------------------------
@@ -751,25 +751,25 @@ Instruction Contract Violation — Baseline: 1
 Instruction Contract Violation — Candidate: 1
 Transition Type: correct_to_correct
 Baseline Output: 'POST', 'data': {} } To extract the API
-SFT Candidate Output: 'POST' } To extract the API action from the given
+SFT Candidate Output: 'POST', 'uri': '/provision-security-credential
 Final Served Output: 'POST', 'data': {} } To extract the API
 Baseline NLL: 10.56250
 Candidate NLL: 5.65625
 Delta NLL: -4.90625
 Baseline Entropy: 0.06592
-Candidate Entropy: 0.92969
-Delta Entropy: 0.86377
+Candidate Entropy: 0.94141
+Delta Entropy: 0.87549
 Baseline Margin: 6.00000
-Candidate Margin: 3.37500
-Delta Margin: -2.62500
+Candidate Margin: 3.12500
+Delta Margin: -2.87500
 Baseline Target Probability: 0.99219
-Candidate Target Probability: 0.86328
-Delta Confidence: -0.12891
+Candidate Target Probability: 0.85547
+Delta Confidence: -0.13672
 Failure Category: INSTRUCTION_CONTRACT_VIOLATION
 Hallucination / Target Failure Detected: No
 Confidence Lowered: Yes
 Baseline Risk Score: 0.13410
-SFT Candidate Risk Score: 0.24127
+SFT Candidate Risk Score: 0.24912
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
 --------------------------------------------------------------------------------
@@ -790,22 +790,22 @@ Baseline Output: 'delete', 'data': {} } To extract the API
 SFT Candidate Output: 'delete', 'uri': '/users/verify/unverified
 Final Served Output: 'delete', 'data': {} } To extract the API
 Baseline NLL: 11.50000
-Candidate NLL: 5.53125
-Delta NLL: -5.96875
+Candidate NLL: 6.06250
+Delta NLL: -5.43750
 Baseline Entropy: 0.08105
-Candidate Entropy: 1.64844
-Delta Entropy: 1.56738
+Candidate Entropy: 1.67969
+Delta Entropy: 1.59863
 Baseline Margin: 6.12500
-Candidate Margin: 2.62500
-Delta Margin: -3.50000
+Candidate Margin: 2.50000
+Delta Margin: -3.62500
 Baseline Target Probability: 0.99219
-Candidate Target Probability: 0.75000
-Delta Confidence: -0.24219
+Candidate Target Probability: 0.73828
+Delta Confidence: -0.25391
 Failure Category: INSTRUCTION_CONTRACT_VIOLATION
 Hallucination / Target Failure Detected: No
 Confidence Lowered: Yes
 Baseline Risk Score: 0.13456
-SFT Candidate Risk Score: 0.28533
+SFT Candidate Risk Score: 0.29002
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
 --------------------------------------------------------------------------------
@@ -829,19 +829,19 @@ Baseline NLL: 6.81250
 Candidate NLL: 3.17188
 Delta NLL: -3.64062
 Baseline Entropy: 0.08887
-Candidate Entropy: 1.11719
-Delta Entropy: 1.02832
+Candidate Entropy: 1.05469
+Delta Entropy: 0.96582
 Baseline Margin: 6.00000
 Candidate Margin: 3.00000
 Delta Margin: -3.00000
 Baseline Target Probability: 0.98828
-Candidate Target Probability: 0.83594
-Delta Confidence: -0.15234
+Candidate Target Probability: 0.84375
+Delta Confidence: -0.14453
 Failure Category: INSTRUCTION_CONTRACT_VIOLATION
 Hallucination / Target Failure Detected: No
 Confidence Lowered: Yes
 Baseline Risk Score: 0.13479
-SFT Candidate Risk Score: 0.25814
+SFT Candidate Risk Score: 0.25627
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
 --------------------------------------------------------------------------------
@@ -852,34 +852,36 @@ Semantic Target: admin
 Strict Target-Only Correct — Baseline: 0
 Strict Target-Only Correct — Candidate: 0
 First-Token Match — Baseline: 1
-First-Token Match — Candidate: 1
+First-Token Match — Candidate: 0
 Semantic Capture — Baseline: 1
-Semantic Capture — Candidate: 1
+Semantic Capture — Candidate: 0
 Instruction Contract Violation — Baseline: 1
 Instruction Contract Violation — Candidate: 1
-Transition Type: correct_to_correct
+Transition Type: correct_to_wrong
 Baseline Output: 'admin' } The user role is set to admin.
-SFT Candidate Output: 'admin' } The user role is set to admin.
+SFT Candidate Output: '' }
+
+The user role is an identifier for a specific user
 Final Served Output: 'admin' } The user role is set to admin.
 Baseline NLL: 16.00000
-Candidate NLL: 4.59375
-Delta NLL: -11.40625
+Candidate NLL: 4.90625
+Delta NLL: -11.09375
 Baseline Entropy: 0.32031
-Candidate Entropy: 2.31250
-Delta Entropy: 1.99219
+Candidate Entropy: 2.42188
+Delta Entropy: 2.10156
 Baseline Margin: 3.75000
-Candidate Margin: 1.75000
-Delta Margin: -2.00000
+Candidate Margin: 1.50000
+Delta Margin: -2.25000
 Baseline Target Probability: 0.94531
-Candidate Target Probability: 0.56250
-Delta Confidence: -0.38281
-Failure Category: INSTRUCTION_CONTRACT_VIOLATION
-Hallucination / Target Failure Detected: No
+Candidate Target Probability: 0.52344
+Delta Confidence: -0.42188
+Failure Category: WRONG_ENTITY_SUBSTITUTION
+Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
 Baseline Risk Score: 0.17923
-SFT Candidate Risk Score: 0.33150
+SFT Candidate Risk Score: 0.34228
 Router Decision: use_baseline
-Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+Prevention Action: Candidate blocked because baseline captured the target and candidate failed.
 --------------------------------------------------------------------------------
 ### ID: 122
 Split: seen_val
@@ -897,27 +899,29 @@ Transition Type: wrong_to_wrong
 Baseline Output: 'admin' } The user role is set to admin.
 SFT Candidate Output: '' }
 
-The given permission string is already in a format that
+{
+  "role": ""
+}Human:
 Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 Baseline NLL: 17.62500
-Candidate NLL: 5.59375
-Delta NLL: -12.03125
+Candidate NLL: 5.93750
+Delta NLL: -11.68750
 Baseline Entropy: 0.31836
-Candidate Entropy: 3.40625
-Delta Entropy: 3.08789
+Candidate Entropy: 3.35938
+Delta Entropy: 3.04102
 Baseline Margin: 3.75000
-Candidate Margin: 0.62500
-Delta Margin: -3.12500
+Candidate Margin: 0.87500
+Delta Margin: -2.87500
 Baseline Target Probability: 0.94531
-Candidate Target Probability: 0.25781
-Delta Confidence: -0.68750
+Candidate Target Probability: 0.28516
+Delta Confidence: -0.66016
 Failure Category: WRONG_ENTITY_SUBSTITUTION
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
 Baseline Risk Score: 0.17918
-SFT Candidate Risk Score: 0.39806
+SFT Candidate Risk Score: 0.38916
 Router Decision: abstain_safe_fallback
-Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3981).
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3892).
 --------------------------------------------------------------------------------
 ### ID: 123
 Split: seen_val
@@ -933,25 +937,27 @@ Instruction Contract Violation — Baseline: 1
 Instruction Contract Violation — Candidate: 1
 Transition Type: correct_to_wrong
 Baseline Output: 'viewer' } The user role is viewer. Here's
-SFT Candidate Output: permissions.split(' ')[1] } Here is the Python code
+SFT Candidate Output: '' }
+
+The given permission string is already in a format that
 Final Served Output: 'viewer' } The user role is viewer. Here's
 Baseline NLL: 20.37500
-Candidate NLL: 7.84375
-Delta NLL: -12.53125
+Candidate NLL: 7.50000
+Delta NLL: -12.87500
 Baseline Entropy: 0.46094
-Candidate Entropy: 3.46875
-Delta Entropy: 3.00781
+Candidate Entropy: 3.45312
+Delta Entropy: 2.99219
 Baseline Margin: 3.25000
-Candidate Margin: 0.00000
-Delta Margin: -3.25000
+Candidate Margin: 0.25000
+Delta Margin: -3.00000
 Baseline Target Probability: 0.91406
-Candidate Target Probability: 0.18945
-Delta Confidence: -0.72461
+Candidate Target Probability: 0.22363
+Delta Confidence: -0.69043
 Failure Category: WRONG_ENTITY_SUBSTITUTION
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
 Baseline Risk Score: 0.19845
-SFT Candidate Risk Score: 0.41869
+SFT Candidate Risk Score: 0.41072
 Router Decision: use_baseline
 Prevention Action: Candidate blocked because baseline captured the target and candidate failed.
 --------------------------------------------------------------------------------
@@ -972,22 +978,22 @@ Baseline Output: 'admin' } The user role is already provided in the
 SFT Candidate Output: permissions.split(' ')[1] } Here is a Python function
 Final Served Output: 'admin' } The user role is already provided in the
 Baseline NLL: 16.37500
-Candidate NLL: 4.75000
-Delta NLL: -11.62500
+Candidate NLL: 4.71875
+Delta NLL: -11.65625
 Baseline Entropy: 0.41016
 Candidate Entropy: 3.15625
 Delta Entropy: 2.74609
 Baseline Margin: 3.12500
-Candidate Margin: 0.62500
-Delta Margin: -2.50000
+Candidate Margin: 0.37500
+Delta Margin: -2.75000
 Baseline Target Probability: 0.92188
-Candidate Target Probability: 0.28711
-Delta Confidence: -0.63477
+Candidate Target Probability: 0.27734
+Delta Confidence: -0.64453
 Failure Category: WRONG_ENTITY_SUBSTITUTION
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
 Baseline Risk Score: 0.20068
-SFT Candidate Risk Score: 0.39056
+SFT Candidate Risk Score: 0.39806
 Router Decision: use_baseline
 Prevention Action: Candidate blocked because baseline captured the target and candidate failed.
 --------------------------------------------------------------------------------
@@ -1010,11 +1016,11 @@ SFT Candidate Output: '' }
 The given permission string is already in a format that
 Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 Baseline NLL: 18.12500
-Candidate NLL: 6.28125
-Delta NLL: -11.84375
+Candidate NLL: 6.65625
+Delta NLL: -11.46875
 Baseline Entropy: 0.51953
-Candidate Entropy: 2.50000
-Delta Entropy: 1.98047
+Candidate Entropy: 2.48438
+Delta Entropy: 1.96484
 Baseline Margin: 3.00000
 Candidate Margin: 1.62500
 Delta Margin: -1.37500
@@ -1025,9 +1031,9 @@ Failure Category: WRONG_ENTITY_SUBSTITUTION
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
 Baseline Risk Score: 0.20771
-SFT Candidate Risk Score: 0.34087
+SFT Candidate Risk Score: 0.34041
 Router Decision: abstain_safe_fallback
-Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3409).
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3404).
 --------------------------------------------------------------------------------
 ### ID: 126
 Split: seen_val
@@ -1048,22 +1054,22 @@ SFT Candidate Output: '' }
 The given permission string is already in a format that
 Final Served Output: 'viewer' } The user role is viewer. Here's
 Baseline NLL: 19.75000
-Candidate NLL: 7.59375
-Delta NLL: -12.15625
+Candidate NLL: 7.43750
+Delta NLL: -12.31250
 Baseline Entropy: 0.36328
-Candidate Entropy: 2.81250
-Delta Entropy: 2.44922
+Candidate Entropy: 2.65625
+Delta Entropy: 2.29297
 Baseline Margin: 3.50000
-Candidate Margin: 1.12500
-Delta Margin: -2.37500
+Candidate Margin: 1.25000
+Delta Margin: -2.25000
 Baseline Target Probability: 0.93750
-Candidate Target Probability: 0.40625
-Delta Confidence: -0.53125
+Candidate Target Probability: 0.44727
+Delta Confidence: -0.49023
 Failure Category: WRONG_ENTITY_SUBSTITUTION
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
 Baseline Risk Score: 0.18802
-SFT Candidate Risk Score: 0.36525
+SFT Candidate Risk Score: 0.35681
 Router Decision: use_baseline
 Prevention Action: Candidate blocked because baseline captured the target and candidate failed.
 --------------------------------------------------------------------------------
@@ -1081,25 +1087,27 @@ Instruction Contract Violation — Baseline: 1
 Instruction Contract Violation — Candidate: 1
 Transition Type: correct_to_wrong
 Baseline Output: 'admin' } The user role is set to admin.
-SFT Candidate Output: permissions.split(' ')[1] } Here is the Python code
+SFT Candidate Output: '' }
+
+To extract the user role from a given permission string
 Final Served Output: 'admin' } The user role is set to admin.
 Baseline NLL: 15.87500
-Candidate NLL: 4.65625
-Delta NLL: -11.21875
+Candidate NLL: 4.78125
+Delta NLL: -11.09375
 Baseline Entropy: 0.34961
-Candidate Entropy: 3.37500
-Delta Entropy: 3.02539
+Candidate Entropy: 3.43750
+Delta Entropy: 3.08789
 Baseline Margin: 3.87500
-Candidate Margin: 0.00000
-Delta Margin: -3.87500
+Candidate Margin: 0.25000
+Delta Margin: -3.62500
 Baseline Target Probability: 0.94141
-Candidate Target Probability: 0.19336
-Delta Confidence: -0.74805
+Candidate Target Probability: 0.21680
+Delta Confidence: -0.72461
 Failure Category: WRONG_ENTITY_SUBSTITUTION
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
 Baseline Risk Score: 0.17636
-SFT Candidate Risk Score: 0.41587
+SFT Candidate Risk Score: 0.41025
 Router Decision: use_baseline
 Prevention Action: Candidate blocked because baseline captured the target and candidate failed.
 --------------------------------------------------------------------------------
@@ -1122,17 +1130,17 @@ SFT Candidate Output: '' }
 The user role is an identifier for a specific user
 Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 Baseline NLL: 19.00000
-Candidate NLL: 5.43750
-Delta NLL: -13.56250
+Candidate NLL: 5.87500
+Delta NLL: -13.12500
 Baseline Entropy: 0.42578
-Candidate Entropy: 3.12500
-Delta Entropy: 2.69922
+Candidate Entropy: 3.00000
+Delta Entropy: 2.57422
 Baseline Margin: 2.75000
-Candidate Margin: 0.87500
-Delta Margin: -1.87500
+Candidate Margin: 0.75000
+Delta Margin: -2.00000
 Baseline Target Probability: 0.91406
-Candidate Target Probability: 0.32617
-Delta Confidence: -0.58789
+Candidate Target Probability: 0.34180
+Delta Confidence: -0.57227
 Failure Category: WRONG_ENTITY_SUBSTITUTION
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
@@ -1157,25 +1165,25 @@ Transition Type: correct_to_wrong
 Baseline Output: 'viewer' } The user role is viewer. Here's
 SFT Candidate Output: '' }
 
-The given permission string is already in a format that
+The user role is an identifier for a specific user
 Final Served Output: 'viewer' } The user role is viewer. Here's
 Baseline NLL: 19.37500
-Candidate NLL: 7.25000
-Delta NLL: -12.12500
+Candidate NLL: 6.96875
+Delta NLL: -12.40625
 Baseline Entropy: 0.29492
-Candidate Entropy: 3.00000
-Delta Entropy: 2.70508
+Candidate Entropy: 2.95312
+Delta Entropy: 2.65820
 Baseline Margin: 4.12500
-Candidate Margin: 0.62500
-Delta Margin: -3.50000
+Candidate Margin: 0.87500
+Delta Margin: -3.25000
 Baseline Target Probability: 0.95312
-Candidate Target Probability: 0.34180
-Delta Confidence: -0.61133
+Candidate Target Probability: 0.37891
+Delta Confidence: -0.57422
 Failure Category: WRONG_ENTITY_SUBSTITUTION
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
 Baseline Risk Score: 0.16722
-SFT Candidate Risk Score: 0.38587
+SFT Candidate Risk Score: 0.37697
 Router Decision: use_baseline
 Prevention Action: Candidate blocked because baseline captured the target and candidate failed.
 --------------------------------------------------------------------------------
@@ -1186,34 +1194,36 @@ Semantic Target: admin
 Strict Target-Only Correct — Baseline: 0
 Strict Target-Only Correct — Candidate: 0
 First-Token Match — Baseline: 1
-First-Token Match — Candidate: 1
+First-Token Match — Candidate: 0
 Semantic Capture — Baseline: 1
-Semantic Capture — Candidate: 1
+Semantic Capture — Candidate: 0
 Instruction Contract Violation — Baseline: 1
 Instruction Contract Violation — Candidate: 1
-Transition Type: correct_to_correct
+Transition Type: correct_to_wrong
 Baseline Output: 'admin' } The user role is already specified in the
-SFT Candidate Output: 'admin' } The user role is already provided in the
+SFT Candidate Output: '' }
+
+The given permission string is already in a format that
 Final Served Output: 'admin' } The user role is already specified in the
 Baseline NLL: 16.87500
-Candidate NLL: 4.62500
-Delta NLL: -12.25000
+Candidate NLL: 4.78125
+Delta NLL: -12.09375
 Baseline Entropy: 0.33203
-Candidate Entropy: 2.29688
-Delta Entropy: 1.96484
+Candidate Entropy: 2.34375
+Delta Entropy: 2.01172
 Baseline Margin: 3.62500
-Candidate Margin: 1.87500
-Delta Margin: -1.75000
+Candidate Margin: 1.62500
+Delta Margin: -2.00000
 Baseline Target Probability: 0.94141
-Candidate Target Probability: 0.56641
-Delta Confidence: -0.37500
-Failure Category: INSTRUCTION_CONTRACT_VIOLATION
-Hallucination / Target Failure Detected: No
+Candidate Target Probability: 0.54688
+Delta Confidence: -0.39453
+Failure Category: WRONG_ENTITY_SUBSTITUTION
+Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
 Baseline Risk Score: 0.18334
-SFT Candidate Risk Score: 0.32728
+SFT Candidate Risk Score: 0.33619
 Router Decision: use_baseline
-Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+Prevention Action: Candidate blocked because baseline captured the target and candidate failed.
 --------------------------------------------------------------------------------
 ### ID: 131
 Split: seen_val
@@ -1232,22 +1242,22 @@ Baseline Output: 'approved', 'reason': 'payment successful', 'amount
 SFT Candidate Output: 'approved', 'message': 'Payment successful.' } Here
 Final Served Output: 'approved', 'reason': 'payment successful', 'amount
 Baseline NLL: 15.37500
-Candidate NLL: 3.73438
-Delta NLL: -11.64062
+Candidate NLL: 3.85938
+Delta NLL: -11.51562
 Baseline Entropy: 0.04541
-Candidate Entropy: 2.00000
-Delta Entropy: 1.95459
+Candidate Entropy: 1.71094
+Delta Entropy: 1.66553
 Baseline Margin: 6.50000
-Candidate Margin: 3.12500
-Delta Margin: -3.37500
+Candidate Margin: 3.25000
+Delta Margin: -3.25000
 Baseline Target Probability: 0.99609
-Candidate Target Probability: 0.69922
-Delta Confidence: -0.29688
+Candidate Target Probability: 0.74609
+Delta Confidence: -0.25000
 Failure Category: INSTRUCTION_CONTRACT_VIOLATION
 Hallucination / Target Failure Detected: No
 Confidence Lowered: Yes
 Baseline Risk Score: 0.13349
-SFT Candidate Risk Score: 0.28087
+SFT Candidate Risk Score: 0.26845
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
 --------------------------------------------------------------------------------
@@ -1258,32 +1268,32 @@ Semantic Target: declined
 Strict Target-Only Correct — Baseline: 0
 Strict Target-Only Correct — Candidate: 0
 First-Token Match — Baseline: 0
-First-Token Match — Candidate: 1
+First-Token Match — Candidate: 0
 Semantic Capture — Baseline: 0
 Semantic Capture — Candidate: 1
 Instruction Contract Violation — Baseline: 1
 Instruction Contract Violation — Candidate: 1
 Transition Type: wrong_to_correct
 Baseline Output: 'rejected', 'reason': 'user rejected payment request'
-SFT Candidate Output: declined } Here is a Python code snippet that can extract the
-Final Served Output: declined } Here is a Python code snippet that can extract the
+SFT Candidate Output: 'rejected', 'reason': 'user declined payment request'}
+Final Served Output: 'rejected', 'reason': 'user declined payment request'}
 Baseline NLL: 12.81250
 Candidate NLL: 2.85938
 Delta NLL: -9.95312
 Baseline Entropy: 0.11279
-Candidate Entropy: 3.64062
-Delta Entropy: 3.52783
+Candidate Entropy: 3.35938
+Delta Entropy: 3.24658
 Baseline Margin: 5.25000
-Candidate Margin: 0.12500
-Delta Margin: -5.12500
+Candidate Margin: 0.25000
+Delta Margin: -5.00000
 Baseline Target Probability: 0.98438
-Candidate Target Probability: 0.22754
-Delta Confidence: -0.75684
+Candidate Target Probability: 0.27539
+Delta Confidence: -0.70898
 Failure Category: INSTRUCTION_CONTRACT_VIOLATION
 Hallucination / Target Failure Detected: No
 Confidence Lowered: Yes
 Baseline Risk Score: 0.13551
-SFT Candidate Risk Score: 0.42009
+SFT Candidate Risk Score: 0.40791
 Router Decision: use_candidate
 Prevention Action: Contract-clean candidate repair promoted.
 --------------------------------------------------------------------------------
@@ -1301,25 +1311,25 @@ Instruction Contract Violation — Baseline: 1
 Instruction Contract Violation — Candidate: 1
 Transition Type: correct_to_correct
 Baseline Output: 'declined', 'reason': 'CVV verification mismatch
-SFT Candidate Output: declined, 'message': 'The payment was declined due to
+SFT Candidate Output: declined, 'message': 'The payment was declined because of
 Final Served Output: 'declined', 'reason': 'CVV verification mismatch
 Baseline NLL: 12.81250
-Candidate NLL: 1.64062
-Delta NLL: -11.17188
+Candidate NLL: 1.82812
+Delta NLL: -10.98438
 Baseline Entropy: 0.07666
-Candidate Entropy: 3.03125
-Delta Entropy: 2.95459
+Candidate Entropy: 2.68750
+Delta Entropy: 2.61084
 Baseline Margin: 5.87500
-Candidate Margin: 0.75000
-Delta Margin: -5.12500
+Candidate Margin: 1.12500
+Delta Margin: -4.75000
 Baseline Target Probability: 0.99219
-Candidate Target Probability: 0.41211
-Delta Confidence: -0.58008
+Candidate Target Probability: 0.49609
+Delta Confidence: -0.49609
 Failure Category: INSTRUCTION_CONTRACT_VIOLATION
 Hallucination / Target Failure Detected: No
 Confidence Lowered: Yes
 Baseline Risk Score: 0.13442
-SFT Candidate Risk Score: 0.38306
+SFT Candidate Risk Score: 0.36150
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
 --------------------------------------------------------------------------------
@@ -1343,19 +1353,19 @@ Baseline NLL: 13.68750
 Candidate NLL: 3.90625
 Delta NLL: -9.78125
 Baseline Entropy: 0.09619
-Candidate Entropy: 3.51562
-Delta Entropy: 3.41943
+Candidate Entropy: 3.21875
+Delta Entropy: 3.12256
 Baseline Margin: 5.25000
-Candidate Margin: 2.25000
-Delta Margin: -3.00000
+Candidate Margin: 2.43750
+Delta Margin: -2.81250
 Baseline Target Probability: 0.98828
-Candidate Target Probability: 0.43164
-Delta Confidence: -0.55664
+Candidate Target Probability: 0.48438
+Delta Confidence: -0.50391
 Failure Category: INSTRUCTION_CONTRACT_VIOLATION
 Hallucination / Target Failure Detected: No
 Confidence Lowered: Yes
 Baseline Risk Score: 0.13501
-SFT Candidate Risk Score: 0.35259
+SFT Candidate Risk Score: 0.33806
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
 --------------------------------------------------------------------------------
@@ -1376,22 +1386,22 @@ Baseline Output: 'declined', 'reason': 'risk limit exceeded'
 SFT Candidate Output: 'declined', 'reason': 'risk limit exceeded'}
 Final Served Output: 'declined', 'reason': 'risk limit exceeded'
 Baseline NLL: 13.06250
-Candidate NLL: 3.06250
-Delta NLL: -10.00000
+Candidate NLL: 3.50000
+Delta NLL: -9.56250
 Baseline Entropy: 0.12207
-Candidate Entropy: 2.93750
-Delta Entropy: 2.81543
+Candidate Entropy: 2.31250
+Delta Entropy: 2.19043
 Baseline Margin: 5.62500
-Candidate Margin: 2.43750
-Delta Margin: -3.18750
+Candidate Margin: 2.81250
+Delta Margin: -2.81250
 Baseline Target Probability: 0.98438
-Candidate Target Probability: 0.53516
-Delta Confidence: -0.44922
+Candidate Target Probability: 0.64453
+Delta Confidence: -0.33984
 Failure Category: INSTRUCTION_CONTRACT_VIOLATION
 Hallucination / Target Failure Detected: No
 Confidence Lowered: Yes
 Baseline Risk Score: 0.13579
-SFT Candidate Risk Score: 0.32962
+SFT Candidate Risk Score: 0.29962
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
 --------------------------------------------------------------------------------
@@ -1412,22 +1422,22 @@ Baseline Output: 'declined', 'reason': 'user cancelled billing checkout
 SFT Candidate Output: 'declined', 'reason': 'user canceled billing checkout
 Final Served Output: 'declined', 'reason': 'user cancelled billing checkout
 Baseline NLL: 12.56250
-Candidate NLL: 2.96875
-Delta NLL: -9.59375
+Candidate NLL: 3.06250
+Delta NLL: -9.50000
 Baseline Entropy: 0.12061
-Candidate Entropy: 3.76562
-Delta Entropy: 3.64502
+Candidate Entropy: 3.42188
+Delta Entropy: 3.30127
 Baseline Margin: 5.12500
-Candidate Margin: 2.00000
-Delta Margin: -3.12500
+Candidate Margin: 2.25000
+Delta Margin: -2.87500
 Baseline Target Probability: 0.98438
-Candidate Target Probability: 0.37891
-Delta Confidence: -0.60547
+Candidate Target Probability: 0.44531
+Delta Confidence: -0.53906
 Failure Category: INSTRUCTION_CONTRACT_VIOLATION
 Hallucination / Target Failure Detected: No
 Confidence Lowered: Yes
 Baseline Risk Score: 0.13574
-SFT Candidate Risk Score: 0.36759
+SFT Candidate Risk Score: 0.34978
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
 --------------------------------------------------------------------------------
@@ -1451,19 +1461,19 @@ Baseline NLL: 13.93750
 Candidate NLL: 3.06250
 Delta NLL: -10.87500
 Baseline Entropy: 0.04541
-Candidate Entropy: 2.53125
-Delta Entropy: 2.48584
+Candidate Entropy: 2.32812
+Delta Entropy: 2.28271
 Baseline Margin: 6.25000
-Candidate Margin: 1.75000
-Delta Margin: -4.50000
+Candidate Margin: 2.00000
+Delta Margin: -4.25000
 Baseline Target Probability: 0.99609
-Candidate Target Probability: 0.56641
-Delta Confidence: -0.42969
+Candidate Target Probability: 0.60938
+Delta Confidence: -0.38672
 Failure Category: INSTRUCTION_CONTRACT_VIOLATION
 Hallucination / Target Failure Detected: No
 Confidence Lowered: Yes
 Baseline Risk Score: 0.13349
-SFT Candidate Risk Score: 0.33806
+SFT Candidate Risk Score: 0.32447
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
 --------------------------------------------------------------------------------
@@ -1474,34 +1484,34 @@ Semantic Target: declined
 Strict Target-Only Correct — Baseline: 0
 Strict Target-Only Correct — Candidate: 0
 First-Token Match — Baseline: 1
-First-Token Match — Candidate: 1
+First-Token Match — Candidate: 0
 Semantic Capture — Baseline: 1
-Semantic Capture — Candidate: 1
+Semantic Capture — Candidate: 0
 Instruction Contract Violation — Baseline: 1
 Instruction Contract Violation — Candidate: 1
-Transition Type: correct_to_correct
+Transition Type: correct_to_wrong
 Baseline Output: 'declined', 'reason': 'block detected in payment
-SFT Candidate Output: declined } The transaction status is declined. Here's how you
+SFT Candidate Output: 'pending', 'reason': 'block' } Here is
 Final Served Output: 'declined', 'reason': 'block detected in payment
 Baseline NLL: 12.62500
-Candidate NLL: 2.62500
-Delta NLL: -10.00000
+Candidate NLL: 2.92188
+Delta NLL: -9.70312
 Baseline Entropy: 0.15430
-Candidate Entropy: 4.03125
-Delta Entropy: 3.87695
+Candidate Entropy: 3.35938
+Delta Entropy: 3.20508
 Baseline Margin: 5.00000
-Candidate Margin: 1.43750
-Delta Margin: -3.56250
+Candidate Margin: 2.12500
+Delta Margin: -2.87500
 Baseline Target Probability: 0.98047
-Candidate Target Probability: 0.30664
-Delta Confidence: -0.67383
-Failure Category: INSTRUCTION_CONTRACT_VIOLATION
-Hallucination / Target Failure Detected: No
+Candidate Target Probability: 0.44922
+Delta Confidence: -0.53125
+Failure Category: WRONG_ENTITY_SUBSTITUTION
+Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
 Baseline Risk Score: 0.13675
-SFT Candidate Risk Score: 0.39244
+SFT Candidate Risk Score: 0.35166
 Router Decision: use_baseline
-Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+Prevention Action: Candidate blocked because baseline captured the target and candidate failed.
 --------------------------------------------------------------------------------
 ### ID: 139
 Split: seen_val
@@ -1517,27 +1527,27 @@ Instruction Contract Violation — Baseline: 1
 Instruction Contract Violation — Candidate: 1
 Transition Type: wrong_to_wrong
 Baseline Output: 'pending', 'reason': 'gateway error', 'details
-SFT Candidate Output: 'pending', 'message': 'Invalid request, please try
+SFT Candidate Output: 'pending', 'reason': 'gateway error', 'details
 Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 Baseline NLL: 12.87500
-Candidate NLL: 3.71875
-Delta NLL: -9.15625
+Candidate NLL: 3.68750
+Delta NLL: -9.18750
 Baseline Entropy: 0.12109
-Candidate Entropy: 4.09375
-Delta Entropy: 3.97266
+Candidate Entropy: 3.79688
+Delta Entropy: 3.67578
 Baseline Margin: 5.50000
-Candidate Margin: 1.25000
-Delta Margin: -4.25000
+Candidate Margin: 1.56250
+Delta Margin: -3.93750
 Baseline Target Probability: 0.98438
-Candidate Target Probability: 0.25977
-Delta Confidence: -0.72461
+Candidate Target Probability: 0.32422
+Delta Confidence: -0.66016
 Failure Category: WRONG_ENTITY_SUBSTITUTION
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
 Baseline Risk Score: 0.13576
-SFT Candidate Risk Score: 0.39994
+SFT Candidate Risk Score: 0.38166
 Router Decision: abstain_safe_fallback
-Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3999).
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3817).
 --------------------------------------------------------------------------------
 ### ID: 140
 Split: seen_val
@@ -1556,22 +1566,22 @@ Baseline Output: 'declined', 'reason': 'network connection timeout'
 SFT Candidate Output: 'declined', 'reason': 'network connection timeout'}
 Final Served Output: 'declined', 'reason': 'network connection timeout'
 Baseline NLL: 13.12500
-Candidate NLL: 3.29688
-Delta NLL: -9.82812
+Candidate NLL: 3.60938
+Delta NLL: -9.51562
 Baseline Entropy: 0.11328
-Candidate Entropy: 2.25000
-Delta Entropy: 2.13672
+Candidate Entropy: 1.97656
+Delta Entropy: 1.86328
 Baseline Margin: 5.75000
-Candidate Margin: 2.87500
-Delta Margin: -2.87500
+Candidate Margin: 3.06250
+Delta Margin: -2.68750
 Baseline Target Probability: 0.98438
-Candidate Target Probability: 0.65625
-Delta Confidence: -0.32812
+Candidate Target Probability: 0.69531
+Delta Confidence: -0.28906
 Failure Category: INSTRUCTION_CONTRACT_VIOLATION
 Hallucination / Target Failure Detected: No
 Confidence Lowered: Yes
 Baseline Risk Score: 0.13552
-SFT Candidate Risk Score: 0.29587
+SFT Candidate Risk Score: 0.28205
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
 --------------------------------------------------------------------------------
@@ -1592,22 +1602,22 @@ Baseline Output: 'Electronics', 'product_category': 'Apparel',
 SFT Candidate Output: 'electronics', 'product_category': 'apparel', '
 Final Served Output: 'Electronics', 'product_category': 'Apparel',
 Baseline NLL: 18.75000
-Candidate NLL: 9.18750
-Delta NLL: -9.56250
+Candidate NLL: 9.75000
+Delta NLL: -9.00000
 Baseline Entropy: 0.29102
-Candidate Entropy: 0.98047
-Delta Entropy: 0.68945
+Candidate Entropy: 1.04688
+Delta Entropy: 0.75586
 Baseline Margin: 4.50000
-Candidate Margin: 3.62500
-Delta Margin: -0.87500
+Candidate Margin: 3.50000
+Delta Margin: -1.00000
 Baseline Target Probability: 0.95703
-Candidate Target Probability: 0.84766
-Delta Confidence: -0.10938
+Candidate Target Probability: 0.83203
+Delta Confidence: -0.12500
 Failure Category: INSTRUCTION_CONTRACT_VIOLATION
 Hallucination / Target Failure Detected: No
 Confidence Lowered: Yes
 Baseline Risk Score: 0.15585
-SFT Candidate Risk Score: 0.23529
+SFT Candidate Risk Score: 0.24103
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
 --------------------------------------------------------------------------------
@@ -1628,22 +1638,22 @@ Baseline Output: 'electronics', 'category': 'apparel', 'sub
 SFT Candidate Output: 'electronics', 'category': 'apparel', 'sub
 Final Served Output: 'electronics', 'category': 'apparel', 'sub
 Baseline NLL: 19.87500
-Candidate NLL: 12.43750
-Delta NLL: -7.43750
+Candidate NLL: 12.37500
+Delta NLL: -7.50000
 Baseline Entropy: 0.32227
-Candidate Entropy: 1.32031
-Delta Entropy: 0.99805
+Candidate Entropy: 1.35156
+Delta Entropy: 1.02930
 Baseline Margin: 4.37500
-Candidate Margin: 2.75000
-Delta Margin: -1.62500
+Candidate Margin: 2.50000
+Delta Margin: -1.87500
 Baseline Target Probability: 0.95312
-Candidate Target Probability: 0.76953
-Delta Confidence: -0.18359
+Candidate Target Probability: 0.76172
+Delta Confidence: -0.19141
 Failure Category: INSTRUCTION_CONTRACT_VIOLATION
 Hallucination / Target Failure Detected: No
 Confidence Lowered: Yes
 Baseline Risk Score: 0.16054
-SFT Candidate Risk Score: 0.27173
+SFT Candidate Risk Score: 0.28017
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
 --------------------------------------------------------------------------------
@@ -1664,24 +1674,24 @@ Baseline Output: 'electronics', 'category': 'apparel', 'sub
 SFT Candidate Output: 'electronics', 'category': 'apparel', 'sub
 Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 Baseline NLL: 16.37500
-Candidate NLL: 9.43750
-Delta NLL: -6.93750
+Candidate NLL: 9.81250
+Delta NLL: -6.56250
 Baseline Entropy: 0.29492
-Candidate Entropy: 1.28125
-Delta Entropy: 0.98633
+Candidate Entropy: 1.17969
+Delta Entropy: 0.88477
 Baseline Margin: 4.62500
-Candidate Margin: 3.12500
-Delta Margin: -1.50000
+Candidate Margin: 3.37500
+Delta Margin: -1.25000
 Baseline Target Probability: 0.95703
-Candidate Target Probability: 0.79297
-Delta Confidence: -0.16406
+Candidate Target Probability: 0.81250
+Delta Confidence: -0.14453
 Failure Category: HIGH_CONFIDENCE_WRONG
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
 Baseline Risk Score: 0.15222
-SFT Candidate Risk Score: 0.25931
+SFT Candidate Risk Score: 0.24877
 Router Decision: abstain_safe_fallback
-Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2593).
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2488).
 --------------------------------------------------------------------------------
 ### ID: 144
 Split: unseen_val
@@ -1700,14 +1710,14 @@ Baseline Output: 'electronics', 'product_category': 'apparel', '
 SFT Candidate Output: 'electronics', 'product_category': 'home', 'product
 Final Served Output: 'electronics', 'product_category': 'apparel', '
 Baseline NLL: 18.25000
-Candidate NLL: 8.50000
-Delta NLL: -9.75000
+Candidate NLL: 8.87500
+Delta NLL: -9.37500
 Baseline Entropy: 0.29883
 Candidate Entropy: 1.09375
 Delta Entropy: 0.79492
 Baseline Margin: 4.75000
-Candidate Margin: 3.00000
-Delta Margin: -1.75000
+Candidate Margin: 3.12500
+Delta Margin: -1.62500
 Baseline Target Probability: 0.95703
 Candidate Target Probability: 0.82422
 Delta Confidence: -0.13281
@@ -1715,7 +1725,7 @@ Failure Category: INSTRUCTION_CONTRACT_VIOLATION
 Hallucination / Target Failure Detected: No
 Confidence Lowered: Yes
 Baseline Risk Score: 0.14859
-SFT Candidate Risk Score: 0.25744
+SFT Candidate Risk Score: 0.25369
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
 --------------------------------------------------------------------------------
@@ -1736,24 +1746,24 @@ Baseline Output: 'electronics', 'category': 'apparel', 'sub
 SFT Candidate Output: 'electronics', 'product_category': 'apparel', '
 Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 Baseline NLL: 17.37500
-Candidate NLL: 11.43750
-Delta NLL: -5.93750
+Candidate NLL: 11.75000
+Delta NLL: -5.62500
 Baseline Entropy: 0.22461
-Candidate Entropy: 1.35938
-Delta Entropy: 1.13477
+Candidate Entropy: 1.23438
+Delta Entropy: 1.00977
 Baseline Margin: 4.75000
-Candidate Margin: 2.37500
-Delta Margin: -2.37500
+Candidate Margin: 2.75000
+Delta Margin: -2.00000
 Baseline Target Probability: 0.96875
-Candidate Target Probability: 0.75000
-Delta Confidence: -0.21875
+Candidate Target Probability: 0.78906
+Delta Confidence: -0.17969
 Failure Category: HIGH_CONFIDENCE_WRONG
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
 Baseline Risk Score: 0.14636
-SFT Candidate Risk Score: 0.28416
+SFT Candidate Risk Score: 0.26916
 Router Decision: abstain_safe_fallback
-Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2842).
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2692).
 --------------------------------------------------------------------------------
 ### ID: 146
 Split: unseen_val
@@ -1772,22 +1782,22 @@ Baseline Output: 'Electronics', 'category': 'Apparel', '
 SFT Candidate Output: 'electronics', 'product_category': 'apparel', '
 Final Served Output: 'Electronics', 'category': 'Apparel', '
 Baseline NLL: 20.75000
-Candidate NLL: 13.50000
-Delta NLL: -7.25000
+Candidate NLL: 13.62500
+Delta NLL: -7.12500
 Baseline Entropy: 0.31445
-Candidate Entropy: 0.97266
-Delta Entropy: 0.65820
+Candidate Entropy: 1.05469
+Delta Entropy: 0.74023
 Baseline Margin: 4.00000
-Candidate Margin: 3.25000
-Delta Margin: -0.75000
+Candidate Margin: 3.12500
+Delta Margin: -0.87500
 Baseline Target Probability: 0.94922
-Candidate Target Probability: 0.84375
-Delta Confidence: -0.10547
+Candidate Target Probability: 0.82422
+Delta Confidence: -0.12500
 Failure Category: INSTRUCTION_CONTRACT_VIOLATION
 Hallucination / Target Failure Detected: No
 Confidence Lowered: Yes
 Baseline Risk Score: 0.17156
-SFT Candidate Risk Score: 0.24630
+SFT Candidate Risk Score: 0.25252
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
 --------------------------------------------------------------------------------
@@ -1808,22 +1818,22 @@ Baseline Output: 'electronics', 'product_category': 'apparel', '
 SFT Candidate Output: 'electronics', 'product_category': 'apparel', '
 Final Served Output: 'electronics', 'product_category': 'apparel', '
 Baseline NLL: 18.75000
-Candidate NLL: 9.62500
-Delta NLL: -9.12500
+Candidate NLL: 10.12500
+Delta NLL: -8.62500
 Baseline Entropy: 0.32422
 Candidate Entropy: 1.60938
 Delta Entropy: 1.28516
 Baseline Margin: 4.50000
-Candidate Margin: 2.00000
-Delta Margin: -2.50000
+Candidate Margin: 2.12500
+Delta Margin: -2.37500
 Baseline Target Probability: 0.95312
-Candidate Target Probability: 0.69922
-Delta Confidence: -0.25391
+Candidate Target Probability: 0.70703
+Delta Confidence: -0.24609
 Failure Category: INSTRUCTION_CONTRACT_VIOLATION
 Hallucination / Target Failure Detected: No
 Confidence Lowered: Yes
 Baseline Risk Score: 0.15685
-SFT Candidate Risk Score: 0.30291
+SFT Candidate Risk Score: 0.29916
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
 --------------------------------------------------------------------------------
@@ -1841,27 +1851,27 @@ Instruction Contract Violation — Baseline: 1
 Instruction Contract Violation — Candidate: 1
 Transition Type: wrong_to_wrong
 Baseline Output: 'electronics', 'category': 'apparel', 'sub
-SFT Candidate Output: 'electronics', 'product_category': 'apparel', '
+SFT Candidate Output: 'electronics', 'category': 'apparel', 'sub
 Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 Baseline NLL: 17.37500
-Candidate NLL: 11.25000
-Delta NLL: -6.12500
+Candidate NLL: 11.56250
+Delta NLL: -5.81250
 Baseline Entropy: 0.26172
-Candidate Entropy: 1.14062
-Delta Entropy: 0.87891
+Candidate Entropy: 1.11719
+Delta Entropy: 0.85547
 Baseline Margin: 4.50000
 Candidate Margin: 3.12500
 Delta Margin: -1.37500
 Baseline Target Probability: 0.96094
-Candidate Target Probability: 0.81250
-Delta Confidence: -0.14844
+Candidate Target Probability: 0.81641
+Delta Confidence: -0.14453
 Failure Category: HIGH_CONFIDENCE_WRONG
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
 Baseline Risk Score: 0.15498
-SFT Candidate Risk Score: 0.25509
+SFT Candidate Risk Score: 0.25439
 Router Decision: abstain_safe_fallback
-Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2551).
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2544).
 --------------------------------------------------------------------------------
 ### ID: 149
 Split: unseen_val
@@ -1880,22 +1890,22 @@ Baseline Output: 'electronics', 'product_category': 'apparel', '
 SFT Candidate Output: 'electronics', 'product_category': 'apparel', '
 Final Served Output: 'electronics', 'product_category': 'apparel', '
 Baseline NLL: 21.25000
-Candidate NLL: 13.31250
-Delta NLL: -7.93750
+Candidate NLL: 13.37500
+Delta NLL: -7.87500
 Baseline Entropy: 0.32031
-Candidate Entropy: 1.39062
-Delta Entropy: 1.07031
+Candidate Entropy: 1.47656
+Delta Entropy: 1.15625
 Baseline Margin: 4.25000
-Candidate Margin: 2.37500
-Delta Margin: -1.87500
+Candidate Margin: 2.25000
+Delta Margin: -2.00000
 Baseline Target Probability: 0.94922
-Candidate Target Probability: 0.74609
-Delta Confidence: -0.20312
+Candidate Target Probability: 0.72266
+Delta Confidence: -0.22656
 Failure Category: INSTRUCTION_CONTRACT_VIOLATION
 Hallucination / Target Failure Detected: No
 Confidence Lowered: Yes
 Baseline Risk Score: 0.16423
-SFT Candidate Risk Score: 0.28509
+SFT Candidate Risk Score: 0.29142
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
 --------------------------------------------------------------------------------
@@ -1916,22 +1926,22 @@ Baseline Output: 'electronics', 'product_category': 'apparel', '
 SFT Candidate Output: 'electronics', 'product_category': 'apparel', '
 Final Served Output: 'electronics', 'product_category': 'apparel', '
 Baseline NLL: 18.87500
-Candidate NLL: 9.18750
-Delta NLL: -9.68750
+Candidate NLL: 9.87500
+Delta NLL: -9.00000
 Baseline Entropy: 0.17969
-Candidate Entropy: 0.87891
-Delta Entropy: 0.69922
+Candidate Entropy: 0.97266
+Delta Entropy: 0.79297
 Baseline Margin: 5.12500
-Candidate Margin: 3.50000
-Delta Margin: -1.62500
+Candidate Margin: 3.37500
+Delta Margin: -1.75000
 Baseline Target Probability: 0.97656
-Candidate Target Probability: 0.86328
-Delta Confidence: -0.11328
+Candidate Target Probability: 0.84375
+Delta Confidence: -0.13281
 Failure Category: INSTRUCTION_CONTRACT_VIOLATION
 Hallucination / Target Failure Detected: No
 Confidence Lowered: Yes
 Baseline Risk Score: 0.13752
-SFT Candidate Risk Score: 0.23599
+SFT Candidate Risk Score: 0.24255
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
 --------------------------------------------------------------------------------
@@ -1952,24 +1962,24 @@ Baseline Output: 'normal', 'rate': 52 } The heart
 SFT Candidate Output: 'normal', 'rate': 52 } The heart
 Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 Baseline NLL: 3.25000
-Candidate NLL: 1.54375
-Delta NLL: -1.70625
+Candidate NLL: 1.67500
+Delta NLL: -1.57500
 Baseline Entropy: 0.18359
-Candidate Entropy: 1.55469
-Delta Entropy: 1.37109
+Candidate Entropy: 1.35156
+Delta Entropy: 1.16797
 Baseline Margin: 4.00000
-Candidate Margin: 1.87500
-Delta Margin: -2.12500
+Candidate Margin: 2.00000
+Delta Margin: -2.00000
 Baseline Target Probability: 0.96875
-Candidate Target Probability: 0.71094
-Delta Confidence: -0.25781
+Candidate Target Probability: 0.74609
+Delta Confidence: -0.22266
 Failure Category: HIGH_CONFIDENCE_WRONG
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
 Baseline Risk Score: 0.16763
-SFT Candidate Risk Score: 0.30502
+SFT Candidate Risk Score: 0.29517
 Router Decision: abstain_safe_fallback
-Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3050).
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2952).
 --------------------------------------------------------------------------------
 ### ID: 152
 Split: unseen_val
@@ -1988,24 +1998,24 @@ Baseline Output: 'normal', 'rate': 112 } The
 SFT Candidate Output: 'normal', 'rate': 112 } The
 Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 Baseline NLL: 4.27500
-Candidate NLL: 2.41250
-Delta NLL: -1.86250
+Candidate NLL: 2.52500
+Delta NLL: -1.75000
 Baseline Entropy: 0.17383
-Candidate Entropy: 1.32031
-Delta Entropy: 1.14648
+Candidate Entropy: 1.21875
+Delta Entropy: 1.04492
 Baseline Margin: 4.00000
 Candidate Margin: 2.25000
 Delta Margin: -1.75000
 Baseline Target Probability: 0.97266
-Candidate Target Probability: 0.76953
-Delta Confidence: -0.20312
+Candidate Target Probability: 0.78516
+Delta Confidence: -0.18750
 Failure Category: HIGH_CONFIDENCE_WRONG
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
 Baseline Risk Score: 0.16734
-SFT Candidate Risk Score: 0.28673
+SFT Candidate Risk Score: 0.28369
 Router Decision: abstain_safe_fallback
-Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2867).
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2837).
 --------------------------------------------------------------------------------
 ### ID: 153
 Split: unseen_val
@@ -2024,22 +2034,22 @@ Baseline Output: 'normal', 'rate': 72 } The heart
 SFT Candidate Output: 'normal', 'rate': 72 } The heart
 Final Served Output: 'normal', 'rate': 72 } The heart
 Baseline NLL: 13.25000
-Candidate NLL: 5.75000
-Delta NLL: -7.50000
+Candidate NLL: 6.03125
+Delta NLL: -7.21875
 Baseline Entropy: 0.18652
-Candidate Entropy: 1.46094
-Delta Entropy: 1.27441
+Candidate Entropy: 1.34375
+Delta Entropy: 1.15723
 Baseline Margin: 4.00000
 Candidate Margin: 2.12500
 Delta Margin: -1.87500
 Baseline Target Probability: 0.96875
-Candidate Target Probability: 0.74219
-Delta Confidence: -0.22656
+Candidate Target Probability: 0.75781
+Delta Confidence: -0.21094
 Failure Category: INSTRUCTION_CONTRACT_VIOLATION
 Hallucination / Target Failure Detected: No
 Confidence Lowered: Yes
 Baseline Risk Score: 0.16772
-SFT Candidate Risk Score: 0.29470
+SFT Candidate Risk Score: 0.29119
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
 --------------------------------------------------------------------------------
@@ -2060,24 +2070,24 @@ Baseline Output: 'normal', 'rate': 48 } The heart
 SFT Candidate Output: 'normal', 'rate': 48 } The heart
 Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 Baseline NLL: 3.22500
-Candidate NLL: 1.49375
-Delta NLL: -1.73125
+Candidate NLL: 1.62500
+Delta NLL: -1.60000
 Baseline Entropy: 0.20996
-Candidate Entropy: 1.46094
-Delta Entropy: 1.25098
+Candidate Entropy: 1.33594
+Delta Entropy: 1.12598
 Baseline Margin: 3.75000
 Candidate Margin: 2.12500
 Delta Margin: -1.62500
 Baseline Target Probability: 0.96484
-Candidate Target Probability: 0.74219
-Delta Confidence: -0.22266
+Candidate Target Probability: 0.75781
+Delta Confidence: -0.20703
 Failure Category: HIGH_CONFIDENCE_WRONG
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
 Baseline Risk Score: 0.17592
-SFT Candidate Risk Score: 0.29470
+SFT Candidate Risk Score: 0.29095
 Router Decision: abstain_safe_fallback
-Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2947).
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2910).
 --------------------------------------------------------------------------------
 ### ID: 155
 Split: unseen_val
@@ -2096,24 +2106,24 @@ Baseline Output: 'normal', 'rate': 125 } The
 SFT Candidate Output: 'normal', 'rate': 125 } The
 Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 Baseline NLL: 4.20000
-Candidate NLL: 2.41250
-Delta NLL: -1.78750
+Candidate NLL: 2.53750
+Delta NLL: -1.66250
 Baseline Entropy: 0.18066
-Candidate Entropy: 1.34375
-Delta Entropy: 1.16309
+Candidate Entropy: 1.25000
+Delta Entropy: 1.06934
 Baseline Margin: 4.00000
 Candidate Margin: 2.12500
 Delta Margin: -1.87500
 Baseline Target Probability: 0.96875
-Candidate Target Probability: 0.76172
-Delta Confidence: -0.20703
+Candidate Target Probability: 0.77344
+Delta Confidence: -0.19531
 Failure Category: HIGH_CONFIDENCE_WRONG
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
 Baseline Risk Score: 0.16754
-SFT Candidate Risk Score: 0.29119
+SFT Candidate Risk Score: 0.28837
 Router Decision: abstain_safe_fallback
-Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2912).
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2884).
 --------------------------------------------------------------------------------
 ### ID: 156
 Split: unseen_val
@@ -2132,22 +2142,22 @@ Baseline Output: 'normal', 'rate': 80 } The heart
 SFT Candidate Output: 'normal', 'rate': 80 } The heart
 Final Served Output: 'normal', 'rate': 80 } The heart
 Baseline NLL: 12.87500
-Candidate NLL: 5.53125
-Delta NLL: -7.34375
+Candidate NLL: 5.78125
+Delta NLL: -7.09375
 Baseline Entropy: 0.18457
-Candidate Entropy: 1.44531
-Delta Entropy: 1.26074
+Candidate Entropy: 1.36719
+Delta Entropy: 1.18262
 Baseline Margin: 4.00000
 Candidate Margin: 2.12500
 Delta Margin: -1.87500
 Baseline Target Probability: 0.96875
-Candidate Target Probability: 0.74609
-Delta Confidence: -0.22266
+Candidate Target Probability: 0.75391
+Delta Confidence: -0.21484
 Failure Category: INSTRUCTION_CONTRACT_VIOLATION
 Hallucination / Target Failure Detected: No
 Confidence Lowered: Yes
 Baseline Risk Score: 0.16766
-SFT Candidate Risk Score: 0.29423
+SFT Candidate Risk Score: 0.29189
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
 --------------------------------------------------------------------------------
@@ -2168,11 +2178,11 @@ Baseline Output: 'normal', 'rate': 55 } The heart
 SFT Candidate Output: 'normal', 'rate': 55 } The heart
 Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 Baseline NLL: 3.20000
-Candidate NLL: 1.58750
-Delta NLL: -1.61250
+Candidate NLL: 1.65000
+Delta NLL: -1.55000
 Baseline Entropy: 0.20703
-Candidate Entropy: 1.47656
-Delta Entropy: 1.26953
+Candidate Entropy: 1.46094
+Delta Entropy: 1.25391
 Baseline Margin: 3.87500
 Candidate Margin: 1.87500
 Delta Margin: -2.00000
@@ -2183,9 +2193,9 @@ Failure Category: HIGH_CONFIDENCE_WRONG
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
 Baseline Risk Score: 0.17209
-SFT Candidate Risk Score: 0.30267
+SFT Candidate Risk Score: 0.30220
 Router Decision: abstain_safe_fallback
-Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3027).
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3022).
 --------------------------------------------------------------------------------
 ### ID: 158
 Split: unseen_val
@@ -2204,24 +2214,24 @@ Baseline Output: 'normal', 'rate': 105 } The
 SFT Candidate Output: 'normal', 'rate': 105 } The
 Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 Baseline NLL: 4.22500
-Candidate NLL: 2.43750
-Delta NLL: -1.78750
+Candidate NLL: 2.56250
+Delta NLL: -1.66250
 Baseline Entropy: 0.17090
-Candidate Entropy: 1.33594
-Delta Entropy: 1.16504
+Candidate Entropy: 1.31250
+Delta Entropy: 1.14160
 Baseline Margin: 4.00000
 Candidate Margin: 2.12500
 Delta Margin: -1.87500
 Baseline Target Probability: 0.97266
-Candidate Target Probability: 0.76172
-Delta Confidence: -0.21094
+Candidate Target Probability: 0.76562
+Delta Confidence: -0.20703
 Failure Category: HIGH_CONFIDENCE_WRONG
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
 Baseline Risk Score: 0.16725
-SFT Candidate Risk Score: 0.29095
+SFT Candidate Risk Score: 0.29025
 Router Decision: abstain_safe_fallback
-Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2910).
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2902).
 --------------------------------------------------------------------------------
 ### ID: 159
 Split: unseen_val
@@ -2240,22 +2250,22 @@ Baseline Output: 'normal', 'rate': 65 } The heart
 SFT Candidate Output: 'normal', 'rate': 65 } The heart
 Final Served Output: 'normal', 'rate': 65 } The heart
 Baseline NLL: 13.12500
-Candidate NLL: 5.78125
-Delta NLL: -7.34375
+Candidate NLL: 6.00000
+Delta NLL: -7.12500
 Baseline Entropy: 0.20605
-Candidate Entropy: 1.55469
-Delta Entropy: 1.34863
+Candidate Entropy: 1.47656
+Delta Entropy: 1.27051
 Baseline Margin: 3.87500
 Candidate Margin: 2.00000
 Delta Margin: -1.87500
 Baseline Target Probability: 0.96484
-Candidate Target Probability: 0.71875
-Delta Confidence: -0.24609
+Candidate Target Probability: 0.72656
+Delta Confidence: -0.23828
 Failure Category: INSTRUCTION_CONTRACT_VIOLATION
 Hallucination / Target Failure Detected: No
 Confidence Lowered: Yes
 Baseline Risk Score: 0.17206
-SFT Candidate Risk Score: 0.30127
+SFT Candidate Risk Score: 0.29892
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
 --------------------------------------------------------------------------------
@@ -2276,24 +2286,24 @@ Baseline Output: 'normal', 'rate': 50 } The heart
 SFT Candidate Output: 'normal', 'rate': 50 } The heart
 Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 Baseline NLL: 3.22500
-Candidate NLL: 1.50625
-Delta NLL: -1.71875
+Candidate NLL: 1.62500
+Delta NLL: -1.60000
 Baseline Entropy: 0.19629
-Candidate Entropy: 1.41406
-Delta Entropy: 1.21777
+Candidate Entropy: 1.39062
+Delta Entropy: 1.19434
 Baseline Margin: 4.00000
-Candidate Margin: 2.12500
-Delta Margin: -1.87500
+Candidate Margin: 2.00000
+Delta Margin: -2.00000
 Baseline Target Probability: 0.96875
-Candidate Target Probability: 0.75000
-Delta Confidence: -0.21875
+Candidate Target Probability: 0.74219
+Delta Confidence: -0.22656
 Failure Category: HIGH_CONFIDENCE_WRONG
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
 Baseline Risk Score: 0.16801
-SFT Candidate Risk Score: 0.29330
+SFT Candidate Risk Score: 0.29634
 Router Decision: abstain_safe_fallback
-Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2933).
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2963).
 --------------------------------------------------------------------------------
 ### ID: 161
 Split: unseen_val
@@ -2309,27 +2319,27 @@ Instruction Contract Violation — Baseline: 1
 Instruction Contract Violation — Candidate: 1
 Transition Type: wrong_to_wrong
 Baseline Output: 'private', 'description': 'Allow all traffic on port
-SFT Candidate Output: 'private', 'cidr': '0.0.
+SFT Candidate Output: 'private', 'rule': 'configures port 2
 Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 Baseline NLL: 13.50000
-Candidate NLL: 5.90625
-Delta NLL: -7.59375
+Candidate NLL: 6.15625
+Delta NLL: -7.34375
 Baseline Entropy: 0.46680
-Candidate Entropy: 1.42188
-Delta Entropy: 0.95508
+Candidate Entropy: 1.34375
+Delta Entropy: 0.87695
 Baseline Margin: 2.62500
-Candidate Margin: 1.25000
-Delta Margin: -1.37500
+Candidate Margin: 1.37500
+Delta Margin: -1.25000
 Baseline Target Probability: 0.89844
-Candidate Target Probability: 0.67578
-Delta Confidence: -0.22266
+Candidate Target Probability: 0.69922
+Delta Confidence: -0.19922
 Failure Category: HIGH_CONFIDENCE_WRONG
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
 Baseline Risk Score: 0.21738
-SFT Candidate Risk Score: 0.31978
+SFT Candidate Risk Score: 0.31369
 Router Decision: abstain_safe_fallback
-Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3198).
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3137).
 --------------------------------------------------------------------------------
 ### ID: 162
 Split: unseen_val
@@ -2348,22 +2358,22 @@ Baseline Output: 'private', 'cidr': '10.0
 SFT Candidate Output: 'private', 'cidr': '10.0
 Final Served Output: 'private', 'cidr': '10.0
 Baseline NLL: 15.56250
-Candidate NLL: 7.78125
-Delta NLL: -7.78125
+Candidate NLL: 8.12500
+Delta NLL: -7.43750
 Baseline Entropy: 0.53906
-Candidate Entropy: 1.39844
-Delta Entropy: 0.85938
+Candidate Entropy: 1.38281
+Delta Entropy: 0.84375
 Baseline Margin: 2.37500
 Candidate Margin: 1.25000
 Delta Margin: -1.12500
 Baseline Target Probability: 0.87500
-Candidate Target Probability: 0.67578
-Delta Confidence: -0.19922
+Candidate Target Probability: 0.67969
+Delta Confidence: -0.19531
 Failure Category: INSTRUCTION_CONTRACT_VIOLATION
 Hallucination / Target Failure Detected: No
 Confidence Lowered: Yes
 Baseline Risk Score: 0.22705
-SFT Candidate Risk Score: 0.31908
+SFT Candidate Risk Score: 0.31861
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
 --------------------------------------------------------------------------------
@@ -2381,14 +2391,14 @@ Instruction Contract Violation — Baseline: 1
 Instruction Contract Violation — Candidate: 1
 Transition Type: correct_to_correct
 Baseline Output: 'private', 'cidr': '192.
-SFT Candidate Output: 'private', 'cidr': '192.
+SFT Candidate Output: 'private', 'rule': 'configures port 4
 Final Served Output: 'private', 'cidr': '192.
 Baseline NLL: 15.18750
-Candidate NLL: 7.71875
-Delta NLL: -7.46875
+Candidate NLL: 7.84375
+Delta NLL: -7.34375
 Baseline Entropy: 0.66016
-Candidate Entropy: 1.74219
-Delta Entropy: 1.08203
+Candidate Entropy: 1.75000
+Delta Entropy: 1.08984
 Baseline Margin: 2.00000
 Candidate Margin: 0.50000
 Delta Margin: -1.50000
@@ -2399,7 +2409,7 @@ Failure Category: INSTRUCTION_CONTRACT_VIOLATION
 Hallucination / Target Failure Detected: No
 Confidence Lowered: Yes
 Baseline Risk Score: 0.24193
-SFT Candidate Risk Score: 0.35189
+SFT Candidate Risk Score: 0.35212
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
 --------------------------------------------------------------------------------
@@ -2417,27 +2427,27 @@ Instruction Contract Violation — Baseline: 1
 Instruction Contract Violation — Candidate: 1
 Transition Type: wrong_to_wrong
 Baseline Output: 'private', 'cidr': '0.0.
-SFT Candidate Output: 'private', 'cidr': '0.0.
+SFT Candidate Output: 'private', 'rule': 'configures port 3
 Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 Baseline NLL: 13.56250
-Candidate NLL: 5.81250
-Delta NLL: -7.75000
+Candidate NLL: 6.09375
+Delta NLL: -7.46875
 Baseline Entropy: 0.52734
-Candidate Entropy: 1.42188
-Delta Entropy: 0.89453
+Candidate Entropy: 1.35156
+Delta Entropy: 0.82422
 Baseline Margin: 2.25000
 Candidate Margin: 1.37500
 Delta Margin: -0.87500
 Baseline Target Probability: 0.87500
-Candidate Target Probability: 0.69141
-Delta Confidence: -0.18359
+Candidate Target Probability: 0.69922
+Delta Confidence: -0.17578
 Failure Category: HIGH_CONFIDENCE_WRONG
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
 Baseline Risk Score: 0.23044
-SFT Candidate Risk Score: 0.31603
+SFT Candidate Risk Score: 0.31392
 Router Decision: abstain_safe_fallback
-Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3160).
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3139).
 --------------------------------------------------------------------------------
 ### ID: 165
 Split: unseen_val
@@ -2453,11 +2463,11 @@ Instruction Contract Violation — Baseline: 1
 Instruction Contract Violation — Candidate: 1
 Transition Type: correct_to_correct
 Baseline Output: 'private', 'cidr': '172.
-SFT Candidate Output: 'private', 'cidr': '172.
+SFT Candidate Output: 'private' } The security group access level is private.
 Final Served Output: 'private', 'cidr': '172.
 Baseline NLL: 15.18750
-Candidate NLL: 7.59375
-Delta NLL: -7.59375
+Candidate NLL: 7.84375
+Delta NLL: -7.34375
 Baseline Entropy: 0.68750
 Candidate Entropy: 1.66406
 Delta Entropy: 0.97656
@@ -2465,8 +2475,8 @@ Baseline Margin: 1.87500
 Candidate Margin: 0.50000
 Delta Margin: -1.37500
 Baseline Target Probability: 0.82031
-Candidate Target Probability: 0.52734
-Delta Confidence: -0.29297
+Candidate Target Probability: 0.52344
+Delta Confidence: -0.29688
 Failure Category: INSTRUCTION_CONTRACT_VIOLATION
 Hallucination / Target Failure Detected: No
 Confidence Lowered: Yes
@@ -2489,25 +2499,25 @@ Instruction Contract Violation — Baseline: 1
 Instruction Contract Violation — Candidate: 1
 Transition Type: correct_to_correct
 Baseline Output: 'private', 'description': 'Allow all traffic on port
-SFT Candidate Output: 'private', 'cidr': '192.
+SFT Candidate Output: 'private', 'rule': 'configures port 2
 Final Served Output: 'private', 'description': 'Allow all traffic on port
 Baseline NLL: 15.56250
-Candidate NLL: 7.68750
-Delta NLL: -7.87500
+Candidate NLL: 7.90625
+Delta NLL: -7.65625
 Baseline Entropy: 0.64844
-Candidate Entropy: 1.72656
-Delta Entropy: 1.07812
+Candidate Entropy: 1.70312
+Delta Entropy: 1.05469
 Baseline Margin: 2.00000
-Candidate Margin: 0.75000
-Delta Margin: -1.25000
+Candidate Margin: 0.50000
+Delta Margin: -1.50000
 Baseline Target Probability: 0.83594
-Candidate Target Probability: 0.56250
-Delta Confidence: -0.27344
+Candidate Target Probability: 0.52344
+Delta Confidence: -0.31250
 Failure Category: INSTRUCTION_CONTRACT_VIOLATION
 Hallucination / Target Failure Detected: No
 Confidence Lowered: Yes
 Baseline Risk Score: 0.24158
-SFT Candidate Risk Score: 0.34392
+SFT Candidate Risk Score: 0.35072
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
 --------------------------------------------------------------------------------
@@ -2525,25 +2535,25 @@ Instruction Contract Violation — Baseline: 1
 Instruction Contract Violation — Candidate: 1
 Transition Type: correct_to_wrong
 Baseline Output: 'public' } The security group access level is public.
-SFT Candidate Output: 'private', 'cidr': '0.0.
+SFT Candidate Output: 'private', 'rule': 'configures port 8
 Final Served Output: 'public' } The security group access level is public.
 Baseline NLL: 13.43750
-Candidate NLL: 5.65625
-Delta NLL: -7.78125
+Candidate NLL: 6.00000
+Delta NLL: -7.43750
 Baseline Entropy: 0.53516
-Candidate Entropy: 1.43750
-Delta Entropy: 0.90234
+Candidate Entropy: 1.38281
+Delta Entropy: 0.84766
 Baseline Margin: 2.37500
 Candidate Margin: 1.25000
 Delta Margin: -1.12500
 Baseline Target Probability: 0.87891
-Candidate Target Probability: 0.67188
-Delta Confidence: -0.20703
+Candidate Target Probability: 0.67578
+Delta Confidence: -0.20312
 Failure Category: HIGH_CONFIDENCE_WRONG
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
 Baseline Risk Score: 0.22693
-SFT Candidate Risk Score: 0.32025
+SFT Candidate Risk Score: 0.31861
 Router Decision: use_baseline
 Prevention Action: Candidate blocked because baseline captured the target and candidate failed.
 --------------------------------------------------------------------------------
@@ -2561,25 +2571,25 @@ Instruction Contract Violation — Baseline: 1
 Instruction Contract Violation — Candidate: 1
 Transition Type: correct_to_wrong
 Baseline Output: 'public', 'cidr': '0.0.
-SFT Candidate Output: 'private', 'cidr': '0.0.
+SFT Candidate Output: 'private', 'rule_id': 'Rule-17
 Final Served Output: 'public', 'cidr': '0.0.
 Baseline NLL: 14.06250
-Candidate NLL: 5.96875
-Delta NLL: -8.09375
+Candidate NLL: 6.25000
+Delta NLL: -7.81250
 Baseline Entropy: 0.51172
-Candidate Entropy: 1.33594
-Delta Entropy: 0.82422
+Candidate Entropy: 1.26562
+Delta Entropy: 0.75391
 Baseline Margin: 2.37500
-Candidate Margin: 1.37500
-Delta Margin: -1.00000
+Candidate Margin: 1.50000
+Delta Margin: -0.87500
 Baseline Target Probability: 0.88281
-Candidate Target Probability: 0.70312
-Delta Confidence: -0.17969
+Candidate Target Probability: 0.72266
+Delta Confidence: -0.16016
 Failure Category: HIGH_CONFIDENCE_WRONG
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
 Baseline Risk Score: 0.22623
-SFT Candidate Risk Score: 0.31345
+SFT Candidate Risk Score: 0.30759
 Router Decision: use_baseline
 Prevention Action: Candidate blocked because baseline captured the target and candidate failed.
 --------------------------------------------------------------------------------
@@ -2600,22 +2610,22 @@ Baseline Output: 'private', 'rule_id': '18', '
 SFT Candidate Output: 'private', 'rule': 'configures port 3
 Final Served Output: 'private', 'rule_id': '18', '
 Baseline NLL: 15.50000
-Candidate NLL: 7.59375
-Delta NLL: -7.90625
+Candidate NLL: 7.81250
+Delta NLL: -7.68750
 Baseline Entropy: 0.54688
-Candidate Entropy: 1.71875
-Delta Entropy: 1.17188
+Candidate Entropy: 1.63281
+Delta Entropy: 1.08594
 Baseline Margin: 2.25000
-Candidate Margin: 0.87500
-Delta Margin: -1.37500
+Candidate Margin: 1.00000
+Delta Margin: -1.25000
 Baseline Target Probability: 0.87109
-Candidate Target Probability: 0.58594
-Delta Confidence: -0.28516
+Candidate Target Probability: 0.61328
+Delta Confidence: -0.25781
 Failure Category: INSTRUCTION_CONTRACT_VIOLATION
 Hallucination / Target Failure Detected: No
 Confidence Lowered: Yes
 Baseline Risk Score: 0.23103
-SFT Candidate Risk Score: 0.33994
+SFT Candidate Risk Score: 0.33361
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
 --------------------------------------------------------------------------------
@@ -2633,25 +2643,25 @@ Instruction Contract Violation — Baseline: 1
 Instruction Contract Violation — Candidate: 1
 Transition Type: correct_to_wrong
 Baseline Output: 'public' } The security group access level is public.
-SFT Candidate Output: 'private', 'cidr': '0.0.
+SFT Candidate Output: 'private' } The security group access level is private.
 Final Served Output: 'public' } The security group access level is public.
 Baseline NLL: 14.00000
-Candidate NLL: 5.84375
-Delta NLL: -8.15625
+Candidate NLL: 6.12500
+Delta NLL: -7.87500
 Baseline Entropy: 0.49219
-Candidate Entropy: 1.44531
-Delta Entropy: 0.95312
+Candidate Entropy: 1.37500
+Delta Entropy: 0.88281
 Baseline Margin: 2.37500
 Candidate Margin: 1.25000
 Delta Margin: -1.12500
 Baseline Target Probability: 0.88672
-Candidate Target Probability: 0.67188
-Delta Confidence: -0.21484
+Candidate Target Probability: 0.67969
+Delta Confidence: -0.20703
 Failure Category: HIGH_CONFIDENCE_WRONG
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
 Baseline Risk Score: 0.22564
-SFT Candidate Risk Score: 0.32048
+SFT Candidate Risk Score: 0.31837
 Router Decision: use_baseline
 Prevention Action: Candidate blocked because baseline captured the target and candidate failed.
 --------------------------------------------------------------------------------
@@ -2662,34 +2672,34 @@ Semantic Target: declined
 Strict Target-Only Correct — Baseline: 0
 Strict Target-Only Correct — Candidate: 0
 First-Token Match — Baseline: 1
-First-Token Match — Candidate: 1
+First-Token Match — Candidate: 0
 Semantic Capture — Baseline: 1
-Semantic Capture — Candidate: 1
+Semantic Capture — Candidate: 0
 Instruction Contract Violation — Baseline: 1
 Instruction Contract Violation — Candidate: 1
-Transition Type: correct_to_correct
+Transition Type: correct_to_wrong
 Baseline Output: 'declined', 'reason': 'billing address postcode check
-SFT Candidate Output: 'declined', 'reason': 'billing address postcode check
+SFT Candidate Output: 'pending', 'message': 'Billing address postcode check failed
 Final Served Output: 'declined', 'reason': 'billing address postcode check
 Baseline NLL: 12.62500
-Candidate NLL: 3.76562
-Delta NLL: -8.85938
+Candidate NLL: 4.03125
+Delta NLL: -8.59375
 Baseline Entropy: 0.07764
-Candidate Entropy: 2.07812
-Delta Entropy: 2.00049
+Candidate Entropy: 1.84375
+Delta Entropy: 1.76611
 Baseline Margin: 6.25000
-Candidate Margin: 2.81250
-Delta Margin: -3.43750
+Candidate Margin: 2.93750
+Delta Margin: -3.31250
 Baseline Target Probability: 0.99219
-Candidate Target Probability: 0.67969
-Delta Confidence: -0.31250
-Failure Category: INSTRUCTION_CONTRACT_VIOLATION
-Hallucination / Target Failure Detected: No
+Candidate Target Probability: 0.71484
+Delta Confidence: -0.27734
+Failure Category: HIGH_CONFIDENCE_WRONG
+Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
 Baseline Risk Score: 0.13445
-SFT Candidate Risk Score: 0.29259
+SFT Candidate Risk Score: 0.28181
 Router Decision: use_baseline
-Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+Prevention Action: Candidate blocked because baseline captured the target and candidate failed.
 --------------------------------------------------------------------------------
 ### ID: 172
 Split: unseen_val
@@ -2707,25 +2717,25 @@ Transition Type: correct_to_correct
 Baseline Output: 'approved', 'reason': '' } The transaction status is
 SFT Candidate Output: 'approved', 'message': 'Transaction cleared'}.
 
-The
+{
 Final Served Output: 'approved', 'reason': '' } The transaction status is
 Baseline NLL: 14.12500
-Candidate NLL: 3.59375
-Delta NLL: -10.53125
+Candidate NLL: 3.81250
+Delta NLL: -10.31250
 Baseline Entropy: 0.07617
-Candidate Entropy: 2.06250
-Delta Entropy: 1.98633
+Candidate Entropy: 1.68750
+Delta Entropy: 1.61133
 Baseline Margin: 6.12500
-Candidate Margin: 2.50000
-Delta Margin: -3.62500
+Candidate Margin: 2.68750
+Delta Margin: -3.43750
 Baseline Target Probability: 0.99219
-Candidate Target Probability: 0.66797
-Delta Confidence: -0.32422
+Candidate Target Probability: 0.73047
+Delta Confidence: -0.26172
 Failure Category: INSTRUCTION_CONTRACT_VIOLATION
 Hallucination / Target Failure Detected: No
 Confidence Lowered: Yes
 Baseline Risk Score: 0.13441
-SFT Candidate Risk Score: 0.30150
+SFT Candidate Risk Score: 0.28462
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
 --------------------------------------------------------------------------------
@@ -2746,22 +2756,22 @@ Baseline Output: 'declined', 'reason': 'card expired' }
 SFT Candidate Output: 'declined', 'reason': 'card expired'} The
 Final Served Output: 'declined', 'reason': 'card expired' }
 Baseline NLL: 12.18750
-Candidate NLL: 3.56250
-Delta NLL: -8.62500
+Candidate NLL: 4.06250
+Delta NLL: -8.12500
 Baseline Entropy: 0.17676
-Candidate Entropy: 2.67188
-Delta Entropy: 2.49512
+Candidate Entropy: 2.39062
+Delta Entropy: 2.21387
 Baseline Margin: 5.12500
-Candidate Margin: 2.25000
-Delta Margin: -2.87500
+Candidate Margin: 2.43750
+Delta Margin: -2.68750
 Baseline Target Probability: 0.97656
-Candidate Target Probability: 0.57031
-Delta Confidence: -0.40625
+Candidate Target Probability: 0.61328
+Delta Confidence: -0.36328
 Failure Category: INSTRUCTION_CONTRACT_VIOLATION
 Hallucination / Target Failure Detected: No
 Confidence Lowered: Yes
 Baseline Risk Score: 0.13743
-SFT Candidate Risk Score: 0.32728
+SFT Candidate Risk Score: 0.31322
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
 --------------------------------------------------------------------------------
@@ -2779,27 +2789,27 @@ Instruction Contract Violation — Baseline: 1
 Instruction Contract Violation — Candidate: 1
 Transition Type: wrong_to_wrong
 Baseline Output: 'approved', 'reason': 'no reason provided'} The
-SFT Candidate Output: 'pending', 'reason': 'blocked by risk engine',
+SFT Candidate Output: 'pending', 'reason': 'risk engine blocker flag matched
 Final Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 Baseline NLL: 12.56250
-Candidate NLL: 3.73438
-Delta NLL: -8.82812
+Candidate NLL: 4.21875
+Delta NLL: -8.34375
 Baseline Entropy: 0.33398
-Candidate Entropy: 2.53125
-Delta Entropy: 2.19727
+Candidate Entropy: 2.28125
+Delta Entropy: 1.94727
 Baseline Margin: 4.00000
-Candidate Margin: 2.18750
-Delta Margin: -1.81250
+Candidate Margin: 2.31250
+Delta Margin: -1.68750
 Baseline Target Probability: 0.94922
-Candidate Target Probability: 0.58203
-Delta Confidence: -0.36719
-Failure Category: WRONG_ENTITY_SUBSTITUTION
+Candidate Target Probability: 0.61719
+Delta Confidence: -0.33203
+Failure Category: HIGH_CONFIDENCE_WRONG
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
 Baseline Risk Score: 0.17214
-SFT Candidate Risk Score: 0.32494
+SFT Candidate Risk Score: 0.31369
 Router Decision: abstain_safe_fallback
-Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3249).
+Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3137).
 --------------------------------------------------------------------------------
 ### ID: 175
 Split: unseen_val
@@ -2815,25 +2825,25 @@ Instruction Contract Violation — Baseline: 1
 Instruction Contract Violation — Candidate: 1
 Transition Type: correct_to_correct
 Baseline Output: 'approved', 'message': 'Batch captured successfully' }
-SFT Candidate Output: 'approved', 'message': 'Batch captured successfully'}.
+SFT Candidate Output: 'approved', 'message': 'Batch successfully captured.' }
 Final Served Output: 'approved', 'message': 'Batch captured successfully' }
 Baseline NLL: 13.12500
-Candidate NLL: 4.37500
-Delta NLL: -8.75000
+Candidate NLL: 4.46875
+Delta NLL: -8.65625
 Baseline Entropy: 0.21484
-Candidate Entropy: 1.77344
-Delta Entropy: 1.55859
+Candidate Entropy: 1.60156
+Delta Entropy: 1.38672
 Baseline Margin: 4.50000
-Candidate Margin: 2.87500
-Delta Margin: -1.62500
+Candidate Margin: 3.06250
+Delta Margin: -1.43750
 Baseline Target Probability: 0.96875
-Candidate Target Probability: 0.73047
-Delta Confidence: -0.23828
+Candidate Target Probability: 0.75391
+Delta Confidence: -0.21484
 Failure Category: INSTRUCTION_CONTRACT_VIOLATION
 Hallucination / Target Failure Detected: No
 Confidence Lowered: Yes
 Baseline Risk Score: 0.15357
-SFT Candidate Risk Score: 0.28158
+SFT Candidate Risk Score: 0.27080
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
 --------------------------------------------------------------------------------
@@ -2851,25 +2861,25 @@ Instruction Contract Violation — Baseline: 1
 Instruction Contract Violation — Candidate: 1
 Transition Type: correct_to_correct
 Baseline Output: 'declined', 'reason': 'Insufficient credit limit
-SFT Candidate Output: declined, 'message': 'Insufficient credit limit on account
+SFT Candidate Output: 'declined', 'message': 'Insufficient credit limit
 Final Served Output: 'declined', 'reason': 'Insufficient credit limit
 Baseline NLL: 12.50000
-Candidate NLL: 2.17188
-Delta NLL: -10.32812
+Candidate NLL: 2.64062
+Delta NLL: -9.85938
 Baseline Entropy: 0.09033
-Candidate Entropy: 2.29688
-Delta Entropy: 2.20654
+Candidate Entropy: 1.89062
+Delta Entropy: 1.80029
 Baseline Margin: 6.00000
-Candidate Margin: 1.62500
-Delta Margin: -4.37500
+Candidate Margin: 2.25000
+Delta Margin: -3.75000
 Baseline Target Probability: 0.98828
-Candidate Target Probability: 0.57812
-Delta Confidence: -0.41016
+Candidate Target Probability: 0.67578
+Delta Confidence: -0.31250
 Failure Category: INSTRUCTION_CONTRACT_VIOLATION
 Hallucination / Target Failure Detected: No
 Confidence Lowered: Yes
 Baseline Risk Score: 0.13483
-SFT Candidate Risk Score: 0.33478
+SFT Candidate Risk Score: 0.30384
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
 --------------------------------------------------------------------------------
@@ -2887,25 +2897,25 @@ Instruction Contract Violation — Baseline: 1
 Instruction Contract Violation — Candidate: 1
 Transition Type: correct_to_correct
 Baseline Output: 'approved', 'message': 'Transaction successful.' } The
-SFT Candidate Output: 'approved', 'message': 'Transaction successful.' } Here
+SFT Candidate Output: 'approved', 'message': 'Transaction successful.' } The
 Final Served Output: 'approved', 'message': 'Transaction successful.' } The
 Baseline NLL: 14.12500
-Candidate NLL: 4.46875
-Delta NLL: -9.65625
+Candidate NLL: 4.56250
+Delta NLL: -9.56250
 Baseline Entropy: 0.07129
-Candidate Entropy: 1.28125
-Delta Entropy: 1.20996
+Candidate Entropy: 1.14844
+Delta Entropy: 1.07715
 Baseline Margin: 5.87500
-Candidate Margin: 3.12500
-Delta Margin: -2.75000
+Candidate Margin: 3.31250
+Delta Margin: -2.56250
 Baseline Target Probability: 0.99219
-Candidate Target Probability: 0.80469
-Delta Confidence: -0.18750
+Candidate Target Probability: 0.82812
+Delta Confidence: -0.16406
 Failure Category: INSTRUCTION_CONTRACT_VIOLATION
 Hallucination / Target Failure Detected: No
 Confidence Lowered: Yes
 Baseline Risk Score: 0.13426
-SFT Candidate Risk Score: 0.25931
+SFT Candidate Risk Score: 0.24970
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
 --------------------------------------------------------------------------------
@@ -2916,34 +2926,34 @@ Semantic Target: approved
 Strict Target-Only Correct — Baseline: 0
 Strict Target-Only Correct — Candidate: 0
 First-Token Match — Baseline: 1
-First-Token Match — Candidate: 1
+First-Token Match — Candidate: 0
 Semantic Capture — Baseline: 1
-Semantic Capture — Candidate: 1
+Semantic Capture — Candidate: 0
 Instruction Contract Violation — Baseline: 1
 Instruction Contract Violation — Candidate: 1
-Transition Type: correct_to_correct
+Transition Type: correct_to_wrong
 Baseline Output: 'approved', 'reason': 'capture approved'} The transaction
-SFT Candidate Output: 'approved', 'message': 'Transaction successful.' } Here
+SFT Candidate Output: 'pending', 'reason': 'capture rejected'} The transaction
 Final Served Output: 'approved', 'reason': 'capture approved'} The transaction
 Baseline NLL: 14.50000
-Candidate NLL: 3.79688
-Delta NLL: -10.70312
+Candidate NLL: 3.89062
+Delta NLL: -10.60938
 Baseline Entropy: 0.07178
-Candidate Entropy: 2.29688
-Delta Entropy: 2.22510
+Candidate Entropy: 2.14062
+Delta Entropy: 2.06885
 Baseline Margin: 6.00000
-Candidate Margin: 2.68750
-Delta Margin: -3.31250
+Candidate Margin: 2.75000
+Delta Margin: -3.25000
 Baseline Target Probability: 0.99219
-Candidate Target Probability: 0.65625
-Delta Confidence: -0.33594
-Failure Category: INSTRUCTION_CONTRACT_VIOLATION
-Hallucination / Target Failure Detected: No
+Candidate Target Probability: 0.67188
+Delta Confidence: -0.32031
+Failure Category: HIGH_CONFIDENCE_WRONG
+Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
 Baseline Risk Score: 0.13428
-SFT Candidate Risk Score: 0.30291
+SFT Candidate Risk Score: 0.29634
 Router Decision: use_baseline
-Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+Prevention Action: Candidate blocked because baseline captured the target and candidate failed.
 --------------------------------------------------------------------------------
 ### ID: 179
 Split: unseen_val
@@ -2962,22 +2972,22 @@ Baseline Output: 'declined', 'reason': 'card stolen' }
 SFT Candidate Output: 'declined', 'reason': 'card stolen'} The
 Final Served Output: 'declined', 'reason': 'card stolen' }
 Baseline NLL: 11.50000
-Candidate NLL: 2.65625
-Delta NLL: -8.84375
+Candidate NLL: 3.06250
+Delta NLL: -8.43750
 Baseline Entropy: 0.17578
-Candidate Entropy: 2.64062
-Delta Entropy: 2.46484
+Candidate Entropy: 2.34375
+Delta Entropy: 2.16797
 Baseline Margin: 4.87500
-Candidate Margin: 2.06250
-Delta Margin: -2.81250
+Candidate Margin: 2.56250
+Delta Margin: -2.31250
 Baseline Target Probability: 0.97656
-Candidate Target Probability: 0.54688
-Delta Confidence: -0.42969
+Candidate Target Probability: 0.60547
+Delta Confidence: -0.37109
 Failure Category: INSTRUCTION_CONTRACT_VIOLATION
 Hallucination / Target Failure Detected: No
 Confidence Lowered: Yes
 Baseline Risk Score: 0.14115
-SFT Candidate Risk Score: 0.33197
+SFT Candidate Risk Score: 0.30806
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
 --------------------------------------------------------------------------------
@@ -2995,25 +3005,25 @@ Instruction Contract Violation — Baseline: 1
 Instruction Contract Violation — Candidate: 1
 Transition Type: correct_to_wrong
 Baseline Output: 'approved', 'reason': 'authorized by merchant override',
-SFT Candidate Output: 'authorized', 'amount': 100, '
+SFT Candidate Output: 'authorized', 'reason': 'override', 'amount':
 Final Served Output: 'approved', 'reason': 'authorized by merchant override',
 Baseline NLL: 14.18750
-Candidate NLL: 5.12500
-Delta NLL: -9.06250
+Candidate NLL: 5.37500
+Delta NLL: -8.81250
 Baseline Entropy: 0.17188
-Candidate Entropy: 1.57812
-Delta Entropy: 1.40625
+Candidate Entropy: 1.40625
+Delta Entropy: 1.23438
 Baseline Margin: 5.12500
-Candidate Margin: 2.56250
-Delta Margin: -2.56250
+Candidate Margin: 2.68750
+Delta Margin: -2.43750
 Baseline Target Probability: 0.97656
-Candidate Target Probability: 0.74219
-Delta Confidence: -0.23438
+Candidate Target Probability: 0.76953
+Delta Confidence: -0.20703
 Failure Category: HIGH_CONFIDENCE_WRONG
 Hallucination / Target Failure Detected: Yes
 Confidence Lowered: Yes
 Baseline Risk Score: 0.13728
-SFT Candidate Risk Score: 0.28509
+SFT Candidate Risk Score: 0.27619
 Router Decision: use_baseline
 Prevention Action: Candidate blocked because baseline captured the target and candidate failed.
 --------------------------------------------------------------------------------
@@ -3021,116 +3031,121 @@ Prevention Action: Candidate blocked because baseline captured the target and ca
 =====================================================================
 [G] RAW CONSOLE LOG APPENDIX
 =====================================================================
-[PCRF-Suite] 2026-07-07 15:09:31,458 - INFO - Loaded external dataset from another-dataset.csv
-[PCRF-Suite] 2026-07-07 15:09:31,459 - INFO - [SPLIT AUDIT] train split count: 100
-[PCRF-Suite] 2026-07-07 15:09:31,460 - INFO - [SPLIT AUDIT] seen_val split count: 40
-[PCRF-Suite] 2026-07-07 15:09:31,460 - INFO - [SPLIT AUDIT] unseen_val split count: 40
-[PCRF-Suite] 2026-07-07 15:09:31,461 - INFO - [SPLIT AUDIT] ood split count: 20
-[PCRF-Suite] 2026-07-07 15:09:31,461 - INFO - [SPLIT AUDIT] total records loaded: 200
-[PCRF-Suite] 2026-07-07 15:09:31,462 - INFO - Retrieving tokenizer and architecture weights for: Qwen/Qwen2.5-0.5B-Instruct
-[PCRF-Suite] 2026-07-07 15:09:32,853 - INFO - Model parameter arrays successfully allocated.
-[PCRF-Suite] 2026-07-07 15:09:32,855 - INFO - ==========================================================================================
-[PCRF-Suite] 2026-07-07 15:09:32,856 - INFO -                   PCRF RESOURCE AUDIT & COMPUTE PROFILING SYSTEM                  
-[PCRF-Suite] 2026-07-07 15:09:32,856 - INFO - ==========================================================================================
-[PCRF-Suite] 2026-07-07 15:09:32,857 - INFO - Host OS Platform          : Linux 6.1.0-49-cloud-amd64
-[PCRF-Suite] 2026-07-07 15:09:32,857 - INFO - Active CPU Cores Detected : 8
-[PCRF-Suite] 2026-07-07 15:09:32,857 - INFO - Host System RAM           : 29.38 GB
-[PCRF-Suite] 2026-07-07 15:09:32,858 - INFO - GPU Hardware Accelerator  : Tesla T4
-[PCRF-Suite] 2026-07-07 15:09:32,859 - INFO - Dedicated VRAM Capacity   : 14.56 GB
-[PCRF-Suite] 2026-07-07 15:09:32,859 - INFO - Target Model Size (Params): 494.0 Million Parameters
-[PCRF-Suite] 2026-07-07 15:09:32,859 - INFO - ------------------------------------------------------------------------------------------
-[PCRF-Suite] 2026-07-07 15:09:32,860 - INFO - RECOMMENDED GCP COMPUTE INFRASTRUCTURE SETUP:
-[PCRF-Suite] 2026-07-07 15:09:32,860 - INFO -   - Recommended GCP Tier  : n1-standard-8 (8 vCPUs, 30 GB RAM)
+[PCRF-Suite] 2026-07-08 08:53:13,774 - INFO - Loaded external dataset from another-dataset.csv
+[PCRF-Suite] 2026-07-08 08:53:13,775 - INFO - [SPLIT AUDIT] train split count: 100
+[PCRF-Suite] 2026-07-08 08:53:13,775 - INFO - [SPLIT AUDIT] seen_val split count: 40
+[PCRF-Suite] 2026-07-08 08:53:13,776 - INFO - [SPLIT AUDIT] unseen_val split count: 40
+[PCRF-Suite] 2026-07-08 08:53:13,777 - INFO - [SPLIT AUDIT] ood split count: 20
+[PCRF-Suite] 2026-07-08 08:53:13,777 - INFO - [SPLIT AUDIT] total records loaded: 200
+[PCRF-Suite] 2026-07-08 08:53:13,778 - INFO - Retrieving tokenizer and architecture weights for: Qwen/Qwen2.5-0.5B-Instruct
+[PCRF-Suite] 2026-07-08 08:53:15,086 - INFO - Model parameter arrays successfully allocated.
+[PCRF-Suite] 2026-07-08 08:53:15,088 - INFO - ==========================================================================================
+[PCRF-Suite] 2026-07-08 08:53:15,089 - INFO -                   PCRF RESOURCE AUDIT & COMPUTE PROFILING SYSTEM                  
+[PCRF-Suite] 2026-07-08 08:53:15,090 - INFO - ==========================================================================================
+[PCRF-Suite] 2026-07-08 08:53:15,090 - INFO - Host OS Platform          : Linux 6.1.0-49-cloud-amd64
+[PCRF-Suite] 2026-07-08 08:53:15,091 - INFO - Active CPU Cores Detected : 8
+[PCRF-Suite] 2026-07-08 08:53:15,091 - INFO - Host System RAM           : 29.38 GB
+[PCRF-Suite] 2026-07-08 08:53:15,092 - INFO - GPU Hardware Accelerator  : Tesla T4
+[PCRF-Suite] 2026-07-08 08:53:15,094 - INFO - Dedicated VRAM Capacity   : 14.56 GB
+[PCRF-Suite] 2026-07-08 08:53:15,094 - INFO - Target Model Size (Params): 494.0 Million Parameters
+[PCRF-Suite] 2026-07-08 08:53:15,095 - INFO - ------------------------------------------------------------------------------------------
+[PCRF-Suite] 2026-07-08 08:53:15,095 - INFO - RECOMMENDED GCP COMPUTE INFRASTRUCTURE SETUP:
+[PCRF-Suite] 2026-07-08 08:53:15,096 - INFO -   - Recommended GCP Tier  : n1-standard-8 (8 vCPUs, 30 GB RAM)
   - Accelerator Context   : 1x NVIDIA T4 (16 GB VRAM)
   - Technical Reason      : Light parameter profiles run perfectly inside standard T4 envelopes.
                             At least 30 GB Host RAM prevents OS swap stalls during model download.
-[PCRF-Suite] 2026-07-07 15:09:32,861 - INFO - ------------------------------------------------------------------------------------------
-[PCRF-Suite] 2026-07-07 15:09:32,861 - INFO - GCP COMPUTE ENGINE SAFETY GUIDELINES (OOME PREVENTION):
-[PCRF-Suite] 2026-07-07 15:09:32,861 - INFO -  1. Always purge dangling activations using 'torch.cuda.empty_cache()' during hooks teardown.
-[PCRF-Suite] 2026-07-07 15:09:32,862 - INFO -  2. Enable half-precision (FP16/BF16) modes across all forward passes.
-[PCRF-Suite] 2026-07-07 15:09:32,862 - INFO -  3. Anchor maximum sequence length limits (`max_len`) tightly to block quadratic expansion.
-[PCRF-Suite] 2026-07-07 15:09:32,863 - INFO - ==========================================================================================
+[PCRF-Suite] 2026-07-08 08:53:15,097 - INFO - ------------------------------------------------------------------------------------------
+[PCRF-Suite] 2026-07-08 08:53:15,098 - INFO - GCP COMPUTE ENGINE SAFETY GUIDELINES (OOME PREVENTION):
+[PCRF-Suite] 2026-07-08 08:53:15,098 - INFO -  1. Always purge dangling activations using 'torch.cuda.empty_cache()' during hooks teardown.
+[PCRF-Suite] 2026-07-08 08:53:15,099 - INFO -  2. Enable half-precision (FP16/BF16) modes across all forward passes.
+[PCRF-Suite] 2026-07-08 08:53:15,100 - INFO -  3. Anchor maximum sequence length limits (`max_len`) tightly to block quadratic expansion.
+[PCRF-Suite] 2026-07-08 08:53:15,100 - INFO - ==========================================================================================
 
-[PCRF-Suite] 2026-07-07 15:09:32,864 - INFO - Baseline model parameters frozen.
-[PCRF-Suite] 2026-07-07 15:09:32,864 - INFO - --- Phase 1: Running Baseline Profile Evaluation ---
-[PCRF-Suite] 2026-07-07 15:10:10,168 - INFO - FP32 candidate model loaded securely for optimization.
-[PCRF-Suite] 2026-07-07 15:10:10,169 - INFO - 
+[PCRF-Suite] 2026-07-08 08:53:15,101 - INFO - Baseline model parameters frozen.
+[PCRF-Suite] 2026-07-08 08:53:15,103 - INFO - CodeFlow#1: Baseline triggered for Model
+[PCRF-Suite] 2026-07-08 08:53:15,103 - INFO - --- Phase 1: Running Baseline Profile Evaluation ---
+[PCRF-Suite] 2026-07-08 08:53:51,137 - INFO - CodeFlow#2: Hallucinations based on Ground truth for the Prompts
+[PCRF-Suite] 2026-07-08 08:53:51,138 - INFO - Running Baseline Row-Level evaluations across train and OOD splits...
+[PCRF-Suite] 2026-07-08 08:54:45,022 - INFO - [ROW AUDIT] train rows: 100
+[PCRF-Suite] 2026-07-08 08:54:45,023 - INFO - [ROW AUDIT] seen_val rows: 40
+[PCRF-Suite] 2026-07-08 08:54:45,024 - INFO - [ROW AUDIT] unseen_val rows: 40
+[PCRF-Suite] 2026-07-08 08:54:45,024 - INFO - [ROW AUDIT] ood rows: 20
+[PCRF-Suite] 2026-07-08 08:54:45,025 - INFO - [ROW AUDIT] total audited predictions: 200
+[PCRF-Suite] 2026-07-08 08:54:45,027 - INFO - Please refer to the Baseline_Only_Report.md for Hallucination details for the baseline.
+[PCRF-Suite] 2026-07-08 08:54:45,028 - INFO - Saving physical Baseline model to disk at: ./customer_pcrf_artifacts/baseline_model
+[PCRF-Suite] 2026-07-08 08:54:54,075 - INFO - ================================================================================
+[PCRF-Suite] 2026-07-08 08:54:54,076 - INFO - 📄 DETAILED FILE-LEVEL FOOTPRINT FOR BASELINE (ls -altrL)
+[PCRF-Suite] 2026-07-08 08:54:54,076 - INFO - ================================================================================
+[PCRF-Suite] 2026-07-08 08:54:54,077 - INFO - --- Baseline Directory: ./customer_pcrf_artifacts/baseline_model ---
+[PCRF-Suite] 2026-07-08 08:54:54,081 - INFO - total 976128
+[PCRF-Suite] 2026-07-08 08:54:54,081 - INFO - drwxr-xr-x 2 jupyter jupyter      4096 Jul  7 12:31 .ipynb_checkpoints
+[PCRF-Suite] 2026-07-08 08:54:54,082 - INFO - drwxr-xr-x 5 jupyter jupyter      4096 Jul  8 08:54 ..
+[PCRF-Suite] 2026-07-08 08:54:54,082 - INFO - -rw-r--r-- 1 jupyter jupyter       242 Jul  8 08:54 generation_config.json
+[PCRF-Suite] 2026-07-08 08:54:54,083 - INFO - -rw-r--r-- 1 jupyter jupyter      1286 Jul  8 08:54 config.json
+[PCRF-Suite] 2026-07-08 08:54:54,083 - INFO - -rw------- 1 jupyter jupyter 988097824 Jul  8 08:54 model.safetensors
+[PCRF-Suite] 2026-07-08 08:54:54,084 - INFO - drwxr-xr-x 3 jupyter jupyter      4096 Jul  8 08:54 .
+[PCRF-Suite] 2026-07-08 08:54:54,085 - INFO - -rw-r--r-- 1 jupyter jupyter       694 Jul  8 08:54 tokenizer_config.json
+[PCRF-Suite] 2026-07-08 08:54:54,085 - INFO - -rw-r--r-- 1 jupyter jupyter      2507 Jul  8 08:54 chat_template.jinja
+[PCRF-Suite] 2026-07-08 08:54:54,086 - INFO - -rw-r--r-- 1 jupyter jupyter  11421892 Jul  8 08:54 tokenizer.json
+[PCRF-Suite] 2026-07-08 08:54:54,086 - INFO - Baseline Parsed Size : 999536733 Bytes
+[PCRF-Suite] 2026-07-08 08:54:54,087 - INFO - Baseline Model Datetimestamp: 2026-07-08 08:54:53
+[PCRF-Suite] 2026-07-08 08:54:54,087 - INFO - CodeFlow#3: PCRF Full mode experiment Initiated
+[PCRF-Suite] 2026-07-08 08:54:55,873 - INFO - FP32 candidate model loaded securely for optimization.
+[PCRF-Suite] 2026-07-08 08:54:55,874 - INFO - 
 --- Scenario A: Run Standalone Layer Derivative Estimation ---
-[PCRF-Suite] 2026-07-07 15:12:49,971 - INFO - 
+[PCRF-Suite] 2026-07-08 08:57:28,125 - INFO - 
 --- Scenario B: Independent Curriculum Selection ---
-[PCRF-Suite] 2026-07-07 15:15:34,702 - INFO - 
+[PCRF-Suite] 2026-07-08 09:00:04,000 - INFO - 
 --- Scenario C: Standalone Structural Residual-Depth Monitoring ---
-[PCRF-Suite] 2026-07-07 15:18:29,841 - INFO - 
+[PCRF-Suite] 2026-07-08 09:02:50,589 - INFO - 
 --- Scenario D: Derivative-Weighted Regularization ---
-[PCRF-Suite] 2026-07-07 15:21:10,792 - INFO - Initializing Advanced CDL v2 SFT Regularization training loop...
-[PCRF-Suite] 2026-07-07 15:21:19,794 - INFO - Regularization SFT optimization completed.
-[PCRF-Suite] 2026-07-07 15:21:19,854 - INFO - Saving physical Baseline model to disk at: ./customer_pcrf_artifacts/baseline_model
-[PCRF-Suite] 2026-07-07 15:21:21,136 - INFO - Saving physical SFT candidate model to disk at: ./customer_pcrf_artifacts/sft_candidate_model
-[PCRF-Suite] 2026-07-07 15:21:22,281 - INFO - ================================================================================
-[PCRF-Suite] 2026-07-07 15:21:22,282 - INFO - 📄 DETAILED FILE-LEVEL FOOTPRINT (ls -altrL)
-[PCRF-Suite] 2026-07-07 15:21:22,283 - INFO - ================================================================================
-[PCRF-Suite] 2026-07-07 15:21:22,283 - INFO - --- Baseline Directory: ./customer_pcrf_artifacts/baseline_model ---
-[PCRF-Suite] 2026-07-07 15:21:22,287 - INFO - total 976124
-[PCRF-Suite] 2026-07-07 15:21:22,288 - INFO - drwxr-xr-x 2 jupyter jupyter      4096 Jul  7 12:31 .ipynb_checkpoints
-[PCRF-Suite] 2026-07-07 15:21:22,288 - INFO - drwxr-xr-x 5 jupyter jupyter      4096 Jul  7 15:18 ..
-[PCRF-Suite] 2026-07-07 15:21:22,289 - INFO - -rw-r--r-- 1 jupyter jupyter       242 Jul  7 15:21 generation_config.json
-[PCRF-Suite] 2026-07-07 15:21:22,289 - INFO - -rw-r--r-- 1 jupyter jupyter      1286 Jul  7 15:21 config.json
-[PCRF-Suite] 2026-07-07 15:21:22,290 - INFO - -rw------- 1 jupyter jupyter 988097824 Jul  7 15:21 model.safetensors
-[PCRF-Suite] 2026-07-07 15:21:22,290 - INFO - -rw-r--r-- 1 jupyter jupyter       694 Jul  7 15:21 tokenizer_config.json
-[PCRF-Suite] 2026-07-07 15:21:22,291 - INFO - -rw-r--r-- 1 jupyter jupyter      2507 Jul  7 15:21 chat_template.jinja
-[PCRF-Suite] 2026-07-07 15:21:22,291 - INFO - -rw-r--r-- 1 jupyter jupyter  11421990 Jul  7 15:21 tokenizer.json
-[PCRF-Suite] 2026-07-07 15:21:22,292 - INFO - drwxr-xr-x 3 jupyter jupyter      4096 Jul  7 15:21 .
-[PCRF-Suite] 2026-07-07 15:21:22,292 - INFO - --- Candidate Directory: ./customer_pcrf_artifacts/sft_candidate_model ---
-[PCRF-Suite] 2026-07-07 15:21:22,297 - INFO - total 976124
-[PCRF-Suite] 2026-07-07 15:21:22,298 - INFO - drwxr-xr-x 2 jupyter jupyter      4096 Jul  7 08:31 .ipynb_checkpoints
-[PCRF-Suite] 2026-07-07 15:21:22,299 - INFO - drwxr-xr-x 5 jupyter jupyter      4096 Jul  7 15:18 ..
-[PCRF-Suite] 2026-07-07 15:21:22,299 - INFO - -rw-r--r-- 1 jupyter jupyter       242 Jul  7 15:21 generation_config.json
-[PCRF-Suite] 2026-07-07 15:21:22,300 - INFO - -rw-r--r-- 1 jupyter jupyter      1284 Jul  7 15:21 config.json
-[PCRF-Suite] 2026-07-07 15:21:22,300 - INFO - -rw------- 1 jupyter jupyter 988097824 Jul  7 15:21 model.safetensors
-[PCRF-Suite] 2026-07-07 15:21:22,301 - INFO - -rw-r--r-- 1 jupyter jupyter       694 Jul  7 15:21 tokenizer_config.json
-[PCRF-Suite] 2026-07-07 15:21:22,301 - INFO - -rw-r--r-- 1 jupyter jupyter      2507 Jul  7 15:21 chat_template.jinja
-[PCRF-Suite] 2026-07-07 15:21:22,302 - INFO - -rw-r--r-- 1 jupyter jupyter  11421990 Jul  7 15:21 tokenizer.json
-[PCRF-Suite] 2026-07-07 15:21:22,302 - INFO - drwxr-xr-x 3 jupyter jupyter      4096 Jul  7 15:21 .
-[PCRF-Suite] 2026-07-07 15:21:22,303 - INFO - ================================================================================
-[PCRF-Suite] 2026-07-07 15:21:22,303 - INFO - 💾 FINAL DISK SIZE DELTA SUMMARY (PARSED FROM ls)
-[PCRF-Suite] 2026-07-07 15:21:22,304 - INFO - ================================================================================
-[PCRF-Suite] 2026-07-07 15:21:22,304 - INFO - Baseline Parsed Size : 999536831 Bytes
-[PCRF-Suite] 2026-07-07 15:21:22,305 - INFO - Candidate Parsed Size: 999536829 Bytes
-[PCRF-Suite] 2026-07-07 15:21:22,305 - INFO - Storage Difference   : -0.0020 KB  |  -0.0000 MB
-[PCRF-Suite] 2026-07-07 15:21:22,306 - INFO - ================================================================================
-[PCRF-Suite] 2026-07-07 15:21:57,661 - INFO - [ROUTER AUDIT] baseline served count: 54
-[PCRF-Suite] 2026-07-07 15:21:57,661 - INFO - [ROUTER AUDIT] candidate served count: 2
-[PCRF-Suite] 2026-07-07 15:21:57,662 - INFO - [ROUTER AUDIT] abstain count: 24
-[PCRF-Suite] 2026-07-07 15:21:57,663 - INFO - [ROUTER AUDIT] semantic recoveries observed: 2
-[PCRF-Suite] 2026-07-07 15:21:57,663 - INFO - [ROUTER AUDIT] contract clean repairs promoted: 2
-[PCRF-Suite] 2026-07-07 15:21:57,664 - INFO - [ROUTER AUDIT] semantic recoveries withheld: 0
-[PCRF-Suite] 2026-07-07 15:21:57,664 - INFO - Generating detailed developer SFT debug log at: ./customer_pcrf_artifacts/pcrf_debug_report.txt
+[PCRF-Suite] 2026-07-08 09:05:22,508 - INFO - Initializing Advanced CDL v2 SFT Regularization training loop...
+[PCRF-Suite] 2026-07-08 09:05:31,091 - INFO - Regularization SFT optimization completed.
+[PCRF-Suite] 2026-07-08 09:05:31,150 - INFO - Saving physical SFT candidate model to disk at: ./customer_pcrf_artifacts/sft_candidate_model
+[PCRF-Suite] 2026-07-08 09:05:40,170 - INFO - ================================================================================
+[PCRF-Suite] 2026-07-08 09:05:40,171 - INFO - 📄 DETAILED FILE-LEVEL FOOTPRINT FOR CANDIDATE (ls -altrL)
+[PCRF-Suite] 2026-07-08 09:05:40,172 - INFO - ================================================================================
+[PCRF-Suite] 2026-07-08 09:05:40,172 - INFO - --- Candidate Directory: ./customer_pcrf_artifacts/sft_candidate_model ---
+[PCRF-Suite] 2026-07-08 09:05:40,185 - INFO - total 976128
+[PCRF-Suite] 2026-07-08 09:05:40,185 - INFO - drwxr-xr-x 2 jupyter jupyter      4096 Jul  7 08:31 .ipynb_checkpoints
+[PCRF-Suite] 2026-07-08 09:05:40,186 - INFO - drwxr-xr-x 5 jupyter jupyter      4096 Jul  8 09:02 ..
+[PCRF-Suite] 2026-07-08 09:05:40,187 - INFO - -rw-r--r-- 1 jupyter jupyter       242 Jul  8 09:05 generation_config.json
+[PCRF-Suite] 2026-07-08 09:05:40,187 - INFO - -rw-r--r-- 1 jupyter jupyter      1284 Jul  8 09:05 config.json
+[PCRF-Suite] 2026-07-08 09:05:40,188 - INFO - -rw------- 1 jupyter jupyter 988097824 Jul  8 09:05 model.safetensors
+[PCRF-Suite] 2026-07-08 09:05:40,189 - INFO - drwxr-xr-x 3 jupyter jupyter      4096 Jul  8 09:05 .
+[PCRF-Suite] 2026-07-08 09:05:40,190 - INFO - -rw-r--r-- 1 jupyter jupyter       694 Jul  8 09:05 tokenizer_config.json
+[PCRF-Suite] 2026-07-08 09:05:40,190 - INFO - -rw-r--r-- 1 jupyter jupyter      2507 Jul  8 09:05 chat_template.jinja
+[PCRF-Suite] 2026-07-08 09:05:40,191 - INFO - -rw-r--r-- 1 jupyter jupyter  11421990 Jul  8 09:05 tokenizer.json
+[PCRF-Suite] 2026-07-08 09:05:40,192 - INFO - Candidate Parsed Size : 999536829 Bytes
+[PCRF-Suite] 2026-07-08 09:05:40,192 - INFO - Candidate Model Datetimestamp: 2026-07-08 09:05:39
+[PCRF-Suite] 2026-07-08 09:05:40,193 - INFO - ================================================================================
+[PCRF-Suite] 2026-07-08 09:05:40,194 - INFO - 💾 FINAL DISK SIZE DELTA SUMMARY (PARSED FROM ls)
+[PCRF-Suite] 2026-07-08 09:05:40,195 - INFO - ================================================================================
+[PCRF-Suite] 2026-07-08 09:05:40,195 - INFO - Baseline Parsed Size : 999536733 Bytes
+[PCRF-Suite] 2026-07-08 09:05:40,196 - INFO - Candidate Parsed Size: 999536829 Bytes
+[PCRF-Suite] 2026-07-08 09:05:40,196 - INFO - Storage Difference   : +0.0938 KB  |  +0.0001 MB
+[PCRF-Suite] 2026-07-08 09:05:40,197 - INFO - ================================================================================
+[PCRF-Suite] 2026-07-08 09:06:16,142 - INFO - [ROUTER AUDIT] baseline served count: 54
+[PCRF-Suite] 2026-07-08 09:06:16,143 - INFO - [ROUTER AUDIT] candidate served count: 2
+[PCRF-Suite] 2026-07-08 09:06:16,144 - INFO - [ROUTER AUDIT] abstain count: 24
+[PCRF-Suite] 2026-07-08 09:06:16,144 - INFO - [ROUTER AUDIT] semantic recoveries observed: 2
+[PCRF-Suite] 2026-07-08 09:06:16,145 - INFO - [ROUTER AUDIT] contract clean repairs promoted: 2
+[PCRF-Suite] 2026-07-08 09:06:16,146 - INFO - [ROUTER AUDIT] semantic recoveries withheld: 0
+[PCRF-Suite] 2026-07-08 09:06:16,146 - INFO - Generating detailed developer SFT debug log at: ./customer_pcrf_artifacts/pcrf_debug_report.txt
 
 
 =====================================================================
-[H] ZERO-SHOT PRODUCTION SIMULATION (MATH VS GOLD)
+[H] ZERO-SHOT HYBRID ENSEMBLE SIMULATION (MATH VS GOLD)
 =====================================================================
-* Risk Threshold        : 0.4
-* Math True Positives   : 8 (Hallucinations Caught)
-* Math False Negatives  : 25 (Hallucinations Missed)
-* Math False Positives  : 5 (Good Answers Blocked)
-* Math True Negatives   : 42 (Good Answers Allowed)
+* Applied Mathematical Model : Adaptive K-Factor (Standard Deviation) [K=1.25]
+* Inference Risk Threshold   : 0.39 (Checks Structural Entropy)
+* Curriculum NLL Threshold   : 8.81 (Checks Sequence Probability)
 
-* BEFORE PCRF Accuracy  : 58.75% (Served 80 prompts)
-* AFTER PCRF Accuracy   : 62.69% (Served 67 prompts)
-* Math Recall Rate      : 24.24%
+* Hybrid True Positives   : 13 (Hallucinations Caught)
+* Hybrid False Negatives  : 26 (Hallucinations Missed)
+* Hybrid False Positives  : 11 (Good Answers Blocked)
+* Hybrid True Negatives   : 30 (Good Answers Allowed)
 
-=====================================================================
-[I] ZERO-SHOT HYBRID ENSEMBLE SIMULATION (MATH VS GOLD)
-=====================================================================
-* Inference Risk Threshold : 0.4 (Checks Structural Entropy)
-* Curriculum NLL Threshold : 3.5 (Checks Sequence Probability)
-
-* Hybrid True Positives   : 26 (Hallucinations Caught)
-* Hybrid False Negatives  : 7 (Hallucinations Missed)
-* Hybrid False Positives  : 29 (Good Answers Blocked)
-* Hybrid True Negatives   : 18 (Good Answers Allowed)
-
-* BEFORE PCRF Accuracy    : 58.75% (Served 80 prompts)
-* AFTER PCRF Accuracy     : 72.00% (Served 25 prompts)
-* Hallucinations Caught   : 78.79%
+* BEFORE PCRF Accuracy    : 51.25% (Served 80 prompts)
+* AFTER PCRF Accuracy     : 53.57% (Served 56 prompts)
+* Hallucinations Caught   : 33.33%

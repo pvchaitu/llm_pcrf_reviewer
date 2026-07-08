@@ -1,0 +1,25 @@
+{
+    "run_mode": "baseline",
+    "target_model": "Qwen/Qwen2.5-0.5B-Instruct",
+    "device": "cuda",
+    "train_count": 200,
+    "seen_val_count": 125,
+    "unseen_val_count": 125,
+    "baseline_stats": {
+        "model_name": "Qwen/Qwen2.5-0.5B-Instruct",
+        "seen_val_acc": 0.68,
+        "unseen_val_acc": 0.56,
+        "seen_val_nll": 5.157656669616699,
+        "unseen_val_nll": 8.998390557939913,
+        "seen_val_ppl": 173.75680855699622,
+        "unseen_val_ppl": 8090.052972582302
+    },
+    "pcrf_components_executed": false,
+    "regularization_executed": false,
+    "protected_router_executed": false,
+    "deployment_recommendation": "BASELINE_ONLY_MEASUREMENT",
+    "dataset_metadata": {
+        "dataset_source": "External File",
+        "dataset_file": "new-customer-demo-500-prompt.csv"
+    }
+}
