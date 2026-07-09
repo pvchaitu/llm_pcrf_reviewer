@@ -1,0 +1,108 @@
+=========================================================================
+PCRF SYSTEM GOVERNANCE CRITICAL OBSERVATIONS ANALYSIS
+=========================================================================
+
+Total Genuine Governance Failures Tracked: 0
+
+No genuine governance failures observed in this run! PCRF routing containment achieved 100% security.
+
+
+================================================================================
+🔍 ROBUST Z-SCORE OPTIMIZATION SWEEP (F1-CALIBRATION AUDIT)
+================================================================================
+
+[TABLE 1: INFERENCE MATH ONLY (Structural Entropy / Margin Collapse)]
+Z-Score    | HR Thresh    | Catch Rate   | False Pos    | F1-Score  
+---------------------------------------------------------------------------
+Z = 1.00  | HR > 0.36    |   35.9%     |   5 blocked   | 0.4828
+Z = 1.25  | HR > 0.37    |   35.9%     |   4 blocked   | 0.4912
+Z = 1.50  | HR > 0.39    |   25.6%     |   4 blocked   | 0.3774
+Z = 1.75  | HR > 0.40    |   23.1%     |   4 blocked   | 0.3462
+Z = 2.00  | HR > 0.41    |   20.5%     |   3 blocked   | 0.3200
+Z = 2.25  | HR > 0.42    |   12.8%     |   2 blocked   | 0.2174
+Z = 2.50  | HR > 0.44    |    2.6%     |   0 blocked   | 0.0500
+Z = 2.75  | HR > 0.45    |    0.0%     |   0 blocked   | 0.0000
+Z = 3.00  | HR > 0.46    |    0.0%     |   0 blocked   | 0.0000
+Z = 3.25  | HR > 0.48    |    0.0%     |   0 blocked   | 0.0000
+Z = 3.50  | HR > 0.49    |    0.0%     |   0 blocked   | 0.0000
+
+[TABLE 2: CURRICULUM MATH ONLY (Sequence NLL / Implausibility)]
+Z-Score    | NLL Thresh   | Catch Rate   | False Pos    | F1-Score  
+---------------------------------------------------------------------------
+Z = 1.00  | NLL > 6.98   |   12.8%     |  12 blocked   | 0.1786
+Z = 1.25  | NLL > 7.57   |    7.7%     |  12 blocked   | 0.1111
+Z = 1.50  | NLL > 8.15   |    7.7%     |   7 blocked   | 0.1224
+Z = 1.75  | NLL > 8.74   |    7.7%     |   7 blocked   | 0.1224
+Z = 2.00  | NLL > 9.32   |    7.7%     |   6 blocked   | 0.1250
+Z = 2.25  | NLL > 9.90   |    5.1%     |   4 blocked   | 0.0889
+Z = 2.50  | NLL > 10.49  |    5.1%     |   3 blocked   | 0.0909
+Z = 2.75  | NLL > 11.07  |    5.1%     |   3 blocked   | 0.0909
+Z = 3.00  | NLL > 11.66  |    2.6%     |   3 blocked   | 0.0465
+Z = 3.25  | NLL > 12.24  |    0.0%     |   3 blocked   | 0.0000
+Z = 3.50  | NLL > 12.83  |    0.0%     |   2 blocked   | 0.0000
+
+[TABLE 3: HYBRID OR-GATE ENSEMBLE (Inference OR Curriculum)]
+Z-Score    | HR Thresh    | NLL Thresh   | Catch Rate   | False Pos    | F1-Score  
+------------------------------------------------------------------------------------------
+Z = 1.00  | HR > 0.36    | NLL > 6.98   |   46.2%     |  17 blocked   | 0.4865
+Z = 1.25  | HR > 0.37    | NLL > 7.57   |   43.6%     |  16 blocked   | 0.4722
+Z = 1.50  | HR > 0.39    | NLL > 8.15   |   33.3%     |  11 blocked   | 0.4127
+Z = 1.75  | HR > 0.40    | NLL > 8.74   |   30.8%     |  11 blocked   | 0.3871
+Z = 2.00  | HR > 0.41    | NLL > 9.32   |   28.2%     |   9 blocked   | 0.3729
+Z = 2.25  | HR > 0.42    | NLL > 9.90   |   17.9%     |   6 blocked   | 0.2692
+Z = 2.50  | HR > 0.44    | NLL > 10.49  |    7.7%     |   3 blocked   | 0.1333
+Z = 2.75  | HR > 0.45    | NLL > 11.07  |    5.1%     |   3 blocked   | 0.0909
+Z = 3.00  | HR > 0.46    | NLL > 11.66  |    2.6%     |   3 blocked   | 0.0465
+Z = 3.25  | HR > 0.48    | NLL > 12.24  |    0.0%     |   3 blocked   | 0.0000
+Z = 3.50  | HR > 0.49    | NLL > 12.83  |    0.0%     |   2 blocked   | 0.0000
+
+================================================================================
+💡 HYBRID Z-SCORE RECOMMENDATION: Z=1.00 yields optimal F1 (0.4865).
+================================================================================
+
+================================================================================
+🔍 ADAPTIVE K-FACTOR OPTIMIZATION SWEEP (F1-CALIBRATION AUDIT)
+================================================================================
+
+[TABLE 1: INFERENCE MATH ONLY (Structural Entropy / Margin Collapse)]
+K-Factor   | HR Thresh    | Catch Rate   | False Pos    | F1-Score  
+---------------------------------------------------------------------------
+K = 0.50  | HR > 0.35    |   41.0%     |   7 blocked   | 0.5161
+K = 0.75  | HR > 0.37    |   35.9%     |   4 blocked   | 0.4912
+K = 1.00  | HR > 0.38    |   33.3%     |   4 blocked   | 0.4643
+K = 1.25  | HR > 0.39    |   25.6%     |   4 blocked   | 0.3774
+K = 1.50  | HR > 0.41    |   20.5%     |   3 blocked   | 0.3200
+K = 1.75  | HR > 0.42    |   12.8%     |   2 blocked   | 0.2174
+K = 2.00  | HR > 0.44    |    2.6%     |   0 blocked   | 0.0500
+K = 2.25  | HR > 0.45    |    0.0%     |   0 blocked   | 0.0000
+K = 2.50  | HR > 0.46    |    0.0%     |   0 blocked   | 0.0000
+
+[TABLE 2: CURRICULUM MATH ONLY (Sequence NLL / Implausibility)]
+K-Factor   | NLL Thresh   | Catch Rate   | False Pos    | F1-Score  
+---------------------------------------------------------------------------
+K = 0.50  | NLL > 6.68   |   15.4%     |  12 blocked   | 0.2105
+K = 0.75  | NLL > 7.39   |   12.8%     |  12 blocked   | 0.1786
+K = 1.00  | NLL > 8.10   |    7.7%     |   8 blocked   | 0.1200
+K = 1.25  | NLL > 8.81   |    7.7%     |   7 blocked   | 0.1224
+K = 1.50  | NLL > 9.53   |    7.7%     |   6 blocked   | 0.1250
+K = 1.75  | NLL > 10.24  |    5.1%     |   3 blocked   | 0.0909
+K = 2.00  | NLL > 10.95  |    5.1%     |   3 blocked   | 0.0909
+K = 2.25  | NLL > 11.66  |    2.6%     |   3 blocked   | 0.0465
+K = 2.50  | NLL > 12.38  |    0.0%     |   2 blocked   | 0.0000
+
+[TABLE 3: HYBRID OR-GATE ENSEMBLE (Inference OR Curriculum)]
+K-Factor   | HR Thresh    | NLL Thresh   | Catch Rate   | False Pos    | F1-Score  
+------------------------------------------------------------------------------------------
+K = 0.50  | HR > 0.35    | NLL > 6.68   |   48.7%     |  17 blocked   | 0.5067
+K = 0.75  | HR > 0.37    | NLL > 7.39   |   46.2%     |  16 blocked   | 0.4932
+K = 1.00  | HR > 0.38    | NLL > 8.10   |   41.0%     |  12 blocked   | 0.4776
+K = 1.25  | HR > 0.39    | NLL > 8.81   |   33.3%     |  11 blocked   | 0.4127
+K = 1.50  | HR > 0.41    | NLL > 9.53   |   28.2%     |   9 blocked   | 0.3729
+K = 1.75  | HR > 0.42    | NLL > 10.24  |   17.9%     |   5 blocked   | 0.2745
+K = 2.00  | HR > 0.44    | NLL > 10.95  |    7.7%     |   3 blocked   | 0.1333
+K = 2.25  | HR > 0.45    | NLL > 11.66  |    2.6%     |   3 blocked   | 0.0465
+K = 2.50  | HR > 0.46    | NLL > 12.38  |    0.0%     |   2 blocked   | 0.0000
+
+================================================================================
+💡 HYBRID K-FACTOR RECOMMENDATION: K=0.50 yields optimal F1 (0.5067).
+================================================================================

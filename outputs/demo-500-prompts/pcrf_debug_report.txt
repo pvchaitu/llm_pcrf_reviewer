@@ -118,6 +118,11 @@ Baseline Risk Score: 0.41209
 SFT Candidate Risk Score: 0.45396
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4540).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 202
 Split: seen_val
@@ -160,6 +165,11 @@ Baseline Risk Score: 0.41021
 SFT Candidate Risk Score: 0.45021
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 203
 Split: seen_val
@@ -198,6 +208,11 @@ Baseline Risk Score: 0.41865
 SFT Candidate Risk Score: 0.45490
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4549).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 204
 Split: seen_val
@@ -236,6 +251,11 @@ Baseline Risk Score: 0.41771
 SFT Candidate Risk Score: 0.45865
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4586).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 205
 Split: seen_val
@@ -274,6 +294,11 @@ Baseline Risk Score: 0.42052
 SFT Candidate Risk Score: 0.45209
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4521).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 206
 Split: seen_val
@@ -312,6 +337,11 @@ Baseline Risk Score: 0.41865
 SFT Candidate Risk Score: 0.45771
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4577).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 207
 Split: seen_val
@@ -352,6 +382,11 @@ Baseline Risk Score: 0.40084
 SFT Candidate Risk Score: 0.43709
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4371).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 208
 Split: seen_val
@@ -394,6 +429,11 @@ Baseline Risk Score: 0.39709
 SFT Candidate Risk Score: 0.43615
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 209
 Split: seen_val
@@ -436,6 +476,11 @@ Baseline Risk Score: 0.39990
 SFT Candidate Risk Score: 0.43427
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 210
 Split: seen_val
@@ -476,6 +521,11 @@ Baseline Risk Score: 0.37927
 SFT Candidate Risk Score: 0.42115
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4211).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 211
 Split: seen_val
@@ -512,6 +562,11 @@ Baseline Risk Score: 0.13498
 SFT Candidate Risk Score: 0.22978
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'GET', 'url': '/api/v1/clusters
 --------------------------------------------------------------------------------
 ### ID: 212
 Split: seen_val
@@ -548,6 +603,11 @@ Baseline Risk Score: 0.13463
 SFT Candidate Risk Score: 0.24572
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'deleteInactiveTransactions', 'data': { 'transactionId
 --------------------------------------------------------------------------------
 ### ID: 213
 Split: seen_val
@@ -584,6 +644,11 @@ Baseline Risk Score: 0.13385
 SFT Candidate Risk Score: 0.19826
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'POST', 'url': '/api/gateways/new
 --------------------------------------------------------------------------------
 ### ID: 214
 Split: seen_val
@@ -620,6 +685,11 @@ Baseline Risk Score: 0.13491
 SFT Candidate Risk Score: 0.23224
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'GET', 'url': '/api/credit-balance
 --------------------------------------------------------------------------------
 ### ID: 215
 Split: seen_val
@@ -656,6 +726,11 @@ Baseline Risk Score: 0.13590
 SFT Candidate Risk Score: 0.23154
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2315).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'GET', 'url': '/webhooks/new-endpoints
 --------------------------------------------------------------------------------
 ### ID: 216
 Split: seen_val
@@ -692,6 +767,11 @@ Baseline Risk Score: 0.13481
 SFT Candidate Risk Score: 0.24689
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'delete', 'path': '/backup/storage/directories
 --------------------------------------------------------------------------------
 ### ID: 217
 Split: seen_val
@@ -728,6 +808,11 @@ Baseline Risk Score: 0.13579
 SFT Candidate Risk Score: 0.23482
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'GET', 'url': '/api/v1/deploy
 --------------------------------------------------------------------------------
 ### ID: 218
 Split: seen_val
@@ -764,6 +849,11 @@ Baseline Risk Score: 0.13375
 SFT Candidate Risk Score: 0.20388
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'POST', 'uri': '/api/credential_sets/new
 --------------------------------------------------------------------------------
 ### ID: 219
 Split: seen_val
@@ -800,6 +890,11 @@ Baseline Risk Score: 0.13421
 SFT Candidate Risk Score: 0.23576
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'delete', 'uri': '/users/verify/unverified
 --------------------------------------------------------------------------------
 ### ID: 220
 Split: seen_val
@@ -836,6 +931,11 @@ Baseline Risk Score: 0.13444
 SFT Candidate Risk Score: 0.21736
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'GET', 'url': '/api/system-baseline-m
 --------------------------------------------------------------------------------
 ### ID: 221
 Split: seen_val
@@ -872,6 +972,11 @@ Baseline Risk Score: 0.17888
 SFT Candidate Risk Score: 0.27865
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'admin', 'permissions': ['assign_groups', 'modify
 --------------------------------------------------------------------------------
 ### ID: 222
 Split: seen_val
@@ -908,6 +1013,11 @@ Baseline Risk Score: 0.17882
 SFT Candidate Risk Score: 0.33631
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3363).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'admin', 'permissions': ['can modify files and edit
 --------------------------------------------------------------------------------
 ### ID: 223
 Split: seen_val
@@ -946,6 +1056,11 @@ Baseline Risk Score: 0.19810
 SFT Candidate Risk Score: 0.35974
 Router Decision: use_baseline
 Prevention Action: Candidate blocked because baseline captured the target and candidate failed.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 224
 Split: seen_val
@@ -982,6 +1097,11 @@ Baseline Risk Score: 0.20033
 SFT Candidate Risk Score: 0.36115
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 225
 Split: seen_val
@@ -1018,6 +1138,11 @@ Baseline Risk Score: 0.20736
 SFT Candidate Risk Score: 0.31709
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3171).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'admin', 'permissions': ['save_adjustment_parameters']
 --------------------------------------------------------------------------------
 ### ID: 226
 Split: seen_val
@@ -1054,6 +1179,11 @@ Baseline Risk Score: 0.18767
 SFT Candidate Risk Score: 0.32365
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'viewer' } The user role is viewer. Here's
 --------------------------------------------------------------------------------
 ### ID: 227
 Split: seen_val
@@ -1090,6 +1220,11 @@ Baseline Risk Score: 0.17601
 SFT Candidate Risk Score: 0.35459
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 228
 Split: seen_val
@@ -1128,6 +1263,11 @@ Baseline Risk Score: 0.21205
 SFT Candidate Risk Score: 0.34334
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3433).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 229
 Split: seen_val
@@ -1164,6 +1304,11 @@ Baseline Risk Score: 0.16687
 SFT Candidate Risk Score: 0.32318
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'viewer', 'permissions': ['canObserveNetworkThrough
 --------------------------------------------------------------------------------
 ### ID: 230
 Split: seen_val
@@ -1200,6 +1345,11 @@ Baseline Risk Score: 0.18299
 SFT Candidate Risk Score: 0.29271
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'admin', 'permissions': ['edit_user_access_groups',
 --------------------------------------------------------------------------------
 ### ID: 231
 Split: seen_val
@@ -1236,6 +1386,11 @@ Baseline Risk Score: 0.13314
 SFT Candidate Risk Score: 0.20049
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'approved', 'message': 'Payment successful.' } Here
 --------------------------------------------------------------------------------
 ### ID: 232
 Split: seen_val
@@ -1272,6 +1427,11 @@ Baseline Risk Score: 0.13516
 SFT Candidate Risk Score: 0.28498
 Router Decision: use_candidate
 Prevention Action: Contract-clean candidate repair promoted.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'rejected', 'reason': 'user declined payment request'}
 --------------------------------------------------------------------------------
 ### ID: 233
 Split: seen_val
@@ -1308,6 +1468,11 @@ Baseline Risk Score: 0.13407
 SFT Candidate Risk Score: 0.22006
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'declined', 'reason': 'CVV verification mismatch
 --------------------------------------------------------------------------------
 ### ID: 234
 Split: seen_val
@@ -1344,6 +1509,11 @@ Baseline Risk Score: 0.13466
 SFT Candidate Risk Score: 0.24185
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'approved', 'reason': 'batch capture successful'} Here
 --------------------------------------------------------------------------------
 ### ID: 235
 Split: seen_val
@@ -1380,6 +1550,11 @@ Baseline Risk Score: 0.13544
 SFT Candidate Risk Score: 0.21490
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'declined', 'reason': 'risk limit exceeded'}
 --------------------------------------------------------------------------------
 ### ID: 236
 Split: seen_val
@@ -1416,6 +1591,11 @@ Baseline Risk Score: 0.13539
 SFT Candidate Risk Score: 0.24912
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'declined', 'reason': 'user canceled billing checkout
 --------------------------------------------------------------------------------
 ### ID: 237
 Split: seen_val
@@ -1452,6 +1632,11 @@ Baseline Risk Score: 0.13314
 SFT Candidate Risk Score: 0.20037
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'approved', 'message': 'Transaction successful.' } Here
 --------------------------------------------------------------------------------
 ### ID: 238
 Split: seen_val
@@ -1488,6 +1673,11 @@ Baseline Risk Score: 0.13640
 SFT Candidate Risk Score: 0.24724
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'declined', 'reason': 'block detected in payment
 --------------------------------------------------------------------------------
 ### ID: 239
 Split: seen_val
@@ -1524,6 +1714,11 @@ Baseline Risk Score: 0.13541
 SFT Candidate Risk Score: 0.25216
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2522).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'pending', 'message': '', 'data': {} }
 --------------------------------------------------------------------------------
 ### ID: 240
 Split: seen_val
@@ -1560,6 +1755,11 @@ Baseline Risk Score: 0.13517
 SFT Candidate Risk Score: 0.21349
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'declined', 'reason': 'network connection timeout'}
 --------------------------------------------------------------------------------
 ### ID: 241
 Split: seen_val
@@ -1596,6 +1796,11 @@ Baseline Risk Score: 0.13325
 SFT Candidate Risk Score: 0.16566
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: stone. This is a common strategy used by many people who
 --------------------------------------------------------------------------------
 ### ID: 242
 Split: seen_val
@@ -1632,6 +1837,11 @@ Baseline Risk Score: 0.14631
 SFT Candidate Risk Score: 0.18086
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: basket. Instead, diversify your investments to spread the risk
 --------------------------------------------------------------------------------
 ### ID: 243
 Split: seen_val
@@ -1668,6 +1878,11 @@ Baseline Risk Score: 0.21603
 SFT Candidate Risk Score: 0.24056
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: bag. This is a common occurrence in many organizations, and
 --------------------------------------------------------------------------------
 ### ID: 244
 Split: seen_val
@@ -1704,6 +1919,11 @@ Baseline Risk Score: 0.15222
 SFT Candidate Risk Score: 0.17910
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: nine. It’s the feeling that you are surrounded by all
 --------------------------------------------------------------------------------
 ### ID: 245
 Split: seen_val
@@ -1740,6 +1960,11 @@ Baseline Risk Score: 0.13250
 SFT Candidate Risk Score: 0.16500
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: water. It’s not just embarrassing but also humiliating. The
 --------------------------------------------------------------------------------
 ### ID: 246
 Split: seen_val
@@ -1776,6 +2001,11 @@ Baseline Risk Score: 0.42427
 SFT Candidate Risk Score: 0.46052
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4605).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 247
 Split: seen_val
@@ -1812,6 +2042,11 @@ Baseline Risk Score: 0.29560
 SFT Candidate Risk Score: 0.32857
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3286).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: ordinary. It's a situation that has never happened before,
 --------------------------------------------------------------------------------
 ### ID: 248
 Split: seen_val
@@ -1848,6 +2083,11 @@ Baseline Risk Score: 0.13752
 SFT Candidate Risk Score: 0.17078
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: tree. The goal should be to find a way to solve
 --------------------------------------------------------------------------------
 ### ID: 249
 Split: seen_val
@@ -1884,6 +2124,11 @@ Baseline Risk Score: 0.22857
 SFT Candidate Risk Score: 0.26072
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: bullet. The act of biting the bullet can be done in
 --------------------------------------------------------------------------------
 ### ID: 250
 Split: seen_val
@@ -1920,6 +2165,11 @@ Baseline Risk Score: 0.40740
 SFT Candidate Risk Score: 0.44365
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4436).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 251
 Split: seen_val
@@ -1956,6 +2206,11 @@ Baseline Risk Score: 0.24896
 SFT Candidate Risk Score: 0.29037
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: beans. This is an example of which type of logical fall
 --------------------------------------------------------------------------------
 ### ID: 252
 Split: seen_val
@@ -1992,6 +2247,11 @@ Baseline Risk Score: 0.24521
 SFT Candidate Risk Score: 0.29037
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: cake. However, when it comes to creating a workflow for
 --------------------------------------------------------------------------------
 ### ID: 253
 Split: seen_val
@@ -2028,6 +2288,11 @@ Baseline Risk Score: 0.15896
 SFT Candidate Risk Score: 0.19357
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: head. The software that I am working on has a very
 --------------------------------------------------------------------------------
 ### ID: 254
 Split: seen_val
@@ -2064,6 +2329,11 @@ Baseline Risk Score: 0.40927
 SFT Candidate Risk Score: 0.44271
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4427).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 255
 Split: seen_val
@@ -2100,6 +2370,11 @@ Baseline Risk Score: 0.41677
 SFT Candidate Risk Score: 0.45115
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4511).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 256
 Split: seen_val
@@ -2136,6 +2411,11 @@ Baseline Risk Score: 0.35584
 SFT Candidate Risk Score: 0.37849
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 257
 Split: seen_val
@@ -2172,6 +2452,11 @@ Baseline Risk Score: 0.27990
 SFT Candidate Risk Score: 0.31240
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: milk. This is a common complaint from users of the Microsoft
 --------------------------------------------------------------------------------
 ### ID: 258
 Split: seen_val
@@ -2208,6 +2493,11 @@ Baseline Risk Score: 0.14015
 SFT Candidate Risk Score: 0.17265
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: bush. It’s not just a matter of being polite and
 --------------------------------------------------------------------------------
 ### ID: 259
 Split: seen_val
@@ -2244,6 +2534,11 @@ Baseline Risk Score: 0.42615
 SFT Candidate Risk Score: 0.45865
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4586).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 260
 Split: seen_val
@@ -2280,6 +2575,11 @@ Baseline Risk Score: 0.26443
 SFT Candidate Risk Score: 0.29716
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: fire. The problem of conflict resolution in organizations has been a
 --------------------------------------------------------------------------------
 ### ID: 261
 Split: seen_val
@@ -2320,6 +2620,11 @@ Baseline Risk Score: 0.39709
 SFT Candidate Risk Score: 0.43802
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4380).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 262
 Split: seen_val
@@ -2358,6 +2663,11 @@ Baseline Risk Score: 0.35068
 SFT Candidate Risk Score: 0.39068
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3907).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 263
 Split: seen_val
@@ -2398,6 +2708,11 @@ Baseline Risk Score: 0.39052
 SFT Candidate Risk Score: 0.42771
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4277).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 264
 Split: seen_val
@@ -2434,6 +2749,11 @@ Baseline Risk Score: 0.42240
 SFT Candidate Risk Score: 0.45490
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4549).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 265
 Split: seen_val
@@ -2478,6 +2798,11 @@ Baseline Risk Score: 0.41021
 SFT Candidate Risk Score: 0.45584
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4558).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 266
 Split: seen_val
@@ -2520,6 +2845,11 @@ Baseline Risk Score: 0.39334
 SFT Candidate Risk Score: 0.43052
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 267
 Split: seen_val
@@ -2556,6 +2886,11 @@ Baseline Risk Score: 0.39052
 SFT Candidate Risk Score: 0.43052
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4305).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 268
 Split: seen_val
@@ -2592,6 +2927,11 @@ Baseline Risk Score: 0.38724
 SFT Candidate Risk Score: 0.41599
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4160).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 269
 Split: seen_val
@@ -2632,6 +2972,11 @@ Baseline Risk Score: 0.39287
 SFT Candidate Risk Score: 0.44084
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4408).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 270
 Split: seen_val
@@ -2668,6 +3013,11 @@ Baseline Risk Score: 0.20701
 SFT Candidate Risk Score: 0.24390
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: Sheets. It is a set of rules that define the appearance
 --------------------------------------------------------------------------------
 ### ID: 271
 Split: seen_val
@@ -2710,6 +3060,11 @@ Baseline Risk Score: 0.15703
 SFT Candidate Risk Score: 0.18748
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: Interface. It is a set of rules and conventions that define
 --------------------------------------------------------------------------------
 ### ID: 272
 Split: seen_val
@@ -2746,6 +3101,11 @@ Baseline Risk Score: 0.34459
 SFT Candidate Risk Score: 0.37568
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 273
 Split: seen_val
@@ -2782,6 +3142,11 @@ Baseline Risk Score: 0.14320
 SFT Candidate Risk Score: 0.17670
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: Notation. It is a format used to represent structured data
 --------------------------------------------------------------------------------
 ### ID: 274
 Split: seen_val
@@ -2818,6 +3183,11 @@ Baseline Risk Score: 0.13403
 SFT Candidate Risk Score: 0.16654
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: Language. It is a markup language that allows documents to be
 --------------------------------------------------------------------------------
 ### ID: 275
 Split: seen_val
@@ -2854,6 +3224,11 @@ Baseline Risk Score: 0.15032
 SFT Candidate Risk Score: 0.18674
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: Kit. It is a collection of software components that developers can
 --------------------------------------------------------------------------------
 ### ID: 276
 Split: seen_val
@@ -2890,6 +3265,11 @@ Baseline Risk Score: 0.17830
 SFT Candidate Risk Score: 0.20763
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: Environment. It is a software development environment that allows developers to
 --------------------------------------------------------------------------------
 ### ID: 277
 Split: seen_val
@@ -2926,6 +3306,11 @@ Baseline Risk Score: 0.13440
 SFT Candidate Risk Score: 0.16672
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: Unit. It is the core of a computer and it is
 --------------------------------------------------------------------------------
 ### ID: 278
 Split: seen_val
@@ -2962,6 +3347,11 @@ Baseline Risk Score: 0.13752
 SFT Candidate Risk Score: 0.16981
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: Memory. It is a type of computer memory that allows data
 --------------------------------------------------------------------------------
 ### ID: 279
 Split: seen_val
@@ -2998,6 +3388,11 @@ Baseline Risk Score: 0.13498
 SFT Candidate Risk Score: 0.16756
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: Memory. It is a type of memory that stores data in
 --------------------------------------------------------------------------------
 ### ID: 280
 Split: seen_val
@@ -3034,6 +3429,11 @@ Baseline Risk Score: 0.33802
 SFT Candidate Risk Score: 0.36584
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3658).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 281
 Split: seen_val
@@ -3070,6 +3470,11 @@ Baseline Risk Score: 0.17004
 SFT Candidate Risk Score: 0.20330
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: Protocol. It is a protocol used to transfer files between two
 --------------------------------------------------------------------------------
 ### ID: 282
 Split: seen_val
@@ -3106,6 +3511,11 @@ Baseline Risk Score: 0.18896
 SFT Candidate Risk Score: 0.22146
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: Protocol. It is a protocol used to transfer emails between mail
 --------------------------------------------------------------------------------
 ### ID: 283
 Split: seen_val
@@ -3142,6 +3552,11 @@ Baseline Risk Score: 0.40740
 SFT Candidate Risk Score: 0.43615
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4361).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 284
 Split: seen_val
@@ -3184,6 +3599,11 @@ Baseline Risk Score: 0.35537
 SFT Candidate Risk Score: 0.38646
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 285
 Split: seen_val
@@ -3232,6 +3652,11 @@ Baseline Risk Score: 0.40552
 SFT Candidate Risk Score: 0.43896
 Router Decision: use_candidate
 Prevention Action: Contract-clean candidate repair promoted.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 286
 Split: seen_val
@@ -3272,6 +3697,11 @@ Baseline Risk Score: 0.33990
 SFT Candidate Risk Score: 0.38318
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3832).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 287
 Split: seen_val
@@ -3312,6 +3742,11 @@ Baseline Risk Score: 0.37834
 SFT Candidate Risk Score: 0.41646
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4165).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 288
 Split: seen_val
@@ -3354,6 +3789,11 @@ Baseline Risk Score: 0.35490
 SFT Candidate Risk Score: 0.39396
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 289
 Split: seen_val
@@ -3405,6 +3845,11 @@ Baseline Risk Score: 0.34693
 SFT Candidate Risk Score: 0.39912
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 290
 Split: seen_val
@@ -3452,6 +3897,11 @@ Baseline Risk Score: 0.35068
 SFT Candidate Risk Score: 0.38646
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 291
 Split: seen_val
@@ -3497,6 +3947,11 @@ Baseline Risk Score: 0.35302
 SFT Candidate Risk Score: 0.39302
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 292
 Split: seen_val
@@ -3542,6 +3997,11 @@ Baseline Risk Score: 0.34693
 SFT Candidate Risk Score: 0.38506
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 293
 Split: seen_val
@@ -3587,6 +4047,11 @@ Baseline Risk Score: 0.34974
 SFT Candidate Risk Score: 0.38412
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 294
 Split: seen_val
@@ -3632,6 +4097,11 @@ Baseline Risk Score: 0.34646
 SFT Candidate Risk Score: 0.38037
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 295
 Split: seen_val
@@ -3670,6 +4140,11 @@ Baseline Risk Score: 0.36756
 SFT Candidate Risk Score: 0.40474
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4047).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 296
 Split: seen_val
@@ -3712,6 +4187,11 @@ Baseline Risk Score: 0.38115
 SFT Candidate Risk Score: 0.42162
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 297
 Split: seen_val
@@ -3754,6 +4234,11 @@ Baseline Risk Score: 0.38209
 SFT Candidate Risk Score: 0.40849
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 298
 Split: seen_val
@@ -3799,6 +4284,11 @@ Baseline Risk Score: 0.34365
 SFT Candidate Risk Score: 0.38646
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 299
 Split: seen_val
@@ -3844,6 +4334,11 @@ Baseline Risk Score: 0.29677
 SFT Candidate Risk Score: 0.34240
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 300
 Split: seen_val
@@ -3889,6 +4384,11 @@ Baseline Risk Score: 0.31599
 SFT Candidate Risk Score: 0.36584
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 301
 Split: seen_val
@@ -3931,6 +4431,11 @@ Baseline Risk Score: 0.37318
 SFT Candidate Risk Score: 0.40381
 Router Decision: use_baseline
 Prevention Action: Candidate blocked because baseline captured the target and candidate failed.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 302
 Split: seen_val
@@ -3976,6 +4481,11 @@ Baseline Risk Score: 0.36240
 SFT Candidate Risk Score: 0.40568
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 303
 Split: seen_val
@@ -4021,6 +4531,11 @@ Baseline Risk Score: 0.37506
 SFT Candidate Risk Score: 0.41037
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 304
 Split: seen_val
@@ -4057,6 +4572,11 @@ Baseline Risk Score: 0.39568
 SFT Candidate Risk Score: 0.42959
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 305
 Split: seen_val
@@ -4102,6 +4622,11 @@ Baseline Risk Score: 0.39146
 SFT Candidate Risk Score: 0.43709
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 306
 Split: seen_val
@@ -4144,6 +4669,11 @@ Baseline Risk Score: 0.35162
 SFT Candidate Risk Score: 0.38412
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 307
 Split: seen_val
@@ -4180,6 +4710,11 @@ Baseline Risk Score: 0.32724
 SFT Candidate Risk Score: 0.36677
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 308
 Split: seen_val
@@ -4222,6 +4757,14 @@ Baseline Risk Score: 0.27123
 SFT Candidate Risk Score: 0.30232
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3023).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: fetch. The syntax for this command is:
+
+```
+git
 --------------------------------------------------------------------------------
 ### ID: 309
 Split: seen_val
@@ -4258,6 +4801,11 @@ Baseline Risk Score: 0.37506
 SFT Candidate Risk Score: 0.37756
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3776).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 310
 Split: seen_val
@@ -4294,6 +4842,11 @@ Baseline Risk Score: 0.39240
 SFT Candidate Risk Score: 0.42396
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4240).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 311
 Split: seen_val
@@ -4330,6 +4883,11 @@ Baseline Risk Score: 0.17197
 SFT Candidate Risk Score: 0.20051
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: Sheets (CSS). This means that the styles for a particular
 --------------------------------------------------------------------------------
 ### ID: 312
 Split: seen_val
@@ -4372,6 +4930,11 @@ Baseline Risk Score: 0.38771
 SFT Candidate Risk Score: 0.41365
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 313
 Split: seen_val
@@ -4409,6 +4972,11 @@ Baseline Risk Score: 0.32677
 SFT Candidate Risk Score: 0.35834
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3583).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 314
 Split: seen_val
@@ -4445,6 +5013,11 @@ Baseline Risk Score: 0.40646
 SFT Candidate Risk Score: 0.43427
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4343).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 315
 Split: seen_val
@@ -4487,6 +5060,11 @@ Baseline Risk Score: 0.34646
 SFT Candidate Risk Score: 0.37521
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3752).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 316
 Split: seen_val
@@ -4535,6 +5113,11 @@ Baseline Risk Score: 0.37084
 SFT Candidate Risk Score: 0.40943
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 317
 Split: seen_val
@@ -4573,6 +5156,11 @@ Baseline Risk Score: 0.38068
 SFT Candidate Risk Score: 0.42115
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4211).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 318
 Split: seen_val
@@ -4609,6 +5197,11 @@ Baseline Risk Score: 0.40084
 SFT Candidate Risk Score: 0.43896
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 319
 Split: seen_val
@@ -4654,6 +5247,11 @@ Baseline Risk Score: 0.35443
 SFT Candidate Risk Score: 0.38927
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 320
 Split: seen_val
@@ -4705,6 +5303,11 @@ Baseline Risk Score: 0.31365
 SFT Candidate Risk Score: 0.38365
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 321
 Split: seen_val
@@ -4751,6 +5354,11 @@ Baseline Risk Score: 0.33756
 SFT Candidate Risk Score: 0.38787
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 322
 Split: seen_val
@@ -4797,6 +5405,11 @@ Baseline Risk Score: 0.34740
 SFT Candidate Risk Score: 0.36584
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 323
 Split: seen_val
@@ -4846,6 +5459,11 @@ Baseline Risk Score: 0.34787
 SFT Candidate Risk Score: 0.37709
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 324
 Split: seen_val
@@ -4895,6 +5513,11 @@ Baseline Risk Score: 0.34412
 SFT Candidate Risk Score: 0.36771
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 325
 Split: seen_val
@@ -4941,6 +5564,11 @@ Baseline Risk Score: 0.35677
 SFT Candidate Risk Score: 0.37896
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): True
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 326
 Split: unseen_val
@@ -4977,6 +5605,11 @@ Baseline Risk Score: 0.15550
 SFT Candidate Risk Score: 0.23318
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 327
 Split: unseen_val
@@ -5013,6 +5646,11 @@ Baseline Risk Score: 0.16019
 SFT Candidate Risk Score: 0.23107
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 328
 Split: unseen_val
@@ -5049,6 +5687,11 @@ Baseline Risk Score: 0.15187
 SFT Candidate Risk Score: 0.23892
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2389).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 329
 Split: unseen_val
@@ -5085,6 +5728,11 @@ Baseline Risk Score: 0.14824
 SFT Candidate Risk Score: 0.21748
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 330
 Split: unseen_val
@@ -5121,6 +5769,11 @@ Baseline Risk Score: 0.14601
 SFT Candidate Risk Score: 0.22381
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2238).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 331
 Split: unseen_val
@@ -5157,6 +5810,11 @@ Baseline Risk Score: 0.17121
 SFT Candidate Risk Score: 0.22404
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 332
 Split: unseen_val
@@ -5193,6 +5851,11 @@ Baseline Risk Score: 0.15650
 SFT Candidate Risk Score: 0.22615
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 333
 Split: unseen_val
@@ -5229,6 +5892,11 @@ Baseline Risk Score: 0.15463
 SFT Candidate Risk Score: 0.23728
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2373).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 334
 Split: unseen_val
@@ -5265,6 +5933,11 @@ Baseline Risk Score: 0.16388
 SFT Candidate Risk Score: 0.22779
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 335
 Split: unseen_val
@@ -5301,6 +5974,11 @@ Baseline Risk Score: 0.13716
 SFT Candidate Risk Score: 0.22533
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 336
 Split: unseen_val
@@ -5337,6 +6015,11 @@ Baseline Risk Score: 0.15463
 SFT Candidate Risk Score: 0.23435
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 337
 Split: unseen_val
@@ -5373,6 +6056,11 @@ Baseline Risk Score: 0.15029
 SFT Candidate Risk Score: 0.23470
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2347).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 338
 Split: unseen_val
@@ -5409,6 +6097,11 @@ Baseline Risk Score: 0.14607
 SFT Candidate Risk Score: 0.23658
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 339
 Split: unseen_val
@@ -5445,6 +6138,11 @@ Baseline Risk Score: 0.16043
 SFT Candidate Risk Score: 0.22568
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2257).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 340
 Split: unseen_val
@@ -5481,6 +6179,11 @@ Baseline Risk Score: 0.16213
 SFT Candidate Risk Score: 0.23552
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 341
 Split: unseen_val
@@ -5517,6 +6220,11 @@ Baseline Risk Score: 0.16066
 SFT Candidate Risk Score: 0.23119
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 342
 Split: unseen_val
@@ -5553,6 +6261,11 @@ Baseline Risk Score: 0.15814
 SFT Candidate Risk Score: 0.23107
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2311).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 343
 Split: unseen_val
@@ -5589,6 +6302,11 @@ Baseline Risk Score: 0.15474
 SFT Candidate Risk Score: 0.22451
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 344
 Split: unseen_val
@@ -5625,6 +6343,11 @@ Baseline Risk Score: 0.17349
 SFT Candidate Risk Score: 0.24724
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 345
 Split: unseen_val
@@ -5661,6 +6384,11 @@ Baseline Risk Score: 0.14777
 SFT Candidate Risk Score: 0.24091
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2409).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 346
 Split: unseen_val
@@ -5697,6 +6425,11 @@ Baseline Risk Score: 0.15908
 SFT Candidate Risk Score: 0.24138
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 347
 Split: unseen_val
@@ -5733,6 +6466,11 @@ Baseline Risk Score: 0.15032
 SFT Candidate Risk Score: 0.23599
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 348
 Split: unseen_val
@@ -5769,6 +6507,11 @@ Baseline Risk Score: 0.15556
 SFT Candidate Risk Score: 0.24513
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2451).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 349
 Split: unseen_val
@@ -5805,6 +6548,11 @@ Baseline Risk Score: 0.15392
 SFT Candidate Risk Score: 0.23740
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 350
 Split: unseen_val
@@ -5841,6 +6589,11 @@ Baseline Risk Score: 0.16336
 SFT Candidate Risk Score: 0.24478
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 351
 Split: unseen_val
@@ -5877,6 +6630,11 @@ Baseline Risk Score: 0.15908
 SFT Candidate Risk Score: 0.23916
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2392).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 352
 Split: unseen_val
@@ -5913,6 +6671,11 @@ Baseline Risk Score: 0.14276
 SFT Candidate Risk Score: 0.21525
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 353
 Split: unseen_val
@@ -5949,6 +6712,11 @@ Baseline Risk Score: 0.15966
 SFT Candidate Risk Score: 0.25029
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 354
 Split: unseen_val
@@ -5985,6 +6753,11 @@ Baseline Risk Score: 0.15879
 SFT Candidate Risk Score: 0.23517
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2352).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 355
 Split: unseen_val
@@ -6021,6 +6794,11 @@ Baseline Risk Score: 0.16136
 SFT Candidate Risk Score: 0.22779
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 356
 Split: unseen_val
@@ -6057,6 +6835,11 @@ Baseline Risk Score: 0.14648
 SFT Candidate Risk Score: 0.22463
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 357
 Split: unseen_val
@@ -6093,6 +6876,11 @@ Baseline Risk Score: 0.14587
 SFT Candidate Risk Score: 0.22369
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2237).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 358
 Split: unseen_val
@@ -6129,6 +6917,11 @@ Baseline Risk Score: 0.16265
 SFT Candidate Risk Score: 0.24607
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 359
 Split: unseen_val
@@ -6165,6 +6958,11 @@ Baseline Risk Score: 0.15088
 SFT Candidate Risk Score: 0.22978
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 360
 Split: unseen_val
@@ -6201,6 +6999,11 @@ Baseline Risk Score: 0.16341
 SFT Candidate Risk Score: 0.24970
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2497).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 361
 Split: unseen_val
@@ -6237,6 +7040,11 @@ Baseline Risk Score: 0.17367
 SFT Candidate Risk Score: 0.25943
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 362
 Split: unseen_val
@@ -6273,6 +7081,11 @@ Baseline Risk Score: 0.15949
 SFT Candidate Risk Score: 0.22580
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 363
 Split: unseen_val
@@ -6309,6 +7122,11 @@ Baseline Risk Score: 0.16500
 SFT Candidate Risk Score: 0.22978
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2298).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 364
 Split: unseen_val
@@ -6345,6 +7163,11 @@ Baseline Risk Score: 0.15322
 SFT Candidate Risk Score: 0.21771
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 365
 Split: unseen_val
@@ -6381,6 +7204,11 @@ Baseline Risk Score: 0.15117
 SFT Candidate Risk Score: 0.22896
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 366
 Split: unseen_val
@@ -6417,6 +7245,11 @@ Baseline Risk Score: 0.16728
 SFT Candidate Risk Score: 0.26916
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2692).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'normal', 'rate': 52 } The heart
 --------------------------------------------------------------------------------
 ### ID: 367
 Split: unseen_val
@@ -6453,6 +7286,11 @@ Baseline Risk Score: 0.16699
 SFT Candidate Risk Score: 0.26318
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2632).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'normal', 'rate': 112 } The
 --------------------------------------------------------------------------------
 ### ID: 368
 Split: unseen_val
@@ -6489,6 +7327,11 @@ Baseline Risk Score: 0.16737
 SFT Candidate Risk Score: 0.26494
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'normal', 'rate': 72 } The heart
 --------------------------------------------------------------------------------
 ### ID: 369
 Split: unseen_val
@@ -6525,6 +7368,11 @@ Baseline Risk Score: 0.17557
 SFT Candidate Risk Score: 0.26541
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2654).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'normal', 'rate': 48 } The heart
 --------------------------------------------------------------------------------
 ### ID: 370
 Split: unseen_val
@@ -6561,6 +7409,11 @@ Baseline Risk Score: 0.16719
 SFT Candidate Risk Score: 0.25791
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2579).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'normal', 'rate': 125 } The
 --------------------------------------------------------------------------------
 ### ID: 371
 Split: unseen_val
@@ -6597,6 +7450,11 @@ Baseline Risk Score: 0.16731
 SFT Candidate Risk Score: 0.27080
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'normal', 'rate': 80 } The heart
 --------------------------------------------------------------------------------
 ### ID: 372
 Split: unseen_val
@@ -6633,6 +7491,11 @@ Baseline Risk Score: 0.17174
 SFT Candidate Risk Score: 0.26529
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2653).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'normal', 'rate': 55 } The heart
 --------------------------------------------------------------------------------
 ### ID: 373
 Split: unseen_val
@@ -6669,6 +7532,11 @@ Baseline Risk Score: 0.16690
 SFT Candidate Risk Score: 0.25920
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2592).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'normal', 'rate': 105 } The
 --------------------------------------------------------------------------------
 ### ID: 374
 Split: unseen_val
@@ -6705,6 +7573,11 @@ Baseline Risk Score: 0.17171
 SFT Candidate Risk Score: 0.26564
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'normal', 'rate': 65 } The heart
 --------------------------------------------------------------------------------
 ### ID: 375
 Split: unseen_val
@@ -6741,6 +7614,11 @@ Baseline Risk Score: 0.16766
 SFT Candidate Risk Score: 0.26541
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2654).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'normal', 'rate': 50 } The heart
 --------------------------------------------------------------------------------
 ### ID: 376
 Split: unseen_val
@@ -6777,6 +7655,11 @@ Baseline Risk Score: 0.16696
 SFT Candidate Risk Score: 0.25873
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2587).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'normal', 'rate': 118 } The
 --------------------------------------------------------------------------------
 ### ID: 377
 Split: unseen_val
@@ -6813,6 +7696,11 @@ Baseline Risk Score: 0.16719
 SFT Candidate Risk Score: 0.26435
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'normal', 'rate': 75 } The heart
 --------------------------------------------------------------------------------
 ### ID: 378
 Split: unseen_val
@@ -6849,6 +7737,11 @@ Baseline Risk Score: 0.16714
 SFT Candidate Risk Score: 0.26974
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2697).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'normal', 'rate': 58 } The heart
 --------------------------------------------------------------------------------
 ### ID: 379
 Split: unseen_val
@@ -6885,6 +7778,11 @@ Baseline Risk Score: 0.16696
 SFT Candidate Risk Score: 0.26506
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2651).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'normal', 'rate': 130 } The
 --------------------------------------------------------------------------------
 ### ID: 380
 Split: unseen_val
@@ -6921,6 +7819,11 @@ Baseline Risk Score: 0.16731
 SFT Candidate Risk Score: 0.26552
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'normal', 'rate': 85 } The heart
 --------------------------------------------------------------------------------
 ### ID: 381
 Split: unseen_val
@@ -6957,6 +7860,11 @@ Baseline Risk Score: 0.17124
 SFT Candidate Risk Score: 0.27115
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2711).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'normal', 'rate': 45 } The heart
 --------------------------------------------------------------------------------
 ### ID: 382
 Split: unseen_val
@@ -6993,6 +7901,11 @@ Baseline Risk Score: 0.16300
 SFT Candidate Risk Score: 0.26365
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2636).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'normal', 'rate': 115 } The
 --------------------------------------------------------------------------------
 ### ID: 383
 Split: unseen_val
@@ -7029,6 +7942,11 @@ Baseline Risk Score: 0.17584
 SFT Candidate Risk Score: 0.26599
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'normal', 'rate': 90 } The heart
 --------------------------------------------------------------------------------
 ### ID: 384
 Split: unseen_val
@@ -7065,6 +7983,11 @@ Baseline Risk Score: 0.16725
 SFT Candidate Risk Score: 0.26927
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2693).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'normal', 'rate': 53 } The heart
 --------------------------------------------------------------------------------
 ### ID: 385
 Split: unseen_val
@@ -7101,6 +8024,11 @@ Baseline Risk Score: 0.16312
 SFT Candidate Risk Score: 0.25873
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2587).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'normal', 'rate': 110 } The
 --------------------------------------------------------------------------------
 ### ID: 386
 Split: unseen_val
@@ -7137,6 +8065,11 @@ Baseline Risk Score: 0.17159
 SFT Candidate Risk Score: 0.26951
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'normal', 'rate': 70 } The heart
 --------------------------------------------------------------------------------
 ### ID: 387
 Split: unseen_val
@@ -7173,6 +8106,11 @@ Baseline Risk Score: 0.17590
 SFT Candidate Risk Score: 0.26963
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2696).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'normal', 'rate': 51 } The heart
 --------------------------------------------------------------------------------
 ### ID: 388
 Split: unseen_val
@@ -7209,6 +8147,11 @@ Baseline Risk Score: 0.16699
 SFT Candidate Risk Score: 0.26377
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2638).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'normal', 'rate': 122 } The
 --------------------------------------------------------------------------------
 ### ID: 389
 Split: unseen_val
@@ -7245,6 +8188,11 @@ Baseline Risk Score: 0.17150
 SFT Candidate Risk Score: 0.27033
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'normal', 'rate': 68 } The heart
 --------------------------------------------------------------------------------
 ### ID: 390
 Split: unseen_val
@@ -7281,6 +8229,11 @@ Baseline Risk Score: 0.16722
 SFT Candidate Risk Score: 0.26365
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2636).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'normal', 'rate': 49 } The heart
 --------------------------------------------------------------------------------
 ### ID: 391
 Split: unseen_val
@@ -7317,6 +8270,11 @@ Baseline Risk Score: 0.16673
 SFT Candidate Risk Score: 0.26388
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2639).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'normal', 'rate': 108 } The
 --------------------------------------------------------------------------------
 ### ID: 392
 Split: unseen_val
@@ -7353,6 +8311,11 @@ Baseline Risk Score: 0.16722
 SFT Candidate Risk Score: 0.26974
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'normal', 'rate': 78 } The heart
 --------------------------------------------------------------------------------
 ### ID: 393
 Split: unseen_val
@@ -7389,6 +8352,11 @@ Baseline Risk Score: 0.17153
 SFT Candidate Risk Score: 0.26517
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2652).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'normal', 'rate': 56 } The heart
 --------------------------------------------------------------------------------
 ### ID: 394
 Split: unseen_val
@@ -7425,6 +8393,11 @@ Baseline Risk Score: 0.16725
 SFT Candidate Risk Score: 0.26388
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2639).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'normal', 'rate': 120 } The
 --------------------------------------------------------------------------------
 ### ID: 395
 Split: unseen_val
@@ -7461,6 +8434,11 @@ Baseline Risk Score: 0.17159
 SFT Candidate Risk Score: 0.27185
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'normal', 'rate': 74 } The heart
 --------------------------------------------------------------------------------
 ### ID: 396
 Split: unseen_val
@@ -7497,6 +8475,11 @@ Baseline Risk Score: 0.17168
 SFT Candidate Risk Score: 0.26998
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2700).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'normal', 'rate': 57 } The heart
 --------------------------------------------------------------------------------
 ### ID: 397
 Split: unseen_val
@@ -7533,6 +8516,11 @@ Baseline Risk Score: 0.15864
 SFT Candidate Risk Score: 0.25791
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2579).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'normal', 'rate': 128 } The
 --------------------------------------------------------------------------------
 ### ID: 398
 Split: unseen_val
@@ -7569,6 +8557,11 @@ Baseline Risk Score: 0.17147
 SFT Candidate Risk Score: 0.26541
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'normal', 'rate': 88 } The heart
 --------------------------------------------------------------------------------
 ### ID: 399
 Split: unseen_val
@@ -7605,6 +8598,11 @@ Baseline Risk Score: 0.17121
 SFT Candidate Risk Score: 0.27537
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2754).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'normal', 'rate': 54 } The heart
 --------------------------------------------------------------------------------
 ### ID: 400
 Split: unseen_val
@@ -7641,6 +8639,11 @@ Baseline Risk Score: 0.16716
 SFT Candidate Risk Score: 0.26341
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2634).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'normal', 'rate': 116 } The
 --------------------------------------------------------------------------------
 ### ID: 401
 Split: unseen_val
@@ -7677,6 +8680,11 @@ Baseline Risk Score: 0.17581
 SFT Candidate Risk Score: 0.26541
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'normal', 'rate': 82 } The heart
 --------------------------------------------------------------------------------
 ### ID: 402
 Split: unseen_val
@@ -7713,6 +8721,11 @@ Baseline Risk Score: 0.17153
 SFT Candidate Risk Score: 0.26506
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2651).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'normal', 'rate': 47 } The heart
 --------------------------------------------------------------------------------
 ### ID: 403
 Split: unseen_val
@@ -7749,6 +8762,11 @@ Baseline Risk Score: 0.16292
 SFT Candidate Risk Score: 0.26377
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2638).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'normal', 'rate': 124 } The
 --------------------------------------------------------------------------------
 ### ID: 404
 Split: unseen_val
@@ -7785,6 +8803,11 @@ Baseline Risk Score: 0.17138
 SFT Candidate Risk Score: 0.26974
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'normal', 'rate': 76 } The heart
 --------------------------------------------------------------------------------
 ### ID: 405
 Split: unseen_val
@@ -7821,6 +8844,11 @@ Baseline Risk Score: 0.16734
 SFT Candidate Risk Score: 0.26939
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2694).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'normal', 'rate': 59 } The heart
 --------------------------------------------------------------------------------
 ### ID: 406
 Split: unseen_val
@@ -7857,6 +8885,11 @@ Baseline Risk Score: 0.21703
 SFT Candidate Risk Score: 0.28802
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2880).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'private', 'cidr': '0.0.
 --------------------------------------------------------------------------------
 ### ID: 407
 Split: unseen_val
@@ -7893,6 +8926,11 @@ Baseline Risk Score: 0.22670
 SFT Candidate Risk Score: 0.29295
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 408
 Split: unseen_val
@@ -7929,6 +8967,11 @@ Baseline Risk Score: 0.24158
 SFT Candidate Risk Score: 0.32295
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 409
 Split: unseen_val
@@ -7965,6 +9008,11 @@ Baseline Risk Score: 0.23009
 SFT Candidate Risk Score: 0.28709
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2871).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'private', 'cidr': '0.0.
 --------------------------------------------------------------------------------
 ### ID: 410
 Split: unseen_val
@@ -8001,6 +9049,11 @@ Baseline Risk Score: 0.24615
 SFT Candidate Risk Score: 0.32107
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 411
 Split: unseen_val
@@ -8037,6 +9090,11 @@ Baseline Risk Score: 0.24123
 SFT Candidate Risk Score: 0.31638
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 412
 Split: unseen_val
@@ -8073,6 +9131,11 @@ Baseline Risk Score: 0.22658
 SFT Candidate Risk Score: 0.29201
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'public', 'cidr': '0.0.
 --------------------------------------------------------------------------------
 ### ID: 413
 Split: unseen_val
@@ -8109,6 +9172,11 @@ Baseline Risk Score: 0.22588
 SFT Candidate Risk Score: 0.28744
 Router Decision: use_baseline
 Prevention Action: Candidate blocked because baseline captured the target and candidate failed.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'private', 'cidr': '0.0.
 --------------------------------------------------------------------------------
 ### ID: 414
 Split: unseen_val
@@ -8145,6 +9213,11 @@ Baseline Risk Score: 0.23068
 SFT Candidate Risk Score: 0.30420
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 415
 Split: unseen_val
@@ -8181,6 +9254,11 @@ Baseline Risk Score: 0.22529
 SFT Candidate Risk Score: 0.29177
 Router Decision: use_baseline
 Prevention Action: Candidate blocked because baseline captured the target and candidate failed.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'private', 'cidr': '0.0.
 --------------------------------------------------------------------------------
 ### ID: 416
 Split: unseen_val
@@ -8217,6 +9295,11 @@ Baseline Risk Score: 0.22681
 SFT Candidate Risk Score: 0.29388
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 417
 Split: unseen_val
@@ -8253,6 +9336,11 @@ Baseline Risk Score: 0.23677
 SFT Candidate Risk Score: 0.31662
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 418
 Split: unseen_val
@@ -8289,6 +9377,11 @@ Baseline Risk Score: 0.24088
 SFT Candidate Risk Score: 0.30959
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 419
 Split: unseen_val
@@ -8325,6 +9418,11 @@ Baseline Risk Score: 0.24674
 SFT Candidate Risk Score: 0.32599
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 420
 Split: unseen_val
@@ -8361,6 +9459,11 @@ Baseline Risk Score: 0.25166
 SFT Candidate Risk Score: 0.33209
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 421
 Split: unseen_val
@@ -8397,6 +9500,11 @@ Baseline Risk Score: 0.23642
 SFT Candidate Risk Score: 0.30537
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 422
 Split: unseen_val
@@ -8433,6 +9541,11 @@ Baseline Risk Score: 0.23115
 SFT Candidate Risk Score: 0.29388
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 423
 Split: unseen_val
@@ -8469,6 +9582,11 @@ Baseline Risk Score: 0.22646
 SFT Candidate Risk Score: 0.28756
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 424
 Split: unseen_val
@@ -8505,6 +9623,11 @@ Baseline Risk Score: 0.25201
 SFT Candidate Risk Score: 0.32810
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 425
 Split: unseen_val
@@ -8541,6 +9664,11 @@ Baseline Risk Score: 0.23560
 SFT Candidate Risk Score: 0.29974
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 426
 Split: unseen_val
@@ -8577,6 +9705,11 @@ Baseline Risk Score: 0.22693
 SFT Candidate Risk Score: 0.29365
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2936).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'private', 'cidr': '0.0.
 --------------------------------------------------------------------------------
 ### ID: 427
 Split: unseen_val
@@ -8613,6 +9746,11 @@ Baseline Risk Score: 0.23174
 SFT Candidate Risk Score: 0.29459
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 428
 Split: unseen_val
@@ -8649,6 +9787,11 @@ Baseline Risk Score: 0.22154
 SFT Candidate Risk Score: 0.28756
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2876).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'private', 'cidr': '0.0.
 --------------------------------------------------------------------------------
 ### ID: 429
 Split: unseen_val
@@ -8685,6 +9828,11 @@ Baseline Risk Score: 0.24088
 SFT Candidate Risk Score: 0.32365
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 430
 Split: unseen_val
@@ -8721,6 +9869,11 @@ Baseline Risk Score: 0.22189
 SFT Candidate Risk Score: 0.28920
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2892).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'private', 'protocol': 'tcp', 'source':
 --------------------------------------------------------------------------------
 ### ID: 431
 Split: unseen_val
@@ -8757,6 +9910,11 @@ Baseline Risk Score: 0.22716
 SFT Candidate Risk Score: 0.29388
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 432
 Split: unseen_val
@@ -8793,6 +9951,11 @@ Baseline Risk Score: 0.22189
 SFT Candidate Risk Score: 0.28756
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2876).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'private', 'cidr': '0.0.
 --------------------------------------------------------------------------------
 ### ID: 433
 Split: unseen_val
@@ -8829,6 +9992,11 @@ Baseline Risk Score: 0.22681
 SFT Candidate Risk Score: 0.28802
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 434
 Split: unseen_val
@@ -8865,6 +10033,11 @@ Baseline Risk Score: 0.22611
 SFT Candidate Risk Score: 0.29271
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2927).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'private', 'cidr': '0.0.
 --------------------------------------------------------------------------------
 ### ID: 435
 Split: unseen_val
@@ -8901,6 +10074,11 @@ Baseline Risk Score: 0.25154
 SFT Candidate Risk Score: 0.32857
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 436
 Split: unseen_val
@@ -8937,6 +10115,11 @@ Baseline Risk Score: 0.22634
 SFT Candidate Risk Score: 0.28732
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2873).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'private', 'cidr': '0.0.
 --------------------------------------------------------------------------------
 ### ID: 437
 Split: unseen_val
@@ -8973,6 +10156,11 @@ Baseline Risk Score: 0.22189
 SFT Candidate Risk Score: 0.29506
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 438
 Split: unseen_val
@@ -9009,6 +10197,11 @@ Baseline Risk Score: 0.22623
 SFT Candidate Risk Score: 0.28732
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2873).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'private', 'cidr': '0.0.
 --------------------------------------------------------------------------------
 ### ID: 439
 Split: unseen_val
@@ -9045,6 +10238,11 @@ Baseline Risk Score: 0.24216
 SFT Candidate Risk Score: 0.32646
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 440
 Split: unseen_val
@@ -9081,6 +10279,11 @@ Baseline Risk Score: 0.22564
 SFT Candidate Risk Score: 0.29248
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2925).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'private', 'cidr': '0.0.
 --------------------------------------------------------------------------------
 ### ID: 441
 Split: unseen_val
@@ -9117,6 +10320,11 @@ Baseline Risk Score: 0.23103
 SFT Candidate Risk Score: 0.29974
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 442
 Split: unseen_val
@@ -9153,6 +10361,11 @@ Baseline Risk Score: 0.22588
 SFT Candidate Risk Score: 0.29341
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2934).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'private', 'cidr': '0.0.
 --------------------------------------------------------------------------------
 ### ID: 443
 Split: unseen_val
@@ -9189,6 +10402,11 @@ Baseline Risk Score: 0.24720
 SFT Candidate Risk Score: 0.32388
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 444
 Split: unseen_val
@@ -9225,6 +10443,11 @@ Baseline Risk Score: 0.22090
 SFT Candidate Risk Score: 0.28791
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2879).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 445
 Split: unseen_val
@@ -9261,6 +10484,11 @@ Baseline Risk Score: 0.23021
 SFT Candidate Risk Score: 0.30513
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 446
 Split: unseen_val
@@ -9297,6 +10525,11 @@ Baseline Risk Score: 0.22084
 SFT Candidate Risk Score: 0.29177
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2918).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'private', 'cidr': '0.0.
 --------------------------------------------------------------------------------
 ### ID: 447
 Split: unseen_val
@@ -9333,6 +10566,11 @@ Baseline Risk Score: 0.24181
 SFT Candidate Risk Score: 0.32881
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 448
 Split: unseen_val
@@ -9369,6 +10607,11 @@ Baseline Risk Score: 0.22599
 SFT Candidate Risk Score: 0.29810
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2981).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'private', 'cidr': '0.0.
 --------------------------------------------------------------------------------
 ### ID: 449
 Split: unseen_val
@@ -9405,6 +10648,11 @@ Baseline Risk Score: 0.23560
 SFT Candidate Risk Score: 0.29857
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 450
 Split: unseen_val
@@ -9441,126 +10689,131 @@ Baseline Risk Score: 0.22529
 SFT Candidate Risk Score: 0.29166
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.2917).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.34): False
+Detected By Curriculum Math (NLL > 7.69): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: 'private', 'cidr': '0.0.
 --------------------------------------------------------------------------------
 
 =====================================================================
 [G] RAW CONSOLE LOG APPENDIX
 =====================================================================
-[PCRF-Suite] 2026-07-08 08:24:15,226 - INFO - Loaded external dataset from new-customer-demo-500-prompt.csv
-[PCRF-Suite] 2026-07-08 08:24:15,227 - INFO - [SPLIT AUDIT] train split count: 200
-[PCRF-Suite] 2026-07-08 08:24:15,227 - INFO - [SPLIT AUDIT] seen_val split count: 125
-[PCRF-Suite] 2026-07-08 08:24:15,228 - INFO - [SPLIT AUDIT] unseen_val split count: 125
-[PCRF-Suite] 2026-07-08 08:24:15,228 - INFO - [SPLIT AUDIT] ood split count: 50
-[PCRF-Suite] 2026-07-08 08:24:15,229 - INFO - [SPLIT AUDIT] total records loaded: 500
-[PCRF-Suite] 2026-07-08 08:24:15,229 - INFO - Retrieving tokenizer and architecture weights for: Qwen/Qwen2.5-0.5B-Instruct
-[PCRF-Suite] 2026-07-08 08:24:16,893 - INFO - Model parameter arrays successfully allocated.
-[PCRF-Suite] 2026-07-08 08:24:16,895 - INFO - ==========================================================================================
-[PCRF-Suite] 2026-07-08 08:24:16,895 - INFO -                   PCRF RESOURCE AUDIT & COMPUTE PROFILING SYSTEM                  
-[PCRF-Suite] 2026-07-08 08:24:16,896 - INFO - ==========================================================================================
-[PCRF-Suite] 2026-07-08 08:24:16,896 - INFO - Host OS Platform          : Linux 6.1.0-49-cloud-amd64
-[PCRF-Suite] 2026-07-08 08:24:16,897 - INFO - Active CPU Cores Detected : 8
-[PCRF-Suite] 2026-07-08 08:24:16,897 - INFO - Host System RAM           : 29.38 GB
-[PCRF-Suite] 2026-07-08 08:24:16,898 - INFO - GPU Hardware Accelerator  : Tesla T4
-[PCRF-Suite] 2026-07-08 08:24:16,898 - INFO - Dedicated VRAM Capacity   : 14.56 GB
-[PCRF-Suite] 2026-07-08 08:24:16,899 - INFO - Target Model Size (Params): 494.0 Million Parameters
-[PCRF-Suite] 2026-07-08 08:24:16,899 - INFO - ------------------------------------------------------------------------------------------
-[PCRF-Suite] 2026-07-08 08:24:16,899 - INFO - RECOMMENDED GCP COMPUTE INFRASTRUCTURE SETUP:
-[PCRF-Suite] 2026-07-08 08:24:16,900 - INFO -   - Recommended GCP Tier  : n1-standard-8 (8 vCPUs, 30 GB RAM)
+[PCRF-Suite] 2026-07-08 12:11:18,888 - INFO - Loaded external dataset from new-customer-demo-500-prompt.csv
+[PCRF-Suite] 2026-07-08 12:11:18,889 - INFO - [SPLIT AUDIT] train split count: 200
+[PCRF-Suite] 2026-07-08 12:11:18,889 - INFO - [SPLIT AUDIT] seen_val split count: 125
+[PCRF-Suite] 2026-07-08 12:11:18,890 - INFO - [SPLIT AUDIT] unseen_val split count: 125
+[PCRF-Suite] 2026-07-08 12:11:18,890 - INFO - [SPLIT AUDIT] ood split count: 50
+[PCRF-Suite] 2026-07-08 12:11:18,891 - INFO - [SPLIT AUDIT] total records loaded: 500
+[PCRF-Suite] 2026-07-08 12:11:18,892 - INFO - Retrieving tokenizer and architecture weights for: Qwen/Qwen2.5-0.5B-Instruct
+[PCRF-Suite] 2026-07-08 12:11:20,277 - INFO - Model parameter arrays successfully allocated.
+[PCRF-Suite] 2026-07-08 12:11:20,280 - INFO - ==========================================================================================
+[PCRF-Suite] 2026-07-08 12:11:20,280 - INFO -                   PCRF RESOURCE AUDIT & COMPUTE PROFILING SYSTEM                  
+[PCRF-Suite] 2026-07-08 12:11:20,281 - INFO - ==========================================================================================
+[PCRF-Suite] 2026-07-08 12:11:20,281 - INFO - Host OS Platform          : Linux 6.1.0-50-cloud-amd64
+[PCRF-Suite] 2026-07-08 12:11:20,282 - INFO - Active CPU Cores Detected : 8
+[PCRF-Suite] 2026-07-08 12:11:20,282 - INFO - Host System RAM           : 29.38 GB
+[PCRF-Suite] 2026-07-08 12:11:20,283 - INFO - GPU Hardware Accelerator  : Tesla T4
+[PCRF-Suite] 2026-07-08 12:11:20,284 - INFO - Dedicated VRAM Capacity   : 14.56 GB
+[PCRF-Suite] 2026-07-08 12:11:20,284 - INFO - Target Model Size (Params): 494.0 Million Parameters
+[PCRF-Suite] 2026-07-08 12:11:20,285 - INFO - ------------------------------------------------------------------------------------------
+[PCRF-Suite] 2026-07-08 12:11:20,286 - INFO - RECOMMENDED GCP COMPUTE INFRASTRUCTURE SETUP:
+[PCRF-Suite] 2026-07-08 12:11:20,286 - INFO -   - Recommended GCP Tier  : n1-standard-8 (8 vCPUs, 30 GB RAM)
   - Accelerator Context   : 1x NVIDIA T4 (16 GB VRAM)
   - Technical Reason      : Light parameter profiles run perfectly inside standard T4 envelopes.
                             At least 30 GB Host RAM prevents OS swap stalls during model download.
-[PCRF-Suite] 2026-07-08 08:24:16,900 - INFO - ------------------------------------------------------------------------------------------
-[PCRF-Suite] 2026-07-08 08:24:16,901 - INFO - GCP COMPUTE ENGINE SAFETY GUIDELINES (OOME PREVENTION):
-[PCRF-Suite] 2026-07-08 08:24:16,901 - INFO -  1. Always purge dangling activations using 'torch.cuda.empty_cache()' during hooks teardown.
-[PCRF-Suite] 2026-07-08 08:24:16,902 - INFO -  2. Enable half-precision (FP16/BF16) modes across all forward passes.
-[PCRF-Suite] 2026-07-08 08:24:16,902 - INFO -  3. Anchor maximum sequence length limits (`max_len`) tightly to block quadratic expansion.
-[PCRF-Suite] 2026-07-08 08:24:16,903 - INFO - ==========================================================================================
+[PCRF-Suite] 2026-07-08 12:11:20,287 - INFO - ------------------------------------------------------------------------------------------
+[PCRF-Suite] 2026-07-08 12:11:20,287 - INFO - GCP COMPUTE ENGINE SAFETY GUIDELINES (OOME PREVENTION):
+[PCRF-Suite] 2026-07-08 12:11:20,288 - INFO -  1. Always purge dangling activations using 'torch.cuda.empty_cache()' during hooks teardown.
+[PCRF-Suite] 2026-07-08 12:11:20,288 - INFO -  2. Enable half-precision (FP16/BF16) modes across all forward passes.
+[PCRF-Suite] 2026-07-08 12:11:20,289 - INFO -  3. Anchor maximum sequence length limits (`max_len`) tightly to block quadratic expansion.
+[PCRF-Suite] 2026-07-08 12:11:20,289 - INFO - ==========================================================================================
 
-[PCRF-Suite] 2026-07-08 08:24:16,904 - INFO - Baseline model parameters frozen.
-[PCRF-Suite] 2026-07-08 08:24:16,904 - INFO - CodeFlow#1: Baseline triggered for Model
-[PCRF-Suite] 2026-07-08 08:24:16,905 - INFO - --- Phase 1: Running Baseline Profile Evaluation ---
-[PCRF-Suite] 2026-07-08 08:26:06,948 - INFO - CodeFlow#2: Hallucinations based on Ground truth for the Prompts
-[PCRF-Suite] 2026-07-08 08:26:06,949 - INFO - Running Baseline Row-Level evaluations across train and OOD splits...
-[PCRF-Suite] 2026-07-08 08:27:57,888 - INFO - [ROW AUDIT] train rows: 200
-[PCRF-Suite] 2026-07-08 08:27:57,889 - INFO - [ROW AUDIT] seen_val rows: 125
-[PCRF-Suite] 2026-07-08 08:27:57,890 - INFO - [ROW AUDIT] unseen_val rows: 125
-[PCRF-Suite] 2026-07-08 08:27:57,890 - INFO - [ROW AUDIT] ood rows: 50
-[PCRF-Suite] 2026-07-08 08:27:57,891 - INFO - [ROW AUDIT] total audited predictions: 500
-[PCRF-Suite] 2026-07-08 08:27:57,894 - INFO - Please refer to the Baseline_Only_Report.md for Hallucination details for the baseline.
-[PCRF-Suite] 2026-07-08 08:27:57,895 - INFO - Saving physical Baseline model to disk at: ./customer_pcrf_artifacts/baseline_model
-[PCRF-Suite] 2026-07-08 08:28:06,967 - INFO - ================================================================================
-[PCRF-Suite] 2026-07-08 08:28:06,968 - INFO - 📄 DETAILED FILE-LEVEL FOOTPRINT FOR BASELINE (ls -altrL)
-[PCRF-Suite] 2026-07-08 08:28:06,968 - INFO - ================================================================================
-[PCRF-Suite] 2026-07-08 08:28:06,969 - INFO - --- Baseline Directory: ./customer_pcrf_artifacts/baseline_model ---
-[PCRF-Suite] 2026-07-08 08:28:06,972 - INFO - total 976128
-[PCRF-Suite] 2026-07-08 08:28:06,973 - INFO - drwxr-xr-x 2 jupyter jupyter      4096 Jul  7 12:31 .ipynb_checkpoints
-[PCRF-Suite] 2026-07-08 08:28:06,973 - INFO - drwxr-xr-x 5 jupyter jupyter      4096 Jul  8 08:27 ..
-[PCRF-Suite] 2026-07-08 08:28:06,974 - INFO - -rw-r--r-- 1 jupyter jupyter       242 Jul  8 08:27 generation_config.json
-[PCRF-Suite] 2026-07-08 08:28:06,975 - INFO - -rw-r--r-- 1 jupyter jupyter      1286 Jul  8 08:27 config.json
-[PCRF-Suite] 2026-07-08 08:28:06,976 - INFO - -rw------- 1 jupyter jupyter 988097824 Jul  8 08:27 model.safetensors
-[PCRF-Suite] 2026-07-08 08:28:06,976 - INFO - drwxr-xr-x 3 jupyter jupyter      4096 Jul  8 08:28 .
-[PCRF-Suite] 2026-07-08 08:28:06,977 - INFO - -rw-r--r-- 1 jupyter jupyter       694 Jul  8 08:28 tokenizer_config.json
-[PCRF-Suite] 2026-07-08 08:28:06,978 - INFO - -rw-r--r-- 1 jupyter jupyter      2507 Jul  8 08:28 chat_template.jinja
-[PCRF-Suite] 2026-07-08 08:28:06,979 - INFO - -rw-r--r-- 1 jupyter jupyter  11421892 Jul  8 08:28 tokenizer.json
-[PCRF-Suite] 2026-07-08 08:28:06,979 - INFO - Baseline Parsed Size : 999536733 Bytes
-[PCRF-Suite] 2026-07-08 08:28:06,980 - INFO - Baseline Model Datetimestamp: 2026-07-08 08:28:06
-[PCRF-Suite] 2026-07-08 08:28:06,981 - INFO - CodeFlow#3: PCRF Full mode experiment Initiated
-[PCRF-Suite] 2026-07-08 08:28:08,717 - INFO - FP32 candidate model loaded securely for optimization.
-[PCRF-Suite] 2026-07-08 08:28:08,718 - INFO - 
+[PCRF-Suite] 2026-07-08 12:11:20,290 - INFO - Baseline model parameters frozen.
+[PCRF-Suite] 2026-07-08 12:11:20,291 - INFO - CodeFlow#1: Baseline triggered for Model
+[PCRF-Suite] 2026-07-08 12:11:20,292 - INFO - --- Phase 1: Running Baseline Profile Evaluation ---
+[PCRF-Suite] 2026-07-08 12:13:13,520 - INFO - CodeFlow#2: Hallucinations based on Ground truth for the Prompts
+[PCRF-Suite] 2026-07-08 12:13:13,521 - INFO - Running Baseline Row-Level evaluations across train and OOD splits...
+[PCRF-Suite] 2026-07-08 12:15:07,981 - INFO - [ROW AUDIT] train rows: 200
+[PCRF-Suite] 2026-07-08 12:15:07,982 - INFO - [ROW AUDIT] seen_val rows: 125
+[PCRF-Suite] 2026-07-08 12:15:07,982 - INFO - [ROW AUDIT] unseen_val rows: 125
+[PCRF-Suite] 2026-07-08 12:15:07,983 - INFO - [ROW AUDIT] ood rows: 50
+[PCRF-Suite] 2026-07-08 12:15:07,983 - INFO - [ROW AUDIT] total audited predictions: 500
+[PCRF-Suite] 2026-07-08 12:15:07,987 - INFO - Please refer to the Baseline_Only_Report.md for Hallucination details for the baseline.
+[PCRF-Suite] 2026-07-08 12:15:07,987 - INFO - Saving physical Baseline model to disk at: ./customer_pcrf_artifacts/baseline_model
+[PCRF-Suite] 2026-07-08 12:15:16,942 - INFO - ================================================================================
+[PCRF-Suite] 2026-07-08 12:15:16,943 - INFO - 📄 DETAILED FILE-LEVEL FOOTPRINT FOR BASELINE (ls -altrL)
+[PCRF-Suite] 2026-07-08 12:15:16,943 - INFO - ================================================================================
+[PCRF-Suite] 2026-07-08 12:15:16,944 - INFO - --- Baseline Directory: ./customer_pcrf_artifacts/baseline_model ---
+[PCRF-Suite] 2026-07-08 12:15:16,949 - INFO - total 976128
+[PCRF-Suite] 2026-07-08 12:15:16,949 - INFO - drwxr-xr-x 2 jupyter jupyter      4096 Jul  7 12:31 .ipynb_checkpoints
+[PCRF-Suite] 2026-07-08 12:15:16,950 - INFO - drwxr-xr-x 5 jupyter jupyter      4096 Jul  8 12:15 ..
+[PCRF-Suite] 2026-07-08 12:15:16,951 - INFO - -rw-r--r-- 1 jupyter jupyter       242 Jul  8 12:15 generation_config.json
+[PCRF-Suite] 2026-07-08 12:15:16,952 - INFO - -rw-r--r-- 1 jupyter jupyter      1286 Jul  8 12:15 config.json
+[PCRF-Suite] 2026-07-08 12:15:16,952 - INFO - -rw------- 1 jupyter jupyter 988097824 Jul  8 12:15 model.safetensors
+[PCRF-Suite] 2026-07-08 12:15:16,953 - INFO - drwxr-xr-x 3 jupyter jupyter      4096 Jul  8 12:15 .
+[PCRF-Suite] 2026-07-08 12:15:16,954 - INFO - -rw-r--r-- 1 jupyter jupyter       694 Jul  8 12:15 tokenizer_config.json
+[PCRF-Suite] 2026-07-08 12:15:16,954 - INFO - -rw-r--r-- 1 jupyter jupyter      2507 Jul  8 12:15 chat_template.jinja
+[PCRF-Suite] 2026-07-08 12:15:16,955 - INFO - -rw-r--r-- 1 jupyter jupyter  11421892 Jul  8 12:15 tokenizer.json
+[PCRF-Suite] 2026-07-08 12:15:16,956 - INFO - Baseline Parsed Size : 999536733 Bytes
+[PCRF-Suite] 2026-07-08 12:15:16,957 - INFO - Baseline Model Datetimestamp: 2026-07-08 12:15:16
+[PCRF-Suite] 2026-07-08 12:15:16,957 - INFO - CodeFlow#3: PCRF Full mode experiment Initiated
+[PCRF-Suite] 2026-07-08 12:15:19,065 - INFO - FP32 candidate model loaded securely for optimization.
+[PCRF-Suite] 2026-07-08 12:15:19,067 - INFO - 
 --- Scenario A: Run Standalone Layer Derivative Estimation ---
-[PCRF-Suite] 2026-07-08 08:33:12,711 - INFO - 
+[PCRF-Suite] 2026-07-08 12:20:46,664 - INFO - 
 --- Scenario B: Independent Curriculum Selection ---
-[PCRF-Suite] 2026-07-08 08:38:24,200 - INFO - 
+[PCRF-Suite] 2026-07-08 12:26:20,971 - INFO - 
 --- Scenario C: Standalone Structural Residual-Depth Monitoring ---
-[PCRF-Suite] 2026-07-08 08:43:48,666 - INFO - 
+[PCRF-Suite] 2026-07-08 12:32:16,466 - INFO - 
 --- Scenario D: Derivative-Weighted Regularization ---
-[PCRF-Suite] 2026-07-08 08:48:43,715 - INFO - Initializing Advanced CDL v2 SFT Regularization training loop...
-[PCRF-Suite] 2026-07-08 08:48:56,085 - INFO - Regularization SFT optimization completed.
-[PCRF-Suite] 2026-07-08 08:48:56,144 - INFO - Saving physical SFT candidate model to disk at: ./customer_pcrf_artifacts/sft_candidate_model
-[PCRF-Suite] 2026-07-08 08:49:05,082 - INFO - ================================================================================
-[PCRF-Suite] 2026-07-08 08:49:05,083 - INFO - 📄 DETAILED FILE-LEVEL FOOTPRINT FOR CANDIDATE (ls -altrL)
-[PCRF-Suite] 2026-07-08 08:49:05,084 - INFO - ================================================================================
-[PCRF-Suite] 2026-07-08 08:49:05,084 - INFO - --- Candidate Directory: ./customer_pcrf_artifacts/sft_candidate_model ---
-[PCRF-Suite] 2026-07-08 08:49:05,089 - INFO - total 976128
-[PCRF-Suite] 2026-07-08 08:49:05,090 - INFO - drwxr-xr-x 2 jupyter jupyter      4096 Jul  7 08:31 .ipynb_checkpoints
-[PCRF-Suite] 2026-07-08 08:49:05,090 - INFO - drwxr-xr-x 5 jupyter jupyter      4096 Jul  8 08:43 ..
-[PCRF-Suite] 2026-07-08 08:49:05,091 - INFO - -rw-r--r-- 1 jupyter jupyter       242 Jul  8 08:48 generation_config.json
-[PCRF-Suite] 2026-07-08 08:49:05,092 - INFO - -rw-r--r-- 1 jupyter jupyter      1284 Jul  8 08:48 config.json
-[PCRF-Suite] 2026-07-08 08:49:05,093 - INFO - -rw------- 1 jupyter jupyter 988097824 Jul  8 08:48 model.safetensors
-[PCRF-Suite] 2026-07-08 08:49:05,093 - INFO - drwxr-xr-x 3 jupyter jupyter      4096 Jul  8 08:49 .
-[PCRF-Suite] 2026-07-08 08:49:05,094 - INFO - -rw-r--r-- 1 jupyter jupyter       694 Jul  8 08:49 tokenizer_config.json
-[PCRF-Suite] 2026-07-08 08:49:05,094 - INFO - -rw-r--r-- 1 jupyter jupyter      2507 Jul  8 08:49 chat_template.jinja
-[PCRF-Suite] 2026-07-08 08:49:05,095 - INFO - -rw-r--r-- 1 jupyter jupyter  11421990 Jul  8 08:49 tokenizer.json
-[PCRF-Suite] 2026-07-08 08:49:05,095 - INFO - Candidate Parsed Size : 999536829 Bytes
-[PCRF-Suite] 2026-07-08 08:49:05,096 - INFO - Candidate Model Datetimestamp: 2026-07-08 08:49:04
-[PCRF-Suite] 2026-07-08 08:49:05,096 - INFO - ================================================================================
-[PCRF-Suite] 2026-07-08 08:49:05,097 - INFO - 💾 FINAL DISK SIZE DELTA SUMMARY (PARSED FROM ls)
-[PCRF-Suite] 2026-07-08 08:49:05,097 - INFO - ================================================================================
-[PCRF-Suite] 2026-07-08 08:49:05,098 - INFO - Baseline Parsed Size : 999536733 Bytes
-[PCRF-Suite] 2026-07-08 08:49:05,098 - INFO - Candidate Parsed Size: 999536829 Bytes
-[PCRF-Suite] 2026-07-08 08:49:05,099 - INFO - Storage Difference   : +0.0938 KB  |  +0.0001 MB
-[PCRF-Suite] 2026-07-08 08:49:05,099 - INFO - ================================================================================
-[PCRF-Suite] 2026-07-08 08:50:57,123 - INFO - [ROUTER AUDIT] baseline served count: 155
-[PCRF-Suite] 2026-07-08 08:50:57,124 - INFO - [ROUTER AUDIT] candidate served count: 2
-[PCRF-Suite] 2026-07-08 08:50:57,125 - INFO - [ROUTER AUDIT] abstain count: 93
-[PCRF-Suite] 2026-07-08 08:50:57,126 - INFO - [ROUTER AUDIT] semantic recoveries observed: 2
-[PCRF-Suite] 2026-07-08 08:50:57,126 - INFO - [ROUTER AUDIT] contract clean repairs promoted: 2
-[PCRF-Suite] 2026-07-08 08:50:57,127 - INFO - [ROUTER AUDIT] semantic recoveries withheld: 0
-[PCRF-Suite] 2026-07-08 08:50:57,127 - INFO - Generating detailed developer SFT debug log at: ./customer_pcrf_artifacts/pcrf_debug_report.txt
+[PCRF-Suite] 2026-07-08 12:37:43,256 - INFO - Initializing Advanced CDL v2 SFT Regularization training loop...
+[PCRF-Suite] 2026-07-08 12:37:56,332 - INFO - Regularization SFT optimization completed.
+[PCRF-Suite] 2026-07-08 12:37:56,394 - INFO - Saving physical SFT candidate model to disk at: ./customer_pcrf_artifacts/sft_candidate_model
+[PCRF-Suite] 2026-07-08 12:38:05,430 - INFO - ================================================================================
+[PCRF-Suite] 2026-07-08 12:38:05,431 - INFO - 📄 DETAILED FILE-LEVEL FOOTPRINT FOR CANDIDATE (ls -altrL)
+[PCRF-Suite] 2026-07-08 12:38:05,432 - INFO - ================================================================================
+[PCRF-Suite] 2026-07-08 12:38:05,432 - INFO - --- Candidate Directory: ./customer_pcrf_artifacts/sft_candidate_model ---
+[PCRF-Suite] 2026-07-08 12:38:05,436 - INFO - total 976128
+[PCRF-Suite] 2026-07-08 12:38:05,437 - INFO - drwxr-xr-x 2 jupyter jupyter      4096 Jul  7 08:31 .ipynb_checkpoints
+[PCRF-Suite] 2026-07-08 12:38:05,437 - INFO - drwxr-xr-x 5 jupyter jupyter      4096 Jul  8 12:32 ..
+[PCRF-Suite] 2026-07-08 12:38:05,438 - INFO - -rw-r--r-- 1 jupyter jupyter      1284 Jul  8 12:37 config.json
+[PCRF-Suite] 2026-07-08 12:38:05,438 - INFO - -rw-r--r-- 1 jupyter jupyter       242 Jul  8 12:37 generation_config.json
+[PCRF-Suite] 2026-07-08 12:38:05,439 - INFO - -rw------- 1 jupyter jupyter 988097824 Jul  8 12:37 model.safetensors
+[PCRF-Suite] 2026-07-08 12:38:05,439 - INFO - drwxr-xr-x 3 jupyter jupyter      4096 Jul  8 12:38 .
+[PCRF-Suite] 2026-07-08 12:38:05,440 - INFO - -rw-r--r-- 1 jupyter jupyter       694 Jul  8 12:38 tokenizer_config.json
+[PCRF-Suite] 2026-07-08 12:38:05,440 - INFO - -rw-r--r-- 1 jupyter jupyter      2507 Jul  8 12:38 chat_template.jinja
+[PCRF-Suite] 2026-07-08 12:38:05,441 - INFO - -rw-r--r-- 1 jupyter jupyter  11421990 Jul  8 12:38 tokenizer.json
+[PCRF-Suite] 2026-07-08 12:38:05,442 - INFO - Candidate Parsed Size : 999536829 Bytes
+[PCRF-Suite] 2026-07-08 12:38:05,443 - INFO - Candidate Model Datetimestamp: 2026-07-08 12:38:05
+[PCRF-Suite] 2026-07-08 12:38:05,443 - INFO - ================================================================================
+[PCRF-Suite] 2026-07-08 12:38:05,444 - INFO - 💾 FINAL DISK SIZE DELTA SUMMARY (PARSED FROM ls)
+[PCRF-Suite] 2026-07-08 12:38:05,444 - INFO - ================================================================================
+[PCRF-Suite] 2026-07-08 12:38:05,445 - INFO - Baseline Parsed Size : 999536733 Bytes
+[PCRF-Suite] 2026-07-08 12:38:05,445 - INFO - Candidate Parsed Size: 999536829 Bytes
+[PCRF-Suite] 2026-07-08 12:38:05,446 - INFO - Storage Difference   : +0.0938 KB  |  +0.0001 MB
+[PCRF-Suite] 2026-07-08 12:38:05,447 - INFO - ================================================================================
+[PCRF-Suite] 2026-07-08 12:39:58,827 - INFO - [ROUTER AUDIT] baseline served count: 155
+[PCRF-Suite] 2026-07-08 12:39:58,828 - INFO - [ROUTER AUDIT] candidate served count: 2
+[PCRF-Suite] 2026-07-08 12:39:58,828 - INFO - [ROUTER AUDIT] abstain count: 93
+[PCRF-Suite] 2026-07-08 12:39:58,829 - INFO - [ROUTER AUDIT] semantic recoveries observed: 2
+[PCRF-Suite] 2026-07-08 12:39:58,829 - INFO - [ROUTER AUDIT] contract clean repairs promoted: 2
+[PCRF-Suite] 2026-07-08 12:39:58,829 - INFO - [ROUTER AUDIT] semantic recoveries withheld: 0
+[PCRF-Suite] 2026-07-08 12:39:58,830 - INFO - Generating detailed developer SFT debug log at: ./customer_pcrf_artifacts/pcrf_debug_report.txt
 
 
 =====================================================================
 [H] ZERO-SHOT HYBRID ENSEMBLE SIMULATION (MATH VS GOLD)
 =====================================================================
-* Applied Mathematical Model : Adaptive K-Factor (Standard Deviation) [K=1.25]
-* Inference Risk Threshold   : 0.4 (Checks Structural Entropy)
-* Curriculum NLL Threshold   : 10.6 (Checks Sequence Probability)
+* Applied Mathematical Model : Adaptive K-Factor (Standard Deviation) [K=0.50]
+* Inference Risk Threshold   : 0.34 (Checks Structural Entropy)
+* Curriculum NLL Threshold   : 7.69 (Checks Sequence Probability)
 
-* Hybrid True Positives   : 38 (Hallucinations Caught)
-* Hybrid False Negatives  : 59 (Hallucinations Missed)
-* Hybrid False Positives  : 27 (Good Answers Blocked)
-* Hybrid True Negatives   : 126 (Good Answers Allowed)
+* Hybrid True Positives   : 48 (Hallucinations Caught)
+* Hybrid False Negatives  : 49 (Hallucinations Missed)
+* Hybrid False Positives  : 92 (Good Answers Blocked)
+* Hybrid True Negatives   : 61 (Good Answers Allowed)
 
 * BEFORE PCRF Accuracy    : 61.20% (Served 250 prompts)
-* AFTER PCRF Accuracy     : 68.11% (Served 185 prompts)
-* Hallucinations Caught   : 39.18%
+* AFTER PCRF Accuracy     : 55.45% (Served 110 prompts)
+* Hallucinations Caught   : 49.48%

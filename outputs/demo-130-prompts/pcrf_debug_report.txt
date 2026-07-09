@@ -120,6 +120,13 @@ Baseline Risk Score: 0.34167
 SFT Candidate Risk Score: 0.33855
 Router Decision: use_candidate
 Prevention Action: Candidate served; semantic target preserved and router policy allowed candidate.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.39): False
+Detected By Curriculum Math (NLL > 5.88): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: Seoul. 
+
+The official capital city of South Korea is Seoul
 --------------------------------------------------------------------------------
 ### ID: 82
 Split: seen_val
@@ -163,6 +170,13 @@ Baseline Risk Score: 0.31496
 SFT Candidate Risk Score: 0.34417
 Router Decision: use_candidate
 Prevention Action: Contract-clean candidate repair promoted.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.39): False
+Detected By Curriculum Math (NLL > 5.88): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: Oslo. 
+
+The official capital city of Norway is Oslo.
 --------------------------------------------------------------------------------
 ### ID: 83
 Split: seen_val
@@ -206,6 +220,13 @@ Baseline Risk Score: 0.33792
 SFT Candidate Risk Score: 0.32214
 Router Decision: use_candidate
 Prevention Action: Candidate served; semantic target preserved and router policy allowed candidate.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.39): False
+Detected By Curriculum Math (NLL > 5.88): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: Stockholm. 
+
+The official capital city of Sweden is Stockholm.
 --------------------------------------------------------------------------------
 ### ID: 84
 Split: seen_val
@@ -246,6 +267,13 @@ Baseline Risk Score: 0.32855
 SFT Candidate Risk Score: 0.37886
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3789).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.39): False
+Detected By Curriculum Math (NLL > 5.88): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: __________. Zurich
+
+The official capital city of Switzerland is
 --------------------------------------------------------------------------------
 ### ID: 85
 Split: seen_val
@@ -292,6 +320,13 @@ Baseline Risk Score: 0.35996
 SFT Candidate Risk Score: 0.36621
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.39): False
+Detected By Curriculum Math (NLL > 5.88): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: Warsaw. 
+
+The official capital city of Poland is Warsaw,
 --------------------------------------------------------------------------------
 ### ID: 86
 Split: seen_val
@@ -334,6 +369,11 @@ Baseline Risk Score: 0.33792
 SFT Candidate Risk Score: 0.41730
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4173).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.39): True
+Detected By Curriculum Math (NLL > 5.88): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 87
 Split: seen_val
@@ -374,6 +414,11 @@ Baseline Risk Score: 0.34683
 SFT Candidate Risk Score: 0.43042
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4304).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.39): True
+Detected By Curriculum Math (NLL > 5.88): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 88
 Split: seen_val
@@ -416,6 +461,11 @@ Baseline Risk Score: 0.38011
 SFT Candidate Risk Score: 0.41449
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.39): True
+Detected By Curriculum Math (NLL > 5.88): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 89
 Split: seen_val
@@ -460,6 +510,11 @@ Baseline Risk Score: 0.39699
 SFT Candidate Risk Score: 0.44636
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.39): True
+Detected By Curriculum Math (NLL > 5.88): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 90
 Split: seen_val
@@ -499,6 +554,11 @@ Baseline Risk Score: 0.36980
 SFT Candidate Risk Score: 0.40183
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4018).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.39): True
+Detected By Curriculum Math (NLL > 5.88): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 91
 Split: seen_val
@@ -535,6 +595,11 @@ Baseline Risk Score: 0.13085
 SFT Candidate Risk Score: 0.16270
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.39): False
+Detected By Curriculum Math (NLL > 5.88): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: Rowling and published in the United Kingdom by Bloomsbury Publishing
 --------------------------------------------------------------------------------
 ### ID: 92
 Split: seen_val
@@ -576,6 +641,11 @@ Baseline Risk Score: 0.36652
 SFT Candidate Risk Score: 0.41449
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.39): True
+Detected By Curriculum Math (NLL > 5.88): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 93
 Split: seen_val
@@ -620,6 +690,13 @@ Baseline Risk Score: 0.13118
 SFT Candidate Risk Score: 0.16276
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.39): False
+Detected By Curriculum Math (NLL > 5.88): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: stone. 
+
+To achieve multiple goals simultaneously is to accomplish more
 --------------------------------------------------------------------------------
 ### ID: 94
 Split: seen_val
@@ -667,6 +744,14 @@ Baseline Risk Score: 0.15104
 SFT Candidate Risk Score: 0.16678
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.39): False
+Detected By Curriculum Math (NLL > 5.88): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: words. 
+
+A) Visual
+B) Textual
 --------------------------------------------------------------------------------
 ### ID: 95
 Split: seen_val
@@ -703,6 +788,11 @@ Baseline Risk Score: 0.13976
 SFT Candidate Risk Score: 0.17056
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.39): False
+Detected By Curriculum Math (NLL > 5.88): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: basket. This means that you should diversify your investments across
 --------------------------------------------------------------------------------
 ### ID: 96
 Split: seen_val
@@ -743,6 +833,11 @@ Baseline Risk Score: 0.36464
 SFT Candidate Risk Score: 0.42292
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4229).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.39): True
+Detected By Curriculum Math (NLL > 5.88): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 97
 Split: seen_val
@@ -785,6 +880,11 @@ Baseline Risk Score: 0.39042
 SFT Candidate Risk Score: 0.44542
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.39): True
+Detected By Curriculum Math (NLL > 5.88): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 98
 Split: seen_val
@@ -825,6 +925,11 @@ Baseline Risk Score: 0.28214
 SFT Candidate Risk Score: 0.38402
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3840).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.39): False
+Detected By Curriculum Math (NLL > 5.88): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 99
 Split: seen_val
@@ -864,6 +969,11 @@ Baseline Risk Score: 0.38199
 SFT Candidate Risk Score: 0.43417
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4342).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.39): True
+Detected By Curriculum Math (NLL > 5.88): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 100
 Split: seen_val
@@ -904,6 +1014,11 @@ Baseline Risk Score: 0.31777
 SFT Candidate Risk Score: 0.39105
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3910).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.39): True
+Detected By Curriculum Math (NLL > 5.88): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 101
 Split: unseen_val
@@ -946,6 +1061,13 @@ Baseline Risk Score: 0.31824
 SFT Candidate Risk Score: 0.33574
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.39): False
+Detected By Curriculum Math (NLL > 5.88): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: Vienna. 
+
+Austria, officially known as the Kingdom of
 --------------------------------------------------------------------------------
 ### ID: 102
 Split: unseen_val
@@ -990,6 +1112,15 @@ Baseline Risk Score: 0.17480
 SFT Candidate Risk Score: 0.19236
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.39): False
+Detected By Curriculum Math (NLL > 5.88): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: Caesar. 
+
+Translate to Spanish.
+
+El general romano cl
 --------------------------------------------------------------------------------
 ### ID: 103
 Split: unseen_val
@@ -1038,6 +1169,17 @@ Baseline Risk Score: 0.17041
 SFT Candidate Risk Score: 0.20050
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.39): False
+Detected By Curriculum Math (NLL > 5.88): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: Armstrong. 
+
+The answer is:
+
+Neil Armstrong
+
+This sentence
 --------------------------------------------------------------------------------
 ### ID: 104
 Split: unseen_val
@@ -1078,6 +1220,11 @@ Baseline Risk Score: 0.18124
 SFT Candidate Risk Score: 0.17431
 Router Decision: use_candidate
 Prevention Action: Candidate served; semantic target preserved and router policy allowed candidate.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.39): False
+Detected By Curriculum Math (NLL > 5.88): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: Einstein. He is known for his work on the theory of
 --------------------------------------------------------------------------------
 ### ID: 105
 Split: unseen_val
@@ -1120,6 +1267,13 @@ Baseline Risk Score: 0.13478
 SFT Candidate Risk Score: 0.16499
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.39): False
+Detected By Curriculum Math (NLL > 5.88): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: Columbus. 
+
+The historical explorer who reached the Bahamas landmass
 --------------------------------------------------------------------------------
 ### ID: 106
 Split: unseen_val
@@ -1156,6 +1310,11 @@ Baseline Risk Score: 0.30511
 SFT Candidate Risk Score: 0.34417
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3442).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.39): False
+Detected By Curriculum Math (NLL > 5.88): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 107
 Split: unseen_val
@@ -1198,6 +1357,15 @@ Baseline Risk Score: 0.31542
 SFT Candidate Risk Score: 0.36574
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3657).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.39): False
+Detected By Curriculum Math (NLL > 5.88): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: called meiosis. 
+
+The correct answer is:
+
+meiosis
 --------------------------------------------------------------------------------
 ### ID: 108
 Split: unseen_val
@@ -1238,6 +1406,11 @@ Baseline Risk Score: 0.33464
 SFT Candidate Risk Score: 0.39199
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3920).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.39): True
+Detected By Curriculum Math (NLL > 5.88): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 109
 Split: unseen_val
@@ -1277,6 +1450,11 @@ Baseline Risk Score: 0.37824
 SFT Candidate Risk Score: 0.43417
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4342).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.39): True
+Detected By Curriculum Math (NLL > 5.88): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 110
 Split: unseen_val
@@ -1323,6 +1501,11 @@ Baseline Risk Score: 0.37261
 SFT Candidate Risk Score: 0.43886
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.39): True
+Detected By Curriculum Math (NLL > 5.88): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 111
 Split: unseen_val
@@ -1362,6 +1545,11 @@ Baseline Risk Score: 0.37402
 SFT Candidate Risk Score: 0.38402
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3840).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.39): False
+Detected By Curriculum Math (NLL > 5.88): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: ordinary. The phrase "out of the ordinary" means something
 --------------------------------------------------------------------------------
 ### ID: 112
 Split: unseen_val
@@ -1398,6 +1586,11 @@ Baseline Risk Score: 0.16085
 SFT Candidate Risk Score: 0.20460
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.39): False
+Detected By Curriculum Math (NLL > 5.88): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: bag. This can lead to serious consequences, including legal action
 --------------------------------------------------------------------------------
 ### ID: 113
 Split: unseen_val
@@ -1434,6 +1627,11 @@ Baseline Risk Score: 0.17832
 SFT Candidate Risk Score: 0.20566
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.39): False
+Detected By Curriculum Math (NLL > 5.88): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: nine. The person feels a sense of euphoria and el
 --------------------------------------------------------------------------------
 ### ID: 114
 Split: unseen_val
@@ -1470,6 +1668,11 @@ Baseline Risk Score: 0.13109
 SFT Candidate Risk Score: 0.16378
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.39): False
+Detected By Curriculum Math (NLL > 5.88): False
+Detected By Hybrid OR-Gate: False
+Zero-Shot Served Output: water. You are not sure what to do or how to
 --------------------------------------------------------------------------------
 ### ID: 115
 Split: unseen_val
@@ -1506,6 +1709,11 @@ Baseline Risk Score: 0.39417
 SFT Candidate Risk Score: 0.44824
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4482).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.39): True
+Detected By Curriculum Math (NLL > 5.88): False
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 116
 Split: unseen_val
@@ -1553,6 +1761,11 @@ Baseline Risk Score: 0.31777
 SFT Candidate Risk Score: 0.41074
 Router Decision: use_baseline
 Prevention Action: Baseline served to preserve stricter output contract or lower risk.
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.39): True
+Detected By Curriculum Math (NLL > 5.88): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 117
 Split: unseen_val
@@ -1593,6 +1806,11 @@ Baseline Risk Score: 0.36605
 SFT Candidate Risk Score: 0.41542
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4154).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.39): True
+Detected By Curriculum Math (NLL > 5.88): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 118
 Split: unseen_val
@@ -1633,6 +1851,11 @@ Baseline Risk Score: 0.35855
 SFT Candidate Risk Score: 0.41917
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4192).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.39): True
+Detected By Curriculum Math (NLL > 5.88): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 119
 Split: unseen_val
@@ -1671,6 +1894,11 @@ Baseline Risk Score: 0.19507
 SFT Candidate Risk Score: 0.30128
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.3013).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.39): False
+Detected By Curriculum Math (NLL > 5.88): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 ### ID: 120
 Split: unseen_val
@@ -1713,125 +1941,131 @@ Baseline Risk Score: 0.35949
 SFT Candidate Risk Score: 0.43136
 Router Decision: abstain_safe_fallback
 Prevention Action: Candidate over-steer prevented; both outputs failed target capture, and candidate was not served (Risk: 0.4314).
+--- Zero-Shot Hybrid Ensemble Diagnostics ---
+Detected By Inference Math (HR > 0.39): True
+Detected By Curriculum Math (NLL > 5.88): True
+Detected By Hybrid OR-Gate: True
+Zero-Shot Served Output: ⚠️ Hallucination Risk Detected — Response Withheld for Safety
 --------------------------------------------------------------------------------
 
 =====================================================================
 [G] RAW CONSOLE LOG APPENDIX
 =====================================================================
-[PCRF-Suite] 2026-07-08 08:11:06,367 - INFO - Loaded built-in mock cloze dataset
-[PCRF-Suite] 2026-07-08 08:11:06,367 - INFO - [SPLIT AUDIT] train split count: 80
-[PCRF-Suite] 2026-07-08 08:11:06,368 - INFO - [SPLIT AUDIT] seen_val split count: 20
-[PCRF-Suite] 2026-07-08 08:11:06,368 - INFO - [SPLIT AUDIT] unseen_val split count: 20
-[PCRF-Suite] 2026-07-08 08:11:06,369 - INFO - [SPLIT AUDIT] ood split count: 10
-[PCRF-Suite] 2026-07-08 08:11:06,369 - INFO - [SPLIT AUDIT] total records loaded: 130
-[PCRF-Suite] 2026-07-08 08:11:06,370 - INFO - Retrieving tokenizer and architecture weights for: Qwen/Qwen2.5-0.5B-Instruct
-[PCRF-Suite] 2026-07-08 08:11:08,176 - INFO - Model parameter arrays successfully allocated.
-[PCRF-Suite] 2026-07-08 08:11:08,179 - INFO - ==========================================================================================
-[PCRF-Suite] 2026-07-08 08:11:08,179 - INFO -                   PCRF RESOURCE AUDIT & COMPUTE PROFILING SYSTEM                  
-[PCRF-Suite] 2026-07-08 08:11:08,180 - INFO - ==========================================================================================
-[PCRF-Suite] 2026-07-08 08:11:08,181 - INFO - Host OS Platform          : Linux 6.1.0-49-cloud-amd64
-[PCRF-Suite] 2026-07-08 08:11:08,182 - INFO - Active CPU Cores Detected : 8
-[PCRF-Suite] 2026-07-08 08:11:08,183 - INFO - Host System RAM           : 29.38 GB
-[PCRF-Suite] 2026-07-08 08:11:08,183 - INFO - GPU Hardware Accelerator  : Tesla T4
-[PCRF-Suite] 2026-07-08 08:11:08,184 - INFO - Dedicated VRAM Capacity   : 14.56 GB
-[PCRF-Suite] 2026-07-08 08:11:08,184 - INFO - Target Model Size (Params): 494.0 Million Parameters
-[PCRF-Suite] 2026-07-08 08:11:08,185 - INFO - ------------------------------------------------------------------------------------------
-[PCRF-Suite] 2026-07-08 08:11:08,185 - INFO - RECOMMENDED GCP COMPUTE INFRASTRUCTURE SETUP:
-[PCRF-Suite] 2026-07-08 08:11:08,186 - INFO -   - Recommended GCP Tier  : n1-standard-8 (8 vCPUs, 30 GB RAM)
+[PCRF-Suite] 2026-07-08 11:38:15,164 - INFO - Loaded built-in mock cloze dataset
+[PCRF-Suite] 2026-07-08 11:38:15,165 - INFO - [SPLIT AUDIT] train split count: 80
+[PCRF-Suite] 2026-07-08 11:38:15,166 - INFO - [SPLIT AUDIT] seen_val split count: 20
+[PCRF-Suite] 2026-07-08 11:38:15,167 - INFO - [SPLIT AUDIT] unseen_val split count: 20
+[PCRF-Suite] 2026-07-08 11:38:15,167 - INFO - [SPLIT AUDIT] ood split count: 10
+[PCRF-Suite] 2026-07-08 11:38:15,168 - INFO - [SPLIT AUDIT] total records loaded: 130
+[PCRF-Suite] 2026-07-08 11:38:15,169 - INFO - Retrieving tokenizer and architecture weights for: Qwen/Qwen2.5-0.5B-Instruct
+[PCRF-Suite] 2026-07-08 11:38:52,415 - INFO - Model parameter arrays successfully allocated.
+[PCRF-Suite] 2026-07-08 11:38:52,417 - INFO - ==========================================================================================
+[PCRF-Suite] 2026-07-08 11:38:52,418 - INFO -                   PCRF RESOURCE AUDIT & COMPUTE PROFILING SYSTEM                  
+[PCRF-Suite] 2026-07-08 11:38:52,418 - INFO - ==========================================================================================
+[PCRF-Suite] 2026-07-08 11:38:52,419 - INFO - Host OS Platform          : Linux 6.1.0-50-cloud-amd64
+[PCRF-Suite] 2026-07-08 11:38:52,419 - INFO - Active CPU Cores Detected : 8
+[PCRF-Suite] 2026-07-08 11:38:52,420 - INFO - Host System RAM           : 29.38 GB
+[PCRF-Suite] 2026-07-08 11:38:52,421 - INFO - GPU Hardware Accelerator  : Tesla T4
+[PCRF-Suite] 2026-07-08 11:38:52,421 - INFO - Dedicated VRAM Capacity   : 14.56 GB
+[PCRF-Suite] 2026-07-08 11:38:52,422 - INFO - Target Model Size (Params): 494.0 Million Parameters
+[PCRF-Suite] 2026-07-08 11:38:52,422 - INFO - ------------------------------------------------------------------------------------------
+[PCRF-Suite] 2026-07-08 11:38:52,423 - INFO - RECOMMENDED GCP COMPUTE INFRASTRUCTURE SETUP:
+[PCRF-Suite] 2026-07-08 11:38:52,423 - INFO -   - Recommended GCP Tier  : n1-standard-8 (8 vCPUs, 30 GB RAM)
   - Accelerator Context   : 1x NVIDIA T4 (16 GB VRAM)
   - Technical Reason      : Light parameter profiles run perfectly inside standard T4 envelopes.
                             At least 30 GB Host RAM prevents OS swap stalls during model download.
-[PCRF-Suite] 2026-07-08 08:11:08,186 - INFO - ------------------------------------------------------------------------------------------
-[PCRF-Suite] 2026-07-08 08:11:08,187 - INFO - GCP COMPUTE ENGINE SAFETY GUIDELINES (OOME PREVENTION):
-[PCRF-Suite] 2026-07-08 08:11:08,187 - INFO -  1. Always purge dangling activations using 'torch.cuda.empty_cache()' during hooks teardown.
-[PCRF-Suite] 2026-07-08 08:11:08,188 - INFO -  2. Enable half-precision (FP16/BF16) modes across all forward passes.
-[PCRF-Suite] 2026-07-08 08:11:08,188 - INFO -  3. Anchor maximum sequence length limits (`max_len`) tightly to block quadratic expansion.
-[PCRF-Suite] 2026-07-08 08:11:08,189 - INFO - ==========================================================================================
+[PCRF-Suite] 2026-07-08 11:38:52,424 - INFO - ------------------------------------------------------------------------------------------
+[PCRF-Suite] 2026-07-08 11:38:52,425 - INFO - GCP COMPUTE ENGINE SAFETY GUIDELINES (OOME PREVENTION):
+[PCRF-Suite] 2026-07-08 11:38:52,425 - INFO -  1. Always purge dangling activations using 'torch.cuda.empty_cache()' during hooks teardown.
+[PCRF-Suite] 2026-07-08 11:38:52,426 - INFO -  2. Enable half-precision (FP16/BF16) modes across all forward passes.
+[PCRF-Suite] 2026-07-08 11:38:52,426 - INFO -  3. Anchor maximum sequence length limits (`max_len`) tightly to block quadratic expansion.
+[PCRF-Suite] 2026-07-08 11:38:52,427 - INFO - ==========================================================================================
 
-[PCRF-Suite] 2026-07-08 08:11:08,191 - INFO - Baseline model parameters frozen.
-[PCRF-Suite] 2026-07-08 08:11:08,193 - INFO - CodeFlow#1: Baseline triggered for Model
-[PCRF-Suite] 2026-07-08 08:11:08,194 - INFO - --- Phase 1: Running Baseline Profile Evaluation ---
-[PCRF-Suite] 2026-07-08 08:11:27,436 - INFO - CodeFlow#2: Hallucinations based on Ground truth for the Prompts
-[PCRF-Suite] 2026-07-08 08:11:27,437 - INFO - Running Baseline Row-Level evaluations across train and OOD splits...
-[PCRF-Suite] 2026-07-08 08:12:09,025 - INFO - [ROW AUDIT] train rows: 80
-[PCRF-Suite] 2026-07-08 08:12:09,026 - INFO - [ROW AUDIT] seen_val rows: 20
-[PCRF-Suite] 2026-07-08 08:12:09,027 - INFO - [ROW AUDIT] unseen_val rows: 20
-[PCRF-Suite] 2026-07-08 08:12:09,027 - INFO - [ROW AUDIT] ood rows: 10
-[PCRF-Suite] 2026-07-08 08:12:09,027 - INFO - [ROW AUDIT] total audited predictions: 130
-[PCRF-Suite] 2026-07-08 08:12:09,029 - INFO - Please refer to the Baseline_Only_Report.md for Hallucination details for the baseline.
-[PCRF-Suite] 2026-07-08 08:12:09,030 - INFO - Saving physical Baseline model to disk at: ./customer_pcrf_artifacts/baseline_model
-[PCRF-Suite] 2026-07-08 08:12:18,194 - INFO - ================================================================================
-[PCRF-Suite] 2026-07-08 08:12:18,195 - INFO - 📄 DETAILED FILE-LEVEL FOOTPRINT FOR BASELINE (ls -altrL)
-[PCRF-Suite] 2026-07-08 08:12:18,196 - INFO - ================================================================================
-[PCRF-Suite] 2026-07-08 08:12:18,196 - INFO - --- Baseline Directory: ./customer_pcrf_artifacts/baseline_model ---
-[PCRF-Suite] 2026-07-08 08:12:18,201 - INFO - total 976128
-[PCRF-Suite] 2026-07-08 08:12:18,201 - INFO - drwxr-xr-x 2 jupyter jupyter      4096 Jul  7 12:31 .ipynb_checkpoints
-[PCRF-Suite] 2026-07-08 08:12:18,202 - INFO - drwxr-xr-x 5 jupyter jupyter      4096 Jul  8 08:12 ..
-[PCRF-Suite] 2026-07-08 08:12:18,203 - INFO - -rw-r--r-- 1 jupyter jupyter       242 Jul  8 08:12 generation_config.json
-[PCRF-Suite] 2026-07-08 08:12:18,203 - INFO - -rw-r--r-- 1 jupyter jupyter      1286 Jul  8 08:12 config.json
-[PCRF-Suite] 2026-07-08 08:12:18,204 - INFO - -rw------- 1 jupyter jupyter 988097824 Jul  8 08:12 model.safetensors
-[PCRF-Suite] 2026-07-08 08:12:18,204 - INFO - drwxr-xr-x 3 jupyter jupyter      4096 Jul  8 08:12 .
-[PCRF-Suite] 2026-07-08 08:12:18,205 - INFO - -rw-r--r-- 1 jupyter jupyter       694 Jul  8 08:12 tokenizer_config.json
-[PCRF-Suite] 2026-07-08 08:12:18,205 - INFO - -rw-r--r-- 1 jupyter jupyter      2507 Jul  8 08:12 chat_template.jinja
-[PCRF-Suite] 2026-07-08 08:12:18,206 - INFO - -rw-r--r-- 1 jupyter jupyter  11421892 Jul  8 08:12 tokenizer.json
-[PCRF-Suite] 2026-07-08 08:12:18,208 - INFO - Baseline Parsed Size : 999536733 Bytes
-[PCRF-Suite] 2026-07-08 08:12:18,208 - INFO - Baseline Model Datetimestamp: 2026-07-08 08:12:17
-[PCRF-Suite] 2026-07-08 08:12:18,209 - INFO - CodeFlow#3: PCRF Full mode experiment Initiated
-[PCRF-Suite] 2026-07-08 08:12:19,981 - INFO - FP32 candidate model loaded securely for optimization.
-[PCRF-Suite] 2026-07-08 08:12:19,982 - INFO - 
+[PCRF-Suite] 2026-07-08 11:38:52,428 - INFO - Baseline model parameters frozen.
+[PCRF-Suite] 2026-07-08 11:38:52,431 - INFO - CodeFlow#1: Baseline triggered for Model
+[PCRF-Suite] 2026-07-08 11:38:52,432 - INFO - --- Phase 1: Running Baseline Profile Evaluation ---
+[PCRF-Suite] 2026-07-08 11:39:17,146 - INFO - CodeFlow#2: Hallucinations based on Ground truth for the Prompts
+[PCRF-Suite] 2026-07-08 11:39:17,147 - INFO - Running Baseline Row-Level evaluations across train and OOD splits...
+[PCRF-Suite] 2026-07-08 11:39:57,251 - INFO - [ROW AUDIT] train rows: 80
+[PCRF-Suite] 2026-07-08 11:39:57,252 - INFO - [ROW AUDIT] seen_val rows: 20
+[PCRF-Suite] 2026-07-08 11:39:57,253 - INFO - [ROW AUDIT] unseen_val rows: 20
+[PCRF-Suite] 2026-07-08 11:39:57,253 - INFO - [ROW AUDIT] ood rows: 10
+[PCRF-Suite] 2026-07-08 11:39:57,254 - INFO - [ROW AUDIT] total audited predictions: 130
+[PCRF-Suite] 2026-07-08 11:39:57,257 - INFO - Please refer to the Baseline_Only_Report.md for Hallucination details for the baseline.
+[PCRF-Suite] 2026-07-08 11:39:57,257 - INFO - Saving physical Baseline model to disk at: ./customer_pcrf_artifacts/baseline_model
+[PCRF-Suite] 2026-07-08 11:40:06,451 - INFO - ================================================================================
+[PCRF-Suite] 2026-07-08 11:40:06,451 - INFO - 📄 DETAILED FILE-LEVEL FOOTPRINT FOR BASELINE (ls -altrL)
+[PCRF-Suite] 2026-07-08 11:40:06,452 - INFO - ================================================================================
+[PCRF-Suite] 2026-07-08 11:40:06,452 - INFO - --- Baseline Directory: ./customer_pcrf_artifacts/baseline_model ---
+[PCRF-Suite] 2026-07-08 11:40:06,457 - INFO - total 976128
+[PCRF-Suite] 2026-07-08 11:40:06,458 - INFO - drwxr-xr-x 2 jupyter jupyter      4096 Jul  7 12:31 .ipynb_checkpoints
+[PCRF-Suite] 2026-07-08 11:40:06,459 - INFO - drwxr-xr-x 5 jupyter jupyter      4096 Jul  8 11:39 ..
+[PCRF-Suite] 2026-07-08 11:40:06,459 - INFO - -rw-r--r-- 1 jupyter jupyter       242 Jul  8 11:39 generation_config.json
+[PCRF-Suite] 2026-07-08 11:40:06,460 - INFO - -rw-r--r-- 1 jupyter jupyter      1286 Jul  8 11:39 config.json
+[PCRF-Suite] 2026-07-08 11:40:06,461 - INFO - -rw------- 1 jupyter jupyter 988097824 Jul  8 11:39 model.safetensors
+[PCRF-Suite] 2026-07-08 11:40:06,462 - INFO - drwxr-xr-x 3 jupyter jupyter      4096 Jul  8 11:40 .
+[PCRF-Suite] 2026-07-08 11:40:06,463 - INFO - -rw-r--r-- 1 jupyter jupyter       694 Jul  8 11:40 tokenizer_config.json
+[PCRF-Suite] 2026-07-08 11:40:06,463 - INFO - -rw-r--r-- 1 jupyter jupyter      2507 Jul  8 11:40 chat_template.jinja
+[PCRF-Suite] 2026-07-08 11:40:06,464 - INFO - -rw-r--r-- 1 jupyter jupyter  11421892 Jul  8 11:40 tokenizer.json
+[PCRF-Suite] 2026-07-08 11:40:06,465 - INFO - Baseline Parsed Size : 999536733 Bytes
+[PCRF-Suite] 2026-07-08 11:40:06,467 - INFO - Baseline Model Datetimestamp: 2026-07-08 11:40:06
+[PCRF-Suite] 2026-07-08 11:40:06,467 - INFO - CodeFlow#3: PCRF Full mode experiment Initiated
+[PCRF-Suite] 2026-07-08 11:40:08,198 - INFO - FP32 candidate model loaded securely for optimization.
+[PCRF-Suite] 2026-07-08 11:40:08,199 - INFO - 
 --- Scenario A: Run Standalone Layer Derivative Estimation ---
-[PCRF-Suite] 2026-07-08 08:14:21,370 - INFO - 
+[PCRF-Suite] 2026-07-08 11:42:16,669 - INFO - 
 --- Scenario B: Independent Curriculum Selection ---
-[PCRF-Suite] 2026-07-08 08:16:25,985 - INFO - 
+[PCRF-Suite] 2026-07-08 11:44:30,675 - INFO - 
 --- Scenario C: Standalone Structural Residual-Depth Monitoring ---
-[PCRF-Suite] 2026-07-08 08:18:39,433 - INFO - 
+[PCRF-Suite] 2026-07-08 11:46:54,489 - INFO - 
 --- Scenario D: Derivative-Weighted Regularization ---
-[PCRF-Suite] 2026-07-08 08:20:41,033 - INFO - Initializing Advanced CDL v2 SFT Regularization training loop...
-[PCRF-Suite] 2026-07-08 08:20:48,608 - INFO - Regularization SFT optimization completed.
-[PCRF-Suite] 2026-07-08 08:20:48,667 - INFO - Saving physical SFT candidate model to disk at: ./customer_pcrf_artifacts/sft_candidate_model
-[PCRF-Suite] 2026-07-08 08:20:57,711 - INFO - ================================================================================
-[PCRF-Suite] 2026-07-08 08:20:57,712 - INFO - 📄 DETAILED FILE-LEVEL FOOTPRINT FOR CANDIDATE (ls -altrL)
-[PCRF-Suite] 2026-07-08 08:20:57,713 - INFO - ================================================================================
-[PCRF-Suite] 2026-07-08 08:20:57,713 - INFO - --- Candidate Directory: ./customer_pcrf_artifacts/sft_candidate_model ---
-[PCRF-Suite] 2026-07-08 08:20:57,727 - INFO - total 976128
-[PCRF-Suite] 2026-07-08 08:20:57,727 - INFO - drwxr-xr-x 2 jupyter jupyter      4096 Jul  7 08:31 .ipynb_checkpoints
-[PCRF-Suite] 2026-07-08 08:20:57,728 - INFO - drwxr-xr-x 5 jupyter jupyter      4096 Jul  8 08:18 ..
-[PCRF-Suite] 2026-07-08 08:20:57,728 - INFO - -rw-r--r-- 1 jupyter jupyter       242 Jul  8 08:20 generation_config.json
-[PCRF-Suite] 2026-07-08 08:20:57,729 - INFO - -rw-r--r-- 1 jupyter jupyter      1284 Jul  8 08:20 config.json
-[PCRF-Suite] 2026-07-08 08:20:57,729 - INFO - -rw------- 1 jupyter jupyter 988097824 Jul  8 08:20 model.safetensors
-[PCRF-Suite] 2026-07-08 08:20:57,730 - INFO - drwxr-xr-x 3 jupyter jupyter      4096 Jul  8 08:20 .
-[PCRF-Suite] 2026-07-08 08:20:57,731 - INFO - -rw-r--r-- 1 jupyter jupyter      2507 Jul  8 08:20 chat_template.jinja
-[PCRF-Suite] 2026-07-08 08:20:57,731 - INFO - -rw-r--r-- 1 jupyter jupyter       694 Jul  8 08:20 tokenizer_config.json
-[PCRF-Suite] 2026-07-08 08:20:57,732 - INFO - -rw-r--r-- 1 jupyter jupyter  11421990 Jul  8 08:20 tokenizer.json
-[PCRF-Suite] 2026-07-08 08:20:57,732 - INFO - Candidate Parsed Size : 999536829 Bytes
-[PCRF-Suite] 2026-07-08 08:20:57,734 - INFO - Candidate Model Datetimestamp: 2026-07-08 08:20:57
-[PCRF-Suite] 2026-07-08 08:20:57,735 - INFO - ================================================================================
-[PCRF-Suite] 2026-07-08 08:20:57,735 - INFO - 💾 FINAL DISK SIZE DELTA SUMMARY (PARSED FROM ls)
-[PCRF-Suite] 2026-07-08 08:20:57,736 - INFO - Baseline Parsed Size : 999536733 Bytes
-[PCRF-Suite] 2026-07-08 08:20:57,736 - INFO - Candidate Parsed Size: 999536829 Bytes
-[PCRF-Suite] 2026-07-08 08:20:57,737 - INFO - Storage Difference   : +0.0938 KB  |  +0.0001 MB
-[PCRF-Suite] 2026-07-08 08:20:57,737 - INFO - ================================================================================
-[PCRF-Suite] 2026-07-08 08:21:15,654 - INFO - [ROUTER AUDIT] baseline served count: 18
-[PCRF-Suite] 2026-07-08 08:21:15,655 - INFO - [ROUTER AUDIT] candidate served count: 4
-[PCRF-Suite] 2026-07-08 08:21:15,656 - INFO - [ROUTER AUDIT] abstain count: 18
-[PCRF-Suite] 2026-07-08 08:21:15,656 - INFO - [ROUTER AUDIT] semantic recoveries observed: 1
-[PCRF-Suite] 2026-07-08 08:21:15,657 - INFO - [ROUTER AUDIT] contract clean repairs promoted: 1
-[PCRF-Suite] 2026-07-08 08:21:15,658 - INFO - [ROUTER AUDIT] semantic recoveries withheld: 0
-[PCRF-Suite] 2026-07-08 08:21:15,658 - INFO - Generating detailed developer SFT debug log at: ./customer_pcrf_artifacts/pcrf_debug_report.txt
+[PCRF-Suite] 2026-07-08 11:49:05,577 - INFO - Initializing Advanced CDL v2 SFT Regularization training loop...
+[PCRF-Suite] 2026-07-08 11:49:15,594 - INFO - Regularization SFT optimization completed.
+[PCRF-Suite] 2026-07-08 11:49:15,654 - INFO - Saving physical SFT candidate model to disk at: ./customer_pcrf_artifacts/sft_candidate_model
+[PCRF-Suite] 2026-07-08 11:49:24,625 - INFO - ================================================================================
+[PCRF-Suite] 2026-07-08 11:49:24,626 - INFO - 📄 DETAILED FILE-LEVEL FOOTPRINT FOR CANDIDATE (ls -altrL)
+[PCRF-Suite] 2026-07-08 11:49:24,626 - INFO - ================================================================================
+[PCRF-Suite] 2026-07-08 11:49:24,627 - INFO - --- Candidate Directory: ./customer_pcrf_artifacts/sft_candidate_model ---
+[PCRF-Suite] 2026-07-08 11:49:24,631 - INFO - total 976128
+[PCRF-Suite] 2026-07-08 11:49:24,631 - INFO - drwxr-xr-x 2 jupyter jupyter      4096 Jul  7 08:31 .ipynb_checkpoints
+[PCRF-Suite] 2026-07-08 11:49:24,632 - INFO - drwxr-xr-x 5 jupyter jupyter      4096 Jul  8 11:46 ..
+[PCRF-Suite] 2026-07-08 11:49:24,632 - INFO - -rw-r--r-- 1 jupyter jupyter       242 Jul  8 11:49 generation_config.json
+[PCRF-Suite] 2026-07-08 11:49:24,633 - INFO - -rw-r--r-- 1 jupyter jupyter      1284 Jul  8 11:49 config.json
+[PCRF-Suite] 2026-07-08 11:49:24,634 - INFO - -rw------- 1 jupyter jupyter 988097824 Jul  8 11:49 model.safetensors
+[PCRF-Suite] 2026-07-08 11:49:24,634 - INFO - drwxr-xr-x 3 jupyter jupyter      4096 Jul  8 11:49 .
+[PCRF-Suite] 2026-07-08 11:49:24,635 - INFO - -rw-r--r-- 1 jupyter jupyter       694 Jul  8 11:49 tokenizer_config.json
+[PCRF-Suite] 2026-07-08 11:49:24,635 - INFO - -rw-r--r-- 1 jupyter jupyter      2507 Jul  8 11:49 chat_template.jinja
+[PCRF-Suite] 2026-07-08 11:49:24,636 - INFO - -rw-r--r-- 1 jupyter jupyter  11421990 Jul  8 11:49 tokenizer.json
+[PCRF-Suite] 2026-07-08 11:49:24,637 - INFO - Candidate Parsed Size : 999536829 Bytes
+[PCRF-Suite] 2026-07-08 11:49:24,637 - INFO - Candidate Model Datetimestamp: 2026-07-08 11:49:24
+[PCRF-Suite] 2026-07-08 11:49:24,638 - INFO - ================================================================================
+[PCRF-Suite] 2026-07-08 11:49:24,638 - INFO - 💾 FINAL DISK SIZE DELTA SUMMARY (PARSED FROM ls)
+[PCRF-Suite] 2026-07-08 11:49:24,639 - INFO - ================================================================================
+[PCRF-Suite] 2026-07-08 11:49:24,639 - INFO - Baseline Parsed Size : 999536733 Bytes
+[PCRF-Suite] 2026-07-08 11:49:24,640 - INFO - Candidate Parsed Size: 999536829 Bytes
+[PCRF-Suite] 2026-07-08 11:49:24,640 - INFO - Storage Difference   : +0.0938 KB  |  +0.0001 MB
+[PCRF-Suite] 2026-07-08 11:49:24,641 - INFO - ================================================================================
+[PCRF-Suite] 2026-07-08 11:49:43,443 - INFO - [ROUTER AUDIT] baseline served count: 18
+[PCRF-Suite] 2026-07-08 11:49:43,444 - INFO - [ROUTER AUDIT] candidate served count: 4
+[PCRF-Suite] 2026-07-08 11:49:43,445 - INFO - [ROUTER AUDIT] abstain count: 18
+[PCRF-Suite] 2026-07-08 11:49:43,445 - INFO - [ROUTER AUDIT] semantic recoveries observed: 1
+[PCRF-Suite] 2026-07-08 11:49:43,446 - INFO - [ROUTER AUDIT] contract clean repairs promoted: 1
+[PCRF-Suite] 2026-07-08 11:49:43,446 - INFO - [ROUTER AUDIT] semantic recoveries withheld: 0
+[PCRF-Suite] 2026-07-08 11:49:43,447 - INFO - Generating detailed developer SFT debug log at: ./customer_pcrf_artifacts/pcrf_debug_report.txt
 
 
 =====================================================================
 [H] ZERO-SHOT HYBRID ENSEMBLE SIMULATION (MATH VS GOLD)
 =====================================================================
-* Applied Mathematical Model : Adaptive K-Factor (Standard Deviation) [K=1.25]
-* Inference Risk Threshold   : 0.46 (Checks Structural Entropy)
-* Curriculum NLL Threshold   : 8.76 (Checks Sequence Probability)
+* Applied Mathematical Model : Adaptive K-Factor (Standard Deviation) [K=0.50]
+* Inference Risk Threshold   : 0.39 (Checks Structural Entropy)
+* Curriculum NLL Threshold   : 5.88 (Checks Sequence Probability)
 
-* Hybrid True Positives   : 5 (Hallucinations Caught)
-* Hybrid False Negatives  : 13 (Hallucinations Missed)
-* Hybrid False Positives  : 0 (Good Answers Blocked)
-* Hybrid True Negatives   : 22 (Good Answers Allowed)
+* Hybrid True Positives   : 15 (Hallucinations Caught)
+* Hybrid False Negatives  : 3 (Hallucinations Missed)
+* Hybrid False Positives  : 6 (Good Answers Blocked)
+* Hybrid True Negatives   : 16 (Good Answers Allowed)
 
 * BEFORE PCRF Accuracy    : 55.00% (Served 40 prompts)
-* AFTER PCRF Accuracy     : 62.86% (Served 35 prompts)
-* Hallucinations Caught   : 27.78%
+* AFTER PCRF Accuracy     : 84.21% (Served 19 prompts)
+* Hallucinations Caught   : 83.33%

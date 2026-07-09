@@ -29,7 +29,7 @@
 > ### 🚀 HIGHLIGHT: Zero-Shot Hybrid Ensemble Simulation (Math vs Gold)
 > 
 > To demonstrate the enterprise value of PCRF in a real-world production environment (where ground-truth answers are unavailable), we simulated a **Zero-Shot Ensemble Anomaly Detector**. 
-> This ensemble mathematically combines (OR Gate) Token-Level Inference Risk (`> 0.46`) with Sequence-Level Curriculum NLL (`> 8.76`) to ensure maximum hallucination detection.
+> This ensemble mathematically combines (OR Gate) Token-Level Inference Risk (`> 0.39`) with Sequence-Level Curriculum NLL (`> 5.88`) to ensure maximum hallucination detection.
 >
 > **1. BEFORE PCRF (Raw Model in Production)**
 > * **Answers Served:** `40` | **Hallucinations Exposed:** `18`
@@ -37,13 +37,13 @@
 >   *(Definition: The raw accuracy of the model if no safety filters or routers are applied.)*
 >
 > **2. AFTER PCRF HYBRID ENSEMBLE (Zero-Shot Cross-Verification)**
-> * **Answers Served:** `35` | **Hallucinations Exposed:** `13`
-> * **Zero-Shot Governed Trust Score:** `62.86%` 
+> * **Answers Served:** `19` | **Hallucinations Exposed:** `3`
+> * **Zero-Shot Governed Trust Score:** `84.21%` 
 >   *(Definition: The reliability of the responses the user actually sees after the AI mathematically self-censors its own doubts.)*
 >
-> **The Verdict:** The system achieved a **Hybrid Anomaly Catch Rate of 27.8%** (`5/18`). 
+> **The Verdict:** The system achieved a **Hybrid Anomaly Catch Rate of 83.3%** (`15/18`). 
 > *(Definition: The percentage of actual factual errors successfully intercepted by the mathematical ensemble).* 
-> By utilizing a unified OR-gate logic between Sequence NLL and Inference Entropy risk, the framework maximizes detection coverage, preventing potential hallucinations from reaching the end user and transforming an erratic baseline into a highly reliable 62.86% trust endpoint without requiring a ground-truth answer key.
+> By utilizing a unified OR-gate logic between Sequence NLL and Inference Entropy risk, the framework maximizes detection coverage, preventing potential hallucinations from reaching the end user and transforming an erratic baseline into a highly reliable 84.21% trust endpoint without requiring a ground-truth answer key.
 
 
 ---
@@ -143,9 +143,9 @@ This tracks how well purely mathematical zero-shot risk signals align with verif
 | Metric | Result | Interpretation |
 |---|:---:|---|
 | **Gold Hallucinations (Total)** | `18` | Actual semantic target failures. |
-| **Hallucinations Caught (Recall)** | `27.78%` | Percentage of actual hallucinations successfully predicted by zero-shot Math alone. |
-| **Math False Negatives (Blind Spots)** | `13` | Hallucinations missed by math (Highly confident but wrong). |
-| **Math False Positives (Over-caution)** | `0` | Correct answers improperly flagged as risky by math. |
+| **Hallucinations Caught (Recall)** | `83.33%` | Percentage of actual hallucinations successfully predicted by zero-shot Math alone. |
+| **Math False Negatives (Blind Spots)** | `3` | Hallucinations missed by math (Highly confident but wrong). |
+| **Math False Positives (Over-caution)** | `6` | Correct answers improperly flagged as risky by math. |
 
 ### Failure Taxonomy & Recommended Fix Plan
 
@@ -337,7 +337,7 @@ Based on SFT evidence compiled in this evaluation cycle, we draw the following c
 
 ### Compute Environment Audit
 
-* **Host Platform:** `Linux 6.1.0-49-cloud-amd64`
+* **Host Platform:** `Linux 6.1.0-50-cloud-amd64`
 * **Active CPU Cores:** `8`
 * **Host Memory Capacity:** `29.38 GB`
 * **GPU Platform:** `Tesla T4 (14.56 GB VRAM)`

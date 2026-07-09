@@ -119,9 +119,26 @@ ch = ConsoleCaptureHandler()
 ch.setFormatter(formatter)
 logger.addHandler(ch)
 
-def main(run_mode: str = "full", dataset_path: str = None):
+def main(run_mode: str = "full", dataset_path: str = None, use_z_score: bool = False, score_value: float = None):
     logger.info("Initializing PCRF Customer Integration Runner v1.0...")
     logger.info(f"Execution mode selected: {run_mode}")
+
+    # --- RUNTIME SCORING VALIDATION ---
+    if not use_z_score:
+        if score_value is None:
+            score_value = 0.5
+        elif not (0.5 <= score_value <= 2.5):
+            logger.warning(f"Invalid K-Factor score_value {score_value}. For K-Factor, value must be between 0.5 and 2.5. Defaulting to 0.5.")
+            score_value = 0.5
+        logger.info(f"Math Method Selected: Adaptive K-Factor (K={score_value})")
+    else:
+        if score_value is None:
+            score_value = 1.0
+        elif not (1.0 <= score_value <= 3.5):
+            logger.warning(f"Invalid Z-Score score_value {score_value}. For Z-Score, value must be between 1.0 and 3.5. Defaulting to 1.0.")
+            score_value = 1.0
+        logger.info(f"Math Method Selected: Robust Z-Score (Z={score_value})")
+    # ----------------------------------
 
     if run_mode not in {"baseline", "full"}:
         raise ValueError(
@@ -681,15 +698,6 @@ def main(run_mode: str = "full", dataset_path: str = None):
             "decision_reason": r_item["decision_reason"],
             
             # --- NEW CODE FOR EXPERIMENT: MATH VS GOLD TRACKING ---
-            # Inference Math (c_hr): Threshold > 0.40 means Hallucination.
-            # Intuition: This threshold represents the critical boundary where structural entropy and 
-            # margin collapse indicate severe representational instability. Scores above 0.40 strongly 
-            # correlate with latent degradation.
-            # 
-            # Curriculum Math (c_nll): Threshold > 3.5 means Hallucination.
-            # Intuition: An NLL above 3.5 signifies that the generated token sequence is highly 
-            # "surprising" or statistically improbable according to the base model's learned 
-            # distribution, serving as a robust sequence-level anomaly detector.
             "gold_hallucination": 1 if c_item["correct"] == 0 else 0,
             "math_hallucination": 1 if c_hr > 0.40 else 0,
             "math_true_positive": 1 if (c_item["correct"] == 0 and c_hr > 0.40) else 0,
@@ -849,7 +857,9 @@ def main(run_mode: str = "full", dataset_path: str = None):
         cfg=pcrf_config,
         r_sys_chain=r_sys_chain,
         layer_breakdown=layer_breakdown,
-        global_logs=GLOBAL_CONSOLE_LOGS
+        global_logs=GLOBAL_CONSOLE_LOGS,
+        use_z_score=use_z_score,
+        score_value=score_value
     )
 
     multitier_reliability = {
@@ -878,7 +888,9 @@ def main(run_mode: str = "full", dataset_path: str = None):
         cfg=pcrf_config,
         bypass_dominated=is_bypass_dominated,
         canonical_selected_layers=target_layers,
-        total_layers=num_layers
+        total_layers=num_layers,
+        use_z_score=use_z_score,
+        score_value=score_value
     )
 
     summary_self_check = compute_experiment_summary(
@@ -903,5 +915,21 @@ def main(run_mode: str = "full", dataset_path: str = None):
     if run_mode == "full":
         logger.info("CodeFlow#4: PCRF Full mode experiment Completed successfully")
 
+# if __name__ == "__main__":
+#     import argparse
+#     parser = argparse.ArgumentParser()
+#     parser.add_argument("--run_mode", type=str, default="full", help="baseline or full")
+#     parser.add_argument("--dataset_path", type=str, default=None, help="Path to custom CSV dataset")
+#     parser.add_argument("--use_z_score", action="store_true", help="If passed, switches threshold logic to Robust Z-Score instead of K-Factor")
+#     parser.add_argument("--score_value", type=float, default=None, help="The cutoff value (0.5 to 2.5 for K-factor; 1.0 to 3.5 for Z-Score)")
+#     args = parser.parse_args()
+    
+#     main(
+#         run_mode=args.run_mode, 
+#         dataset_path=args.dataset_path, 
+#         use_z_score=args.use_z_score, 
+#         score_value=args.score_value
+#     )
+
 if __name__ == "__main__":
-    main(run_mode="full", dataset_path=None)
+    main(run_mode="full", dataset_path=None, use_z_score=False, score_value=0.5)

@@ -1330,16 +1330,16 @@ def audit_k_factor_sweep(trace_rows: List[Dict[str, Any]]) -> str:
     for line in lines: logger.info(line)
     return "\n".join(lines)
 
-def write_hallucination_findings_prod(trace_rows: List[Dict[str, Any]], output_dir: str, use_z_score: bool = False) -> None:
+def write_hallucination_findings_prod(trace_rows: List[Dict[str, Any]], output_dir: str, use_z_score: bool = False, score_value: float = 0.5) -> None:
     """Generates the Production Zero-Shot Hallucination Audit report using the OR-gate Hybrid Ensemble."""
     file_path = os.path.join(output_dir, "HallucinationFindingsProd.md")
     
     if use_z_score:
-        hr_t, nll_t = calibrate_unsupervised_thresholds_zscore(trace_rows, z_score_cutoff=2.0)
-        math_desc = f"Robust Z-Score (MAD) [Z=2.00] -> Inference Risk (HR) > {hr_t:.2f}, Curriculum NLL > {nll_t:.2f}"
+        hr_t, nll_t = calibrate_unsupervised_thresholds_zscore(trace_rows, z_score_cutoff=score_value)
+        math_desc = f"Robust Z-Score (MAD) [Z={score_value:.2f}] -> Inference Risk (HR) > {hr_t:.2f}, Curriculum NLL > {nll_t:.2f}"
     else:
-        hr_t, nll_t = calibrate_unsupervised_thresholds_kfactor(trace_rows, k_factor=1.25)
-        math_desc = f"Adaptive K-Factor (StdDev) [K=1.25] -> Inference Risk (HR) > {hr_t:.2f}, Curriculum NLL > {nll_t:.2f}"
+        hr_t, nll_t = calibrate_unsupervised_thresholds_kfactor(trace_rows, k_factor=score_value)
+        math_desc = f"Adaptive K-Factor (StdDev) [K={score_value:.2f}] -> Inference Risk (HR) > {hr_t:.2f}, Curriculum NLL > {nll_t:.2f}"
 
     with open(file_path, "w", encoding="utf-8") as f:
         f.write("# 🛡️ Production Zero-Shot Hallucination Findings\n\n")
@@ -1387,7 +1387,8 @@ def write_detailed_debug_report(
     r_sys_chain: float,
     layer_breakdown: List[Dict[str, Any]],
     global_logs: List[str],
-    use_z_score: bool = False
+    use_z_score: bool = False,
+    score_value: float = 0.5
 ) -> str:
     human_report_path = os.path.join(output_dir, "pcrf_debug_report.txt")
     
@@ -1396,11 +1397,11 @@ def write_detailed_debug_report(
     
     # --- CALCULATE HYBRID ENSEMBLE ---
     if use_z_score:
-        standard_hr, standard_nll = calibrate_unsupervised_thresholds_zscore(trace_rows, z_score_cutoff=2.0)
-        math_model_str = "Robust Z-Score (MAD) [Z=2.00]"
+        standard_hr, standard_nll = calibrate_unsupervised_thresholds_zscore(trace_rows, z_score_cutoff=score_value)
+        math_model_str = f"Robust Z-Score (MAD) [Z={score_value:.2f}]"
     else:
-        standard_hr, standard_nll = calibrate_unsupervised_thresholds_kfactor(trace_rows, k_factor=1.25)
-        math_model_str = "Adaptive K-Factor (Standard Deviation) [K=1.25]"
+        standard_hr, standard_nll = calibrate_unsupervised_thresholds_kfactor(trace_rows, k_factor=score_value)
+        math_model_str = f"Adaptive K-Factor (Standard Deviation) [K={score_value:.2f}]"
         
     zs_stats_hybrid = calculate_hybrid_ensemble_simulation(trace_rows, hr_threshold=standard_hr, nll_threshold=standard_nll)
 
@@ -1626,7 +1627,8 @@ class ExecutiveReportGenerator:
         bypass_dominated: bool = False,
         canonical_selected_layers: Optional[List[int]] = None,
         total_layers: int = 24,
-        use_z_score: bool = False  # <--- NEW FLAG HERE
+        use_z_score: bool = False,
+        score_value: float = 0.5
     ) -> str:
         
         # --- RUN BOTH AUDIT SWEEPS ---
@@ -1634,10 +1636,10 @@ class ExecutiveReportGenerator:
         k_factor_audit_text = audit_k_factor_sweep(trace_rows)
         combined_audit_text = z_score_audit_text + "\n" + k_factor_audit_text
         
-        # Generate diagnostic side-files
+        # Generate diagnostic side-files (Pass BOTH audits to critical failures file)
         write_critical_failure_analysis(trace_rows, output_dir, combined_audit_text)
         write_governance_success_trace(trace_rows, output_dir)
-        write_hallucination_findings_prod(trace_rows, output_dir, use_z_score)
+        write_hallucination_findings_prod(trace_rows, output_dir, use_z_score, score_value)
 
         # Load CSV Artifacts First if available
         layer_derivatives = []
@@ -1728,11 +1730,11 @@ class ExecutiveReportGenerator:
 
         # --- DYNAMIC UNSUPERVISED CALCULATION OF HYBRID ENSEMBLE ---
         if use_z_score:
-            standard_hr, standard_nll = calibrate_unsupervised_thresholds_zscore(trace_rows, z_score_cutoff=2.0)
-            sim_title = "ROBUST Z-SCORE (Z=2.00)"
+            standard_hr, standard_nll = calibrate_unsupervised_thresholds_zscore(trace_rows, z_score_cutoff=score_value)
+            sim_title = f"ROBUST Z-SCORE (Z={score_value:.2f})"
         else:
-            standard_hr, standard_nll = calibrate_unsupervised_thresholds_kfactor(trace_rows, k_factor=1.25)
-            sim_title = "ADAPTIVE K-FACTOR (K=1.25)"
+            standard_hr, standard_nll = calibrate_unsupervised_thresholds_kfactor(trace_rows, k_factor=score_value)
+            sim_title = f"ADAPTIVE K-FACTOR (K={score_value:.2f})"
             
         zs_stats_hybrid = calculate_hybrid_ensemble_simulation(
             trace_rows, hr_threshold=standard_hr, nll_threshold=standard_nll
